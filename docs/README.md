@@ -1,5 +1,8 @@
 # Website X
 
+## Overview
+
+We should describe the architecture of the new site here.
 
 # Installation
 
