@@ -6,4 +6,4 @@
 ### By LivePerson Marketing
 
 [GitHub](https://github.com/LivePersonNY/WebsiteX)
-[Get Started](#overview)
+[Get Started](#website-x)
