@@ -1,3 +1,3 @@
-// import { Tooltip, Toast, Popover, Alert } from 'bootstrap';
+import bootstrap from 'bootstrap';
 
-import "./src/resources/scss/index.scss";
+import './src/resources/scss/index.scss';
