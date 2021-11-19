@@ -69,6 +69,6 @@ yarn-error.log
 .yarn-integrity
 
 # Wordpress
-#database/
+database/
 wordpress/wp-content/db.php
 /vendor/
