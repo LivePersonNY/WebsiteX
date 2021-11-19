@@ -1,5 +1,8 @@
 {
     "require": {
         "vlucas/phpdotenv": "^5.4"
+    },
+    "scripts": {
+        "wordpress": "php -S localhost:3000 -t wordpress/"
     }
 }

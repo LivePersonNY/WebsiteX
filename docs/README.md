@@ -8,6 +8,15 @@ We should describe the architecture of the new site here.
 
 ## Prerequisites
 
+### NPM
+Install Node and NPM per their individual documentation.
+
+### Composer
+Install composer globally on your machine per documentation.
+
+### Git
+Duh.
+
 ## Gatsby CLI
 
 ```bash
@@ -21,6 +30,12 @@ npm i docsify-cli -g
 ```
 
 # Development
+
+## Running Wordpress locally
+
+```bash
+composer wordpress
+```
 
 ## Branch Structure
 
