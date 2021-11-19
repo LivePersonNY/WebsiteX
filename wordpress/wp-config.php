@@ -37,6 +37,8 @@ define( 'DB_CHARSET', 'utf8' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
+
+die(getenv('WP_DB_USER') . ' user');
 /**#@+
  * Authentication unique keys and salts.
  *
