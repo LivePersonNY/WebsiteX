@@ -33,9 +33,13 @@ npm i docsify-cli -g
 
 ## Running Wordpress locally
 
+This is only necessary when doing php/wordpress development.
+
 ```bash
 composer wordpress
 ```
+
+When you run this for the first time and visit localhost:3000, you will be prompted to choose a language and create some site settings.
 
 ## Branch Structure
 

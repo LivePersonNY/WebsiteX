@@ -86,7 +86,9 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', $_ENV['WP_DEBUG'] );
+
+define('DISALLOW_FILE_MODS', $_ENV['WP_DISALLOW_FILE_MODS'] );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
