@@ -144,6 +144,8 @@ function twentytwenty_theme_support() {
 	 */
 	$loader = new TwentyTwenty_Script_Loader();
 	add_filter( 'script_loader_tag', array( $loader, 'filter_script_loader_tag' ), 10, 2 );
+	
+	
 
 }
 
@@ -786,3 +788,8 @@ function twentytwenty_get_elements_array() {
 	 */
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
+
+add_action('admin_init', function() {
+	//remove_menu_page( 'plugins.php' );
+	//remove_menu_page( 'themes.php' );     
+});
