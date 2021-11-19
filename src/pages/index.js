@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 
-const IndexPage = () => (
+const IndexPage = ({ data: { page } }) => (
   <Layout>
     <Seo title="Home" />
     <div className="container">
@@ -19,6 +19,14 @@ const IndexPage = () => (
             Bootstrap, the world’s most popular front-end open source toolkit,
             featuring Sass variables and mixins, responsive grid system,
             extensive prebuilt components, and powerful JavaScript plugins.
+          </p>
+          <p>
+            here is the page title from Wordpress:
+            <br /> {page.title}
+          </p>
+          <p>
+            here is the page content from Wordpress:
+            <br /> {page.content}
           </p>
           <div className="d-grid gap-2 d-md-flex justify-content-md-start">
             <button
@@ -48,3 +56,13 @@ const IndexPage = () => (
 );
 
 export default IndexPage;
+
+export const pageQuery = graphql`
+  query HomepageId {
+    page: wpPage(id: { eq: "cG9zdDoy" }) {
+      id
+      content
+      title
+    }
+  }
+`;
