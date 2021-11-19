@@ -86,7 +86,7 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', $_ENV['WP_DEBUG'] );
+define( 'WP_DEBUG', $_ENV['WP_DEBUG'] ?? false );
 
 define('DISALLOW_FILE_MODS', $_ENV['WP_DISALLOW_FILE_MODS'] );
 
