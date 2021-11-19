@@ -69,4 +69,5 @@ yarn-error.log
 .yarn-integrity
 
 # Wordpress
-/wordpress/wp-content/db.php
+wordpress/wp-content/db.php
+wordpress/wp-content/database/
