@@ -1,4 +1,11 @@
 <?php
+
+/** @desc this loads the composer autoload file */
+require_once dirname( __DIR__ ) . '/vendor/autoload.php';
+/** @desc this instantiates Dotenv and passes in our path to .env */
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
+
 /**
  * The base configuration for WordPress
  *
@@ -20,13 +27,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'wordpress' );
+define( 'DB_NAME', $_ENV['WP_DB_NAME'] );
 
 /** MySQL database username */
-define( 'DB_USER', getenv('WP_DB_USER') );
+define( 'DB_USER', $_ENV['WP_DB_USER'] );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', getenv('WP_DB_PASS') );
+define( 'DB_PASSWORD', $_ENV['WP_DB_PASS'] );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
@@ -37,8 +44,6 @@ define( 'DB_CHARSET', 'utf8' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
-
-die(getenv('WP_DB_USER') . ' user');
 /**#@+
  * Authentication unique keys and salts.
  *
