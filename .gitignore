@@ -71,3 +71,4 @@ yarn-error.log
 # Wordpress
 wordpress/wp-content/db.php
 wordpress/wp-content/database/
+vendor/
