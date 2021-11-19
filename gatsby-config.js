@@ -15,6 +15,12 @@ module.exports = {
         path: `${__dirname}/src/resources/images`,
       },
     },
+    {
+        resolve: `gatsby-source-wordpress`,
+        options: {
+          url: `https://yoursite.com/graphql`,
+        },
+      }
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-sass',
