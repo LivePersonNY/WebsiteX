@@ -20,7 +20,7 @@ module.exports = {
         options: {
           url: `http://3.221.150.34/graphql`,
         },
-      }
+      },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-sass',
