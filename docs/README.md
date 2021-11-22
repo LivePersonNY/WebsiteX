@@ -33,7 +33,7 @@ npm i docsify-cli -g
 
 ## Running Wordpress locally
 
-This is only necessary when doing php/wordpress development.
+This is only necessary when doing php/wordpress development. For local development, a sqlite database will be established automatically.
 
 ```bash
 composer wordpress
