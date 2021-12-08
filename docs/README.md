@@ -44,3 +44,9 @@ When you run this for the first time and visit localhost:3000, you will be promp
 ## Branch Structure
 
 ## workflow
+
+## Pages
+
+### Linking Gatsby page to Wordpress page
+
+This is how to tie a wordpress page to a gatsby page.

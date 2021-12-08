@@ -20,13 +20,23 @@ module.exports = {
       },
     },
     {
-        resolve: `gatsby-source-wordpress`,
-        options: {
-          typeName: "WPGraphQL",
-          fieldName: "wpcontent",
-          url: (process.env.WP_HOST || 'http://3.221.150.34') + '/graphql',
-        },
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        typeName: "WPGraphQL",
+        fieldName: "wpcontent",
+        url: (process.env.WP_HOST || 'http://3.221.150.34') + '/graphql',
       },
+    },
+    {
+      resolve: "gatsby-source-wordpress-menus",
+      options: {
+        wordpressUrl: process.env.WP_HOST || 'http://3.221.150.34',
+        languages: ["en"],
+        enableWpml: false,
+        allowCache: false,
+        maxCacheDurationSeconds: 60 * 60 * 24
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-sass',
@@ -40,7 +50,7 @@ module.exports = {
         // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
         purgeCSSOptions: {
           // https://purgecss.com/configuration.html#options
-          // safelist: ['safelist'], // Don't remove this selector
+          safelist: ['show'], // Don't remove this selector
         },
         // More options defined here https://purgecss.com/configuration.html#options
       },

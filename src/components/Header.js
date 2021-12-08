@@ -1,8 +1,46 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 
-const Header = ({ siteTitle }) => (
+const MenuItem = ({ label, url, children }) => {
+  if (children.length > 0) {
+    return <li className="nav-item dropdown"><a className="nav-link dropdown-toggle" href={url} data-bs-toggle="dropdown">{label}</a>
+      <ul className="dropdown-menu">
+        {children.map(function(item, index) {
+          return <li><Link className="dropdown-item" to={item.url}>{item.label}</Link></li>
+        })}
+      </ul>
+    </li>
+  } else {
+    return <li className="nav-item"><Link className="nav-link" to={url}>{label}</Link></li>
+  }
+}
+
+const Header = ({ siteTitle }) => {
+  const { topItems } = useStaticQuery(
+      graphql`
+        query topLevelQuery {
+            topItems: allWpMenuItem(
+                filter: {menu: {node: {locations: {eq: GATSBY_HEADER_MENU}}}, parentId: {eq: null}}
+              ) {
+                nodes {
+                    id
+                    label
+                    parentId
+                    childItems {
+                      nodes {
+                        label
+                        url
+                      }
+                    }
+                    url
+                  }
+              }
+          }
+      `
+    );
+  
+ return (
   <header>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
@@ -20,54 +58,16 @@ const Header = ({ siteTitle }) => (
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to="/solutions">
-                Solutions
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/pricing">
-                Pricing
-              </Link>
-            </li>
-            <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Products
-              </Link>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li>
-                  <Link className="dropdown-item" href="/products/1">
-                    Products 1
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" href="/products/2">
-                    Products 2
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" href="/products/3">
-                    Products 3
-                  </Link>
-                </li>
-              </ul>
-            </li>
+            {topItems.nodes.map(function(item, index){
+                return <MenuItem label={item.label} url={item.url} children={item.childItems.nodes} />
+              })}
           </ul>
         </div>
       </div>
     </nav>
   </header>
-);
+)
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
