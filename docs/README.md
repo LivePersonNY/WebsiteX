@@ -43,7 +43,11 @@ When you run this for the first time and visit localhost:3000, you will be promp
 
 ## Branch Structure
 
-## workflow
+main, deploy
+
+## Workflow
+
+TODO
 
 ## Pages
 
