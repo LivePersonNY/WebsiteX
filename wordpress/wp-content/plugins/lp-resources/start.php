@@ -20,6 +20,7 @@ class LP_Resources
 				'name' => 'Resources',
 				'singular_name' => 'Resource',
 				'add_new_item' => 'Add New Resource',
+				'edit_item' => 'Edit Resource',
 			],
 			'public' => true,
 			'menu_icon' => 'dashicons-table-col-after',

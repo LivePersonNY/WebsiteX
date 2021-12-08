@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: '.env',
+})
+
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.yourdomain.tld',
@@ -18,7 +22,9 @@ module.exports = {
     {
         resolve: `gatsby-source-wordpress`,
         options: {
-          url: `http://3.221.150.34/graphql`,
+          typeName: "WPGraphQL",
+          fieldName: "wpcontent",
+          url: (process.env.WP_HOST || 'http://3.221.150.34') + '/graphql',
         },
       },
     `gatsby-transformer-sharp`,
