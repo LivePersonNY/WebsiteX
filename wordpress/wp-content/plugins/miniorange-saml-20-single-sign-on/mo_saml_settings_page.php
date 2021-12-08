@@ -124,7 +124,7 @@ function mo_saml_register_saml_sso() {
                 <div style="text-align:center;"><?php _e('miniOrange SSO using SAML 2.0', 'miniorange-saml-20-single-sign-on');?></div>
                     <div style="float:left;"><a  class="add-new-h2 add-new-hover" style="font-size: 16px; color: #000;" href="<?php echo mo_saml_add_query_arg( array( 'tab' => 'save' ), htmlentities( $_SERVER['REQUEST_URI'] ) ); ?>"><span class="dashicons dashicons-arrow-left-alt" style="vertical-align: bottom;"></span> Back To Plugin Configuration</a></div>
                     <br /><div style="text-align:center; color: rgb(233, 125, 104);"><?php _e('You are currently on the Free version of the plugin', 'miniorange-saml-20-single-sign-on'); ?></div>
-                <?php }else{
+                <?php mo_saml_display_sale_banner(); }else{
                     update_option('mo_license_plan_from_feedback', '');
                     update_option('mo_saml_license_message', '');
                     ?>
@@ -137,7 +137,7 @@ function mo_saml_register_saml_sso() {
                 <span style="position: relative; float: right;background-color:white;border-radius:4px;" id="miniorange-plugin-restart-tour">
                      <button type="button"  id="entire-plugin-tour" class="button button-primary button-large" onclick="restart_tours(this)"><i class="icon-refresh"></i><?php _e('  Restart Plugin Tour','miniorange-saml-20-single-sign-on');?></button>
                 </span>
-                <?php } ?>
+                <?php mo_saml_display_sale_banner(); } ?>
 
             </h1>
 
@@ -2209,5 +2209,34 @@ function mo_saml_miniorange_generate_metadata($download=false) {
     exit;
 
 }
+
+function mo_saml_display_sale_banner(){
+    ?>
+<div class="container-fluid sale-bg-banner" id="mo_saml_sale_banner" style="display:none">
+    <div class="">
+        <div class="banner-sale">
+            <h1 class="h1 head-title blink" style="font-size: 50px;">END OF YEAR SALE
+
+            </h1>
+            <h2 class="hr-line"><span class="text-white"> LIMITED PERIOD OFFER</span></h2>
+            <h3 class="sub-banner">Upto <b style="color: red;">95% Discount</b> on WordPress SAML SSO Plugins</h3>
+
+
+        </div>
+        <div class="banner-contact"
+            style="display:flex; justify-content:center; align-items:center;flex-direction:column;">
+            <p class="table-text">DISCOUNTS STARTING FROM <b class="instance-text">1<sup>st</sup> INSTANCE</b></p>
+            <div class="sale-btn" style="display:flex;flex-direction:row">
+                <a href="https://plugins.miniorange.com/wordpress-sso-end-of-year-sale" class="btn banner-btn-sale" target="_blank">View Sale Prices</a>
+                <a target="_blank" href="https://mail.google.com/mail/u/0/?fs=1&amp;tf=cm&amp;source=mailto&amp;su=End+of+Year+Sale+-+WP+SAML+SSO+Plugin+.&amp;to=samlsupport@xecurify.com&amp;body=I+want+to+enquire+about+End+of+Year+Sale+-+WP+SAML+SSO+plugin+.+" class="btn banner-btn-sale">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <?php
+
+}
+
 
 ?>

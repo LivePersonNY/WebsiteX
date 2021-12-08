@@ -239,4 +239,12 @@ jQuery(document).ready(function() {
             jQuery('.goto-opt a.goto-active').removeClass('goto-active');
         }
     }).scroll();
+    var countDownDate = new Date("Dec 31 2021 23:59:59")    
+    var now = new Date()
+    var distance = countDownDate - now;
+    if (distance < 0) {
+        clearInterval(x);
+    } else {
+        document.getElementById("mo_saml_sale_banner").style.display = "block";
+    }
 });
