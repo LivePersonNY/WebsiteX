@@ -1,0 +1,70 @@
+.wcag {
+  font-size: 0.75rem;
+}
+.wcag .fa-ban {
+  display: inline-block;
+}
+.wcag .fa-check {
+  display: none;
+}
+.wcag-aa .aa .fa-ban {
+  display: none;
+}
+.wcag-aa .aa .fa-check {
+  display: inline-block;
+}
+.wcag-aaa li:not(.aaas) .fa-ban {
+  display: none;
+}
+.wcag-aaa li:not(.aaas) .fa-check {
+  display: inline-block;
+}
+.wcag-aaas .fa-ban {
+  display: none;
+}
+.wcag-aaas .fa-check {
+  display: inline-block;
+}
+[data-to] {
+  position: relative;
+  text-decoration: underline;
+}
+[data-to] > span {
+  all: initial !important;
+}
+[data-to] .customize-partial-edit-shortcut-button {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent !important;
+  color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
+}
+[data-to] .customize-partial-edit-shortcut-button:hover {
+  background: transparent !important;
+}
+[data-to] .customize-partial-edit-shortcut-button svg {
+  visibility: hidden;
+}
+.bg-info {
+  background-color: lavender !important;
+}
+.logo img,
+.dark-mode-logo img {
+  height: 64px;
+  width: auto;
+}
+.customize-partial-refreshing {
+  opacity: 1;
+  transition: none;
+}
+
+.customize-partial-edit-shortcut button,
+.widget .customize-partial-edit-shortcut button {
+  background: #8919f9 !important;
+}

@@ -613,11 +613,8 @@ class ActionMonitor {
 				if ( $sinceTimestamp ) {
 					$args['date_query'] = [
 						[
-							'after'  =>  gmdate(
-								'Y-m-d H:i:s',
-								$sinceTimestamp / 1000
-							),
-							'column' => 'post_modified_gmt',
+							'after'  => date( 'c', $sinceTimestamp / 1000 ),
+							'column' => 'post_modified',
 						],
 					];
 				}

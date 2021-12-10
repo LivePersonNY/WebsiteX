@@ -1,0 +1,19 @@
+#adminmenu #toplevel_page_headlesswp-go-to-customizer-page .wp-menu-image img,
+#adminmenu #toplevel_page_headlesswp-setup-page .wp-menu-image img {
+  opacity: 1;
+  height: 16px;
+}
+#adminmenu #toplevel_page_headlesswp-go-to-customizer-page a.menu-top,
+#adminmenu #toplevel_page_headlesswp-setup-page a.menu-top {
+  display: flex;
+  align-items: center;
+}
+
+#adminmenu #toplevel_page_headlesswp-setup-page.current a.menu-top {
+  background: white;
+  color: black;
+}
+#adminmenu #toplevel_page_headlesswp-go-to-customizer-page .wp-menu-name,
+#adminmenu #toplevel_page_headlesswp-setup-page .wp-menu-name {
+  padding-left: 0;
+}

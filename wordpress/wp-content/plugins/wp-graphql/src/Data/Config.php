@@ -151,11 +151,9 @@ class Config {
 	}
 
 	/**
-	 * When posts are ordered by fields that have duplicate values, we need to consider
-	 * another field to "stabilize" the query order. We use IDs as they're always unique.
-	 *
-	 * This allows for posts with the same title or same date or same meta value to exist
-	 * and for their cursors to properly go forward/backward to the proper place in the database.
+	 * When posts are ordered by a meta query the order might be random when
+	 * the meta values have same values multiple times. This filter adds a
+	 * secondary ordering by the post ID which forces stable order in such cases.
 	 *
 	 * @param string    $orderby  The ORDER BY clause of the query.
 	 * @param \WP_Query $wp_query The WP_Query instance executing
@@ -163,25 +161,14 @@ class Config {
 	 * @return string
 	 */
 	public function graphql_wp_query_cursor_pagination_stability( string $orderby, \WP_Query $wp_query ) {
+		if ( true === is_graphql_request() ) {
 
-		if ( true !== is_graphql_request() ) {
-			return $orderby;
-		}
+			global $wpdb;
 
-		global $wpdb;
-
-		// If the cursor "graphql_cursor_compare" arg is not in the query,
-		// default to using ID DESC as the stabilizer
-		if ( ! isset( $wp_query->query['graphql_cursor_compare'] ) ) {
 			return "{$orderby}, {$wpdb->posts}.ID DESC ";
 		}
 
-		// Check the cursor compare order
-		$order = '>' === $wp_query->query['graphql_cursor_compare'] ? 'ASC' : 'DESC';
-
-		// If there is a cursor compare in the arguments, use it as the stablizer for cursors.
-		return "{$orderby}, {$wpdb->posts}.ID {$order} ";
-
+		return $orderby;
 	}
 
 	/**
