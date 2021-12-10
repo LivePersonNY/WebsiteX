@@ -3,11 +3,10 @@ import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/Layout';
-import Redirect from '../components/Redirect';
 import Seo from '../components/Seo';
 import Parser from 'html-react-parser';
 
-const TestMissing = ({ data: { page } }) => {
+const PageTemplate = ({ data: { page } }) => {
 	if (!page) return "The slug does not exist in the CMS";
   return (<Layout>
 	<Seo title="Home" />
@@ -24,11 +23,11 @@ const TestMissing = ({ data: { page } }) => {
   </Layout>)
 };
 
-export default TestMissing;
+export default PageTemplate;
 
 export const pageQuery = graphql`
-  query TestMissing {
-	  page: wpPage(slug: {eq: "test-missing"}) {
+  query($id: String!) {
+	  page: wpPage(id: {eq: $id}) {
 		id
 		content
 		title
