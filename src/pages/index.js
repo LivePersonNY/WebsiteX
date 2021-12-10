@@ -12,6 +12,7 @@ const IndexPage = ({ data: { page } }) => (
 	<Seo title="Home" />
 	<div className="container">
 	  <div className="row align-items-center">
+	  <h1>HomePage</h1>
 		{Parser(page.content)}
 	  </div>
 	</div>
