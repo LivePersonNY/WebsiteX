@@ -11,6 +11,7 @@ class LP_Resources
 	public function __construct()
 	{
 		add_action('init', [$this, 'register_type']);
+		
 	}
 	
 	public function register_type()
@@ -26,6 +27,12 @@ class LP_Resources
 			'menu_icon' => 'dashicons-table-col-after',
 			'show_in_rest' => true,
 		]);
+		
+	}
+	
+	public function return_gatsby()
+	{
+		
 	}
 }
 new LP_Resources;

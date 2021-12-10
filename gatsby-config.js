@@ -22,9 +22,10 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        typeName: "WPGraphQL",
-        fieldName: "wpcontent",
         url: (process.env.WP_HOST || 'http://3.221.150.34') + '/graphql',
+        debug: {
+          preview: true,
+        },
       },
     },
     {
@@ -51,7 +52,7 @@ module.exports = {
         purgeCSSOptions: {
           // https://purgecss.com/configuration.html#options
           safelist: ['show'], // Don't remove this selector
-        },
+        }
         // More options defined here https://purgecss.com/configuration.html#options
       },
     },

@@ -19,8 +19,12 @@ const NavBar = ({siteTitle}) => {
 					  nodes {
 						label
 						url
+						path
+						order
+						target
 					  }
 					}
+					path
 					url
 				  }
 			  }
@@ -47,7 +51,7 @@ const NavBar = ({siteTitle}) => {
 		
 		<ul className="navbar-nav">
 		{topItems.nodes.map(function(item, index){
-			return <NavPanel label={item.label} url={item.url} children={item.childItems.nodes} />
+			return <NavPanel label={item.label} path={item.path} children={item.childItems.nodes} />
 		  })}
 	  </ul>
   
