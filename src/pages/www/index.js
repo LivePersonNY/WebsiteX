@@ -3,8 +3,8 @@ import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import queryString from 'query-string';
 
-import Layout from '../components/Layout';
-import Seo from '../components/Seo';
+import Layout from '../../components/Layout';
+import Seo from '../../components/Seo';
 import Parser from 'html-react-parser';
 
 const IndexPage = ({ data: { page } }) => (
