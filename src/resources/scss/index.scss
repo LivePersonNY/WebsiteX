@@ -1,1 +1,61 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "variables.scss";
+
+.navbar {
+    .nav-item {
+        .nav-link {
+            color: $secondaryDark;
+            font-weight: $fontBold;
+            font-size: 14px;
+            line-height: 20px;
+            // missing font family
+        }
+
+        .dropdown-menu {
+            background: $primaryLight;
+
+            .dropdown-section-gray {
+                background: $neutral95;
+
+                .tempIcon {
+                    float: left;
+                }
+            }
+
+            .dropdown-section-title {
+                color: $neutral30;
+                font-weight: $fontBold;
+                font-size: 12px;
+                line-height: 16px;
+                text-transform: uppercase;
+                // missing font family
+            }
+
+            .tempIcon {
+                margin-right: 6px;
+            }
+
+            .dropdown-item {
+                padding-left: 0;
+                padding-right: 0;
+                color: $secondaryDark;
+                font-weight: $fontBold;
+                font-size: 14px;
+                line-height: 20px;
+                margin-bottom: 20px;
+
+                .dropdown-item-content {
+                    color: $neutral45;
+                    font-size: 12px;
+                    line-height: 16px;
+                    white-space: pre-wrap;
+                }
+
+                &.dropdown-link-blue {
+                    font-weight: $fontSemiBold;
+                    color: $primaryAccent;
+                }
+            }
+        }
+    }
+}
