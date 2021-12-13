@@ -11,12 +11,12 @@ class LP_Resources
 	public function __construct()
 	{
 		add_action('init', [$this, 'register_type']);
-		add_action('after_setup_theme', [$this, 'register_menu_locations'], 0 );
+		add_action('init', [$this, 'register_menu_locations'] );
 	}
 	
 	public function register_type()
 	{
-		register_post_type('resource', [
+		/*register_post_type('resource', [
 			'labels' => [
 				'name' => 'Resources',
 				'singular_name' => 'Resource',
@@ -28,15 +28,15 @@ class LP_Resources
 			'show_in_rest' => true,
 		]);
 		
-		
+		*/
 		
 	}
 	
 	public function register_menu_locations()
 	{
-		register_nav_menus([
-			'login_menu' => 'Login Area',
-		]);
+		register_nav_menus(apply_filters('gatsby_locations', [
+			'login-menu' => __( 'Login Menu [Added by LivePerson]', 'WPGatsby' ),
+		]));
 	}
 	
 	public function return_gatsby()
