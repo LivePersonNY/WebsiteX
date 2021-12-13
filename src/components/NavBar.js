@@ -86,7 +86,7 @@ const NavBar = ({siteTitle}) => {
 			  var cssClasses = item.cssClasses.length ? item.cssClasses.join(" ") : 'nav-link';
 			  return (
 				  <li className="nav-item">
-				  	<Link className={cssClasses} to={item.path}>{item.label}</Link>
+				  	<Link target={item.target} className={cssClasses} to={item.path}>{item.label}</Link>
 				  </li>
 			  )
 		  })}
