@@ -3,7 +3,6 @@ require("dotenv").config({
 })
 
 module.exports = {
-  pathPrefix: `/www`,
   siteMetadata: {
     siteUrl: 'https://www.yourdomain.tld',
     title: 'WebsiteX',
