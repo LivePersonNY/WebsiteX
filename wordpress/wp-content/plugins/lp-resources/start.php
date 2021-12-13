@@ -11,7 +11,7 @@ class LP_Resources
 	public function __construct()
 	{
 		add_action('init', [$this, 'register_type']);
-		
+		add_action('after_setup_theme', [$this, 'register_menu_locations'], 0 );
 	}
 	
 	public function register_type()
@@ -28,6 +28,15 @@ class LP_Resources
 			'show_in_rest' => true,
 		]);
 		
+		
+		
+	}
+	
+	public function register_menu_locations()
+	{
+		register_nav_menus([
+			'login_menu' => 'Login Area',
+		]);
 	}
 	
 	public function return_gatsby()
