@@ -11,7 +11,7 @@ const chunk = require(`lodash/chunk`);
  *
  * See https://www.gatsbyjs.com/docs/node-apis/#createPages for more info.
  */
-/*exports.createPages = async (gatsbyUtilities) => {
+exports.createPages = async (gatsbyUtilities) => {
   // Query our posts from the GraphQL server
   const posts = await getPosts(gatsbyUtilities);
 
@@ -25,7 +25,7 @@ const chunk = require(`lodash/chunk`);
 
   // And a paginated archive
   await createBlogPostArchive({ posts, gatsbyUtilities });
-};*/
+};
 
 /**
  * This function creates all the individual blog pages in this site
@@ -88,7 +88,7 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
           // we want the first page to be "/" and any additional pages
           // to be numbered.
           // "/blog/2" for example
-          return page === 1 ? `/blog/` : `/blog/${page}`;
+          return page === 1 ? `/` : `/blog/${page}`;
         }
 
         return null;
