@@ -317,6 +317,126 @@ const NavPanel = ({ label, path, children }) => {
           </ul>
         </li>
 
+        <li className="nav-item dropdown" style={{ position: 'static' }}>
+          <a
+            className="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Curiously Human AI
+          </a>
+          <ul
+            className="dropdown-menu"
+            aria-labelledby="navbarDropdown"
+            style={{ width: '560px' }}
+          >
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-6">
+                  <li>
+                    <Link className="dropdown-item" href="#">
+                      <TempIcon iconSize="220" />
+                      What is Conversational AI <br />
+                      <span className="dropdown-item-content">
+                        Brief description of Conversational AI goes right here
+                      </span>
+                    </Link>
+                  </li>
+                </div>
+                <div className="col-lg-6">
+                  <li>
+                    <Link className="dropdown-item" href="#">
+                      <TempIcon iconSize="220" />
+                      What is Conversational AI <br />
+                      <span className="dropdown-item-content">
+                        Brief description of Conversational AI goes right here
+                      </span>
+                    </Link>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </li>
+
+        <li className="nav-item dropdown" style={{ position: 'static' }}>
+          <a
+            className="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            About
+          </a>
+          <ul
+            className="dropdown-menu"
+            aria-labelledby="navbarDropdown"
+            style={{ width: '770px' }}
+          >
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-5">
+                  <li>
+                    <Link className="dropdown-item" href="#">
+                      Our Values
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" href="#">
+                      News
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" href="#">
+                      Partners
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" href="#">
+                      Leadership
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" href="#">
+                      Investor Relations <TempIcon iconSize="12" />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" href="#">
+                      Careers{' '}
+                    </Link>
+                  </li>
+                </div>
+                <div className="col-lg-7 dropdown-section-gray">
+                  <p className="dropdown-section-title">Featured News</p>
+                  <li>
+                    <Link className="dropdown-item" href="#">
+                      <TempIcon iconSize="150" />
+                      <div>
+                        <span className="dropdown-featured-title">Article</span>
+                        <br />
+                        <span className="">
+                          Partnership with Mastercard and 2Mobile powers soccer
+                          fan experiences
+                          <br />
+                          <span className="dropdown-link-blue">
+                            Read Article <TempIcon iconSize="12" />
+                          </span>
+                        </span>
+                      </div>
+                    </Link>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </li>
+
         {/*  <li className="nav-item dropdown">
          <a
            className="nav-link dropdown-toggle"
