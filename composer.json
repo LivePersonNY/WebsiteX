@@ -5,6 +5,7 @@
     "scripts": {
         "wordpress": "php -S 127.0.0.1:3000 -t wordpress/",
         "www": "cd gatsby-sites/www && gatsby develop --open",
-        "blog": "cd gatsby-sites/blog && gatsby develop --open"
+        "blog": "cd gatsby-sites/blog && gatsby develop --open",
+        "docs": "docsify serve ./docs"
     }
 }
