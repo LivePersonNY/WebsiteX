@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import TempIcon from './TempIcon';
 
-import { BsArrowUpRightSquare } from "react-icons/bs";
+import { BsArrowUpRight } from "react-icons/bs";
 
 const NavPanel = ({ label, path, children, order, cssClasses }) => {
   if (children.length > 0) {
@@ -38,7 +38,7 @@ const NavPanel = ({ label, path, children, order, cssClasses }) => {
                     let descr = '';
                     let extIcon = '';
                     if (item.target) {
-                      extIcon = <BsArrowUpRightSquare />
+                      extIcon = <BsArrowUpRight />
                     }
                     if (item.description) {
                       descr = <span className="dropdown-item-content">{item.description}</span>
