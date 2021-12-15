@@ -35,6 +35,8 @@ define( 'DB_USER', $_ENV['WP_DB_USER'] );
 /** MySQL database password */
 define( 'DB_PASSWORD', $_ENV['WP_DB_PASS'] );
 
+die(DB_USER);
+
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
 
