@@ -8,7 +8,7 @@ The primary technologies powering the new 2022 Website are a static site generat
 
 ### Design
 
-TODO: Figma Link
+The wireframes can be found [in the figma file](https://www.figma.com/proto/V3hokf6cak0yBVYYESdGj7/LVP_Wireframes?page-id=2061%3A1&node-id=6746%3A20632&viewport=321%2C48%2C0.07&scaling=scale-down-width&starting-point-node-id=6746%3A20632&show-proto-sidebar=1)
 
 ### Assets
 
