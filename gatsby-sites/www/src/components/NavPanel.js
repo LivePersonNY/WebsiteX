@@ -44,7 +44,7 @@ const NavPanel = ({ label, path, children, order, cssClasses }) => {
                       descr = <span className="dropdown-item-content">{item.description}</span>
                     }
                     return (<li>
-                        <Link title={item.title} className="dropdown-item" to={item.path}>
+                        <Link title={item.title} className="dropdown-item" to={item.path} target={item.target}>
                           {item.label} {extIcon}
                           <br />
                           {descr}
