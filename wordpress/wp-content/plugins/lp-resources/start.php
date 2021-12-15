@@ -43,5 +43,10 @@ class LP_Resources
 	{
 		
 	}
+	
+	public function menu_fields($markup)
+	{
+		wp_die($markup);
+	}
 }
 new LP_Resources;
