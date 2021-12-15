@@ -47,7 +47,43 @@ npm i gatsby-cli -g
 npm i docsify-cli -g
 ```
 
+## Initialization
+
+### Validation
+
+Lets verify that we have the necessary CLI apps running...
+
+```bash
+gatsby -v && docsify -v && npm -v && composer -V
+```
+
+### Project Dependancies
+
+Before we can run anything locally, we need to install our dependencies.
+
+```bash
+composer install && npm install
+```
+
 # Development
+
+## Commands
+
+```bash
+# Serve and run the main website locally
+composer www
+
+# Serve and run the blog project locally
+composer blog
+
+# Serve and run WordPress locally
+composer wordpress
+
+# Serve and run the doc page locally
+composer docs
+```
+
+To add or edit these commands, they can be found in the `composer.json` file.
 
 ## Running Wordpress locally
 
@@ -58,6 +94,38 @@ composer wordpress
 ```
 
 When you run this for the first time and visit localhost:3000, you will be prompted to choose a language and create some site settings.
+
+## Running GatsbyJS locally
+
+> This will allow a developer to preview gatsby work before committing anything to the codebase.
+
+### Running Gatsby
+
+We have two projects in this repo, `www` and `blog`. There are shortcut commands for each of those projects. To run the `www` project locally, execute the command:
+
+```bash
+composer www
+```
+
+It will build, serve, and open the gatsby site.
+
+### Content
+
+By default, the site content used to build the local site will come from the published WordPress CMS content. If you'd like to run Gatsby using your local WordPress instance, you need to create a `.env` file at the root of this repo. It will be ignored by Git, so don't be concerned about that. Use this as a template:
+
+```bash
+####################################
+##                                ##
+##  .env file for local env vars  ##
+##                                ##
+####################################
+
+WP_HOST=http://localhost:3000
+
+# If you want wordpress to output critical errors and warnings while you work on it:
+# WP_DEBUG=true
+
+```
 
 ## Branch Structure
 

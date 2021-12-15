@@ -18,6 +18,7 @@ const NavBar = ({ siteTitle }) => {
             id
             label
             parentId
+            order
             cssClasses
             childItems {
               nodes {
@@ -26,6 +27,7 @@ const NavBar = ({ siteTitle }) => {
                 path
                 order
                 target
+                title
                 cssClasses
               }
             }
@@ -44,7 +46,10 @@ const NavBar = ({ siteTitle }) => {
             id
             label
             parentId
+            order
             cssClasses
+            title
+            description
             childItems {
               nodes {
                 label
@@ -52,7 +57,20 @@ const NavBar = ({ siteTitle }) => {
                 path
                 order
                 target
+                title
                 cssClasses
+                description
+                childItems {
+                  nodes {
+                    label
+                    path
+                    order
+                    target
+                    title
+                    cssClasses
+                    description
+                  }
+                }
               }
             }
             path
@@ -63,6 +81,13 @@ const NavBar = ({ siteTitle }) => {
       }
     `
   );
+  
+  topItems.nodes.sort(function(a, b) {
+    return a.order - b.order;
+  });
+  loginItems.nodes.sort(function(a,b) {
+    return a.order - b.order;
+  });
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -81,13 +106,29 @@ const NavBar = ({ siteTitle }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-            {topItems.nodes.map((item, index) => (
-              <NavPanel
-                label={item.label}
-                path={item.path}
-                children={item.childItems.nodes}
-              />
-            ))}
+            {topItems.nodes.map((item, index) => {
+              const cssClasses = item.cssClasses.length
+              ? item.cssClasses.join(' ')
+              : '';
+              if (item.childItems.nodes.length > 0) {
+                return (
+                  <NavPanel cssClasses={cssClasses} order={item.order} label={item.label} path={item.path} children={item.childItems.nodes} />
+                )
+              } else {
+                return (
+                  <li className="nav-item">
+                    <Link
+                      title={item.title}
+                      target={item.target}
+                      className={cssClasses}
+                      to={item.path}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                )
+              }
+            })}
           </ul>
 
           <ul className="navbar-nav">
@@ -99,6 +140,7 @@ const NavBar = ({ siteTitle }) => {
                 <li className="nav-item">
                   <Link
                     target={item.target}
+                    title={item.title}
                     className={cssClasses}
                     to={item.path}
                   >
