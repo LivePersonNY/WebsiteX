@@ -3,7 +3,7 @@
         "vlucas/phpdotenv": "^5.4"
     },
     "scripts": {
-        "wordpress": "php -S 127.0.0.1:3000 -t wordpress/",
+        "wordpress": "php -S 127.0.0.1:3000 -t wordpress/www",
         "www": "cd gatsby-sites/www && gatsby develop --open",
         "blog": "cd gatsby-sites/blog && gatsby develop --open",
         "docs": "docsify serve ./docs"
