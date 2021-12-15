@@ -35,8 +35,6 @@ define( 'DB_USER', $_ENV['WP_DB_USER'] );
 /** MySQL database password */
 define( 'DB_PASSWORD', $_ENV['WP_DB_PASS'] );
 
-die(DB_USER);
-
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
 
@@ -90,7 +88,7 @@ $table_prefix = 'wp_';
  */
 define( 'WP_DEBUG', false );
 
-define('DISALLOW_FILE_MODS', $_ENV['WP_DISALLOW_FILE_MODS'] );
+define('DISALLOW_FILE_MODS', false);
 
 /* Add any custom values between this line and the "stop editing" line. */
 
