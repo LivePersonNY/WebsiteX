@@ -92,12 +92,11 @@ define('DISALLOW_FILE_MODS', $_ENV['WP_DISALLOW_FILE_MODS'] );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
-
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
+    
 	define( 'ABSPATH', __DIR__ . '/' );
 }
 
