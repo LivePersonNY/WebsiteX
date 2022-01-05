@@ -1,0 +1,13 @@
+.pane {
+    &.bg-primary-light {
+        background: $primaryLight;
+    }
+
+    &.bg-neutral-84 {
+        background: $neutral84;
+    }
+
+    &.bg-neutral-92 {
+        background: $neutral92;
+    }
+}
