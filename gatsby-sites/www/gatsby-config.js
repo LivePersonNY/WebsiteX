@@ -51,7 +51,7 @@ module.exports = {
 		// purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
 		purgeCSSOptions: {
 		  // https://purgecss.com/configuration.html#options
-		  safelist: ['show', 'btn', 'btn-primary', /btn-*/, /bg-*/, /w-*/], // Don't remove this selector
+		  safelist: ['row', /col*/, /container*/, 'show', 'btn', 'btn-primary', /btn-*/, /bg-*/, /w-*/, /p-*/, /m-*/], // Don't remove this selector
 		}
 		// More options defined here https://purgecss.com/configuration.html#options
 	  },
