@@ -102,6 +102,25 @@ const IndexPage = ({ data: { page } }) => (
         </div>
       </div>
     </div>
+
+    <div className="pane bg-primary-light">
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-lg-8">
+            <h2>What is LivePerson?</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci,
+              pellentesque a tincidunt dignissim adipiscing blandit eu. Sagittis
+              a, lorem eget nulla porttitor vitae ultricies. At aliquet non
+              viverra scelerisque enim sagittis.
+            </p>
+            <Link className="link link-mt-large" href="#">
+              Discover Conversational AI
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
   </Layout>
 );
 
