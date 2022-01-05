@@ -1,6 +1,6 @@
 .pane {
     &.bg-primary-light {
-        background: $primaryLight;
+        background: $light;
     }
 
     &.bg-neutral-84 {
@@ -10,4 +10,8 @@
     &.bg-neutral-92 {
         background: $neutral92;
     }
+}
+
+img {
+    max-width: 100%;
 }

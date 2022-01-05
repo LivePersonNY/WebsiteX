@@ -1,0 +1,12 @@
+// On homepage
+.logo-wall {
+    margin-top: 16px;
+
+    img {
+        margin-right: 30px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
