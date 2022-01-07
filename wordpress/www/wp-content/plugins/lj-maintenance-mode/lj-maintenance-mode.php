@@ -169,7 +169,7 @@ class ljMaintenanceMode
     */
     public function ui()
     {
-        add_submenu_page('options-general.php', __('Maintenance Mode', LJMM_PLUGIN_DOMAIN), __('Maintenance Mode', LJMM_PLUGIN_DOMAIN), '', 'lj-maintenance-mode', array($this, 'settingsPage'));
+        add_submenu_page('options-general.php', __('Maintenance Mode', LJMM_PLUGIN_DOMAIN), __('Maintenance Mode', LJMM_PLUGIN_DOMAIN), $this->get_relevant_cap(), 'lj-maintenance-mode', array($this, 'settingsPage'));
     }
 
     /**
@@ -700,7 +700,7 @@ class ljMaintenanceMode
      */
     public function get_relevant_cap()
     {
-        return is_super_admin() ? 'delete_plugins' : LJMM_PLUGIN_CAP;
+        return is_super_admin() ? 'activate_plugins' : LJMM_PLUGIN_CAP;
     }
 
     /**
