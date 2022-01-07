@@ -22,7 +22,7 @@ module.exports = {
 	{
 	  resolve: `gatsby-source-wordpress`,
 	  options: {
-		url: (process.env.WP_HOST || 'http://3.221.150.34') + '/graphql',
+		url: (process.env.WP_HOST || 'https://edit.liveperson.com') + '/graphql',
 		debug: {
 		  preview: true,
 		},
@@ -31,7 +31,7 @@ module.exports = {
 	{
 	  resolve: "gatsby-source-wordpress-menus",
 	  options: {
-		wordpressUrl: process.env.WP_HOST || 'http://3.221.150.34',
+		wordpressUrl: process.env.WP_HOST || 'https://edit.liveperson.com',
 		languages: ["en"],
 		enableWpml: false,
 		allowCache: false,
