@@ -17,9 +17,6 @@ const IndexPage = ({ data: { page, setting } }) => (
 		{Parser(page.content)}
 	  </div>
 	</div>
-	<div className="container">
-		<p>{setting.allSettings.ipAddress}</p>
-	</div>
   </Layout>
 );
 
