@@ -52,7 +52,7 @@ class LP_Resources
 	
 	public function register_type()
 	{
-		/*register_post_type('resource', [
+		register_post_type('resource', [
 			'labels' => [
 				'name' => 'Resources',
 				'singular_name' => 'Resource',
@@ -64,7 +64,7 @@ class LP_Resources
 			'show_in_rest' => true,
 		]);
 		
-		*/
+		
 		
 	}
 		
