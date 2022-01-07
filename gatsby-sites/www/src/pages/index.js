@@ -8,7 +8,7 @@ import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
 import Parser from 'html-react-parser';
 
-const IndexPage = ({ data: { page } }) => (
+const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
 	<Seo title="Home" />
 	<Hero heading="HomePage" subheading="A subheading would be here. Because this is the hero." pageData={page} />
@@ -16,6 +16,9 @@ const IndexPage = ({ data: { page } }) => (
 	  <div className="row align-items-center">
 		{Parser(page.content)}
 	  </div>
+	</div>
+	<div className="container">
+		<p>{setting.allSettings.ipAddress}</p>
 	</div>
   </Layout>
 );
