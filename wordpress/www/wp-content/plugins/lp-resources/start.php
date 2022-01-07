@@ -40,6 +40,14 @@ class LP_Resources
 				return ob_get_clean();
 			}
 		]);
+		
+		register_graphql_field( 'Settings', 'ip_address', [
+			'type' => 'String',
+			'description' => 'IP Address from request',
+			'resolve' => function() {
+				return $_SERVER['REMOTE_ADDR'];
+			}
+		]);
 	}
 	
 	public function register_type()
