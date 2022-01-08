@@ -56,14 +56,16 @@ define( 'DB_COLLATE', '' );
  * @since 2.6.0
  */
  
-define( 'AUTH_KEY',         'put your unique phrase here' );
-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-define( 'NONCE_KEY',        'put your unique phrase here' );
-define( 'AUTH_SALT',        'put your unique phrase here' );
-define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
-define( 'NONCE_SALT',       'put your unique phrase here' );
+define( 'WP_SALT_KEY', $_ENV['WP_SALT'] ?? 'salty');
+ 
+define( 'AUTH_KEY',         WP_SALT_KEY);
+define( 'SECURE_AUTH_KEY',  WP_SALT_KEY );
+define( 'LOGGED_IN_KEY',    WP_SALT_KEY );
+define( 'NONCE_KEY',        WP_SALT_KEY );
+define( 'AUTH_SALT',        WP_SALT_KEY );
+define( 'SECURE_AUTH_SALT', WP_SALT_KEY );
+define( 'LOGGED_IN_SALT',   WP_SALT_KEY );
+define( 'NONCE_SALT',       WP_SALT_KEY );
 
 /**#@-*/
 
@@ -73,7 +75,7 @@ define( 'NONCE_SALT',       'put your unique phrase here' );
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = 'wp_';
+$table_prefix = 'lp_';
 
 /**
  * For developers: WordPress debugging mode.
