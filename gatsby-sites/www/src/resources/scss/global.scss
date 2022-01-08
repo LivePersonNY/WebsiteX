@@ -1,5 +1,5 @@
 .bg-primary-light {
-    background: $light;
+    background: $primaryLight;
 }
 
 .bg-neutral-84 {
@@ -40,20 +40,66 @@ img {
     max-width: 100%;
 }
 
-.comp-left-right {
-    .row {
-        +.row {
-            margin-top: 56px;
+.card {
+    background: $primaryLight;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border-color: transparent;
+    padding: 48px 40px 40px;
+
+    .card-body {
+        padding: 0;
+
+        .card-image-internal {
+            margin-bottom: 24px;
 
             @include media-breakpoint-up(lg) {
-                margin-top: 72px;
+                margin-bottom: 34px;
             }
         }
+    }
 
-        h6 {
-            margin-bottom: 8px;
+    .card-footer {
+        padding: 0;
+        background: none;
+        border: 0;
+
+        .card-link {
+            margin-top: 27px;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 35px;
+            }
         }
     }
+}
+
+// On homepage
+.logo-wall {
+    margin-top: 16px;
+
+    img {
+        margin-right: 30px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.comp-left-right {
+    &.comp-left-right-repeat {
+        padding-bottom: 56px;
+
+        @include media-breakpoint-up(lg) {
+            padding-bottom: 72px;
+        }
+    }
+
+    h6 {
+        margin-bottom: 8px;
+    }
+
 }
 
 .comp-4col-grid {
@@ -61,5 +107,13 @@ img {
 
     @include media-breakpoint-up(lg) {
         margin-top: 48px;
+    }
+}
+
+.comp-card-grid {
+    margin-top: 60px;
+
+    @include media-breakpoint-up(lg) {
+        margin-top: 72px;
     }
 }

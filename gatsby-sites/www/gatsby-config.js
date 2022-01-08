@@ -19,25 +19,25 @@ module.exports = {
         path: `${__dirname}/src/resources/images`,
       },
     },
-    {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        url: `${process.env.WP_HOST || 'http://3.221.150.34'}/graphql`,
-        debug: {
-          preview: true,
-        },
-      },
-    },
-    {
-      resolve: 'gatsby-source-wordpress-menus',
-      options: {
-        wordpressUrl: process.env.WP_HOST || 'http://3.221.150.34',
-        languages: ['en'],
-        enableWpml: false,
-        allowCache: false,
-        maxCacheDurationSeconds: 60 * 60 * 24,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-wordpress`,
+    //   options: {
+    //     url: `${process.env.WP_HOST || 'http://3.221.150.34'}/graphql`,
+    //     debug: {
+    //       preview: true,
+    //     },
+    //   },
+    // },
+    // {
+    //   resolve: 'gatsby-source-wordpress-menus',
+    //   options: {
+    //     wordpressUrl: process.env.WP_HOST || 'http://3.221.150.34',
+    //     languages: ['en'],
+    //     enableWpml: false,
+    //     allowCache: false,
+    //     maxCacheDurationSeconds: 60 * 60 * 24,
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-sass',

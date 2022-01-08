@@ -6,6 +6,7 @@ import queryString from 'query-string';
 import Parser from 'html-react-parser';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
+import LeftRight from '../components/LeftRight';
 
 const IndexPage = ({ data: { page } }) => (
   <Layout>
@@ -38,7 +39,7 @@ const IndexPage = ({ data: { page } }) => (
     </div>
 
     <div className="pane bg-primary-light">
-      <div className="container comp-left-right">
+      <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-8">
             <h2>What is LivePerson?</h2>
@@ -53,58 +54,40 @@ const IndexPage = ({ data: { page } }) => (
             </Link>
           </div>
         </div>
-        <div className="row align-items-center">
-          <div className="col-lg-6">
-            <img src="https://placekitten.com/640/480" alt="" />
-          </div>
-          <div className="col-lg-6">
-            <h6>UNDERSTAND</h6>
-            <h2>
-              Breathe life into your brand with human centered AI that’s
-              anything but artificial.
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-            </p>
-          </div>
-        </div>
-        <div className="row align-items-center">
-          <div className="col-lg-6">
-            <img src="https://placekitten.com/640/480" alt="" />
-          </div>
-          <div className="col-lg-6">
-            <h6>CONNECT</h6>
-            <h2>
-              Deepen your understanding of consumers when they feel seen, heard
-              and valued.
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-            </p>
-          </div>
-        </div>
-        <div className="row align-items-center">
-          <div className="col-lg-6">
-            <img src="https://placekitten.com/640/480" alt="" />
-          </div>
-          <div className="col-lg-6">
-            <h6>OUTCOMES</h6>
-            <h2>
-              Manage consumer conversations simply. Like, seriously simply.
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-            </p>
-          </div>
-        </div>
       </div>
     </div>
+
+    <LeftRight
+      preHeading="UNDERSTAND"
+      title="Breathe life into your brand with human centered AI that’s
+              anything but artificial."
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+      imgSrc="https://placekitten.com/640/480"
+      repeat="true"
+    />
+
+    <LeftRight
+      preHeading="CONNECT"
+      title="Deepen your understanding of consumers when they feel seen, heard
+      and valued."
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+      enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+      imgSrc="https://placekitten.com/640/480"
+      imgAlt="alt text"
+      repeat="true"
+    />
+
+    <LeftRight
+      preHeading="OUTCOMES"
+      title="Manage consumer conversations simply. Like, seriously simply."
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+      enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+      imgSrc="https://placekitten.com/640/480"
+    />
 
     <div className="pane bg-primary-light">
       <div className="container">
@@ -199,6 +182,95 @@ const IndexPage = ({ data: { page } }) => (
         </div>
       </div>
     </div>
+
+    <div className="pane bg-primary-light">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-10">
+            <h2 className="">Headline about our customers</h2>
+          </div>
+        </div>
+        <div className="row row-cols-lg-3 comp-card-grid">
+          <div className="col">
+            <div className="card h-100">
+              <div className="card-body">
+                <img
+                  className="card-image-internal"
+                  src="https://placekitten.com/224/30"
+                  alt=""
+                />
+                <p className="card-text quote1">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labor
+                </p>
+              </div>
+              <div className="card-footer">
+                <Link href="#" className="card-link link">
+                  Read Customer Story
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-100">
+              <div className="card-body">
+                <img
+                  className="card-image-internal"
+                  src="https://placekitten.com/224/30"
+                  alt=""
+                />
+                <p className="card-text quote1">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+                </p>
+              </div>
+              <div className="card-footer">
+                <Link href="#" className="card-link link">
+                  Read Customer Story
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card h-100">
+              <div className="card-body">
+                <img
+                  className="card-image-internal"
+                  src="https://placekitten.com/224/30"
+                  alt=""
+                />
+                <p className="card-text quote1">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+                </p>
+              </div>
+              <div className="card-footer">
+                <Link href="#" className="card-link link">
+                  Read Customer Story
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <LeftRight
+      preHeading="WHY LIVEPERSON"
+      title="Branded copy that speaks to LivePerson’s values"
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+      imgSrc="https://placekitten.com/640/480"
+      linkText="Discover Commerce Solutions"
+      linkUrl="/"
+      flipColumns="true"
+    />
   </Layout>
 );
 
