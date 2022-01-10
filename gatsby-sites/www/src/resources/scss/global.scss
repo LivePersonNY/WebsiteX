@@ -105,10 +105,12 @@ img {
 
 
 .comp-card-grid {
-    margin-top: 60px;
+    .comp-card-grid-container {
+        margin-top: 60px;
 
-    @include media-breakpoint-up(lg) {
-        margin-top: 72px;
+        @include media-breakpoint-up(lg) {
+            margin-top: 72px;
+        }
     }
 }
 

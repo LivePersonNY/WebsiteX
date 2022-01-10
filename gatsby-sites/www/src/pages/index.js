@@ -8,6 +8,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import LeftRight from '../components/blocks/LeftRight';
 import StatsGrid from '../components/blocks/StatsGrid';
+import CardGrid from '../components/blocks/CardGrid';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -164,82 +165,24 @@ const IndexPage = ({ data: { page, setting } }) => (
       </div>
     </div>
 
-    <div className="pane bg-primary-light">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-10">
-            <h2 className="">Headline about our customers</h2>
-          </div>
-        </div>
-        <div className="row row-cols-lg-3 comp-card-grid">
-          <div className="col">
-            <div className="card h-100">
-              <div className="card-body">
-                <img
-                  className="card-image-internal"
-                  src="https://placekitten.com/224/30"
-                  alt=""
-                />
-                <p className="card-text quote1">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labor
-                </p>
-              </div>
-              <div className="card-footer">
-                <Link href="#" className="card-link link">
-                  Read Customer Story
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card h-100">
-              <div className="card-body">
-                <img
-                  className="card-image-internal"
-                  src="https://placekitten.com/224/30"
-                  alt=""
-                />
-                <p className="card-text quote1">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-                </p>
-              </div>
-              <div className="card-footer">
-                <Link href="#" className="card-link link">
-                  Read Customer Story
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card h-100">
-              <div className="card-body">
-                <img
-                  className="card-image-internal"
-                  src="https://placekitten.com/224/30"
-                  alt=""
-                />
-                <p className="card-text quote1">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-                </p>
-              </div>
-              <div className="card-footer">
-                <Link href="#" className="card-link link">
-                  Read Customer Story
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <CardGrid
+      heading="Headline about our customers"
+      img1Src="https://placekitten.com/224/30"
+      img1Alt="Alt text"
+      card1Content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor"
+      card1LinkUrl="#"
+      card1LinkText="Read Customer Story"
+      img2Src="https://placekitten.com/224/30"
+      img2Alt="Alt text"
+      card2Content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor"
+      card2LinkUrl="#"
+      card2LinkText="Read Customer Story"
+      img3Src="https://placekitten.com/224/30"
+      img3Alt="Alt text"
+      card3Content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor sed do eiusmod tempor incididunt ut labor"
+      card3LinkUrl="#"
+      card3LinkText="Read Customer Story"
+    />
 
     <LeftRight
       preHeading="WHY LIVEPERSON"
