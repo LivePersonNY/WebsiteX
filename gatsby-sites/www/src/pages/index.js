@@ -6,7 +6,8 @@ import queryString from 'query-string';
 import Parser from 'html-react-parser';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
-import LeftRight from '../components/LeftRight';
+import LeftRight from '../components/blocks/LeftRight';
+import StatsGrid from '../components/blocks/StatsGrid';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -89,37 +90,17 @@ const IndexPage = ({ data: { page, setting } }) => (
       imgSrc="https://placekitten.com/640/480"
     />
 
-    <div className="pane bg-primary-light">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12">
-            <h2 className="text-center">
-              The infinite power of conversational AI
-            </h2>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="comp-4col-grid bg-neutral-92 text-center">
-              <div className="row">
-                <div className="col-lg-3">
-                  <p>one</p>
-                </div>
-                <div className="col-lg-3">
-                  <p>two</p>
-                </div>
-                <div className="col-lg-3">
-                  <p>three</p>
-                </div>
-                <div className="col-lg-3">
-                  <p>four</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <StatsGrid
+      heading="The infinite power of conversational AI"
+      stat1="2.5x"
+      content1="Increased ad conversions"
+      stat2="20%"
+      content2="Increased sales conversions"
+      stat3="50%"
+      content3="Reduced labor costs"
+      stat4="20%"
+      content4="Increased CSAT score"
+    />
 
     <div className="pane bg-primary-light">
       <div className="container comp-left-right">

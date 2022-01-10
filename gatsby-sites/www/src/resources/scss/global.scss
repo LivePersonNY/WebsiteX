@@ -102,18 +102,28 @@ img {
 
 }
 
-.comp-4col-grid {
-    margin-top: 32px;
 
-    @include media-breakpoint-up(lg) {
-        margin-top: 48px;
-    }
-}
 
 .comp-card-grid {
     margin-top: 60px;
 
     @include media-breakpoint-up(lg) {
         margin-top: 72px;
+    }
+}
+
+.comp-stat-grid {
+    .comp-4col-grid {
+        margin-top: 32px;
+        padding: 48px 21px;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 48px;
+            padding: 48px 32px;
+        }
+    }
+
+    .subtitle2 {
+        margin-top: 8px;
     }
 }
