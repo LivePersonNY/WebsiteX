@@ -33,6 +33,7 @@ const Seo = ({ description, lang, meta, title }) => {
   const defaultTitle = wp.generalSettings?.title;
 
   return (
+      
     <Helmet
       htmlAttributes={{
         lang,
@@ -73,7 +74,9 @@ const Seo = ({ description, lang, meta, title }) => {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+    <script type="text/javascript" src="https://info.liveperson.com/js/forms2/js/forms2.min.js"></script>
+    </Helmet>
   );
 };
 

@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 
 const Header = ({ siteTitle }) => (
   <header>
+  
     <NavBar siteTitle={siteTitle} />
   </header>
 );

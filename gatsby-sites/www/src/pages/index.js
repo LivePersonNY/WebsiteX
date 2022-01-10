@@ -8,7 +8,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import LeftRight from '../components/LeftRight';
 
-const IndexPage = ({ data: { page } }) => (
+const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
     <Seo title="Home" />
     {/* {Parser(page.content)} */}
@@ -278,10 +278,23 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query HomepageId {
+    setting: wp {
+      allSettings {
+        ipAddress
+      }
+    }
     page: wpPage(isFrontPage: { eq: true }) {
       id
       content
       title
+      vimeoVideo
+      featuredImage {
+        node {
+          id
+          mediaItemUrl
+          mediaType
+        }
+      }
     }
   }
 `;

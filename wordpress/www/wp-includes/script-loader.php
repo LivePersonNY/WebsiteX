@@ -2037,6 +2037,7 @@ function wp_print_head_scripts() {
 	global $wp_scripts;
 
 	if ( ! ( $wp_scripts instanceof WP_Scripts ) ) {
+		die('what?');
 		return array(); // No need to run if nothing is queued.
 	}
 	return print_head_scripts();

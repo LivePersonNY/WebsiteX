@@ -4,12 +4,14 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
+import Hero from '../components/blocks/Hero';
 import Parser from 'html-react-parser';
 
 const PageTemplate = ({ data: { page } }) => {
 	if (!page) return "The slug does not exist in the CMS";
   return (<Layout>
 	<Seo title="Home" />
+	<Hero heading="HomePage" subheading="A subheading would be here. Because this is the hero." pageData={page} />
 	<div className="container">
 	  <div className="row align-items-center">
 		<div className="col-lg-6">
@@ -31,6 +33,14 @@ export const pageQuery = graphql`
 		id
 		content
 		title
+		vimeoVideo
+	  featuredImage {
+		node {
+		  id
+		  mediaItemUrl
+		  mediaType
+		}
+	  }
 	  }
 	}
 `;
