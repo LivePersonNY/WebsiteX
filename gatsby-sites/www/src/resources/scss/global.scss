@@ -1,0 +1,129 @@
+.bg-primary-light {
+    background: $primaryLight;
+}
+
+.bg-neutral-84 {
+    background: $neutral84;
+}
+
+.bg-neutral-92 {
+    background: $neutral92;
+}
+
+.pane {
+    padding: 80px 0;
+
+    @include media-breakpoint-up(lg) {
+        padding: 120px 0;
+    }
+
+    &.bg-primary-light {
+        +.bg-primary-light {
+            padding-top: 0;
+        }
+    }
+
+    &.bg-neutral-84 {
+        +.bg-neutral-84 {
+            padding-top: 0;
+        }
+    }
+
+    &.bg-neutral-92 {
+        +.bg-neutral-84 {
+            padding-top: 0;
+        }
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+.card {
+    background: $primaryLight;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border-color: transparent;
+    padding: 48px 40px 40px;
+
+    .card-body {
+        padding: 0;
+
+        .card-image-internal {
+            margin-bottom: 24px;
+
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 34px;
+            }
+        }
+    }
+
+    .card-footer {
+        padding: 0;
+        background: none;
+        border: 0;
+
+        .card-link {
+            margin-top: 27px;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 35px;
+            }
+        }
+    }
+}
+
+// On homepage
+.logo-wall {
+    margin-top: 16px;
+
+    img {
+        margin-right: 30px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.comp-left-right {
+    &.comp-left-right-repeat {
+        padding-bottom: 56px;
+
+        @include media-breakpoint-up(lg) {
+            padding-bottom: 72px;
+        }
+    }
+
+    h6 {
+        margin-bottom: 8px;
+    }
+
+}
+
+
+
+.comp-card-grid {
+    margin-top: 60px;
+
+    @include media-breakpoint-up(lg) {
+        margin-top: 72px;
+    }
+}
+
+.comp-stat-grid {
+    .comp-4col-grid {
+        margin-top: 32px;
+        padding: 48px 21px;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 48px;
+            padding: 48px 32px;
+        }
+    }
+
+    .subtitle2 {
+        margin-top: 8px;
+    }
+}
