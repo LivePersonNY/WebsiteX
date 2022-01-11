@@ -28,7 +28,7 @@ const LeftRight = (props) => {
               <h2>{props.title}</h2>
               <p>{props.content}</p>
               {props.linkText && (
-                <Link className="link link-mt-small" href={props.linkUrl}>
+                <Link className="link link-mt-small" to={props.linkUrl}>
                   {props.linkText}
                 </Link>
               )}

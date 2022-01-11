@@ -144,3 +144,35 @@ img {
         }
     }
 }
+
+.comp-tabs {
+
+    .pills-container {
+        margin: 32px 0;
+
+        @include media-breakpoint-up(lg) {
+            margin: 48px 0;
+        }
+
+        .pill {
+            margin: 0 8px;
+        }
+    }
+
+    h3 {
+        margin-top: 24px;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 32px;
+        }
+    }
+
+    p {
+        margin-top: 8px;
+    }
+
+    .btn-outline-secondary {
+        margin-top: 24px;
+    }
+
+}

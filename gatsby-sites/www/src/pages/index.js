@@ -12,6 +12,7 @@ import CardGrid from '../components/blocks/CardGrid';
 import CalloutGrid from '../components/blocks/CalloutGrid';
 import Hero from '../components/blocks/Hero';
 import PlainContent from '../components/blocks/PlainContent';
+import Tabs from '../components/blocks/Tabs';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -38,25 +39,6 @@ const IndexPage = ({ data: { page, setting } }) => (
       linkText="Discover Conversational AI"
       linkUrl="#"
     />
-
-    <div className="pane bg-primary-light comp-plain-content">
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-lg-8">
-            <h2>What is LivePerson?</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci,
-              pellentesque a tincidunt dignissim adipiscing blandit eu. Sagittis
-              a, lorem eget nulla porttitor vitae ultricies. At aliquet non
-              viverra scelerisque enim sagittis.
-            </p>
-            <Link className="link link-mt-large" href="#">
-              Discover Conversational AI
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <LeftRight
       preHeading="UNDERSTAND"
@@ -134,35 +116,24 @@ const IndexPage = ({ data: { page, setting } }) => (
       </div>
     </div>
 
-    <div className="pane bg-neutral-92">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-8 offset-lg-2">
-            <h2 className="text-center">
-              A sentence describing the different products and main value
-              proposition
-            </h2>
-          </div>
-        </div>
-        <div className="row bg-primary-light align-items-center">
-          <div className="col-lg-4 offset-lg-1">
-            <img src="https://placekitten.com/56/56" alt="" />
-            <h3>A branded line of copy or two about product benefit</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    <Tabs
+      heading="A sentence describing the different products and main value
+              proposition"
+      pill1="Conversational Cloud"
+      pill2="Voice"
+      pill3="Managed Services"
+      pill4="Bella Health"
+      iconSrc="https://placekitten.com/56/56"
+      iconAlt="test"
+      contentHeader="A branded line of copy or two about product benefit"
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud.
-            </p>
-            <Link className="btn btn-outline-secondary" href="#">
-              Discover Customer Care
-            </Link>
-          </div>
-          <div className="col-lg-6 offset-lg-1">
-            <img src="https://placekitten.com/640/560" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
+              enim ad minim veniam, quis nostrud."
+      linkText="Discover Customer Care"
+      linkUrl="#"
+      imgSrc="https://placekitten.com/640/560"
+      imgAlt="test"
+    />
 
     <CardGrid
       heading="Headline about our customers"
