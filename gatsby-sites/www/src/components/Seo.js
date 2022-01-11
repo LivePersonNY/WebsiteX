@@ -33,7 +33,6 @@ const Seo = ({ description, lang, meta, title }) => {
   const defaultTitle = wp.generalSettings?.title;
 
   return (
-      
     <Helmet
       htmlAttributes={{
         lang,
@@ -75,7 +74,16 @@ const Seo = ({ description, lang, meta, title }) => {
         },
       ].concat(meta)}
     >
-    <script type="text/javascript" src="https://info.liveperson.com/js/forms2/js/forms2.min.js"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap"
+        rel="stylesheet"
+      />
+      <script
+        type="text/javascript"
+        src="https://info.liveperson.com/js/forms2/js/forms2.min.js"
+      />
     </Helmet>
   );
 };
