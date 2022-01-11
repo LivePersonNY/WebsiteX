@@ -12,7 +12,6 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps } from '@wordpress/block-editor';
-import StatsGrid from './StatsGrid';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -23,18 +22,10 @@ import StatsGrid from './StatsGrid';
  *
  * @return {WPElement} Element to render.
  */
-export default function save({ attributes }) {
-	return <div { ...useBlockProps.save() }>
-		<StatsGrid
-			heading={attributes.heading}
-			stat1={attributes.stat1}
-			stat2={attributes.stat2}
-			stat3={attributes.stat3}
-			stat4={attributes.stat4}
-			content1={attributes.content1}
-			content2={attributes.content2}
-			content3={attributes.content3}
-			content4={attributes.content4}
-		/>
-	</div>;
+export default function save() {
+	return (
+		<p {...useBlockProps.save()}>
+			{__('Hero Block – hello from the saved content!', 'hero-block')}
+		</p>
+	);
 }

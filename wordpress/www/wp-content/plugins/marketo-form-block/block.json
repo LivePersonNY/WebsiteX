@@ -1,28 +1,20 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
 	"apiVersion": 2,
-	"name": "create-block/four-col-stats",
+	"name": "create-block/marketo-form-block",
 	"version": "0.1.0",
-	"title": "Four Col Stats",
+	"title": "Marketo Form Block",
 	"category": "widgets",
-	"icon": "table-row-after",
+	"icon": "forms",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"supports": {
 		"html": false
 	},
-	"textdomain": "four-col-stats",
+	"textdomain": "marketo-form-block",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css",
 	"attributes": {
-		"heading": {},
-		"stat1": {},
-		"stat2": {},
-		"stat3": {},
-		"stat4": {},
-		"content1": {},
-		"content2": {},
-		"content3": {},
-		"content4": {}
+		"form_id": {}
 	}
 }
