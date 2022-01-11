@@ -4,8 +4,8 @@
 	"name": "create-block/hero-block",
 	"version": "0.1.0",
 	"title": "Hero Block",
-	"category": "widgets",
-	"icon": "smiley",
+	"category": "liveperson",
+	"icon": "cover-image",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"supports": {
 		"html": false
@@ -13,5 +13,12 @@
 	"textdomain": "hero-block",
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/index.css",
-	"style": "file:./build/style-index.css"
+	"style": "file:./build/style-index.css",
+	"attributes": {
+		"kicker": {},
+		"header": {},
+		"subHeader": {},
+		"logoWall": {},
+		"heroImage": {}
+	}
 }

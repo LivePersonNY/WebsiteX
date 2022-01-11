@@ -4,6 +4,8 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import $ from 'jquery';
+import { __experimentalGrid as Grid,Placeholder, TextControl } from '@wordpress/components';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -12,6 +14,10 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps } from '@wordpress/block-editor';
+import { useInstanceId } from '@wordpress/compose';
+import SpanControl from '../../SpanControl';
+
+import Hero from './Hero';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,10 +35,42 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
-	return (
-		<p {...useBlockProps()}>
-			{__('Hero Block – hello from the editor!', 'hero-block')}
-		</p>
+export default function Edit({attributes, setAttributes, isSelected}) {
+
+	const instanceId = useInstanceId( TextControl );
+
+	let headerControl = (
+		<SpanControl
+			value={ attributes.header }
+			onChange={ ( val ) => setAttributes( { header: val } ) }
+		/>
 	);
+
+	let kickerControl = (
+		<SpanControl
+			value={ attributes.kicker }
+			onChange={ ( val ) => setAttributes( { kicker: val } ) }
+		/>
+	);
+
+	let subHeaderControl = (
+		<SpanControl
+			value={ attributes.subHeader }
+			onChange={ ( val ) => setAttributes( { subHeader: val } ) }
+		/>
+	);
+
+	if (isSelected)	return (
+		<div {...useBlockProps()}>
+			<Hero header={headerControl} subHeader={subHeaderControl} kicker={kickerControl} />
+
+		</div>
+	);
+
+	return (
+		<div {...useBlockProps()}>
+			<Hero header={attributes.header} subHeader={attributes.subHeader} kicker={attributes.kicker} />
+		</div>
+	);
+
 }

@@ -10,18 +10,8 @@ import Parser from 'html-react-parser';
 const PageTemplate = ({ data: { page } }) => {
 	if (!page) return "The slug does not exist in the CMS";
   return (<Layout>
-	<Seo title="Home" />
-	<Hero heading="HomePage" subheading="A subheading would be here. Because this is the hero." pageData={page} />
-	<div className="container">
-	  <div className="row align-items-center">
-		<div className="col-lg-6">
-		  <h1 className="display-5 fw-bold lh-1 mb-3">
-			{page.title}
-		  </h1>
-		  {Parser(page.content)}
-		  </div>
-	  </div>
-	</div>
+	<Seo title={page.title} />
+	{Parser(page.content)}
   </Layout>)
 };
 
@@ -33,14 +23,6 @@ export const pageQuery = graphql`
 		id
 		content
 		title
-		vimeoVideo
-	  featuredImage {
-		node {
-		  id
-		  mediaItemUrl
-		  mediaType
-		}
-	  }
 	  }
 	}
 `;

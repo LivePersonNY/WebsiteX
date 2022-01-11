@@ -4,7 +4,7 @@
 	"name": "create-block/four-col-stats",
 	"version": "0.1.0",
 	"title": "Four Col Stats",
-	"category": "widgets",
+	"category": "liveperson",
 	"icon": "table-row-after",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"supports": {

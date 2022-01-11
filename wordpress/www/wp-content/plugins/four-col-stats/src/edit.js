@@ -13,7 +13,7 @@ import { __experimentalGrid as Grid,Placeholder, TextControl } from '@wordpress/
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps } from '@wordpress/block-editor';
-//import StatsGrid from '../../../../../../gatsby-sites/www/src/components/blocks/StatsGrid';
+import StatsGrid from './StatsGrid';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -31,8 +31,8 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, className, setAttributes }) {
-	return (
+export default function Edit({ attributes, className, setAttributes, isSelected }) {
+	if (isSelected) return (
 		<div { ...useBlockProps() }>
 			<div class="row">
 				<div class="col">
@@ -89,4 +89,19 @@ export default function Edit({ attributes, className, setAttributes }) {
 			</Grid>
 		</div>
 	);
+	return (
+		<div { ...useBlockProps() }>
+			<StatsGrid
+				heading={attributes.heading}
+				stat1={attributes.stat1}
+				stat2={attributes.stat2}
+				stat3={attributes.stat3}
+				stat4={attributes.stat4}
+				content1={attributes.content1}
+				content2={attributes.content2}
+				content3={attributes.content3}
+				content4={attributes.content4}
+			/>
+		</div>
+	)
 }
