@@ -1,8 +1,48 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import $ from 'jquery'; 
 
-const Tabs = (props) => (
+const Tabs = (props) => {
+
+  $(document).ready(function () {
+    $('.comp-tabs .btn.pill').click(function(){
+      $('.comp-tabs .btn.pill').removeClass('pill-active');
+      $(this).addClass('pill-active');
+      let tabIndex = $(this).data('tab');
+      $('.comp-tabs-content').hide();
+      $(`.comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
+    });
+  });
+
+  
+    let pillListOutput = props.pillList.map((item ,index)=>{
+      return <a className="btn pill" data-tab={index}>{item}</a>
+    });
+
+    let tabsContent = props.pillList.map((item, index)=>{
+      return (
+        <>
+          <div className="row bg-primary-light align-items-center comp-tabs-content" data-tab-content={index}>
+            <div className="col-lg-4 offset-lg-1">
+              <img src={props.iconSrc[index]} alt={props.iconAlt[index]} />
+              <h3>{props.contentHeader[index]}</h3>
+              <p>{props.content[index]}</p>
+              {props.linkText[index] && (
+                <Link className="btn btn-outline-secondary" href={props.linkUrl[index]}>
+                  {props.linkText[index]}
+                </Link>
+              )}
+            </div>
+            <div className="col-lg-6 offset-lg-1">
+              <img src={props.imgSrc[index]} alt={props.imgAlt[index]} />
+            </div>
+          </div>
+        </>)
+    });
+   
+
+  return (
   <>
     <div className="pane bg-neutral-92 comp-tabs">
       <div className="container">
@@ -14,31 +54,15 @@ const Tabs = (props) => (
         <div className="row justify-content-center text-center">
           <div className="col-lg-10">
             <div className="pills-container">
-              <a className="btn pill">{props.pill1}</a>
-              <a className="btn pill">{props.pill2}</a>
-              <a className="btn pill">{props.pill3}</a>
-              <a className="btn pill">{props.pill4}</a>
+              {pillListOutput}
             </div>
           </div>
         </div>
-        <div className="row bg-primary-light align-items-center">
-          <div className="col-lg-4 offset-lg-1">
-            <img src={props.iconSrc} alt={props.iconAlt} />
-            <h3>{props.contentHeader}</h3>
-            <p>{props.content}</p>
-            {props.linkText && (
-              <Link className="btn btn-outline-secondary" href={props.linkUrl}>
-                {props.linkText}
-              </Link>
-            )}
-          </div>
-          <div className="col-lg-6 offset-lg-1">
-            <img src={props.imgSrc} alt={props.imgAlt} />
-          </div>
-        </div>
+        {tabsContent}
       </div>
     </div>
   </>
-);
+  )
+};
 
 export default Tabs;

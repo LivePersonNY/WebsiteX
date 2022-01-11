@@ -29,6 +29,7 @@
     "gatsby-source-wordpress-menus": "^1.1.4",
     "gatsby-transformer-sharp": "^4.2.0",
     "html-react-parser": "^1.4.2",
+    "jquery": "^3.6.0",
     "lodash": "^4.17.20",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
