@@ -11,69 +11,31 @@ import StatsGrid from '../components/blocks/StatsGrid';
 import CardGrid from '../components/blocks/CardGrid';
 import CalloutGrid from '../components/blocks/CalloutGrid';
 import Hero from '../components/blocks/Hero';
-import PlainContent from '../components/blocks/PlainContent';
-import Tabs from '../components/blocks/Tabs';
 
-const IndexPage = ({ data: { page, setting } }) => (
+const SolutionsNeed = (props) => (
   <Layout>
     <Seo title="Home" />
     {/* {Parser(page.content)} */}
 
     <Hero
-      header="LivePerson's unique value proposition"
+      kicker="LIVEPERSON FOR COMMERCE"
+      header="Most compelling benefit for commerce"
       subHeader="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus
               elementum sollicitudin magna bibendum sit ultricies arcu. Nullam
               tincidunt varius."
       heroImage="https://placekitten.com/640/480"
       heroImageAlt="test"
-      logoWall="true"
-    />
-
-    <PlainContent
-      colWidth="8"
-      heading="What is LivePerson?"
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci,
-              pellentesque a tincidunt dignissim adipiscing blandit eu. Sagittis
-              a, lorem eget nulla porttitor vitae ultricies. At aliquet non
-              viverra scelerisque enim sagittis."
-      linkText="Discover Conversational AI"
-      linkUrl="#"
     />
 
     <LeftRight
-      preHeading="UNDERSTAND"
-      title="Breathe life into your brand with human centered AI that’s
-              anything but artificial."
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+      title="Why Conversational AI for Commerce"
+      content="Tenete ergo quod si servitus quae natura liber, et aliena tua tunc impeditur. Dolebis, et turbabuntur, et invenietis, cum culpa tam dis hominibusque. Quod si tibi tantum sit."
       imgSrc="https://placekitten.com/640/480"
       repeat="true"
-    />
-
-    <LeftRight
-      preHeading="CONNECT"
-      title="Deepen your understanding of consumers when they feel seen, heard
-      and valued."
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-      enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-      imgSrc="https://placekitten.com/640/480"
-      imgAlt="alt text"
-      repeat="true"
-    />
-
-    <LeftRight
-      preHeading="OUTCOMES"
-      title="Manage consumer conversations simply. Like, seriously simply."
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-      enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-      imgSrc="https://placekitten.com/640/480"
+      flip="true"
     />
 
     <StatsGrid
-      heading="The infinite power of conversational AI"
       stat1="2.5x"
       content1="Increased ad conversions"
       stat2="20%"
@@ -116,24 +78,35 @@ const IndexPage = ({ data: { page, setting } }) => (
       </div>
     </div>
 
-    <Tabs
-      heading="A sentence describing the different products and main value
-              proposition"
-      pill1="Conversational Cloud"
-      pill2="Voice"
-      pill3="Managed Services"
-      pill4="Bella Health"
-      iconSrc="https://placekitten.com/56/56"
-      iconAlt="test"
-      contentHeader="A branded line of copy or two about product benefit"
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    <div className="pane bg-neutral-92">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-8 offset-lg-2">
+            <h2 className="text-center">
+              A sentence describing the different products and main value
+              proposition
+            </h2>
+          </div>
+        </div>
+        <div className="row bg-primary-light align-items-center">
+          <div className="col-lg-4 offset-lg-1">
+            <img src="https://placekitten.com/56/56" alt="" />
+            <h3>A branded line of copy or two about product benefit</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud."
-      linkText="Discover Customer Care"
-      linkUrl="#"
-      imgSrc="https://placekitten.com/640/560"
-      imgAlt="test"
-    />
+              enim ad minim veniam, quis nostrud.
+            </p>
+            <Link className="btn btn-outline-secondary" href="#">
+              Discover Customer Care
+            </Link>
+          </div>
+          <div className="col-lg-6 offset-lg-1">
+            <img src="https://placekitten.com/640/560" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
 
     <CardGrid
       heading="Headline about our customers"
@@ -192,27 +165,4 @@ const IndexPage = ({ data: { page, setting } }) => (
   </Layout>
 );
 
-export default IndexPage;
-
-export const pageQuery = graphql`
-  query HomepageId {
-    setting: wp {
-      allSettings {
-        ipAddress
-      }
-    }
-    page: wpPage(isFrontPage: { eq: true }) {
-      id
-      content
-      title
-      vimeoVideo
-      featuredImage {
-        node {
-          id
-          mediaItemUrl
-          mediaType
-        }
-      }
-    }
-  }
-`;
+export default SolutionsNeed;

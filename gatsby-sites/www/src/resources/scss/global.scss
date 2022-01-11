@@ -105,10 +105,12 @@ img {
 
 
 .comp-card-grid {
-    margin-top: 60px;
+    .comp-card-grid-container {
+        margin-top: 60px;
 
-    @include media-breakpoint-up(lg) {
-        margin-top: 72px;
+        @include media-breakpoint-up(lg) {
+            margin-top: 72px;
+        }
     }
 }
 
@@ -126,4 +128,51 @@ img {
     .subtitle2 {
         margin-top: 8px;
     }
+}
+
+.comp-callout-grid {
+    .comp-callout-grid-container {
+        margin-top: 48px;
+
+        .h6 {
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle2 {
+            margin-top: 16px;
+        }
+    }
+}
+
+.comp-tabs {
+
+    .pills-container {
+        margin: 32px 0;
+
+        @include media-breakpoint-up(lg) {
+            margin: 48px 0;
+        }
+
+        .pill {
+            margin: 0 8px;
+        }
+    }
+
+    h3 {
+        margin-top: 24px;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 32px;
+        }
+    }
+
+    p {
+        margin-top: 8px;
+    }
+
+    .btn-outline-secondary {
+        margin-top: 24px;
+    }
+
 }
