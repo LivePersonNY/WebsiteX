@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import $ from 'jquery'; 
 
-const Tabs = (props) => {
+const TabsC = (props) => {
 
   $(document).ready(function () {
-    $('.comp-tabs .btn.pill').click(function(){
-      $('.comp-tabs .btn.pill').removeClass('pill-active');
+    $('.comp-tabs-content').hide();
+    $('.comp-tabs-content[data-tab-content="0"]').fadeIn();
+    // Above 2 lines is flexbox hack. Check if theres a better way
+    $('.comp-tabs-c .btn.pill').click(function(){
+      $('.comp-tabs-c .btn.pill').removeClass('pill-active');
       $(this).addClass('pill-active');
       let tabIndex = $(this).data('tab');
       $('.comp-tabs-content').hide();
@@ -44,7 +47,7 @@ const Tabs = (props) => {
 
   return (
   <>
-    <div className="pane bg-neutral-92 comp-tabs">
+    <div className="pane bg-neutral-92 comp-tabs-c">
       <div className="container">
         <div className="row">
           <div className="col-lg-8 offset-lg-2">
@@ -58,11 +61,11 @@ const Tabs = (props) => {
             </div>
           </div>
         </div>
-        {tabsContent}
+          {tabsContent}
       </div>
     </div>
   </>
   )
 };
 
-export default Tabs;
+export default TabsC;

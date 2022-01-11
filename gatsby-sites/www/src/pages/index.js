@@ -12,7 +12,7 @@ import CardGrid from '../components/blocks/CardGrid';
 import CalloutGrid from '../components/blocks/CalloutGrid';
 import Hero from '../components/blocks/Hero';
 import PlainContent from '../components/blocks/PlainContent';
-import Tabs from '../components/blocks/Tabs';
+import TabsC from '../components/blocks/TabsC';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -116,7 +116,7 @@ const IndexPage = ({ data: { page, setting } }) => (
       </div>
     </div>
 
-    <Tabs
+    <TabsC
       heading="A sentence describing the different products and main value
               proposition"
       pillList={['Conversational Cloud', 'Voice', 'Managed Services', 'Bella Health']}
