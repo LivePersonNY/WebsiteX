@@ -19,6 +19,14 @@
 		"header": {},
 		"subHeader": {},
 		"logoWall": {},
-		"heroImage": {}
+		"heroImage": {},
+		"mediaId": {
+			"default": 0,
+			"type": "number"
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": ""
+		}
 	}
 }

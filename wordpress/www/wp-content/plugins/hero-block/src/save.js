@@ -26,7 +26,7 @@ import Hero from './Hero';
 export default function save({attributes}) {
 	return (
 		<div {...useBlockProps.save()}>
-			<Hero header={attributes.header} kicker={attributes.kicker} subHeader={attributes.subHeader}/>
+			<Hero header={attributes.header} kicker={attributes.kicker} subHeader={attributes.subHeader} heroImage={attributes.mediaUrl}/>
 		</div>
 	);
 }

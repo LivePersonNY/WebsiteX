@@ -5,7 +5,11 @@
  */
 import { __ } from '@wordpress/i18n';
 import $ from 'jquery';
-import { __experimentalGrid as Grid,Placeholder, TextControl } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper } from '@wordpress/components';
+const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
+const { InspectorControls } = wp.blockEditor;
+const { PanelBody } = wp.components;
+const { Fragment } = wp.element;
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -40,36 +44,75 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	const instanceId = useInstanceId( TextControl );
 
 	let headerControl = (
-		<SpanControl
+		<TextControl
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
+			className="embedded-input"
 		/>
 	);
 
 	let kickerControl = (
-		<SpanControl
+		<TextControl
 			value={ attributes.kicker }
 			onChange={ ( val ) => setAttributes( { kicker: val } ) }
+			className="embedded-input"
 		/>
 	);
 
 	let subHeaderControl = (
-		<SpanControl
+		<TextControl
 			value={ attributes.subHeader }
 			onChange={ ( val ) => setAttributes( { subHeader: val } ) }
+			className="embedded-input"
 		/>
 	);
 
+	const onSelectMedia = (media) => {
+		setAttributes({
+			mediaId: media.id,
+			mediaUrl: media.url
+		});
+	}
+
+
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
-			<Hero header={headerControl} subHeader={subHeaderControl} kicker={kickerControl} />
+			<Hero header={headerControl} subHeader={subHeaderControl} kicker={kickerControl} heroImage={attributes.mediaUrl} />
+			<Fragment>
+				<InspectorControls>
+					<PanelBody
+						title={__('Select hero image', 'awp')}
+						initialOpen={ false }
+					>
+						<div className="editor-post-featured-image">
+							<MediaUploadCheck>
+								<MediaUpload
+									onSelect={onSelectMedia}
+									value={attributes.mediaId}
+									allowedTypes={ ['image'] }
+									render={({open}) => (
+										<Button
 
+											className={'editor-post-featured-image__toggle'}
+											onClick={open}
+										>
+											{__('Choose an image', 'awp')}
+
+										</Button>
+									)}
+								/>
+							</MediaUploadCheck>
+						</div>
+					</PanelBody>
+				</InspectorControls>
+			</Fragment>
 		</div>
+
 	);
 
 	return (
 		<div {...useBlockProps()}>
-			<Hero header={attributes.header} subHeader={attributes.subHeader} kicker={attributes.kicker} />
+			<Hero header={attributes.header} subHeader={attributes.subHeader} kicker={attributes.kicker} heroImage={attributes.mediaUrl} />
 		</div>
 	);
 

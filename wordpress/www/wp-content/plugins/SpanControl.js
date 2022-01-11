@@ -24,13 +24,9 @@ function SpanControl(
 		/** @type {import('react').ChangeEvent<HTMLInputElement>} */
 		event
 	) => onChange( event.target.innerText );
-
-	$('.pane').on('blur', `#${ id }`, function(e) {
-		onChangeValue(e);
-	});
 	
 	return (
-		<span id={id} contenteditable="true">{value}</span>
+		<input id={id} className="span-input" type="text" value={value} onInput={onChangeValue} />
 	);
 
 }
