@@ -6,15 +6,15 @@ import $ from 'jquery';
 const TabsC = (props) => {
 
   $(document).ready(function () {
-    $('.comp-tabs-content').hide();
-    $('.comp-tabs-content[data-tab-content="0"]').fadeIn();
+    $('.comp-tabs-c .comp-tabs-content').hide();
+    $('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]').fadeIn();
     // Above 2 lines is flexbox hack. Check if theres a better way
     $('.comp-tabs-c .btn.pill').click(function(){
       $('.comp-tabs-c .btn.pill').removeClass('pill-active');
       $(this).addClass('pill-active');
       let tabIndex = $(this).data('tab');
-      $('.comp-tabs-content').hide();
-      $(`.comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
+      $('.comp-tabs-c .comp-tabs-content').hide();
+      $(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
     });
   });
 
