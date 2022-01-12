@@ -92,7 +92,7 @@ const NavBar = ({ siteTitle }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container" style={{ position: 'relative' }}>
-        <Link to="/">{siteTitle}</Link>
+        <a href="/">{siteTitle}</a>
         <button
           className="navbar-toggler"
           type="button"
@@ -117,14 +117,14 @@ const NavBar = ({ siteTitle }) => {
               } else {
                 return (
                   <li className="nav-item">
-                    <Link
+                    <a
                       title={item.title}
                       target={item.target}
                       className={cssClasses}
-                      to={item.path}
+                      href={item.path}
                     >
                       {item.label}
-                    </Link>
+                    </a>
                   </li>
                 )
               }
@@ -138,14 +138,14 @@ const NavBar = ({ siteTitle }) => {
                 : 'nav-link';
               return (
                 <li className="nav-item">
-                  <Link
+                  <a
                     target={item.target}
                     title={item.title}
                     className={cssClasses}
-                    to={item.path}
+                    href={item.path}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               );
             })}

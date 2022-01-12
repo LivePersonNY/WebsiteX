@@ -1,23 +1,22 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import Link from 'gatsby-link';
 import $ from 'jquery'; 
 
-const TabsC = (props) => {
-
-  $(document).ready(function () {
-    $('.comp-tabs-c .comp-tabs-content').hide();
-    $('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]').fadeIn();
-    // Above 2 lines is flexbox hack. Check if theres a better way
-    $('.comp-tabs-c .btn.pill').click(function(){
-      $('.comp-tabs-c .btn.pill').removeClass('pill-active');
-      $(this).addClass('pill-active');
-      let tabIndex = $(this).data('tab');
-      $('.comp-tabs-c .comp-tabs-content').hide();
-      $(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
-    });
+$(document).ready(function () {
+  $('.comp-tabs-c .comp-tabs-content').hide();
+  $('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]').fadeIn();
+  // Above 2 lines is flexbox hack. Check if theres a better way
+  $('.comp-tabs-c .btn.pill').click(function(){
+    $('.comp-tabs-c .btn.pill').removeClass('pill-active');
+    $(this).addClass('pill-active');
+    let tabIndex = $(this).data('tab');
+    $(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
+    $(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
   });
+});
 
+const TabsC = (props) => {
   
     let pillListOutput = props.pillList.map((item ,index)=>{
       return <a className="btn pill" data-tab={index}>{item}</a>
@@ -32,9 +31,9 @@ const TabsC = (props) => {
               <h3>{props.contentHeader[index]}</h3>
               <p>{props.content[index]}</p>
               {props.linkText[index] && (
-                <Link className="btn btn-outline-secondary" href={props.linkUrl[index]}>
+                <a className="btn btn-outline-secondary" href={props.linkUrl[index]}>
                   {props.linkText[index]}
-                </Link>
+                </a>
               )}
             </div>
             <div className="col-lg-6 offset-lg-1">

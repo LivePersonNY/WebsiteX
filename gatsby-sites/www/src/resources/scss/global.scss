@@ -189,3 +189,63 @@ img {
 
 
 }
+
+.comp-tabs-b {
+    .row {
+        position: relative;
+
+        h2 {
+            position: absolute;
+            top: 0;
+        }
+
+        .comp-tabs-list-container {
+            .comp-tab {
+                color: $neutral64;
+                padding: 8px 0;
+                margin: 8px 0;
+                cursor: pointer;
+
+                &.comp-tab-active {
+                    color: $neutral12;
+                    border-bottom: 1px solid $neutral72;
+                }
+            }
+
+
+        }
+
+        .comp-tabs-content-container {
+            position: absolute;
+            max-width: 528px;
+            margin-left: 331px;
+
+            .comp-tabs-content {
+                padding: 40px 20px;
+                border-radius: 8px;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+
+                @include media-breakpoint-up(lg) {
+                    padding: 48px 64px;
+                    width: 528px;
+                }
+
+
+
+                p.h6 {
+                    margin-bottom: 8px;
+                }
+
+                p {
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+
+    .testing {
+        position: absolute;
+        left: -9999999px;
+    }
+
+}

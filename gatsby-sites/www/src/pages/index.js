@@ -121,8 +121,8 @@ const IndexPage = ({ data: { page, setting } }) => (
       heading="Why LivePerson"
       tabList={['Curiously Human AI', 'Data that counts', 'Values that matter']}
       contentKicker={['CURIOUSLY HUMAN AI', 'TWO', 'THREE']}
-      contentHeader={['A branded line of copy or two about product benefit', 'This is two', 'Three']}
-      content={['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.']}
+      contentHeader={['Some branded language about Curiously Human AI', 'This is two', 'Three']}
+      content={['Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.']}
       linkText={['Discover Customer Care', 'Discover Customer Care', 'Discover Customer Care']}
       linkUrl={['#', '#', '#']}
       imgSrc={['https://placekitten.com/752/568', 'https://placekitten.com/752/568', 'https://placekitten.com/752/568']}

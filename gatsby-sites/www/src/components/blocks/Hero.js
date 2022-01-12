@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import Link from 'gatsby-link';
 
 const Hero = (props) => (
   <div className="pane bg-neutral-84">

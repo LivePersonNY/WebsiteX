@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import Link from 'gatsby-link';
 
 const PlainContent = (props) => (
   <>
@@ -11,9 +11,9 @@ const PlainContent = (props) => (
             <h2>{props.heading}</h2>
             <p>{props.content}</p>
             {props.linkText && (
-              <Link className="link link-mt-large" to={props.linkUrl}>
+              <a className="link link-mt-large" href={props.linkUrl}>
                 {props.linkText}
-              </Link>
+              </a>
             )}
           </div>
         </div>
