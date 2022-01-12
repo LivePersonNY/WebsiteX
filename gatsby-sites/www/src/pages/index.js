@@ -12,7 +12,8 @@ import CardGrid from '../components/blocks/CardGrid';
 import CalloutGrid from '../components/blocks/CalloutGrid';
 import Hero from '../components/blocks/Hero';
 import PlainContent from '../components/blocks/PlainContent';
-import Tabs from '../components/blocks/Tabs';
+import TabsC from '../components/blocks/TabsC';
+import TabsB from '../components/blocks/TabsB';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -116,23 +117,30 @@ const IndexPage = ({ data: { page, setting } }) => (
       </div>
     </div>
 
-    <Tabs
+    <TabsB
+      heading="Why LivePerson"
+      tabList={['Curiously Human AI', 'Data that counts', 'Values that matter']}
+      contentKicker={['CURIOUSLY HUMAN AI', 'TWO', 'THREE']}
+      contentHeader={['A branded line of copy or two about product benefit', 'This is two', 'Three']}
+      content={['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.']}
+      linkText={['Discover Customer Care', 'Discover Customer Care', 'Discover Customer Care']}
+      linkUrl={['#', '#', '#']}
+      imgSrc={['https://placekitten.com/752/568', 'https://placekitten.com/752/568', 'https://placekitten.com/752/568']}
+      imgAlt={['test', 'test', 'test']}
+    />
+
+    <TabsC
       heading="A sentence describing the different products and main value
               proposition"
-      pill1="Conversational Cloud"
-      pill2="Voice"
-      pill3="Managed Services"
-      pill4="Bella Health"
-      iconSrc="https://placekitten.com/56/56"
-      iconAlt="test"
-      contentHeader="A branded line of copy or two about product benefit"
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud."
-      linkText="Discover Customer Care"
-      linkUrl="#"
-      imgSrc="https://placekitten.com/640/560"
-      imgAlt="test"
+      pillList={['Conversational Cloud', 'Voice', 'Managed Services', 'Bella Health']}
+      iconSrc={['https://placekitten.com/56/56', 'https://placekitten.com/56/56', 'https://placekitten.com/56/56', 'https://placekitten.com/56/56']}
+      iconAlt={['test', 'test', 'test', 'test']}
+      contentHeader={['A branded line of copy or two about product benefit', 'This is two', 'Three', 'Four']}
+      content={['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.']}
+      linkText={['Discover Customer Care', 'Discover Customer Care', 'Discover Customer Care', 'Discover Customer Care']}
+      linkUrl={['#', '#', '#', '#']}
+      imgSrc={['https://placekitten.com/640/560', 'https://placekitten.com/640/560', 'https://placekitten.com/640/560', 'https://placekitten.com/640/560']}
+      imgAlt={['test', 'test', 'test', 'test']}
     />
 
     <CardGrid

@@ -145,7 +145,7 @@ img {
     }
 }
 
-.comp-tabs {
+.comp-tabs-c {
 
     .pills-container {
         margin: 32px 0;
@@ -159,20 +159,33 @@ img {
         }
     }
 
-    h3 {
-        margin-top: 24px;
+    .comp-tabs-content {
 
-        @include media-breakpoint-up(lg) {
-            margin-top: 32px;
+        h3 {
+            margin-top: 24px;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 32px;
+            }
+        }
+
+        p {
+            margin-top: 8px;
+        }
+
+        .btn-outline-secondary {
+            margin-top: 24px;
         }
     }
 
-    p {
-        margin-top: 8px;
-    }
+    // .container>.comp-tabs-content {
+    //     display: flex;
 
-    .btn-outline-secondary {
-        margin-top: 24px;
-    }
+    //     ~.comp-tabs-content {
+    //         display: none;
+    //     }
+    // }
+
+
 
 }
