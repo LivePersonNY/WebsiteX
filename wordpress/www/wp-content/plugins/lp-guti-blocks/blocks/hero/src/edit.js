@@ -67,14 +67,15 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	const onSelectMedia = (media) => {
 		setAttributes({
 			mediaId: media.id,
-			mediaUrl: media.url
+			mediaUrl: media.url,
+			mediaAlt: media.alt || '',
 		});
 	}
 
 
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
-			<Hero header={headerControl} subHeader={subHeaderControl} kicker={kickerControl} heroImage={attributes.mediaUrl} />
+			<Hero header={headerControl} subHeader={subHeaderControl} kicker={kickerControl} heroImage={attributes.mediaUrl} heroImageAlt={attributes.mediaAlt} />
 			<Fragment>
 				<InspectorControls>
 					<PanelBody
@@ -109,7 +110,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<Hero header={attributes.header} subHeader={attributes.subHeader} kicker={attributes.kicker} heroImage={attributes.mediaUrl} />
+			<Hero header={attributes.header} subHeader={attributes.subHeader} kicker={attributes.kicker} heroImage={attributes.mediaUrl} heroImageAlt={attributes.mediaAlt} />
 		</div>
 	);
 

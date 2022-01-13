@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps } from '@wordpress/block-editor';
-import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks/Hero';
+import LeftRight from '../../../../../../../../gatsby-sites/www/src/components/blocks/LeftRight';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -26,7 +26,7 @@ import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks
 export default function save({attributes}) {
 	return (
 		<div {...useBlockProps.save()}>
-			<Hero header={attributes.header} kicker={attributes.kicker} subHeader={attributes.subHeader} heroImage={attributes.mediaUrl} heroImageAlt={attributes.mediaAlt}/>
+			<LeftRight repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText} content={attributes.text} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
 		</div>
 	);
 }

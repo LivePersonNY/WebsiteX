@@ -1,12 +1,12 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
 	"apiVersion": 2,
-	"name": "lp-guti-blocks/hero",
+	"name": "lp-guti-blocks/left-right",
 	"version": "0.1.0",
-	"title": "Hero",
+	"title": "Text + Image",
 	"category": "liveperson",
-	"icon": "cover-image",
-	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"icon": "align-pull-right",
+	"description": "Simple module with text and image side by side.",
 	"supports": {
 		"html": false
 	},
@@ -15,17 +15,12 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
-		"kicker": {
-			"default": "LIVEPERSON KICKER"
+		"title": {
+			"default": "Valuable Text"
 		},
-		"header": {
-			"default": "Header Text"
+		"text": {
+			"default": "This image is supposed to be of value."
 		},
-		"subHeader": {
-			"default": "Subheading."
-		},
-		"logoWall": {},
-		"heroImage": {},
 		"mediaId": {
 			"default": 0,
 			"type": "number"
@@ -37,6 +32,16 @@
 		"mediaAlt": {
 			"type": "string",
 			"default": ""
-		}
+		},
+		"flipped": {
+			"type": "boolean",
+			"default": false
+		},
+		"repeat": {
+			"type": "boolean",
+			"default": false
+		},
+		"linkText": {"default": "Here's a link text"},
+		"linkUrl": {"default": "https://www.liveperson.com"}
 	}
 }
