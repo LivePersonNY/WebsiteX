@@ -3,19 +3,6 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import $ from 'jquery'; 
 
-// $(document).ready(function () {
-//   $('.comp-tabs-b .comp-tabs-content, .comp-tabs-b .comp-tabs-img').hide();
-//   $('.comp-tabs-b .comp-tabs-content[data-tab-content="0"], .comp-tabs-b .comp-tabs-img[data-tab-content="0"]').fadeIn();
-//   //Above 2 lines is flexbox hack. Check if theres a better way
-//   $('.comp-tabs-b .comp-tabs-list-container h4').click(function(){
-//     $('.comp-tabs-b .comp-tabs-list-container h4').removeClass('comp-tab-active');
-//     $(this).addClass('comp-tab-active');
-//     let tabIndex = $(this).data('tab');
-//     $(`.comp-tabs-b .comp-tabs-content[data-tab-content="${tabIndex}"], .comp-tabs-b .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
-//     $(`.comp-tabs-b .comp-tabs-content:not([data-tab-content="${tabIndex}"]), .comp-tabs-b .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
-//   });
-// });
-
 const TabsA = (props) => {
 
     let tabImgOutput = props.imgSrc.map((item ,index)=>{
@@ -25,14 +12,14 @@ const TabsA = (props) => {
     let tabContent = props.contentHeader.map((item, index)=>{
       return (
         <>
-          <div class="accordion-item">
-            <h4 class="accordion-header" id={`flush-heading${index}`}>
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${index}`} aria-expanded="false" aria-controls={`flush-collapse${index}`}>
+          <div className="accordion-item">
+            <h4 className="accordion-header" id={`flush-heading${index}`}>
+              <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${index}`} aria-expanded="false" aria-controls={`flush-collapse${index}`}>
                 {item}
               </button>
             </h4>
-            <div id={`flush-collapse${index}`} class="accordion-collapse collapse" aria-labelledby={`flush-heading${index}`} data-bs-parent="#tabsAAccordion">
-              <div class="accordion-body">{props.content[index]}</div>
+            <div id={`flush-collapse${index}`} className="accordion-collapse collapse" aria-labelledby={`flush-heading${index}`} data-bs-parent="#tabsAAccordion">
+              <div className="accordion-body">{props.content[index]}</div>
             </div>
           </div>
         </>
@@ -52,7 +39,7 @@ const TabsA = (props) => {
         <div className="row align-items-center">
           <div className="col-lg-4">
             <div className="comp-content-container">
-              <div class="accordion accordion-flush" id="tabsAAccordion">
+              <div className="accordion accordion-flush" id="tabsAAccordion">
                 {tabContent}
               </div>
             </div>

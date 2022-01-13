@@ -18,8 +18,16 @@ import $ from 'jquery';
 
 const TabsC = (props) => {
   
+    let tabClick = function(e) {
+      $('.comp-tabs-c .btn.pill').removeClass('pill-active');
+      $(e.target).addClass('pill-active');
+      let tabIndex = $(e.target).data('tab');
+      $(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
+      $(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
+    }
+  
     let pillListOutput = props.pillList.map((item ,index)=>{
-      return <a className="btn pill" data-tab={index}>{item}</a>
+      return <a onClick={tabClick} className="btn pill" data-tab={index}>{item}</a>
     });
 
     let tabsContent = props.pillList.map((item, index)=>{
