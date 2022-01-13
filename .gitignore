@@ -56,7 +56,8 @@ typings/
 
 # gatsby files
 .cache/
-public
+*/www/public
+*/blog/public
 
 # Mac files
 .DS_Store
@@ -74,3 +75,4 @@ wordpress/wp-content/db.php
 /wordpress/wp-content/database/.ht.sqlite
 /vendor/
 .wordpress-cache
+uploads/

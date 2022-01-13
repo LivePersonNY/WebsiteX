@@ -1,0 +1,13 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\ncd wordpress\/www\/wp-content\/plugins\/lp-guti-blocks\nnpm run build"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\ncd wordpress\/www\/wp-content\/plugins\/lp-guti-blocks\nnpm run start"
+    }
+  },
+  "identifier" : "1C13863C-8E9A-49CE-8498-C12B4426457A"
+}

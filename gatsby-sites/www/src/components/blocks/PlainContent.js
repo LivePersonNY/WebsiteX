@@ -7,9 +7,9 @@ const PlainContent = (props) => (
     <div className="pane bg-primary-light comp-plain-content">
       <div className="container">
         <div className="row align-items-center">
-          <div className={`col-lg-${props.colWidth}`}>
+          <div className={`col-lg-${props.colWidth||12}`}>
             <h2>{props.heading}</h2>
-            <p>{props.content}</p>
+            {props.content && (<p>{props.content}</p>)}
             {props.linkText && (
               <a className="link link-mt-large" href={props.linkUrl}>
                 {props.linkText}

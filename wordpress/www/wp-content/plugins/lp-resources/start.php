@@ -17,8 +17,23 @@ class LP_Resources
 		
 		add_action('graphql_register_types', [$this, 'graphql_fields']);
 		
+		add_filter( 'block_categories_all', [$this, 'block_categories'], 10, 2 );
+		
 	}
 	
+	function block_categories( $block_categories, $editor_context ) {
+		if ( ! empty( $editor_context->post ) ) {
+			array_push(
+				$block_categories,
+				array(
+					'slug'  => 'liveperson',
+					'title' => __( 'LivePerson Modules', 'liveperson' ),
+					'icon'  => 'welcome-widgets-menus',
+				)
+			);
+		}
+		return $block_categories;
+	}
 	
 	public function graphql_fields()
 	{
