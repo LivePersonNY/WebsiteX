@@ -44,11 +44,11 @@ const NavPanel = ({ label, path, children, order, cssClasses }) => {
                       descr = <span className="dropdown-item-content">{item.description}</span>
                     }
                     return (<li>
-                        <Link title={item.title} className="dropdown-item" to={item.path} target={item.target}>
+                        <a title={item.title} className="dropdown-item" href={item.path} target={item.target}>
                           {item.label} {extIcon}
                           <br />
                           {descr}
-                        </Link>
+                        </a>
                       </li>)
                   })}
                 </div>
@@ -62,9 +62,9 @@ const NavPanel = ({ label, path, children, order, cssClasses }) => {
   }
   return (
     <li className="nav-item">
-      <Link className="nav-link" to={path}>
+      <a className="nav-link" href={path}>
         {label}
-      </Link>
+      </a>
     </li>
   );
 };

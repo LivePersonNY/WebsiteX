@@ -28,7 +28,7 @@ const NavPanel = ({ label, path, children }) => {
                 <div className="col-lg-3">
                   <p className="dropdown-section-title">By Need</p>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="12" />
                       Commerce
                       <br />
@@ -36,10 +36,10 @@ const NavPanel = ({ label, path, children }) => {
                         Brief description of commerce benefits across up to two
                         lines
                       </span>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="12" />
                       Customer Care
                       <br />
@@ -47,13 +47,13 @@ const NavPanel = ({ label, path, children }) => {
                         Brief description of commerce benefits across up to two
                         lines
                       </span>
-                    </Link>
+                    </a>
                   </li>
                 </div>
                 <div className="col-lg-3">
                   <p className="dropdown-section-title">By Industry</p>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="12" />
                       Healthcare
                       <br />
@@ -61,10 +61,10 @@ const NavPanel = ({ label, path, children }) => {
                         Brief description of commerce benefits across up to two
                         lines
                       </span>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="12" />
                       Automotive
                       <br />
@@ -72,10 +72,10 @@ const NavPanel = ({ label, path, children }) => {
                         Brief description of commerce benefits across up to two
                         lines
                       </span>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="12" />
                       Customer Care
                       <br />
@@ -83,13 +83,13 @@ const NavPanel = ({ label, path, children }) => {
                         Brief description of commerce benefits across up to two
                         lines
                       </span>
-                    </Link>
+                    </a>
                   </li>
                 </div>
                 <div className="col-lg-3">
                   <p className="dropdown-section-title">&nbsp;</p>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="12" />
                       Financial Services
                       <br />
@@ -97,10 +97,10 @@ const NavPanel = ({ label, path, children }) => {
                         Brief description of commerce benefits across up to two
                         lines
                       </span>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="12" />
                       Retail
                       <br />
@@ -108,10 +108,10 @@ const NavPanel = ({ label, path, children }) => {
                         Brief description of commerce benefits across up to two
                         lines
                       </span>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="12" />
                       Travel/Hospitality
                       <br />
@@ -119,13 +119,13 @@ const NavPanel = ({ label, path, children }) => {
                         Brief description of commerce benefits across up to two
                         lines
                       </span>
-                    </Link>
+                    </a>
                   </li>
                 </div>
                 <div className="col-lg-3 dropdown-section-gray">
                   <p className="dropdown-section-title">Products</p>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="56" />
                       <div>
                         Conversational Cloud
@@ -135,10 +135,10 @@ const NavPanel = ({ label, path, children }) => {
                           two lines
                         </span>
                       </div>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="56" />
                       <div>
                         Voice
@@ -148,10 +148,10 @@ const NavPanel = ({ label, path, children }) => {
                           two lines
                         </span>
                       </div>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="56" />
                       <div>
                         Managed Services
@@ -161,10 +161,10 @@ const NavPanel = ({ label, path, children }) => {
                           two lines
                         </span>
                       </div>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="56" />
                       <div>
                         Bella Health
@@ -174,12 +174,12 @@ const NavPanel = ({ label, path, children }) => {
                           two lines
                         </span>
                       </div>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item dropdown-link-blue" href="#">
+                    <a className="dropdown-item dropdown-link-blue" href="#">
                       See Pricing & Packages
-                    </Link>
+                    </a>
                   </li>
                 </div>
               </div>
@@ -207,40 +207,40 @@ const NavPanel = ({ label, path, children }) => {
               <div className="row">
                 <div className="col-lg-5">
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Developer Center <TempIcon iconSize="12" />
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Knowledge Center <TempIcon iconSize="12" />
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Security
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Blog
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Events
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Customer Case Studies
-                    </Link>
+                    </a>
                   </li>
                 </div>
                 <div className="col-lg-7 dropdown-section-gray">
                   <p className="dropdown-section-title">Featured Resource</p>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="150" />
                       <div>
                         <span className="dropdown-featured-title">
@@ -256,7 +256,7 @@ const NavPanel = ({ label, path, children }) => {
                           </span>
                         </span>
                       </div>
-                    </Link>
+                    </a>
                   </li>
                 </div>
               </div>
@@ -284,32 +284,32 @@ const NavPanel = ({ label, path, children }) => {
               <div className="row">
                 <div className="col-lg-12">
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Customer Success
                       <br />
                       <span className="dropdown-item-content">
                         Brief description of commerce benefits across up to two
                         lines
                       </span>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Professional Services <br />
                       <span className="dropdown-item-content">
                         Brief description of commerce benefits across up to two
                         lines
                       </span>
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Technical Support <br />
                       <span className="dropdown-item-content">
                         Brief description of commerce benefits across up to two
                         lines
                       </span>
-                    </Link>
+                    </a>
                   </li>
                 </div>
               </div>
@@ -337,24 +337,24 @@ const NavPanel = ({ label, path, children }) => {
               <div className="row">
                 <div className="col-lg-6">
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="220" />
                       What is Conversational AI <br />
                       <span className="dropdown-item-content">
                         Brief description of Conversational AI goes right here
                       </span>
-                    </Link>
+                    </a>
                   </li>
                 </div>
                 <div className="col-lg-6">
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="220" />
                       What is Conversational AI <br />
                       <span className="dropdown-item-content">
                         Brief description of Conversational AI goes right here
                       </span>
-                    </Link>
+                    </a>
                   </li>
                 </div>
               </div>
@@ -382,40 +382,40 @@ const NavPanel = ({ label, path, children }) => {
               <div className="row">
                 <div className="col-lg-5">
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Our Values
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       News
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Partners
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Leadership
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Investor Relations <TempIcon iconSize="12" />
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Careers{' '}
-                    </Link>
+                    </a>
                   </li>
                 </div>
                 <div className="col-lg-7 dropdown-section-gray">
                   <p className="dropdown-section-title">Featured News</p>
                   <li>
-                    <Link className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       <TempIcon iconSize="150" />
                       <div>
                         <span className="dropdown-featured-title">Article</span>
@@ -429,7 +429,7 @@ const NavPanel = ({ label, path, children }) => {
                           </span>
                         </span>
                       </div>
-                    </Link>
+                    </a>
                   </li>
                 </div>
               </div>
@@ -448,13 +448,13 @@ const NavPanel = ({ label, path, children }) => {
          <ul className="dropdown-menu">
            {children.map((item, index) => (
              <li>
-               <Link
+               <a
                  className="dropdown-item"
-                 to={item.path}
+                 href={item.path}
                  target={item.target}
                >
                  {item.label}
-               </Link>
+               </a>
              </li>
            ))}
          </ul>
@@ -464,9 +464,9 @@ const NavPanel = ({ label, path, children }) => {
   }
   return (
     <li className="nav-item">
-      <Link className="nav-link" to={path}>
+      <a className="nav-link" href={path}>
         {label}
-      </Link>
+      </a>
     </li>
   );
 };

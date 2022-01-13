@@ -14,6 +14,7 @@ import Hero from '../components/blocks/Hero';
 import PlainContent from '../components/blocks/PlainContent';
 import TabsC from '../components/blocks/TabsC';
 import TabsB from '../components/blocks/TabsB';
+import TabsA from '../components/blocks/TabsA';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -117,12 +118,20 @@ const IndexPage = ({ data: { page, setting } }) => (
       </div>
     </div>
 
+    <TabsA
+      heading="How LivePerson can benefit your customers"
+      contentHeader={['Ennhance the customer journey', 'Understand customer sentiment', 'Connect with your customers', 'Another benefit goes here']}
+      content={['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices.',]}
+      imgSrc={['https://placekitten.com/752/568', 'https://placekitten.com/752/568', 'https://placekitten.com/752/568']}
+      imgAlt={['test', 'test', 'test']}
+    />
+
     <TabsB
       heading="Why LivePerson"
       tabList={['Curiously Human AI', 'Data that counts', 'Values that matter']}
       contentKicker={['CURIOUSLY HUMAN AI', 'TWO', 'THREE']}
-      contentHeader={['A branded line of copy or two about product benefit', 'This is two', 'Three']}
-      content={['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.']}
+      contentHeader={['Some branded language about Curiously Human AI', 'This is two', 'Three']}
+      content={['Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.']}
       linkText={['Discover Customer Care', 'Discover Customer Care', 'Discover Customer Care']}
       linkUrl={['#', '#', '#']}
       imgSrc={['https://placekitten.com/752/568', 'https://placekitten.com/752/568', 'https://placekitten.com/752/568']}

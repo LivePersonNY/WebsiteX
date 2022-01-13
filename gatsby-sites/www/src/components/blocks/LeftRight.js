@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import Link from 'gatsby-link';
 
 const LeftRight = (props) => {
   let repeat;
@@ -28,9 +28,9 @@ const LeftRight = (props) => {
               <h2>{props.title}</h2>
               <p>{props.content}</p>
               {props.linkText && (
-                <Link className="link link-mt-small" to={props.linkUrl}>
+                <a className="link link-mt-small" href={props.linkUrl}>
                   {props.linkText}
-                </Link>
+                </a>
               )}
             </div>
           </div>

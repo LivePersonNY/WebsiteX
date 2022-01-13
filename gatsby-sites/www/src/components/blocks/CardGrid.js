@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import Link from 'gatsby-link';
 
 const CardGrid = (props) => {
   let repeat;
@@ -28,9 +28,9 @@ const CardGrid = (props) => {
                   <p className="card-text quote1">{props.card1Content}</p>
                 </div>
                 <div className="card-footer">
-                  <Link to={props.card1LinkUrl} className="card-link link">
+                  <a href={props.card1LinkUrl} className="card-link link">
                     {props.card1linkText}
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -45,9 +45,9 @@ const CardGrid = (props) => {
                   <p className="card-text quote1">{props.card2Content}</p>
                 </div>
                 <div className="card-footer">
-                  <Link to={props.card2LinkUrl} className="card-link link">
+                  <a href={props.card2LinkUrl} className="card-link link">
                     {props.card2linkText}
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -62,9 +62,9 @@ const CardGrid = (props) => {
                   <p className="card-text quote1">{props.card3Content}</p>
                 </div>
                 <div className="card-footer">
-                  <Link to={props.card3LinkUrl} className="card-link link">
+                  <a href={props.card3LinkUrl} className="card-link link">
                     {props.card3linkText}
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
