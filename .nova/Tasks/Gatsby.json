@@ -1,0 +1,9 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\ncomposer www"
+    }
+  },
+  "identifier" : "F0111BB8-AD47-4E29-A047-049C119E2DA8"
+}
