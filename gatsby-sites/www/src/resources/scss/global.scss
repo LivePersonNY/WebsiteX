@@ -211,8 +211,6 @@ img {
                     border-bottom: 1px solid $neutral72;
                 }
             }
-
-
         }
 
         .comp-tabs-content-container {
@@ -230,8 +228,6 @@ img {
                     width: 528px;
                 }
 
-
-
                 p.h6 {
                     margin-bottom: 8px;
                 }
@@ -243,9 +239,22 @@ img {
         }
     }
 
-    .testing {
-        position: absolute;
-        left: -9999999px;
-    }
+}
 
+.comp-tabs-a {
+    .comp-content-container {
+        .accordion-item {
+            background: none;
+            border: 0;
+            padding: 20px 0 20px 20px;
+            border-left: 2px solid $neutral88;
+
+            button {
+                background: none;
+                border: 0;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
 }
