@@ -213,11 +213,6 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query HomepageId {
-    setting: wp {
-      allSettings {
-        ipAddress
-      }
-    }
     page: wpPage(isFrontPage: { eq: true }) {
       id
       content
