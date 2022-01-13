@@ -67,6 +67,12 @@ define( 'SECURE_AUTH_SALT', WP_SALT_KEY );
 define( 'LOGGED_IN_SALT',   WP_SALT_KEY );
 define( 'NONCE_SALT',       WP_SALT_KEY );
 
+define( 'AS3CF_SETTINGS', serialize([
+    'provider' => 'aws',
+    'access-key-id' => $_ENV['STORAGE_KEY_ID'] ?? '',
+    'secret-access-key' => $_ENV['STORAGE_KEY_SECRET'] ?? ''
+]) );
+
 /**#@-*/
 
 /**

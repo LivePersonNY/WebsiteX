@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import $ from 'jquery'; 
 
-$(document).ready(function () {
+/*$(document).ready(function () {
   $('.comp-tabs-b .comp-tabs-content, .comp-tabs-b .comp-tabs-img').hide();
   $('.comp-tabs-b .comp-tabs-content[data-tab-content="0"], .comp-tabs-b .comp-tabs-img[data-tab-content="0"]').fadeIn();
   //Above 2 lines is flexbox hack. Check if theres a better way
@@ -14,17 +14,27 @@ $(document).ready(function () {
     $(`.comp-tabs-b .comp-tabs-content[data-tab-content="${tabIndex}"], .comp-tabs-b .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
     $(`.comp-tabs-b .comp-tabs-content:not([data-tab-content="${tabIndex}"]), .comp-tabs-b .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
   });
-});
+});*/
 
 const TabsB = (props) => {
   
+    let tabClick = function(e) {
+      $('.comp-tabs-b .comp-tabs-list-container h4').removeClass('comp-tab-active');
+      $(e.target).addClass('comp-tab-active');
+      let tabIndex = $(e.target).data('tab');
+      $(`.comp-tabs-b .comp-tabs-content[data-tab-content="${tabIndex}"], .comp-tabs-b .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
+      $(`.comp-tabs-b .comp-tabs-content:not([data-tab-content="${tabIndex}"]), .comp-tabs-b .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
+    };
+  
     let tabListOutput = props.tabList.map((item ,index)=>{
-      return <h4 className="comp-tab" data-tab={index}>{item}</h4>
+      return <h4 onClick={tabClick} className="comp-tab" data-tab={index}>{item}</h4>
     });
 
     let tabImgOutput = props.imgSrc.map((item ,index)=>{
       return <img className="comp-tabs-img" src={item} data-tab-content={index} alt={props.imgAlt[index]}/>
     });
+    
+    
 
     let tabContent = props.contentKicker.map((item, index)=>{
       return (

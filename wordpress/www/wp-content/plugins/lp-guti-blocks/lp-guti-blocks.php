@@ -24,5 +24,6 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/plain-content/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/hero/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/statsgrid/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/left-right/' );
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
