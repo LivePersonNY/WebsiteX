@@ -3,20 +3,12 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import $ from 'jquery'; 
 
-/*$(document).ready(function () {
-  $('.comp-tabs-c .comp-tabs-content').hide();
-  $('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]').fadeIn();
-  // Above 2 lines is flexbox hack. Check if theres a better way
-  $('.comp-tabs-c .btn.pill').click(function(){
-    $('.comp-tabs-c .btn.pill').removeClass('pill-active');
-    $(this).addClass('pill-active');
-    let tabIndex = $(this).data('tab');
-    $(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
-    $(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
-  });
-});*/
-
 const TabsC = (props) => {
+
+    let tabLoad = function(){
+      $('.comp-tabs-c .comp-tabs-content').hide();
+      $('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]').fadeIn();
+    }
   
     let tabClick = function(e) {
       $('.comp-tabs-c .btn.pill').removeClass('pill-active');
@@ -33,7 +25,7 @@ const TabsC = (props) => {
     let tabsContent = props.pillList.map((item, index)=>{
       return (
         <>
-          <div className="row bg-primary-light align-items-center comp-tabs-content" data-tab-content={index}>
+          <div className={`row bg-primary-light align-items-center comp-tabs-content `} data-tab-content={index}>
             <div className="col-lg-4 offset-lg-1">
               <img src={props.iconSrc[index]} alt={props.iconAlt[index]} />
               <h3>{props.contentHeader[index]}</h3>
@@ -54,7 +46,7 @@ const TabsC = (props) => {
 
   return (
   <>
-    <div className="pane bg-neutral-92 comp-tabs-c">
+    <div className="pane bg-neutral-92 comp-tabs-c" onLoad={tabLoad}>
       <div className="container">
         <div className="row">
           <div className="col-lg-8 offset-lg-2">
