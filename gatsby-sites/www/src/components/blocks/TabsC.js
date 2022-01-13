@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import $ from 'jquery'; 
 
-$(document).ready(function () {
+/*$(document).ready(function () {
   $('.comp-tabs-c .comp-tabs-content').hide();
   $('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]').fadeIn();
   // Above 2 lines is flexbox hack. Check if theres a better way
@@ -14,12 +14,20 @@ $(document).ready(function () {
     $(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
     $(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
   });
-});
+});*/
 
 const TabsC = (props) => {
   
+    let tabClick = function(e) {
+      $('.comp-tabs-c .btn.pill').removeClass('pill-active');
+      $(e.target).addClass('pill-active');
+      let tabIndex = $(e.target).data('tab');
+      $(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
+      $(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
+    }
+  
     let pillListOutput = props.pillList.map((item ,index)=>{
-      return <a className="btn pill" data-tab={index}>{item}</a>
+      return <a onClick={tabClick} className="btn pill" data-tab={index}>{item}</a>
     });
 
     let tabsContent = props.pillList.map((item, index)=>{
