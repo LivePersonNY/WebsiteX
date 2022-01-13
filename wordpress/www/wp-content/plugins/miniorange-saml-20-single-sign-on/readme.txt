@@ -5,7 +5,7 @@ Tags: SAML,WordPress SSO, login, Azure AD, Single sign on
 Requires at least: 3.7
 Tested up to: 5.8
 Requires PHP: 5.4
-Stable tag: 4.9.12
+Stable tag: 4.9.14
 License: MIT/Expat
 License URI: https://docs.miniorange.com/mit-license
 
@@ -68,19 +68,21 @@ WordPress Single Sign on also allows you to manage login and achieve Single Sign
 miniOrange WordPress Single Sign on(SAML SSO) Plugin acts as a SAML 2.0 Service Provider which can be configured to establish the trust between the plugin and a SAML 2.0 capable Identity Providers to securely authenticate the user to the Wordpress (WP) site. This allows your users to securely login to the WordPress(WP) site.
 WordPress Multi-Site Environment and ability to configure Multiple SAML IDPs against wordpress as SAML service provider is also supported in premium Wordpress SAML SP Single Sign On SSO plugin.
 
-WordPress SAML Single Sign On ( SSO ) supports all kinds of SSO use cases such as Azure login into WordPress, Azure AD login into WordPress, Azure AD SSO(Azure AD Single Sign-On), Login with Azure AD, Login using Azure AD, Login with Office 365, Office 365 login, Office 365 Single Sign On SSO, Login using Office 365, Login with Azure B2C, Azure B2C login, ADFS login into WordPress, Login with ADFS, Okta login, OneLogin SSO, Salesforce login, Login using Salesforce, Google Apps login, Google Apps Single Sign On SSO, Login with Google Apps, Login using Google Apps, Login using Gsuite, Gsuite login into WordPress, Keycloak login, Keycloak SSO, Auth0 login, Shibboleth login, Login with Shibboleth, Login using Shibboleth, Login with Ping, PingFederate login, Ping Federate SSO, ClassLink SSO, FusionAuth SSO, Absorb LMS SSO etc allowing your users to securely login to the WordPress site. 
+WordPress SAML Single Sign On ( SSO ) supports all kinds of SSO use cases such as Azure login into WordPress, Azure AD login into WordPress, Azure AD SSO(Azure AD Single Sign-On), Login with Azure AD, Login using Azure AD, Login with Office 365, Office 365 login, Office 365 Single Sign On SSO, Login using Office 365, Login with Azure B2C, Azure B2C login, Login with Azure AD B2C, Azure AD B2C login, ADFS login into WordPress, Login with ADFS, Okta login, OneLogin SSO, Salesforce login, Login using Salesforce, Google Apps login, Google Apps Single Sign On SSO, Login with Google Apps, Login using Google Apps, Login using Gsuite, Gsuite login into WordPress, Keycloak login, Keycloak SSO, Auth0 login, Shibboleth login, Login with Shibboleth, Login using Shibboleth, Login with Ping, PingFederate login, Ping Federate SSO, ClassLink SSO, FusionAuth SSO, Absorb LMS SSO etc allowing your users to securely login to the WordPress site. 
 
 WordPress SAML Single Sign On ( SSO ) provides Anonymous Login(Guest User Login) for your WordPress (WP) site so that your users can login to the WordPress site using the IdP credentials without creating the users in the site. 
 
 = WORDPRESS SINGLE SIGN-ON ( SSO ) USE-CASES: =
 
 **Azure SSO**
-The WordPress SAML Single Sign On ( SSO ) plugin supports Azure SSO use cases such as AzureAD SSO(Azure AD Single Sign-On), Azure B2C SSO, Azure B2C login, Azure login into WordPress, Login with Azure AD, Login using Azure AD, Office 365 SSO(Office 365 Single Sign On SSO), Login with Office 365, Login using Office 365, Office 365 Login, Login with Azure B2C, PowerBI SSO, etc.
+The WordPress SAML Single Sign On ( SSO ) plugin supports Azure SSO use cases such as AzureAD SSO(Azure AD Single Sign-On), Azure B2C SSO, Azure B2C login, Azure login into WordPress, Login with Azure AD, Login using Azure AD, Office 365 SSO(Office 365 Single Sign On SSO), Login with Office 365, Login using Office 365, Office 365 Login, Login with Azure B2C, Login with Azure AD B2C, Azure AD B2C login, PowerBI SSO, etc.
 You can also enable WordPress Single Sign-On( SSO ) with multiple Azure tenants using our Azure multi-tenant add-on (Available with the All-Inclusive license of WordPress Single Sign On (SAML SSO) plugin). Using this you can allow users in multiple Azure tenant or Office 365 tenant to login to your WordPress site. 
 
 Azure AD Login / Azure AD SSO(Azure AD Single Sign-On) / Azure login allows your users to authenticate with their Azure Active Directory credentials on the Microsoft login page in order to log into the WordPress site.
-We provide deep integration between WordPress Single Sign On ( SSO ) and Azure AD Login in which you can also map the users' information such as givenname, surname, email, groups, etc from your Azure AD to the WordPress site. This allows your users to securely achieve Login with Azure AD / Login using Azure AD / Azure AD SSO / Azure login / Login with Azure B2C for you WordPress site.  
+We provide deep integration between WordPress Single Sign On ( SSO ) and Azure AD Login in which you can also map the users' information such as givenname, surname, email, groups, etc from your Azure AD to the WordPress site. This allows your users to securely achieve Login with Azure AD / Login using Azure AD / Azure AD SSO / Azure login / Login with Azure B2C / Login with Azure AD B2C / Azure AD B2C login for you WordPress site.  
 This also allows your Office 365 users to achieve WordPress Single Sign On(Login with office 365 credentials / Office 365 Login / Login using Office 365) by authenticating via their Office 365 credentials. Our WordPress SSO plugin allows you to map user information from Office 365 to your WordPress site in order to seamlessly achieve Office 365 Login / login with office 365 credentials / Office 365 SSO / Login using Office 365.
+
+We provide support for SSO with Azure AD Multi-tenants, Azure AD B2B Login as well as Azure AD B2C login.
 
 The WordPress SAML Single Sign On SSO plugin allows your users present in any of the Azure AD tenant to login to the WordPress site. Multi-tenancy for Azure AD can be seamlessly achieved using our Azure AD multi-tenant SSO add-on. This allows Single Sign-On( SSO ) with multiple Azure AD tenants in your WordPress site.
 
@@ -133,7 +135,7 @@ If you require any Single Sign On ( SSO ) application or need any help with inst
 
 The plugin is compatible with all kinds of enterprise WordPress SAML Single Sign On SSO use cases where the users existing in Azure AD, Azure AD B2C, ADFS, Keycloak, GSuite / Google Apps, Okta, Salesforce, Office 365, Shibboleth, or any SAML compliant Identity Provider can securely login to the WordPress site by authenticating via the IDP that is configured in the plugin.
 
-That means the WordPress Single Sign On ( SSO ) can be used to achieve Azure login into WordPress, Azure AD login, Azure AD SSO(Azure AD Single Sign-On), Login with Azure AD, Login using Azure AD, Office 365 login, Office 365 Single Sign On, Login using Office 365, Login with Office 365, Login with Azure B2C, ADFS login, Login with ADFS, Okta login, OneLogin SSO, Salesforce login, Login using Salesforce, Google Apps login, Google Apps Single Sign On, Login with Google Apps, Login using Google Apps, Login using Gsuite, Gsuite login into WordPress, Keycloak login, Keycloak SSO, Auth0 login, Shibboleth login, Login with Shibboleth, Login using Shibboleth, Login with Ping, PingFederate login, Ping Federate SSO, ClassLink SSO, FusionAuth SSO, Absorb LMS SSO etc on your WordPress(WP) site using SAML SSO.
+That means the WordPress Single Sign On ( SSO ) can be used to achieve Azure login into WordPress, Azure AD login, Azure AD SSO(Azure AD Single Sign-On), Login with Azure AD, Login using Azure AD, Office 365 login, Office 365 Single Sign On, Login using Office 365, Login with Office 365, Login with Azure B2C, Login with Azure AD B2C, ADFS login, Login with ADFS, Okta login, OneLogin SSO, Salesforce login, Login using Salesforce, Google Apps login, Google Apps Single Sign On, Login with Google Apps, Login using Google Apps, Login using Gsuite, Gsuite login into WordPress, Keycloak login, Keycloak SSO, Auth0 login, Shibboleth login, Login with Shibboleth, Login using Shibboleth, Login with Ping, PingFederate login, Ping Federate SSO, ClassLink SSO, FusionAuth SSO, Absorb LMS SSO etc on your WordPress(WP) site using SAML SSO.
 
 The plugin can also support WordPress Single Sign On ( SSO ) with any Identity Provider including OAuth, OpenID Connect, Active Directory, database using miniOrange IDP allowing your users to login to the WordPress(WP) site via authenticating with their user store.
 
@@ -253,6 +255,13 @@ Visit Help & FAQ section in the plugin OR email us at <a href="mailto:info@xecur
 
 == Changelog ==
 
+= 4.9.14 =
+* Removed end of year sale
+* Readme updates
+
+= 4.9.13 =
+* License Banner fixes
+
 = 4.9.12 =
 * Added discounted pricing for WordPress SSO plans
 
@@ -305,6 +314,13 @@ Visit Help & FAQ section in the plugin OR email us at <a href="mailto:info@xecur
 For older changelog entries, please see the [additional changelog.txt file](https://plugins.svn.wordpress.org/miniorange-saml-20-single-sign-on/trunk/changelog.txt) provided with the plugin.
 
 == Upgrade Notice ==
+
+= 4.9.14 =
+* Removed end of year sale
+* Readme updates
+
+= 4.9.13 =
+* License Banner fixes
 
 = 4.9.12 =
 * Added discounted pricing for WordPress SSO plans
