@@ -4726,6 +4726,15 @@ __webpack_require__.r(__webpack_exports__);
 const marketoScriptId = 'mktoForms';
 
 const MktoForm = props => {
+  let mktoFormMobile = function (e) {
+    // $('body').toggleClass('locked');
+    // $('.form--sticky').toggleClass('swapPosition');
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.form--sticky .container').slideToggle(300);
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()(this).parents('.flip-card').toggleClass('mobile-expanded');
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.span1').toggleClass('swap');
+    jquery__WEBPACK_IMPORTED_MODULE_5___default()('.span2').toggleClass('swap');
+  };
+
   let formId = props.formId;
   let mktoFormScript = `
       window.MktoForms2.loadForm(
@@ -4786,8 +4795,8 @@ const MktoForm = props => {
     };
   }
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "pane pane-form form--horizontal form--sticky",
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "pane pane-form form--sticky",
     style: {
       display: 'none'
     }
@@ -4798,7 +4807,8 @@ const MktoForm = props => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "col-lg-12"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    className: "mobileForm"
+    className: "mobileForm",
+    onClick: mktoFormMobile
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "span1"
   }, "Request demo"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
@@ -4830,7 +4840,7 @@ const MktoForm = props => {
     d: "m29.483 0.51724l-29.26 29.26"
   }))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
     id: `mktoForm_${formId}`
-  }), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", null, mktoFormScript))))));
+  }), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", null, mktoFormScript)))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MktoForm);
@@ -5260,8 +5270,7 @@ function Edit(_ref) {
   const onSelectMedia = media => {
     setAttributes({
       mediaId: media.id,
-      mediaUrl: media.url,
-      mediaAlt: media.alt || ''
+      mediaUrl: media.url
     });
   };
 
@@ -5269,8 +5278,7 @@ function Edit(_ref) {
     header: headerControl,
     subHeader: subHeaderControl,
     kicker: kickerControl,
-    heroImage: attributes.mediaUrl,
-    heroImageAlt: attributes.mediaAlt
+    heroImage: attributes.mediaUrl
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select hero image', 'awp'),
     initialOpen: false
@@ -5294,8 +5302,7 @@ function Edit(_ref) {
     header: attributes.header,
     subHeader: attributes.subHeader,
     kicker: attributes.kicker,
-    heroImage: attributes.mediaUrl,
-    heroImageAlt: attributes.mediaAlt
+    heroImage: attributes.mediaUrl
   }));
 }
 
@@ -5404,13 +5411,12 @@ function save(_ref) {
   let {
     attributes
   } = _ref;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_Hero__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_Hero__WEBPACK_IMPORTED_MODULE_3__["default"], {
     header: attributes.header,
     kicker: attributes.kicker,
     subHeader: attributes.subHeader,
-    heroImage: attributes.mediaUrl,
-    heroImageAlt: attributes.mediaAlt
-  }));
+    heroImage: attributes.mediaUrl
+  });
 }
 
 /***/ }),
