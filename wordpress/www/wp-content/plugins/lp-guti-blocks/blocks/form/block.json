@@ -1,9 +1,9 @@
 {
 	"$schema": "https://json.schemastore.org/block.json",
 	"apiVersion": 2,
-	"name": "lp-guti-blocks/form",
+	"name": "lp-guti-blocks/mkto-form",
 	"version": "0.1.0",
-	"title": "Form",
+	"title": "Marketo Form",
 	"category": "liveperson",
 	"icon": "feedback",
 	"description": "Insert stand-alone marketo form block.",
@@ -15,9 +15,9 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
-		"form_id": {
+		"mktoFormId": {
 			"default": 2580,
 			"type": "number"
-		},
+		}
 	}
 }
