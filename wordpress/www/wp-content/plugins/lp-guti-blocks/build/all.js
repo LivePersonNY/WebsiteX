@@ -5270,7 +5270,8 @@ function Edit(_ref) {
   const onSelectMedia = media => {
     setAttributes({
       mediaId: media.id,
-      mediaUrl: media.url
+      mediaUrl: media.url,
+      mediaAlt: media.alt || ''
     });
   };
 
@@ -5278,7 +5279,8 @@ function Edit(_ref) {
     header: headerControl,
     subHeader: subHeaderControl,
     kicker: kickerControl,
-    heroImage: attributes.mediaUrl
+    heroImage: attributes.mediaUrl,
+    heroImageAlt: attributes.mediaAlt
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select hero image', 'awp'),
     initialOpen: false
@@ -5302,7 +5304,8 @@ function Edit(_ref) {
     header: attributes.header,
     subHeader: attributes.subHeader,
     kicker: attributes.kicker,
-    heroImage: attributes.mediaUrl
+    heroImage: attributes.mediaUrl,
+    heroImageAlt: attributes.mediaAlt
   }));
 }
 
