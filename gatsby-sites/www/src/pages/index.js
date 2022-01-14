@@ -157,21 +157,11 @@ const IndexPage = ({ data: { page, setting } }) => (
 
     <CardGrid
       heading="Headline about our customers"
-      img1Src="https://placekitten.com/224/30"
-      img1Alt="Alt text"
-      card1Content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor"
-      card1LinkUrl="#"
-      card1LinkText="Read Customer Story"
-      img2Src="https://placekitten.com/224/30"
-      img2Alt="Alt text"
-      card2Content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor"
-      card2LinkUrl="#"
-      card2LinkText="Read Customer Story"
-      img3Src="https://placekitten.com/224/30"
-      img3Alt="Alt text"
-      card3Content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor sed do eiusmod tempor incididunt ut labor"
-      card3LinkUrl="#"
-      card3LinkText="Read Customer Story"
+      imgSrc={['https://placekitten.com/224/30', 'https://placekitten.com/224/30', 'https://placekitten.com/224/30']}
+      imgAlt={['Alt text', 'Alt text', 'Alt text']}
+      cardContent={['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor']}
+      cardLinkUrl={['#', '#', '#' ]}
+      cardLinkText={['Read Customer Story', 'Read Customer Story', 'Read Customer Story']}
     />
 
     <LeftRight
@@ -209,6 +199,9 @@ const IndexPage = ({ data: { page, setting } }) => (
       callout3Author="By Name Lastname"
       callout3LinkUrl="#"
     />
+
+
+
   </Layout>
 );
 

@@ -50,11 +50,11 @@ const TabsB = (props) => {
               {tabListOutput}
             </div>
           </div>
-          <div className="col-lg-7 offset-lg-1">
-            {tabImgOutput}
-          </div>
           <div className="col-lg-5 comp-tabs-content-container">
             {tabContent}
+          </div>
+          <div className="col-lg-7 offset-lg-1 comp-tabs-img-container">
+            {tabImgOutput}
           </div>
         </div>
       </div>
