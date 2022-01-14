@@ -19,13 +19,13 @@ const TabsC = (props) => {
     }
   
     let pillListOutput = props.pillList.map((item ,index)=>{
-      return <a onClick={tabClick} className="btn pill" data-tab={index}>{item}</a>
+      return <a onClick={tabClick} className="btn pill" data-tab={index} key={index}>{item}</a>
     });
 
     let tabsContent = props.pillList.map((item, index)=>{
       return (
-        <>
-          <div className={`row bg-primary-light align-items-center comp-tabs-content `} data-tab-content={index}>
+ 
+          <div className={`row bg-primary-light align-items-center comp-tabs-content `} data-tab-content={index} key={index}>
             <div className="col-lg-4 offset-lg-1">
               <img src={props.iconSrc[index]} alt={props.iconAlt[index]} />
               <h3>{props.contentHeader[index]}</h3>
@@ -40,7 +40,7 @@ const TabsC = (props) => {
               <img src={props.imgSrc[index]} alt={props.imgAlt[index]} />
             </div>
           </div>
-        </>)
+      )
     });
    
 

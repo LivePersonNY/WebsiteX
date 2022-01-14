@@ -14,17 +14,17 @@ const TabsB = (props) => {
     };
   
     let tabListOutput = props.tabList.map((item ,index)=>{
-      return <h4 onClick={tabClick} className={`comp-tab ${index === 0 ? 'comp-tab-active' : ''}`} data-tab={index}>{item}</h4>
+      return <h4 onClick={tabClick} className={`comp-tab ${index === 0 ? 'comp-tab-active' : ''}`} data-tab={index} key={index}>{item}</h4>
     });
 
     let tabImgOutput = props.imgSrc.map((item ,index)=>{
-      return <img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={item} data-tab-content={index} alt={props.imgAlt[index]}/>
+      return <img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={item} data-tab-content={index} alt={props.imgAlt[index]} key={index}/>
     });
 
     let tabContent = props.contentKicker.map((item, index)=>{
       return (
-        <>
-          <div className={`bg-primary-light comp-tabs-content ${index !== 0 ? 'display-none' : ''}`} data-tab-content={index}>
+    
+          <div className={`bg-primary-light comp-tabs-content ${index !== 0 ? 'display-none' : ''}`} data-tab-content={index} key={index}>
             <p className="h6">{item}</p>
             <h4>{props.contentHeader[index]}</h4>
             <p>{props.content[index]}</p>
@@ -34,7 +34,7 @@ const TabsB = (props) => {
               </a>
             )}
           </div>
-        </>
+     
       )
     });
    

@@ -14,13 +14,12 @@ const TabsA = (props) => {
     };
 
     let tabImgOutput = props.imgSrc.map((item ,index)=>{
-      return <img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={item} data-tab-content={index} alt={props.imgAlt[index]}/>
+      return <img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={item} data-tab-content={index} alt={props.imgAlt[index]} key={index}/>
     });
 
     let tabContent = props.contentHeader.map((item, index)=>{
       return (
-        <>
-          <div className={`accordion-item ${index === 0 ? 'accordion-item-active' : ''}`}>
+          <div className={`accordion-item ${index === 0 ? 'accordion-item-active' : ''}`} key={index}>
             <h4 className="accordion-header" id={`flush-heading${index}`}>
               <button className="collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${index}`} aria-expanded="false" aria-controls={`flush-collapse${index}`} onClick={tabClickA} data-tab={index}>
                 {item}
@@ -30,7 +29,6 @@ const TabsA = (props) => {
               <div className="subtitle1">{props.content[index]}</div>
             </div>
           </div>
-        </>
       )
     });
    

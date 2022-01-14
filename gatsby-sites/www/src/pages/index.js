@@ -15,6 +15,7 @@ import PlainContent from '../components/blocks/PlainContent';
 import TabsC from '../components/blocks/TabsC';
 import TabsB from '../components/blocks/TabsB';
 import TabsA from '../components/blocks/TabsA';
+import MktoForm from '../components/blocks/MktoForm';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -30,6 +31,8 @@ const IndexPage = ({ data: { page, setting } }) => (
       heroImageAlt="test"
       logoWall="true"
     />
+
+    <MktoForm formId="2580" />
 
     <PlainContent
       colWidth="8"
@@ -98,18 +101,18 @@ const IndexPage = ({ data: { page, setting } }) => (
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat
               eros, est dolor ullamcorper dui tellus eleifend.
             </p>
-            <Link className="link link-mt-small" href="#">
+            <a className="link link-mt-small" href="#">
               Discover Commerce Solutions
-            </Link>
+            </a>
             <img src="https://placekitten.com/18/18" alt="" />
             <h3>Customer Care</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat
               eros, est dolor ullamcorper dui tellus eleifend.
             </p>
-            <Link className="link link-mt-small" href="#">
+            <a className="link link-mt-small" href="#">
               Discover Customer Care
-            </Link>
+            </a>
           </div>
           <div className="col-lg-6 offset-lg-1">
             <img src="https://placekitten.com/640/720" alt="" />
