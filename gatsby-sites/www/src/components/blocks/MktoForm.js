@@ -12,8 +12,7 @@ const MktoForm = (props) => {
     let mktoFormMobile = function(e) {
       // $('body').toggleClass('locked');
       // $('.form--sticky').toggleClass('swapPosition');
-      $('.form--sticky .container').slideToggle(300);
-      $(this).parents('.flip-card').toggleClass('mobile-expanded');
+      $('.form--sticky .mktoForm').slideToggle(300);
       $('.span1').toggleClass('swap');
       $('.span2').toggleClass('swap');
     };
