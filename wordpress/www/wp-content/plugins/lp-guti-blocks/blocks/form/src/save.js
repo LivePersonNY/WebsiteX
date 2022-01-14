@@ -27,37 +27,9 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 
-	let mktoFormScript = `
-	  window.MktoForms2.loadForm(
-		'//info.liveperson.com',
-		'501-BLE-979',
-		${attributes.mktoFormId},
-		function(form){
-		  console.log('its loaded');
-		  form.onSuccess(function(values, followUpUrl) {
-			$('#NumberOfEmployees').parents('.mktoFieldDescriptor.mktoFormCol').addClass('mkto-dd-field');
-			$('#NumberOfEmployees').addClass('select-placeholder');
-			$('#NumberOfEmployees').on('change', function(){
-			  if ($(this).val() === ""){
-				$(this).addClass('select-placeholder');
-			  } else {
-				$(this).removeClass('select-placeholder');
-			  }
-			});
-			$('form').html('<p class="thank-you-message">Thank you! One of our experts will contact you shortly. <img style="display: inline;width: 30px;top: -3px;position: relative;left: 5px;padding:0;" src="https://d1hryyr5hiabsc.cloudfront.net/web2020/img/intents/thumbs-up_1f44d.png" /></p>');
-			formSubmissionComplete('request a demo');
-			dataLayer.push({'event' : 'request-demo-form'});
-
-			return false;
-		  });
-		}
-	  );
-	`;
-
 	return (
 		<div {...useBlockProps.save()}>
 			<MktoForm formId={attributes.mktoFormId} />
-			<script>{mktoFormScript}</script>
 		</div>
 	);
 }

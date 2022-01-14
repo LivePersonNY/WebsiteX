@@ -11,11 +11,11 @@ const MktoForm = (props) => {
 
     let formId = props.formId;
     
-    let mktoFormScript = function() {
+    let mktoFormScript = `
       window.MktoForms2.loadForm(
         '//info.liveperson.com',
         '501-BLE-979',
-        formId,
+        ${formId},
         function(form){
           console.log('its loaded');
           form.onSuccess(function(values, followUpUrl) {
@@ -36,7 +36,7 @@ const MktoForm = (props) => {
           });
         }
       );
-    }
+    `;
     
     if (props.runFilters) {
       const [isLoaded, setIsLoaded] = useState(false);
@@ -52,7 +52,7 @@ const MktoForm = (props) => {
     
       useEffect(() => {
         isLoaded &&
-          mktoFormScript();
+          eval(mktoFormScript);
       }, [isLoaded, formId]);
     
       const loadScript = () => {
@@ -96,7 +96,9 @@ const MktoForm = (props) => {
                 </span>
               </a>
               <form id={`mktoForm_${formId}`}></form>      
-              
+              {!props.runFilters && (
+                <script>{mktoFormScript}</script>
+              )}
           </div>
         </div>
       </div>

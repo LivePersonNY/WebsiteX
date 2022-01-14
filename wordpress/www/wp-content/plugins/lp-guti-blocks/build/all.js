@@ -4727,29 +4727,32 @@ const marketoScriptId = 'mktoForms';
 
 const MktoForm = props => {
   let formId = props.formId;
-
-  let mktoFormScript = function () {
-    window.MktoForms2.loadForm('//info.liveperson.com', '501-BLE-979', formId, function (form) {
-      console.log('its loaded');
-      form.onSuccess(function (values, followUpUrl) {
-        jquery__WEBPACK_IMPORTED_MODULE_5___default()('#NumberOfEmployees').parents('.mktoFieldDescriptor.mktoFormCol').addClass('mkto-dd-field');
-        jquery__WEBPACK_IMPORTED_MODULE_5___default()('#NumberOfEmployees').addClass('select-placeholder');
-        jquery__WEBPACK_IMPORTED_MODULE_5___default()('#NumberOfEmployees').on('change', function () {
-          if (jquery__WEBPACK_IMPORTED_MODULE_5___default()(this).val() === "") {
-            jquery__WEBPACK_IMPORTED_MODULE_5___default()(this).addClass('select-placeholder');
-          } else {
-            jquery__WEBPACK_IMPORTED_MODULE_5___default()(this).removeClass('select-placeholder');
-          }
-        });
-        jquery__WEBPACK_IMPORTED_MODULE_5___default()('form').html('<p class="thank-you-message">Thank you! One of our experts will contact you shortly. <img style="display: inline;width: 30px;top: -3px;position: relative;left: 5px;padding:0;" src="https://d1hryyr5hiabsc.cloudfront.net/web2020/img/intents/thumbs-up_1f44d.png" /></p>');
-        formSubmissionComplete('request a demo');
-        dataLayer.push({
-          'event': 'request-demo-form'
-        });
-        return false;
-      });
-    });
-  };
+  let mktoFormScript = `
+      window.MktoForms2.loadForm(
+        '//info.liveperson.com',
+        '501-BLE-979',
+        ${formId},
+        function(form){
+          console.log('its loaded');
+          form.onSuccess(function(values, followUpUrl) {
+            $('#NumberOfEmployees').parents('.mktoFieldDescriptor.mktoFormCol').addClass('mkto-dd-field');
+            $('#NumberOfEmployees').addClass('select-placeholder'); 
+            $('#NumberOfEmployees').on('change', function(){ 
+              if ($(this).val() === ""){ 
+                $(this).addClass('select-placeholder'); 
+              } else {                   
+                $(this).removeClass('select-placeholder');
+              }
+            });
+            $('form').html('<p class="thank-you-message">Thank you! One of our experts will contact you shortly. <img style="display: inline;width: 30px;top: -3px;position: relative;left: 5px;padding:0;" src="https://d1hryyr5hiabsc.cloudfront.net/web2020/img/intents/thumbs-up_1f44d.png" /></p>');
+            formSubmissionComplete('request a demo');
+            dataLayer.push({'event' : 'request-demo-form'});
+      
+            return false;
+          });
+        }
+      );
+    `;
 
   if (props.runFilters) {
     const [isLoaded, setIsLoaded] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
@@ -4761,7 +4764,7 @@ const MktoForm = props => {
       }
     }, []);
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-      isLoaded && mktoFormScript();
+      isLoaded && eval(mktoFormScript);
     }, [isLoaded, formId]);
 
     const loadScript = () => {
@@ -4827,7 +4830,7 @@ const MktoForm = props => {
     d: "m29.483 0.51724l-29.26 29.26"
   }))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
     id: `mktoForm_${formId}`
-  }))))));
+  }), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", null, mktoFormScript))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MktoForm);
@@ -5143,35 +5146,9 @@ function save(_ref) {
   let {
     attributes
   } = _ref;
-  let mktoFormScript = `
-	  window.MktoForms2.loadForm(
-		'//info.liveperson.com',
-		'501-BLE-979',
-		${attributes.mktoFormId},
-		function(form){
-		  console.log('its loaded');
-		  form.onSuccess(function(values, followUpUrl) {
-			$('#NumberOfEmployees').parents('.mktoFieldDescriptor.mktoFormCol').addClass('mkto-dd-field');
-			$('#NumberOfEmployees').addClass('select-placeholder');
-			$('#NumberOfEmployees').on('change', function(){
-			  if ($(this).val() === ""){
-				$(this).addClass('select-placeholder');
-			  } else {
-				$(this).removeClass('select-placeholder');
-			  }
-			});
-			$('form').html('<p class="thank-you-message">Thank you! One of our experts will contact you shortly. <img style="display: inline;width: 30px;top: -3px;position: relative;left: 5px;padding:0;" src="https://d1hryyr5hiabsc.cloudfront.net/web2020/img/intents/thumbs-up_1f44d.png" /></p>');
-			formSubmissionComplete('request a demo');
-			dataLayer.push({'event' : 'request-demo-form'});
-
-			return false;
-		  });
-		}
-	  );
-	`;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_MktoForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
     formId: attributes.mktoFormId
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", null, mktoFormScript));
+  }));
 }
 
 /***/ }),
