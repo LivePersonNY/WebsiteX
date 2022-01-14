@@ -1,0 +1,977 @@
+.sticky-form {
+    transition: .5s ease background-color;
+
+    &.is-pinned {
+        background-color: $primaryBlueVariant;
+    }
+}
+
+.mktoForm {
+    .thank-you-message {
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+        text-align: center;
+        padding: 9px 0;
+
+        a {
+            color: $primaryBlue !important;
+            text-decoration: underline;
+        }
+    }
+
+    div.thank-you {
+        .check-mark {
+            float: left;
+        }
+
+        &>.thank-you-message {
+            font-size: 20px;
+            line-height: 28px;
+            max-width: 600px;
+            float: left;
+            text-align: left;
+            padding: 9px 0;
+
+            a {
+                color: $primaryBlue !important;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    input {
+        &:focus {
+            border-bottom-color: #fcfcfd;
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus {
+            -webkit-text-fill-color: #fcfcfd;
+            -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+            box-shadow: 0 0 0px 1000px transparent inset;
+            transition: background-color 5000s ease-in-out 0s;
+            font-size: 16px !important;
+        }
+
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+        border-width: 1px 1px 4px;
+        background-color: transparent;
+        border-color: #d9d4d0 #d9d4d0 #005ef4;
+        border-style: solid;
+        padding: 8px 22px 8px 10px !important;
+        font-size: 16px !important;
+        line-height: 24px !important;
+        width: 100% !important;
+        color: #fcfcfd;
+    }
+
+    .mktoField {
+        &::placeholder {
+            color: #FCFCFD;
+        }
+
+        &::-webkit-input-placeholder {
+            color: #FCFCFD;
+        }
+    }
+
+    select {
+        &.select-placeholder {
+            color: #FCFCFD;
+        }
+
+        background-color: transparent;
+        color: #FCFCFD;
+        border-radius: 0;
+        font-weight: 300;
+        padding: 8px 22px 8px 10px !important;
+        margin-top: .5rem;
+        width: 100% !important;
+        height: 44px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        position: relative;
+        border: 1px solid #d9d4d0;
+        border-radius: .25rem;
+
+        option {
+            color: #494B51;
+        }
+    }
+
+    // select-container is used on Events Peer-exchange
+    .select-container {
+        &:after {
+            content: "";
+            width: 16px;
+            height: 10px;
+            position: absolute;
+            top: 17px;
+            right: 16px;
+            pointer-events: none;
+            background: url(https://lp-site.s3.amazonaws.com/web2020/img/mkto-template/select-down-arrow.svg) no-repeat;
+        }
+    }
+
+    // mkto-dd-field is used on www site
+    .mkto-dd-field {
+        .mktoFieldWrap {
+            &:after {
+                content: "";
+                width: 16px;
+                height: 10px;
+                position: absolute;
+                top: 17px;
+                right: 17px;
+                pointer-events: none;
+                background: url(https://lp-site.s3.amazonaws.com/web2020/img/mkto-template/select-down-arrow.svg) no-repeat;
+
+                @media only screen and (max-width: 1185px) {
+                    top: 19px;
+                    right: 12px;
+                }
+            }
+        }
+    }
+
+    width: 100% !important;
+    margin: 0 auto;
+    text-align: center !important;
+    padding:0;
+
+    button {
+        border-radius: 9999px;
+        padding: .75rem 1.25rem !important;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: 400;
+        display: inline-block;
+        background-image: none !important;
+        border: 0 !important;
+        background-color: #005ef4 !important;
+        font-size: 16px !important;
+        font-family: Roboto, Helvetica;
+        width: 256px;
+    }
+
+    .mktoFieldWrap {
+        width: 100%;
+    }
+
+    .heading-4 {
+        text-align: center;
+    }
+
+    .mktoButtonRow {
+        display: block !important;
+    }
+
+    .mktoRadioList {
+        width: 100% !important;
+
+        >label {
+            color: #FCFCFD;
+            font-family: 'Roboto', 'Helvetica';
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        >input {
+            width: auto !important;
+            margin-top: 6px;
+            outline: none;
+            border: 1px solid #A7ACBE;
+            appearance: none;
+            display: block;
+            padding: 0 !important;
+            width: 14px !important;
+            height: 14px;
+            border-radius: 4px;
+            float: left;
+            margin-top: 6px;
+            border-radius: 100px;
+
+            &:checked {
+                background: #A7ACBE;
+            }
+        }
+    }
+
+    .mktoCheckboxList {
+        width: 100% !important;
+
+        >label {
+            color: #FCFCFD;
+            font-family: 'Roboto', 'Helvetica';
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        >input {
+            width: auto !important;
+            margin-top: 6px;
+            outline: none;
+            border: 1px solid #A7ACBE;
+            appearance: none;
+            display: block;
+            padding: 0 !important;
+            width: 14px !important;
+            height: 14px;
+            border-radius: 4px;
+            float: left;
+            margin-top: 6px;
+
+            &:checked {
+                &::after {
+                    content: "✔";
+                    display: block;
+                    font-size: 20px;
+                    margin-top: -9px;
+                    color: #FCFCFD;
+                }
+            }
+        }
+    }
+
+    textarea.mktoField {
+        width: 100% !important;
+        background: none;
+        border: 1px solid #d9d4d0;
+        border-radius: 4px;
+        color: #FCFCFD;
+        padding: 12px;
+        height: auto;
+    }
+}
+
+.default-checkbox {
+    border-width: 1px;
+    --border-opacity: 1;
+    border-color: #494b51;
+    border-color: rgba(73, 75, 81, var(--border-opacity));
+}
+
+.mktoAsterix {
+    display: none;
+}
+
+.mktoGutter {
+    display: none;
+}
+
+.mktoOffset {
+    display: none;
+}
+
+label {
+    display: none;
+}
+
+.mktoButtonWrap {
+    margin-left: 0 !important;
+}
+
+.mktoButtonWrap.mktoSimple {
+    .mktoButton {
+        border-radius: 9999px;
+        padding: .75rem 1.25rem !important;
+        text-decoration: none;
+        cursor: pointer;
+        font-weight: 400;
+        display: inline-block;
+        background-image: none !important;
+        border: 0 !important;
+        background-color: #005ef4 !important;
+        font-size: 16px !important;
+        font-family: Roboto, Helvetica;
+        width: 256px;
+
+        &:hover {
+            background: #0040d6 !important;
+        }
+    }
+}
+
+.mktoHtmlText {
+    width: 100% !important;
+}
+
+.mktoFieldDescriptor.mktoFormCol {
+    width: 100%;
+}
+
+.mktoForm__thankyou--white {
+    a {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: underline;
+    }
+}
+
+body.locked {
+    position: fixed;
+}
+
+.form--sticky {
+    text-align: center;
+    position: sticky;
+    z-index: 100;
+    display: block !important;
+    top: 0;
+
+    .mobileForm {
+        .span1 {
+            display: none;
+        }
+
+        .span2 {
+            display: none;
+        }
+    }
+}
+
+.form--sticky.swapPosition {
+    position: absolute;
+    width: 100%;
+    z-index: 999999999;
+}
+
+@media only screen and (max-width:1185px) {
+    .mktoForm {
+        .mktoFieldWrap {
+            margin-bottom: 12px !important;
+            float: none;
+        }
+
+        button {
+            width: 100% !important;
+            margin-right: 0 !important;
+        }
+
+        input {
+            width: 100% !important;
+            margin-right: 0 !important;
+            padding: 22px 22px 22px 10px !important;
+        }
+
+        .mktoFormCol {
+            float: none !important;
+        }
+
+        a {
+            padding: 0;
+        }
+    }
+
+    .mktoButtonWrap.mktoSimple {
+        .mktoButton {
+            width: 100% !important;
+            margin-right: 0 !important;
+        }
+    }
+
+    .mktoFormRow {
+        float: none !important;
+    }
+}
+
+@media only screen and (min-width:1185px) {
+    .form--sticky {
+        .container {
+            display: block !important;
+        }
+    }
+}
+
+@media only screen and (max-width:1184px) {
+    .form--sticky {
+        a {
+            text-decoration: none;
+        }
+
+        .mobileForm {
+
+            // display:block !important;
+            .span1 {
+                display: block;
+                padding: .75rem 1.25rem;
+                border-radius: 9999px;
+                background: #005ef4;
+                font-size: 16px;
+                font-weight: 600;
+                font-family: Roboto, Helvetica;
+                line-height: 1.25em;
+                width: 205px;
+                color: #fff;
+                text-align: center;
+                margin: auto;
+                cursor: pointer;
+            }
+
+            .span1.swap {
+                display: none;
+            }
+
+            .span2 {
+                display: none;
+            }
+
+            .span2.swap {
+                display: block;
+                width: 40px;
+                margin: auto;
+            }
+        }
+
+        .container {
+            display: none;
+        }
+    }
+}
+
+.form--horizontal {
+    padding: 2rem 0;
+
+    .mktoForm {
+        width: 100% !important;
+        margin: 0 auto;
+        text-align: center !important;
+        padding-left: 0;
+        padding-right: 0;
+
+        input {
+            margin-right: 2rem !important;
+            width: 256px !important;
+
+            &:focus,
+            &:focus-visible {
+                border-bottom-color: #fcfcfd;
+                outline-color: transparent;
+                outline-width: 0px;
+            }
+        }
+
+        button {
+            border-radius: 9999px;
+            padding: 0.75rem 1.25rem !important;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 400;
+            display: inline-block;
+            background-image: none !important;
+            border: 0 !important;
+            background-color: #005Ef4 !important;
+            font-size: 16px !important;
+            font-family: "Roboto", "Helvetica";
+            width: 256px;
+        }
+
+        select {
+
+            &:focus,
+            &:focus-visible {
+                //border-bottom-color: #fcfcfd;
+                outline-color: transparent;
+                outline-width: 0px;
+            }
+        }
+    }
+
+    label {
+        display: none;
+    }
+
+    .mktoOffset {
+        display: none;
+    }
+
+    .mktoAsterix {
+        display: none;
+    }
+
+    .mktoGutter {
+        display: none;
+    }
+
+    .mktoFormRow {
+        float: left !important;
+        clear: none !important;
+    }
+
+    .mktoButtonRow {
+        display: inline-block !important;
+    }
+
+    .mktoButtonWrap {
+        margin-left: 0 !important;
+    }
+
+    .mktoButtonWrap.mktoSimple {
+        .mktoButton {
+            border-radius: 9999px;
+            padding: 0.75rem 1.25rem !important;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 400;
+            display: inline-block;
+            background-image: none !important;
+            border: 0 !important;
+            background-color: #005Ef4 !important;
+            font-size: 16px !important;
+            font-family: "Roboto", "Helvetica";
+            width: 256px;
+
+            &:hover {
+                background: #0040D6 !important;
+            }
+        }
+    }
+
+    .mktoFieldDescriptor.mktoFormCol {
+        margin-bottom: 0 !important;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .form--horizontal {
+        padding: 1rem 0;
+    }
+}
+
+@media only screen and (max-width: 1185px) {
+    .form--horizontal {
+        .mktoForm {
+            .mktoFieldWrap {
+                margin-bottom: 12px !important;
+                float: none;
+            }
+
+            button {
+                width: 100% !important;
+                margin-right: 0 !important;
+            }
+
+            input {
+                width: 100% !important;
+                margin-right: 0 !important;
+                padding: 22px 22px 22px 10px !important;
+            }
+
+            .mktoFormCol {
+                float: none !important;
+            }
+
+            a {
+                padding: 0;
+            }
+        }
+
+        .mktoButtonRow {
+            display: block !important;
+
+            .mktoButtonWrap.mktoSimple {
+                .mktoButton {
+                    width: 100% !important;
+                    margin-right: 0 !important;
+                }
+            }
+        }
+
+        .mktoFormRow {
+            float: none !important;
+        }
+    }
+
+    .mktoForm {
+        select {
+            width: 100% !important;
+            margin-right: 0 !important;
+            font-size: 18px !important;
+            padding: 10px 22px 10px 10px !important;
+        }
+    }
+}
+
+.form--dropdown {
+    .mktoForm {
+        select {
+            //border-color: #d9d4d0 #d9d4d0 #005ef4;
+            //border-width: 1px 1px 4px;
+            line-height: 24px !important;
+            padding: 10px 22px 10px 10px !important;
+            //border-radius: .25rem .25rem 0 0;
+            margin-top: 0;
+            font-size: 16px;
+        }
+    }
+
+    @media only screen and (min-width: 1185px) {
+        .mktoForm {
+
+            input,
+            select {
+                width: 204px !important;
+            }
+
+            input {
+                padding: 8px 19px 8px 10px !important;
+            }
+
+            select {
+                padding: 8px 38px 8px 10px !important;
+            }
+
+            .mktoButtonWrap.mktoSimple .mktoButton,
+            button {
+                width: 176px;
+            }
+        }
+    }
+}
+
+.flip-card {
+    //background-color: transparent;
+    perspective: 1000px;
+    height: 112px;
+    width: 100%;
+    transition: linear .2s height, linear .2s bottom, linear .2s top;
+    display: block !important;
+
+    .thumbs-up {
+        display: inline-block;
+        position: initial;
+        margin-left: 5px;
+    }
+
+    @media only screen and (max-width: 1185px) {
+        padding: 0 !important;
+        height: 76px;
+        overflow: hidden;
+
+        form {
+            padding: 20px !important;
+        }
+
+        &.mobile-expanded {
+            height: 360px;
+
+            .mobile-v2 {
+                bottom: 10px;
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+        &.form-submitted {
+            &.flipped {
+                height: 260px;
+                max-height: 260px;
+            }
+
+            .card-back {
+                .w-col-1 {
+                    display: none;
+                }
+
+                .column {
+                    width: 100%;
+                }
+            }
+        }
+
+        .thumbs-up {
+            transform: rotate(90deg) rotateY(180deg);
+            width: 25px;
+
+        }
+
+        .mobile-v2 {
+            transition: .5s ease bottom;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -22px;
+
+            &:after {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                content: ' ';
+                background: transparent;
+            }
+
+            .dismiss-container {
+                padding: 15px 0;
+            }
+
+            .mktoButton {
+                margin-top: 3px;
+            }
+        }
+
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        //box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .card-front,
+    .card-back,
+    .card-back-smb {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transform: rotateX(0deg);
+    }
+
+    .card-back,
+    .card-back-smb {
+        transform: rotateX(180deg);
+        background: $primaryBlueVariant;
+
+        .column {
+            padding: 0 20px 20px;
+        }
+    }
+
+    .card-back-smb {
+        display: none;
+    }
+
+    .card-back,
+    .card-back-smb {
+        p {
+            @media only screen and (max-width: 1185px) {
+                text-align: center;
+                max-width: 325px;
+                margin: 0 auto;
+            }
+
+            // &:after{
+            // 	content: '';
+            // 	height: 30px;
+            // 	display: inline-block;
+            // 	width: 30px;
+            // 	background: url(https://d1hryyr5hiabsc.cloudfront.net/web2020/img/intents/backhand-index-pointing-left_1f448.png) no-repeat;
+            // 	background-size: 30px;
+            // 	position: absolute;
+            // 	margin-left: 7px;
+            // 	transform: scale(-1,1);
+            // }
+        }
+
+        .container-default-2 {
+            @media only screen and (max-width: 1185px) {
+                position: absolute;
+            }
+
+            bottom: 30px;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    &.flipped {
+        height: 100px;
+
+        .flip-card-inner {
+            transform: rotateX(180deg);
+        }
+
+        max-height: 320px;
+
+        &.smb {
+            .card-back-smb {
+                display: block;
+
+                .outlined-button {
+                    margin-top: 5px;
+                    position: relative;
+
+                }
+            }
+
+            @media only screen and (max-width: 1185px) {
+                height: 280px;
+                max-height: 280px;
+
+                .card-back-smb {
+                    .column {
+                        text-align: center;
+                    }
+                }
+            }
+
+            .card-back {
+                display: none;
+            }
+        }
+    }
+
+    .dismiss-container {
+        @media only screen and (min-width: 1185px) {
+            display: none;
+        }
+
+        padding: 25px 0;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+
+        .dismiss-line {
+            height: 6px;
+            background: rgb(252, 252, 253);
+            // opacity: .7;
+            /* margin-top: 10px; */
+            width: 138px;
+            margin: auto;
+            border-radius: 100px;
+        }
+    }
+
+    .channel-col {
+        align-items: flex-start;
+
+        .async-channels {
+            margin-top: -3px;
+
+            @media only screen and (max-width: 1185px) {
+                text-align: center;
+                width: 100%;
+            }
+
+            .channel {
+                margin: 0 10px;
+
+                &:hover {
+                    opacity: .7;
+                }
+
+                transition: .4s ease opacity;
+            }
+        }
+    }
+
+    &.dismissed {
+        height: 0 !important;
+        top: 0 !important;
+    }
+
+    &.dismissed-but-here {
+        top: 0 !important;
+        position: relative;
+    }
+
+    &.form-submitted {
+        .mobile-v2 {
+            &>.dismiss-container {
+                display: none;
+            }
+        }
+    }
+}
+
+.border-less-form {
+    .mktoForm {
+        .mktoRequiredField {
+            .mktoAsterix {
+                display: none;
+            }
+        }
+
+        .mktoGutter {
+            display: none;
+        }
+
+        .mktoOffset {
+            display: none;
+        }
+
+        .mktoLabel {
+            display: none;
+        }
+
+        width: 100% !important;
+
+        .mktoFormCol {
+            width: 100% !important;
+            margin-bottom: 0 !important;
+        }
+
+        .mktoFieldWrap {
+            width: 100% !important;
+        }
+
+        .mktoField {
+            color: #DBDCE1;
+            border: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 0;
+            font-family: inherit;
+            width: 100% !important;
+            margin: 0.5rem 0 !important;
+            padding: 0.5rem 0.625rem 0.5625rem !important;
+            font-size: 0.9375rem;
+            height: 2.6875rem;
+
+            &::placeholder {
+                color: #FCFCFD;
+            }
+
+            &::-webkit-input-placeholder {
+                color: #FCFCFD;
+            }
+        }
+
+        .mktoButtonRow {
+            margin-top: 8px;
+
+            .mktoButtonWrap {
+                margin-left: 0 !important;
+            }
+        }
+
+        .mktoButtonWrap.mktoSimple {
+            .mktoButton {
+                background: #005EF4 !important;
+                color: #FFFFFF !important;
+                font-size: 0.9907rem !important;
+                font-family: Roboto;
+                font-weight: 500;
+                height: 2.75rem;
+                width: auto;
+                border-radius: 41px;
+                border: 0 !important;
+
+                &:hover {
+                    background: #0040D6 !important;
+                }
+            }
+        }
+
+        .mktoForm__thankyou--white {
+            text-align: left !important;
+            color: #FCFCFD;
+            font-family: Roboto !important;
+        }
+    }
+}

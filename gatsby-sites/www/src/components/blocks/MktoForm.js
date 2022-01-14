@@ -74,11 +74,29 @@ const MktoForm = (props) => {
 
   return (
   <>
-    <div className="pane pane-form">
+    <div className="pane pane-form form--horizontal form--sticky" style={{display:'none'}}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-          <form id={`mktoForm_${formId}`}></form>      
+                       
+              <a className="mobileForm">
+                <span className="span1">Request demo</span>
+                <span className="span2">
+                  <svg version="1.1" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" style={{width:'40px'}}>
+                    <g fill="#162036" fill-rule="evenodd">
+                      <g transform="translate(1 1)" stroke="#fff">
+                        <circle cx="30" cy="30" r="30" />
+                        <g stroke="#ffffff" transform="translate(15 15)" stroke-linecap="square">
+                          <path d="m0.51724 0.51724l29.26 29.26" />
+                          <path d="m29.483 0.51724l-29.26 29.26" />
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </span>
+              </a>
+              <form id={`mktoForm_${formId}`}></form>      
+          
           </div>
         </div>
       </div>
