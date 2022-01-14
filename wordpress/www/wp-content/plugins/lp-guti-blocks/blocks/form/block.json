@@ -1,0 +1,23 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/form",
+	"version": "0.1.0",
+	"title": "Form",
+	"category": "liveperson",
+	"icon": "feedback",
+	"description": "Insert stand-alone marketo form block.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"form_id": {
+			"default": 2580,
+			"type": "number"
+		},
+	}
+}
