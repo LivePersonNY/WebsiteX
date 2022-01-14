@@ -94,7 +94,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 											className={'editor-post-featured-image__toggle'}
 											onClick={open}
 										>
-											{__('Choose an image', 'awp')}
+											{ __('Choose an image', 'awp')}
 
 										</Button>
 									)}
