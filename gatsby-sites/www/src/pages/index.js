@@ -32,7 +32,7 @@ const IndexPage = ({ data: { page, setting } }) => (
       logoWall="true"
     />
 
-    <MktoForm formId="2580" />
+    <MktoForm formId="2580" runFilters={true} />
 
     <PlainContent
       colWidth="8"
