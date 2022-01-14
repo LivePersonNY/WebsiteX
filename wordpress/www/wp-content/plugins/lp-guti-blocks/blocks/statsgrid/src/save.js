@@ -24,8 +24,7 @@ import StatsGrid from '../../../../../../../../gatsby-sites/www/src/components/b
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	return <div { ...useBlockProps.save() }>
-		<StatsGrid
+	return (<StatsGrid
 			heading={attributes.heading}
 			stat1={attributes.stat1}
 			stat2={attributes.stat2}
@@ -36,5 +35,5 @@ export default function save({ attributes }) {
 			content3={attributes.content3}
 			content4={attributes.content4}
 		/>
-	</div>;
+	)
 }

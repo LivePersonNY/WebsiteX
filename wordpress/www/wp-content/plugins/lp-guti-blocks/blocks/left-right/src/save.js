@@ -25,8 +25,6 @@ import LeftRight from '../../../../../../../../gatsby-sites/www/src/components/b
  */
 export default function save({attributes}) {
 	return (
-		<div {...useBlockProps.save()}>
 			<LeftRight repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText} content={attributes.text} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
-		</div>
 	);
 }

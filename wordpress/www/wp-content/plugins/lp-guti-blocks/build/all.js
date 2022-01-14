@@ -5156,9 +5156,9 @@ function save(_ref) {
   let {
     attributes
   } = _ref;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_MktoForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_MktoForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
     formId: attributes.mktoFormId
-  }));
+  });
 }
 
 /***/ }),
@@ -5715,7 +5715,7 @@ function save(_ref) {
   let {
     attributes
   } = _ref;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_LeftRight__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_LeftRight__WEBPACK_IMPORTED_MODULE_3__["default"], {
     repeat: attributes.repeat,
     linkUrl: attributes.linkUrl,
     linkText: attributes.linkText,
@@ -5724,7 +5724,7 @@ function save(_ref) {
     flipColumns: attributes.flipped,
     imgSrc: attributes.mediaUrl,
     imgAlt: attributes.mediaAlt
-  }));
+  });
 }
 
 /***/ }),
@@ -5935,12 +5935,12 @@ function save(_ref) {
   let {
     attributes
   } = _ref;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_PlainContent__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_PlainContent__WEBPACK_IMPORTED_MODULE_2__["default"], {
     heading: attributes.header,
     content: attributes.content,
     linkText: attributes.linkText,
     linkUrl: attributes.linkUrl
-  }));
+  });
 }
 
 /***/ }),
@@ -6203,7 +6203,7 @@ function save(_ref) {
   let {
     attributes
   } = _ref;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_StatsGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_StatsGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
     heading: attributes.heading,
     stat1: attributes.stat1,
     stat2: attributes.stat2,
@@ -6213,7 +6213,7 @@ function save(_ref) {
     content2: attributes.content2,
     content3: attributes.content3,
     content4: attributes.content4
-  }));
+  });
 }
 
 /***/ }),
