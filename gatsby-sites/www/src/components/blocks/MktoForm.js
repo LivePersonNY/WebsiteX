@@ -9,6 +9,15 @@ const marketoScriptId = 'mktoForms';
 
 const MktoForm = (props) => {
 
+    let mktoFormMobile = function(e) {
+      // $('body').toggleClass('locked');
+      // $('.form--sticky').toggleClass('swapPosition');
+      $('.form--sticky .container').slideToggle(300);
+      $(this).parents('.flip-card').toggleClass('mobile-expanded');
+      $('.span1').toggleClass('swap');
+      $('.span2').toggleClass('swap');
+    };
+
     let formId = props.formId;
     
     let mktoFormScript = `
@@ -73,13 +82,12 @@ const MktoForm = (props) => {
   
 
   return (
-  <>
-    <div className="pane pane-form form--horizontal form--sticky" style={{display:'none'}}>
+    <div className="pane pane-form form--sticky" style={{display:'none'}}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
                        
-              <a className="mobileForm">
+              <a className="mobileForm" onClick={mktoFormMobile}>
                 <span className="span1">Request demo</span>
                 <span className="span2">
                   <svg version="1.1" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" style={{width:'40px'}}>
@@ -103,7 +111,6 @@ const MktoForm = (props) => {
         </div>
       </div>
     </div>
-  </>
   )
 };
 

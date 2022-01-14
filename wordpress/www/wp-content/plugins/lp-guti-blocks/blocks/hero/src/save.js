@@ -25,8 +25,8 @@ import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks
  */
 export default function save({attributes}) {
 	return (
-		<div {...useBlockProps.save()}>
-			<Hero header={attributes.header} kicker={attributes.kicker} subHeader={attributes.subHeader} heroImage={attributes.mediaUrl} heroImageAlt={attributes.mediaAlt}/>
-		</div>
+
+			<Hero header={attributes.header} kicker={attributes.kicker} subHeader={attributes.subHeader} heroImage={attributes.mediaUrl}/>
+
 	);
 }
