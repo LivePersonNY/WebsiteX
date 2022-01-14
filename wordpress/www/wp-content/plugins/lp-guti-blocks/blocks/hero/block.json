@@ -33,6 +33,10 @@
 		"mediaUrl": {
 			"type": "string",
 			"default": ""
+		},
+		"mediaAlt": {
+			"type": "string",
+			"default": ""
 		}
 	}
 }

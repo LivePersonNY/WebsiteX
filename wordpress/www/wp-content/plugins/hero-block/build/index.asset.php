@@ -1,1 +1,0 @@
-<?php return array('dependencies' => array('jquery', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-element', 'wp-i18n'), 'version' => 'dd61b498a4bf141a1ca637cbf0caa1e3');

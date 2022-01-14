@@ -3,7 +3,7 @@
  * Plugin Name: miniOrange SSO using SAML 2.0
  * Plugin URI: http://miniorange.com/
  * Description: miniOrange SAML plugin allows sso/login using Azure, Azure B2C, Okta, ADFS, Keycloak, Onelogin, Salesforce, Google Apps (Gsuite), Salesforce, Shibboleth, Centrify, Ping, Auth0 and other Identity Providers. It acts as a SAML Service Provider which can be configured to establish a trust between the plugin and IDP to securely authenticate and login the user to WordPress site.
- * Version: 4.9.12
+ * Version: 4.9.14
  * Author: miniOrange
  * Author URI: http://miniorange.com/
  * License: MIT/Expat
@@ -212,7 +212,8 @@ class saml_mo_login {
 
 	function plugin_settings_style( $page) {
 		if ( $page != 'toplevel_page_mo_saml_settings' && !(isset($_REQUEST['page']) && $_REQUEST['page'] == 'mo_saml_licensing') && $page != 'miniorange-saml-2-0-sso_page_mo_saml_enable_debug_logs') {
-			return;
+            if($page != 'index.php')
+		        return;
 		}
 		if((isset($_REQUEST['tab']) && $_REQUEST['tab'] == 'licensing') || (isset($_REQUEST['page']) && $_REQUEST['page'] == 'mo_saml_licensing')){
 			wp_enqueue_style( 'mo_saml_bootstrap_css', plugins_url( 'includes/css/bootstrap/bootstrap.min.css', __FILE__ ) );
@@ -231,7 +232,7 @@ class saml_mo_login {
 			return;
 		}
 		wp_enqueue_style( 'wp-pointer' );
-		$js_url = plugins_url( 'includes\js\pointers.js', __FILE__ );
+		$js_url = plugins_url( 'includes/js/pointers.js', __FILE__ );
 		wp_enqueue_script( 'custom_admin_pointers', $js_url, array('wp-pointer'), NULL, TRUE );
 		$data = array(
 			'close_label' => __('Close','miniorange-saml-20-single-sign-on'),

@@ -24,5 +24,15 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/plain-content/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/hero/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/statsgrid/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/left-right/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/form/' );
+
+
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
+
+function register_mkto_script() {
+	wp_enqueue_script('mkto-forms', 'https://info.liveperson.com/js/forms2/js/forms2.min.js');
+}
+//add_action( 'admin_enqueue_scripts', 'register_mkto_script');
+add_action( 'wp_enqueue_scripts', 'register_mkto_script');
