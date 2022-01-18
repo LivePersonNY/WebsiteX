@@ -6317,82 +6317,9 @@ function save(_ref) {
 /*!***********************************!*\
   !*** ./blocks/tabs-a/src/edit.js ***!
   \***********************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ (function() {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ Edit; }
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _gatsby_sites_www_src_components_blocks_TabsA__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA */ "../../../../../gatsby-sites/www/src/components/blocks/TabsA.js");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./blocks/tabs-a/src/editor.scss");
-
-
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
-
-
-
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-
-
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
- *
- * @return {WPElement} Element to render.
- */
-
-function Edit(_ref) {
-  let {
-    attributes,
-    isSelected,
-    setAttributes
-  } = _ref;
-  let headerControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
-    value: attributes.header,
-    onChange: val => setAttributes({
-      header: val
-    }),
-    className: "embedded-input"
-  });
-  if (isSelected) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_TabsA__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    heading: headerControl,
-    contentHeader: [],
-    imgSrc: []
-  }));
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_TabsA__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    heading: attributes.header,
-    contentHeader: [],
-    imgSrc: []
-  }));
-}
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/blocks/tabs-a/src/edit.js: Unexpected token, expected \",\" (61:1)\n\n\u001b[0m \u001b[90m 59 |\u001b[39m \t}\u001b[0m\n\u001b[0m \u001b[90m 60 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 61 |\u001b[39m \t\u001b[36mlet\u001b[39m addTabFunc \u001b[33m=\u001b[39m \u001b[36mfunction\u001b[39m() {\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \t\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 62 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 63 |\u001b[39m \t\t\u001b[36mlet\u001b[39m thisIndex \u001b[33m=\u001b[39m itemValues\u001b[33m.\u001b[39mlength\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 64 |\u001b[39m\u001b[0m\n    at Object._raise (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:569:17)\n    at Object.raiseWithData (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:562:17)\n    at Object.raise (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:523:17)\n    at Object.unexpected (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:3601:16)\n    at Object.expect (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:3575:28)\n    at Object.parseCallExpressionArguments (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:11852:14)\n    at Object.parseCoverCallAndAsyncArrowHead (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:11775:29)\n    at Object.parseSubscript (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:11706:19)\n    at Object.parseSubscripts (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:11675:19)\n    at Object.parseExprSubscripts (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:11664:17)");
 
 /***/ }),
 
@@ -6501,8 +6428,7 @@ function save(_ref) {
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_TabsA__WEBPACK_IMPORTED_MODULE_2__["default"], {
     heading: attributes.header,
-    contentHeader: [],
-    imgSrc: []
+    items: attributes.tabItems
   });
 }
 
@@ -6629,19 +6555,6 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************!*\
   !*** ./blocks/statsgrid/src/style.scss ***!
   \*****************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./blocks/tabs-a/src/editor.scss":
-/*!***************************************!*\
-  !*** ./blocks/tabs-a/src/editor.scss ***!
-  \***************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

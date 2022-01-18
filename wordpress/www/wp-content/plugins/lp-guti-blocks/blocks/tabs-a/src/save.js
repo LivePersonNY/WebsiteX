@@ -25,6 +25,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-			<TabsA heading={attributes.header} contentHeader={[]} imgSrc={[]} />
+		<TabsA heading={attributes.header} items={attributes.tabItems} />
 	);
 }

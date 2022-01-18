@@ -4,16 +4,16 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-
+import bootstrap from 'bootstrap';
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 import TabsA from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 
 
 /**
@@ -32,7 +32,7 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({attributes, isSelected, setAttributes}) {
+export default function Edit({attributes, isSelected, setAttributes, onChange}) {
 
 	let headerControl = (
 		<TextControl
@@ -42,15 +42,68 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		/>
 	);
 
+	let itemValues = [...attributes.tabItems];
+	let itemControls = attributes.tabItems.map((item ,index)=>{
+		return {
+			title: (
+				<TextControl
+					value={`Tab Title ${index+1}`}
+					onChange={function(value) {
+						itemValues[index].title = value;
+						setAttributes({ tabItems: itemValues});
+					}}
+					className="embedded-input"
+				/>
+			)
+		}
+	}
+
+	let addTabFunc = function() {
+
+		let thisIndex = itemValues.length;
+
+		itemValues.push({
+			title: (
+				<TextControl
+					value={`Tab Title ${thisIndex+1}`}
+					onChange={function(value) {
+						itemValues[thisIndex].title = value;
+						setAttributes({ tabItems: itemValues});
+					}}
+					className="embedded-input"
+				/>
+			),
+			body: 'Body content.'
+		});
+		setAttributes({
+			tabItems: itemValues
+		});
+	}
+
+	let addButton = (
+		<BlockControls>
+			<ToolbarGroup>
+				<ToolbarButton
+					icon="plus-alt2"
+					label="Add Tab"
+					onClick={ addTabFunc }
+				/>
+			</ToolbarGroup>
+		</BlockControls>
+	);
+
 	if (isSelected)	return (
+
 		<div {...useBlockProps()}>
-			<TabsA heading={headerControl} contentHeader={[]} imgSrc={[]} />
+			{addButton}
+			<TabsA heading={headerControl} items={itemValues} />
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
-			<TabsA heading={attributes.header} contentHeader={[]} imgSrc={[]} />
+			{addButton}
+			<TabsA heading={attributes.header} items={attributes.tabItems}/>
 		</div>
 	)
 
