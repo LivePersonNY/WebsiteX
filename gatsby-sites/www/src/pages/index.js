@@ -16,6 +16,7 @@ import TabsC from '../components/blocks/TabsC';
 import TabsB from '../components/blocks/TabsB';
 import TabsA from '../components/blocks/TabsA';
 import MktoForm from '../components/blocks/MktoForm';
+import IconTextA from '../components/blocks/IconTextA';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -200,7 +201,13 @@ const IndexPage = ({ data: { page, setting } }) => (
       callout3LinkUrl="#"
     />
 
-
+    <IconTextA 
+      heading="Product Features"
+      imgSrc={['https://placekitten.com/64/64', 'https://placekitten.com/64/64', 'https://placekitten.com/64/64', 'https://placekitten.com/64/64', 'https://placekitten.com/64/64', 'https://placekitten.com/64/64',]}
+      imgAlt={['Alt text', 'Alt text', 'Alt text', 'Alt text', 'Alt text', 'Alt text']}
+      blockTitle={['Intent Manager', 'Conversation Manager', 'Conversation Channels', 'Conversation Builder', 'Conversation Orchestrator', 'Conversation Analytics']}
+      blockContent={['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.']}
+    />
 
   </Layout>
 );

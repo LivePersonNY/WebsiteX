@@ -313,3 +313,28 @@ img {
         }
     }
 }
+
+.comp-icon-text-a {
+
+    .comp-block-grid-container {
+        .col {
+            margin-top: 48px;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 72px;
+            }
+
+            &:last {
+                border: 1px solid red;
+            }
+        }
+
+        img {
+            margin-bottom: 16px;
+        }
+
+        .card1 {
+            margin-bottom: 8px;
+        }
+    }
+}
