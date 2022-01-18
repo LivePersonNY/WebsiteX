@@ -9885,6 +9885,11 @@ a > .block-editor-block-list__layout code {
 .block-editor-block-list__layout .pane.bg-neutral-92 + .bg-neutral-84 {
   padding-top: 0;
 }
+@media (max-width: 991.98px) {
+  .block-editor-block-list__layout .pane .container .row > div + div {
+    margin-top: 24px;
+  }
+}
 .block-editor-block-list__layout img {
   max-width: 100%;
 }
@@ -10001,12 +10006,14 @@ a > .block-editor-block-list__layout code {
 .block-editor-block-list__layout .comp-tabs-b .row {
   position: relative;
 }
-.block-editor-block-list__layout .comp-tabs-b .row h2, .block-editor-block-list__layout .comp-tabs-b .row .h2 {
-  position: absolute;
-  top: 0;
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-tabs-b .row h2, .block-editor-block-list__layout .comp-tabs-b .row .h2 {
+    position: absolute;
+    top: 0;
+  }
 }
 .block-editor-block-list__layout .comp-tabs-b .row .comp-tabs-list-container .comp-tab {
-  color: #989EAE;
+  color: #8895BF;
   padding: 8px 0;
   margin: 8px 0;
   cursor: pointer;
@@ -10016,9 +10023,14 @@ a > .block-editor-block-list__layout code {
   border-bottom: 1px solid #AFB3C0;
 }
 .block-editor-block-list__layout .comp-tabs-b .row .comp-tabs-content-container {
-  position: absolute;
-  max-width: 528px;
-  margin-left: 331px;
+  z-index: 1;
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-tabs-b .row .comp-tabs-content-container {
+    position: absolute;
+    max-width: 528px;
+    margin-left: 331px;
+  }
 }
 .block-editor-block-list__layout .comp-tabs-b .row .comp-tabs-content-container .comp-tabs-content {
   padding: 40px 20px;
@@ -10036,6 +10048,20 @@ a > .block-editor-block-list__layout code {
 }
 .block-editor-block-list__layout .comp-tabs-b .row .comp-tabs-content-container .comp-tabs-content p {
   margin-top: 16px;
+}
+.block-editor-block-list__layout .comp-tabs-b .row .comp-tabs-img-container {
+  margin-top: -88px;
+  z-index: 0;
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-tabs-b .row .comp-tabs-img-container {
+    margin-top: 0;
+  }
+}
+@media (max-width: 991.98px) {
+  .block-editor-block-list__layout .comp-tabs-b .row .comp-tabs-img-container {
+    padding: 0;
+  }
 }
 .block-editor-block-list__layout .comp-tabs-a h2, .block-editor-block-list__layout .comp-tabs-a .h2 {
   margin-bottom: 48px;
@@ -10062,10 +10088,27 @@ a > .block-editor-block-list__layout code {
   border: 0;
   margin: 0;
   padding: 20px 0;
-  color: #989EAE;
+  color: #8895BF;
 }
 .block-editor-block-list__layout .comp-tabs-a .comp-content-container .accordion-item .subtitle1 {
   margin-top: 8px;
+}
+.block-editor-block-list__layout .comp-icon-text-a .comp-block-grid-container .col {
+  margin-top: 48px;
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-icon-text-a .comp-block-grid-container .col {
+    margin-top: 72px;
+  }
+}
+.block-editor-block-list__layout .comp-icon-text-a .comp-block-grid-container .col:last {
+  border: 1px solid red;
+}
+.block-editor-block-list__layout .comp-icon-text-a .comp-block-grid-container img {
+  margin-bottom: 16px;
+}
+.block-editor-block-list__layout .comp-icon-text-a .comp-block-grid-container .card1 {
+  margin-bottom: 8px;
 }
 .block-editor-block-list__layout .navbar .navbar-collapse {
   justify-content: center;
@@ -10168,28 +10211,21 @@ a > .block-editor-block-list__layout code {
   width: 100%;
   z-index: 999999999;
 }
-.block-editor-block-list__layout .pane-form .container {
-  display: none;
-}
-@media (min-width: 992px) {
-  .block-editor-block-list__layout .pane-form .container {
-    display: block;
-  }
-}
 .block-editor-block-list__layout .pane-form .container .mobileForm .span1 {
-  display: block;
-  padding: 0.75rem 1.25rem;
-  border-radius: 9999px;
-  background: #005ef4;
+  display: inline-block;
+  padding: 10px !important;
+  border-radius: 24px;
+  background: #1C1D22 !important;
   font-size: 16px;
-  font-weight: 600;
-  font-family: Roboto, Helvetica;
-  line-height: 1.25em;
-  width: 205px;
+  font-weight: 700;
+  font-family: "Space Grotesk", Roboto;
+  line-height: 24px;
+  width: 100%;
   color: #fff;
   text-align: center;
   margin: auto;
   cursor: pointer;
+  text-decoration: none;
 }
 @media (min-width: 992px) {
   .block-editor-block-list__layout .pane-form .container .mobileForm .span1 {
@@ -10204,12 +10240,19 @@ a > .block-editor-block-list__layout code {
   display: block;
   width: 40px;
   margin: auto;
+  margin-bottom: 12px;
 }
 .block-editor-block-list__layout .pane-form .mktoForm {
   width: 100% !important;
   margin: 0 auto;
   text-align: center !important;
   padding: 0;
+  display: none;
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .pane-form .mktoForm {
+    display: block;
+  }
 }
 .block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow {
   clear: none;
@@ -10239,7 +10282,7 @@ a > .block-editor-block-list__layout code {
 }
 @media (min-width: 992px) {
   .block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol input {
-    width: 300px !important;
+    width: 340px !important;
     padding: 12px 40px 12px 12px !important;
     margin-right: 12px !important;
     margin-bottom: 0;
@@ -10375,5 +10418,16 @@ a > .block-editor-block-list__layout code {
  *
  * Replace them with your own styles or remove the file completely.
  */
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/tabs-a/src/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.pane-form {
+  z-index: 0 !important;
+}
 
 /*# sourceMappingURL=all.css.map*/

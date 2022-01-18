@@ -13,20 +13,20 @@ const TabsA = (props) => {
       $(`.comp-tabs-a .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
     };
 
-    let tabImgOutput = props.imgSrc.map((item ,index)=>{
-      return <img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={item} data-tab-content={index} alt={props.imgAlt[index]} key={index}/>
+    let tabImgOutput = props.items.map((item ,index)=>{
+      return <img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={item.img} data-tab-content={index} alt={item.imgAlt} key={index}/>
     });
 
-    let tabContent = props.contentHeader.map((item, index)=>{
+    let tabContent = props.items.map((item, index)=>{
       return (
           <div className={`accordion-item ${index === 0 ? 'accordion-item-active' : ''}`} key={index}>
             <h4 className="accordion-header" id={`flush-heading${index}`}>
               <button className="collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${index}`} aria-expanded="false" aria-controls={`flush-collapse${index}`} onClick={tabClickA} data-tab={index}>
-                {item}
+                {item.title}
               </button>
             </h4>
             <div id={`flush-collapse${index}`} className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} aria-labelledby={`flush-heading${index}`} data-bs-parent="#tabsAAccordion">
-              <div className="subtitle1">{props.content[index]}</div>
+              <div className="subtitle1">{item.body}</div>
             </div>
           </div>
       )

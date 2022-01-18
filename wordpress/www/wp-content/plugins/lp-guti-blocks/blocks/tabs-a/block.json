@@ -1,0 +1,20 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/tabs-vertical",
+	"version": "0.1.0",
+	"title": "Vertical Tabs",
+	"category": "liveperson",
+	"icon": "table-col-after",
+	"description": "List of items and a text, image will change when clicked.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"header": {"default": "Header above tabs"}
+	}
+}
