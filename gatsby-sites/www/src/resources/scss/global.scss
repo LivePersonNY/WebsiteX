@@ -70,6 +70,10 @@ img {
                 margin-bottom: 34px;
             }
         }
+
+        .card-text {
+            margin-top: 0;
+        }
     }
 
     .card-footer {
@@ -335,6 +339,38 @@ img {
 
         .card1 {
             margin-bottom: 8px;
+        }
+    }
+}
+
+.comp-icon-text-b {
+    .comp-card-grid-container {
+        margin-top: 60px;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 72px;
+        }
+
+        .card-image-internal {
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            margin-bottom: 8px;
+        }
+    }
+}
+
+.comp-logo-universal {
+    h2 {
+        margin-bottom: 48px;
+    }
+
+    img {
+        padding: 12px 0;
+
+        @include media-breakpoint-up(lg) {
+            padding: 0;
         }
     }
 }
