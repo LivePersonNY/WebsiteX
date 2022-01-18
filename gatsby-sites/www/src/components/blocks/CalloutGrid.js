@@ -6,7 +6,6 @@ const CalloutGrid = (props) => {
   let repeat;
 
   return (
-    <>
       <div className="pane bg-neutral-84 comp-callout-grid">
         <div className="container">
           {props.heading && (
@@ -24,9 +23,8 @@ const CalloutGrid = (props) => {
             </div>
           )}
           <div className="row comp-callout-grid-container">
-            <div className="col-lg-12">
-              <div className="row row-cols-lg-3">
-                <div className="col">
+            
+                <div className="col-lg-4">
                   <a className="link" href={props.callout1LinkUrl}>
                     <img src={props.img1Src} alt={props.img1Alt} />
                     <p className="h6">{props.callout1Category}</p>
@@ -34,7 +32,7 @@ const CalloutGrid = (props) => {
                     <p className="subtitle2">{props.callout1Author}</p>
                   </a>
                 </div>
-                <div className="col">
+                <div className="col-lg-4">
                   <a className="link" href={props.callout2LinkUrl}>
                     <img src={props.img2Src} alt={props.img2Alt} />
                     <p className="h6">{props.callout2Category}</p>
@@ -42,7 +40,7 @@ const CalloutGrid = (props) => {
                     <p className="subtitle2">{props.callout2Author}</p>
                   </a>
                 </div>
-                <div className="col">
+                <div className="col-lg-4">
                   <a className="link" href={props.callout3LinkUrl}>
                     <img src={props.img3Src} alt={props.img3Alt} />
                     <p className="h6">{props.callout3Category}</p>
@@ -50,12 +48,10 @@ const CalloutGrid = (props) => {
                     <p className="subtitle2">{props.callout3Author}</p>
                   </a>
                 </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
-    </>
   );
 };
 
