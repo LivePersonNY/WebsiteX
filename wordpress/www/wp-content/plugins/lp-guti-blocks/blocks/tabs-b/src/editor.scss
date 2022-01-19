@@ -1,0 +1,41 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.pane-form {
+	z-index: 0 !important;
+}
+
+.accordion-header {
+	input {
+		text-align: left !important;
+	}
+}
+
+.accordion-item {
+	.v-tab-remove {
+		position: absolute;
+		margin-top: -104px !important;
+		margin-left: -62px !important;
+		span {
+			color: red;
+		}
+	}
+
+
+}
+
+.comp-tabs-a {
+	.comp-tabs-img {
+		opacity: 1;
+		transition: opacity .3s ease;
+		cursor: pointer;
+		position: relative;
+		&:hover {
+			opacity: .4;
+
+		}
+	}
+}
