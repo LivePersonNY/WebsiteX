@@ -25,11 +25,11 @@ const QuoteSlider = (props) => {
    
 
   return (
-    <div className="pane bg-primary-light comp-quote-slider">
+    <div className="pane bg-neutral-92 comp-quote-slider">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <div className="comp-slider-container">
+              <div className="comp-slider-container bg-primary-light">
                 <div className="row">
                   <div className="col-lg-6 offset-lg-1">
                     <h2>{props.header}</h2>
