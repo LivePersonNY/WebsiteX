@@ -5,6 +5,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import bootstrap from 'bootstrap';
+
+import '../../../../../../../../gatsby-sites/www/liveperson-scripts';
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.

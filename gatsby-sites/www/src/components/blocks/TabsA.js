@@ -5,14 +5,15 @@ import $ from 'jquery';
 
 const TabsA = (props) => {
 
-    let tabClickA = function(e) {
-      console.log(e);
+    /*let tabClickA = function(e) {
+      
       $('.comp-tabs-a .accordion-item').removeClass('accordion-item-active');
       $(e.target).parents('.accordion-item').addClass('accordion-item-active');
       let tabIndex = $(e.target).data('tab');
       $(`.comp-tabs-a .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
       $(`.comp-tabs-a .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
-    };
+      
+    };*/
 
     let tabImgOutput = props.items.map((item ,index)=>{
       return <img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={item.img} data-tab-content={index} alt={item.imgAlt} key={index}/>
@@ -22,7 +23,7 @@ const TabsA = (props) => {
       return (
           <div className={`accordion-item ${index === 0 ? 'accordion-item-active' : ''}`} key={index}>
             <h4 className="accordion-header" id={`flush-heading${index}`}>
-              <button className="collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${index}`} aria-expanded="false" aria-controls={`flush-collapse${index}`} onClick={tabClickA} data-tab={index}>
+              <button className="collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${index}`} aria-expanded="false" aria-controls={`flush-collapse${index}`} data-tab={index}>
                 {item.title}
               </button>
             </h4>
