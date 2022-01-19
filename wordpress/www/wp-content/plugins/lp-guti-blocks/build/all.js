@@ -7831,7 +7831,7 @@ const Hero = props => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createE
 }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
   className: "col-lg-5"
 }, props.kicker && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-  className: "h6"
+  className: "h6 text-uppercase"
 }, props.kicker), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, props.header), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, props.subHeader), props.logoWall && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h6", {
   className: "mt-4"
 }, "TRUSTED BY 100K LEADING BRANDS"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -8920,7 +8920,9 @@ function Edit(_ref) {
     });
   };
 
-  let linkTextControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+  let linkTextControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wp-control-wrapper"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
     value: attributes.linkText,
     onChange: val => setAttributes({
       linkText: val

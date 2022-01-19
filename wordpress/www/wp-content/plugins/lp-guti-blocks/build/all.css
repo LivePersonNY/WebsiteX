@@ -26,6 +26,7 @@
   margin: 0 !important;
   padding: 0 !important;
   color: inherit !important;
+  text-transform: inherit !important;
 }
 .embedded-input:focus, .embedded-input div:focus, .embedded-input input:focus, .wp-control-wrapper:focus {
   border: 1px dotted #333 !important;

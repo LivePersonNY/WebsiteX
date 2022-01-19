@@ -76,7 +76,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	}
 
 	let linkTextControl = (
-		<div>
+		<div className="wp-control-wrapper">
 			<TextControl
 				value={ attributes.linkText }
 				onChange={ ( val ) => setAttributes( { linkText: val } ) }
