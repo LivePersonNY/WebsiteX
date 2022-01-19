@@ -4,16 +4,18 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import bootstrap from 'bootstrap';
 
+import '../../../../../../../../gatsby-sites/www/liveperson-scripts';
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 import TabsA from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
 
 /**
@@ -32,7 +34,7 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({attributes, isSelected, setAttributes}) {
+export default function Edit({attributes, isSelected, setAttributes, onChange}) {
 
 	let headerControl = (
 		<TextControl
@@ -42,15 +44,85 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		/>
 	);
 
+	let itemValues = [...attributes.tabItems];
+	let itemControls = attributes.tabItems.map((item ,index)=>{
+		return {
+			title: (
+				<TextControl
+					value={itemValues[index].title}
+					onChange={function(value) {
+						itemValues[index].title = value;
+						setAttributes({ tabItems: itemValues});
+					}}
+					className="embedded-input"
+				/>
+			),
+			body: (
+				<div>
+					<TextControl
+						value={itemValues[index].body}
+						onChange={function(value) {
+							itemValues[index].body = value;
+							setAttributes({ tabItems: itemValues});
+						}}
+						className="embedded-input"
+					/>
+					<button
+						className="v-tab-remove"
+						onClick={
+						function(e) {
+							itemValues.splice(index, 1);
+							setAttributes({ tabItems: itemValues});
+						}
+					}>
+						<span className="dashicons-before dashicons-remove"></span>
+					</button>
+				</div>
+			),
+			img: `https://picsum.photos/752/568?random=${index}`,
+			imgAlt: 'An image placeholder'
+		}
+	});
+
+	let addTabFunc = function() {
+
+		let thisIndex = itemValues.length;
+
+		itemValues.push({
+			title: `Tab Title ${thisIndex}`,
+			body: `Tab Body ${thisIndex}`,
+			img: `https://picsum.photos/752/568?random=${thisIndex}`,
+			imgAlt: 'An image placeholder'
+		});
+		setAttributes({
+			tabItems: itemValues
+		});
+	}
+
+	let addButton = (
+		<BlockControls>
+			<ToolbarGroup>
+				<ToolbarButton
+					icon="plus-alt2"
+					label="Add Tab"
+					onClick={ addTabFunc }
+				/>
+			</ToolbarGroup>
+		</BlockControls>
+	);
+
 	if (isSelected)	return (
+
 		<div {...useBlockProps()}>
-			<TabsA heading={headerControl} contentHeader={[]} imgSrc={[]} />
+			{addButton}
+			<TabsA heading={headerControl} items={itemControls} />
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
-			<TabsA heading={attributes.header} contentHeader={[]} imgSrc={[]} />
+			{addButton}
+			<TabsA heading={attributes.header} items={attributes.tabItems}/>
 		</div>
 	)
 

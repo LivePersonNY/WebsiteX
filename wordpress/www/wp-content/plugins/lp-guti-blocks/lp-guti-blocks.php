@@ -34,6 +34,7 @@ add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
 
 function register_mkto_script() {
 	wp_enqueue_script('mkto-forms', 'https://info.liveperson.com/js/forms2/js/forms2.min.js');
+	wp_enqueue_style('dashicons');
 }
 //add_action( 'admin_enqueue_scripts', 'register_mkto_script');
 add_action( 'wp_enqueue_scripts', 'register_mkto_script');
