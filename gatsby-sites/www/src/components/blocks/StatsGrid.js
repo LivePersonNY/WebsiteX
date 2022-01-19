@@ -6,12 +6,14 @@ const StatsGrid = (props) => {
 
   let statCol = props.items.map((item, index)=>{
     return (
-      <div className="col">
+      <div className="col" key={index}>
         <p className="h1">{item.stat}</p>
         <p className="subtitle2">{item.content}</p>
       </div>
     )
   });
+
+  let statAmount = props.items.length;
 
   return (
       <div className="pane bg-primary-light comp-stat-grid">
@@ -26,7 +28,7 @@ const StatsGrid = (props) => {
           <div className="row">
             <div className="col-lg-12">
               <div className="comp-4col-grid text-center">
-                <div className="row">
+                <div className={`row align-items-center row-cols-lg-${statAmount} row-cols-2`}>
                   {statCol}
                 </div>
               </div>
