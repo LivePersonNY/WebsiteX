@@ -5,7 +5,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import $ from 'jquery';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper, CheckboxControl } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextareaControl, TextControl, Button, ResponsiveWrapper, CheckboxControl } from '@wordpress/components';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
@@ -52,7 +52,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	}
 
 	let contentControl = (
-		<TextControl
+		<TextareaControl
 			value={ attributes.text }
 			onChange={ ( val ) => setAttributes( { text: val } ) }
 			className="embedded-input"

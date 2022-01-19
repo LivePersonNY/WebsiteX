@@ -43,3 +43,7 @@
 		}
 	}
 }
+
+.pane:not(.hero):not(.pane-form) {
+	opacity: 1 !important;
+}
