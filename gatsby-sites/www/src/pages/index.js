@@ -83,14 +83,28 @@ const IndexPage = ({ data: { page, setting } }) => (
 
     <StatsGrid
       heading="The infinite power of conversational AI"
-      stat1="2.5x"
-      content1="Increased ad conversions"
-      stat2="20%"
-      content2="Increased sales conversions"
-      stat3="50%"
-      content3="Reduced labor costs"
-      stat4="20%"
-      content4="Increased CSAT score"
+      items={[
+        {
+          "stat":"2.5x",
+          "content":"Increased ad conversions"
+        },
+        {
+          "stat":"20%",
+          "content":"Increased sales conversions"
+        },
+        {
+          "stat":"50%",
+          "content":"Reduced labor costs"
+        },
+        {
+          "stat":"20%",
+          "content":"Increased CSAT score"
+        },
+        {
+          "stat":"20%",
+          "content":"Increased CSAT score"
+        }
+      ]}
     />
 
     <div className="pane bg-primary-light">

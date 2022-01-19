@@ -3,10 +3,17 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
 const StatsGrid = (props) => {
-  let repeat;
+
+  let statCol = props.items.map((item, index)=>{
+    return (
+      <div className="col">
+        <p className="h1">{item.stat}</p>
+        <p className="subtitle2">{item.content}</p>
+      </div>
+    )
+  });
 
   return (
-    <>
       <div className="pane bg-primary-light comp-stat-grid">
         <div className="container">
           {props.heading && (
@@ -18,31 +25,15 @@ const StatsGrid = (props) => {
           )}
           <div className="row">
             <div className="col-lg-12">
-              <div className="comp-4col-grid bg-neutral-92 text-center">
+              <div className="comp-4col-grid text-center">
                 <div className="row">
-                  <div className="col-lg-3">
-                    <p className="h1">{props.stat1}</p>
-                    <p className="subtitle2">{props.content1}</p>
-                  </div>
-                  <div className="col-lg-3">
-                    <p className="h1">{props.stat2}</p>
-                    <p className="subtitle2">{props.content2}</p>
-                  </div>
-                  <div className="col-lg-3">
-                    <p className="h1">{props.stat3}</p>
-                    <p className="subtitle2">{props.content3}</p>
-                  </div>
-                  <div className="col-lg-3">
-                    <p className="h1">{props.stat4}</p>
-                    <p className="subtitle2">{props.content4}</p>
-                  </div>
+                  {statCol}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
   );
 };
 

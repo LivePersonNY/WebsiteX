@@ -135,10 +135,25 @@ img {
     .comp-4col-grid {
         margin-top: 32px;
         padding: 48px 21px;
+        background: $lavendar20;
 
         @include media-breakpoint-up(lg) {
             margin-top: 48px;
             padding: 48px 32px;
+        }
+
+        .col {
+            border-right: 1px solid $neutral12;
+
+            &:last-child {
+                border-right: 0;
+            }
+
+            .h1 {
+                background: -webkit-linear-gradient(90deg, #3863E5 0%, #8D46EB 86.36%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
         }
     }
 
