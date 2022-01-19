@@ -31,7 +31,7 @@ const IndexPage = ({ data: { page, setting } }) => (
       subHeader="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus
               elementum sollicitudin magna bibendum sit ultricies arcu. Nullam
               tincidunt varius."
-      heroImage="https://placekitten.com/640/480"
+      heroImage="https://picsum.photos/640/480?random=1"
       heroImageAlt="test"
       logoWall="true"
     />
@@ -56,7 +56,7 @@ const IndexPage = ({ data: { page, setting } }) => (
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-      imgSrc="https://placekitten.com/640/480"
+      imgSrc="https://picsum.photos/640/480?random=2"
       repeat="true"
     />
 
@@ -67,7 +67,7 @@ const IndexPage = ({ data: { page, setting } }) => (
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
       enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-      imgSrc="https://placekitten.com/640/480"
+      imgSrc="https://picsum.photos/640/480?random=3"
       imgAlt="alt text"
       repeat="true"
     />
@@ -78,7 +78,7 @@ const IndexPage = ({ data: { page, setting } }) => (
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
       enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-      imgSrc="https://placekitten.com/640/480"
+      imgSrc="https://picsum.photos/640/480?random=4"
     />
 
     <StatsGrid
@@ -113,7 +113,7 @@ const IndexPage = ({ data: { page, setting } }) => (
           <div className="col-lg-5">
             <h6>PRE-HEADER TEXT</h6>
             <h2>LivePerson for your business</h2>
-            <img src="https://placekitten.com/18/18" alt="" />
+            <img src="https://picsum.photos/18/18" alt="" />
             <h3>Commerce</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat
@@ -122,7 +122,7 @@ const IndexPage = ({ data: { page, setting } }) => (
             <a className="link link-mt-small" href="#">
               Discover Commerce Solutions
             </a>
-            <img src="https://placekitten.com/18/18" alt="" />
+            <img src="https://picsum.photos/18/18" alt="" />
             <h3>Customer Care</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat
@@ -133,7 +133,7 @@ const IndexPage = ({ data: { page, setting } }) => (
             </a>
           </div>
           <div className="col-lg-6 offset-lg-1">
-            <img src="https://placekitten.com/640/720" alt="" />
+            <img src="https://picsum.photos/640/720" alt="" />
           </div>
         </div>
       </div>
@@ -145,25 +145,25 @@ const IndexPage = ({ data: { page, setting } }) => (
         {
           "title": "Ennhance the customer journey",
           "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices.",
-          "img": "https://placekitten.com/752/568",
+          "img": "https://picsum.photos/752/568?random=1",
           "imgAlt": "Image Here"
         },
         {
           "title": "Understand customer sentiment",
           "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices.",
-          "img": "https://placekitten.com/752/568",
+          "img": "https://picsum.photos/752/568?random=2",
           "imgAlt": "Image Here"
         },
         {
           "title": "Connect with your customers",
           "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices.",
-          "img": "https://placekitten.com/752/568",
+          "img": "https://picsum.photos/752/568?random=3",
           "imgAlt": "Image Here"
         },
         {
           "title": "Another benefit goes here",
           "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et ultrices orci morbi elit platea vel nec varius. Augue tortor ac cursus id fermentum. Odio libero a, posuere ultrices.",
-          "img": "https://placekitten.com/752/568",
+          "img": "https://picsum.photos/752/568?random=4",
           "imgAlt": "Image Here"
         }
       ]}
@@ -179,7 +179,7 @@ const IndexPage = ({ data: { page, setting } }) => (
           "body": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
-          "img": "https://placekitten.com/752/568",
+          "img": "https://picsum.photos/752/568?random=5",
           "imgAlt": "Image Here"
         },
         {
@@ -189,7 +189,7 @@ const IndexPage = ({ data: { page, setting } }) => (
           "body": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
-          "img": "https://placekitten.com/752/568",
+          "img": "https://picsum.photos/752/568?random=6",
           "imgAlt": "Image Here"
         },
         {
@@ -199,7 +199,7 @@ const IndexPage = ({ data: { page, setting } }) => (
           "body": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
-          "img": "https://placekitten.com/752/568",
+          "img": "https://picsum.photos/752/568?random=7",
           "imgAlt": "Image Here"
         }
       ]}
@@ -210,46 +210,46 @@ const IndexPage = ({ data: { page, setting } }) => (
       items={[
         {
           "pill": "Conversational Cloud",
-          "icon": "https://placekitten.com/56/56",
-          "iconAlt": "https://placekitten.com/56/56",
+          "icon": "https://picsum.photos/56/56?random=1",
+          "iconAlt": "https://picsum.photos/56/56",
           "header": "A branded line of copy or two about product benefit",
           "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
-          "img": "https://placekitten.com/640/560",
+          "img": "https://picsum.photos/640/560?random=1",
           "imgAlt": "Image Here"
         },
         {
           "pill": "Voice",
-          "icon": "https://placekitten.com/56/56",
-          "iconAlt": "https://placekitten.com/56/56",
+          "icon": "https://picsum.photos/56/56?random=2",
+          "iconAlt": "https://picsum.photos/56/56",
           "header": "A branded line of copy or two about product benefit",
           "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
-          "img": "https://placekitten.com/640/560",
+          "img": "https://picsum.photos/640/560?random=2",
           "imgAlt": "Image Here"
         },
         {
           "pill": "Managed Services",
-          "icon": "https://placekitten.com/56/56",
-          "iconAlt": "https://placekitten.com/56/56",
+          "icon": "https://picsum.photos/56/56?random=3",
+          "iconAlt": "https://picsum.photos/56/56",
           "header": "A branded line of copy or two about product benefit",
           "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
-          "img": "https://placekitten.com/640/560",
+          "img": "https://picsum.photos/640/560?random=3",
           "imgAlt": "Image Here"
         },
         {
           "pill": "Bella Health",
-          "icon": "https://placekitten.com/56/56",
-          "iconAlt": "https://placekitten.com/56/56",
+          "icon": "https://picsum.photos/56/56?random=4",
+          "iconAlt": "https://picsum.photos/56/56",
           "header": "A branded line of copy or two about product benefit",
           "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
-          "img": "https://placekitten.com/640/560",
+          "img": "https://picsum.photos/640/560?random=4",
           "imgAlt": "Image Here"
         }
       ]}
@@ -259,21 +259,21 @@ const IndexPage = ({ data: { page, setting } }) => (
       heading="Headline about our customers"
       items={[
         {
-          "img":"https://placekitten.com/224/30",
+          "img":"https://picsum.photos/224/30?random=1",
           "imgAlt":"Alt text",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },
         {
-          "img":"https://placekitten.com/224/30",
+          "img":"https://picsum.photos/224/30?random=2",
           "imgAlt":"Alt text",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },
         {
-          "img":"https://placekitten.com/224/30",
+          "img":"https://picsum.photos/224/30?random=3",
           "imgAlt":"Alt text",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
           "linkText":"Read Customer Story",
@@ -288,7 +288,7 @@ const IndexPage = ({ data: { page, setting } }) => (
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-      imgSrc="https://placekitten.com/640/480"
+      imgSrc="https://picsum.photos/640/480"
       linkText="Discover Commerce Solutions"
       linkUrl="/"
       flipColumns="true"
@@ -298,19 +298,19 @@ const IndexPage = ({ data: { page, setting } }) => (
       heading="Related Insights"
       linkText="View All Posts"
       linkUrl="#"
-      img1Src="https://placekitten.com/416/232"
+      img1Src="https://picsum.photos/416/232?random=1"
       img1Alt="Alt text"
       callout1Category="CATEGORY"
       callout1Content="Blog post title goes right here across two lines"
       callout1Author="By Name Lastname"
       callout1LinkUrl="#"
-      img2Src="https://placekitten.com/416/232"
+      img2Src="https://picsum.photos/416/232?random=2"
       img2Alt="Alt text"
       callout2Category="CATEGORY"
       callout2Content="Blog post title goes right here across two lines"
       callout2Author="By Name Lastname"
       callout2LinkUrl="#"
-      img3Src="https://placekitten.com/416/232"
+      img3Src="https://picsum.photos/416/232?random=3"
       img3Alt="Alt text"
       callout3Category="CATEGORY"
       callout3Content="Blog post title goes right here across two lines"
@@ -322,37 +322,37 @@ const IndexPage = ({ data: { page, setting } }) => (
       heading="Product Features"
       items={[
         {
-          "img":"https://placekitten.com/64/64",
+          "img":"https://picsum.photos/64/64?random=1",
           "imgAlt":"Alt text",
           "title":"Intent Manager",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
         {
-          "img":"https://placekitten.com/64/64",
+          "img":"https://picsum.photos/64/64?random=2",
           "imgAlt":"Alt text",
           "title":"Conversation Manager",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
         {
-          "img":"https://placekitten.com/64/64",
+          "img":"https://picsum.photos/64/64?random=3",
           "imgAlt":"Alt text",
           "title":"Conversation Channels",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
         {
-          "img":"https://placekitten.com/64/64",
+          "img":"https://picsum.photos/64/64?random=4",
           "imgAlt":"Alt text",
           "title":"Conversation Builder",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
         {
-          "img":"https://placekitten.com/64/64",
+          "img":"https://picsum.photos/64/64?random=5",
           "imgAlt":"Conversation Orchestrator",
           "title":"Conversation Orchestrator",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
         {
-          "img":"https://placekitten.com/64/64",
+          "img":"https://picsum.photos/64/64?random=6",
           "imgAlt":"Conversation Analytics",
           "title":"Conversation Analytics",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
@@ -364,7 +364,7 @@ const IndexPage = ({ data: { page, setting } }) => (
       heading="Headline about our customers"
       items={[
         {
-          "img":"https://placekitten.com/64/64",
+          "img":"https://picsum.photos/64/64?random=7",
           "imgAlt":"Alt text",
           "title": "Voice",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
@@ -372,7 +372,7 @@ const IndexPage = ({ data: { page, setting } }) => (
           "linkUrl":"#"
         },
         {
-          "img":"https://placekitten.com/64/64",
+          "img":"https://picsum.photos/64/64?random=8",
           "imgAlt":"Alt text",
           "title": "Managed Service",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
@@ -380,7 +380,7 @@ const IndexPage = ({ data: { page, setting } }) => (
           "linkUrl":"#"
         },
         {
-          "img":"https://placekitten.com/64/64",
+          "img":"https://picsum.photos/64/64?random=9",
           "imgAlt":"Alt text",
           "title": "Bella Health",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
@@ -394,7 +394,7 @@ const IndexPage = ({ data: { page, setting } }) => (
       heading="LivePerson for your business"
       items={[
         {
-          "img":"https://placekitten.com/64/64",
+          "img":"https://picsum.photos/64/64?random=10",
           "imgAlt":"Alt text",
           "title":"Commerce",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
@@ -402,7 +402,7 @@ const IndexPage = ({ data: { page, setting } }) => (
           "linkUrl":"#"
         },
         {
-          "img":"https://placekitten.com/64/64",
+          "img":"https://picsum.photos/64/64?random=11",
           "imgAlt":"Alt text",
           "title":"Customer Care",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
@@ -416,23 +416,23 @@ const IndexPage = ({ data: { page, setting } }) => (
       heading="Trusted by the world's biggest brands"
       items={[
         {
-          "img":"https://placekitten.com/80/80",
+          "img":"https://picsum.photos/80/80",
           "imgAlt":"Alt text",
         },
         {
-          "img":"https://placekitten.com/241/56",
+          "img":"https://picsum.photos/241/56",
           "imgAlt":"Alt text",
         },
         {
-          "img":"https://placekitten.com/100/40",
+          "img":"https://picsum.photos/100/40",
           "imgAlt":"Alt text",
         },
         {
-          "img":"https://placekitten.com/185/48",
+          "img":"https://picsum.photos/185/48",
           "imgAlt":"Alt text",
         },
         {
-          "img":"https://placekitten.com/135/40",
+          "img":"https://picsum.photos/135/40",
           "imgAlt":"Alt text",
         },
       ]}

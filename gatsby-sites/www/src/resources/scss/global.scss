@@ -53,6 +53,10 @@ img {
     display: none;
 }
 
+.pane:not(.hero):not(.pane-form) {
+    opacity: 0;
+}
+
 .card {
     background: $primaryLight;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
@@ -144,6 +148,14 @@ img {
 
         .col {
             border-right: 1px solid $neutral12;
+            margin-top: 0 !important;
+            padding-top: 24px;
+            padding-bottom: 24px;
+
+            @include media-breakpoint-up(lg) {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
 
             &:last-child {
                 border-right: 0;

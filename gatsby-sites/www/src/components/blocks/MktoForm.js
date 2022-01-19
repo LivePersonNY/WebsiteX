@@ -90,10 +90,10 @@ const MktoForm = (props) => {
                 <span className="span1">Request demo</span>
                 <span className="span2">
                   <svg version="1.1" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" style={{width:'40px'}}>
-                    <g fill="#162036" fill-rule="evenodd">
+                    <g fill="#162036" fillRule="evenodd">
                       <g transform="translate(1 1)" stroke="#fff">
                         <circle cx="30" cy="30" r="30" />
-                        <g stroke="#ffffff" transform="translate(15 15)" stroke-linecap="square">
+                        <g stroke="#ffffff" transform="translate(15 15)" strokeLinecap="square">
                           <path d="m0.51724 0.51724l29.26 29.26" />
                           <path d="m29.483 0.51724l-29.26 29.26" />
                         </g>

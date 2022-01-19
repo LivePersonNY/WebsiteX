@@ -4,22 +4,9 @@ import Link from 'gatsby-link';
 import $ from 'jquery'; 
 
 const TabsC = (props) => {
-
-    let tabLoad = function(){
-      $('.comp-tabs-c .comp-tabs-content').hide();
-      $('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]').fadeIn();
-    }
-  
-    let tabClick = function(e) {
-      $('.comp-tabs-c .btn.pill').removeClass('pill-active');
-      $(e.target).addClass('pill-active');
-      let tabIndex = $(e.target).data('tab');
-      $(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
-      $(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
-    }
   
     let pillListOutput = props.items.map((item ,index)=>{
-      return <a onClick={tabClick} className="btn pill" data-tab={index} key={index}>{item.pill}</a>
+      return <a className="btn pill" data-tab={index} key={index}>{item.pill}</a>
     });
 
     let tabsContent = props.items.map((item, index)=>{
@@ -45,7 +32,7 @@ const TabsC = (props) => {
 
   return (
   <>
-    <div className="pane bg-neutral-92 comp-tabs-c" onLoad={tabLoad}>
+    <div className="pane bg-neutral-92 comp-tabs-c">
       <div className="container">
         <div className="row">
           <div className="col-lg-8 offset-lg-2">
