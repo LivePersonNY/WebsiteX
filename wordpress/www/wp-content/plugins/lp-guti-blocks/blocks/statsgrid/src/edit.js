@@ -4,7 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-import { __experimentalGrid as Grid,Placeholder, TextControl } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, ToolbarGroup, ToolbarButton, Dashicon, Button } from '@wordpress/components';
 import StatsGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/StatsGrid';
 
 
@@ -14,7 +14,7 @@ import StatsGrid from '../../../../../../../../gatsby-sites/www/src/components/b
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 import { useInstanceId } from '@wordpress/compose';
 
 
@@ -44,93 +44,82 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 		/>
 	);
 
-	let stat1 = (
-		<TextControl
-			value={ attributes.stat1 }
-			onChange={ ( val ) => setAttributes( { stat1: val } ) }
-			className="embedded-input"
-		/>
-	);
-	let stat2 = (
-		<TextControl
-			value={ attributes.stat2 }
-			onChange={ ( val ) => setAttributes( { stat2: val } ) }
-			className="embedded-input"
-		/>
-	);
-	let stat3 = (
-		<TextControl
-			value={ attributes.stat3 }
-			onChange={ ( val ) => setAttributes( { stat3: val } ) }
-			className="embedded-input"
-		/>
-	);
-	let stat4 = (
-		<TextControl
-			value={ attributes.stat4 }
-			onChange={ ( val ) => setAttributes( { stat4: val } ) }
-			className="embedded-input"
-		/>
-	);
+	let stack = [...attributes.statItems];
+	let controls = attributes.statItems.map((item ,index)=>{
+		return {
+			stat: (
+				<TextControl
+					value={stack[index].stat}
+					onChange={function(value) {
+						stack[index].stat = value;
+						setAttributes({ statItems: stack});
+					}}
+					className="embedded-input"
+				/>
+			),
+			content: (
+				<div>
+					<TextControl
+						value={stack[index].content}
+						onChange={function(value) {
+							stack[index].content = value;
+							setAttributes({ statItems: stack});
+						}}
+						className="embedded-input"
+					/>
+					<a
+						className="stat-remove"
+						onClick={
+						function(e) {
+							stack.splice(index, 1);
+							setAttributes({ statItems: stack});
+						}
+					}>
+						<span className="dashicons-before dashicons-remove"></span>
+					</a>
+				</div>
+			)
+		}
+	});
 
-	let content1 = (
-		<TextControl
-			value={ attributes.content1 }
-			onChange={ ( val ) => setAttributes( { content1: val } ) }
-			className="embedded-input"
-		/>
-	);
-	let content2 = (
-		<TextControl
-			value={ attributes.content2 }
-			onChange={ ( val ) => setAttributes( { content2: val } ) }
-			className="embedded-input"
-		/>
-	);
-	let content3 = (
-		<TextControl
-			value={ attributes.content3 }
-			onChange={ ( val ) => setAttributes( { content3: val } ) }
-			className="embedded-input"
-		/>
-	);
-	let content4 = (
-		<TextControl
-			value={ attributes.content4 }
-			onChange={ ( val ) => setAttributes( { content4: val } ) }
-			className="embedded-input"
-		/>
+	let addTabFunc = function() {
+
+		stack.push({
+			stat: "42%",
+			content: "The answer to the great question"
+		});
+		setAttributes({
+			statItems: stack
+		});
+	}
+
+	let addButton = (
+		<BlockControls>
+			<ToolbarGroup>
+				<ToolbarButton
+					icon="plus-alt2"
+					label="Add Stat"
+					onClick={ addTabFunc }
+				/>
+			</ToolbarGroup>
+		</BlockControls>
 	);
 
 	if (isSelected) return (
 		<div { ...useBlockProps() }>
+			{addButton}
 			<StatsGrid
 				heading={headerControl}
-				stat1={stat1}
-				stat2={stat2}
-				stat3={stat3}
-				stat4={stat4}
-				content1={content1}
-				content2={content2}
-				content3={content3}
-				content4={content4}
-				items={[]}
+				items={controls}
 			/>
 		</div>
 	);
 	return (
 		<div { ...useBlockProps() }>
+			{addButton}
 			<StatsGrid
 				heading={attributes.header}
-				stat1={attributes.stat1}
-				stat2={attributes.stat2}
-				stat3={attributes.stat3}
-				stat4={attributes.stat4}
-				content1={attributes.content1}
-				content2={attributes.content2}
-				content3={attributes.content3}
-				content4={attributes.content4}
-				items={[]}
+				items={attributes.statItems}
 			/>
 		</div>
 	)

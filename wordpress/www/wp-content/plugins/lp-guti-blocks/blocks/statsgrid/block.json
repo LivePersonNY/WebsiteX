@@ -16,15 +16,8 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"header": {"default": "Plain Header"},
-		"stat1": {"default": "Number"},
-		"stat2": {"default": "Number"},
-		"stat3": {"default": "Number"},
-		"stat4": {"default": "Number"},
-		"content1": {"default": "Text"},
-		"content2": {"default": "Text"},
-		"content3": {"default": "Text"},
-		"content4": {"default": "Text"},
-		"items": {
+		"statItems": {
+			"type": "array",
 			"default": []
 		}
 	}

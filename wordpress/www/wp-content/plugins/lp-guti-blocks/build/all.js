@@ -9399,85 +9399,64 @@ function Edit(_ref) {
     }),
     className: "embedded-input"
   });
-  let stat1 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-    value: attributes.stat1,
-    onChange: val => setAttributes({
-      stat1: val
-    }),
-    className: "embedded-input"
+  let stack = [...attributes.statItems];
+  let controls = attributes.statItems.map((item, index) => {
+    return {
+      stat: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        value: stack[index].stat,
+        onChange: function (value) {
+          stack[index].stat = value;
+          setAttributes({
+            statItems: stack
+          });
+        },
+        className: "embedded-input"
+      }),
+      content: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        value: stack[index].content,
+        onChange: function (value) {
+          stack[index].content = value;
+          setAttributes({
+            statItems: stack
+          });
+        },
+        className: "embedded-input"
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+        className: "stat-remove",
+        onClick: function (e) {
+          stack.splice(index, 1);
+          setAttributes({
+            statItems: stack
+          });
+        }
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+        className: "dashicons-before dashicons-remove"
+      })))
+    };
   });
-  let stat2 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-    value: attributes.stat2,
-    onChange: val => setAttributes({
-      stat2: val
-    }),
-    className: "embedded-input"
-  });
-  let stat3 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-    value: attributes.stat3,
-    onChange: val => setAttributes({
-      stat3: val
-    }),
-    className: "embedded-input"
-  });
-  let stat4 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-    value: attributes.stat4,
-    onChange: val => setAttributes({
-      stat4: val
-    }),
-    className: "embedded-input"
-  });
-  let content1 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-    value: attributes.content1,
-    onChange: val => setAttributes({
-      content1: val
-    }),
-    className: "embedded-input"
-  });
-  let content2 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-    value: attributes.content2,
-    onChange: val => setAttributes({
-      content2: val
-    }),
-    className: "embedded-input"
-  });
-  let content3 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-    value: attributes.content3,
-    onChange: val => setAttributes({
-      content3: val
-    }),
-    className: "embedded-input"
-  });
-  let content4 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-    value: attributes.content4,
-    onChange: val => setAttributes({
-      content4: val
-    }),
-    className: "embedded-input"
-  });
-  if (isSelected) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_StatsGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+
+  let addTabFunc = function () {
+    stack.push({
+      stat: "42%",
+      content: "The answer to the great question"
+    });
+    setAttributes({
+      statItems: stack
+    });
+  };
+
+  let addButton = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarButton, {
+    icon: "plus-alt2",
+    label: "Add Stat",
+    onClick: addTabFunc
+  })));
+  if (isSelected) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), addButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_StatsGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
     heading: headerControl,
-    stat1: stat1,
-    stat2: stat2,
-    stat3: stat3,
-    stat4: stat4,
-    content1: content1,
-    content2: content2,
-    content3: content3,
-    content4: content4,
-    items: []
+    items: controls
   }));
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_StatsGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), addButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_StatsGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
     heading: attributes.header,
-    stat1: attributes.stat1,
-    stat2: attributes.stat2,
-    stat3: attributes.stat3,
-    stat4: attributes.stat4,
-    content1: attributes.content1,
-    content2: attributes.content2,
-    content3: attributes.content3,
-    content4: attributes.content4,
-    items: []
+    items: attributes.statItems
   }));
 }
 
@@ -9588,15 +9567,7 @@ function save(_ref) {
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_StatsGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
     heading: attributes.heading,
-    stat1: attributes.stat1,
-    stat2: attributes.stat2,
-    stat3: attributes.stat3,
-    stat4: attributes.stat4,
-    content1: attributes.content1,
-    content2: attributes.content2,
-    content3: attributes.content3,
-    content4: attributes.content4,
-    items: []
+    items: attributes.statItems
   });
 }
 
