@@ -9898,6 +9898,9 @@ a > .site code {
     margin-bottom: 34px;
   }
 }
+.site .card .card-body .card-text {
+  margin-top: 0;
+}
 .site .card .card-footer {
   padding: 0;
   background: none;
@@ -9942,12 +9945,24 @@ a > .site code {
 .site .comp-stat-grid .comp-4col-grid {
   margin-top: 32px;
   padding: 48px 21px;
+  background: #EFEFFC;
 }
 @media (min-width: 992px) {
   .site .comp-stat-grid .comp-4col-grid {
     margin-top: 48px;
     padding: 48px 32px;
   }
+}
+.site .comp-stat-grid .comp-4col-grid .col {
+  border-right: 1px solid #1C1D22;
+}
+.site .comp-stat-grid .comp-4col-grid .col:last-child {
+  border-right: 0;
+}
+.site .comp-stat-grid .comp-4col-grid .col .h1 {
+  background: -webkit-linear-gradient(90deg, #3863E5 0%, #8D46EB 86.36%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .site .comp-stat-grid .subtitle2 {
   margin-top: 8px;
@@ -10093,6 +10108,31 @@ a > .site code {
 }
 .site .comp-icon-text-a .comp-block-grid-container .card1 {
   margin-bottom: 8px;
+}
+.site .comp-icon-text-b .comp-card-grid-container {
+  margin-top: 60px;
+}
+@media (min-width: 992px) {
+  .site .comp-icon-text-b .comp-card-grid-container {
+    margin-top: 72px;
+  }
+}
+.site .comp-icon-text-b .comp-card-grid-container .card-image-internal {
+  margin-bottom: 16px;
+}
+.site .comp-icon-text-b .comp-card-grid-container h3, .site .comp-icon-text-b .comp-card-grid-container .h3 {
+  margin-bottom: 8px;
+}
+.site .comp-logo-universal h2, .site .comp-logo-universal .h2 {
+  margin-bottom: 48px;
+}
+.site .comp-logo-universal img {
+  padding: 12px 0;
+}
+@media (min-width: 992px) {
+  .site .comp-logo-universal img {
+    padding: 0;
+  }
 }
 .site .navbar .navbar-collapse {
   justify-content: center;
@@ -10401,6 +10441,15 @@ a > .site code {
  */
 /*!*****************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/tabs-a/src/style.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/tabs-b/src/style.scss ***!
   \*****************************************************************************************************************************************************************************************************************************************************/
 /**
  * The following styles get applied both on the front of your site

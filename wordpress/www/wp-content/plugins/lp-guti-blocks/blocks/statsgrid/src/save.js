@@ -34,6 +34,7 @@ export default function save({ attributes }) {
 			content2={attributes.content2}
 			content3={attributes.content3}
 			content4={attributes.content4}
+			items={[]}
 		/>
 	)
 }

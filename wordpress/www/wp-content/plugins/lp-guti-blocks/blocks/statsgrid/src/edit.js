@@ -114,6 +114,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				content2={content2}
 				content3={content3}
 				content4={content4}
+				items={[]}
 			/>
 		</div>
 	);
@@ -129,6 +130,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				content2={attributes.content2}
 				content3={attributes.content3}
 				content4={attributes.content4}
+				items={[]}
 			/>
 		</div>
 	)

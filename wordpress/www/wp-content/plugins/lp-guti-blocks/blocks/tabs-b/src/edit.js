@@ -46,33 +46,45 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		/>
 	);
 
-	const onSelectMedia = (media) => {
-		/*setAttributes({
-			mediaId: media.id,
-			mediaUrl: media.url,
-			mediaAlt: media.alt || '',
-		});*/
-	}
-
 	let itemValues = [...attributes.tabItems];
 	let itemControls = attributes.tabItems.map((item ,index)=>{
 		return {
-			title: (
+			header: (
 				<TextControl
-					value={itemValues[index].title}
+					value={itemValues[index].header}
 					onChange={function(value) {
-						itemValues[index].title = value;
+						itemValues[index].header = value;
 						setAttributes({ tabItems: itemValues});
 					}}
 					className="embedded-input"
 				/>
 			),
-			body: (
-				<div>
+			linkUrl: null,
+			linkText: (
+				<div className="wp-control-wrapper">
 					<TextControl
-						value={itemValues[index].body}
+						value={itemValues[index].linkText}
 						onChange={function(value) {
-							itemValues[index].body = value;
+							itemValues[index].linkText = value;
+							setAttributes({ tabItems: itemValues});
+						}}
+						className="embedded-input"
+					/>
+					<TextControl
+						value={itemValues[index].linkUrl}
+						onChange={function(value) {
+							itemValues[index].linkUrl = value;
+							setAttributes({ tabItems: itemValues});
+						}}
+					/>
+				</div>
+			),
+			title: (
+				<div className="wp-control-wrapper">
+					<TextControl
+						value={itemValues[index].title}
+						onChange={function(value) {
+							itemValues[index].title = value;
 							setAttributes({ tabItems: itemValues});
 						}}
 						className="embedded-input"
@@ -88,6 +100,18 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						<span className="dashicons-before dashicons-remove"></span>
 					</button>
 				</div>
+			),
+			kicker: itemValues[index].title,
+			body: (
+				<TextControl
+					value={itemValues[index].body}
+					onChange={function(value) {
+						itemValues[index].body = value;
+						setAttributes({ tabItems: itemValues});
+					}}
+					className="embedded-input"
+				/>
+
 			),
 			imgCtl: (
 				<MediaUploadCheck>
@@ -115,7 +139,10 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		itemValues.push({
 			title: `Tab Title ${thisIndex}`,
+			header: `Heading Text`,
 			body: `Tab Body ${thisIndex}`,
+			linkUrl: 'https://www.liveperson.com',
+			linkText: 'A compelling link',
 			img: `https://picsum.photos/752/568?random=${thisIndex}`,
 			imgAlt: 'An image placeholder'
 		});

@@ -15,7 +15,7 @@
   max-width: 100%;
 }
 
-.embedded-input, .embedded-input div, .embedded-input input {
+.embedded-input, .embedded-input div, .embedded-input input, .wp-control-wrapper {
   font-size: inherit !important;
   border: none !important;
   outline: none !important;
@@ -25,8 +25,9 @@
   max-width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
+  color: inherit !important;
 }
-.embedded-input:focus, .embedded-input div:focus, .embedded-input input:focus {
+.embedded-input:focus, .embedded-input div:focus, .embedded-input input:focus, .wp-control-wrapper:focus {
   border: 1px dotted #333 !important;
 }
 
@@ -9916,6 +9917,9 @@ a > .block-editor-block-list__layout code {
     margin-bottom: 34px;
   }
 }
+.block-editor-block-list__layout .card .card-body .card-text {
+  margin-top: 0;
+}
 .block-editor-block-list__layout .card .card-footer {
   padding: 0;
   background: none;
@@ -9960,12 +9964,24 @@ a > .block-editor-block-list__layout code {
 .block-editor-block-list__layout .comp-stat-grid .comp-4col-grid {
   margin-top: 32px;
   padding: 48px 21px;
+  background: #EFEFFC;
 }
 @media (min-width: 992px) {
   .block-editor-block-list__layout .comp-stat-grid .comp-4col-grid {
     margin-top: 48px;
     padding: 48px 32px;
   }
+}
+.block-editor-block-list__layout .comp-stat-grid .comp-4col-grid .col {
+  border-right: 1px solid #1C1D22;
+}
+.block-editor-block-list__layout .comp-stat-grid .comp-4col-grid .col:last-child {
+  border-right: 0;
+}
+.block-editor-block-list__layout .comp-stat-grid .comp-4col-grid .col .h1 {
+  background: -webkit-linear-gradient(90deg, #3863E5 0%, #8D46EB 86.36%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .block-editor-block-list__layout .comp-stat-grid .subtitle2 {
   margin-top: 8px;
@@ -10111,6 +10127,31 @@ a > .block-editor-block-list__layout code {
 }
 .block-editor-block-list__layout .comp-icon-text-a .comp-block-grid-container .card1 {
   margin-bottom: 8px;
+}
+.block-editor-block-list__layout .comp-icon-text-b .comp-card-grid-container {
+  margin-top: 60px;
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-icon-text-b .comp-card-grid-container {
+    margin-top: 72px;
+  }
+}
+.block-editor-block-list__layout .comp-icon-text-b .comp-card-grid-container .card-image-internal {
+  margin-bottom: 16px;
+}
+.block-editor-block-list__layout .comp-icon-text-b .comp-card-grid-container h3, .block-editor-block-list__layout .comp-icon-text-b .comp-card-grid-container .h3 {
+  margin-bottom: 8px;
+}
+.block-editor-block-list__layout .comp-logo-universal h2, .block-editor-block-list__layout .comp-logo-universal .h2 {
+  margin-bottom: 48px;
+}
+.block-editor-block-list__layout .comp-logo-universal img {
+  padding: 12px 0;
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-logo-universal img {
+    padding: 0;
+  }
 }
 .block-editor-block-list__layout .navbar .navbar-collapse {
   justify-content: center;
@@ -10445,14 +10486,35 @@ a > .block-editor-block-list__layout code {
   color: red;
 }
 
-.comp-tabs-a .comp-tabs-img {
+.comp-tabs-img {
   opacity: 1;
   transition: opacity 0.3s ease;
   cursor: pointer;
   position: relative;
 }
-.comp-tabs-a .comp-tabs-img:hover {
+.comp-tabs-img:hover {
   opacity: 0.4;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/tabs-b/src/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.comp-tabs-b .comp-tab .v-tab-remove {
+  position: absolute;
+  margin-top: -25px !important;
+  margin-left: -35px !important;
+  background: none;
+  border: 0;
+}
+.comp-tabs-b .comp-tab .v-tab-remove span {
+  color: red;
+}
+.comp-tabs-b .comp-tabs-img-container {
+  min-height: 400px;
 }
 
 /*# sourceMappingURL=all.css.map*/

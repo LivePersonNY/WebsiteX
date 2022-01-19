@@ -27,15 +27,13 @@
 
 }
 
-.comp-tabs-a {
-	.comp-tabs-img {
-		opacity: 1;
-		transition: opacity .3s ease;
-		cursor: pointer;
-		position: relative;
-		&:hover {
-			opacity: .4;
+.comp-tabs-img {
+	opacity: 1;
+	transition: opacity .3s ease;
+	cursor: pointer;
+	position: relative;
+	&:hover {
+		opacity: .4;
 
-		}
 	}
 }

@@ -5,6 +5,7 @@ import $ from 'jquery';
 
 const TabsB = (props) => {
   
+    /*
     let tabClick = function(e) {
       $('.comp-tabs-b .comp-tabs-list-container h4').removeClass('comp-tab-active');
       $(e.target).addClass('comp-tab-active');
@@ -12,12 +13,16 @@ const TabsB = (props) => {
       $(`.comp-tabs-b .comp-tabs-content[data-tab-content="${tabIndex}"], .comp-tabs-b .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
       $(`.comp-tabs-b .comp-tabs-content:not([data-tab-content="${tabIndex}"]), .comp-tabs-b .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
     };
+    */
   
     let tabListOutput = props.items.map((item ,index)=>{
-      return <h4 onClick={tabClick} className={`comp-tab ${index === 0 ? 'comp-tab-active' : ''}`} data-tab={index} key={index}>{item.tab}</h4>
+      return <h4 className={`comp-tab ${index === 0 ? 'comp-tab-active' : ''}`} data-tab={index} key={index}>{item.title}</h4>
     });
 
     let tabImgOutput = props.items.map((item ,index)=>{
+      if (item.imgCtl) {
+        return item.imgCtl;
+      }
       return <img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={item.img} data-tab-content={index} alt={item.imgAlt} key={index}/>
     });
 
@@ -25,9 +30,9 @@ const TabsB = (props) => {
       return (
     
           <div className={`bg-primary-light comp-tabs-content ${index !== 0 ? 'display-none' : ''}`} data-tab-content={index} key={index}>
-            <p className="h6">{item.kicker}</p>
+            <p className="h6 text-uppercase">{item.kicker || item.title}</p>
             <h4>{item.header}</h4>
-            <p>{item.content}</p>
+            <p>{item.body}</p>
             {item.linkText && (
               <a className="link link-mt-large" href={item.linkUrl}>
                 {item.linkText}

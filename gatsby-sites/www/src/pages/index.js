@@ -173,30 +173,30 @@ const IndexPage = ({ data: { page, setting } }) => (
       heading="Why LivePerson"
       items={[
         {
-          "tab": "Curiously Human AI",
+          "title": "Curiously Human AI",
           "kicker": "CURIOUSLY HUMAN AI",
           "header": "Some branded language about Curiously Human AI",
-          "content": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
+          "body": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
           "img": "https://placekitten.com/752/568",
           "imgAlt": "Image Here"
         },
         {
-          "tab": "Data that counts",
+          "title": "Data that counts",
           "kicker": "TWO",
           "header": "This is two",
-          "content": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
+          "body": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
           "img": "https://placekitten.com/752/568",
           "imgAlt": "Image Here"
         },
         {
-          "tab": "Values that matter",
+          "title": "Values that matter",
           "kicker": "THREE",
           "header": "Three",
-          "content": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
+          "body": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
           "img": "https://placekitten.com/752/568",

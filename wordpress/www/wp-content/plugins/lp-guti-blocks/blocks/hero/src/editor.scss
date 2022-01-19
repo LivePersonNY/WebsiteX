@@ -8,7 +8,7 @@
 	max-width: 100%;
 }
 
-.embedded-input, .embedded-input div, .embedded-input input {
+.embedded-input, .embedded-input div, .embedded-input input, .wp-control-wrapper {
 	font-size: inherit !important;
 	border: none !important;
 	&:focus {
@@ -21,6 +21,7 @@
 	max-width: 100% !important;
 	margin: 0 !important;
 	padding: 0 !important;
+	color: inherit !important;
 }
 
 @import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap);

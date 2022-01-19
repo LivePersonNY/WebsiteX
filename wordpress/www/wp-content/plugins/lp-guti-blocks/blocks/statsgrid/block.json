@@ -23,6 +23,9 @@
 		"content1": {"default": "Text"},
 		"content2": {"default": "Text"},
 		"content3": {"default": "Text"},
-		"content4": {"default": "Text"}
+		"content4": {"default": "Text"},
+		"items": {
+			"default": []
+		}
 	}
 }

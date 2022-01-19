@@ -27,7 +27,7 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/left-right/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/form/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/tabs-a/' );
-
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/tabs-b/' );
 
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );

@@ -4,38 +4,31 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.pane-form {
-	z-index: 0 !important;
-}
-
-.accordion-header {
-	input {
-		text-align: left !important;
-	}
-}
-
-.accordion-item {
-	.v-tab-remove {
-		position: absolute;
-		margin-top: -104px !important;
-		margin-left: -62px !important;
-		span {
-			color: red;
+.comp-tabs-b {
+	.comp-tab {
+		.v-tab-remove {
+			position: absolute;
+			margin-top: -25px !important;
+			margin-left: -35px !important;
+			span {
+				color: red;
+			}
+			background: none;
+			border: 0;
 		}
+
+
+
 	}
 
+	.comp-tabs-img-container {
+		min-height: 400px;
+	}
 
-}
-
-.comp-tabs-a {
 	.comp-tabs-img {
-		opacity: 1;
-		transition: opacity .3s ease;
-		cursor: pointer;
-		position: relative;
-		&:hover {
-			opacity: .4;
 
-		}
 	}
 }
+
+
+
