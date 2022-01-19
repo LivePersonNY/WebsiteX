@@ -13,7 +13,7 @@ import bootstrap from 'bootstrap';
  */
 import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 import TabsA from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
 
 /**
@@ -47,33 +47,50 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		return {
 			title: (
 				<TextControl
-					value={`Tab Title ${index+1}`}
+					value={itemValues[index].title}
 					onChange={function(value) {
 						itemValues[index].title = value;
 						setAttributes({ tabItems: itemValues});
 					}}
 					className="embedded-input"
 				/>
-			)
+			),
+			body: (
+				<div>
+					<TextControl
+						value={itemValues[index].body}
+						onChange={function(value) {
+							itemValues[index].body = value;
+							setAttributes({ tabItems: itemValues});
+						}}
+						className="embedded-input"
+					/>
+					<button
+						className="v-tab-remove"
+						onClick={
+						function(e) {
+							itemValues.splice(index, 1);
+							setAttributes({ tabItems: itemValues});
+						}
+					}>
+						<span className="dashicons-before dashicons-remove"></span>
+					</button>
+				</div>
+			),
+			img: `https://picsum.photos/752/568?random=${index}`,
+			imgAlt: 'An image placeholder'
 		}
-	}
+	});
 
 	let addTabFunc = function() {
 
 		let thisIndex = itemValues.length;
 
 		itemValues.push({
-			title: (
-				<TextControl
-					value={`Tab Title ${thisIndex+1}`}
-					onChange={function(value) {
-						itemValues[thisIndex].title = value;
-						setAttributes({ tabItems: itemValues});
-					}}
-					className="embedded-input"
-				/>
-			),
-			body: 'Body content.'
+			title: `Tab Title ${thisIndex}`,
+			body: `Tab Body ${thisIndex}`,
+			img: `https://picsum.photos/752/568?random=${thisIndex}`,
+			imgAlt: 'An image placeholder'
 		});
 		setAttributes({
 			tabItems: itemValues
@@ -96,7 +113,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<TabsA heading={headerControl} items={itemValues} />
+			<TabsA heading={headerControl} items={itemControls} />
 		</div>
 	);
 

@@ -6,6 +6,7 @@ import $ from 'jquery';
 const TabsA = (props) => {
 
     let tabClickA = function(e) {
+      console.log(e);
       $('.comp-tabs-a .accordion-item').removeClass('accordion-item-active');
       $(e.target).parents('.accordion-item').addClass('accordion-item-active');
       let tabIndex = $(e.target).data('tab');

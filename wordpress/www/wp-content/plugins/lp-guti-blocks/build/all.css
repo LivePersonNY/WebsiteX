@@ -23,6 +23,8 @@
   font-family: inherit !important;
   text-align: inherit !important;
   max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .embedded-input:focus, .embedded-input div:focus, .embedded-input input:focus {
   border: 1px dotted #333 !important;
@@ -10418,5 +10420,29 @@ a > .block-editor-block-list__layout code {
  *
  * Replace them with your own styles or remove the file completely.
  */
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/tabs-a/src/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.pane-form {
+  z-index: 0 !important;
+}
+
+.accordion-header input {
+  text-align: left !important;
+}
+
+.accordion-item .v-tab-remove {
+  position: absolute;
+  margin-top: -104px !important;
+  margin-left: -62px !important;
+}
+.accordion-item .v-tab-remove span {
+  color: red;
+}
 
 /*# sourceMappingURL=all.css.map*/
