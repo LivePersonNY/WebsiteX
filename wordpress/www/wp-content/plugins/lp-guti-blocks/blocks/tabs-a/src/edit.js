@@ -14,6 +14,8 @@ import '../../../../../../../../gatsby-sites/www/liveperson-scripts';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps, BlockControls } from '@wordpress/block-editor';
+const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
+
 import TabsA from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA';
 import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
@@ -43,6 +45,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			className="embedded-input"
 		/>
 	);
+
+	const onSelectMedia = (media) => {
+		/*setAttributes({
+			mediaId: media.id,
+			mediaUrl: media.url,
+			mediaAlt: media.alt || '',
+		});*/
+	}
 
 	let itemValues = [...attributes.tabItems];
 	let itemControls = attributes.tabItems.map((item ,index)=>{
@@ -79,8 +89,23 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 					</button>
 				</div>
 			),
-			img: `https://picsum.photos/752/568?random=${index}`,
-			imgAlt: 'An image placeholder'
+			imgCtl: (
+				<MediaUploadCheck>
+					<MediaUpload
+						onSelect={function(media) {
+							itemValues[index].img = media.url;
+							itemValues[index].mediaId = media.id;
+							itemValues[index].imgAlt = media.alt || '';
+							setAttributes({ tabItems: itemValues});
+						}}
+						value={itemValues[index].mediaId}
+						allowedTypes={ ['image'] }
+						render={({open}) => (
+							<img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={itemValues[index].img || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
+						)}
+					/>
+				</MediaUploadCheck>
+			)
 		}
 	});
 

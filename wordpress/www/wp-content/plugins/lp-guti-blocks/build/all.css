@@ -10445,4 +10445,14 @@ a > .block-editor-block-list__layout code {
   color: red;
 }
 
+.comp-tabs-a .comp-tabs-img {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+.comp-tabs-a .comp-tabs-img:hover {
+  opacity: 0.4;
+}
+
 /*# sourceMappingURL=all.css.map*/

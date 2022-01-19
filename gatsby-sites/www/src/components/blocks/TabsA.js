@@ -16,6 +16,9 @@ const TabsA = (props) => {
     };*/
 
     let tabImgOutput = props.items.map((item ,index)=>{
+      if (item.imgCtl) {
+        return item.imgCtl;
+      }
       return <img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={item.img} data-tab-content={index} alt={item.imgAlt} key={index}/>
     });
 

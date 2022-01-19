@@ -8187,6 +8187,10 @@ const TabsA = props => {
     
   };*/
   let tabImgOutput = props.items.map((item, index) => {
+    if (item.imgCtl) {
+      return item.imgCtl;
+    }
+
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       className: `comp-tabs-img ${index !== 0 ? 'display-none' : ''}`,
       src: item.img,
@@ -9553,6 +9557,10 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+const {
+  MediaUpload,
+  MediaUploadCheck
+} = wp.blockEditor;
 
 
 /**
@@ -9586,6 +9594,15 @@ function Edit(_ref) {
     }),
     className: "embedded-input"
   });
+
+  const onSelectMedia = media => {
+    /*setAttributes({
+    	mediaId: media.id,
+    	mediaUrl: media.url,
+    	mediaAlt: media.alt || '',
+    });*/
+  };
+
   let itemValues = [...attributes.tabItems];
   let itemControls = attributes.tabItems.map((item, index) => {
     return {
@@ -9619,8 +9636,30 @@ function Edit(_ref) {
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
         className: "dashicons-before dashicons-remove"
       }))),
-      img: `https://picsum.photos/752/568?random=${index}`,
-      imgAlt: 'An image placeholder'
+      imgCtl: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+        onSelect: function (media) {
+          itemValues[index].img = media.url;
+          itemValues[index].mediaId = media.id;
+          itemValues[index].imgAlt = media.alt || '';
+          setAttributes({
+            tabItems: itemValues
+          });
+        },
+        value: itemValues[index].mediaId,
+        allowedTypes: ['image'],
+        render: _ref2 => {
+          let {
+            open
+          } = _ref2;
+          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+            className: `comp-tabs-img ${index !== 0 ? 'display-none' : ''}`,
+            src: itemValues[index].img || `https://picsum.photos/752/568?random=${index}`,
+            "data-tab-content": index,
+            key: index,
+            onClick: open
+          });
+        }
+      }))
     };
   });
 
