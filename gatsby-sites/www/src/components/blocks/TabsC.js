@@ -18,26 +18,25 @@ const TabsC = (props) => {
       $(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
     }
   
-    let pillListOutput = props.pillList.map((item ,index)=>{
-      return <a onClick={tabClick} className="btn pill" data-tab={index} key={index}>{item}</a>
+    let pillListOutput = props.items.map((item ,index)=>{
+      return <a onClick={tabClick} className="btn pill" data-tab={index} key={index}>{item.pill}</a>
     });
 
-    let tabsContent = props.pillList.map((item, index)=>{
+    let tabsContent = props.items.map((item, index)=>{
       return (
- 
           <div className={`row bg-primary-light align-items-center comp-tabs-content `} data-tab-content={index} key={index}>
             <div className="col-lg-4 offset-lg-1">
-              <img src={props.iconSrc[index]} alt={props.iconAlt[index]} />
-              <h3>{props.contentHeader[index]}</h3>
-              <p>{props.content[index]}</p>
-              {props.linkText[index] && (
-                <a className="btn btn-outline-secondary" href={props.linkUrl[index]}>
-                  {props.linkText[index]}
+              <img src={item.icon} alt={item.iconAlt} />
+              <h3>{item.Header}</h3>
+              <p>{item.content}</p>
+              {item.linkText && (
+                <a className="btn btn-outline-secondary" href={item.linkUrl}>
+                  {item.linkText}
                 </a>
               )}
             </div>
             <div className="col-lg-6 offset-lg-1">
-              <img src={props.imgSrc[index]} alt={props.imgAlt[index]} />
+              <img src={item.img} alt={item.imgAlt} />
             </div>
           </div>
       )

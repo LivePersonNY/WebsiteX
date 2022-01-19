@@ -17,6 +17,9 @@ import TabsB from '../components/blocks/TabsB';
 import TabsA from '../components/blocks/TabsA';
 import MktoForm from '../components/blocks/MktoForm';
 import IconTextA from '../components/blocks/IconTextA';
+import IconTextB from '../components/blocks/IconTextB';
+import IconTextC from '../components/blocks/IconTextC';
+import LogosUniversal from '../components/blocks/LogosUniversal';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -80,14 +83,28 @@ const IndexPage = ({ data: { page, setting } }) => (
 
     <StatsGrid
       heading="The infinite power of conversational AI"
-      stat1="2.5x"
-      content1="Increased ad conversions"
-      stat2="20%"
-      content2="Increased sales conversions"
-      stat3="50%"
-      content3="Reduced labor costs"
-      stat4="20%"
-      content4="Increased CSAT score"
+      items={[
+        {
+          "stat":"2.5x",
+          "content":"Increased ad conversions"
+        },
+        {
+          "stat":"20%",
+          "content":"Increased sales conversions"
+        },
+        {
+          "stat":"50%",
+          "content":"Reduced labor costs"
+        },
+        {
+          "stat":"20%",
+          "content":"Increased CSAT score"
+        },
+        {
+          "stat":"20%",
+          "content":"Increased CSAT score"
+        }
+      ]}
     />
 
     <div className="pane bg-primary-light">
@@ -154,37 +171,115 @@ const IndexPage = ({ data: { page, setting } }) => (
 
     <TabsB
       heading="Why LivePerson"
-      tabList={['Curiously Human AI', 'Data that counts', 'Values that matter']}
-      contentKicker={['CURIOUSLY HUMAN AI', 'TWO', 'THREE']}
-      contentHeader={['Some branded language about Curiously Human AI', 'This is two', 'Three']}
-      content={['Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.']}
-      linkText={['Discover Customer Care', 'Discover Customer Care', 'Discover Customer Care']}
-      linkUrl={['#', '#', '#']}
-      imgSrc={['https://placekitten.com/752/568', 'https://placekitten.com/752/568', 'https://placekitten.com/752/568']}
-      imgAlt={['test', 'test', 'test']}
+      items={[
+        {
+          "tab": "Curiously Human AI",
+          "kicker": "CURIOUSLY HUMAN AI",
+          "header": "Some branded language about Curiously Human AI",
+          "content": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
+          "linkText": "Discover Customer Care",
+          "linkUrl" : "#",
+          "img": "https://placekitten.com/752/568",
+          "imgAlt": "Image Here"
+        },
+        {
+          "tab": "Data that counts",
+          "kicker": "TWO",
+          "header": "This is two",
+          "content": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
+          "linkText": "Discover Customer Care",
+          "linkUrl" : "#",
+          "img": "https://placekitten.com/752/568",
+          "imgAlt": "Image Here"
+        },
+        {
+          "tab": "Values that matter",
+          "kicker": "THREE",
+          "header": "Three",
+          "content": "Tanta peter igitur, ne sineres memini fieri etiam aliquam inclinationem ad consequendum minima. Instead, oportet omnino quieti de rebus dialecticis differam, et ad certera munera.",
+          "linkText": "Discover Customer Care",
+          "linkUrl" : "#",
+          "img": "https://placekitten.com/752/568",
+          "imgAlt": "Image Here"
+        }
+      ]}
     />
 
     <TabsC
-      heading="A sentence describing the different products and main value
-              proposition"
-      pillList={['Conversational Cloud', 'Voice', 'Managed Services', 'Bella Health']}
-      iconSrc={['https://placekitten.com/56/56', 'https://placekitten.com/56/56', 'https://placekitten.com/56/56', 'https://placekitten.com/56/56']}
-      iconAlt={['test', 'test', 'test', 'test']}
-      contentHeader={['A branded line of copy or two about product benefit', 'This is two', 'Three', 'Four']}
-      content={['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.']}
-      linkText={['Discover Customer Care', 'Discover Customer Care', 'Discover Customer Care', 'Discover Customer Care']}
-      linkUrl={['#', '#', '#', '#']}
-      imgSrc={['https://placekitten.com/640/560', 'https://placekitten.com/640/560', 'https://placekitten.com/640/560', 'https://placekitten.com/640/560']}
-      imgAlt={['test', 'test', 'test', 'test']}
+      heading="A sentence describing the different products and main value proposition"
+      items={[
+        {
+          "pill": "Conversational Cloud",
+          "icon": "https://placekitten.com/56/56",
+          "iconAlt": "https://placekitten.com/56/56",
+          "header": "A branded line of copy or two about product benefit",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+          "linkText": "Discover Customer Care",
+          "linkUrl" : "#",
+          "img": "https://placekitten.com/640/560",
+          "imgAlt": "Image Here"
+        },
+        {
+          "pill": "Voice",
+          "icon": "https://placekitten.com/56/56",
+          "iconAlt": "https://placekitten.com/56/56",
+          "header": "A branded line of copy or two about product benefit",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+          "linkText": "Discover Customer Care",
+          "linkUrl" : "#",
+          "img": "https://placekitten.com/640/560",
+          "imgAlt": "Image Here"
+        },
+        {
+          "pill": "Managed Services",
+          "icon": "https://placekitten.com/56/56",
+          "iconAlt": "https://placekitten.com/56/56",
+          "header": "A branded line of copy or two about product benefit",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+          "linkText": "Discover Customer Care",
+          "linkUrl" : "#",
+          "img": "https://placekitten.com/640/560",
+          "imgAlt": "Image Here"
+        },
+        {
+          "pill": "Bella Health",
+          "icon": "https://placekitten.com/56/56",
+          "iconAlt": "https://placekitten.com/56/56",
+          "header": "A branded line of copy or two about product benefit",
+          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+          "linkText": "Discover Customer Care",
+          "linkUrl" : "#",
+          "img": "https://placekitten.com/640/560",
+          "imgAlt": "Image Here"
+        }
+      ]}
     />
 
     <CardGrid
       heading="Headline about our customers"
-      imgSrc={['https://placekitten.com/224/30', 'https://placekitten.com/224/30', 'https://placekitten.com/224/30']}
-      imgAlt={['Alt text', 'Alt text', 'Alt text']}
-      cardContent={['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor']}
-      cardLinkUrl={['#', '#', '#' ]}
-      cardLinkText={['Read Customer Story', 'Read Customer Story', 'Read Customer Story']}
+      items={[
+        {
+          "img":"https://placekitten.com/224/30",
+          "imgAlt":"Alt text",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://placekitten.com/224/30",
+          "imgAlt":"Alt text",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://placekitten.com/224/30",
+          "imgAlt":"Alt text",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+      ]}
     />
 
     <LeftRight
@@ -225,10 +320,122 @@ const IndexPage = ({ data: { page, setting } }) => (
 
     <IconTextA 
       heading="Product Features"
-      imgSrc={['https://placekitten.com/64/64', 'https://placekitten.com/64/64', 'https://placekitten.com/64/64', 'https://placekitten.com/64/64', 'https://placekitten.com/64/64', 'https://placekitten.com/64/64',]}
-      imgAlt={['Alt text', 'Alt text', 'Alt text', 'Alt text', 'Alt text', 'Alt text']}
-      blockTitle={['Intent Manager', 'Conversation Manager', 'Conversation Channels', 'Conversation Builder', 'Conversation Orchestrator', 'Conversation Analytics']}
-      blockContent={['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.']}
+      items={[
+        {
+          "img":"https://placekitten.com/64/64",
+          "imgAlt":"Alt text",
+          "title":"Intent Manager",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+        },
+        {
+          "img":"https://placekitten.com/64/64",
+          "imgAlt":"Alt text",
+          "title":"Conversation Manager",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+        },
+        {
+          "img":"https://placekitten.com/64/64",
+          "imgAlt":"Alt text",
+          "title":"Conversation Channels",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+        },
+        {
+          "img":"https://placekitten.com/64/64",
+          "imgAlt":"Alt text",
+          "title":"Conversation Builder",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+        },
+        {
+          "img":"https://placekitten.com/64/64",
+          "imgAlt":"Conversation Orchestrator",
+          "title":"Conversation Orchestrator",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+        },
+        {
+          "img":"https://placekitten.com/64/64",
+          "imgAlt":"Conversation Analytics",
+          "title":"Conversation Analytics",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+        },
+      ]}
+    />
+
+    <IconTextB
+      heading="Headline about our customers"
+      items={[
+        {
+          "img":"https://placekitten.com/64/64",
+          "imgAlt":"Alt text",
+          "title": "Voice",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://placekitten.com/64/64",
+          "imgAlt":"Alt text",
+          "title": "Managed Service",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://placekitten.com/64/64",
+          "imgAlt":"Alt text",
+          "title": "Bella Health",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+      ]}
+    />
+    
+    <IconTextC
+      heading="LivePerson for your business"
+      items={[
+        {
+          "img":"https://placekitten.com/64/64",
+          "imgAlt":"Alt text",
+          "title":"Commerce",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+          "linkText":"Discover Commerce Solutions",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://placekitten.com/64/64",
+          "imgAlt":"Alt text",
+          "title":"Customer Care",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+          "linkText":"Discover Customer Care",
+          "linkUrl":"#"
+        },
+      ]}
+    />
+
+    <LogosUniversal 
+      heading="Trusted by the world's biggest brands"
+      items={[
+        {
+          "img":"https://placekitten.com/80/80",
+          "imgAlt":"Alt text",
+        },
+        {
+          "img":"https://placekitten.com/241/56",
+          "imgAlt":"Alt text",
+        },
+        {
+          "img":"https://placekitten.com/100/40",
+          "imgAlt":"Alt text",
+        },
+        {
+          "img":"https://placekitten.com/185/48",
+          "imgAlt":"Alt text",
+        },
+        {
+          "img":"https://placekitten.com/135/40",
+          "imgAlt":"Alt text",
+        },
+      ]}
     />
 
   </Layout>

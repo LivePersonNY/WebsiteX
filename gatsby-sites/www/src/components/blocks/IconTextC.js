@@ -13,21 +13,24 @@ const IconTextA = (props) => {
         />
         <p className="card1">{item.title}</p>
         <p className="subtitle1">{item.content}</p>
+        <a href={item.linkUrl} className="link link-mt-small">
+          {item.linkText}
+        </a>
       </div>
     )
   });
 
   return (  
-    <div className="pane bg-neutral-92 comp-icon-text-a">
+    <div className="pane bg-primary-light comp-icon-text-a">
       <div className="container">
         {props.heading && (
           <div className="row">
-            <div className="col-lg-10 offset-lg-1">
-              <h2 className="text-center">{props.heading}</h2>
+            <div className="col-lg-10">
+              <h2 className="">{props.heading}</h2>
             </div>
           </div>
         )}
-        <div className="row row-cols-lg-3 row-cols-1 comp-block-grid-container">
+        <div className="row row-cols-lg-2 row-cols-1 comp-block-grid-container">
           {blockCol}
         </div>
       </div>

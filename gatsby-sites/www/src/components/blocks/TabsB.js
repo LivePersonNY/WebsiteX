@@ -13,24 +13,24 @@ const TabsB = (props) => {
       $(`.comp-tabs-b .comp-tabs-content:not([data-tab-content="${tabIndex}"]), .comp-tabs-b .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
     };
   
-    let tabListOutput = props.tabList.map((item ,index)=>{
-      return <h4 onClick={tabClick} className={`comp-tab ${index === 0 ? 'comp-tab-active' : ''}`} data-tab={index} key={index}>{item}</h4>
+    let tabListOutput = props.items.map((item ,index)=>{
+      return <h4 onClick={tabClick} className={`comp-tab ${index === 0 ? 'comp-tab-active' : ''}`} data-tab={index} key={index}>{item.tab}</h4>
     });
 
-    let tabImgOutput = props.imgSrc.map((item ,index)=>{
-      return <img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={item} data-tab-content={index} alt={props.imgAlt[index]} key={index}/>
+    let tabImgOutput = props.items.map((item ,index)=>{
+      return <img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={item.img} data-tab-content={index} alt={item.imgAlt} key={index}/>
     });
 
-    let tabContent = props.contentKicker.map((item, index)=>{
+    let tabContent = props.items.map((item, index)=>{
       return (
     
           <div className={`bg-primary-light comp-tabs-content ${index !== 0 ? 'display-none' : ''}`} data-tab-content={index} key={index}>
-            <p className="h6">{item}</p>
-            <h4>{props.contentHeader[index]}</h4>
-            <p>{props.content[index]}</p>
-            {props.linkText[index] && (
-              <a className="link link-mt-large" href={props.linkUrl[index]}>
-                {props.linkText[index]}
+            <p className="h6">{item.kicker}</p>
+            <h4>{item.header}</h4>
+            <p>{item.content}</p>
+            {item.linkText && (
+              <a className="link link-mt-large" href={item.linkUrl}>
+                {item.linkText}
               </a>
             )}
           </div>
