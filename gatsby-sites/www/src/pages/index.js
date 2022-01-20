@@ -21,6 +21,7 @@ import IconTextB from '../components/blocks/IconTextB';
 import IconTextC from '../components/blocks/IconTextC';
 import LogosUniversal from '../components/blocks/LogosUniversal';
 import QuoteSlider from '../components/blocks/QuoteSlider';
+import ContainedContent from '../components/blocks/ContainedContent';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -453,6 +454,13 @@ const IndexPage = ({ data: { page, setting } }) => (
           "linkUrl":"#"
         }
       ]}
+    />
+
+    <ContainedContent 
+      header="Call to action goes here"
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam dictum neque nunc, morbi. Laoreet nam magna rhoncus rutrum ut condimentum."
+      linkText="Primary CTA"
+      linkUrl="#"
     />
 
   </Layout>
