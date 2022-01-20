@@ -15,7 +15,7 @@
   max-width: 100%;
 }
 
-.embedded-input, .embedded-input div, .embedded-input input, .wp-control-wrapper {
+.embedded-input, .embedded-input div, .embedded-input input, .embedded-input textarea, .wp-control-wrapper {
   font-size: inherit !important;
   border: none !important;
   outline: none !important;
@@ -26,11 +26,8 @@
   margin: 0 !important;
   padding: 0 !important;
   color: inherit !important;
+  text-transform: inherit !important;
 }
-.embedded-input:focus, .embedded-input div:focus, .embedded-input input:focus, .wp-control-wrapper:focus {
-  border: 1px dotted #333 !important;
-}
-
 .block-editor-block-list__layout {
   /*!
    * Bootstrap v5.1.3 (https://getbootstrap.com/)
@@ -9899,6 +9896,9 @@ a > .block-editor-block-list__layout code {
 .block-editor-block-list__layout .display-none {
   display: none;
 }
+.block-editor-block-list__layout .pane:not(.hero):not(.pane-form) {
+  opacity: 0;
+}
 .block-editor-block-list__layout .card {
   background: #fcfcfc;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
@@ -9974,6 +9974,15 @@ a > .block-editor-block-list__layout code {
 }
 .block-editor-block-list__layout .comp-stat-grid .comp-4col-grid .col {
   border-right: 1px solid #1C1D22;
+  margin-top: 0 !important;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-stat-grid .comp-4col-grid .col {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 .block-editor-block-list__layout .comp-stat-grid .comp-4col-grid .col:last-child {
   border-right: 0;
@@ -10449,6 +10458,12 @@ a > .block-editor-block-list__layout code {
  *
  * Replace them with your own styles or remove the file completely.
  */
+.stat-remove {
+  cursor: pointer;
+}
+.stat-remove span {
+  color: red;
+}
 /*!**********************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/left-right/src/editor.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************************/
@@ -10486,13 +10501,13 @@ a > .block-editor-block-list__layout code {
   color: red;
 }
 
-.comp-tabs-img {
+.comp-tabs-img, .imageSelector {
   opacity: 1;
   transition: opacity 0.3s ease;
   cursor: pointer;
   position: relative;
 }
-.comp-tabs-img:hover {
+.comp-tabs-img:hover, .imageSelector:hover {
   opacity: 0.4;
 }
 /*!******************************************************************************************************************************************************************************************************************************************************!*\

@@ -4,6 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import $ from 'jquery';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -13,7 +14,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps } from '@wordpress/block-editor';
 import PlainContent from '../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper } from '@wordpress/components';
 
 
 /**
@@ -43,10 +44,11 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	);
 
 	let contentControl = (
-		<TextControl
+		<TextareaControl
 			value={ attributes.content }
 			onChange={ ( val ) => setAttributes( { content: val } ) }
 			className="embedded-input"
+			rows="1"
 		/>
 	);
 
@@ -65,11 +67,15 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		</div>
 	);
 
-	if (isSelected)	return (
-		<div {...useBlockProps()}>
-			<PlainContent heading={headerControl} content={contentControl} linkText={linkTextControl} />
-		</div>
-	);
+	if (isSelected)	{
+
+		return (
+			<div {...useBlockProps()}>
+				<PlainContent heading={headerControl} content={contentControl} linkText={linkTextControl} />
+			</div>
+
+		);
+	}
 
 	return (
 		<div {...useBlockProps()}>

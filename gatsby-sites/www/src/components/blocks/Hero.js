@@ -6,7 +6,7 @@ const Hero = (props) => (
     <div className="container">
       <div className="row align-items-center">
         <div className="col-lg-5">
-          {props.kicker && <p className="h6">{props.kicker}</p>}
+          {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
           <h1>{props.header}</h1>
           <p>{props.subHeader}</p>
           {props.logoWall && (
@@ -22,7 +22,7 @@ const Hero = (props) => (
           )}
         </div>
         <div className="col-lg-6 offset-lg-1">
-          <img src={props.heroImage} alt={props.heroImageAlt || ""} />
+          {!props.imgCtl && <img src={props.heroImage} alt={props.heroImageAlt || ""} /> || props.imgCtl}
         </div>
       </div>
     </div>

@@ -9880,6 +9880,9 @@ a > .site code {
 .site .display-none {
   display: none;
 }
+.site .pane:not(.hero):not(.pane-form) {
+  opacity: 0;
+}
 .site .card {
   background: #fcfcfc;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
@@ -9955,6 +9958,15 @@ a > .site code {
 }
 .site .comp-stat-grid .comp-4col-grid .col {
   border-right: 1px solid #1C1D22;
+  margin-top: 0 !important;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+@media (min-width: 992px) {
+  .site .comp-stat-grid .comp-4col-grid .col {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 .site .comp-stat-grid .comp-4col-grid .col:last-child {
   border-right: 0;
@@ -10402,6 +10414,10 @@ a > .site code {
 }
 .site body.locked {
   position: fixed;
+}
+
+.pane:not(.hero):not(.pane-form) {
+  opacity: 1 !important;
 }
 /*!************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/plain-content/src/style.scss ***!

@@ -17,7 +17,7 @@ const LeftRight = (props) => {
             <div
               className={`col-lg-6 ${props.flipColumns ? 'order-lg-last' : ''}`}
             >
-              <img src={props.imgSrc} alt={props.imgAlt} />
+              {!props.imgCtl && <img src={props.imgSrc} alt={props.imgAlt} /> || props.imgCtl}
             </div>
             <div
               className={`col-lg-6 ${

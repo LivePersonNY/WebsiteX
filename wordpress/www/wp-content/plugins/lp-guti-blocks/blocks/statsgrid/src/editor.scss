@@ -3,3 +3,10 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+
+.stat-remove {
+	cursor: pointer;
+	span {
+		color: red;
+	}
+}
