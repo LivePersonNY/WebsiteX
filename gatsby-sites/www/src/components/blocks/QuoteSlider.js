@@ -10,7 +10,7 @@ const QuoteSlider = (props) => {
               <img src={item.img} alt={item.imgAlt} />
             </div>
             <div className="col-lg-7">
-              <img src={item.brandImg} alt={item.brandImgAlt} />
+              <img className="comp-brand-img" src={item.brandImg} alt={item.brandImgAlt} />
               <p className="h6 comp-quote-author">{item.author}</p>
               <p className="quote2">{item.content}</p>
               {item.linkText && (
