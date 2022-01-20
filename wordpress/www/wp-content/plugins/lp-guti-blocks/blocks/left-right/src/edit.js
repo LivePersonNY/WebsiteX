@@ -56,6 +56,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 			value={ attributes.text }
 			onChange={ ( val ) => setAttributes( { text: val } ) }
 			className="embedded-input"
+			rows="1"
 		/>
 	);
 
@@ -67,13 +68,24 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		/>
 	);
 
-	const onSelectMedia = (media) => {
-		setAttributes({
-			mediaId: media.id,
-			mediaUrl: media.url,
-			mediaAlt: media.alt || '',
-		});
-	}
+	let imageControl = (
+		<MediaUploadCheck>
+			<MediaUpload
+				onSelect={function(media) {
+					setAttributes({
+						mediaUrl: media.url,
+						mediaId: media.id,
+						mediaAlt: media.alt || ""
+					});
+				}}
+				value={attributes.mediaId}
+				allowedTypes={ ['image'] }
+				render={({open}) => (
+					<img className="imageSelector" src={attributes.mediaUrl} onClick={open} />
+				)}
+			/>
+		</MediaUploadCheck>
+	);
 
 	let linkTextControl = (
 		<div className="wp-control-wrapper">
@@ -93,34 +105,10 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
-			<LeftRight repeat={attributes.repeat} linkText={linkTextControl} content={contentControl} title={titleControl} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
+			<LeftRight repeat={attributes.repeat} linkText={linkTextControl} content={contentControl} title={titleControl} flipColumns={attributes.flipped} imgCtl={imageControl} />
 			<Fragment>
 				<InspectorControls>
 					<div>
-						<PanelBody
-							title={__('Module Image', 'awp')}
-							initialOpen={ false }
-						>
-							<div className="editor-post-featured-image">
-								<MediaUploadCheck>
-									<MediaUpload
-										onSelect={onSelectMedia}
-										value={attributes.mediaId}
-										allowedTypes={ ['image'] }
-										render={({open}) => (
-											<Button
-
-												className={'editor-post-featured-image__toggle'}
-												onClick={open}
-											>
-												{__('Choose an image', 'awp')}
-
-											</Button>
-										)}
-									/>
-								</MediaUploadCheck>
-							</div>
-						</PanelBody>
 						<PanelBody title="Orientation" initialOpen={ false }>
 							<CheckboxControl
 								label="Flip Module"

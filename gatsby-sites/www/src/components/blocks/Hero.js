@@ -22,7 +22,7 @@ const Hero = (props) => (
           )}
         </div>
         <div className="col-lg-6 offset-lg-1">
-          <img src={props.heroImage} alt={props.heroImageAlt || ""} />
+          {!props.imgCtl && <img src={props.heroImage} alt={props.heroImageAlt || ""} /> || props.imgCtl}
         </div>
       </div>
     </div>

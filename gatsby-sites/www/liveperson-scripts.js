@@ -42,5 +42,11 @@ $(document).ready(function() {
 			}
 		}); 
 	});
+	
+		
+	$('body').on('input', 'textarea', function() {
+		this.style.height = "auto";
+		  this.style.height = (this.scrollHeight) + "px";
+	});
 
 });

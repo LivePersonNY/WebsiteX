@@ -10,3 +10,7 @@
 .site {
 	@import "../../../../../../../../gatsby-sites/www/src/resources/scss/index.scss";
 }
+
+.pane:not(.hero):not(.pane-form) {
+	opacity: 1 !important;
+}

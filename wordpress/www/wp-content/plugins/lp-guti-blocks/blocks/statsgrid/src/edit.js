@@ -58,7 +58,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				/>
 			),
 			content: (
-				<div>
+				<div className="wp-control-wrapper">
 					<TextControl
 						value={stack[index].content}
 						onChange={function(value) {

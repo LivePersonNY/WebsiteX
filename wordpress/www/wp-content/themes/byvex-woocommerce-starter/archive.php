@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<div class="container py-4">
+<div class="">
 	<?php
 	$description = get_the_archive_description();
 	if (have_posts()) : ?>

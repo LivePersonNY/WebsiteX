@@ -5,7 +5,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import $ from 'jquery';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper } from '@wordpress/components';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
@@ -57,53 +57,37 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	);
 
 	let subHeaderControl = (
-		<TextControl
+		<TextareaControl
 			value={ attributes.subHeader }
 			onChange={ ( val ) => setAttributes( { subHeader: val } ) }
 			className="embedded-input"
+			rows="1"
 		/>
 	);
 
-	const onSelectMedia = (media) => {
-		setAttributes({
-			mediaId: media.id,
-			mediaUrl: media.url,
-			mediaAlt: media.alt || '',
-		});
-	}
+	let imageControl = (
+		<MediaUploadCheck>
+			<MediaUpload
+				onSelect={function(media) {
+					setAttributes({
+						mediaUrl: media.url,
+						mediaId: media.id,
+						mediaAlt: media.alt || ""
+					});
+				}}
+				value={attributes.mediaId}
+				allowedTypes={ ['image'] }
+				render={({open}) => (
+					<img className="imageSelector" src={attributes.mediaUrl} onClick={open} />
+				)}
+			/>
+		</MediaUploadCheck>
+	);
 
 
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
-			<Hero header={headerControl} subHeader={subHeaderControl} kicker={kickerControl} heroImage={attributes.mediaUrl} heroImageAlt={attributes.mediaAlt} />
-			<Fragment>
-				<InspectorControls>
-					<PanelBody
-						title={__('Select hero image', 'awp')}
-						initialOpen={ false }
-					>
-						<div className="editor-post-featured-image">
-							<MediaUploadCheck>
-								<MediaUpload
-									onSelect={onSelectMedia}
-									value={attributes.mediaId}
-									allowedTypes={ ['image'] }
-									render={({open}) => (
-										<Button
-
-											className={'editor-post-featured-image__toggle'}
-											onClick={open}
-										>
-											{ __('Choose an image', 'awp')}
-
-										</Button>
-									)}
-								/>
-							</MediaUploadCheck>
-						</div>
-					</PanelBody>
-				</InspectorControls>
-			</Fragment>
+			<Hero header={headerControl} subHeader={subHeaderControl} kicker={kickerControl} imgCtl={imageControl} />
 		</div>
 
 	);

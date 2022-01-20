@@ -32,11 +32,11 @@
 		},
 		"mediaUrl": {
 			"type": "string",
-			"default": ""
+			"default": "https://picsum.photos/752/568?random=1"
 		},
 		"mediaAlt": {
 			"type": "string",
-			"default": ""
+			"default": "PlaceHolder"
 		}
 	}
 }
