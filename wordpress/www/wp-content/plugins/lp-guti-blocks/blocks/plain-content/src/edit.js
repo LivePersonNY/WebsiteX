@@ -4,6 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import $ from 'jquery';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -66,11 +67,15 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		</div>
 	);
 
-	if (isSelected)	return (
-		<div {...useBlockProps()}>
-			<PlainContent heading={headerControl} content={contentControl} linkText={linkTextControl} />
-		</div>
-	);
+	if (isSelected)	{
+
+		return (
+			<div {...useBlockProps()}>
+				<PlainContent heading={headerControl} content={contentControl} linkText={linkTextControl} />
+			</div>
+
+		);
+	}
 
 	return (
 		<div {...useBlockProps()}>

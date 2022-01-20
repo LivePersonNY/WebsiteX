@@ -43,15 +43,15 @@ $(document).ready(function() {
 		}); 
 	});
 	
-	$(window).on('load', function() {
-		$("textarea").each(function () {
-		  this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
-		});
-	});
-	
 	$('body').on('input', 'textarea', function() {
 		this.style.height = "auto";
 		  this.style.height = (this.scrollHeight) + "px";
+	});
+	
+	$('body').on('click', '.edit-post-visual-editor .wp-block', function() {
+		$('textarea').each(function() {
+			this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
+		});
 	});
 
 });
