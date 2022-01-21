@@ -23,9 +23,9 @@ const Layout = ({ isHomePage, children }) => {
 
   return (
     <>
-      {/* <Header siteTitle={title || `Title`} /> */}
+      <Header siteTitle={title || `Title`} />
       <main>{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

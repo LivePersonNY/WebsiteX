@@ -38,7 +38,6 @@ const Footer = () => {
     `
   );
   
-  let comment = `<!-- ${settings.allSettings.ipAddress} -->`;
   
   return (
     <footer>
@@ -185,7 +184,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {comment}
+      
     </footer>
     
   );

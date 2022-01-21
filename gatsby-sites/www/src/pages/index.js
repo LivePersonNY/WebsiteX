@@ -474,7 +474,6 @@ export const pageQuery = graphql`
       id
       content
       title
-      vimeoVideo
       featuredImage {
         node {
           id

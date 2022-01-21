@@ -127,10 +127,12 @@ img {
 
 .comp-card-grid {
     .comp-card-grid-container {
-        margin-top: 60px;
+        .col {
+            margin-top: 32px;
 
-        @include media-breakpoint-up(lg) {
-            margin-top: 72px;
+            @include media-breakpoint-up(lg) {
+                margin-top: 48px;
+            }
         }
     }
 }
@@ -148,17 +150,22 @@ img {
 
         .col {
             border-right: 1px solid $neutral12;
-            margin-top: 0 !important;
-            padding-top: 24px;
-            padding-bottom: 24px;
+            margin-top: 24px;
+            margin-bottom: 24px;
 
             @include media-breakpoint-up(lg) {
-                padding-top: 0;
-                padding-bottom: 0;
+                margin-top: 0;
+                margin-bottom: 0;
             }
 
             &:last-child {
                 border-right: 0;
+            }
+
+            &:nth-child(even) {
+                @include media-breakpoint-down(lg) {
+                    border-right: 0;
+                }
             }
 
             .h1 {
@@ -204,6 +211,11 @@ img {
     }
 
     .comp-tabs-content {
+        padding: 40px 20px;
+
+        @include media-breakpoint-up(lg) {
+            padding: 0;
+        }
 
         h3 {
             margin-top: 24px;
@@ -372,18 +384,20 @@ img {
 
 .comp-icon-text-b {
     .comp-card-grid-container {
-        margin-top: 60px;
+        .col {
+            margin-top: 32px;
 
-        @include media-breakpoint-up(lg) {
-            margin-top: 72px;
-        }
+            @include media-breakpoint-up(lg) {
+                margin-top: 48px;
+            }
 
-        .card-image-internal {
-            margin-bottom: 16px;
-        }
+            .card-image-internal {
+                margin-bottom: 16px;
+            }
 
-        h3 {
-            margin-bottom: 8px;
+            h3 {
+                margin-bottom: 8px;
+            }
         }
     }
 }
@@ -435,6 +449,26 @@ img {
 
             @include media-breakpoint-up(lg) {
                 margin-bottom: 32px;
+            }
+        }
+    }
+}
+
+.comp-contained-content {
+    .comp-contained-content-container {
+        padding-top: 72px;
+        padding-bottom: 80px;
+
+        @include media-breakpoint-up(lg) {
+            padding-top: 104px;
+            padding-bottom: 120px;
+        }
+
+        .btn {
+            margin-top: 28px;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 40px;
             }
         }
     }
