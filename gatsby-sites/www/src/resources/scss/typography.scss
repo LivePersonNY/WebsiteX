@@ -155,7 +155,7 @@ h6,
     font-style: italic;
 
     @include media-breakpoint-up(lg) {
-        font-size: 20px;
+        font-size: 30px;
         line-height: 40px;
     }
 }
@@ -225,7 +225,7 @@ p {
     }
 
     &.link-mt-large {
-        margin-top: 31px;
+        margin-top: 32px;
     }
 
     &.link-mt-small {
@@ -241,14 +241,23 @@ p {
     border-radius: 24px;
     padding: 12px 32px;
 
+    &.btn-primary {
+        color: $neutral99;
+        background: $primaryBlue;
+
+        &:hover {
+            background: $primaryBlueVariant;
+        }
+    }
+
     &.btn-outline-secondary {
         color: $primaryBlue;
         border-color: $primaryBlue;
 
         &:hover {
             color: $neutral99;
-            background: $primaryBlueVariant;
-            border-color: $primaryBlueVariant;
+            background: $primaryBlue;
+            border-color: $primaryBlue;
         }
     }
 

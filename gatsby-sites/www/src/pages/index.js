@@ -20,6 +20,8 @@ import IconTextA from '../components/blocks/IconTextA';
 import IconTextB from '../components/blocks/IconTextB';
 import IconTextC from '../components/blocks/IconTextC';
 import LogosUniversal from '../components/blocks/LogosUniversal';
+import QuoteSlider from '../components/blocks/QuoteSlider';
+import ContainedContent from '../components/blocks/ContainedContent';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -436,6 +438,29 @@ const IndexPage = ({ data: { page, setting } }) => (
           "imgAlt":"Alt text",
         },
       ]}
+    />
+
+    <QuoteSlider
+      header="Why customers love Voice"
+      items={[
+        {
+          "img":"https://picsum.photos/304/360",
+          "imgAlt":"Alt text",
+          "brandImg":"https://picsum.photos/120/28",
+          "brandImgAlt":"Alt text",
+          "author":"Richard Branson · CEO",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        }
+      ]}
+    />
+
+    <ContainedContent 
+      header="Call to action goes here"
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam dictum neque nunc, morbi. Laoreet nam magna rhoncus rutrum ut condimentum."
+      linkText="Primary CTA"
+      linkUrl="#"
     />
 
   </Layout>
