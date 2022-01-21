@@ -11,6 +11,9 @@ const ContainedContent = (props) => {
             <div className="comp-contained-content-container bg-neutral-92">
               <div className="row">
                 <div className="col-lg-8 offset-lg-2 text-center">
+                  {props.kicker && (
+                    <p class="h6">{props.header}</p>
+                  )}
                   <h2>{props.header}</h2>
                   <p>{props.content}</p>
                   {props.linkText && (
