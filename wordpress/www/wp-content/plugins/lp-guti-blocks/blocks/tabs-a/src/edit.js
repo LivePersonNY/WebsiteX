@@ -15,7 +15,7 @@ import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 import TabsA from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
 
 /**
@@ -67,13 +67,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			),
 			body: (
 				<div>
-					<TextControl
+					<TextareaControl
 						value={itemValues[index].body}
 						onChange={function(value) {
 							itemValues[index].body = value;
 							setAttributes({ tabItems: itemValues});
 						}}
 						className="embedded-input"
+						rows="1"
 					/>
 					<button
 						className="v-tab-remove"
@@ -112,8 +113,8 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		let thisIndex = itemValues.length;
 
 		itemValues.push({
-			title: `Tab Title ${thisIndex}`,
-			body: `Tab Body ${thisIndex}`,
+			title: `1914 translation by H. Rackham`,
+			body: `But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.`,
 			img: `https://picsum.photos/752/568?random=${thisIndex}`,
 			imgAlt: 'An image placeholder'
 		});

@@ -6,5 +6,6 @@ import './left-right/src/index';
 import './form/src/index';
 import './tabs-a/src/index';
 import './tabs-b/src/index';
+import './cardgrid/src/index';
 
 import $ from 'jquery';

@@ -1,0 +1,43 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/cardgrid",
+	"version": "0.1.0",
+	"title": "Card Grid",
+	"category": "liveperson",
+	"icon": "grid-view",
+	"description": "Card grid with drop shadows and images.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"header": {"default": "Card Grid"},
+		"cards": {
+			"type": "array",
+			"default": [
+				{
+					"img": "https://picsum.photos/224/30?random=3",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+					"linkText": "More about Lorem",
+					"linkUrl": "#"
+				},
+				{
+					"img": "https://picsum.photos/224/30?random=4",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+					"linkText": "More about Lorem",
+					"linkUrl": "#"
+				},
+				{
+					"img": "https://picsum.photos/224/30?random=5",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+					"linkText": "More about Lorem",
+					"linkUrl": "#"
+				}
+			]
+		}
+	}
+}

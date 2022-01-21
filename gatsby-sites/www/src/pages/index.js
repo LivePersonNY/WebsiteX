@@ -261,21 +261,21 @@ const IndexPage = ({ data: { page, setting } }) => (
         {
           "img":"https://picsum.photos/224/30?random=1",
           "imgAlt":"Alt text",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },
         {
           "img":"https://picsum.photos/224/30?random=2",
           "imgAlt":"Alt text",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },
         {
           "img":"https://picsum.photos/224/30?random=3",
           "imgAlt":"Alt text",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },

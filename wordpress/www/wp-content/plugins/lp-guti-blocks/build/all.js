@@ -7837,6 +7837,67 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 
 /***/ }),
 
+/***/ "../../../../../gatsby-sites/www/src/components/blocks/CardGrid.js":
+/*!*************************************************************************!*\
+  !*** ../../../../../gatsby-sites/www/src/components/blocks/CardGrid.js ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "../../../../../gatsby-sites/www/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var gatsby_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gatsby-link */ "../../../../../gatsby-sites/www/node_modules/gatsby-link/index.js");
+
+
+
+
+
+const CardGrid = props => {
+  let cardCol = props.items.map((item, index) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "col",
+      key: index
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "card h-100"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "card-body"
+    }, !item.imgCtl && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      className: "card-image-internal",
+      src: item.img,
+      alt: item.imgAlt
+    }) || item.imgCtl, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "card-text quote1"
+    }, item.body)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "card-footer"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: item.linkUrl,
+      className: "card-link link"
+    }, item.linkText))));
+  });
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "pane bg-primary-light comp-card-grid"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "container"
+  }, props.heading && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "row"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "col-lg-10"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+    className: ""
+  }, props.heading))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "row row-cols-lg-3 comp-card-grid-container"
+  }, cardCol)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CardGrid);
+
+/***/ }),
+
 /***/ "../../../../../gatsby-sites/www/src/components/blocks/Hero.js":
 /*!*********************************************************************!*\
   !*** ../../../../../gatsby-sites/www/src/components/blocks/Hero.js ***!
@@ -8378,8 +8439,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _form_src_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./form/src/index */ "./blocks/form/src/index.js");
 /* harmony import */ var _tabs_a_src_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tabs-a/src/index */ "./blocks/tabs-a/src/index.js");
 /* harmony import */ var _tabs_b_src_index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tabs-b/src/index */ "./blocks/tabs-b/src/index.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _cardgrid_src_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./cardgrid/src/index */ "./blocks/cardgrid/src/index.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -8389,6 +8451,294 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+/***/ }),
+
+/***/ "./blocks/cardgrid/src/edit.js":
+/*!*************************************!*\
+  !*** ./blocks/cardgrid/src/edit.js ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Edit; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _gatsby_sites_www_src_components_blocks_CardGrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../gatsby-sites/www/src/components/blocks/CardGrid */ "../../../../../gatsby-sites/www/src/components/blocks/CardGrid.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./blocks/cardgrid/src/editor.scss");
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ */
+
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * Those files can contain any CSS code that gets applied to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function Edit(_ref) {
+  let {
+    attributes,
+    className,
+    setAttributes,
+    isSelected
+  } = _ref;
+  let headerControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    value: attributes.header,
+    onChange: val => setAttributes({
+      header: val
+    }),
+    className: "embedded-input"
+  });
+  let cards = [...attributes.cards];
+  let controls = attributes.cards.map((item, index) => {
+    return {
+      linkUrl: null,
+      linkText: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "wp-control-wrapper"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        value: cards[index].linkText,
+        onChange: function (value) {
+          cards[index].linkText = value;
+          setAttributes({
+            cards: cards
+          });
+        },
+        className: "embedded-input"
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        value: cards[index].linkUrl,
+        onChange: function (value) {
+          cards[index].linkUrl = value;
+          setAttributes({
+            cards: cards
+          });
+        }
+      })),
+      imgCtl: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.MediaUpload, {
+        onSelect: function (media) {
+          cards[index].img = media.url;
+          cards[index].mediaId = media.id;
+          cards[index].imgAlt = media.alt || '';
+          setAttributes({
+            cards: cards
+          });
+        },
+        value: cards[index].mediaId,
+        allowedTypes: ['image'],
+        render: _ref2 => {
+          let {
+            open
+          } = _ref2;
+          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+            className: "comp-tabs-img",
+            src: cards[index].img || `https://picsum.photos/752/568?random=${index}`,
+            "data-tab-content": index,
+            key: index,
+            onClick: open
+          });
+        }
+      })),
+      body: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "wp-control-wrapper"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
+        value: cards[index].body,
+        onChange: function (value) {
+          cards[index].body = value;
+          setAttributes({
+            cards: cards
+          });
+        },
+        className: "embedded-input",
+        rows: "1"
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+        className: "stat-remove",
+        onClick: function (e) {
+          cards.splice(index, 1);
+          setAttributes({
+            cards: cards
+          });
+        }
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+        className: "dashicons-before dashicons-remove"
+      })))
+    };
+  });
+
+  let addTabFunc = function () {
+    cards.push({
+      "img": "https://picsum.photos/224/30?random=3",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+      "linkText": "More about Lorem",
+      "linkUrl": "#"
+    });
+    setAttributes({
+      cards: cards
+    });
+  };
+
+  let addButton = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarButton, {
+    icon: "plus-alt2",
+    label: "Add Stat",
+    onClick: addTabFunc
+  })));
+  if (isSelected) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), addButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_CardGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    heading: headerControl,
+    items: controls
+  }));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), addButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_CardGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    heading: attributes.header,
+    items: attributes.cards
+  }));
+}
+
+/***/ }),
+
+/***/ "./blocks/cardgrid/src/index.js":
+/*!**************************************!*\
+  !*** ./blocks/cardgrid/src/index.js ***!
+  \**************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./blocks/cardgrid/src/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./blocks/cardgrid/src/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./blocks/cardgrid/src/save.js");
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('lp-guti-blocks/cardgrid', {
+  /**
+   * @see ./edit.js
+   */
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+
+  /**
+   * @see ./save.js
+   */
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./blocks/cardgrid/src/save.js":
+/*!*************************************!*\
+  !*** ./blocks/cardgrid/src/save.js ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ save; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _gatsby_sites_www_src_components_blocks_CardGrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../gatsby-sites/www/src/components/blocks/CardGrid */ "../../../../../gatsby-sites/www/src/components/blocks/CardGrid.js");
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ */
+
+
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function save(_ref) {
+  let {
+    attributes
+  } = _ref;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_CardGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    heading: attributes.heading,
+    items: attributes.cards
+  });
+}
 
 /***/ }),
 
@@ -9708,7 +10058,7 @@ function Edit(_ref) {
         },
         className: "embedded-input"
       }),
-      body: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextControl, {
+      body: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextareaControl, {
         value: itemValues[index].body,
         onChange: function (value) {
           itemValues[index].body = value;
@@ -9716,7 +10066,8 @@ function Edit(_ref) {
             tabItems: itemValues
           });
         },
-        className: "embedded-input"
+        className: "embedded-input",
+        rows: "1"
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
         className: "v-tab-remove",
         onClick: function (e) {
@@ -9758,8 +10109,8 @@ function Edit(_ref) {
   let addTabFunc = function () {
     let thisIndex = itemValues.length;
     itemValues.push({
-      title: `Tab Title ${thisIndex}`,
-      body: `Tab Body ${thisIndex}`,
+      title: `1914 translation by H. Rackham`,
+      body: `But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.`,
       img: `https://picsum.photos/752/568?random=${thisIndex}`,
       imgAlt: 'An image placeholder'
     });
@@ -10031,7 +10382,7 @@ function Edit(_ref) {
         className: "dashicons-before dashicons-remove"
       }))),
       kicker: itemValues[index].title,
-      body: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+      body: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextareaControl, {
         value: itemValues[index].body,
         onChange: function (value) {
           itemValues[index].body = value;
@@ -10039,7 +10390,8 @@ function Edit(_ref) {
             tabItems: itemValues
           });
         },
-        className: "embedded-input"
+        className: "embedded-input",
+        rows: "1"
       }),
       imgCtl: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
         onSelect: function (media) {
@@ -10071,11 +10423,11 @@ function Edit(_ref) {
   let addTabFunc = function () {
     let thisIndex = itemValues.length;
     itemValues.push({
-      title: `Tab Title ${thisIndex}`,
-      header: `Heading Text`,
-      body: `Tab Body ${thisIndex}`,
-      linkUrl: 'https://www.liveperson.com',
-      linkText: 'A compelling link',
+      title: `The Translation`,
+      header: `1914 translation by H. Rackham`,
+      body: `But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.`,
+      linkUrl: 'https://www.lipsum.com/',
+      linkText: 'Learn More',
       img: `https://picsum.photos/752/568?random=${thisIndex}`,
       imgAlt: 'An image placeholder'
     });
@@ -15235,6 +15587,32 @@ defineJQueryPlugin(Toast);
 
 
 //# sourceMappingURL=bootstrap.esm.js.map
+
+
+/***/ }),
+
+/***/ "./blocks/cardgrid/src/editor.scss":
+/*!*****************************************!*\
+  !*** ./blocks/cardgrid/src/editor.scss ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./blocks/cardgrid/src/style.scss":
+/*!****************************************!*\
+  !*** ./blocks/cardgrid/src/style.scss ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
 
 
 /***/ }),

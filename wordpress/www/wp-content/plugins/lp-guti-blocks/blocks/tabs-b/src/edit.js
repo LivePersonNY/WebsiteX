@@ -17,7 +17,7 @@ import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 import TabsB from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsB';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
 
 /**
@@ -103,13 +103,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			),
 			kicker: itemValues[index].title,
 			body: (
-				<TextControl
+				<TextareaControl
 					value={itemValues[index].body}
 					onChange={function(value) {
 						itemValues[index].body = value;
 						setAttributes({ tabItems: itemValues});
 					}}
 					className="embedded-input"
+					rows="1"
 				/>
 
 			),
@@ -138,11 +139,11 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		let thisIndex = itemValues.length;
 
 		itemValues.push({
-			title: `Tab Title ${thisIndex}`,
-			header: `Heading Text`,
-			body: `Tab Body ${thisIndex}`,
-			linkUrl: 'https://www.liveperson.com',
-			linkText: 'A compelling link',
+			title: `The Translation`,
+			header: `1914 translation by H. Rackham`,
+			body: `But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.`,
+			linkUrl: 'https://www.lipsum.com/',
+			linkText: 'Learn More',
 			img: `https://picsum.photos/752/568?random=${thisIndex}`,
 			imgAlt: 'An image placeholder'
 		});
