@@ -22,6 +22,9 @@ import IconTextC from '../components/blocks/IconTextC';
 import LogosUniversal from '../components/blocks/LogosUniversal';
 import QuoteSlider from '../components/blocks/QuoteSlider';
 import ContainedContent from '../components/blocks/ContainedContent';
+import ContentCTA from '../components/blocks/ContentCTA';
+import SideBySide from '../components/blocks/SideBySide';
+import IconTextD from '../components/blocks/IconTextD';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -414,6 +417,37 @@ const IndexPage = ({ data: { page, setting } }) => (
       ]}
     />
 
+    <IconTextD
+      header="How Rapid Testing Can Help IconTextD"
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra ultrices ac sagittis elit amet id. Justo arcu pharetra et montes, neque nisi. Egestas dictum viverra faucibus."
+      items={[
+        {
+          "img":"https://picsum.photos/56/56?random=10",
+          "imgAlt":"Alt text",
+          "title":"Highly Accurate",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+        },
+        {
+          "img":"https://picsum.photos/56/56?random=11",
+          "imgAlt":"Alt text",
+          "title":"Low Cost",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+        },
+        {
+          "img":"https://picsum.photos/56/56?random=12",
+          "imgAlt":"Alt text",
+          "title":"Fast Results",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+        },
+        {
+          "img":"https://picsum.photos/56/56?random=13",
+          "imgAlt":"Alt text",
+          "title":"Self-administrable",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+        },
+      ]}
+    />
+
     <LogosUniversal 
       heading="Trusted by the world's biggest brands"
       items={[
@@ -461,6 +495,29 @@ const IndexPage = ({ data: { page, setting } }) => (
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam dictum neque nunc, morbi. Laoreet nam magna rhoncus rutrum ut condimentum."
       linkText="Primary CTA"
       linkUrl="#"
+    />
+
+    <ContentCTA
+      content="Learn more about Voicebase"
+      linkText="Explore Voicebase"
+      linkUrl="#"
+    />
+
+    <SideBySide
+      items={[
+        {
+          "imgSrc":"https://picsum.photos/640/428",
+          "imgAlt":"test",
+          "header":"Transform voice networks",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim sagittis senectus iaculis sem nisi, purus dignissim maecenas. Imperdiet eget scelerisque iaculis ut aliquam nisl, auctor. Euismod turpis mauris in."
+        },
+        {
+          "imgSrc":"https://picsum.photos/640/428?random=1",
+          "imgAlt":"test",
+          "header":"Work with any voice vendor",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim sagittis senectus iaculis sem nisi, purus dignissim maecenas. Imperdiet eget scelerisque iaculis ut aliquam nisl, auctor. Euismod turpis mauris in."
+        },
+      ]}
     />
 
   </Layout>
