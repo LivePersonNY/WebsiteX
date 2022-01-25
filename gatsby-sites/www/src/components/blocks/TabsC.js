@@ -1,9 +1,17 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import $ from 'jquery'; 
 
 const TabsC = (props) => {
+
+    useEffect(() => {
+      document.querySelectorAll('.comp-tabs-c .comp-tabs-content').forEach(function(item){
+        item.style.display = 'none';
+      })
+      document.querySelector('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]').style.display = 'flex';
+    });
   
     let pillListOutput = props.items.map((item ,index)=>{
       return <a className="btn pill" data-tab={index} key={index}>{item.pill}</a>
@@ -14,7 +22,7 @@ const TabsC = (props) => {
           <div className={`row bg-primary-light align-items-center comp-tabs-content `} data-tab-content={index} key={index}>
             <div className="col-lg-4 offset-lg-1">
               <img src={item.icon} alt={item.iconAlt} />
-              <h3>{item.Header}</h3>
+              <h3>{item.header}</h3>
               <p>{item.content}</p>
               {item.linkText && (
                 <a className="btn btn-outline-secondary" href={item.linkUrl}>

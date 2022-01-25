@@ -18,12 +18,6 @@ $(document).ready(function() {
 		$(`.comp-tabs-b .comp-tabs-content[data-tab-content="${tabIndex}"], .comp-tabs-b .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
 		$(`.comp-tabs-b .comp-tabs-content:not([data-tab-content="${tabIndex}"]), .comp-tabs-b .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
 	});
-
-	$('.comp-tabs-c').ready( function(e) {
-		console.log('stupid');
-		$('.comp-tabs-c .comp-tabs-content').hide();
-		$('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]').fadeIn();
-	});
 	
 	$('body').on('click', '.comp-tabs-c .btn.pill', function(e) {
 		$('.comp-tabs-c .btn.pill').removeClass('pill-active');

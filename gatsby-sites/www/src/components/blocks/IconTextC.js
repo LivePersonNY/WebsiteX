@@ -11,8 +11,8 @@ const IconTextA = (props) => {
           src={item.img}
           alt={item.imgAlt}
         />
-        <p className="card1">{item.title}</p>
-        <p className="subtitle1">{item.content}</p>
+        <h3>{item.title}</h3>
+        <p>{item.content}</p>
         <a href={item.linkUrl} className="link link-mt-small">
           {item.linkText}
         </a>

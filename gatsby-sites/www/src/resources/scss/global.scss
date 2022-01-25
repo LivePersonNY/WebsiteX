@@ -10,6 +10,10 @@
     background: $neutral92;
 }
 
+.bg-neutral-96 {
+    background: $neutral96;
+}
+
 .pane {
     padding: 80px 0;
 
@@ -127,10 +131,12 @@ img {
 
 .comp-card-grid {
     .comp-card-grid-container {
-        margin-top: 60px;
+        .col {
+            margin-top: 32px;
 
-        @include media-breakpoint-up(lg) {
-            margin-top: 72px;
+            @include media-breakpoint-up(lg) {
+                margin-top: 48px;
+            }
         }
     }
 }
@@ -148,17 +154,22 @@ img {
 
         .col {
             border-right: 1px solid $neutral12;
-            margin-top: 0 !important;
-            padding-top: 24px;
-            padding-bottom: 24px;
+            margin-top: 24px;
+            margin-bottom: 24px;
 
             @include media-breakpoint-up(lg) {
-                padding-top: 0;
-                padding-bottom: 0;
+                margin-top: 0;
+                margin-bottom: 0;
             }
 
             &:last-child {
                 border-right: 0;
+            }
+
+            &:nth-child(even) {
+                @include media-breakpoint-down(lg) {
+                    border-right: 0;
+                }
             }
 
             .h1 {
@@ -204,6 +215,11 @@ img {
     }
 
     .comp-tabs-content {
+        padding: 40px 20px;
+
+        @include media-breakpoint-up(lg) {
+            padding: 0;
+        }
 
         h3 {
             margin-top: 24px;
@@ -354,17 +370,13 @@ img {
             @include media-breakpoint-up(lg) {
                 margin-top: 72px;
             }
-
-            &:last {
-                border: 1px solid red;
-            }
         }
 
         img {
             margin-bottom: 16px;
         }
 
-        .card1 {
+        h3 {
             margin-bottom: 8px;
         }
     }
@@ -372,18 +384,49 @@ img {
 
 .comp-icon-text-b {
     .comp-card-grid-container {
-        margin-top: 60px;
+        .col {
+            margin-top: 32px;
 
-        @include media-breakpoint-up(lg) {
-            margin-top: 72px;
+            @include media-breakpoint-up(lg) {
+                margin-top: 48px;
+            }
+
+            .card-image-internal {
+                margin-bottom: 16px;
+            }
+
+            h3 {
+                margin-bottom: 8px;
+            }
         }
+    }
+}
 
-        .card-image-internal {
-            margin-bottom: 16px;
-        }
+.comp-icon-text-d {
 
-        h3 {
-            margin-bottom: 8px;
+    .comp-block-grid-container {
+        .col {
+            margin-top: 24px;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 32px;
+            }
+
+            .comp-content-container {
+                padding: 40px 20px;
+
+                @include media-breakpoint-up(lg) {
+                    padding: 40px 60px;
+                }
+
+                img {
+                    margin-bottom: 16px;
+                }
+
+                h3 {
+                    margin-bottom: 8px;
+                }
+            }
         }
     }
 }
@@ -436,6 +479,60 @@ img {
             @include media-breakpoint-up(lg) {
                 margin-bottom: 32px;
             }
+        }
+    }
+}
+
+.comp-contained-content {
+    .comp-contained-content-container {
+        padding-top: 72px;
+        padding-bottom: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        @include media-breakpoint-up(lg) {
+            padding-top: 104px;
+            padding-bottom: 120px;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .h6 {
+            margin-bottom: 8px;
+        }
+
+        .btn {
+            margin-top: 28px;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 40px;
+            }
+        }
+    }
+}
+
+.comp-content-cta {
+    .comp-content-cta-container {
+        padding-top: 40px;
+        padding-bottom: 48px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        @include media-breakpoint-up(lg) {
+            padding-top: 72px;
+            padding-bottom: 76px;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+}
+
+.comp-side-side {
+    img {
+        margin-bottom: 24px;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 32px;
         }
     }
 }
