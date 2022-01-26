@@ -7,14 +7,14 @@ const IconTextA = (props) => {
   let blockCol = props.items.map((item, index)=>{
     return (
       <div className="col" key={index}>
-        {item.img &&
+        {!item.imgCtl && item.img &&
           <img
             src={item.img}
             alt={item.imgAlt}
-          />
+          /> || item.imgCtl
         }
         <p className="card1">{item.title}</p>
-        <p className="subtitle1">{item.content}</p>
+        <p className="subtitle1">{item.body}</p>
       </div>
     )
   });
