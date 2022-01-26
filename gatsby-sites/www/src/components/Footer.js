@@ -3,14 +3,9 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import TempIcon from './TempIcon';
 
 const Footer = () => {
-  const { topItems, settings } = useStaticQuery(
+  const { topItems } = useStaticQuery(
     graphql`
       query topLevelQueryForFooter {
-        settings: wp {
-          allSettings {
-            ipAddress
-          }
-        }
         topItems: allWpMenuItem(
           filter: {
             menu: { node: { locations: { eq: GATSBY_FOOTER_MENU } } }

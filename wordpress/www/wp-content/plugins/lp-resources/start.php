@@ -12,10 +12,10 @@ class LP_Resources
 	{
 		add_action('init', [$this, 'register_type']);
 		add_action('init', [$this, 'register_menu_locations'] );
-		add_filter( 'block_parser_class', [$this, 'change_filter'], 10, 1 );
-		add_filter( 'render_block_data', [$this, 'render_block_data'], 10, 2);
+		//add_filter( 'block_parser_class', [$this, 'change_filter'], 10, 1 );
+		//add_filter( 'render_block_data', [$this, 'render_block_data'], 10, 2);
 		
-		add_action('graphql_register_types', [$this, 'graphql_fields']);
+		//add_action('graphql_register_types', [$this, 'graphql_fields']);
 		
 		add_filter( 'block_categories_all', [$this, 'block_categories'], 10, 2 );
 		
@@ -128,4 +128,4 @@ class LP_Resources
 }
 new LP_Resources;
 
-require_once('parser.php');
+//require_once('parser.php');
