@@ -25,6 +25,8 @@ import ContainedContent from '../components/blocks/ContainedContent';
 import ContentCTA from '../components/blocks/ContentCTA';
 import SideBySide from '../components/blocks/SideBySide';
 import IconTextD from '../components/blocks/IconTextD';
+import IconTextCardStack from '../components/blocks/IconTextCardStack';
+import ScrollHorizontalText from '../components/blocks/ScrollHorizontalText';
 
 const IndexPage = ({ data: { page, setting } }) => (
   <Layout>
@@ -448,6 +450,57 @@ const IndexPage = ({ data: { page, setting } }) => (
       ]}
     />
 
+    <IconTextCardStack
+      items={[
+        {
+          "img":"https://picsum.photos/64/64?random=7",
+          "imgAlt":"Alt text",
+          "title": "Voice",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/64/64?random=8",
+          "imgAlt":"Alt text",
+          "title": "Managed Service",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/64/64?random=9",
+          "imgAlt":"Alt text",
+          "title": "Bella Health",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/64/64?random=10",
+          "imgAlt":"Alt text",
+          "title": "Bella Health",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/64/64?random=11",
+          "imgAlt":"Alt text",
+          "title": "Bella Health",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "cardCTA":true,
+          "content":"Call to action goes right here across two lines",
+          "btnText":"Primary CTA",
+          "btnUrl":"#"
+        },
+      ]}
+    />
+
     <LogosUniversal 
       heading="Trusted by the world's biggest brands"
       items={[
@@ -516,6 +569,24 @@ const IndexPage = ({ data: { page, setting } }) => (
           "imgAlt":"test",
           "header":"Work with any voice vendor",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim sagittis senectus iaculis sem nisi, purus dignissim maecenas. Imperdiet eget scelerisque iaculis ut aliquam nisl, auctor. Euismod turpis mauris in."
+        },
+      ]}
+    />
+
+    <ScrollHorizontalText
+      header="Included Features"
+      items={[
+        {
+          "blockTitle":"AI & Automations",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum.",
+        },
+        {
+          "blockTitle":"Messaging Channels",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum.",
+        },
+        {
+          "blockTitle":"Integration Hub Base",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum.",
         },
       ]}
     />

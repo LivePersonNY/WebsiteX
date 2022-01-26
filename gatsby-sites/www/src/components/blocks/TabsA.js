@@ -5,16 +5,6 @@ import $ from 'jquery';
 
 const TabsA = (props) => {
 
-    /*let tabClickA = function(e) {
-      
-      $('.comp-tabs-a .accordion-item').removeClass('accordion-item-active');
-      $(e.target).parents('.accordion-item').addClass('accordion-item-active');
-      let tabIndex = $(e.target).data('tab');
-      $(`.comp-tabs-a .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
-      $(`.comp-tabs-a .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
-      
-    };*/
-
     let tabImgOutput = props.items.map((item ,index)=>{
       if (item.imgCtl) {
         return item.imgCtl;
