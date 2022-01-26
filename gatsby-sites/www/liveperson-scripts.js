@@ -3,7 +3,7 @@ import $ from 'jquery';
 $(document).ready(function() {
 	console.log('Document ready.');
 	
-	$('body').on('click', 'h4.accordion-header button', function(e) {
+	$('body').on('click', '.comp-tabs-a h4.accordion-header button', function(e) {
 		$('.comp-tabs-a .accordion-item').removeClass('accordion-item-active');
 		$(this).parents('.accordion-item').addClass('accordion-item-active');
 		let tabIndex = $(this).data('tab');
@@ -46,6 +46,11 @@ $(document).ready(function() {
 		$('textarea').each(function() {
 			this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
 		});
+	});
+
+	$('body').on('click', '.comp-faq h4.accordion-header button', function(e) {
+		$('.comp-faq .accordion-item').removeClass('accordion-item-active');
+		$(this).parents('.accordion-item').addClass('accordion-item-active');
 	});
 
 });

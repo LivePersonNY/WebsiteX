@@ -186,7 +186,7 @@ h6,
     line-height: 20px;
 }
 
-.subtitle2 {
+.subtitle3 {
     font-family: $familyInter;
     font-size: 12px;
     line-height: 16px;
@@ -244,6 +244,13 @@ p {
     line-height: 24px;
     border-radius: 24px;
     padding: 12px 32px;
+
+    &.btn2 {
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 16px;
+        padding: 8px 16px;
+    }
 
     &.btn-primary {
         color: $neutral99;
