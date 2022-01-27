@@ -16,7 +16,7 @@ const LogosUniversal = (props) => {
   });
 
   return (  
-    <div className="pane bg-neutral-92 comp-logo-universal">
+    <div className={`pane comp-logo-universal ${props.backgroundColor}`}>
       <div className="container">
         {props.heading && (
           <div className="row">

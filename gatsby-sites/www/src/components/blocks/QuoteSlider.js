@@ -25,7 +25,7 @@ const QuoteSlider = (props) => {
    
 
   return (
-    <div className="pane bg-neutral-92 comp-quote-slider">
+    <div className={`pane comp-quote-slider ${props.backgroundColor}`}>
         <div className="container">
           <div className="row">
             <div className="col-lg-12">

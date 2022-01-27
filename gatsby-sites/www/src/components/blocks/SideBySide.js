@@ -16,7 +16,7 @@ const SideBySide = (props) => {
   
   return (
     <>
-      <div className="pane bg-primary-light comp-side-side">
+      <div className={`pane comp-side-side ${props.backgroundColor}`}>
         <div className="container">
           <div className="row align-items-center">
             {content}

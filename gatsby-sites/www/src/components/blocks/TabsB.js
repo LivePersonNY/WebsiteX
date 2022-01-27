@@ -46,7 +46,7 @@ const TabsB = (props) => {
 
   return (
   <>
-    <div className="pane bg-primary-light comp-tabs-b">
+    <div className={`pane comp-tabs-b ${props.backgroundColor}`}>
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-4">

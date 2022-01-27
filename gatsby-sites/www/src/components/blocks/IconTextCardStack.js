@@ -45,7 +45,7 @@ const IconTextCardStack = (props) => {
   });
 
   return (  
-    <div className="pane bg-neutral-92 comp-icon-text-b">
+    <div className={`pane comp-icon-text-b ${props.backgroundColor}`}>
       <div className="container">
         <div className="row row-cols-lg-3 comp-card-stack-container">
           {cardCol}
