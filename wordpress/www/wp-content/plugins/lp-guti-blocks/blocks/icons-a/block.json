@@ -3,10 +3,10 @@
 	"apiVersion": 2,
 	"name": "lp-guti-blocks/icons-a",
 	"version": "0.1.0",
-	"title": "Icons + Text (1)",
+	"title": "Icons + Text",
 	"category": "liveperson",
 	"icon": "table-col-after",
-	"description": "List of items and a text, image and callout will change when clicked.",
+	"description": "Blocks of text with supporting icons, 3 variations of layout.",
 	"supports": {
 		"html": false
 	},
@@ -16,41 +16,42 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"header": {"default": "Product Features"},
+		"blocktype": {"default": "IconTextA" },
 		"icons": {
 			"type": "array",
 			"default": [
 				{
-				  "img":"https://picsum.photos/64/64?random=1",
+				  "img":"https://loremicon.com/rect/64/64/890836/png",
 				  "imgAlt":"Alt text",
 				  "title":"Intent Manager",
 				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
 				},
 				{
-				  "img":"https://picsum.photos/64/64?random=2",
+				  "img":"https://loremicon.com/rect/64/64/8903836/png",
 				  "imgAlt":"Alt text",
 				  "title":"Conversation Manager",
 				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
 				},
 				{
-				  "img":"https://picsum.photos/64/64?random=3",
+				  "img":"https://loremicon.com/rect/64/64/89036/png",
 				  "imgAlt":"Alt text",
 				  "title":"Conversation Channels",
 				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
 				},
 				{
-				  "img":"https://picsum.photos/64/64?random=4",
+				  "img":"https://loremicon.com/rect/64/64/890368/png",
 				  "imgAlt":"Alt text",
 				  "title":"Conversation Builder",
 				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
 				},
 				{
-				  "img":"https://picsum.photos/64/64?random=5",
+				  "img":"https://loremicon.com/rect/64/64/8036836/png",
 				  "imgAlt":"Conversation Orchestrator",
 				  "title":"Conversation Orchestrator",
 				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
 				},
 				{
-				  "img":"https://picsum.photos/64/64?random=6",
+				  "img":"https://loremicon.com/rect/64/64/890336/png",
 				  "imgAlt":"Conversation Analytics",
 				  "title":"Conversation Analytics",
 				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."

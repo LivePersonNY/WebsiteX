@@ -5,6 +5,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import IconTextA from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextA';
+import IconTextB from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextB';
+import IconTextC from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextC';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -25,6 +27,10 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-		<IconTextA heading={attributes.header} items={attributes.icons} />
+		<>
+		{attributes.blocktype == "IconTextA" && <IconTextA heading={attributes.header} items={attributes.icons}/>}
+		{attributes.blocktype == "IconTextB" && <IconTextB heading={attributes.header} items={attributes.icons}/>}
+		{attributes.blocktype == "IconTextC" && <IconTextC heading={attributes.header} items={attributes.icons}/>}
+		</>
 	);
 }

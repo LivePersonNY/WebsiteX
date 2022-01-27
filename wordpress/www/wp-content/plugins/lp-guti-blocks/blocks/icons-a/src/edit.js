@@ -17,7 +17,9 @@ import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 import IconTextA from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextA';
-import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
+import IconTextB from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextB';
+import IconTextC from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextC';
+import { __experimentalGrid as Grid,Placeholder, ToolbarDropdownMenu, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
 
 /**
@@ -81,6 +83,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 							setAttributes({ icons: itemValues});
 						}}
 						className="embedded-input"
+						placeholder="Link Text"
 					/>
 					<TextControl
 						value={itemValues[index].linkUrl}
@@ -88,6 +91,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 							itemValues[index].linkUrl = value;
 							setAttributes({ icons: itemValues});
 						}}
+						placeholder="https://www.example.com"
 					/>
 				</div>
 			),
@@ -128,7 +132,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		let thisIndex = itemValues.length;
 
 		itemValues.push({
-			img:"https://picsum.photos/64/64?random=1",
+			img:"https://loremicon.com/rect/64/64/89036836/png",
 			title:"Intent Manager",
 			body:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
 		});
@@ -145,6 +149,30 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 					label="Add"
 					onClick={ addTabFunc }
 				/>
+				<ToolbarDropdownMenu
+					icon="admin-settings"
+					label="Select a direction"
+					controls={ [
+						{
+							title: 'Version 1',
+							onClick: () => {
+								setAttributes({blocktype: "IconTextA"});
+							},
+						},
+						{
+							title: 'Version 2',
+							onClick: () => {
+								setAttributes({blocktype: "IconTextB"});
+							},
+						},
+						{
+							title: 'Version 3',
+							onClick: () => {
+								setAttributes({blocktype: "IconTextC"});
+							},
+						}
+					] }
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
@@ -153,14 +181,19 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<IconTextA heading={headerControl} items={itemControls} />
+
+			{attributes.blocktype == "IconTextA" && <IconTextA heading={headerControl} items={itemControls} />}
+			{attributes.blocktype == "IconTextB" && <IconTextB heading={headerControl} items={itemControls} />}
+			{attributes.blocktype == "IconTextC" && <IconTextC heading={headerControl} items={itemControls} />}
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<IconTextA heading={attributes.header} items={attributes.icons}/>
+			{attributes.blocktype == "IconTextA" && <IconTextA heading={attributes.header} items={attributes.icons}/>}
+			{attributes.blocktype == "IconTextB" && <IconTextB heading={attributes.header} items={attributes.icons}/>}
+			{attributes.blocktype == "IconTextC" && <IconTextC heading={attributes.header} items={attributes.icons}/>}
 		</div>
 	)
 
