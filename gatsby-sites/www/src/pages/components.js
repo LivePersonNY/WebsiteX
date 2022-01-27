@@ -27,6 +27,9 @@ import SideBySide from '../components/blocks/SideBySide';
 import IconTextD from '../components/blocks/IconTextD';
 import IconTextCardStack from '../components/blocks/IconTextCardStack';
 import ScrollHorizontalText from '../components/blocks/ScrollHorizontalText';
+import Faq from '../components/blocks/Faq';
+import CardGridB from '../components/blocks/CardGridB';
+import ProgramCard from '../components/blocks/ProgramCard';
 
 const IndexPage = () => (
   <Layout>
@@ -588,6 +591,118 @@ const IndexPage = () => (
           "blockTitle":"Integration Hub Base",
           "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum.",
         },
+      ]}
+    />
+
+    <Faq 
+      kicker="CONVERSATIONAL cloud"
+      header="Pricing FAQs"
+      btnText="Primary CTA"
+      btnUrl="#"
+      items={[
+        {
+          "faqTitle":"A frequently asked question goes right here?",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          "faqTitle":"A longer frequently asked question goes right here?",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          "faqTitle":"A frequently asked question goes right here?",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          "faqTitle":"A longer frequently asked question goes right here?",
+          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+      ]}
+    />
+
+    <CardGridB
+      header="Compliance &amp; Certifications"
+      content="Et omnia in potestate nostra esse natura liber, libera, libere valeant; sed illis non est in nostra potestate sunt infirmi, servilis, licet, lex pertinet. Tenete ergo."
+      items={[
+        {
+          "imgSrc":"https://picsum.photos/304/168?random=1",
+          "imgAlt":"Alt text",
+          "cardTitle":"SSAE 18 SOC2+HIPAA (formerly SAS70)",
+          "body":"We conduct yearly data center audits and our reporting is compliant with the American Institute of Certified Public Accountants (AICPA).",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/168?random=2",
+          "imgAlt":"Alt text",
+          "cardTitle":"ISO 27001",
+          "body":"Our Information Security Management System is certified for ISO compliance.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/168?random=3",
+          "imgAlt":"Alt text",
+          "cardTitle":"PCI DSS 3.2.1",
+          "body":"We handle payment data and secure transactions in compliance with Payment Card Industry Data Security Standards 3.2.1.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/168?random=1",
+          "imgAlt":"Alt text",
+          "cardTitle":"SSAE 18 SOC2+HIPAA (formerly SAS70)",
+          "body":"We conduct yearly data center audits and our reporting is compliant with the American Institute of Certified Public Accountants (AICPA).",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/168?random=2",
+          "imgAlt":"Alt text",
+          "cardTitle":"ISO 27001",
+          "body":"Our Information Security Management System is certified for ISO compliance.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/168?random=3",
+          "imgAlt":"Alt text",
+          "cardTitle":"PCI DSS 3.2.1",
+          "body":"We handle payment data and secure transactions in compliance with Payment Card Industry Data Security Standards 3.2.1.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+      ]}
+    />
+
+    <ProgramCard
+      items={[
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=1",
+          "imgAlt":"Alt text",
+          "kicker":"Earnings Call",
+          "header":"Q3 2021 LivePerson Inc. Earnings Conference Call",
+          "content":"Supporting Materials",
+          "btnText":"Listen to webcast",
+          "btnUrl":"#"
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=2",
+          "imgAlt":"Alt text",
+          "kicker":"Earnings Call",
+          "header":"Q3 2021 LivePerson Inc. Earnings Conference Call",
+          "content":"Supporting Materials",
+          "btnText":"Listen to webcast",
+          "btnUrl":"#"
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=3",
+          "imgAlt":"Alt text",
+          "kicker":"Earnings Call",
+          "header":"Q3 2021 LivePerson Inc. Earnings Conference Call",
+          "content":"Supporting Materials",
+          "btnText":"Listen to webcast",
+          "btnUrl":"#"
+        }
       ]}
     />
 
