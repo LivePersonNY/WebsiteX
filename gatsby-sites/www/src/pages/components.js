@@ -217,46 +217,47 @@ const IndexPage = () => (
 
     <TabsC
       heading="A sentence describing the different products and main value proposition"
+      runFilters={true}
       items={[
         {
-          "pill": "Conversational Cloud",
+          "title": "Conversational Cloud",
           "icon": "https://picsum.photos/56/56?random=1",
           "iconAlt": "https://picsum.photos/56/56",
           "header": "A branded line of copy or two about product benefit",
-          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
           "img": "https://picsum.photos/640/560?random=1",
           "imgAlt": "Image Here"
         },
         {
-          "pill": "Voice",
+          "title": "Voice",
           "icon": "https://picsum.photos/56/56?random=2",
           "iconAlt": "https://picsum.photos/56/56",
           "header": "A branded line of copy or two about product benefit",
-          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
           "img": "https://picsum.photos/640/560?random=2",
           "imgAlt": "Image Here"
         },
         {
-          "pill": "Managed Services",
+          "title": "Managed Services",
           "icon": "https://picsum.photos/56/56?random=3",
           "iconAlt": "https://picsum.photos/56/56",
           "header": "A branded line of copy or two about product benefit",
-          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
           "img": "https://picsum.photos/640/560?random=3",
           "imgAlt": "Image Here"
         },
         {
-          "pill": "Bella Health",
+          "title": "Bella Health",
           "icon": "https://picsum.photos/56/56?random=4",
           "iconAlt": "https://picsum.photos/56/56",
           "header": "A branded line of copy or two about product benefit",
-          "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
+          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
           "linkText": "Discover Customer Care",
           "linkUrl" : "#",
           "img": "https://picsum.photos/640/560?random=4",

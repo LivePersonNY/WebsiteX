@@ -8856,10 +8856,10 @@ const TabsC = props => {
       key: index
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "col-lg-4 offset-lg-1"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    }, !item.iconCtl && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       src: item.icon,
       alt: item.iconAlt
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, item.header), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, item.body), item.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    }) || item.iconCtl, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, item.header), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, item.body), item.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       className: "btn btn-outline-secondary",
       href: item.linkUrl
     }, item.linkText)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -12124,6 +12124,29 @@ function Edit(_ref) {
         className: "embedded-input",
         rows: "1"
       }),
+      iconCtl: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+        onSelect: function (media) {
+          itemValues[index].icon = media.url;
+          itemValues[index].iconId = media.id;
+          itemValues[index].iconAlt = media.alt || '';
+          setAttributes({
+            tabItems: itemValues
+          });
+        },
+        value: itemValues[index].iconId,
+        allowedTypes: ['image'],
+        render: _ref2 => {
+          let {
+            open
+          } = _ref2;
+          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+            src: itemValues[index].icon || `https://loremicon.com/rect/64/64/${index}/png`,
+            "data-tab-content": index,
+            key: index,
+            onClick: open
+          });
+        }
+      })),
       imgCtl: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
         onSelect: function (media) {
           itemValues[index].img = media.url;
@@ -12135,10 +12158,10 @@ function Edit(_ref) {
         },
         value: itemValues[index].mediaId,
         allowedTypes: ['image'],
-        render: _ref2 => {
+        render: _ref3 => {
           let {
             open
-          } = _ref2;
+          } = _ref3;
           return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
             src: itemValues[index].img || `https://picsum.photos/752/568?random=${index}`,
             "data-tab-content": index,
@@ -12159,7 +12182,8 @@ function Edit(_ref) {
       linkUrl: 'https://www.lipsum.com/',
       linkText: 'Learn More',
       img: `https://picsum.photos/752/568?random=${thisIndex}`,
-      imgAlt: 'An image placeholder'
+      imgAlt: 'An image placeholder',
+      icon: `https://loremicon.com/rect/64/64/${thisIndex}/png`
     });
     setAttributes({
       tabItems: itemValues

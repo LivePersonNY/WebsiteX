@@ -32,7 +32,7 @@ const TabsC = (props) => {
       return (
           <div className={`row bg-primary-light align-items-center comp-tabs-content `} data-tab-content={index} key={index}>
             <div className="col-lg-4 offset-lg-1">
-              <img src={item.icon} alt={item.iconAlt} />
+              {!item.iconCtl && <img src={item.icon} alt={item.iconAlt} /> || item.iconCtl}
               <h3>{item.header}</h3>
               <p>{item.body}</p>
               {item.linkText && (

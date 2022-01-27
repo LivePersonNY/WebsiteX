@@ -114,6 +114,23 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 				/>
 
 			),
+			iconCtl: (
+				<MediaUploadCheck>
+					<MediaUpload
+						onSelect={function(media) {
+							itemValues[index].icon = media.url;
+							itemValues[index].iconId = media.id;
+							itemValues[index].iconAlt = media.alt || '';
+							setAttributes({ tabItems: itemValues});
+						}}
+						value={itemValues[index].iconId}
+						allowedTypes={ ['image'] }
+						render={({open}) => (
+							<img src={itemValues[index].icon || `https://loremicon.com/rect/64/64/${index}/png`} data-tab-content={index} key={index} onClick={open} />
+						)}
+					/>
+				</MediaUploadCheck>
+			),
 			imgCtl: (
 				<MediaUploadCheck>
 					<MediaUpload
@@ -145,7 +162,8 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			linkUrl: 'https://www.lipsum.com/',
 			linkText: 'Learn More',
 			img: `https://picsum.photos/752/568?random=${thisIndex}`,
-			imgAlt: 'An image placeholder'
+			imgAlt: 'An image placeholder',
+			icon: `https://loremicon.com/rect/64/64/${thisIndex}/png`,
 		});
 		setAttributes({
 			tabItems: itemValues
