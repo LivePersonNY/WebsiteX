@@ -4,6 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import TabsC from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsC';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -12,8 +13,6 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps } from '@wordpress/block-editor';
-import CardGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGrid';
-import CardGridB from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGridB';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -24,20 +23,8 @@ import CardGridB from '../../../../../../../../gatsby-sites/www/src/components/b
  *
  * @return {WPElement} Element to render.
  */
-export default function save({ attributes }) {
+export default function save({attributes}) {
 	return (
-		<>
-		{attributes.blocktype == "CardGrid" &&
-		<CardGrid
-			heading={attributes.header}
-			items={attributes.cards}
-		/>}
-		{attributes.blocktype == "CardGridB" &&
-		<CardGridB
-			heading={attributes.header}
-			items={attributes.cards}
-			content={attributes.content}
-		/>}
-		</>
-	)
+		<TabsC heading={attributes.header} items={attributes.tabItems} />
+	);
 }

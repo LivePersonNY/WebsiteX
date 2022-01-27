@@ -6,6 +6,12 @@
 
 .wp-block {
 	max-width: 100%;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.block-editor-block-list__insertion-point {
+	//height: 0 !important;
 }
 
 .embedded-input, .embedded-input div, .embedded-input input, .embedded-input textarea, .wp-control-wrapper {

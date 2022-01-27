@@ -6,15 +6,26 @@ import $ from 'jquery';
 
 const TabsC = (props) => {
 
-    useEffect(() => {
+    let tabScript = `
       document.querySelectorAll('.comp-tabs-c .comp-tabs-content').forEach(function(item){
         item.style.display = 'none';
-      })
-      document.querySelector('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]').style.display = 'flex';
-    });
+        console.log(item);
+      });
+      var e = document.querySelector('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]');
+      if (e) {
+        e.style.display = 'flex';
+        console.log(e);
+      }
+    `;
+
+    if (props.runFilters) {
+      useEffect(() => {
+        eval(tabScript);
+      });
+    }
   
     let pillListOutput = props.items.map((item ,index)=>{
-      return <a className="btn pill" data-tab={index} key={index}>{item.pill}</a>
+      return <a className="btn pill" data-tab={index} key={index}>{item.title}</a>
     });
 
     let tabsContent = props.items.map((item, index)=>{
@@ -23,7 +34,7 @@ const TabsC = (props) => {
             <div className="col-lg-4 offset-lg-1">
               <img src={item.icon} alt={item.iconAlt} />
               <h3>{item.header}</h3>
-              <p>{item.content}</p>
+              <p>{item.body}</p>
               {item.linkText && (
                 <a className="btn btn-outline-secondary" href={item.linkUrl}>
                   {item.linkText}
@@ -31,11 +42,13 @@ const TabsC = (props) => {
               )}
             </div>
             <div className="col-lg-6 offset-lg-1">
-              <img src={item.img} alt={item.imgAlt} />
+              {!item.imgCtl && <img src={item.img} alt={item.imgAlt} /> || item.imgCtl}
             </div>
           </div>
       )
     });
+    
+    
    
 
   return (
@@ -55,8 +68,13 @@ const TabsC = (props) => {
           </div>
         </div>
           {tabsContent}
+          
       </div>
+      {!props.runFilters && (
+        <script>{tabScript}</script>
+      )}
     </div>
+    
   </>
   )
 };

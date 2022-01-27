@@ -2,11 +2,13 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
+import $ from 'jquery';
+
 const CardGrid = (props) => {
 
   let cardCol = props.items.map((item, index)=>{
     return (
-      <div className="col" key={index}>
+      <div className="col" key={index} id={index}>
         <div className="card h-100">
           <div className="card-body">
             {!item.imgCtl && <img
@@ -26,6 +28,12 @@ const CardGrid = (props) => {
       </div>
     )
   });
+  
+  let sortable = (
+    <div className="row row-cols-lg-3 comp-card-grid-container">
+      {cardCol}
+    </div>
+  );
 
   return (  
     <div className="pane bg-primary-light comp-card-grid">
@@ -38,6 +46,7 @@ const CardGrid = (props) => {
           </div>
         )}
         <div className="row row-cols-lg-3 comp-card-grid-container">
+          {props.sorter}
           {cardCol}
         </div>
       </div>

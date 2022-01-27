@@ -16,6 +16,8 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"header": {"default": "Card Grid"},
+		"blocktype": {"default": "CardGrid"},
+		"content": {"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor"},
 		"cards": {
 			"type": "array",
 			"default": [

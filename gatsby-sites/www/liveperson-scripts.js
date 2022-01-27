@@ -47,6 +47,8 @@ $(document).ready(function() {
 			this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
 		});
 	});
+	
+	
 
 	$('body').on('click', '.comp-faq h4.accordion-header button', function(e) {
 		$('.comp-faq .accordion-item').removeClass('accordion-item-active');

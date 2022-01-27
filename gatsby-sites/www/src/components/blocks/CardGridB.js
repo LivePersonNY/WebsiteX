@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
+
 const CardGridB = (props) => {
 
   let cardCol = props.items.map((item, index)=>{
@@ -30,10 +31,10 @@ const CardGridB = (props) => {
   return (  
     <div className="pane bg-neutral-92 comp-card-grid-b">
       <div className="container">
-        {props.header && (
+        {props.heading && (
           <div className="row text-center">
             <div className="col-lg-8 offset-lg-2">
-              <h2 className="">{props.header}</h2>
+              <h2 className="">{props.heading}</h2>
               <p className="">{props.content}</p>
             </div>
           </div>

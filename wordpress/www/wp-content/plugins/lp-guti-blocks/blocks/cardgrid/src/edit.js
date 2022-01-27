@@ -4,9 +4,11 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, ToolbarGroup, ToolbarButton, Dashicon, Button } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, ToolbarGroup, ToolbarDropdownMenu, ToolbarButton, Dashicon, Button } from '@wordpress/components';
 import CardGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGrid';
+import CardGridB from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGridB';
 
+import Reorder from 'react-reorder';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -41,6 +43,15 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+		/>
+	);
+
+	let contentControl = (
+		<TextareaControl
+			value={ attributes.content }
+			onChange={ ( val ) => setAttributes( { content: val } ) }
+			className="embedded-input"
+			rows="1"
 		/>
 	);
 
@@ -105,6 +116,36 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 					}>
 						<span className="dashicons-before dashicons-remove"></span>
 					</a>
+					<a
+						className="stat-left"
+						onClick={
+						function(e) {
+							var new_index = index-1;
+							var old_index = index;
+							if (new_index < 0) {
+								new_index = cards.length-1
+							}
+							cards.splice(new_index, 0, cards.splice(old_index, 1)[0]);
+							setAttributes({ cards: cards});
+						}
+					}>
+						<span className="dashicons-before dashicons-arrow-left-alt"></span>
+					</a>
+					<a
+						className="stat-right"
+						onClick={
+						function(e) {
+							var new_index = index+1;
+							var old_index = index;
+							if (new_index >= cards.length) {
+								new_index = 0;
+							}
+							cards.splice(new_index, 0, cards.splice(old_index, 1)[0]);
+							setAttributes({ cards: cards});
+						}
+					}>
+						<span className="dashicons-before dashicons-arrow-right-alt"></span>
+					</a>
 				</div>
 			)
 		}
@@ -131,26 +172,60 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 					label="Add Stat"
 					onClick={ addTabFunc }
 				/>
+				<ToolbarDropdownMenu
+					icon="admin-settings"
+					label="Select a variant"
+					controls={ [
+						{
+							title: 'Version 1',
+							onClick: () => {
+								setAttributes({blocktype: "CardGrid"});
+							},
+						},
+						{
+							title: 'Version 2',
+							onClick: () => {
+								setAttributes({blocktype: "CardGridB"});
+							},
+						}
+					] }
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
 
+
 	if (isSelected) return (
 		<div { ...useBlockProps() }>
 			{addButton}
+			{attributes.blocktype == "CardGrid" &&
 			<CardGrid
 				heading={headerControl}
 				items={controls}
-			/>
+			/>}
+			{attributes.blocktype == "CardGridB" &&
+			<CardGridB
+				heading={headerControl}
+				items={controls}
+				content={contentControl}
+			/>}
 		</div>
 	);
+
 	return (
 		<div { ...useBlockProps() }>
 			{addButton}
+			{attributes.blocktype == "CardGrid" &&
 			<CardGrid
 				heading={attributes.header}
 				items={attributes.cards}
-			/>
+			/>}
+			{attributes.blocktype == "CardGridB" &&
+			<CardGridB
+				heading={attributes.header}
+				items={attributes.cards}
+				content={attributes.content}
+			/>}
 		</div>
 	)
 }

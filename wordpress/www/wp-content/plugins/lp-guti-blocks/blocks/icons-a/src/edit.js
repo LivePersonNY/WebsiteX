@@ -73,6 +73,36 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						}>
 						<span className="dashicons-before dashicons-remove"></span>
 					</a>
+					<a
+						className="stat-left"
+						onClick={
+						function(e) {
+							var new_index = index-1;
+							var old_index = index;
+							if (new_index < 0) {
+								new_index = itemValues.length-1;
+							}
+							itemValues.splice(new_index, 0, itemValues.splice(old_index, 1)[0]);
+							setAttributes({ icons: itemValues});
+						}
+					}>
+						<span className="dashicons-before dashicons-arrow-left-alt"></span>
+					</a>
+					<a
+						className="stat-right"
+						onClick={
+						function(e) {
+							var new_index = index+1;
+							var old_index = index;
+							if (new_index >= itemValues.length) {
+								new_index = 0;
+							}
+							itemValues.splice(new_index, 0, itemValues.splice(old_index, 1)[0]);
+							setAttributes({ icons: itemValues});
+						}
+					}>
+						<span className="dashicons-before dashicons-arrow-right-alt"></span>
+					</a>
 				</div>
 			),
 			linkUrl: null,
