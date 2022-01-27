@@ -23,6 +23,13 @@ const ContainedContent = (props) => {
                   )}
                 </div>
               </div>
+              <div className="row">
+                <div className="col-lg-12 text-center">
+                  {props.imgSrc && (
+                    <img src={props.imgSrc} alt={props.imgAlt} />
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>

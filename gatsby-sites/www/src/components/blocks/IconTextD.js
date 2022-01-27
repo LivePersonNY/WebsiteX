@@ -7,13 +7,13 @@ const IconTextD = (props) => {
   let blockCol = props.items.map((item, index)=>{
     return (
       <div className="col" key={index}>
-        <div className="comp-content-container bg-neutral-96">
+        <div className="comp-body-container bg-neutral-96">
           <img
             src={item.img}
             alt={item.imgAlt}
           />
           <h3>{item.title}</h3>
-          <p>{item.content}</p>
+          <p>{item.body}</p>
           {props.linkText && (
             <a href={item.linkUrl} className="link link-mt-small">
             {item.linkText}
@@ -31,11 +31,11 @@ const IconTextD = (props) => {
           <div className="row">
             <div className="col-lg-8 offset-lg-2 text-center">
               <h2 className="">{props.header}</h2>
-              <p>{props.content}</p>
+              <p>{props.body}</p>
             </div>
           </div>
         )}
-        <div className="row row-cols-lg-2 row-cols-1 comp-block-grid-container">
+        <div className={`row row-cols-lg-2 row-cols-1 comp-block-grid-container ${props.centerBody ? 'text-center' : ''}`}>
           {blockCol}
         </div>
       </div>
