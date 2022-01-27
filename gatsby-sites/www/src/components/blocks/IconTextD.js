@@ -8,12 +8,14 @@ const IconTextD = (props) => {
     return (
       <div className="col" key={index}>
         <div className="comp-content-container bg-neutral-96">
-          <img
-            src={item.img}
-            alt={item.imgAlt}
-          />
+          {!item.imgCtl && item.img &&
+            <img
+              src={item.img}
+              alt={item.imgAlt}
+            /> || item.imgCtl
+          }
           <h3>{item.title}</h3>
-          <p>{item.content}</p>
+          <p>{item.body}</p>
           {props.linkText && (
             <a href={item.linkUrl} className="link link-mt-small">
             {item.linkText}

@@ -15,7 +15,9 @@
 		//border: 1px dotted #333 !important;
 	}
 	outline: none !important;
-	background: transparent !important;
+	background: inherit !important;
+	-webkit-text-fill-color: inherit !important;
+	-webkit-background-clip: inherit !important;
 	font-family: inherit !important;
 	text-align: inherit !important;
 	max-width: 100% !important;

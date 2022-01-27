@@ -19,6 +19,8 @@ const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 import IconTextA from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextA';
 import IconTextB from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextB';
 import IconTextC from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextC';
+import IconTextD from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextD';
+
 import { __experimentalGrid as Grid,Placeholder, ToolbarDropdownMenu, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
 
@@ -170,6 +172,12 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 							onClick: () => {
 								setAttributes({blocktype: "IconTextC"});
 							},
+						},
+						{
+							title: 'Version 4',
+							onClick: () => {
+								setAttributes({blocktype: "IconTextD"});
+							},
 						}
 					] }
 				/>
@@ -185,6 +193,8 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			{attributes.blocktype == "IconTextA" && <IconTextA heading={headerControl} items={itemControls} />}
 			{attributes.blocktype == "IconTextB" && <IconTextB heading={headerControl} items={itemControls} />}
 			{attributes.blocktype == "IconTextC" && <IconTextC heading={headerControl} items={itemControls} />}
+			{attributes.blocktype == "IconTextD" && <IconTextD heading={headerControl} items={itemControls} />}
+
 		</div>
 	);
 
@@ -194,6 +204,8 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			{attributes.blocktype == "IconTextA" && <IconTextA heading={attributes.header} items={attributes.icons}/>}
 			{attributes.blocktype == "IconTextB" && <IconTextB heading={attributes.header} items={attributes.icons}/>}
 			{attributes.blocktype == "IconTextC" && <IconTextC heading={attributes.header} items={attributes.icons}/>}
+			{attributes.blocktype == "IconTextD" && <IconTextD heading={attributes.header} items={attributes.icons}/>}
+
 		</div>
 	)
 

@@ -7,6 +7,7 @@ import { __ } from '@wordpress/i18n';
 import IconTextA from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextA';
 import IconTextB from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextB';
 import IconTextC from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextC';
+import IconTextD from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextD';
 
 /**
  * React hook that is used to mark the block wrapper element.

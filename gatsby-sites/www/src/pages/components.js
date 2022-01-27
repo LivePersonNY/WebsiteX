@@ -374,7 +374,7 @@ const IndexPage = () => (
           "img":"https://picsum.photos/64/64?random=7",
           "imgAlt":"Alt text",
           "title": "Voice",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },
@@ -382,7 +382,7 @@ const IndexPage = () => (
           "img":"https://picsum.photos/64/64?random=8",
           "imgAlt":"Alt text",
           "title": "Managed Service",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },
@@ -390,7 +390,7 @@ const IndexPage = () => (
           "img":"https://picsum.photos/64/64?random=9",
           "imgAlt":"Alt text",
           "title": "Bella Health",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },
@@ -404,7 +404,7 @@ const IndexPage = () => (
           "img":"https://picsum.photos/64/64?random=10",
           "imgAlt":"Alt text",
           "title":"Commerce",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
           "linkText":"Discover Commerce Solutions",
           "linkUrl":"#"
         },
@@ -412,7 +412,7 @@ const IndexPage = () => (
           "img":"https://picsum.photos/64/64?random=11",
           "imgAlt":"Alt text",
           "title":"Customer Care",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
           "linkText":"Discover Customer Care",
           "linkUrl":"#"
         },
@@ -427,25 +427,25 @@ const IndexPage = () => (
           "img":"https://picsum.photos/56/56?random=10",
           "imgAlt":"Alt text",
           "title":"Highly Accurate",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
         {
           "img":"https://picsum.photos/56/56?random=11",
           "imgAlt":"Alt text",
           "title":"Low Cost",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
         {
           "img":"https://picsum.photos/56/56?random=12",
           "imgAlt":"Alt text",
           "title":"Fast Results",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
         {
           "img":"https://picsum.photos/56/56?random=13",
           "imgAlt":"Alt text",
           "title":"Self-administrable",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
       ]}
     />
