@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 
 const ContentCTA = (props) => {
   return (  
-    <div className="pane bg-primary-light comp-content-cta">
+    <div className={`pane comp-content-cta ${props.backgroundColor}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">

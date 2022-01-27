@@ -8,7 +8,7 @@ const LeftRight = (props) => {
   return (
     <>
       <div
-        className={`pane bg-primary-light comp-left-right ${
+        className={`pane ${props.backgroundColor} comp-left-right ${
           props.repeat ? 'comp-left-right-repeat' : ''
         }`}
       >

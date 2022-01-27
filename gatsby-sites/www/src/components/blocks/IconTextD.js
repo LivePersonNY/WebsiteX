@@ -25,7 +25,7 @@ const IconTextD = (props) => {
   });
 
   return (  
-    <div className="pane bg-primary-light comp-icon-text-d">
+    <div className={`pane comp-icon-text-d ${props.backgroundColor}`}>
       <div className="container">
         {props.header && (
           <div className="row">

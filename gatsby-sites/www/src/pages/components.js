@@ -37,6 +37,7 @@ const IndexPage = () => (
     {/* {Parser(page.content)} */}
 
     <Hero
+      backgroundColor="bg-neutral-84"
       header="LivePerson's unique value proposition"
       subHeader="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus
               elementum sollicitudin magna bibendum sit ultricies arcu. Nullam
@@ -49,6 +50,7 @@ const IndexPage = () => (
     <MktoForm formId="2580" runFilters={true} />
 
     <PlainContent
+      backgroundColor="bg-primary-light"
       colWidth="8"
       heading="What is LivePerson?"
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci,
@@ -60,6 +62,7 @@ const IndexPage = () => (
     />
 
     <LeftRight
+      backgroundColor="bg-primary-light"
       preHeading="UNDERSTAND"
       title="Breathe life into your brand with human centered AI that’s
               anything but artificial."
@@ -71,6 +74,7 @@ const IndexPage = () => (
     />
 
     <LeftRight
+      backgroundColor="bg-primary-light"
       preHeading="CONNECT"
       title="Deepen your understanding of consumers when they feel seen, heard
       and valued."
@@ -83,6 +87,7 @@ const IndexPage = () => (
     />
 
     <LeftRight
+      backgroundColor="bg-primary-light"
       preHeading="OUTCOMES"
       title="Manage consumer conversations simply. Like, seriously simply."
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -92,6 +97,7 @@ const IndexPage = () => (
     />
 
     <StatsGrid
+      backgroundColor="bg-primary-light"
       heading="The infinite power of conversational AI"
       items={[
         {
@@ -150,6 +156,7 @@ const IndexPage = () => (
     </div>
 
     <TabsA
+      backgroundColor="bg-primary-light"
       heading="How LivePerson can benefit your customers"
       items={[
         {
@@ -180,6 +187,7 @@ const IndexPage = () => (
     />
 
     <TabsB
+      backgroundColor="bg-primary-light"
       heading="Why LivePerson"
       items={[
         {
@@ -216,6 +224,7 @@ const IndexPage = () => (
     />
 
     <TabsC
+      backgroundColor="bg-neutral-92"
       heading="A sentence describing the different products and main value proposition"
       items={[
         {
@@ -266,6 +275,7 @@ const IndexPage = () => (
     />
 
     <CardGrid
+      backgroundColor="bg-primary-light"
       heading="Headline about our customers"
       items={[
         {
@@ -293,6 +303,7 @@ const IndexPage = () => (
     />
 
     <LeftRight
+      backgroundColor="bg-primary-light"
       preHeading="WHY LIVEPERSON"
       title="Branded copy that speaks to LivePerson’s values"
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -305,6 +316,7 @@ const IndexPage = () => (
     />
 
     <CalloutGrid
+      backgroundColor="bg-neutral-84"
       heading="Related Insights"
       linkText="View All Posts"
       linkUrl="#"
@@ -329,6 +341,7 @@ const IndexPage = () => (
     />
 
     <IconTextA 
+      backgroundColor="bg-neutral-92"
       heading="Product Features"
       items={[
         {
@@ -371,6 +384,7 @@ const IndexPage = () => (
     />
 
     <IconTextB
+      backgroundColor="bg-neutral-92"
       heading="Headline about our customers"
       items={[
         {
@@ -401,6 +415,7 @@ const IndexPage = () => (
     />
     
     <IconTextC
+      backgroundColor="bg-primary-light"
       heading="LivePerson for your business"
       items={[
         {
@@ -423,6 +438,7 @@ const IndexPage = () => (
     />
 
     <IconTextD
+      backgroundColor="bg-primary-light"
       header="How Rapid Testing Can Help IconTextD"
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra ultrices ac sagittis elit amet id. Justo arcu pharetra et montes, neque nisi. Egestas dictum viverra faucibus."
       items={[
@@ -454,6 +470,7 @@ const IndexPage = () => (
     />
 
     <IconTextCardStack
+      backgroundColor="bg-neutral-92"
       items={[
         {
           "img":"https://picsum.photos/64/64?random=7",
@@ -505,6 +522,7 @@ const IndexPage = () => (
     />
 
     <LogosUniversal 
+      backgroundColor="bg-neutral-92"
       heading="Trusted by the world's biggest brands"
       items={[
         {
@@ -531,6 +549,7 @@ const IndexPage = () => (
     />
 
     <QuoteSlider
+      backgroundColor="bg-neutral-92"
       header="Why customers love Voice"
       items={[
         {
@@ -547,6 +566,7 @@ const IndexPage = () => (
     />
 
     <ContainedContent 
+      backgroundColor="bg-primary-light"
       header="Call to action goes here"
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam dictum neque nunc, morbi. Laoreet nam magna rhoncus rutrum ut condimentum."
       linkText="Primary CTA"
@@ -554,12 +574,14 @@ const IndexPage = () => (
     />
 
     <ContentCTA
+      backgroundColor="bg-primary-light"
       content="Learn more about Voicebase"
       linkText="Explore Voicebase"
       linkUrl="#"
     />
 
     <SideBySide
+      backgroundColor="bg-primary-light"
       items={[
         {
           "imgSrc":"https://picsum.photos/640/428",
@@ -577,6 +599,7 @@ const IndexPage = () => (
     />
 
     <ScrollHorizontalText
+      backgroundColor="bg-primary-light"
       header="Included Features"
       items={[
         {
@@ -595,6 +618,7 @@ const IndexPage = () => (
     />
 
     <Faq 
+      backgroundColor="bg-primary-light"
       kicker="CONVERSATIONAL cloud"
       header="Pricing FAQs"
       btnText="Primary CTA"
@@ -620,6 +644,7 @@ const IndexPage = () => (
     />
 
     <CardGridB
+      backgroundColor="bg-neutral-92"
       header="Compliance &amp; Certifications"
       content="Et omnia in potestate nostra esse natura liber, libera, libere valeant; sed illis non est in nostra potestate sunt infirmi, servilis, licet, lex pertinet. Tenete ergo."
       items={[
@@ -675,6 +700,7 @@ const IndexPage = () => (
     />
 
     <ProgramCard
+      backgroundColor="bg-primary-light"
       items={[
         {
           "imgSrc":"https://picsum.photos/304/280?random=1",

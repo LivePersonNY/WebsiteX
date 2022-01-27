@@ -2,7 +2,7 @@ import * as React from 'react';
 import Link from 'gatsby-link';
 
 const Hero = (props) => (
-  <div className="pane hero bg-neutral-84">
+  <div className={`pane hero ${props.backgroundColor}`}>
     <div className="container">
       <div className="row align-items-center">
         <div className="col-lg-5">

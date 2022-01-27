@@ -24,7 +24,7 @@ const ProgramCard = (props) => {
   });
 
   return (
-    <div className="pane bg-primary-light comp-program-card">
+    <div className={`pane comp-program-card ${props.backgroundColor}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">

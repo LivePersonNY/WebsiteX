@@ -23,7 +23,7 @@ const Faq = (props) => {
 
   return (
   <>
-    <div className="pane bg-primary-light comp-faq">
+    <div className={`pane comp-faq ${props.backgroundColor}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-4">
