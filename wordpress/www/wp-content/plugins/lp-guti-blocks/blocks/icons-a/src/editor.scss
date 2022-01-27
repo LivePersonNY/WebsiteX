@@ -1,0 +1,34 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.comp-tabs-b {
+	.comp-tab {
+		.v-tab-remove {
+			position: absolute;
+			margin-top: -25px !important;
+			margin-left: -35px !important;
+			span {
+				color: red;
+			}
+			background: none;
+			border: 0;
+		}
+
+
+
+	}
+
+	.comp-tabs-img-container {
+		min-height: 400px;
+	}
+
+	.comp-tabs-img {
+
+	}
+}
+
+
+

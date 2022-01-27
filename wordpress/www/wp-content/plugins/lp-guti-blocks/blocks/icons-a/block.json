@@ -1,0 +1,61 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/icons-a",
+	"version": "0.1.0",
+	"title": "Icons + Text (1)",
+	"category": "liveperson",
+	"icon": "table-col-after",
+	"description": "List of items and a text, image and callout will change when clicked.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"header": {"default": "Product Features"},
+		"icons": {
+			"type": "array",
+			"default": [
+				{
+				  "img":"https://picsum.photos/64/64?random=1",
+				  "imgAlt":"Alt text",
+				  "title":"Intent Manager",
+				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+				},
+				{
+				  "img":"https://picsum.photos/64/64?random=2",
+				  "imgAlt":"Alt text",
+				  "title":"Conversation Manager",
+				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+				},
+				{
+				  "img":"https://picsum.photos/64/64?random=3",
+				  "imgAlt":"Alt text",
+				  "title":"Conversation Channels",
+				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+				},
+				{
+				  "img":"https://picsum.photos/64/64?random=4",
+				  "imgAlt":"Alt text",
+				  "title":"Conversation Builder",
+				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+				},
+				{
+				  "img":"https://picsum.photos/64/64?random=5",
+				  "imgAlt":"Conversation Orchestrator",
+				  "title":"Conversation Orchestrator",
+				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+				},
+				{
+				  "img":"https://picsum.photos/64/64?random=6",
+				  "imgAlt":"Conversation Analytics",
+				  "title":"Conversation Analytics",
+				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+				}
+			]
+		}
+	}
+}

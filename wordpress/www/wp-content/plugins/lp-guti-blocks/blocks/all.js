@@ -9,6 +9,6 @@ import './tabs-b/src/index';
 import './cardgrid/src/index';
 import './contained-content/src/index';
 import './cta/src/index';
-
+import './icons-a/src/index';
 
 import $ from 'jquery';
