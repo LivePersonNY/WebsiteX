@@ -101,7 +101,7 @@ define('DISALLOW_FILE_MODS', $_ENV['WP_DISALLOW_FILE_MODS'] );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-define('WP_MEMORY_LIMIT', '1024M');
+define('WP_MEMORY_LIMIT', '2048M');
 
 /* That's all, stop editing! Happy publishing. */
 
