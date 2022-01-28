@@ -20,6 +20,14 @@
 
 .bg-rainbow {
     background: $rainbow;
+    
+}
+.bg-lavendar-20 {
+    background: $lavendar20;
+}
+
+.bg-blue-20 {
+    background: $blue20
 }
 
 .pane {
@@ -42,7 +50,19 @@
     }
 
     &.bg-neutral-92 {
-        +.bg-neutral-84 {
+        +.bg-neutral-92 {
+            padding-top: 0;
+        }
+    }
+
+    &.bg-neutral-96 {
+        +.bg-neutral-96 {
+            padding-top: 0;
+        }
+    }
+
+    &.bg-blue-20 {
+        +.bg-blue-20 {
             padding-top: 0;
         }
     }
@@ -643,6 +663,24 @@ img {
 
 .comp-scroll-horizontal-text {
     .comp-scroll-horizontal-text-block {
+        margin-bottom: 48px;
+
+        &:first-of-type {
+            margin-top: 8px;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        p {
+            margin-top: 8px;
+        }
+    }
+}
+
+.comp-horizontal-text {
+    .comp-horizontal-text-block {
         margin-bottom: 48px;
 
         &:first-of-type {
