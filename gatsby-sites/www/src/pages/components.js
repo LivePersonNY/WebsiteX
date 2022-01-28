@@ -31,6 +31,7 @@ import Faq from '../components/blocks/Faq';
 import CardGridB from '../components/blocks/CardGridB';
 import ProgramCard from '../components/blocks/ProgramCard';
 import TeamCards from '../components/blocks/TeamCards';
+import HorizontalText from '../components/blocks/HorizontalText';
 
 const IndexPage = () => (
   <Layout>
@@ -789,6 +790,28 @@ const IndexPage = () => (
         },
       ]}
     />
+
+    <HorizontalText
+    backgroundColor="bg-primary-light"
+    items={[
+      {
+        "header":"System Integrators and Consultants",
+        "body":"Customize LivePerson’s robust conversational platform, providing a seamless fit for your customers’ complex back-end systems and added revenue to your transformation...",
+      },
+      {
+        "header":"Agencies",
+        "body":"Guide your brands’ marketing and customer engagement growth into the conversational space with the market leader. Work with our experts to enhance or offer new services (bot building...",
+      },
+      {
+        "header":"Tech Channels and Platforms",
+        "body":"Leverage our world-class messaging and automation capabilities to meet customer demand without having to develop your own from scratch, including tremendous data collection...",
+      },
+      {
+        "header":"BPOs",
+        "body":"Bring LivePerson’s AI-powered messaging to the businesses you serve for higher margins, increased agent concurrency and efficiency, and the ability to pivot from channel to channel with ease.",
+      },
+    ]}
+  />
 
   </Layout>
 );
