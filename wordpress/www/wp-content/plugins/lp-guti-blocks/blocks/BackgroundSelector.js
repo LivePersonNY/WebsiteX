@@ -23,6 +23,18 @@ export default function BackgroundSelectorMenu({ callback, selected }) {
 				icon: 'admin-customizer bg-rainbow',
 				isActive: selected == 'bg-rainbow',
 				onClick: () => callback('bg-rainbow')
+			},
+			{
+				title: 'Lavender',
+				icon: 'admin-customizer bg-lavender-20',
+				isActive: selected == 'bg-lavender-20',
+				onClick: () => callback('bg-lavender-20')
+			},
+			{
+				title: 'Blue',
+				icon: 'admin-customizer bg-blue-20',
+				isActive: selected == 'bg-blue-20',
+				onClick: () => callback('bg-blue-20')
 			}
 		] }
 	/>);
