@@ -2,7 +2,7 @@ import * as React from 'react';
 import Link from 'gatsby-link';
 
 const Hero = (props) => (
-  <div className={`pane hero ${props.backgroundColor}`}>
+  <div className={`pane hero ${props.backgroundColor||"bg-transparent"}`}>
     <div className="container">
       <div className="row align-items-center">
         <div className="col-lg-5">

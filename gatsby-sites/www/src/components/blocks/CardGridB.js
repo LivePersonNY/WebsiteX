@@ -29,7 +29,7 @@ const CardGridB = (props) => {
   });
 
   return (  
-    <div className={`pane comp-card-grid-b ${props.backgroundColor}`}>
+    <div className={`pane comp-card-grid-b ${props.backgroundColor||"bg-transparent"}`}>
       <div className="container">
         {props.heading && (
           <div className="row text-center">

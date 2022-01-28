@@ -6,7 +6,7 @@ const CalloutGrid = (props) => {
   let repeat;
 
   return (
-      <div className={`pane comp-callout-grid ${props.backgroundColor}`}>
+      <div className={`pane comp-callout-grid ${props.backgroundColor||"bg-transparent"}`}>
         <div className="container">
           {props.heading && (
             <div className="row align-items-center">

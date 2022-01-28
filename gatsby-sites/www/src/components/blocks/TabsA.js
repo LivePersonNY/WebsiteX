@@ -30,7 +30,7 @@ const TabsA = (props) => {
 
   return (
   <>
-    <div className={`pane comp-tabs-a ${props.backgroundColor}`}>
+    <div className={`pane comp-tabs-a ${props.backgroundColor||"bg-transparent"}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">

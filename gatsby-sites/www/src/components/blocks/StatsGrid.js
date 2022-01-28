@@ -16,7 +16,7 @@ const StatsGrid = (props) => {
   let statAmount = props.items.length;
 
   return (
-      <div className={`pane comp-stat-grid ${props.backgroundColor}`}>
+      <div className={`pane comp-stat-grid ${props.backgroundColor||"bg-transparent"}`}>
         <div className="container">
           {props.heading && (
             <div className="row">

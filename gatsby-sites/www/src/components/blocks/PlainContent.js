@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 
 const PlainContent = (props) => (
   <>
-    <div className={`pane comp-plain-content ${props.backgroundColor}`}>
+    <div className={`pane comp-plain-content ${props.backgroundColor||"bg-transparent"}`}>
       <div className="container">
         <div className="row align-items-center">
           <div className={`col-lg-${props.colWidth||12}`}>

@@ -36,7 +36,7 @@ const CardGrid = (props) => {
   );
 
   return (  
-    <div className={`pane comp-card-grid ${props.backgroundColor}`}>
+    <div className={`pane comp-card-grid ${props.backgroundColor||"bg-transparent"}`}>
       <div className="container">
         {props.heading && (
           <div className="row">
