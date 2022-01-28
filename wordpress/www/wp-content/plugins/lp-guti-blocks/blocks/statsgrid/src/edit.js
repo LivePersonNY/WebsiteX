@@ -6,7 +6,7 @@
 import { __ } from '@wordpress/i18n';
 import { __experimentalGrid as Grid,Placeholder, TextControl, ToolbarGroup, ToolbarButton, Dashicon, Button } from '@wordpress/components';
 import StatsGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/StatsGrid';
-
+import ItemControls from '../../ItemControls';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -67,16 +67,13 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 						}}
 						className="embedded-input"
 					/>
-					<a
-						className="stat-remove"
-						onClick={
-						function(e) {
-							stack.splice(index, 1);
-							setAttributes({ statItems: stack});
-						}
-					}>
-						<span className="dashicons-before dashicons-remove"></span>
-					</a>
+					<ItemControls
+						index={index}
+						itemArray={stack}
+						callback={function(items) {
+							setAttributes({ statItems: items});
+						}}
+					/>
 				</div>
 			)
 		}

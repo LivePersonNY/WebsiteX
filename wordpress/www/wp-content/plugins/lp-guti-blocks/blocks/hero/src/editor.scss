@@ -53,6 +53,10 @@
 	.bg-rainbow {
 		background: $rainbow;
 	}
+	.is-active {
+		background: #191919;
+		color: white;
+	}
 }
 
 .block-editor-inserter {

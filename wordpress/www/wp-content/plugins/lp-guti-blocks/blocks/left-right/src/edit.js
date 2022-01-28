@@ -5,19 +5,21 @@
  */
 import { __ } from '@wordpress/i18n';
 import $ from 'jquery';
-import { __experimentalGrid as Grid,Placeholder, TextareaControl, TextControl, Button, ResponsiveWrapper, CheckboxControl } from '@wordpress/components';
+import { __experimentalGrid as ToolbarGroup,Grid,Placeholder, TextareaControl, TextControl, Button, ResponsiveWrapper, CheckboxControl } from '@wordpress/components';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
 const { Fragment, useState } = wp.element;
 import LeftRight from '../../../../../../../../gatsby-sites/www/src/components/blocks/LeftRight';
+import BackgroundSelectorMenu from '../../BackgroundSelector';
+
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 import { useInstanceId } from '@wordpress/compose';
 
 /**
@@ -102,10 +104,21 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		</div>
 	);
 
+	let changeBackground = function(color) {
+		setAttributes({ backgroundColor: color });
+	}
+
+	let addButton = (
+		<BlockControls>
+
+				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+		</BlockControls>
+	);
 
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
-			<LeftRight repeat={attributes.repeat} linkText={linkTextControl} content={contentControl} title={titleControl} flipColumns={attributes.flipped} imgCtl={imageControl} />
+			{addButton}
+			<LeftRight backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkText={linkTextControl} content={contentControl} title={titleControl} flipColumns={attributes.flipped} imgCtl={imageControl} />
 			<Fragment>
 				<InspectorControls>
 					<div>
@@ -134,7 +147,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<LeftRight repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText} content={attributes.text} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
+			<LeftRight backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText} content={attributes.text} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
 		</div>
 	);
 

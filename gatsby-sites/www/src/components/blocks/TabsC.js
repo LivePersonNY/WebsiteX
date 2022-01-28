@@ -9,12 +9,12 @@ const TabsC = (props) => {
     let tabScript = `
       document.querySelectorAll('.comp-tabs-c .comp-tabs-content').forEach(function(item){
         item.style.display = 'none';
-        console.log(item);
+        
       });
       var e = document.querySelector('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]');
       if (e) {
         e.style.display = 'flex';
-        console.log(e);
+        
       }
     `;
 

@@ -22,6 +22,7 @@ import IconTextC from '../../../../../../../../gatsby-sites/www/src/components/b
 import IconTextD from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextD';
 
 import BackgroundSelectorMenu from '../../BackgroundSelector';
+import ItemControls from '../../ItemControls';
 
 import { __experimentalGrid as Grid,Placeholder, ToolbarDropdownMenu, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
@@ -74,46 +75,13 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						}}
 						className="embedded-input"
 					/>
-					<a
-						className="stat-remove"
-						onClick={
-							function(e) {
-								itemValues.splice(index, 1);
-								setAttributes({ icons: itemValues});
-							}
-						}>
-						<span className="dashicons-before dashicons-remove"></span>
-					</a>
-					<a
-						className="stat-left"
-						onClick={
-						function(e) {
-							var new_index = index-1;
-							var old_index = index;
-							if (new_index < 0) {
-								new_index = itemValues.length-1;
-							}
-							itemValues.splice(new_index, 0, itemValues.splice(old_index, 1)[0]);
-							setAttributes({ icons: itemValues});
-						}
-					}>
-						<span className="dashicons-before dashicons-arrow-left-alt"></span>
-					</a>
-					<a
-						className="stat-right"
-						onClick={
-						function(e) {
-							var new_index = index+1;
-							var old_index = index;
-							if (new_index >= itemValues.length) {
-								new_index = 0;
-							}
-							itemValues.splice(new_index, 0, itemValues.splice(old_index, 1)[0]);
-							setAttributes({ icons: itemValues});
-						}
-					}>
-						<span className="dashicons-before dashicons-arrow-right-alt"></span>
-					</a>
+					<ItemControls
+						index={index}
+						itemArray={itemValues}
+						callback={function(items) {
+							setAttributes({ icons: items});
+						}}
+					/>
 				</div>
 			),
 			linkUrl: null,

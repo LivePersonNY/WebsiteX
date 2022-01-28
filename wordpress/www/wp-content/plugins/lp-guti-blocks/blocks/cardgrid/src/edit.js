@@ -8,6 +8,7 @@ import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, T
 import CardGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGrid';
 import CardGridB from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGridB';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
+import ItemControls from '../../ItemControls';
 
 import Reorder from 'react-reorder';
 
@@ -69,6 +70,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 							setAttributes({ cards: cards});
 						}}
 						className="embedded-input"
+						placeholder="Link Text"
 					/>
 					<TextControl
 						value={cards[index].linkUrl}
@@ -76,6 +78,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 							cards[index].linkUrl = value;
 							setAttributes({ cards: cards});
 						}}
+						placeholder="Link URL"
 					/>
 				</div>
 			),
@@ -107,46 +110,13 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 						className="embedded-input"
 						rows="1"
 					/>
-					<a
-						className="stat-remove"
-						onClick={
-						function(e) {
-							cards.splice(index, 1);
-							setAttributes({ cards: cards});
-						}
-					}>
-						<span className="dashicons-before dashicons-remove"></span>
-					</a>
-					<a
-						className="stat-left"
-						onClick={
-						function(e) {
-							var new_index = index-1;
-							var old_index = index;
-							if (new_index < 0) {
-								new_index = cards.length-1
-							}
-							cards.splice(new_index, 0, cards.splice(old_index, 1)[0]);
-							setAttributes({ cards: cards});
-						}
-					}>
-						<span className="dashicons-before dashicons-arrow-left-alt"></span>
-					</a>
-					<a
-						className="stat-right"
-						onClick={
-						function(e) {
-							var new_index = index+1;
-							var old_index = index;
-							if (new_index >= cards.length) {
-								new_index = 0;
-							}
-							cards.splice(new_index, 0, cards.splice(old_index, 1)[0]);
-							setAttributes({ cards: cards});
-						}
-					}>
-						<span className="dashicons-before dashicons-arrow-right-alt"></span>
-					</a>
+					<ItemControls
+						index={index}
+						itemArray={cards}
+						callback={function(items) {
+							setAttributes({ cards: items});
+						}}
+					/>
 				</div>
 			)
 		}
@@ -195,7 +165,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 						}
 					] }
 				/>
-				<BackgroundSelectorMenu callback={changeBackground} />
+				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 			</ToolbarGroup>
 		</BlockControls>
 	);

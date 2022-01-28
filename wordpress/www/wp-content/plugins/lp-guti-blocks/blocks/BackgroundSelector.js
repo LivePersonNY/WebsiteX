@@ -5,24 +5,23 @@ export default function BackgroundSelectorMenu({ callback, selected }) {
 	return (<ToolbarDropdownMenu
 		icon="admin-appearance"
 		label="Background"
-		className="colorMenu"
 		controls={ [
 			{
 				title: 'Transparent (Default)',
-				isPressed: selected == 'bg-transparent',
-				icon: 'admin-customizer bg-transparent',
+				isActive: selected == 'bg-transparent',
+				icon: 'admin-customizer',
 				onClick: () => callback('bg-transparent')
 			},
 			{
 				title: 'Orange',
 				icon: 'admin-customizer bg-primary-orange',
-				isPressed: selected == 'bg-primary-orange',
+				isActive: selected == 'bg-primary-orange',
 				onClick: () => callback('bg-primary-orange')
 			},
 			{
 				title: 'Rainbow',
 				icon: 'admin-customizer bg-rainbow',
-				isPressed: selected == 'bg-rainbow',
+				isActive: selected == 'bg-rainbow',
 				onClick: () => callback('bg-rainbow')
 			}
 		] }
