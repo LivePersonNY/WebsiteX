@@ -226,7 +226,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						}
 					] }
 				/>
-				<BackgroundSelectorMenu callback={changeBackground} />
+				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 			</ToolbarGroup>
 		</BlockControls>
 	);
