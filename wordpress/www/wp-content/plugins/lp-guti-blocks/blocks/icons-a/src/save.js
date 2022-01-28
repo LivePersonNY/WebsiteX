@@ -29,9 +29,10 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function save({attributes}) {
 	return (
 		<>
-		{attributes.blocktype == "IconTextA" && <IconTextA heading={attributes.header} items={attributes.icons}/>}
-		{attributes.blocktype == "IconTextB" && <IconTextB heading={attributes.header} items={attributes.icons}/>}
-		{attributes.blocktype == "IconTextC" && <IconTextC heading={attributes.header} items={attributes.icons}/>}
+		{attributes.blocktype == "IconTextA" && <IconTextA heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+		{attributes.blocktype == "IconTextB" && <IconTextB heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+		{attributes.blocktype == "IconTextC" && <IconTextC heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+		{attributes.blocktype == "IconTextD" && <IconTextD body={attributes.body} heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 		</>
 	);
 }

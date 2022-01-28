@@ -38,8 +38,21 @@
 
 @import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap);
 
+
 .block-editor-block-list__layout {
 	@import "../../../../../../../../gatsby-sites/www/src/resources/scss/index.scss";
+}
+
+@import "../../../../../../../../gatsby-sites/www/src/resources/scss/variables.scss";
+
+.components-dropdown-menu__menu {
+	.bg-primary-orange {
+		background: $primaryOrange;
+		color: white;
+	}
+	.bg-rainbow {
+		background: $rainbow;
+	}
 }
 
 .block-editor-inserter {

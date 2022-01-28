@@ -21,6 +21,8 @@ import IconTextB from '../../../../../../../../gatsby-sites/www/src/components/b
 import IconTextC from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextC';
 import IconTextD from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextD';
 
+import BackgroundSelectorMenu from '../../BackgroundSelector';
+
 import { __experimentalGrid as Grid,Placeholder, ToolbarDropdownMenu, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
 
@@ -47,6 +49,15 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+		/>
+	);
+
+	let bodyControl = (
+		<TextareaControl
+			value={ attributes.body }
+			onChange={ ( val ) => setAttributes( { body: val } ) }
+			className="embedded-input"
+			rows="1"
 		/>
 	);
 
@@ -173,6 +184,10 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		});
 	}
 
+	let changeBackground = function(color) {
+		setAttributes({ backgroundColor: color });
+	}
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
@@ -183,7 +198,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 				/>
 				<ToolbarDropdownMenu
 					icon="admin-settings"
-					label="Select a direction"
+					label="Select a version"
 					controls={ [
 						{
 							title: 'Version 1',
@@ -211,6 +226,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						}
 					] }
 				/>
+				<BackgroundSelectorMenu callback={changeBackground} />
 			</ToolbarGroup>
 		</BlockControls>
 	);
@@ -220,10 +236,10 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<div {...useBlockProps()}>
 			{addButton}
 
-			{attributes.blocktype == "IconTextA" && <IconTextA heading={headerControl} items={itemControls} />}
-			{attributes.blocktype == "IconTextB" && <IconTextB heading={headerControl} items={itemControls} />}
-			{attributes.blocktype == "IconTextC" && <IconTextC heading={headerControl} items={itemControls} />}
-			{attributes.blocktype == "IconTextD" && <IconTextD heading={headerControl} items={itemControls} />}
+			{attributes.blocktype == "IconTextA" && <IconTextA heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextB" && <IconTextB heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextC" && <IconTextC heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextD" && <IconTextD body={bodyControl} heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
 
 		</div>
 	);
@@ -231,10 +247,10 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			{attributes.blocktype == "IconTextA" && <IconTextA heading={attributes.header} items={attributes.icons}/>}
-			{attributes.blocktype == "IconTextB" && <IconTextB heading={attributes.header} items={attributes.icons}/>}
-			{attributes.blocktype == "IconTextC" && <IconTextC heading={attributes.header} items={attributes.icons}/>}
-			{attributes.blocktype == "IconTextD" && <IconTextD heading={attributes.header} items={attributes.icons}/>}
+			{attributes.blocktype == "IconTextA" && <IconTextA heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextB" && <IconTextB heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextC" && <IconTextC heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextD" && <IconTextD body={attributes.body} heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 
 		</div>
 	)

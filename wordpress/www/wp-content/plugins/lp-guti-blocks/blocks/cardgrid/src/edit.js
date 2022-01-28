@@ -7,6 +7,7 @@ import { __ } from '@wordpress/i18n';
 import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, ToolbarGroup, ToolbarDropdownMenu, ToolbarButton, Dashicon, Button } from '@wordpress/components';
 import CardGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGrid';
 import CardGridB from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGridB';
+import BackgroundSelectorMenu from '../../BackgroundSelector';
 
 import Reorder from 'react-reorder';
 
@@ -164,6 +165,10 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 		});
 	}
 
+	let changeBackground = function(color) {
+		setAttributes({ backgroundColor: color });
+	}
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
@@ -174,7 +179,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				/>
 				<ToolbarDropdownMenu
 					icon="admin-settings"
-					label="Select a variant"
+					label="Select a version"
 					controls={ [
 						{
 							title: 'Version 1',
@@ -190,6 +195,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 						}
 					] }
 				/>
+				<BackgroundSelectorMenu callback={changeBackground} />
 			</ToolbarGroup>
 		</BlockControls>
 	);
@@ -202,12 +208,14 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			<CardGrid
 				heading={headerControl}
 				items={controls}
+				backgroundColor={attributes.backgroundColor}
 			/>}
 			{attributes.blocktype == "CardGridB" &&
 			<CardGridB
 				heading={headerControl}
 				items={controls}
 				content={contentControl}
+				backgroundColor={attributes.backgroundColor}
 			/>}
 		</div>
 	);
@@ -219,12 +227,14 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			<CardGrid
 				heading={attributes.header}
 				items={attributes.cards}
+				backgroundColor={attributes.backgroundColor}
 			/>}
 			{attributes.blocktype == "CardGridB" &&
 			<CardGridB
 				heading={attributes.header}
 				items={attributes.cards}
 				content={attributes.content}
+				backgroundColor={attributes.backgroundColor}
 			/>}
 		</div>
 	)

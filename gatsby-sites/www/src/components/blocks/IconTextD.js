@@ -29,10 +29,10 @@ const IconTextD = (props) => {
   return (  
     <div className={`pane comp-icon-text-d ${props.backgroundColor||"bg-transparent"}`}>
       <div className="container">
-        {props.header && (
+        {props.heading && (
           <div className="row">
             <div className="col-lg-8 offset-lg-2 text-center">
-              <h2 className="">{props.header}</h2>
+              <h2 className="">{props.heading}</h2>
               <p>{props.body}</p>
             </div>
           </div>
