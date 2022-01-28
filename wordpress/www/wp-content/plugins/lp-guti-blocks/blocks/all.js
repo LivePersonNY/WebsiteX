@@ -11,5 +11,6 @@ import './contained-content/src/index';
 import './cta/src/index';
 import './icons-a/src/index';
 import './tabs-c/src/index';
+import './quote-slider/src/index';
 
 import $ from 'jquery';

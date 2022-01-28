@@ -1,0 +1,33 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/quote-slider",
+	"version": "0.1.0",
+	"title": "Quote Slider",
+	"category": "liveperson",
+	"icon": "table-col-after",
+	"description": "Sliding quote callout",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"header": {"default": "Header above tabs"},
+		"quotes": {
+			"type": "array",
+			"default": [
+				{
+					"author": "Kermit D. Frog",
+					"body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+					"linkUrl": "https://www.lipsum.com/",
+					"linkText": "Learn More",
+					"img": "https://picsum.photos/752/568",
+					"brandImg": "https://loremicon.com/rect/64/64/8903836/png"
+				}
+			]
+		}
+	}
+}

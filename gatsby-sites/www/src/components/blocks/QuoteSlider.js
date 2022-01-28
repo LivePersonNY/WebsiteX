@@ -7,12 +7,12 @@ const QuoteSlider = (props) => {
       return (
         <>
             <div className="col-lg-3 offset-lg-1" key={index}>
-              <img src={item.img} alt={item.imgAlt} />
+              {!item.imgCtl && <img src={item.img} alt={item.imgAlt} /> || item.imgCtl}
             </div>
             <div className="col-lg-7">
-              <img className="comp-brand-img" src={item.brandImg} alt={item.brandImgAlt} />
+              {!item.brandImgCtl && <img className="comp-brand-img" src={item.brandImg} alt={item.brandImgAlt} /> || item.brandImgCtl}
               <p className="h6 comp-quote-author">{item.author}</p>
-              <p className="quote1">{item.content}</p>
+              <p className="quote1">{item.body}</p>
               {item.linkText && (
                 <a className="link" href={item.linkUrl}>
                   {item.linkText}

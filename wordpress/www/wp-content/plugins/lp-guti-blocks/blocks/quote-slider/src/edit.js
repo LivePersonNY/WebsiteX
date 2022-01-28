@@ -16,10 +16,11 @@ import '../../../../../../../../gatsby-sites/www/liveperson-scripts';
 import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
-import TabsC from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsC';
+import QuoteSlider from '../../../../../../../../gatsby-sites/www/src/components/blocks/QuoteSlider';
 import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
 import AddItemButton from '../../AddItemButton';
+import ItemControls from '../../ItemControls';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -46,15 +47,15 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		/>
 	);
 
-	let itemValues = [...attributes.tabItems];
-	let itemControls = attributes.tabItems.map((item ,index)=>{
+	let itemValues = [...attributes.quotes];
+	let itemControls = attributes.quotes.map((item ,index)=>{
 		return {
 			header: (
 				<TextControl
 					value={itemValues[index].header}
 					onChange={function(value) {
 						itemValues[index].header = value;
-						setAttributes({ tabItems: itemValues});
+						setAttributes({ quotes: itemValues});
 					}}
 					className="embedded-input"
 				/>
@@ -66,67 +67,61 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						value={itemValues[index].linkText}
 						onChange={function(value) {
 							itemValues[index].linkText = value;
-							setAttributes({ tabItems: itemValues});
+							setAttributes({ quotes: itemValues});
 						}}
 						className="embedded-input"
+						placeholder="Link Text"
 					/>
 					<TextControl
 						value={itemValues[index].linkUrl}
 						onChange={function(value) {
 							itemValues[index].linkUrl = value;
-							setAttributes({ tabItems: itemValues});
+							setAttributes({ quotes: itemValues});
 						}}
+						placeholder="Link URL"
 					/>
 				</div>
 			),
-			title: (
+			author: (
 				<div className="wp-control-wrapper">
 					<TextControl
-						value={itemValues[index].title}
+						value={itemValues[index].author}
 						onChange={function(value) {
-							itemValues[index].title = value;
-							setAttributes({ tabItems: itemValues});
+							itemValues[index].author = value;
+							setAttributes({ quotes: itemValues});
 						}}
 						className="embedded-input"
 					/>
-					<a
-						className="v-tab-remove"
-						onClick={
-						function(e) {
-							itemValues.splice(index, 1);
-							setAttributes({ tabItems: itemValues});
-						}
-					}>
-						<span className="dashicons-before dashicons-remove"></span>
-					</a>
+					<ItemControls itemArray={itemValues} callback={function(items) {
+						setAttributes({ quotes: items});
+					}}/>
 				</div>
 			),
-			kicker: itemValues[index].title,
 			body: (
 				<TextareaControl
 					value={itemValues[index].body}
 					onChange={function(value) {
 						itemValues[index].body = value;
-						setAttributes({ tabItems: itemValues});
+						setAttributes({ quotes: itemValues});
 					}}
 					className="embedded-input"
 					rows="1"
 				/>
 
 			),
-			iconCtl: (
+			brandImgCtl: (
 				<MediaUploadCheck>
 					<MediaUpload
 						onSelect={function(media) {
-							itemValues[index].icon = media.url;
-							itemValues[index].iconId = media.id;
-							itemValues[index].iconAlt = media.alt || '';
-							setAttributes({ tabItems: itemValues});
+							itemValues[index].brandImg = media.url;
+							itemValues[index].brandImgId = media.id;
+							itemValues[index].brandImgAlt = media.alt || '';
+							setAttributes({ quotes: itemValues});
 						}}
 						value={itemValues[index].iconId}
 						allowedTypes={ ['image'] }
 						render={({open}) => (
-							<img src={itemValues[index].icon || `https://loremicon.com/rect/64/64/${index}/png`} data-tab-content={index} key={index} onClick={open} />
+							<img src={itemValues[index].brandImg || `https://loremicon.com/rect/64/64/${index}/png`} data-tab-content={index} key={index} onClick={open} />
 						)}
 					/>
 				</MediaUploadCheck>
@@ -138,7 +133,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 							itemValues[index].img = media.url;
 							itemValues[index].mediaId = media.id;
 							itemValues[index].imgAlt = media.alt || '';
-							setAttributes({ tabItems: itemValues});
+							setAttributes({ quotes: itemValues});
 						}}
 						value={itemValues[index].mediaId}
 						allowedTypes={ ['image'] }
@@ -156,17 +151,15 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		let thisIndex = itemValues.length;
 
 		itemValues.push({
-			title: `The Translation`,
-			header: `1914 translation by H. Rackham`,
-			body: `But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.`,
-			linkUrl: 'https://www.lipsum.com/',
-			linkText: 'Learn More',
-			img: `https://picsum.photos/752/568?random=${thisIndex}`,
-			imgAlt: 'An image placeholder',
-			icon: `https://loremicon.com/rect/64/64/${thisIndex}/png`,
-		});
+				"author": "Kermit D. Frog",
+				"body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+				"linkUrl": "https://www.lipsum.com/",
+				"linkText": "Learn More",
+				"img": "https://picsum.photos/752/568",
+				"brandImg": "https://loremicon.com/rect/64/64/8903836/png"
+			});
 		setAttributes({
-			tabItems: itemValues
+			quotes: itemValues
 		});
 	}
 
@@ -182,14 +175,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<TabsC heading={headerControl} items={itemControls} runFilters={true} />
+			<QuoteSlider heading={headerControl} items={itemControls} runFilters={true} />
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<TabsC heading={attributes.header} items={attributes.tabItems} runFilters={true}/>
+			<QuoteSlider heading={attributes.header} items={attributes.quotes} runFilters={true} />
 		</div>
 	)
 
