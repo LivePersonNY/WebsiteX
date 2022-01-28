@@ -32,6 +32,9 @@ import CardGridB from '../components/blocks/CardGridB';
 import ProgramCard from '../components/blocks/ProgramCard';
 import TeamCards from '../components/blocks/TeamCards';
 import HorizontalText from '../components/blocks/HorizontalText';
+import ExecutiveCard from '../components/blocks/ExecutiveCard';
+import BoardCards from '../components/blocks/BoardCards';
+import ScrollContent from '../components/blocks/ScrollContent';
 
 const IndexPage = () => (
   <Layout>
@@ -751,6 +754,7 @@ const IndexPage = () => (
           "imgAlt":"Alt text",
           "name":"Firstname Lastname",
           "title":"Title / Position",
+          "btnText":"Connect With Person",
           "linkedInUrl":"#",
         },
         {
@@ -758,6 +762,7 @@ const IndexPage = () => (
           "imgAlt":"Alt text",
           "name":"Firstname Lastname",
           "title":"Title / Position",
+          "btnText":"Connect With Person",
           "linkedInUrl":"#",
         },
         {
@@ -765,6 +770,7 @@ const IndexPage = () => (
           "imgAlt":"Alt text",
           "name":"Firstname Lastname",
           "title":"Title / Position",
+          "btnText":"Connect With Person",
           "linkedInUrl":"#",
         },
         {
@@ -772,6 +778,7 @@ const IndexPage = () => (
           "imgAlt":"Alt text",
           "name":"Firstname Lastname",
           "title":"Title / Position",
+          "btnText":"Connect With Person",
           "linkedInUrl":"#",
         },
         {
@@ -779,6 +786,7 @@ const IndexPage = () => (
           "imgAlt":"Alt text",
           "name":"Firstname Lastname",
           "title":"Title / Position",
+          "btnText":"Connect With Person",
           "linkedInUrl":"#",
         },
         {
@@ -786,32 +794,136 @@ const IndexPage = () => (
           "imgAlt":"Alt text",
           "name":"Firstname Lastname",
           "title":"Title / Position",
+          "btnText":"Connect With Person",
           "linkedInUrl":"#",
         },
       ]}
     />
 
     <HorizontalText
-    backgroundColor="bg-primary-light"
-    items={[
-      {
-        "header":"System Integrators and Consultants",
-        "body":"Customize LivePerson’s robust conversational platform, providing a seamless fit for your customers’ complex back-end systems and added revenue to your transformation...",
-      },
-      {
-        "header":"Agencies",
-        "body":"Guide your brands’ marketing and customer engagement growth into the conversational space with the market leader. Work with our experts to enhance or offer new services (bot building...",
-      },
-      {
-        "header":"Tech Channels and Platforms",
-        "body":"Leverage our world-class messaging and automation capabilities to meet customer demand without having to develop your own from scratch, including tremendous data collection...",
-      },
-      {
-        "header":"BPOs",
-        "body":"Bring LivePerson’s AI-powered messaging to the businesses you serve for higher margins, increased agent concurrency and efficiency, and the ability to pivot from channel to channel with ease.",
-      },
-    ]}
-  />
+      backgroundColor="bg-primary-light"
+      items={[
+        {
+          "header":"System Integrators and Consultants",
+          "body":"Customize LivePerson’s robust conversational platform, providing a seamless fit for your customers’ complex back-end systems and added revenue to your transformation...",
+        },
+        {
+          "header":"Agencies",
+          "body":"Guide your brands’ marketing and customer engagement growth into the conversational space with the market leader. Work with our experts to enhance or offer new services (bot building...",
+        },
+        {
+          "header":"Tech Channels and Platforms",
+          "body":"Leverage our world-class messaging and automation capabilities to meet customer demand without having to develop your own from scratch, including tremendous data collection...",
+        },
+        {
+          "header":"BPOs",
+          "body":"Bring LivePerson’s AI-powered messaging to the businesses you serve for higher margins, increased agent concurrency and efficiency, and the ability to pivot from channel to channel with ease.",
+        },
+      ]}
+    />
+
+    <ExecutiveCard
+      backgroundColor="bg-primary-light"
+      items={[
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=1",
+          "imgAlt":"Alt text",
+          "name":"Robert LoCascio",
+          "title":"Founder and Chief Executive Officer",
+          "bio":"Rob LoCascio is the founder of LivePerson, Inc. and has been its chief executive officer since its inception in 1995, making him one of the longest-standing founding CEOs of a tech company today. As the inventor of online chat for brands, Rob disrupted the way people communicate with companies around the world, removing the need...",
+          "btnText":"Connect With Robert",
+          "linkedInUrl":"#",
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=2",
+          "imgAlt":"Alt text",
+          "name":"Angelo D’Alessandro",
+          "title":"SVP, Banking and Consumer Services",
+          "bio":"Angelo leads Banking and Consumer Services at LivePerson. With more than 19 years of experience in the banking industry driving technology, marketing and digital transformation programs, he conceived and founded buddybank®, the first conversational bank in the world that offers banking and lifestyle services...",
+          "btnText":"Connect With Angelo",
+          "linkedInUrl":"#",
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=3",
+          "imgAlt":"Alt text",
+          "name":"Manlio Carrelli",
+          "title":"EVP, Strategic Initiatives",
+          "bio":"Manlio is an integral leader in strategic initiatives across LivePerson's global organization. Previously, he oversaw the company's flagship enterprise software business worldwide. Before joining LivePerson, he served as CEO for multiple consumer and business messaging companies he helped launch...",
+          "btnText":"Connect With Manlio",
+          "linkedInUrl":"#",
+        },
+      ]}
+    />
+
+    <BoardCards
+      backgroundColor="bg-primary-light"
+      header="Board of Directors"
+      items={[
+        {
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+        },
+        {
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+        },
+        {
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+        },
+        {
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+        },
+        {
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+        },
+        {
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+        },
+        {
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+        },
+        
+      ]}
+    />
+
+    <ScrollContent
+      backgroundColor="bg-blue-20"
+      kicker="PRE-HEADING TEXT"
+      header="A really long title heading goes right here across one or two lines"
+      imgSrc="https://picsum.photos/864/651"
+      imgAlt="Alt text"
+      items={[
+        {
+          "blockTitle":"Paid time off",
+          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+        },
+        {
+          "blockTitle":"Paid time off",
+          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+        },
+        {
+          "blockTitle":"Paid time off",
+          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+        },
+        {
+          "blockTitle":"Paid time off",
+          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+        },
+        {
+          "blockTitle":"Paid time off",
+          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+        },
+        {
+          "blockTitle":"Paid time off",
+          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+        },
+      ]}
+    />
 
   </Layout>
 );

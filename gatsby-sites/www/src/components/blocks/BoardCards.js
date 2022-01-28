@@ -1,25 +1,15 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-const TeamCards = (props) => {
+const BoardCards = (props) => {
 
   let cardCol = props.items.map((item, index)=>{
     return (
       <div className="col-12 col-lg-3" key={index}>
         <div className="card card-team h-100">
-          {!item.imgCtl && <img
-              className="card-img-top"
-              src={item.imgSrc}
-              alt={item.imgAlt}
-            /> || item.imgCtl}
           <div className="card-body">
             <p className="card-title card1">{item.name}</p>
             <p className="card-text body2">{item.title}</p>
-          </div>
-          <div className="card-footer">
-            <a href={item.linkedInUrl} className="btn btn2 btn-outline-secondary">
-              {item.btnText}
-            </a>
           </div>
         </div>
       </div>
@@ -44,4 +34,4 @@ const TeamCards = (props) => {
   );
 };
 
-export default TeamCards;
+export default BoardCards;

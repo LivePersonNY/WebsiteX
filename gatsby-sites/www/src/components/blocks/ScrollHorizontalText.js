@@ -18,7 +18,7 @@ const ScrollHorizontalText = (props) => {
       <div className="container">
         <div className="row">
           <div className="col-lg-4">
-            <h2>{props.header}</h2>            
+            <h2 className="comp-scroll-horizontal-scroll">{props.header}</h2>            
           </div>
           <div className="col-lg-8">
             {textBlock}         
