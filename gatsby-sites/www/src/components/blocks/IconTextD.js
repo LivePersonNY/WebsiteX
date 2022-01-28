@@ -33,11 +33,11 @@ const IconTextD = (props) => {
           <div className="row">
             <div className="col-lg-8 offset-lg-2 text-center">
               <h2 className="">{props.header}</h2>
-              <p>{props.content}</p>
+              <p>{props.body}</p>
             </div>
           </div>
         )}
-        <div className="row row-cols-lg-2 row-cols-1 comp-block-grid-container">
+        <div className={`row row-cols-lg-2 row-cols-1 comp-block-grid-container ${props.centerBody ? 'text-center' : ''}`}>
           {blockCol}
         </div>
       </div>

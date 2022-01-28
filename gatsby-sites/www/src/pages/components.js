@@ -30,6 +30,7 @@ import ScrollHorizontalText from '../components/blocks/ScrollHorizontalText';
 import Faq from '../components/blocks/Faq';
 import CardGridB from '../components/blocks/CardGridB';
 import ProgramCard from '../components/blocks/ProgramCard';
+import TeamCards from '../components/blocks/TeamCards';
 
 const IndexPage = () => (
   <Layout>
@@ -440,8 +441,8 @@ const IndexPage = () => (
 
     <IconTextD
       backgroundColor="bg-primary-light"
-      header="How Rapid Testing Can Help IconTextD"
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra ultrices ac sagittis elit amet id. Justo arcu pharetra et montes, neque nisi. Egestas dictum viverra faucibus."
+      header="How Rapid Testing Can Help IconTextD+E"
+      body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra ultrices ac sagittis elit amet id. Justo arcu pharetra et montes, neque nisi. Egestas dictum viverra faucibus."
       items={[
         {
           "img":"https://picsum.photos/56/56?random=10",
@@ -572,6 +573,8 @@ const IndexPage = () => (
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam dictum neque nunc, morbi. Laoreet nam magna rhoncus rutrum ut condimentum."
       linkText="Primary CTA"
       linkUrl="#"
+      imgSrc="https://picsum.photos/1088/544"
+      imgAlt="test"
     />
 
     <ContentCTA
@@ -708,7 +711,9 @@ const IndexPage = () => (
           "imgAlt":"Alt text",
           "kicker":"Earnings Call",
           "header":"Q3 2021 LivePerson Inc. Earnings Conference Call",
-          "content":"Supporting Materials",
+          "eventDate":"November 10, 2020",
+          "eventTime":"9:30am – 10:30am",
+          "body":"Supporting Materials: <a href='#'>Q3 earnings press release</a> <a href='#'>Q3 earnings call supplemental slides</a>",
           "btnText":"Listen to webcast",
           "btnUrl":"#"
         },
@@ -717,7 +722,9 @@ const IndexPage = () => (
           "imgAlt":"Alt text",
           "kicker":"Earnings Call",
           "header":"Q3 2021 LivePerson Inc. Earnings Conference Call",
-          "content":"Supporting Materials",
+          "eventDate":"November 10, 2020",
+          "eventTime":"9:30am – 10:30am",
+          "body":"Supporting Materials",
           "btnText":"Listen to webcast",
           "btnUrl":"#"
         },
@@ -726,10 +733,61 @@ const IndexPage = () => (
           "imgAlt":"Alt text",
           "kicker":"Earnings Call",
           "header":"Q3 2021 LivePerson Inc. Earnings Conference Call",
-          "content":"Supporting Materials",
+          "eventDate":"November 10, 2020",
+          "eventTime":"9:30am – 10:30am",
+          "body":"Supporting Materials",
           "btnText":"Listen to webcast",
           "btnUrl":"#"
         }
+      ]}
+    />
+
+    <TeamCards
+      backgroundColor="bg-neutral-92"
+      header="Meet the Data Science Team"
+      items={[
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=1",
+          "imgAlt":"Alt text",
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+          "linkedInUrl":"#",
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=2",
+          "imgAlt":"Alt text",
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+          "linkedInUrl":"#",
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=3",
+          "imgAlt":"Alt text",
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+          "linkedInUrl":"#",
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=4",
+          "imgAlt":"Alt text",
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+          "linkedInUrl":"#",
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=5",
+          "imgAlt":"Alt text",
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+          "linkedInUrl":"#",
+        },
+        {
+          "imgSrc":"https://picsum.photos/304/280?random=6",
+          "imgAlt":"Alt text",
+          "name":"Firstname Lastname",
+          "title":"Title / Position",
+          "linkedInUrl":"#",
+        },
       ]}
     />
 

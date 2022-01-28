@@ -115,6 +115,36 @@ img {
             }
         }
     }
+
+    &.card-team {
+        padding: 0;
+        background: 0;
+        box-shadow: none;
+
+        .card-img-top {
+            margin-bottom: 24px;
+        }
+
+        .card-body {
+            .card-title {
+                margin-bottom: 4px;
+            }
+        }
+
+        .card-footer {
+            margin-top: 20px;
+
+            .btn {
+                color: $neutral12;
+                border: 1px solid $neutral12;
+
+                &:hover {
+                    color: $primaryLight;
+                    background: $neutral12;
+                }
+            }
+        }
+    }
 }
 
 // On homepage
@@ -462,7 +492,7 @@ img {
                 margin-top: 32px;
             }
 
-            .comp-content-container {
+            .comp-body-container {
                 padding: 40px 20px;
 
                 @include media-breakpoint-up(lg) {
@@ -475,6 +505,10 @@ img {
 
                 h3 {
                     margin-bottom: 8px;
+                }
+
+                p {
+                    margin-top: 0;
                 }
             }
         }
@@ -560,6 +594,14 @@ img {
 
             @include media-breakpoint-up(lg) {
                 margin-top: 40px;
+            }
+        }
+
+        img {
+            margin-top: 48px;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 72px;
             }
         }
     }
@@ -666,27 +708,69 @@ img {
 
 .comp-program-card {
     .comp-program-card-container {
-        padding-top: 72px;
-        padding-bottom: 80px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 24px 20px 36px 20px;
+        margin-bottom: 24px;
 
         @include media-breakpoint-up(lg) {
-            padding-top: 104px;
-            padding-bottom: 120px;
-            padding-left: 0px;
-            padding-right: 0px;
+            padding: 72px 0;
+            margin-bottom: 48px;
         }
 
-        .h6 {
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .event-date {
+            margin-top: 16px;
+            margin-bottom: 4px;
+            margin-bottom: 4px;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 24px;
+                margin-right: 32px;
+            }
+        }
+
+        .event-date,
+        .event-time {
+            display: block;
+
+            @include media-breakpoint-up(lg) {
+                display: inline-block;
+            }
+        }
+
+        .event-body {
+            a {
+                color: $neutral12;
+                font-size: 14px;
+                line-height: 20px;
+                display: block;
+
+                @include media-breakpoint-up(lg) {
+                    display: inline-block;
+                    margin-left: 8px;
+                }
+            }
+        }
+
+        .subtitle3 {
             margin-bottom: 8px;
         }
 
         .btn {
-            margin-top: 28px;
+            margin-top: 32px;
+        }
+    }
+}
+
+.pane.comp-team-cards {
+    .comp-team-cards-container {
+        .col-12 {
+            margin-top: 32px;
 
             @include media-breakpoint-up(lg) {
-                margin-top: 40px;
+                margin-top: 72px;
             }
         }
     }
