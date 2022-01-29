@@ -11,6 +11,8 @@ const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
 const { Fragment } = wp.element;
 import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks/Hero';
+
+import LineBreaks from '../../LineBreaks';
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
@@ -41,10 +43,11 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	const instanceId = useInstanceId( TextControl );
 
 	let headerControl = (
-		<TextControl
+		<TextareaControl
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+			rows="1"
 		/>
 	);
 
@@ -94,7 +97,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<Hero header={attributes.header} subHeader={attributes.subHeader} kicker={attributes.kicker} heroImage={attributes.mediaUrl} heroImageAlt={attributes.mediaAlt} />
+			<Hero header={attributes.header} subHeader={LineBreaks(attributes.subHeader)} kicker={attributes.kicker} heroImage={attributes.mediaUrl} heroImageAlt={attributes.mediaAlt} />
 		</div>
 	);
 

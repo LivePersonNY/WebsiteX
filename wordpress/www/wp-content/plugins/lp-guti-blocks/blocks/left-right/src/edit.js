@@ -13,6 +13,7 @@ const { Fragment, useState } = wp.element;
 import LeftRight from '../../../../../../../../gatsby-sites/www/src/components/blocks/LeftRight';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 
+import LineBreaks from '../../LineBreaks';
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
@@ -147,7 +148,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<LeftRight backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText} content={attributes.text} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
+			<LeftRight backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText} content={LineBreaks(attributes.text)} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
 		</div>
 	);
 

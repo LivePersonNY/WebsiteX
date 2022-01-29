@@ -26,9 +26,9 @@ export default function BackgroundSelectorMenu({ callback, selected }) {
 			},
 			{
 				title: 'Lavender',
-				icon: 'admin-customizer bg-lavender-20',
-				isActive: selected == 'bg-lavender-20',
-				onClick: () => callback('bg-lavender-20')
+				icon: 'admin-customizer bg-lavendar-20',
+				isActive: selected == 'bg-lavendar-20',
+				onClick: () => callback('bg-lavendar-20')
 			},
 			{
 				title: 'Blue',
