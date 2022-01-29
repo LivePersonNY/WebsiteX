@@ -13,7 +13,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps } from '@wordpress/block-editor';
 import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks/Hero';
-
+import LineBreaks from '../../LineBreaks';
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -26,7 +26,7 @@ import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks
 export default function save({attributes}) {
 	return (
 
-			<Hero header={attributes.header} kicker={attributes.kicker} subHeader={attributes.subHeader} heroImage={attributes.mediaUrl}/>
+			<Hero header={attributes.header} kicker={attributes.kicker} subHeader={LineBreaks(attributes.subHeader)} heroImage={attributes.mediaUrl}/>
 
 	);
 }
