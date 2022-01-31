@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
+import Paragraph from '../Paragraph';
 
 const LeftRight = (props) => {
   let repeat;
@@ -26,7 +27,7 @@ const LeftRight = (props) => {
             >
               {props.preHeading && <h6>{props.preHeading}</h6>}
               <h2>{props.title}</h2>
-              <p dangerouslySetInnerHTML={{__html: props.content}}></p>
+              <Paragraph text={props.content} />
               {props.linkText && (
                 <a className="link link-mt-small" href={props.linkUrl}>
                   {props.linkText}

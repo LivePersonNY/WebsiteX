@@ -1,6 +1,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
+import Paragraph from '../Paragraph';
+
 
 const IconTextA = (props) => {
 
@@ -14,7 +16,7 @@ const IconTextA = (props) => {
           /> || item.imgCtl
         }
         <h3>{item.title}</h3>
-        <p>{item.body}</p>
+        <Paragraph text={item.body} />
         <a href={item.linkUrl} className="link link-mt-small">
           {item.linkText}
         </a>

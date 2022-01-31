@@ -2,6 +2,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import $ from 'jquery'; 
+import Paragraph from '../Paragraph';
+
 
 const TabsA = (props) => {
 

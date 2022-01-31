@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import $ from 'jquery'; 
+import Paragraph from '../Paragraph';
+
 
 const TabsC = (props) => {
 
@@ -34,7 +36,7 @@ const TabsC = (props) => {
             <div className="col-lg-4 offset-lg-1">
               {!item.iconCtl && <img src={item.icon} alt={item.iconAlt} /> || item.iconCtl}
               <h3>{item.header}</h3>
-              <p>{item.body}</p>
+              <Paragraph text={item.body} />
               {item.linkText && (
                 <a className="btn btn-outline-secondary" href={item.linkUrl}>
                   {item.linkText}

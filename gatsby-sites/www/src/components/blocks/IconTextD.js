@@ -15,7 +15,7 @@ const IconTextD = (props) => {
             /> || item.imgCtl
           }
           <h3>{item.title}</h3>
-          <p>{item.body}</p>
+          <Paragraph text={item.body} />
           {props.linkText && (
             <a href={item.linkUrl} className="link link-mt-small">
             {item.linkText}
@@ -33,7 +33,7 @@ const IconTextD = (props) => {
           <div className="row">
             <div className="col-lg-8 offset-lg-2 text-center">
               <h2 className="">{props.heading}</h2>
-              <p>{props.body}</p>
+              <Paragraph text={props.body} />
             </div>
           </div>
         )}

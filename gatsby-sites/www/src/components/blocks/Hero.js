@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from 'gatsby-link';
+import Paragraph from '../Paragraph';
 
 const Hero = (props) => (
   <div className={`pane hero ${props.backgroundColor||"bg-transparent"}`}>
@@ -8,7 +9,7 @@ const Hero = (props) => (
         <div className="col-lg-5">
           {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
           <h1>{props.header}</h1>
-          <p>{props.subHeader}</p>
+          <Paragraph text={props.subHeader} />
           {props.logoWall && (
             <>
               <h6 className="mt-4">TRUSTED BY 100K LEADING BRANDS</h6>

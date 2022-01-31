@@ -26,6 +26,6 @@ import LineBreaks from '../../LineBreaks';
  */
 export default function save({attributes}) {
 	return (
-			<LeftRight backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText} content={LineBreaks(attributes.text)} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
+			<LeftRight backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText} content={attributes.text} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
 	);
 }

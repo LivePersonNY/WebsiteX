@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import Paragraph from '../Paragraph';
 
 const QuoteSlider = (props) => {
 
@@ -12,7 +13,7 @@ const QuoteSlider = (props) => {
             <div className="col-lg-7">
               {!item.brandImgCtl && <img className="comp-brand-img" src={item.brandImg} alt={item.brandImgAlt} /> || item.brandImgCtl}
               <p className="h6 comp-quote-author">{item.author}</p>
-              <p className="quote1">{item.body}</p>
+              <Paragraph className="quote1" text={item.body} />
               {item.linkText && (
                 <a className="link" href={item.linkUrl}>
                   {item.linkText}

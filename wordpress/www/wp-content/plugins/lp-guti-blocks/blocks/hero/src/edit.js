@@ -97,7 +97,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<Hero header={attributes.header} subHeader={LineBreaks(attributes.subHeader)} kicker={attributes.kicker} heroImage={attributes.mediaUrl} heroImageAlt={attributes.mediaAlt} />
+			<Hero header={attributes.header} subHeader={attributes.subHeader} kicker={attributes.kicker} heroImage={attributes.mediaUrl} heroImageAlt={attributes.mediaAlt} />
 		</div>
 	);
 

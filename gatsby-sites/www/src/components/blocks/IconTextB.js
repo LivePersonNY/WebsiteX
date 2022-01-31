@@ -1,6 +1,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
+import Paragraph from '../Paragraph';
+
 
 const IconTextB = (props) => {
 
@@ -17,7 +19,7 @@ const IconTextB = (props) => {
               /> || item.imgCtl
             }
             <h3 className="">{item.title}</h3>
-            <p className="card-text subtitle1">{item.body}</p>
+            <Paragraph className="card-text subtitle1" text={item.body} />
           </div>
           <div className="card-footer">
             <a href={item.linkUrl} className="card-link link">

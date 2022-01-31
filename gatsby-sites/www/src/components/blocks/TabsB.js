@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import $ from 'jquery'; 
+import Paragraph from '../Paragraph';
 
 const TabsB = (props) => {
   
@@ -32,7 +33,7 @@ const TabsB = (props) => {
           <div className={`bg-primary-light comp-tabs-content ${index !== 0 ? 'display-none' : ''}`} data-tab-content={index} key={index}>
             <p className="h6 text-uppercase">{item.kicker || item.title}</p>
             <h4>{item.header}</h4>
-            <p>{item.body}</p>
+            <Paragraph text={item.body} />
             {item.linkText && (
               <a className="link link-mt-large" href={item.linkUrl}>
                 {item.linkText}
