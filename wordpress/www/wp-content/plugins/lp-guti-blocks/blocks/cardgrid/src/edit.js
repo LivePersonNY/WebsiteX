@@ -153,12 +153,14 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 					controls={ [
 						{
 							title: 'Version 1',
+							isActive: attributes.blocktype == 'CardGrid',
 							onClick: () => {
 								setAttributes({blocktype: "CardGrid"});
 							},
 						},
 						{
 							title: 'Version 2',
+							isActive: attributes.blocktype == 'CardGridB',
 							onClick: () => {
 								setAttributes({blocktype: "CardGridB"});
 							},

@@ -9518,6 +9518,7 @@ function Edit(_ref) {
     label: "Select a version",
     controls: [{
       title: 'Version 1',
+      isActive: attributes.blocktype == 'CardGrid',
       onClick: () => {
         setAttributes({
           blocktype: "CardGrid"
@@ -9525,6 +9526,7 @@ function Edit(_ref) {
       }
     }, {
       title: 'Version 2',
+      isActive: attributes.blocktype == 'CardGridB',
       onClick: () => {
         setAttributes({
           blocktype: "CardGridB"
@@ -11094,6 +11096,7 @@ function Edit(_ref) {
     label: "Select a version",
     controls: [{
       title: 'Version 1',
+      isActive: attributes.blocktype == 'IconTextA',
       onClick: () => {
         setAttributes({
           blocktype: "IconTextA"
@@ -11101,6 +11104,7 @@ function Edit(_ref) {
       }
     }, {
       title: 'Version 2',
+      isActive: attributes.blocktype == 'IconTextB',
       onClick: () => {
         setAttributes({
           blocktype: "IconTextB"
@@ -11108,6 +11112,7 @@ function Edit(_ref) {
       }
     }, {
       title: 'Version 3',
+      isActive: attributes.blocktype == 'IconTextC',
       onClick: () => {
         setAttributes({
           blocktype: "IconTextC"
@@ -11115,6 +11120,7 @@ function Edit(_ref) {
       }
     }, {
       title: 'Version 4',
+      isActive: attributes.blocktype == 'IconTextD',
       onClick: () => {
         setAttributes({
           blocktype: "IconTextD"

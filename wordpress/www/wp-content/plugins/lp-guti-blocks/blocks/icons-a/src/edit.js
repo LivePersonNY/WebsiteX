@@ -172,24 +172,28 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 					controls={ [
 						{
 							title: 'Version 1',
+							isActive: attributes.blocktype == 'IconTextA',
 							onClick: () => {
 								setAttributes({blocktype: "IconTextA"});
 							},
 						},
 						{
 							title: 'Version 2',
+							isActive: attributes.blocktype == 'IconTextB',
 							onClick: () => {
 								setAttributes({blocktype: "IconTextB"});
 							},
 						},
 						{
 							title: 'Version 3',
+							isActive: attributes.blocktype == 'IconTextC',
 							onClick: () => {
 								setAttributes({blocktype: "IconTextC"});
 							},
 						},
 						{
 							title: 'Version 4',
+							isActive: attributes.blocktype == 'IconTextD',
 							onClick: () => {
 								setAttributes({blocktype: "IconTextD"});
 							},
