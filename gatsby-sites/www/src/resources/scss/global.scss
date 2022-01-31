@@ -67,6 +67,12 @@
         }
     }
 
+    &.bg-transparent {
+        +.bg-transparent {
+            padding-top: 0;
+        }
+    }
+
     .container {
         .row>div+div {
             @include media-breakpoint-down(lg) {
@@ -88,6 +94,22 @@ img {
 .pane:nth-child(n+4) {
     opacity: 0;
 }
+
+// .desktop-break {
+//     content: ' ';
+
+//     &:after {
+//         content: ' ';
+//     }
+
+//     @media (min-width:$screen-min-lg) {
+//         content: none;
+
+//         &:after {
+//             content: none;
+//         }
+//     }
+// }
 
 .card {
     background: $primaryLight;
@@ -156,6 +178,10 @@ img {
         .card-body {
             .card-title {
                 margin-bottom: 4px;
+            }
+
+            .card-text {
+                font-style: italic;
             }
         }
 
@@ -662,6 +688,14 @@ img {
 }
 
 .comp-scroll-horizontal-text {
+    .comp-scroll-horizontal-header {
+        margin-bottom: 48px;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 72px;
+        }
+    }
+
     .comp-scroll-horizontal-text-block {
         margin-bottom: 48px;
 
@@ -677,18 +711,31 @@ img {
             margin-top: 8px;
         }
     }
+
+    .comp-scroll-horizontal-scroll {
+        position: sticky;
+        top: 84px;
+    }
 }
 
 .comp-horizontal-text {
     .comp-horizontal-text-block {
-        margin-bottom: 48px;
+        padding-top: 40px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid #E849B7;
+
+        @include media-breakpoint-up(lg) {
+            padding-top: 72px;
+            padding-bottom: 72px;
+        }
 
         &:first-of-type {
-            margin-top: 8px;
+            padding-top: 0;
         }
 
         &:last-of-type {
-            margin-bottom: 0;
+            padding-bottom: 0;
+            border: 0;
         }
 
         p {
@@ -818,6 +865,42 @@ img {
             @include media-breakpoint-up(lg) {
                 margin-top: 72px;
             }
+        }
+    }
+}
+
+.comp-exec-card {
+    .comp-exec-card-container {
+        padding: 24px 20px 36px 20px;
+        margin-bottom: 24px;
+
+        @include media-breakpoint-up(lg) {
+            padding: 72px 0;
+            margin-bottom: 48px;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .body2 {
+            margin-top: 4px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .btn {
+            color: $neutral12;
+            border: 1px solid $neutral12;
+
+            &:hover {
+                color: $primaryLight;
+                background: $neutral12;
+            }
+        }
+
+        .subtitle1 {
+            margin-top: 20px;
         }
     }
 }
