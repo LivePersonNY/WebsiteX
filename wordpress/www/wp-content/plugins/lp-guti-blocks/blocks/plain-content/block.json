@@ -15,6 +15,9 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
+		"headLevel": {"default": "h2"},
+		"colWidth": {"default": 10},
+		"alignment": {"default": "left" },
 		"header": {"default": "Plain Header"},
 		"content": {"default": "This should be compelling content. But it isn't."},
 		"linkText": {"default": "Here's a link text"},

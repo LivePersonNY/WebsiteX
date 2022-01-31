@@ -46,10 +46,12 @@ import './editor.scss';
 export default function Edit({attributes, isSelected, setAttributes, onChange}) {
 
 	let headerControl = (
-		<TextControl
+		<TextareaControl
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+			placeholder="Section H2 Header"
+			rows="1"
 		/>
 	);
 

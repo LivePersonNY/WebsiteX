@@ -4,7 +4,6 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-import PlainContent from '../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -13,6 +12,7 @@ import PlainContent from '../../../../../../../../gatsby-sites/www/src/component
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps } from '@wordpress/block-editor';
+import Faq from '../../../../../../../../gatsby-sites/www/src/components/blocks/Faq';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -23,8 +23,15 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save({attributes}) {
+export default function save({ attributes }) {
 	return (
-			<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} heading={attributes.header} content={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
-	);
+		<Faq
+			header={attributes.header}
+			kicker={attributes.kicker}
+			items={attributes.faqs}
+			btnText={attributes.btnText}
+			btnUrl={attributes.btnUrl}
+			backgroundColor={attributes.backgroundColor}
+		/>
+	)
 }
