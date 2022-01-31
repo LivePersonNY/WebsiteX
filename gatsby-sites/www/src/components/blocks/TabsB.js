@@ -47,11 +47,11 @@ const TabsB = (props) => {
 
   return (
   <>
-    <div className={`pane comp-tabs-b ${props.backgroundColor||"bg-transparent"}`}>
+    <div className={`pane comp-tabs-b ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-4">
-            <h2>{props.heading}</h2>
+            <h2>{props.header}</h2>
             <div className="comp-tabs-list-container">
               {tabListOutput}
             </div>

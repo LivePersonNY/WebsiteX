@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
+import Paragraph from '../Paragraph';
 
 const IconTextD = (props) => {
 
@@ -27,12 +28,12 @@ const IconTextD = (props) => {
   });
 
   return (  
-    <div className={`pane comp-icon-text-d ${props.backgroundColor||"bg-transparent"}`}>
+    <div className={`pane comp-icon-text-d ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
-        {props.heading && (
+        {props.header && (
           <div className="row">
             <div className="col-lg-8 offset-lg-2 text-center">
-              <h2 className="">{props.heading}</h2>
+              <h2 className="">{props.header}</h2>
               <Paragraph text={props.body} />
             </div>
           </div>

@@ -25,7 +25,6 @@ import ContainedContent from '../components/blocks/ContainedContent';
 import ContentCTA from '../components/blocks/ContentCTA';
 import SideBySide from '../components/blocks/SideBySide';
 import IconTextD from '../components/blocks/IconTextD';
-import IconTextCardStack from '../components/blocks/IconTextCardStack';
 import ScrollHorizontalText from '../components/blocks/ScrollHorizontalText';
 import Faq from '../components/blocks/Faq';
 import CardGridB from '../components/blocks/CardGridB';
@@ -57,7 +56,7 @@ const IndexPage = () => (
     <PlainContent
       backgroundColor="bg-primary-light"
       colWidth="8"
-      heading="What is LivePerson?"
+      header="What is LivePerson?"
       content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci,
               pellentesque a tincidunt dignissim adipiscing blandit eu. Sagittis
               a, lorem eget nulla porttitor vitae ultricies. At aliquet non
@@ -103,7 +102,7 @@ const IndexPage = () => (
 
     <StatsGrid
       backgroundColor="bg-primary-light"
-      heading="The infinite power of conversational AI"
+      header="The infinite power of conversational AI"
       items={[
         {
           "stat":"2.5x",
@@ -162,7 +161,7 @@ const IndexPage = () => (
 
     <TabsA
       backgroundColor="bg-primary-light"
-      heading="How LivePerson can benefit your customers"
+      header="How LivePerson can benefit your customers"
       items={[
         {
           "title": "Ennhance the customer journey",
@@ -193,7 +192,7 @@ const IndexPage = () => (
 
     <TabsB
       backgroundColor="bg-primary-light"
-      heading="Why LivePerson"
+      header="Why LivePerson"
       items={[
         {
           "title": "Curiously Human AI",
@@ -230,7 +229,7 @@ const IndexPage = () => (
 
     <TabsC
       backgroundColor="bg-neutral-92"
-      heading="A sentence describing the different products and main value proposition"
+      header="A sentence describing the different products and main value proposition"
       runFilters={true}
       items={[
         {
@@ -282,7 +281,7 @@ const IndexPage = () => (
 
     <CardGrid
       backgroundColor="bg-primary-light"
-      heading="Headline about our customers"
+      header="Headline about our customers"
       items={[
         {
           "img":"https://picsum.photos/224/30?random=1",
@@ -323,7 +322,7 @@ const IndexPage = () => (
 
     <CalloutGrid
       backgroundColor="bg-neutral-84"
-      heading="Related Insights"
+      header="Related Insights"
       linkText="View All Posts"
       linkUrl="#"
       img1Src="https://picsum.photos/416/232?random=1"
@@ -348,7 +347,7 @@ const IndexPage = () => (
 
     <IconTextA 
       backgroundColor="bg-neutral-92"
-      heading="Product Features"
+      header="Product Features"
       items={[
         {
           "img":"https://picsum.photos/64/64?random=1",
@@ -391,7 +390,7 @@ const IndexPage = () => (
 
     <IconTextB
       backgroundColor="bg-neutral-92"
-      heading="Headline about our customers"
+      header="Headline about our customers"
       items={[
         {
           "img":"https://picsum.photos/64/64?random=7",
@@ -417,12 +416,27 @@ const IndexPage = () => (
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },
+        {
+          "img":"https://picsum.photos/64/64?random=9",
+          "imgAlt":"Alt text",
+          "title": "Bella Health",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+      ]}
+      cardCTA={[
+        {
+          "body":"Call to action goes right here across two lines",
+          "btnText":"Primary CTA",
+          "btnUrl":"#"
+        },
       ]}
     />
     
     <IconTextC
       backgroundColor="bg-primary-light"
-      heading="LivePerson for your business"
+      header="LivePerson for your business"
       items={[
         {
           "img":"https://picsum.photos/64/64?random=10",
@@ -475,61 +489,9 @@ const IndexPage = () => (
       ]}
     />
 
-    <IconTextCardStack
-      backgroundColor="bg-neutral-92"
-      items={[
-        {
-          "img":"https://picsum.photos/64/64?random=7",
-          "imgAlt":"Alt text",
-          "title": "Voice",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
-          "linkText":"Read Customer Story",
-          "linkUrl":"#"
-        },
-        {
-          "img":"https://picsum.photos/64/64?random=8",
-          "imgAlt":"Alt text",
-          "title": "Managed Service",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
-          "linkText":"Read Customer Story",
-          "linkUrl":"#"
-        },
-        {
-          "img":"https://picsum.photos/64/64?random=9",
-          "imgAlt":"Alt text",
-          "title": "Bella Health",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
-          "linkText":"Read Customer Story",
-          "linkUrl":"#"
-        },
-        {
-          "img":"https://picsum.photos/64/64?random=10",
-          "imgAlt":"Alt text",
-          "title": "Bella Health",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
-          "linkText":"Read Customer Story",
-          "linkUrl":"#"
-        },
-        {
-          "img":"https://picsum.photos/64/64?random=11",
-          "imgAlt":"Alt text",
-          "title": "Bella Health",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
-          "linkText":"Read Customer Story",
-          "linkUrl":"#"
-        },
-        {
-          "cardCTA":true,
-          "content":"Call to action goes right here across two lines",
-          "btnText":"Primary CTA",
-          "btnUrl":"#"
-        },
-      ]}
-    />
-
     <LogosUniversal 
       backgroundColor="bg-neutral-92"
-      heading="Trusted by the world's biggest brands"
+      header="Trusted by the world's biggest brands"
       items={[
         {
           "img":"https://picsum.photos/80/80",
@@ -564,7 +526,7 @@ const IndexPage = () => (
           "brandImg":"https://picsum.photos/120/28",
           "brandImgAlt":"Alt text",
           "author":"Richard Branson · CEO",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         }

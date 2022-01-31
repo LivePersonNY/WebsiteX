@@ -21,12 +21,12 @@ const IconTextA = (props) => {
   });
 
   return (  
-    <div className={`pane comp-icon-text-a ${props.backgroundColor||"bg-transparent"}`}>
+    <div className={`pane comp-icon-text-a ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
-        {props.heading && (
+        {props.header && (
           <div className="row">
             <div className="col-lg-10 offset-lg-1">
-              <h2 className="text-center">{props.heading}</h2>
+              <h2 className="text-center">{props.header}</h2>
             </div>
           </div>
         )}

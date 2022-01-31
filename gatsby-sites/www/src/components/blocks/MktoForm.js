@@ -25,7 +25,6 @@ const MktoForm = (props) => {
         '501-BLE-979',
         ${formId},
         function(form){
-          console.log('its loaded');
           form.onSuccess(function(values, followUpUrl) {
             $('#NumberOfEmployees').parents('.mktoFieldDescriptor.mktoFormCol').addClass('mkto-dd-field');
             $('#NumberOfEmployees').addClass('select-placeholder'); 
