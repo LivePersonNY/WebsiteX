@@ -48,7 +48,23 @@ const IndexPage = () => (
               tincidunt varius."
       heroImage="https://picsum.photos/640/480?random=1"
       heroImageAlt="test"
-      logoWall="true"
+      heroVariant="buttons"
+      underBodyImg="https://picsum.photos/360/40?random=1"
+      underBodyImgAlt="test"
+      primaryBtnText="Get Demo"
+      primaryBtnLink="#"
+      buttons={[
+        {
+          "btnType":"primary",
+          "btnText":"Get Demo",
+          "btnLink":"#"
+        },
+        {
+          "btnType":"secondary",
+          "btnText":"Get Moar Demos",
+          "btnLink":"#"
+        },
+      ]}
     />
 
     <MktoForm formId="2580" runFilters={true} />
@@ -595,20 +611,20 @@ const IndexPage = () => (
       btnUrl="#"
       items={[
         {
-          "faqTitle":"A frequently asked question goes right here?",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "title":"A frequently asked question goes right here?",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
-          "faqTitle":"A longer frequently asked question goes right here?",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "title":"A longer frequently asked question goes right here?",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
-          "faqTitle":"A frequently asked question goes right here?",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "title":"A frequently asked question goes right here?",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
-          "faqTitle":"A longer frequently asked question goes right here?",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "title":"A longer frequently asked question goes right here?",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
       ]}
     />

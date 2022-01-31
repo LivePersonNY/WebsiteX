@@ -10,16 +10,20 @@ const Hero = (props) => (
           {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
           <h1>{props.header}</h1>
           <Paragraph text={props.subHeader} />
-          {props.logoWall && (
+          {props.heroVariant === 'logo-wall' && (
             <>
               <h6 className="mt-4">TRUSTED BY 100K LEADING BRANDS</h6>
-              <div className="logo-wall">
-                <img src="https://placekitten.com/100/40" alt="" />
-                <img src="https://placekitten.com/100/40" alt="" />
-                <img src="https://placekitten.com/100/40" alt="" />
-                <img src="https://placekitten.com/100/40" alt="" />
+              <div className="body-image">
+                {!props.imgCtl && <img src={props.underBodyImg} alt={props.underBodyImgAlt} /> || props.imgCtl}
               </div>
             </>
+          )}
+          {props.heroVariant === 'buttons' && (
+            props.buttons.map((item, index)=>{
+              return (
+                <a href={item.btnLink} class={`btn ${item.btnType === 'primary' ? 'btn-primary' : item.btnType === 'secondary' ? 'btn-outline-secondary' : ''}`} key={index}>{item.btnText}</a>
+              )
+            })
           )}
         </div>
         <div className="col-lg-6 offset-lg-1">

@@ -213,12 +213,15 @@ img {
 // On homepage
 .logo-wall {
     margin-top: 16px;
+}
 
-    img {
-        margin-right: 30px;
+.hero {
+    .btn {
+        margin-top: 36px;
 
-        &:last-child {
-            margin-right: 0;
+        @include media-breakpoint-up(lg) {
+            margin-top: 40px;
+            margin-right: 16px;
         }
     }
 }

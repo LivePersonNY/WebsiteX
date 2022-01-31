@@ -8,7 +8,7 @@ const IconTextD = (props) => {
   let blockCol = props.items.map((item, index)=>{
     return (
       <div className="col" key={index}>
-        <div className="comp-content-container bg-neutral-96">
+        <div className="comp-body-container bg-neutral-96">
           {!item.imgCtl && item.img &&
             <img
               src={item.img}
