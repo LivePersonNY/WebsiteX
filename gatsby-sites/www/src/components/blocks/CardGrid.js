@@ -36,12 +36,12 @@ const CardGrid = (props) => {
   );
 
   return (  
-    <div className={`pane comp-card-grid ${props.backgroundColor||"bg-transparent"}`}>
+    <div className={`pane comp-card-grid ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
-        {props.heading && (
+        {props.header && (
           <div className="row">
             <div className="col-lg-10">
-              <h2 className="">{props.heading}</h2>
+              <h2 className="">{props.header}</h2>
             </div>
           </div>
         )}

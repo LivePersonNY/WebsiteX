@@ -32,11 +32,11 @@ const TabsA = (props) => {
 
   return (
   <>
-    <div className={`pane comp-tabs-a ${props.backgroundColor||"bg-transparent"}`}>
+    <div className={`pane comp-tabs-a ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <h2 className="text-center">{props.heading}</h2>
+            <h2 className="text-center">{props.header}</h2>
           </div>
         </div>
         <div className="row align-items-center">

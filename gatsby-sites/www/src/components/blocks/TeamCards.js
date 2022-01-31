@@ -27,7 +27,7 @@ const TeamCards = (props) => {
   });
 
   return (  
-    <div className={`pane comp-team-cards ${props.backgroundColor}`}>
+    <div className={`pane comp-team-cards ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         {props.header && (
           <div className="row text-center">

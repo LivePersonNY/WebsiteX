@@ -9,12 +9,12 @@ const PlainContent = function(props) {
   
   return (
     <>
-      <div className={`pane comp-plain-content ${props.backgroundColor||"bg-transparent"} ${props.alignmentClass}`}>
+      <div className={`pane comp-plain-content ${props.backgroundColor||"bg-transparent"} ${props.alignmentClass} ${props.header ? 'pane-with-lead-text' : ''}`}>
         <div className="container">
           <div className="row align-items-center justify-content-center">
             <div className={`col-lg-${props.colWidth||12}`}>
-              {headerLevel == "h2" && <h2>{props.heading}</h2>}
-              {headerLevel == "h1" && <h1>{props.heading}</h1>}
+              {headerLevel == "h2" && <h2>{props.header}</h2>}
+              {headerLevel == "h1" && <h1>{props.header}</h1>}
               {props.content && (<Paragraph text={props.content} />)}
               {props.linkText && (
                 <a className="link link-mt-large" href={props.linkUrl}>
