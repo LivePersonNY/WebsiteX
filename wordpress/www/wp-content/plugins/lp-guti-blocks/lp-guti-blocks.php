@@ -34,6 +34,7 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/cta/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/icons-a/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/quote-slider/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/faqs/' );
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
 

@@ -1,0 +1,48 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/faqs",
+	"version": "0.1.0",
+	"title": "FAQs",
+	"category": "liveperson",
+	"icon": "info",
+	"description": "Card grid with drop shadows and images.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"header": {"default": "Pricing FAQs"},
+		"kicker": {"default": "Conversational Cloud"},
+		"backgroundColor": {"default": "bg-transparent" },
+		"btnText": {
+			"default": "Primary CTA"
+		},
+		"btnUrl": {
+			"default": "#"
+		},
+		"faqs": {
+			"type": "array",
+			"default": [
+				{
+					"title": "Dude, where's my car?",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor"
+
+				},
+				{
+					"title": "Dude, where's my car?",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor"
+
+				},
+				{
+					"title": "Dude, where's my car?",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor"
+
+				}
+			]
+		}
+	}
+}
