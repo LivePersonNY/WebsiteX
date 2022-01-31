@@ -51,8 +51,6 @@ const IndexPage = () => (
       heroVariant="buttons"
       underBodyImg="https://picsum.photos/360/40?random=1"
       underBodyImgAlt="test"
-      primaryBtnText="Get Demo"
-      primaryBtnLink="#"
       buttons={[
         {
           "btnType":"primary",
