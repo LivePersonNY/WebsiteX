@@ -26,7 +26,7 @@ const LeftRight = (props) => {
             >
               {props.preHeading && <h6>{props.preHeading}</h6>}
               <h2>{props.title}</h2>
-              <p>{props.content}</p>
+              <p dangerouslySetInnerHTML={{__html: props.content}}></p>
               {props.linkText && (
                 <a className="link link-mt-small" href={props.linkUrl}>
                   {props.linkText}
