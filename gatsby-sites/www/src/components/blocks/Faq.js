@@ -32,9 +32,9 @@ const Faq = (props) => {
           <div className="col-lg-4">
             <p className="h6 text-uppercase">{props.kicker}</p>
             <h2>{props.header}</h2>
-            <a href={props.btnUrl} className="btn btn-primary">
+            {props.btnText && <a href={props.btnUrl} className="btn btn-primary">
               {props.btnText}
-            </a>
+            </a>}
           </div>
           <div className="col-lg-7">
             <div className="comp-content-container">

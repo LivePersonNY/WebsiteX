@@ -12,9 +12,9 @@ import $ from 'jquery';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 import PlainContent from '../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 
 
 /**
@@ -40,6 +40,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+			placeholder="Header Text"
 		/>
 	);
 
@@ -48,6 +49,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 			value={ attributes.content }
 			onChange={ ( val ) => setAttributes( { content: val } ) }
 			className="embedded-input"
+			placeholder="Body Text"
 			rows="1"
 		/>
 	);
@@ -58,20 +60,71 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				value={ attributes.linkText }
 				onChange={ ( val ) => setAttributes( { linkText: val } ) }
 				className="embedded-input"
+				placeholder="Link Text"
 			/>
 
 			<TextControl
 				value={ attributes.linkUrl }
 				onChange={ ( val ) => setAttributes( { linkUrl: val } ) }
+				className="embedded-input"
+				placeholder="Link URL"
 			/>
 		</div>
+	);
+
+	let changeAlignment = function() {
+		if (attributes.alignment == "left") {
+			setAttributes({ alignment: "center" });
+		} else {
+			setAttributes({ alignment: "left" });
+		}
+	}
+
+	let changeHeadLevel = function() {
+		if (attributes.headLevel == "h2") {
+			setAttributes({ headLevel: "h1" });
+		} else {
+			setAttributes({ headLevel: "h2" });
+		}
+	}
+
+	let changeColumns = function() {
+		let width = attributes.colWidth;
+		if (width < 12) {
+			setAttributes({ colWidth: width+1 });
+		} else {
+			setAttributes({ colWidth: 6 });
+		}
+	}
+
+	let alignButton = (
+		<BlockControls>
+			<ToolbarGroup>
+				<ToolbarButton
+					icon={`editor-align${attributes.alignment}`}
+					label="Alignment"
+					onClick={ changeAlignment }
+				/>
+				<ToolbarButton
+					icon="heading"
+					label="Head Level"
+					onClick={ changeHeadLevel }
+				/>
+				<ToolbarButton
+					icon="image-flip-horizontal"
+					label="Width"
+					onClick={ changeColumns }
+				/>
+			</ToolbarGroup>
+		</BlockControls>
 	);
 
 	if (isSelected)	{
 
 		return (
 			<div {...useBlockProps()}>
-				<PlainContent heading={headerControl} content={contentControl} linkText={linkTextControl} />
+				{alignButton}
+				<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} heading={headerControl} content={contentControl} linkText={linkTextControl} />
 			</div>
 
 		);
@@ -79,7 +132,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<PlainContent heading={attributes.header} content={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
+			<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} heading={attributes.header} content={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
 		</div>
 	)
 

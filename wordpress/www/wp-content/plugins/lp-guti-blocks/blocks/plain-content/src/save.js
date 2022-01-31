@@ -25,6 +25,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-			<PlainContent heading={attributes.header} content={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
+			<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} heading={attributes.header} content={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
 	);
 }
