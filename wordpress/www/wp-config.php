@@ -44,6 +44,12 @@ define( 'DB_CHARSET', 'utf8' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
+if ($_ENV['WP_USE_MYSQL'] !== TRUE) {
+
+} else {
+    define( 'USE_MYSQL', TRUE);
+}
+
 /**#@+
  * Authentication unique keys and salts.
  *
