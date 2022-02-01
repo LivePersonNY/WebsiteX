@@ -21,7 +21,7 @@ const Hero = (props) => (
           {props.heroVariant === 'buttons' && (
             props.buttons.map((item, index)=>{
               return (
-                <a href={item.btnLink} class={`btn ${item.btnType === 'primary' ? 'btn-primary' : item.btnType === 'secondary' ? 'btn-outline-secondary' : ''}`} key={index}>{item.btnText}</a>
+                <a href={item.btnLink} className={`btn ${item.btnType === 'primary' ? 'btn-primary' : item.btnType === 'secondary' ? 'btn-outline-secondary' : ''}`} key={index}>{item.btnText}</a>
               )
             })
           )}

@@ -339,24 +339,32 @@ const IndexPage = () => (
       header="Related Insights"
       linkText="View All Posts"
       linkUrl="#"
-      img1Src="https://picsum.photos/416/232?random=1"
-      img1Alt="Alt text"
-      callout1Category="CATEGORY"
-      callout1Content="Blog post title goes right here across two lines"
-      callout1Author="By Name Lastname"
-      callout1LinkUrl="#"
-      img2Src="https://picsum.photos/416/232?random=2"
-      img2Alt="Alt text"
-      callout2Category="CATEGORY"
-      callout2Content="Blog post title goes right here across two lines"
-      callout2Author="By Name Lastname"
-      callout2LinkUrl="#"
-      img3Src="https://picsum.photos/416/232?random=3"
-      img3Alt="Alt text"
-      callout3Category="CATEGORY"
-      callout3Content="Blog post title goes right here across two lines"
-      callout3Author="By Name Lastname"
-      callout3LinkUrl="#"
+      items={[
+        {
+          "imgSrc":"https://picsum.photos/416/232?random=1",
+          "imgAlt":"Alt text",
+          "category":"Category",
+          "body":"Blog post title goes right here across two lines",
+          "author":"By Name Lastname",
+          "linkUrl":"#",
+        },
+        {
+          "imgSrc":"https://picsum.photos/416/232?random=2",
+          "imgAlt":"Alt text",
+          "category":"Category",
+          "body":"Blog post title goes right here across two lines",
+          "author":"By Name Lastname",
+          "linkUrl":"#",
+        },
+        {
+          "imgSrc":"https://picsum.photos/416/232?random=3",
+          "imgAlt":"Alt text",
+          "category":"Category test",
+          "body":"Blog post title goes right here across two lines",
+          "author":"By Name Lastname",
+          "linkUrl":"#",
+        },
+      ]}
     />
 
     <IconTextA 
