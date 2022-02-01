@@ -65,7 +65,13 @@ const IndexPage = () => (
       ]}
     />
 
-    <MktoForm formId="3733" runFilters={true} />
+    <MktoForm 
+      // backgroundColor="bg-neutral-96"
+      formId="3733" 
+      runFilters={true} 
+      sticky="true"
+      // header="Strong benefit that weaves in security of the LivePerson platform"
+    />
     {/* 2580, 3733 */}
 
     <PlainContent

@@ -218,10 +218,12 @@ img {
 .hero {
     .btn {
         margin-top: 36px;
+        display: block;
 
         @include media-breakpoint-up(lg) {
             margin-top: 40px;
             margin-right: 16px;
+            display: inline-block;
         }
     }
 }

@@ -1,11 +1,8 @@
 .pane-form {
     text-align: center;
-    position: sticky;
     z-index: 100;
     display: block !important;
-    top: 0;
     background: linear-gradient(90deg, #AAD5EA 0%, #C1C1F3 33.3%, #F7B1B1 66.6%, #F7B995 100%);
-    padding: 16px 0;
 
     &.swapPosition {
         position: absolute;
@@ -13,48 +10,73 @@
         z-index: 999999999;
     }
 
+    &.bg-neutral-96 {
+        background: $neutral96;
+    }
+
     .container {
 
+        h2 {
+            margin-bottom: 48px;
+            background: -webkit-linear-gradient(90deg, #3863E5 0%, #8D46EB 86.36%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
         .mobileForm {
-
-            .span1 {
-                display: inline-block;
-                padding: 10px !important;
-                border-radius: 24px;
-                background: $neutral12 !important;
-                font-size: 16px;
-                font-weight: $fontBold;
-                font-family: $familySpaceGrotesk;
-                line-height: 24px;
-                width: 100%;
-                color: #fff;
-                text-align: center;
-                margin: auto;
-                cursor: pointer;
-                text-decoration: none;
-
-                @include media-breakpoint-up(lg) {
-                    display: none;
-                }
-            }
-
-            .span1.swap,
-            .span2 {
-                display: none;
-            }
-
-            .span2.swap {
-                display: block;
-                width: 40px;
-                margin: auto;
-                margin-bottom: 12px;
-            }
+            display: none;
         }
     }
 
+    &.form--sticky {
+        position: sticky;
+        top: 0;
+        display: none;
+        padding: 16px 0;
 
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }
 
+        .container {
+            .mobileForm {
+                display: block;
+
+                .span1 {
+                    display: inline-block;
+                    padding: 10px !important;
+                    border-radius: 24px;
+                    background: $neutral12 !important;
+                    font-size: 16px;
+                    font-weight: $fontBold;
+                    font-family: $familySpaceGrotesk;
+                    line-height: 24px;
+                    width: 100%;
+                    color: #fff;
+                    text-align: center;
+                    margin: auto;
+                    cursor: pointer;
+                    text-decoration: none;
+
+                    @include media-breakpoint-up(lg) {
+                        display: none;
+                    }
+                }
+
+                .span1.swap,
+                .span2 {
+                    display: none;
+                }
+
+                .span2.swap {
+                    display: block;
+                    width: 40px;
+                    margin: auto;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
 
     .mktoForm {
 
@@ -62,11 +84,7 @@
         margin: 0 auto;
         text-align: center !important;
         padding: 0;
-        display: none;
-
-        @include media-breakpoint-up(lg) {
-            display: block;
-        }
+        display: block;
 
         .mktoFormRow {
             clear: none;
@@ -81,10 +99,6 @@
             .mktoFormCol {
                 margin-bottom: 0 !important;
                 float: none;
-
-                @include media-breakpoint-up(lg) {
-                    float: left;
-                }
 
                 .mktoFieldWrap {
                     width: 100%;

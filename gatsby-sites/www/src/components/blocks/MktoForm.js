@@ -80,8 +80,15 @@ const MktoForm = (props) => {
   
 
   return (
-    <div className="pane pane-form form--sticky" style={{display:'none'}}>
+    <div className={`pane pane-form ${props.sticky ? 'form--sticky' : ''} ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`} style={{display:'none'}}>
       <div className="container">
+        {props.header &&(
+          <div className="row">
+            <div className="col-lg-8 offset-lg-2">
+              <h2>{props.header}</h2>
+            </div>
+          </div>
+        )}
         <div className="row">
           <div className="col-lg-12">
                        
