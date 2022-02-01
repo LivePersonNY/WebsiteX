@@ -48,7 +48,21 @@ const IndexPage = () => (
               tincidunt varius."
       heroImage="https://picsum.photos/640/480?random=1"
       heroImageAlt="test"
-      logoWall="true"
+      heroVariant="buttons"
+      underBodyImg="https://picsum.photos/360/40?random=1"
+      underBodyImgAlt="test"
+      buttons={[
+        {
+          "btnType":"primary",
+          "btnText":"Get Demo",
+          "btnLink":"#"
+        },
+        {
+          "btnType":"secondary",
+          "btnText":"Get Moar Demos",
+          "btnLink":"#"
+        },
+      ]}
     />
 
     <MktoForm formId="2580" runFilters={true} />
@@ -228,9 +242,10 @@ const IndexPage = () => (
     />
 
     <TabsC
-      backgroundColor="bg-neutral-92"
+      backgroundColor="bg-blue-20"
       header="A sentence describing the different products and main value proposition"
       runFilters={true}
+      mobilePillsWidth="700px"
       items={[
         {
           "title": "Conversational Cloud",
@@ -325,24 +340,31 @@ const IndexPage = () => (
       header="Related Insights"
       linkText="View All Posts"
       linkUrl="#"
-      img1Src="https://picsum.photos/416/232?random=1"
-      img1Alt="Alt text"
-      callout1Category="CATEGORY"
-      callout1Content="Blog post title goes right here across two lines"
-      callout1Author="By Name Lastname"
-      callout1LinkUrl="#"
-      img2Src="https://picsum.photos/416/232?random=2"
-      img2Alt="Alt text"
-      callout2Category="CATEGORY"
-      callout2Content="Blog post title goes right here across two lines"
-      callout2Author="By Name Lastname"
-      callout2LinkUrl="#"
-      img3Src="https://picsum.photos/416/232?random=3"
-      img3Alt="Alt text"
-      callout3Category="CATEGORY"
-      callout3Content="Blog post title goes right here across two lines"
-      callout3Author="By Name Lastname"
-      callout3LinkUrl="#"
+      items={[
+        {
+          "imgSrc":"https://picsum.photos/416/232?random=1",
+          "imgAlt":"Alt text",
+          "category":"Category",
+          "body":"Blog post title goes right here across two lines",
+          "author":"By Name Lastname",
+          "linkUrl":"#",
+        },
+        {
+          "imgSrc":"https://picsum.photos/416/232?random=2",
+          "imgAlt":"Alt text",
+          "category":"Category",
+          "body":"Blog post title goes right here across two lines",
+          "linkUrl":"#",
+        },
+        {
+          "imgSrc":"https://picsum.photos/416/232?random=3",
+          "imgAlt":"Alt text",
+          "category":"Category test",
+          "body":"Blog post title goes right here across two lines",
+          "author":"By Name Lastname",
+          "linkUrl":"#",
+        },
+      ]}
     />
 
     <IconTextA 
@@ -592,20 +614,20 @@ const IndexPage = () => (
       btnUrl="#"
       items={[
         {
-          "faqTitle":"A frequently asked question goes right here?",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "title":"A frequently asked question goes right here?",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
-          "faqTitle":"A longer frequently asked question goes right here?",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "title":"A longer frequently asked question goes right here?",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
-          "faqTitle":"A frequently asked question goes right here?",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "title":"A frequently asked question goes right here?",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
-          "faqTitle":"A longer frequently asked question goes right here?",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "title":"A longer frequently asked question goes right here?",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
       ]}
     />

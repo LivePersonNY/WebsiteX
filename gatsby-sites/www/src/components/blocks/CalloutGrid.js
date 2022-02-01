@@ -3,7 +3,21 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
 const CalloutGrid = (props) => {
-  let repeat;
+
+  let gridItem = props.items.map((item, index)=>{
+    return(
+      <div className="col-lg-4" key={index}>
+        <a className="link" href={item.linkUrl}>
+          <img src={item.imgSrc} alt={item.imgAlt} />
+          <p className="h6 text-uppercase">{item.category}</p>
+          <h3 className="card1">{item.body}</h3>
+          {item.author && (
+            <p className="subtitle2">{item.author}</p>
+          )}
+        </a>
+      </div>
+    )
+  });
 
   return (
       <div className={`pane comp-callout-grid ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
@@ -23,32 +37,7 @@ const CalloutGrid = (props) => {
             </div>
           )}
           <div className="row comp-callout-grid-container">
-            
-                <div className="col-lg-4">
-                  <a className="link" href={props.callout1LinkUrl}>
-                    <img src={props.img1Src} alt={props.img1Alt} />
-                    <p className="h6">{props.callout1Category}</p>
-                    <h3 className="card1">{props.callout1Content}</h3>
-                    <p className="subtitle2">{props.callout1Author}</p>
-                  </a>
-                </div>
-                <div className="col-lg-4">
-                  <a className="link" href={props.callout2LinkUrl}>
-                    <img src={props.img2Src} alt={props.img2Alt} />
-                    <p className="h6">{props.callout2Category}</p>
-                    <h3 className="card1">{props.callout2Content}</h3>
-                    <p className="subtitle2">{props.callout2Author}</p>
-                  </a>
-                </div>
-                <div className="col-lg-4">
-                  <a className="link" href={props.callout3LinkUrl}>
-                    <img src={props.img3Src} alt={props.img3Alt} />
-                    <p className="h6">{props.callout3Category}</p>
-                    <h3 className="card1">{props.callout3Content}</h3>
-                    <p className="subtitle2">{props.callout3Author}</p>
-                  </a>
-                </div>
-            
+            {gridItem}
           </div>
         </div>
       </div>

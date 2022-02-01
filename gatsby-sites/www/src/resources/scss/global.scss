@@ -213,12 +213,15 @@ img {
 // On homepage
 .logo-wall {
     margin-top: 16px;
+}
 
-    img {
-        margin-right: 30px;
+.hero {
+    .btn {
+        margin-top: 36px;
 
-        &:last-child {
-            margin-right: 0;
+        @include media-breakpoint-up(lg) {
+            margin-top: 40px;
+            margin-right: 16px;
         }
     }
 }
@@ -318,6 +321,7 @@ img {
 
         @include media-breakpoint-up(lg) {
             margin: 48px 0;
+            width: auto !important;
         }
 
         .pill {
@@ -349,15 +353,13 @@ img {
         }
     }
 
-    // .container>.comp-tabs-content {
-    //     display: flex;
+    .pills-mobile-scroll {
+        overflow: scroll;
 
-    //     ~.comp-tabs-content {
-    //         display: none;
-    //     }
-    // }
-
-
+        @include media-breakpoint-up(lg) {
+            overflow: auto;
+        }
+    }
 
 }
 

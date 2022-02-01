@@ -27,7 +27,7 @@ const TabsC = (props) => {
     }
   
     let pillListOutput = props.items.map((item ,index)=>{
-      return <a className="btn pill" data-tab={index} key={index}>{item.title}</a>
+      return <a className={`btn pill ${index === 0 ? 'pill-active' : ''}`} data-tab={index} key={index}>{item.title}</a>
     });
 
     let tabsContent = props.items.map((item, index)=>{
@@ -63,8 +63,8 @@ const TabsC = (props) => {
           </div>
         </div>
         <div className="row justify-content-center text-center">
-          <div className="col-lg-10">
-            <div className="pills-container">
+          <div className="col-lg-10 pills-mobile-scroll">
+            <div className="pills-container" style={{width:props.mobilePillsWidth}}>
               {pillListOutput}
             </div>
           </div>
