@@ -9866,10 +9866,10 @@ a > .site code {
 .site .pill {
   border-radius: 20px;
   padding: 8px 20px;
-  border: 1px solid #C6C9D2;
+  border: 1px solid #8895BF;
 }
 .site .pill.pill-active {
-  background: #E7E8EC;
+  background: #fcfcfc;
 }
 .site .bg-primary-light {
   background: #fcfcfc;
@@ -10019,11 +10019,14 @@ a > .site code {
 .site .logo-wall {
   margin-top: 16px;
 }
-.site .logo-wall img {
-  margin-right: 30px;
+.site .hero .btn {
+  margin-top: 36px;
 }
-.site .logo-wall img:last-child {
-  margin-right: 0;
+@media (min-width: 992px) {
+  .site .hero .btn {
+    margin-top: 40px;
+    margin-right: 16px;
+  }
 }
 .site .comp-left-right.comp-left-right-repeat {
   padding-bottom: 56px;
@@ -10098,6 +10101,7 @@ a > .site code {
 @media (min-width: 992px) {
   .site .comp-tabs-c .pills-container {
     margin: 48px 0;
+    width: auto !important;
   }
 }
 .site .comp-tabs-c .pills-container .pill {
@@ -10124,6 +10128,14 @@ a > .site code {
 }
 .site .comp-tabs-c .comp-tabs-content .btn-outline-secondary {
   margin-top: 24px;
+}
+.site .comp-tabs-c .pills-mobile-scroll {
+  overflow: scroll;
+}
+@media (min-width: 992px) {
+  .site .comp-tabs-c .pills-mobile-scroll {
+    overflow: auto;
+  }
 }
 .site .comp-tabs-b .row {
   position: relative;
@@ -10940,6 +10952,15 @@ a > .site code {
 /*!***************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/faqs/src/style.scss ***!
   \***************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/callout/src/style.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
 /**
  * The following styles get applied both on the front of your site
  * and in the editor.
