@@ -321,6 +321,7 @@ img {
 
         @include media-breakpoint-up(lg) {
             margin: 48px 0;
+            width: auto !important;
         }
 
         .pill {
@@ -352,15 +353,13 @@ img {
         }
     }
 
-    // .container>.comp-tabs-content {
-    //     display: flex;
+    .pills-mobile-scroll {
+        overflow: scroll;
 
-    //     ~.comp-tabs-content {
-    //         display: none;
-    //     }
-    // }
-
-
+        @include media-breakpoint-up(lg) {
+            overflow: auto;
+        }
+    }
 
 }
 

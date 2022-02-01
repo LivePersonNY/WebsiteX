@@ -242,9 +242,10 @@ const IndexPage = () => (
     />
 
     <TabsC
-      backgroundColor="bg-neutral-92"
+      backgroundColor="bg-blue-20"
       header="A sentence describing the different products and main value proposition"
       runFilters={true}
+      mobilePillsWidth="700px"
       items={[
         {
           "title": "Conversational Cloud",
@@ -353,7 +354,6 @@ const IndexPage = () => (
           "imgAlt":"Alt text",
           "category":"Category",
           "body":"Blog post title goes right here across two lines",
-          "author":"By Name Lastname",
           "linkUrl":"#",
         },
         {
