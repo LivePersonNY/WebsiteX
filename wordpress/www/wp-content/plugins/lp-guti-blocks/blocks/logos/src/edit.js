@@ -5,7 +5,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, ToolbarGroup, ToolbarDropdownMenu, ToolbarButton, Dashicon, Button } from '@wordpress/components';
-import Faq from '../../../../../../../../gatsby-sites/www/src/components/blocks/Faq';
+import LogosUniversal from '../../../../../../../../gatsby-sites/www/src/components/blocks/LogosUniversal';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import ItemControls from '../../ItemControls';
 
@@ -121,12 +121,10 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 
 		faqs.push({
 			"img": "https://picsum.photos/224/30?random=3",
-			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
-			"linkText": "More about Lorem",
-			"linkUrl": "#"
+			"imgAlt": "Placeholder image"
 		});
 		setAttributes({
-			faqs: faqs
+			cards: cards
 		});
 	}
 
@@ -139,10 +137,9 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			<ToolbarGroup>
 				<ToolbarButton
 					icon="plus-alt2"
-					label="Add FAQ"
+					label="Add"
 					onClick={ addTabFunc }
 				/>
-
 				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 			</ToolbarGroup>
 		</BlockControls>
@@ -152,26 +149,18 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 	if (isSelected) return (
 		<div { ...useBlockProps() }>
 			{addButton}
-			<Faq
+			<LogosUniversal
 				header={headerControl}
-				kicker={kickerControl}
-				items={controls}
-				btnText={linkTextControl}
-				backgroundColor={attributes.backgroundColor}
+				logos={controls}
 			/>
 		</div>
 	);
 
 	return (
 		<div { ...useBlockProps() }>
-			{addButton}
-			<Faq
+			<LogosUniversal
 				header={attributes.header}
-				kicker={attributes.kicker}
-				items={attributes.faqs}
-				btnText={attributes.btnText}
-				btnUrl={attributes.btnUrl}
-				backgroundColor={attributes.backgroundColor}
+				logos={controls}
 			/>
 		</div>
 	)

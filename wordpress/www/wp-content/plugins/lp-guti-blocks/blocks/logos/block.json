@@ -1,0 +1,31 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/logos",
+	"version": "0.1.0",
+	"title": "Logos",
+	"category": "liveperson",
+	"icon": "info",
+	"description": "Logo stripe",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"logos": {
+			"type": "array",
+			"default": {
+				[
+					'https://picsum.photos/80/80',
+					'https://picsum.photos/241/56',
+					'https://picsum.photos/100/40',
+					'https://picsum.photos/185/48',
+					'https://picsum.photos/135/40'
+				]
+			}
+		}
+	}
+}
