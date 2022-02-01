@@ -87,7 +87,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				<MediaUploadCheck>
 					<MediaUpload
 						onSelect={function(media) {
-							cards[index].img = media.url;
+							cards[index].imgSrc = media.url;
 							cards[index].mediaId = media.id;
 							cards[index].imgAlt = media.alt || '';
 							setAttributes({ cards: cards});
@@ -95,7 +95,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 						value={cards[index].mediaId}
 						allowedTypes={ ['image'] }
 						render={({open}) => (
-							<img className="comp-tabs-img" src={cards[index].img || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
+							<img src={cards[index].imgSrc || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
 						)}
 					/>
 				</MediaUploadCheck>
@@ -126,7 +126,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 	let addTabFunc = function() {
 
 		cards.push({
-			"img": "https://picsum.photos/224/30?random=3",
+			"imgSrc": "https://picsum.photos/224/30?random=3",
 			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
 			"linkText": "More about Lorem",
 			"linkUrl": "#"

@@ -36,4 +36,20 @@ registerBlockType('lp-guti-blocks/statsgrid', {
 	 */
 	save,
 
+	example: {
+		attributes: {
+			header: "Plain Header",
+			statItems: [
+				{
+					stat: "42",
+					content: "The answer to the great question"
+				},
+				{
+					stat: "8 Days",
+					content: "Per week. Beatles can't count."
+				}
+			]
+		}
+	}
+
 });

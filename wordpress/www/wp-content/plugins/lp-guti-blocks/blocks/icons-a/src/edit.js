@@ -55,6 +55,32 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		/>
 	);
 
+	let ctaBodyControl = (
+		<TextareaControl
+			value={ attributes.ctaBody }
+			onChange={ ( val ) => setAttributes( { ctaBody: val } ) }
+			className="embedded-input"
+			placeholder="CTA Card Body"
+			rows="1"
+		/>
+	);
+
+	let btnControl = (
+		<div className="wp-control-wrapper">
+			<TextControl
+				value={ attributes.btnText }
+				onChange={ ( val ) => setAttributes( { btnText: val } ) }
+				className="embedded-input"
+				placeholder="Button Text"
+			/>
+			<TextControl
+				value={ attributes.btnUrl }
+				onChange={ ( val ) => setAttributes( { btnUrl: val } ) }
+				placeholder="Button URL"
+			/>
+		</div>
+	);
+
 	let bodyControl = (
 		<TextareaControl
 			value={ attributes.body }
@@ -158,6 +184,21 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		setAttributes({ backgroundColor: color });
 	}
 
+	let ctaButton = (
+		<ToolbarButton
+			icon="button"
+			label="CTA"
+			isActive={attributes.cta}
+			onClick={ function() {
+				if (attributes.cta == true) {
+					setAttributes({ cta: false});
+				} else {
+					setAttributes({ cta: true});
+				}
+			} }
+		/>
+	);
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
@@ -166,6 +207,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 					label="Add"
 					onClick={ addTabFunc }
 				/>
+				{attributes.blocktype == 'IconTextB' && ctaButton}
 				<ToolbarDropdownMenu
 					icon="admin-settings"
 					label="Select a version"
@@ -211,7 +253,10 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			{addButton}
 
 			{attributes.blocktype == "IconTextA" && <IconTextA heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextB" && <IconTextB heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextB" && <IconTextB cardCTA={attributes.cta}
+			cardCTAbody={ctaBodyControl}
+			btnText={btnControl}
+			heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
 			{attributes.blocktype == "IconTextC" && <IconTextC heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
 			{attributes.blocktype == "IconTextD" && <IconTextD body={bodyControl} heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
 
@@ -222,7 +267,11 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<div {...useBlockProps()}>
 			{addButton}
 			{attributes.blocktype == "IconTextA" && <IconTextA heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextB" && <IconTextB heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextB" && <IconTextB cardCTA={attributes.cta}
+			cardCTAbody={attributes.ctaBody}
+			btnText={attributes.btnText}
+			btnUrl={attributes.btnUrl}
+			heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 			{attributes.blocktype == "IconTextC" && <IconTextC heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 			{attributes.blocktype == "IconTextD" && <IconTextD body={attributes.body} heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 

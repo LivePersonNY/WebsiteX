@@ -30,7 +30,10 @@ export default function save({attributes}) {
 	return (
 		<>
 		{attributes.blocktype == "IconTextA" && <IconTextA heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-		{attributes.blocktype == "IconTextB" && <IconTextB heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+		{attributes.blocktype == "IconTextB" && <IconTextB cardCTA={attributes.cta}
+		cardCTAbody={attributes.ctaBody}
+		btnText={attributes.btnText}
+		btnUrl={attributes.btnUrl} heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 		{attributes.blocktype == "IconTextC" && <IconTextC heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 		{attributes.blocktype == "IconTextD" && <IconTextD body={attributes.body} heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 		</>

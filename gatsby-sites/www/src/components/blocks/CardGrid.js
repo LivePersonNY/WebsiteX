@@ -13,7 +13,7 @@ const CardGrid = (props) => {
           <div className="card-body">
             {!item.imgCtl && <img
               className="card-image-internal"
-              src={item.img}
+              src={item.imgSrc}
               alt={item.imgAlt}
             /> || item.imgCtl}
             

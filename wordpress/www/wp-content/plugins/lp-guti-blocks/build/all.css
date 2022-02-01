@@ -10914,6 +10914,16 @@ a > .block-editor-block-list__layout code {
  *
  * Replace them with your own styles or remove the file completely.
  */
+.form-selector {
+  margin: 0 !important;
+}
+.form-selector div {
+  margin: 0 !important;
+}
+.form-selector input {
+  width: 55px !important;
+  margin: 8px;
+}
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/tabs-a/src/editor.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************/

@@ -28,6 +28,6 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function save({attributes}) {
 
 	return (
-			<MktoForm formId={attributes.mktoFormId} />
+			<MktoForm backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} />
 	);
 }

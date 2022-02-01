@@ -124,7 +124,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		return (
 			<div {...useBlockProps()}>
 				{alignButton}
-				<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} heading={headerControl} content={contentControl} linkText={linkTextControl} />
+				<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} header={headerControl} content={contentControl} linkText={linkTextControl} />
 			</div>
 
 		);
@@ -132,7 +132,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} heading={attributes.header} content={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
+			<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} header={attributes.header} content={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
 		</div>
 	)
 
