@@ -9,7 +9,6 @@ const CalloutGrid = (props) => {
       <div className="col-lg-4" key={index}>
         <a className="link" href={item.linkUrl}>
           {!item.imgCtl && <img
-            className="card-image-internal"
             src={item.imgSrc}
             alt={item.imgAlt}
           /> || item.imgCtl}
