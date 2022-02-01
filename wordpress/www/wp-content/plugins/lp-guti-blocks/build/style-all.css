@@ -9903,6 +9903,14 @@ a > .site code {
     padding: 120px 0;
   }
 }
+.site .pane.pane-with-lead-text {
+  padding-top: 72px;
+}
+@media (min-width: 992px) {
+  .site .pane.pane-with-lead-text {
+    padding-top: 104px;
+  }
+}
 .site .pane.bg-primary-light + .bg-primary-light {
   padding-top: 0;
 }
@@ -10222,11 +10230,11 @@ a > .site code {
   margin-bottom: 8px;
 }
 .site .comp-icon-text-b .comp-card-grid-container .col {
-  margin-top: 32px;
+  margin-top: 24px;
 }
 @media (min-width: 992px) {
   .site .comp-icon-text-b .comp-card-grid-container .col {
-    margin-top: 48px;
+    margin-top: 32px;
   }
 }
 .site .comp-icon-text-b .comp-card-grid-container .col .card-image-internal {
@@ -10235,27 +10243,13 @@ a > .site code {
 .site .comp-icon-text-b .comp-card-grid-container .col h3, .site .comp-icon-text-b .comp-card-grid-container .col .h3 {
   margin-bottom: 8px;
 }
-.site .comp-icon-text-b .comp-card-stack-container .col {
-  margin-top: 24px;
-}
-@media (min-width: 992px) {
-  .site .comp-icon-text-b .comp-card-stack-container .col {
-    margin-top: 32px;
-  }
-}
-.site .comp-icon-text-b .comp-card-stack-container .col .card-image-internal {
-  margin-bottom: 16px;
-}
-.site .comp-icon-text-b .comp-card-stack-container .col h3, .site .comp-icon-text-b .comp-card-stack-container .col .h3 {
-  margin-bottom: 8px;
-}
-.site .comp-icon-text-b .comp-card-stack-container .col .card.text-center {
+.site .comp-icon-text-b .comp-card-grid-container .col .card.text-center {
   border: 2px solid #E849B7;
   border-radius: 0;
   box-shadow: none;
   background: none;
 }
-.site .comp-icon-text-b .comp-card-stack-container .col .card.text-center .card-body.d-flex h3, .site .comp-icon-text-b .comp-card-stack-container .col .card.text-center .card-body.d-flex .h3 {
+.site .comp-icon-text-b .comp-card-grid-container .col .card.text-center .card-body.d-flex h3, .site .comp-icon-text-b .comp-card-grid-container .col .card.text-center .card-body.d-flex .h3 {
   margin-bottom: 24px;
 }
 .site .comp-icon-text-d .comp-block-grid-container .col {

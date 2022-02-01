@@ -45,6 +45,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+			placeholder="Section Header"
 		/>
 	);
 
@@ -178,13 +179,13 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			{addButton}
 			{attributes.blocktype == "CardGrid" &&
 			<CardGrid
-				heading={headerControl}
+				header={headerControl}
 				items={controls}
 				backgroundColor={attributes.backgroundColor}
 			/>}
 			{attributes.blocktype == "CardGridB" &&
 			<CardGridB
-				heading={headerControl}
+				header={headerControl}
 				items={controls}
 				content={contentControl}
 				backgroundColor={attributes.backgroundColor}
@@ -197,13 +198,13 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			{addButton}
 			{attributes.blocktype == "CardGrid" &&
 			<CardGrid
-				heading={attributes.header}
+				header={attributes.header}
 				items={attributes.cards}
 				backgroundColor={attributes.backgroundColor}
 			/>}
 			{attributes.blocktype == "CardGridB" &&
 			<CardGridB
-				heading={attributes.header}
+				header={attributes.header}
 				items={attributes.cards}
 				content={attributes.content}
 				backgroundColor={attributes.backgroundColor}
