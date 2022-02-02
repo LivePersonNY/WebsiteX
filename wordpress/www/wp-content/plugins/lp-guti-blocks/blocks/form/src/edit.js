@@ -11,9 +11,9 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, InspectorControls, RichText } from '@wordpress/block-editor';
 import MktoForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/MktoForm';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper, ToolbarGroup } from '@wordpress/components';
+import { __experimentalGrid as Panel, PanelBody, Grid,Placeholder, TextareaControl, ToolbarButton, TextControl, Button, ResponsiveWrapper, ToolbarGroup } from '@wordpress/components';
 const { Fragment, useState } = wp.element;
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 
@@ -41,23 +41,86 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	var mktoId = attributes.mktoFormId;
 
+	let toggleSticky = function() {
+		if (attributes.sticky) {
+			setAttributes({ sticky: false });
+		} else {
+			setAttributes({ sticky: true });
+		}
+	}
+
+	let titleControl = (
+		<TextControl
+			value={ attributes.header }
+			onChange={ ( val ) => setAttributes( { header: val } ) }
+			className="embedded-input"
+			placeholder="Section Header"
+		/>
+	);
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
+				<ToolbarButton
+					icon="admin-post"
+					label="Toggle Sticky Form Status"
+					isActive={attributes.sticky}
+					onClick={toggleSticky}
+				/>
 				<TextControl value={attributes.mktoFormId} className="form-selector" onChange={ ( val ) => {
-					if (window.MktoForms2.getForm(mktoId)) window.MktoForms2.getForm(mktoId).getFormElem().children().remove();
-					mktoId = val;
-					setAttributes( { mktoFormId: val } );
+
+						window.jQuery(`#mktoForm_${mktoId}`).after(`<form id="mktoForm_${val}"></form>`).remove();
+						mktoId = val;
+						setAttributes( { mktoFormId: val } );
+
 				}} />
 				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 			</ToolbarGroup>
 		</BlockControls>
 	);
 
-	return (
+	let thankyouControl = (
+		<RichText {...useBlockProps()}
+			tagName="p"
+			value={attributes.thankyou}
+			onChange={ (val) => setAttributes({thankyou: val}) }
+			allowedFormats={ [ 'core/bold', 'core/italic', 'core/image', 'core/link'] }
+			placeholder="Thank you message after submitting the form."
+		/>
+
+	);
+
+	if (isSelected)	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<MktoForm backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true}/>
+			<Fragment>
+				<InspectorControls>
+					<div>
+						<PanelBody title="Thank you message" initialOpen={ true }>
+							{thankyouControl}
+							<Button icon="welcome-view-site" variant="primary" onClick={ function() {
+								window.jQuery(`#mktoForm_${mktoId}`).html(`<p class="thank-you-message">${attributes.thankyou}</p>`);
+								setTimeout(function() {
+									setAttributes({ mktoFormId: 0});
+								}, 2000);
+								setTimeout(function() {
+									window.jQuery('.thank-you-message').remove();
+									setAttributes({ mktoFormId: mktoId});
+								}, 2010);
+							}
+							 }>Preview</Button>
+						</PanelBody>
+					</div>
+				</InspectorControls>
+			</Fragment>
+			<MktoForm thankyou={attributes.thankyou} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true}/>
+
+		</div>
+	);
+
+	return (
+		<div {...useBlockProps()}>
+			<MktoForm thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true}/>
 		</div>
 	)
 

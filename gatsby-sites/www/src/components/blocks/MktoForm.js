@@ -23,20 +23,12 @@ const MktoForm = (props) => {
       window.MktoForms2.loadForm(
         '//info.liveperson.com',
         '501-BLE-979',
-        ${formId},
+        ${formId || 1},
         function(form){
           form.onSuccess(function(values, followUpUrl) {
-            $('#NumberOfEmployees').parents('.mktoFieldDescriptor.mktoFormCol').addClass('mkto-dd-field');
-            $('#NumberOfEmployees').addClass('select-placeholder'); 
-            $('#NumberOfEmployees').on('change', function(){ 
-              if ($(this).val() === ""){ 
-                $(this).addClass('select-placeholder'); 
-              } else {                   
-                $(this).removeClass('select-placeholder');
-              }
-            });
-            $('form').html('<p class="thank-you-message">Thank you! One of our experts will contact you shortly. <img style="display: inline;width: 30px;top: -3px;position: relative;left: 5px;padding:0;" src="https://d1hryyr5hiabsc.cloudfront.net/web2020/img/intents/thumbs-up_1f44d.png" /></p>');
-            formSubmissionComplete('request a demo');
+            
+            form.getFormElem().html('<p class="thank-you-message">${props.thankyou}</p>');
+
             dataLayer.push({'event' : 'request-demo-form'});
       
             return false;
@@ -80,9 +72,9 @@ const MktoForm = (props) => {
   
 
   return (
-    <div className={`pane pane-form ${props.sticky ? 'form--sticky' : ''} ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`} style={{display:'none'}}>
+    <div className={`pane pane-form ${props.sticky ? 'form--sticky' : ''} ${props.backgroundColor||"bg-rainbow"} ${props.header ? 'pane-with-lead-text' : ''}`} style={{display:'none'}}>
       <div className="container">
-        {props.header &&(
+        {props.header && !props.sticky &&(
           <div className="row">
             <div className="col-lg-8 offset-lg-2">
               <h2>{props.header}</h2>

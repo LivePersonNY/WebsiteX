@@ -5,8 +5,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import $ from 'jquery';
-import { __experimentalGrid as ToolbarGroup,Grid,Placeholder, TextareaControl, TextControl, Button, ResponsiveWrapper, CheckboxControl } from '@wordpress/components';
-const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
+import { __experimentalGrid as ToolbarGroup,Grid,Placeholder, ToolbarButton, TextareaControl, TextControl, Button, ResponsiveWrapper, CheckboxControl } from '@wordpress/components';
+const { MediaUpload, MediaUploadCheck, RichText } = wp.blockEditor;
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
 const { Fragment, useState } = wp.element;
@@ -54,12 +54,21 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		});
 	}
 
+	let kickerControl = (
+		<TextControl
+			value={attributes.kicker}
+			onChange={ (val) => setAttributes( { kicker: val } ) }
+			className="embedded-input"
+			placeholder="Kicker Text"
+		/>
+	);
+
 	let contentControl = (
-		<TextareaControl
+		<RichText
+			tagName="p"
 			value={ attributes.text }
 			onChange={ ( val ) => setAttributes( { text: val } ) }
-			className="embedded-input"
-			rows="1"
+			allowedFormats={ [ 'core/bold'] }
 		/>
 	);
 
@@ -108,21 +117,61 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		</div>
 	);
 
+	let linkSecondaryTextControl = (
+		<div className="wp-control-wrapper">
+			<TextControl
+				value={ attributes.linkSecondaryText }
+				onChange={ ( val ) => setAttributes( { linkSecondaryText: val } ) }
+				className="embedded-input"
+				placeholder="Link Text"
+			/>
+
+			<TextControl
+				value={ attributes.linkSecondaryUrl }
+				onChange={ ( val ) => setAttributes( { linkSecondaryUrl: val } ) }
+				placeholder="Link URL"
+			/>
+		</div>
+	);
+
 	let changeBackground = function(color) {
 		setAttributes({ backgroundColor: color });
 	}
 
+	let changeHeadLevel = function() {
+		if (attributes.headLevel == "h2") {
+			setAttributes({ headLevel: "h3" });
+		} else {
+			setAttributes({ headLevel: "h2" });
+		}
+	}
+
 	let addButton = (
 		<BlockControls>
-
-				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+			<ToolbarButton
+				icon="heading"
+				label="Head Level H2/H3"
+				onClick={ changeHeadLevel }
+			/>
+			<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 		</BlockControls>
 	);
 
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<LeftRight backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkText={linkTextControl} content={contentControl} title={titleControl} flipColumns={attributes.flipped} imgCtl={imageControl} />
+			<LeftRight
+				headLevel={attributes.headLevel}
+				kicker={kickerControl}
+				backgroundColor={attributes.backgroundColor}
+				repeat={attributes.repeat}
+				linkText={linkTextControl}
+				linkSecondaryText={linkSecondaryTextControl}
+				body={contentControl}
+				title={titleControl}
+				flipColumns={attributes.flipped}
+				imgCtl={imageControl}
+			/>
 			<Fragment>
 				<InspectorControls>
 					<div>
@@ -151,7 +200,21 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<LeftRight backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText} content={attributes.text} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
+			<LeftRight
+				headLevel={attributes.headLevel}
+				kicker={attributes.kicker}
+				backgroundColor={attributes.backgroundColor}
+				repeat={attributes.repeat}
+				linkUrl={attributes.linkUrl}
+				linkText={attributes.linkText}
+				linkSecondaryUrl={attributes.linkSecondaryUrl}
+				linkSecondaryText={attributes.linkSecondaryText}
+				body={attributes.text}
+				title={attributes.title}
+				flipColumns={attributes.flipped}
+				imgSrc={attributes.mediaUrl}
+				imgAlt={attributes.mediaAlt}
+			/>
 		</div>
 	);
 
