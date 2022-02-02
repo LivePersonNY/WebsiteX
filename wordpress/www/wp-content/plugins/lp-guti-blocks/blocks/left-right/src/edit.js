@@ -117,6 +117,23 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		</div>
 	);
 
+	let linkSecondaryTextControl = (
+		<div className="wp-control-wrapper">
+			<TextControl
+				value={ attributes.linkSecondaryText }
+				onChange={ ( val ) => setAttributes( { linkSecondaryText: val } ) }
+				className="embedded-input"
+				placeholder="Link Text"
+			/>
+
+			<TextControl
+				value={ attributes.linkSecondaryUrl }
+				onChange={ ( val ) => setAttributes( { linkSecondaryUrl: val } ) }
+				placeholder="Link URL"
+			/>
+		</div>
+	);
+
 	let changeBackground = function(color) {
 		setAttributes({ backgroundColor: color });
 	}
@@ -143,7 +160,18 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<LeftRight headLevel={attributes.headLevel} kicker={kickerControl} backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkText={linkTextControl}body={contentControl} title={titleControl} flipColumns={attributes.flipped} imgCtl={imageControl} />
+			<LeftRight
+				headLevel={attributes.headLevel}
+				kicker={kickerControl}
+				backgroundColor={attributes.backgroundColor}
+				repeat={attributes.repeat}
+				linkText={linkTextControl}
+				linkSecondaryText={linkSecondaryTextControl}
+				body={contentControl}
+				title={titleControl}
+				flipColumns={attributes.flipped}
+				imgCtl={imageControl}
+			/>
 			<Fragment>
 				<InspectorControls>
 					<div>
@@ -172,7 +200,21 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<LeftRight headLevel={attributes.headLevel} kicker={attributes.kicker} backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText}body={attributes.text} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
+			<LeftRight
+				headLevel={attributes.headLevel}
+				kicker={attributes.kicker}
+				backgroundColor={attributes.backgroundColor}
+				repeat={attributes.repeat}
+				linkUrl={attributes.linkUrl}
+				linkText={attributes.linkText}
+				linkSecondaryUrl={attributes.linkSecondaryUrl}
+				linkSecondaryText={attributes.linkSecondaryText}
+				body={attributes.text}
+				title={attributes.title}
+				flipColumns={attributes.flipped}
+				imgSrc={attributes.mediaUrl}
+				imgAlt={attributes.mediaAlt}
+			/>
 		</div>
 	);
 

@@ -30,8 +30,13 @@ const LeftRight = (props) => {
               {props.headLevel == 'h3' && <h3>{props.title}</h3>}
               <Paragraph text={props.body} />
               {props.linkText && (
-                <a className="link link-mt-small" href={props.linkUrl}>
+                <a className="btn btn-outline-secondary" href={props.linkUrl}>
                   {props.linkText}
+                </a>
+              )}
+              {props.linkSecondaryText && (
+                <a className="btn btn-link" href={props.linkSecondaryUrl}>
+                  {props.linkSecondaryText}
                 </a>
               )}
             </div>

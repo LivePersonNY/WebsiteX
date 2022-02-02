@@ -10276,6 +10276,7 @@ a > .site code {
 }
 .site .comp-icon-text-d .comp-block-grid-container .col .comp-body-container {
   padding: 40px 20px;
+  height: 100%;
 }
 @media (min-width: 992px) {
   .site .comp-icon-text-d .comp-block-grid-container .col .comp-body-container {

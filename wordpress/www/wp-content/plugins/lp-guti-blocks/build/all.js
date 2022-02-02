@@ -10707,9 +10707,9 @@ const ContentCTA = props => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row align-items-center text-center text-lg-start"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "col-lg-8 offset-lg-1"
+    className: "col-lg-6 offset-lg-1"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.body)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "col-lg-3"
+    className: "col-lg-3 offset-lg-1 text-end"
   }, props.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "btn btn-primary",
     href: props.linkUrl
@@ -11157,9 +11157,12 @@ const LeftRight = props => {
   }, props.kicker), props.headLevel == 'h2' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.title), props.headLevel == 'h3' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, props.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_4__["default"], {
     text: props.body
   }), props.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    className: "link link-mt-small",
+    className: "btn btn-outline-secondary",
     href: props.linkUrl
-  }, props.linkText))))));
+  }, props.linkText), props.linkSecondaryText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    className: "btn btn-link",
+    href: props.linkSecondaryUrl
+  }, props.linkSecondaryText))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (LeftRight);
@@ -14663,6 +14666,22 @@ function Edit(_ref) {
     }),
     placeholder: "Link URL"
   }));
+  let linkSecondaryTextControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wp-control-wrapper"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    value: attributes.linkSecondaryText,
+    onChange: val => setAttributes({
+      linkSecondaryText: val
+    }),
+    className: "embedded-input",
+    placeholder: "Link Text"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    value: attributes.linkSecondaryUrl,
+    onChange: val => setAttributes({
+      linkSecondaryUrl: val
+    }),
+    placeholder: "Link URL"
+  }));
 
   let changeBackground = function (color) {
     setAttributes({
@@ -14696,6 +14715,7 @@ function Edit(_ref) {
     backgroundColor: attributes.backgroundColor,
     repeat: attributes.repeat,
     linkText: linkTextControl,
+    linkSecondaryText: linkSecondaryTextControl,
     body: contentControl,
     title: titleControl,
     flipColumns: attributes.flipped,
@@ -14724,6 +14744,8 @@ function Edit(_ref) {
     repeat: attributes.repeat,
     linkUrl: attributes.linkUrl,
     linkText: attributes.linkText,
+    linkSecondaryUrl: attributes.linkSecondaryUrl,
+    linkSecondaryText: attributes.linkSecondaryText,
     body: attributes.text,
     title: attributes.title,
     flipColumns: attributes.flipped,

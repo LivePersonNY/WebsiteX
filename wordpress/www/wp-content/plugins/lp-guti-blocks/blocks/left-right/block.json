@@ -46,7 +46,9 @@
 			"default": false
 		},
 		"headLevel": {"default": "h2"},
-		"linkText": {"default": "Here's a link text"},
-		"linkUrl": {"default": "https://www.liveperson.com"}
+		"linkText": {"default": "Here's button link text"},
+		"linkUrl": {"default": "https://www.liveperson.com"},
+		"linkSecondaryText": {"default": "Here's a link text"},
+		"linkSecondaryUrl": {"default": "https://www.liveperson.com"}
 	}
 }
