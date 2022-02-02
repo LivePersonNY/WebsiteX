@@ -25,9 +25,9 @@ const LeftRight = (props) => {
                 props.flipColumns ? 'order-lg-first' : ''
               }`}
             >
-              {props.preHeading && <h6>{props.preHeading}</h6>}
+              {props.kicker && <p clasName="h6 text-uppercase">{props.kicker}</p>}
               <h2>{props.title}</h2>
-              <Paragraph text={props.content} />
+              <Paragraph text={props.body} />
               {props.linkText && (
                 <a className="link link-mt-small" href={props.linkUrl}>
                   {props.linkText}

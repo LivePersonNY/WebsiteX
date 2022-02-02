@@ -7,7 +7,7 @@ const ScrollContent = (props) => {
     return(
       <div className='comp-scroll-horizontal-text-block' key={index}>
         <h3>{item.blockTitle}</h3>
-        <p>{item.content}</p>
+        <p>{item.body}</p>
       </div>
     )
   });

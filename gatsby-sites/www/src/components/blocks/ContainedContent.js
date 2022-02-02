@@ -15,7 +15,7 @@ const ContainedContent = (props) => {
                     <p class="h6 text-uppercase">{props.kicker}</p>
                   )}
                   <h2>{props.header}</h2>
-                  <p>{props.content}</p>
+                  <p>{props.body}</p>
                   {props.linkText && (
                     <a className="btn btn-primary" href={props.linkUrl}>
                       {props.linkText}

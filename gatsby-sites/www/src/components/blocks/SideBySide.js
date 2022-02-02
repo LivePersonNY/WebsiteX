@@ -9,7 +9,7 @@ const SideBySide = (props) => {
       <div className={`col-lg-6 `} key={index}>
         {!item.imgCtl && <img src={item.imgSrc} alt={item.imgAlt} /> || item.imgCtl}
         <h2>{item.header}</h2>
-        <p>{item.content}</p>
+        <p>{item.body}</p>
       </div>
     )
   })

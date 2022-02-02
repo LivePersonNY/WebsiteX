@@ -78,7 +78,7 @@ const IndexPage = () => (
       backgroundColor="bg-primary-light"
       colWidth="8"
       header="What is LivePerson?"
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci,
+      body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci,
               pellentesque a tincidunt dignissim adipiscing blandit eu. Sagittis
               a, lorem eget nulla porttitor vitae ultricies. At aliquet non
               viverra scelerisque enim sagittis."
@@ -88,10 +88,10 @@ const IndexPage = () => (
 
     <LeftRight
       backgroundColor="bg-primary-light"
-      preHeading="UNDERSTAND"
+      kicker="UNDERSTAND"
       title="Breathe life into your brand with human centered AI that’s
               anything but artificial."
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris."
       imgSrc="https://picsum.photos/640/480?random=2"
@@ -100,10 +100,10 @@ const IndexPage = () => (
 
     <LeftRight
       backgroundColor="bg-primary-light"
-      preHeading="CONNECT"
+      kicker="CONNECT"
       title="Deepen your understanding of consumers when they feel seen, heard
       and valued."
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
       enim ad minim veniam, quis nostrud exercitation ullamco laboris."
       imgSrc="https://picsum.photos/640/480?random=3"
@@ -113,9 +113,9 @@ const IndexPage = () => (
 
     <LeftRight
       backgroundColor="bg-primary-light"
-      preHeading="OUTCOMES"
+      kicker="OUTCOMES"
       title="Manage consumer conversations simply. Like, seriously simply."
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
       enim ad minim veniam, quis nostrud exercitation ullamco laboris."
       imgSrc="https://picsum.photos/640/480?random=4"
@@ -331,9 +331,9 @@ const IndexPage = () => (
 
     <LeftRight
       backgroundColor="bg-primary-light"
-      preHeading="WHY LIVEPERSON"
+      kicker="WHY LIVEPERSON"
       title="Branded copy that speaks to LivePerson’s values"
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris."
       imgSrc="https://picsum.photos/640/480"
@@ -562,7 +562,7 @@ const IndexPage = () => (
     <ContainedContent 
       backgroundColor="bg-primary-light"
       header="Call to action goes here"
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam dictum neque nunc, morbi. Laoreet nam magna rhoncus rutrum ut condimentum."
+      body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam dictum neque nunc, morbi. Laoreet nam magna rhoncus rutrum ut condimentum."
       linkText="Primary CTA"
       linkUrl="#"
       imgSrc="https://picsum.photos/1088/544"
@@ -571,7 +571,7 @@ const IndexPage = () => (
 
     <ContentCTA
       backgroundColor="bg-primary-light"
-      content="Learn more about Voicebase"
+      body="Learn more about Voicebase"
       linkText="Explore Voicebase"
       linkUrl="#"
     />
@@ -642,7 +642,7 @@ const IndexPage = () => (
     <CardGridB
       backgroundColor="bg-neutral-92"
       header="Compliance &amp; Certifications"
-      content="Et omnia in potestate nostra esse natura liber, libera, libere valeant; sed illis non est in nostra potestate sunt infirmi, servilis, licet, lex pertinet. Tenete ergo."
+      body="Et omnia in potestate nostra esse natura liber, libera, libere valeant; sed illis non est in nostra potestate sunt infirmi, servilis, licet, lex pertinet. Tenete ergo."
       items={[
         {
           "imgSrc":"https://picsum.photos/304/168?random=1",

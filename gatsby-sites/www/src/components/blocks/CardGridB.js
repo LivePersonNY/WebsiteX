@@ -35,7 +35,7 @@ const CardGridB = (props) => {
           <div className="row text-center">
             <div className="col-lg-8 offset-lg-2">
               <h2 className="">{props.header}</h2>
-              <p className="">{props.content}</p>
+              <p className="">{props.body}</p>
             </div>
           </div>
         )}
