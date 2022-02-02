@@ -43,6 +43,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+			placeholder="Section Header"
 		/>
 	);
 
@@ -168,14 +169,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<TabsB heading={headerControl} items={itemControls} />
+			<TabsB header={headerControl} items={itemControls} />
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<TabsB heading={attributes.header} items={attributes.tabItems}/>
+			<TabsB header={attributes.header} items={attributes.tabItems}/>
 		</div>
 	)
 

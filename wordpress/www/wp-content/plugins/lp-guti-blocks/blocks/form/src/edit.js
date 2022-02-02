@@ -11,11 +11,11 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 import MktoForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/MktoForm';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, Button, ResponsiveWrapper, ToolbarGroup } from '@wordpress/components';
 const { Fragment, useState } = wp.element;
-
+import BackgroundSelectorMenu from '../../BackgroundSelector';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -35,9 +35,29 @@ import './editor.scss';
  */
 export default function Edit({attributes, isSelected, setAttributes}) {
 
+	let changeBackground = function(color) {
+		setAttributes({ backgroundColor: color });
+	}
+
+	var mktoId = attributes.mktoFormId;
+
+	let addButton = (
+		<BlockControls>
+			<ToolbarGroup>
+				<TextControl value={attributes.mktoFormId} className="form-selector" onChange={ ( val ) => {
+					if (window.MktoForms2.getForm(mktoId)) window.MktoForms2.getForm(mktoId).getFormElem().children().remove();
+					mktoId = val;
+					setAttributes( { mktoFormId: val } );
+				}} />
+				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+			</ToolbarGroup>
+		</BlockControls>
+	);
+
 	return (
 		<div {...useBlockProps()}>
-			<MktoForm formId={attributes.mktoFormId} runFilters={true}/>
+			{addButton}
+			<MktoForm backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true}/>
 		</div>
 	)
 

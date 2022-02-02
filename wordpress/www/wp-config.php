@@ -3,8 +3,8 @@
 /** @desc this loads the composer autoload file */
 require_once dirname( __DIR__ ) . '../../vendor/autoload.php';
 /** @desc this instantiates Dotenv and passes in our path to .env */
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__).'../..');
-$dotenv->load();
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__).'/..');
+$dump = $dotenv->load();
 
 /**
  * The base configuration for WordPress
@@ -43,6 +43,8 @@ define( 'DB_CHARSET', 'utf8' );
 
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
+
+define( 'USE_MYSQL', $dump['WP_USE_MYSQL'] ?? false);
 
 /**#@+
  * Authentication unique keys and salts.

@@ -23,19 +23,19 @@
 			"type": "array",
 			"default": [
 				{
-					"img": "https://picsum.photos/224/30?random=3",
+					"imgSrc": "https://picsum.photos/224/30?random=3",
 					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
 					"linkText": "More about Lorem",
 					"linkUrl": "#"
 				},
 				{
-					"img": "https://picsum.photos/224/30?random=4",
+					"imgSrc": "https://picsum.photos/224/30?random=4",
 					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
 					"linkText": "More about Lorem",
 					"linkUrl": "#"
 				},
 				{
-					"img": "https://picsum.photos/224/30?random=5",
+					"imgSrc": "https://picsum.photos/224/30?random=5",
 					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
 					"linkText": "More about Lorem",
 					"linkUrl": "#"

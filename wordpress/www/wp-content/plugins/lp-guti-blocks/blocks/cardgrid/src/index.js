@@ -36,4 +36,38 @@ registerBlockType('lp-guti-blocks/cardgrid', {
 	 */
 	save,
 
+	example: {
+		attributes: {
+			blocktype: 'CardGridB',
+			cards: [
+				{
+					"imgSrc": "https://picsum.photos/224/30?random=3",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+					"linkText": "More about Lorem",
+					"linkUrl": "#"
+				},
+				{
+					"imgSrc": "https://picsum.photos/224/30?random=3",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+					"linkText": "More about Lorem",
+					"linkUrl": "#"
+				},
+				{
+					"imgSrc": "https://picsum.photos/224/30?random=4",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+					"linkText": "More about Lorem",
+					"linkUrl": "#"
+				},
+				{
+					"imgSrc": "https://picsum.photos/224/30?random=5",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+					"linkText": "More about Lorem",
+					"linkUrl": "#"
+				}
+			],
+			header: "Card Grid",
+			content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor"
+		}
+	}
+
 });

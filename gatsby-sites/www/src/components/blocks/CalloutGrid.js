@@ -8,7 +8,10 @@ const CalloutGrid = (props) => {
     return(
       <div className="col-lg-4" key={index}>
         <a className="link" href={item.linkUrl}>
-          <img src={item.imgSrc} alt={item.imgAlt} />
+          {!item.imgCtl && <img
+            src={item.imgSrc}
+            alt={item.imgAlt}
+          /> || item.imgCtl}
           <p className="h6 text-uppercase">{item.category}</p>
           <h3 className="card1">{item.body}</h3>
           {item.author && (

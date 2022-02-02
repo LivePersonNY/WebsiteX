@@ -10,7 +10,7 @@ const CardGridB = (props) => {
       <div className="col-12 col-lg-3" key={index}>
         <div className="card card-b h-100">
           {!item.imgCtl && <img
-              className=" card-img-top"
+              className="card-img-top"
               src={item.imgSrc}
               alt={item.imgAlt}
             /> || item.imgCtl}

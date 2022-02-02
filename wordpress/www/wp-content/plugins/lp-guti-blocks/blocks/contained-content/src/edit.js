@@ -49,6 +49,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+			placeholder="Section Header"
 		/>
 	);
 

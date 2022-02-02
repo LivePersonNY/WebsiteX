@@ -56,22 +56,18 @@ const IconTextB = (props) => {
         )}
         <div className="row row-cols-lg-3 comp-card-grid-container">
           {cardCol}
-          {props.cardCTA && (
-            props.cardCTA.map((item, index)=>{
-              return (
-                <div className="col" key={index}>
-                  <div className="card h-100 text-center">
-                    <div className="card-body d-flex flex-column justify-content-center align-items-center">
-                      <h3 className="card-text">{item.body}</h3>
-                      <a href={item.btnUrl} className="btn btn-primary">
-                        {item.btnText}
-                      </a>
-                    </div>
-                  </div>
+          {props.cardCTA && 
+            <div className="col">
+              <div className="card h-100 text-center">
+                <div className="card-body d-flex flex-column justify-content-center align-items-center">
+                  <h3 className="card-text">{props.cardCTAbody}</h3>
+                  <a href={props.btnUrl} className="btn btn-primary">
+                    {props.btnText}
+                  </a>
                 </div>
-              )
-            })
-           )} 
+              </div>
+            </div>
+           } 
         </div>
       </div>
     </div>

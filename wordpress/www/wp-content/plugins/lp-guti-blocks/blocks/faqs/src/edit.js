@@ -44,6 +44,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+			placeholder="Header Text"
 		/>
 	);
 
@@ -61,6 +62,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			value={ attributes.kicker }
 			onChange={ ( val ) => setAttributes( { kicker: val } ) }
 			className="embedded-input"
+			placeholder="Kicker Text"
 		/>
 	);
 
@@ -120,13 +122,11 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 	let addTabFunc = function() {
 
 		faqs.push({
-			"img": "https://picsum.photos/224/30?random=3",
+			"title": "Dude, where's my car?",
 			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
-			"linkText": "More about Lorem",
-			"linkUrl": "#"
 		});
 		setAttributes({
-			cards: cards
+			faqs: faqs
 		});
 	}
 

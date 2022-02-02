@@ -15,6 +15,10 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
+		"cta": {"default": false},
+		"ctaBody": {"default": "Call to action goes here"},
+		"btnText": {"default": "Click me!"},
+		"btnUrl": {},
 		"header": {"default": "Product Features"},
 		"blocktype": {"default": "IconTextA" },
 		"backgroundColor": {"default": "bg-transparent"},

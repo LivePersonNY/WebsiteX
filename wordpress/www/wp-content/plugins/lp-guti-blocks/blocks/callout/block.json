@@ -1,0 +1,51 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/callout",
+	"version": "0.1.0",
+	"title": "Related Insights",
+	"category": "liveperson",
+	"icon": "grid-view",
+	"description": "Card grid for related insights.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"header": {"default": "Related Insights"},
+		"backgroundColor": {"default": "bg-transparent" },
+		"linkText": {"default": "Show All"},
+		"cards": {
+			"type": "array",
+			"default": [
+				{
+					"imgSrc": "https://picsum.photos/224/30?random=3",
+					"category": "Being Green",
+					"author": "Kermit D. Frog",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+					"linkText": "More about Lorem",
+					"linkUrl": "#"
+				},
+				{
+					"imgSrc": "https://picsum.photos/224/30?random=4",
+					"category": "Being Green",
+					"author": "Kermit D. Frog",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+					"linkText": "More about Lorem",
+					"linkUrl": "#"
+				},
+				{
+					"imgSrc": "https://picsum.photos/224/30?random=5",
+					"category": "Being Green",
+					"author": "Kermit D. Frog",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+					"linkText": "More about Lorem",
+					"linkUrl": "#"
+				}
+			]
+		}
+	}
+}

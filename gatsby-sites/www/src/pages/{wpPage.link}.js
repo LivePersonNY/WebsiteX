@@ -51,6 +51,7 @@ export const pageQuery = graphql`
 		id
 		content
 		title
+		link
 		seo {
 		  canonical
 		  cornerstone

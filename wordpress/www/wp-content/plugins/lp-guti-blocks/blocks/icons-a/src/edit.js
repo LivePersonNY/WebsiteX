@@ -55,6 +55,32 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		/>
 	);
 
+	let ctaBodyControl = (
+		<TextareaControl
+			value={ attributes.ctaBody }
+			onChange={ ( val ) => setAttributes( { ctaBody: val } ) }
+			className="embedded-input"
+			placeholder="CTA Card Body"
+			rows="1"
+		/>
+	);
+
+	let btnControl = (
+		<div className="wp-control-wrapper">
+			<TextControl
+				value={ attributes.btnText }
+				onChange={ ( val ) => setAttributes( { btnText: val } ) }
+				className="embedded-input"
+				placeholder="Button Text"
+			/>
+			<TextControl
+				value={ attributes.btnUrl }
+				onChange={ ( val ) => setAttributes( { btnUrl: val } ) }
+				placeholder="Button URL"
+			/>
+		</div>
+	);
+
 	let bodyControl = (
 		<TextareaControl
 			value={ attributes.body }
@@ -158,6 +184,21 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		setAttributes({ backgroundColor: color });
 	}
 
+	let ctaButton = (
+		<ToolbarButton
+			icon="button"
+			label="CTA"
+			isActive={attributes.cta}
+			onClick={ function() {
+				if (attributes.cta == true) {
+					setAttributes({ cta: false});
+				} else {
+					setAttributes({ cta: true});
+				}
+			} }
+		/>
+	);
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
@@ -166,30 +207,35 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 					label="Add"
 					onClick={ addTabFunc }
 				/>
+				{attributes.blocktype == 'IconTextB' && ctaButton}
 				<ToolbarDropdownMenu
 					icon="admin-settings"
 					label="Select a version"
 					controls={ [
 						{
 							title: 'Version 1',
+							isActive: attributes.blocktype == 'IconTextA',
 							onClick: () => {
 								setAttributes({blocktype: "IconTextA"});
 							},
 						},
 						{
 							title: 'Version 2',
+							isActive: attributes.blocktype == 'IconTextB',
 							onClick: () => {
 								setAttributes({blocktype: "IconTextB"});
 							},
 						},
 						{
 							title: 'Version 3',
+							isActive: attributes.blocktype == 'IconTextC',
 							onClick: () => {
 								setAttributes({blocktype: "IconTextC"});
 							},
 						},
 						{
 							title: 'Version 4',
+							isActive: attributes.blocktype == 'IconTextD',
 							onClick: () => {
 								setAttributes({blocktype: "IconTextD"});
 							},
@@ -206,10 +252,13 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<div {...useBlockProps()}>
 			{addButton}
 
-			{attributes.blocktype == "IconTextA" && <IconTextA heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextB" && <IconTextB heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextC" && <IconTextC heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextD" && <IconTextD body={bodyControl} heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextA" && <IconTextA header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextB" && <IconTextB cardCTA={attributes.cta}
+			cardCTAbody={ctaBodyControl}
+			btnText={btnControl}
+			header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextC" && <IconTextC header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextD" && <IconTextD body={bodyControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
 
 		</div>
 	);
@@ -217,10 +266,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			{attributes.blocktype == "IconTextA" && <IconTextA heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextB" && <IconTextB heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextC" && <IconTextC heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextD" && <IconTextD body={attributes.body} heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextA" && <IconTextA header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextB" && <IconTextB cardCTA={attributes.cta}
+			cardCTAbody={attributes.ctaBody}
+			btnText={attributes.btnText}
+			btnUrl={attributes.btnUrl}
+			header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextC" && <IconTextC header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextD" && <IconTextD body={attributes.body} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 
 		</div>
 	)

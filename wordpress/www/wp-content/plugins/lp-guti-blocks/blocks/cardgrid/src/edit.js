@@ -45,6 +45,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+			placeholder="Section Header"
 		/>
 	);
 
@@ -86,7 +87,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				<MediaUploadCheck>
 					<MediaUpload
 						onSelect={function(media) {
-							cards[index].img = media.url;
+							cards[index].imgSrc = media.url;
 							cards[index].mediaId = media.id;
 							cards[index].imgAlt = media.alt || '';
 							setAttributes({ cards: cards});
@@ -94,7 +95,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 						value={cards[index].mediaId}
 						allowedTypes={ ['image'] }
 						render={({open}) => (
-							<img className="comp-tabs-img" src={cards[index].img || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
+							<img src={cards[index].imgSrc || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
 						)}
 					/>
 				</MediaUploadCheck>
@@ -125,7 +126,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 	let addTabFunc = function() {
 
 		cards.push({
-			"img": "https://picsum.photos/224/30?random=3",
+			"imgSrc": "https://picsum.photos/224/30?random=3",
 			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
 			"linkText": "More about Lorem",
 			"linkUrl": "#"
@@ -153,12 +154,14 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 					controls={ [
 						{
 							title: 'Version 1',
+							isActive: attributes.blocktype == 'CardGrid',
 							onClick: () => {
 								setAttributes({blocktype: "CardGrid"});
 							},
 						},
 						{
 							title: 'Version 2',
+							isActive: attributes.blocktype == 'CardGridB',
 							onClick: () => {
 								setAttributes({blocktype: "CardGridB"});
 							},
@@ -176,13 +179,13 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			{addButton}
 			{attributes.blocktype == "CardGrid" &&
 			<CardGrid
-				heading={headerControl}
+				header={headerControl}
 				items={controls}
 				backgroundColor={attributes.backgroundColor}
 			/>}
 			{attributes.blocktype == "CardGridB" &&
 			<CardGridB
-				heading={headerControl}
+				header={headerControl}
 				items={controls}
 				content={contentControl}
 				backgroundColor={attributes.backgroundColor}
@@ -195,13 +198,13 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			{addButton}
 			{attributes.blocktype == "CardGrid" &&
 			<CardGrid
-				heading={attributes.header}
+				header={attributes.header}
 				items={attributes.cards}
 				backgroundColor={attributes.backgroundColor}
 			/>}
 			{attributes.blocktype == "CardGridB" &&
 			<CardGridB
-				heading={attributes.header}
+				header={attributes.header}
 				items={attributes.cards}
 				content={attributes.content}
 				backgroundColor={attributes.backgroundColor}

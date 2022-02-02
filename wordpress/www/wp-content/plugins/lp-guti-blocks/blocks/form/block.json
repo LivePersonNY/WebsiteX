@@ -16,8 +16,7 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"mktoFormId": {
-			"default": 2580,
-			"type": "number"
+			"default": 2580
 		}
 	}
 }

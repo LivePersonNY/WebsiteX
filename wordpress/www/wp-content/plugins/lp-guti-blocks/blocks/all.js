@@ -13,6 +13,7 @@ import './icons-a/src/index';
 import './tabs-c/src/index';
 import './quote-slider/src/index';
 import './faqs/src/index';
+import './callout/src/index';
 
 import $ from 'jquery';
 

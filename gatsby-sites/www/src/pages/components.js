@@ -454,13 +454,10 @@ const IndexPage = () => (
           "linkUrl":"#"
         },
       ]}
-      cardCTA={[
-        {
-          "body":"Call to action goes right here across two lines",
-          "btnText":"Primary CTA",
-          "btnUrl":"#"
-        },
-      ]}
+      cardCTA={true}
+      btnText="Primary CTA"
+      btnUrl="#"
+      cardCTAbody="Call to action goes right here"
     />
     
     <IconTextC
