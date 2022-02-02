@@ -10,10 +10,10 @@ const ContentCTA = (props) => {
           <div className="col-lg-12">
             <div className="comp-content-cta-container bg-neutral-96">
               <div className="row align-items-center text-center text-lg-start">
-                <div className="col-lg-8 offset-lg-1">
+                <div className="col-lg-6 offset-lg-1">
                   <h2>{props.body}</h2>
                 </div>
-                <div className="col-lg-3">
+                <div className="col-lg-3 offset-lg-1 text-end">
                     {props.linkText && (
                       <a className="btn btn-primary" href={props.linkUrl}>
                         {props.linkText}

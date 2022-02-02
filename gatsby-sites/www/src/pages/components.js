@@ -72,6 +72,13 @@ const IndexPage = () => (
       sticky="true"
       // header="Strong benefit that weaves in security of the LivePerson platform"
     />
+
+    {/* <MktoForm 
+      backgroundColor="bg-rainbow"
+      formId="2580" 
+      runFilters={true} 
+      // header="Strong benefit that weaves in security of the LivePerson platform"
+    /> */}
     {/* 2580, 3733 */}
 
     <PlainContent
@@ -127,23 +134,23 @@ const IndexPage = () => (
       items={[
         {
           "stat":"2.5x",
-          "content":"Increased ad conversions"
+          "body":"Increased ad conversions"
         },
         {
           "stat":"20%",
-          "content":"Increased sales conversions"
+          "body":"Increased sales conversions"
         },
         {
           "stat":"50%",
-          "content":"Reduced labor costs"
+          "body":"Reduced labor costs"
         },
         {
           "stat":"20%",
-          "content":"Increased CSAT score"
+          "body":"Increased CSAT score"
         },
         {
           "stat":"20%",
-          "content":"Increased CSAT score"
+          "body":"Increased CSAT score"
         }
       ]}
     />
@@ -583,13 +590,13 @@ const IndexPage = () => (
           "imgSrc":"https://picsum.photos/640/428",
           "imgAlt":"test",
           "header":"Transform voice networks",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim sagittis senectus iaculis sem nisi, purus dignissim maecenas. Imperdiet eget scelerisque iaculis ut aliquam nisl, auctor. Euismod turpis mauris in."
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim sagittis senectus iaculis sem nisi, purus dignissim maecenas. Imperdiet eget scelerisque iaculis ut aliquam nisl, auctor. Euismod turpis mauris in."
         },
         {
           "imgSrc":"https://picsum.photos/640/428?random=1",
           "imgAlt":"test",
           "header":"Work with any voice vendor",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim sagittis senectus iaculis sem nisi, purus dignissim maecenas. Imperdiet eget scelerisque iaculis ut aliquam nisl, auctor. Euismod turpis mauris in."
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim sagittis senectus iaculis sem nisi, purus dignissim maecenas. Imperdiet eget scelerisque iaculis ut aliquam nisl, auctor. Euismod turpis mauris in."
         },
       ]}
     />
@@ -600,15 +607,15 @@ const IndexPage = () => (
       items={[
         {
           "blockTitle":"AI & Automations",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum.",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum.",
         },
         {
           "blockTitle":"Messaging Channels",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum.",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum.",
         },
         {
           "blockTitle":"Integration Hub Base",
-          "content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum.",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum.",
         },
       ]}
     />
@@ -889,27 +896,27 @@ const IndexPage = () => (
       items={[
         {
           "blockTitle":"Paid time off",
-          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+          "body":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
         },
         {
           "blockTitle":"Paid time off",
-          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+          "body":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
         },
         {
           "blockTitle":"Paid time off",
-          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+          "body":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
         },
         {
           "blockTitle":"Paid time off",
-          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+          "body":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
         },
         {
           "blockTitle":"Paid time off",
-          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+          "body":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
         },
         {
           "blockTitle":"Paid time off",
-          "content":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
+          "body":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
         },
       ]}
     />
