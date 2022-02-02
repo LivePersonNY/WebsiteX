@@ -52,6 +52,7 @@
 	}
 	.bg-rainbow {
 		background: $rainbow;
+		color: #191919;
 	}
 	.is-active {
 		background: #191919;
@@ -59,10 +60,17 @@
 	}
 	.bg-lavendar-20 {
 		background: $lavendar20;
+		color: #191919;
 	}
 
 	.bg-blue-20 {
-		background: $blue20
+		background: $blue20;
+		color: #191919;
+	}
+
+	.bg-neutral-96 {
+		background: $neutral96;
+		color: #191919;
 	}
 }
 

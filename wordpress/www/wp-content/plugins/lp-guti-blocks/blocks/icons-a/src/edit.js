@@ -207,6 +207,16 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 					label="Add"
 					onClick={ addTabFunc }
 				/>
+				{attributes.blocktype == 'IconTextD' && <ToolbarButton
+					icon="editor-aligncenter"
+					label="Align"
+					isActive={attributes.centerBody}
+					onClick={
+						function() {
+							setAttributes({ centerBody: !attributes.centerBody });
+						}
+					}
+				/>}
 				{attributes.blocktype == 'IconTextB' && ctaButton}
 				<ToolbarDropdownMenu
 					icon="admin-settings"
@@ -258,7 +268,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			btnText={btnControl}
 			header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
 			{attributes.blocktype == "IconTextC" && <IconTextC header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextD" && <IconTextD body={bodyControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextD" && <IconTextD centerBody={attributes.centerBody} body={bodyControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
 
 		</div>
 	);
@@ -273,7 +283,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			btnUrl={attributes.btnUrl}
 			header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 			{attributes.blocktype == "IconTextC" && <IconTextC header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextD" && <IconTextD body={attributes.body} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextD" && <IconTextD centerBody={attributes.centerBody} body={attributes.body} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 
 		</div>
 	)

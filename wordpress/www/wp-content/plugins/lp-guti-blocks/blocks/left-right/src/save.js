@@ -26,6 +26,19 @@ import LineBreaks from '../../LineBreaks';
  */
 export default function save({attributes}) {
 	return (
-			<LeftRight headLevel={attributes.headLevel} kicker={attributes.kicker} backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText}body={attributes.text} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
+		<LeftRight headLevel={attributes.headLevel}
+			kicker={attributes.kicker}
+			backgroundColor={attributes.backgroundColor}
+			repeat={attributes.repeat}
+			linkUrl={attributes.linkUrl}
+			linkText={attributes.linkText}
+			linkSecondaryUrl={attributes.linkSecondaryUrl}
+			linkSecondaryText={attributes.linkSecondaryText}
+			body={attributes.text}
+			title={attributes.title}
+			flipColumns={attributes.flipped}
+			imgSrc={attributes.mediaUrl}
+			imgAlt={attributes.mediaAlt}
+		 />
 	);
 }
