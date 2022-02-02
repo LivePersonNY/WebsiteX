@@ -8055,7 +8055,7 @@ const CardGridB = props => {
     className: ""
   }, props.header), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: ""
-  }, props.content))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, props.body))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row comp-card-grid-container"
   }, cardCol)));
 };
@@ -8099,7 +8099,7 @@ const ContainedContent = props => {
     className: "col-lg-8 offset-lg-2 text-center"
   }, props.kicker && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     class: "h6 text-uppercase"
-  }, props.kicker), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.header), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, props.content), props.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  }, props.kicker), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.header), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, props.body), props.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "btn btn-primary",
     href: props.linkUrl
   }, props.linkText))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -8138,7 +8138,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const ContentCTA = props => {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `pane comp-content-cta ${props.backgroundColor || "bg-transparent"} ${props.content ? 'pane-with-lead-text' : ''}`
+    className: `pane comp-content-cta ${props.backgroundColor || "bg-transparent"} ${props.body ? 'pane-with-lead-text' : ''}`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -8151,7 +8151,7 @@ const ContentCTA = props => {
     className: "row align-items-center text-center text-lg-start"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "col-lg-8 offset-lg-1"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.content)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.body)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "col-lg-3"
   }, props.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "btn btn-primary",
@@ -8595,7 +8595,9 @@ const LeftRight = props => {
     alt: props.imgAlt
   }) || props.imgCtl), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `col-lg-6 ${props.flipColumns ? 'order-lg-first' : ''}`
-  }, props.kicker && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h6", null, props.kicker), props.headLevel == 'h2' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.title), props.headLevel == 'h3' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, props.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, props.kicker && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "h6 text-uppercase"
+  }, props.kicker), props.headLevel == 'h2' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.title), props.headLevel == 'h3' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, props.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_4__["default"], {
     text: props.body
   }), props.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "link link-mt-small",
@@ -8703,13 +8705,17 @@ const MktoForm = props => {
   }
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "pane pane-form form--sticky",
+    className: `pane pane-form ${props.sticky ? 'form--sticky' : ''} ${props.backgroundColor || "bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`,
     style: {
       display: 'none'
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "container"
+  }, props.header && !props.sticky && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "row"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "col-lg-8 offset-lg-2"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.header))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "col-lg-12"
@@ -8786,8 +8792,8 @@ const PlainContent = function (props) {
     className: "row align-items-center justify-content-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `col-lg-${props.colWidth || 12}`
-  }, headerLevel == "h2" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.header), headerLevel == "h1" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, props.header), props.content && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    text: props.content
+  }, headerLevel == "h2" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.header), headerLevel == "h1" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, props.header), props.body && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    text: props.body
   }), props.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "link link-mt-large",
     href: props.linkUrl
@@ -8894,7 +8900,7 @@ const StatsGrid = props => {
       className: "h1"
     }, item.stat), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
       className: "subtitle2"
-    }, item.content));
+    }, item.body));
   });
   let statAmount = props.items.length;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -11010,7 +11016,32 @@ function Edit(_ref) {
   };
 
   var mktoId = attributes.mktoFormId;
-  let addButton = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+
+  let toggleSticky = function () {
+    if (attributes.sticky) {
+      setAttributes({
+        sticky: false
+      });
+    } else {
+      setAttributes({
+        sticky: true
+      });
+    }
+  };
+
+  let titleControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+    value: attributes.header,
+    onChange: val => setAttributes({
+      header: val
+    }),
+    className: "embedded-input",
+    placeholder: "Section Header"
+  });
+  let addButton = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToolbarButton, {
+    icon: "admin-post",
+    label: "Toggle Sticky Form Status",
+    onClick: toggleSticky
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
     value: attributes.mktoFormId,
     className: "form-selector",
     onChange: val => {
@@ -11024,7 +11055,16 @@ function Edit(_ref) {
     callback: changeBackground,
     selected: attributes.backgroundColor
   })));
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), addButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_MktoForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  if (isSelected) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), addButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_MktoForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    header: titleControl,
+    sticky: attributes.sticky,
+    backgroundColor: attributes.backgroundColor,
+    formId: attributes.mktoFormId,
+    runFilters: true
+  }));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_MktoForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    header: attributes.header,
+    sticky: attributes.sticky,
     backgroundColor: attributes.backgroundColor,
     formId: attributes.mktoFormId,
     runFilters: true
@@ -11140,6 +11180,8 @@ function save(_ref) {
     attributes
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_MktoForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    header: attributes.header,
+    sticky: attributes.sticky,
     backgroundColor: attributes.backgroundColor,
     formId: attributes.mktoFormId
   });

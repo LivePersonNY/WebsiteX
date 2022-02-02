@@ -10043,11 +10043,13 @@ a > .block-editor-block-list__layout code {
 }
 .block-editor-block-list__layout .hero .btn {
   margin-top: 36px;
+  display: block;
 }
 @media (min-width: 992px) {
   .block-editor-block-list__layout .hero .btn {
     margin-top: 40px;
     margin-right: 16px;
+    display: inline-block;
   }
 }
 .block-editor-block-list__layout .comp-left-right.comp-left-right-repeat {
@@ -10678,20 +10680,43 @@ a > .block-editor-block-list__layout code {
 }
 .block-editor-block-list__layout .pane-form {
   text-align: center;
-  position: -webkit-sticky;
-  position: sticky;
   z-index: 100;
   display: block !important;
-  top: 0;
   background: linear-gradient(90deg, #AAD5EA 0%, #C1C1F3 33.3%, #F7B1B1 66.6%, #F7B995 100%);
-  padding: 16px 0;
 }
 .block-editor-block-list__layout .pane-form.swapPosition {
   position: absolute;
   width: 100%;
   z-index: 999999999;
 }
-.block-editor-block-list__layout .pane-form .container .mobileForm .span1 {
+.block-editor-block-list__layout .pane-form.bg-neutral-96 {
+  background: #F4F4F6;
+}
+.block-editor-block-list__layout .pane-form .container h2, .block-editor-block-list__layout .pane-form .container .h2 {
+  margin-bottom: 48px;
+  background: -webkit-linear-gradient(90deg, #3863E5 0%, #8D46EB 86.36%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.block-editor-block-list__layout .pane-form .container .mobileForm {
+  display: none;
+}
+.block-editor-block-list__layout .pane-form.form--sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  display: none;
+  padding: 16px 0;
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .pane-form.form--sticky {
+    display: block;
+  }
+}
+.block-editor-block-list__layout .pane-form.form--sticky .container .mobileForm {
+  display: block;
+}
+.block-editor-block-list__layout .pane-form.form--sticky .container .mobileForm .span1 {
   display: inline-block;
   padding: 10px !important;
   border-radius: 24px;
@@ -10708,15 +10733,15 @@ a > .block-editor-block-list__layout code {
   text-decoration: none;
 }
 @media (min-width: 992px) {
-  .block-editor-block-list__layout .pane-form .container .mobileForm .span1 {
+  .block-editor-block-list__layout .pane-form.form--sticky .container .mobileForm .span1 {
     display: none;
   }
 }
-.block-editor-block-list__layout .pane-form .container .mobileForm .span1.swap,
-.block-editor-block-list__layout .pane-form .container .mobileForm .span2 {
+.block-editor-block-list__layout .pane-form.form--sticky .container .mobileForm .span1.swap,
+.block-editor-block-list__layout .pane-form.form--sticky .container .mobileForm .span2 {
   display: none;
 }
-.block-editor-block-list__layout .pane-form .container .mobileForm .span2.swap {
+.block-editor-block-list__layout .pane-form.form--sticky .container .mobileForm .span2.swap {
   display: block;
   width: 40px;
   margin: auto;
@@ -10727,12 +10752,7 @@ a > .block-editor-block-list__layout code {
   margin: 0 auto;
   text-align: center !important;
   padding: 0;
-  display: none;
-}
-@media (min-width: 992px) {
-  .block-editor-block-list__layout .pane-form .mktoForm {
-    display: block;
-  }
+  display: block;
 }
 .block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow {
   clear: none;
@@ -10741,13 +10761,18 @@ a > .block-editor-block-list__layout code {
 }
 @media (min-width: 992px) {
   .block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow {
-    width: auto !important;
+    width: 23% !important;
+    margin-right: 12px;
   }
 }
 .block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol {
   margin-bottom: 0 !important;
+  float: none;
 }
-.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol input {
+.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap {
+  width: 100%;
+}
+.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap input {
   border-radius: 4px;
   border: 0;
   background: #fcfcfc;
@@ -10756,38 +10781,36 @@ a > .block-editor-block-list__layout code {
   line-height: 24px !important;
   color: #363944;
   font-family: "Inter", Arial;
-  margin-right: 0 !important;
   margin-bottom: 16px;
   width: 100% !important;
 }
 @media (min-width: 992px) {
-  .block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol input {
-    width: 340px !important;
+  .block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap input {
+    width: 100% !important;
     padding: 12px 40px 12px 12px !important;
-    margin-right: 12px !important;
     margin-bottom: 0;
   }
 }
-.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol input:focus {
+.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap input:focus {
   border-bottom-color: #363944;
 }
-.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol input:-webkit-autofill, .block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol input:-webkit-autofill:hover, .block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol input:-webkit-autofill:focus {
+.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap input:-webkit-autofill, .block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap input:-webkit-autofill:hover, .block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap input:-webkit-autofill:focus {
   -webkit-text-fill-color: #363944;
   box-shadow: 0 0 0px 1000px transparent inset;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
   font-size: 16px !important;
 }
-.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol input.mktoField::-moz-placeholder {
+.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap input.mktoField::-moz-placeholder {
   color: #363944;
 }
-.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol input.mktoField:-ms-input-placeholder {
+.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap input.mktoField:-ms-input-placeholder {
   color: #363944;
 }
-.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol input.mktoField::placeholder {
+.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap input.mktoField::placeholder {
   color: #363944;
 }
-.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol input.mktoField::-webkit-input-placeholder {
+.block-editor-block-list__layout .pane-form .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap input.mktoField::-webkit-input-placeholder {
   color: #363944;
 }
 .block-editor-block-list__layout .pane-form .mktoForm .mktoButtonRow {
@@ -10795,8 +10818,8 @@ a > .block-editor-block-list__layout code {
 }
 @media (min-width: 992px) {
   .block-editor-block-list__layout .pane-form .mktoForm .mktoButtonRow {
-    float: right;
-    width: auto;
+    float: left;
+    width: 25%;
   }
 }
 .block-editor-block-list__layout .pane-form .mktoForm .mktoButtonRow .mktoButtonWrap {
@@ -10818,8 +10841,8 @@ a > .block-editor-block-list__layout code {
 }
 @media (min-width: 992px) {
   .block-editor-block-list__layout .pane-form .mktoForm .mktoButtonRow .mktoButtonWrap button {
-    padding: 12px 51px !important;
-    width: 256px;
+    padding: 12px 20px !important;
+    width: 100%;
   }
 }
 .block-editor-block-list__layout .pane-form .mktoForm .mktoButtonRow .mktoButtonWrap button:hover {
@@ -10935,6 +10958,10 @@ a > .block-editor-block-list__layout code {
 .form-selector input {
   width: 55px !important;
   margin: 8px;
+}
+
+.pane-form .embedded-input input {
+  -webkit-text-fill-color: black !important;
 }
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/tabs-a/src/editor.scss ***!

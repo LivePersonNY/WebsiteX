@@ -17,6 +17,9 @@
 	"attributes": {
 		"mktoFormId": {
 			"default": 2580
-		}
+		},
+		"header": {"default": "Form Header" },
+		"sticky": {"default": false, "type": "boolean"},
+		"backgroundColor": {}
 	}
 }
