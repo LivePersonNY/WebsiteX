@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.yourdomain.tld',
+    siteUrl: 'https://www.liveperson.com',
     title: 'WebsiteX',
     description: 'New WebsiteX site for all your needs',
     author: 'LivePerson',
@@ -13,7 +13,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gatsby-cloud`,
       options: {
-        generateMatchPathRewrites: false
+        generateMatchPathRewrites: process.env.PATH_RW || false
       }
     },
     `gatsby-plugin-react-helmet`,

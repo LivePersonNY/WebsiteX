@@ -6,7 +6,7 @@
 import { __ } from '@wordpress/i18n';
 import $ from 'jquery';
 import { __experimentalGrid as ToolbarGroup,Grid,Placeholder, ToolbarButton, TextareaControl, TextControl, Button, ResponsiveWrapper, CheckboxControl } from '@wordpress/components';
-const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
+const { MediaUpload, MediaUploadCheck, RichText } = wp.blockEditor;
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
 const { Fragment, useState } = wp.element;
@@ -64,11 +64,11 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	);
 
 	let contentControl = (
-		<TextareaControl
+		<RichText
+			tagName="p"
 			value={ attributes.text }
 			onChange={ ( val ) => setAttributes( { text: val } ) }
-			className="embedded-input"
-			rows="1"
+			allowedFormats={ [ 'core/bold'] }
 		/>
 	);
 

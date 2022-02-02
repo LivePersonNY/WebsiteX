@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, InspectorControls } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, InspectorControls, RichText } from '@wordpress/block-editor';
 import MktoForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/MktoForm';
 import { __experimentalGrid as Panel, PanelBody, Grid,Placeholder, TextareaControl, ToolbarButton, TextControl, Button, ResponsiveWrapper, ToolbarGroup } from '@wordpress/components';
 const { Fragment, useState } = wp.element;
@@ -80,12 +80,14 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	);
 
 	let thankyouControl = (
-		<TextareaControl
-			value={ attributes.thankyou }
-			onChange={ ( val ) => setAttributes( { thankyou: val } ) }
+		<RichText {...useBlockProps()}
+			tagName="p"
+			value={attributes.thankyou}
+			onChange={ (val) => setAttributes({thankyou: val}) }
+			allowedFormats={ [ 'core/bold', 'core/italic', 'core/image', 'core/link'] }
 			placeholder="Thank you message after submitting the form."
-			rows="1"
 		/>
+
 	);
 
 	if (isSelected)	return (
