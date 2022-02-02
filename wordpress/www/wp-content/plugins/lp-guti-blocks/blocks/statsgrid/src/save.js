@@ -25,7 +25,7 @@ import StatsGrid from '../../../../../../../../gatsby-sites/www/src/components/b
  */
 export default function save({ attributes }) {
 	return (<StatsGrid
-			heading={attributes.heading}
+			header={attributes.heading}
 			items={attributes.statItems}
 		/>
 	)

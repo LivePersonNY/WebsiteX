@@ -44,6 +44,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+			placeholder="Section Header"
 		/>
 	);
 
@@ -175,14 +176,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<QuoteSlider heading={headerControl} items={itemControls} runFilters={true} />
+			<QuoteSlider header={headerControl} items={itemControls} runFilters={true} />
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<QuoteSlider heading={attributes.header} items={attributes.quotes} runFilters={true} />
+			<QuoteSlider header={attributes.header} items={attributes.quotes} runFilters={true} />
 		</div>
 	)
 

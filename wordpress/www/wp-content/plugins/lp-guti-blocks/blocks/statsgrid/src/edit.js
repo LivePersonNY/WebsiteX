@@ -41,6 +41,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
+			placeholder="Section Header"
 		/>
 	);
 
@@ -106,7 +107,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 		<div { ...useBlockProps() }>
 			{addButton}
 			<StatsGrid
-				heading={headerControl}
+				header={headerControl}
 				items={controls}
 			/>
 		</div>
@@ -115,7 +116,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 		<div { ...useBlockProps() }>
 			{addButton}
 			<StatsGrid
-				heading={attributes.header}
+				header={attributes.header}
 				items={attributes.statItems}
 			/>
 		</div>

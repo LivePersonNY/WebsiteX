@@ -48,6 +48,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
 			rows="1"
+			placeholder="Hero Header"
 		/>
 	);
 
@@ -56,6 +57,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 			value={ attributes.kicker }
 			onChange={ ( val ) => setAttributes( { kicker: val } ) }
 			className="embedded-input"
+			placeholder="Kicker"
 		/>
 	);
 

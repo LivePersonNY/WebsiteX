@@ -252,13 +252,13 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<div {...useBlockProps()}>
 			{addButton}
 
-			{attributes.blocktype == "IconTextA" && <IconTextA heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextA" && <IconTextA header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
 			{attributes.blocktype == "IconTextB" && <IconTextB cardCTA={attributes.cta}
 			cardCTAbody={ctaBodyControl}
 			btnText={btnControl}
-			heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextC" && <IconTextC heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextD" && <IconTextD body={bodyControl} heading={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextC" && <IconTextC header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextD" && <IconTextD body={bodyControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
 
 		</div>
 	);
@@ -266,14 +266,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			{attributes.blocktype == "IconTextA" && <IconTextA heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextA" && <IconTextA header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 			{attributes.blocktype == "IconTextB" && <IconTextB cardCTA={attributes.cta}
 			cardCTAbody={attributes.ctaBody}
 			btnText={attributes.btnText}
 			btnUrl={attributes.btnUrl}
-			heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextC" && <IconTextC heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextD" && <IconTextD body={attributes.body} heading={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextC" && <IconTextC header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextD" && <IconTextD body={attributes.body} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 
 		</div>
 	)
