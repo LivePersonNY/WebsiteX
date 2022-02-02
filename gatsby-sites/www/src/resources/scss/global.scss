@@ -515,8 +515,8 @@ img {
             }
 
             .card.text-center {
-                border: 2px solid #E849B7;
-                // border-image-source: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%);
+                border: 2px solid;
+                border-image: $borderGradient 1;
                 border-radius: 0;
                 box-shadow: none;
                 background: none;
@@ -718,7 +718,8 @@ img {
     .comp-horizontal-text-block {
         padding-top: 40px;
         padding-bottom: 48px;
-        border-bottom: 1px solid #E849B7;
+        border-bottom: 1px solid;
+        border-image: $borderGradient 1;
 
         @include media-breakpoint-up(lg) {
             padding-top: 72px;
