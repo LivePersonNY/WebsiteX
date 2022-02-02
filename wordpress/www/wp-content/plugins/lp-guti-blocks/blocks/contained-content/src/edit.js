@@ -81,7 +81,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 		return (
 			<div {...useBlockProps()}>
-				<ContainedContent kicker={kickerControl} header={headerControl} content={contentControl} linkText={linkTextControl} />
+				<ContainedContent kicker={kickerControl} header={headerControl}body={contentControl} linkText={linkTextControl} />
 			</div>
 
 		);
@@ -89,7 +89,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<ContainedContent kicker={attributes.kicker} header={attributes.header} content={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
+			<ContainedContent kicker={attributes.kicker} header={attributes.header}body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
 		</div>
 	)
 

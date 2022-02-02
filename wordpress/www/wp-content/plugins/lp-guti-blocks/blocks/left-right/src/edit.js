@@ -5,7 +5,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import $ from 'jquery';
-import { __experimentalGrid as ToolbarGroup,Grid,Placeholder, TextareaControl, TextControl, Button, ResponsiveWrapper, CheckboxControl } from '@wordpress/components';
+import { __experimentalGrid as ToolbarGroup,Grid,Placeholder, ToolbarButton, TextareaControl, TextControl, Button, ResponsiveWrapper, CheckboxControl } from '@wordpress/components';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
@@ -53,6 +53,15 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 			repeat: state
 		});
 	}
+
+	let kickerControl = (
+		<TextControl
+			value={attributes.kicker}
+			onChange={ (val) => setAttributes( { kicker: val } ) }
+			className="embedded-input"
+			placeholder="Kicker Text"
+		/>
+	);
 
 	let contentControl = (
 		<TextareaControl
@@ -112,17 +121,29 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		setAttributes({ backgroundColor: color });
 	}
 
+	let changeHeadLevel = function() {
+		if (attributes.headLevel == "h2") {
+			setAttributes({ headLevel: "h3" });
+		} else {
+			setAttributes({ headLevel: "h2" });
+		}
+	}
+
 	let addButton = (
 		<BlockControls>
-
-				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+			<ToolbarButton
+				icon="heading"
+				label="Head Level H2/H3"
+				onClick={ changeHeadLevel }
+			/>
+			<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 		</BlockControls>
 	);
 
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<LeftRight backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkText={linkTextControl} content={contentControl} title={titleControl} flipColumns={attributes.flipped} imgCtl={imageControl} />
+			<LeftRight headLevel={attributes.headLevel} kicker={kickerControl} backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkText={linkTextControl}body={contentControl} title={titleControl} flipColumns={attributes.flipped} imgCtl={imageControl} />
 			<Fragment>
 				<InspectorControls>
 					<div>
@@ -151,7 +172,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<LeftRight backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText} content={attributes.text} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
+			<LeftRight headLevel={attributes.headLevel} kicker={attributes.kicker} backgroundColor={attributes.backgroundColor} repeat={attributes.repeat} linkUrl={attributes.linkUrl} linkText={attributes.linkText}body={attributes.text} title={attributes.title} flipColumns={attributes.flipped} imgSrc={attributes.mediaUrl} imgAlt={attributes.mediaAlt} />
 		</div>
 	);
 

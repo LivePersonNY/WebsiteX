@@ -63,7 +63,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 		return (
 			<div {...useBlockProps()}>
-				<ContentCTA content={contentControl} linkText={linkTextControl} />
+				<ContentCTA body={contentControl} linkText={linkTextControl} />
 			</div>
 
 		);
@@ -71,7 +71,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<ContentCTA content={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
+			<ContentCTA body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
 		</div>
 	)
 
