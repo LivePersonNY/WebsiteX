@@ -37,8 +37,22 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/faqs/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/callout/' );
 
+
+
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
+
+add_filter( 'page_link', 'lp_gatsby_urls', 100, 2);
+add_filter( 'post_link', 'lp_gatsby_urls', 100, 2);
+
+function lp_gatsby_urls($permalink) {
+	$home = $_ENV['SITE_HOME'];
+	if (!$home) return $permalink;
+
+	$wp_home = get_option('home');
+	//die($home . '    ' . $wp_home . '    ' . $permalink . ' === ' . str_replace($wp_home, $home, $permalink));
+	return str_replace($wp_home, $home, $permalink);
+}
 
 function register_mkto_script() {
 	wp_enqueue_script('mkto-forms', 'https://info.liveperson.com/js/forms2/js/forms2.min.js');

@@ -51,11 +51,30 @@ export const pageQuery = graphql`
 	  id
 	  content
 	  title
-	  featuredImage {
-		node {
-		  id
-		  mediaItemUrl
-		  mediaType
+	  link
+	  seo {
+		canonical
+		cornerstone
+		focuskw
+		metaDesc
+		metaKeywords
+		metaRobotsNofollow
+		metaRobotsNoindex
+		opengraphAuthor
+		opengraphDescription
+		opengraphModifiedTime
+		opengraphPublishedTime
+		opengraphPublisher
+		opengraphSiteName
+		opengraphTitle
+		opengraphType
+		opengraphUrl
+		readingTime
+		title
+		twitterDescription
+		twitterTitle
+		opengraphImage {
+		  mediaItemUrl  
 		}
 	  }
 	}
