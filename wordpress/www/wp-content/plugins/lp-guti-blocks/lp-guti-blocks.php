@@ -42,8 +42,8 @@ function create_block_lp_guti_blocks_block_init() {
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
 
-add_filter( 'page_link', 'lp_gatsby_urls', 100, 2);
-add_filter( 'post_link', 'lp_gatsby_urls', 100, 2);
+//add_filter( 'page_link', 'lp_gatsby_urls', 100, 2);
+//add_filter( 'post_link', 'lp_gatsby_urls', 100, 2);
 
 function lp_gatsby_urls($permalink) {
 	$home = $_ENV['SITE_HOME'];
