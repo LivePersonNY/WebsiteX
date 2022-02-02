@@ -6,16 +6,6 @@ import Paragraph from '../Paragraph';
 
 const TabsB = (props) => {
   
-    /*
-    let tabClick = function(e) {
-      $('.comp-tabs-b .comp-tabs-list-container h4').removeClass('comp-tab-active');
-      $(e.target).addClass('comp-tab-active');
-      let tabIndex = $(e.target).data('tab');
-      $(`.comp-tabs-b .comp-tabs-content[data-tab-content="${tabIndex}"], .comp-tabs-b .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
-      $(`.comp-tabs-b .comp-tabs-content:not([data-tab-content="${tabIndex}"]), .comp-tabs-b .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
-    };
-    */
-  
     let tabListOutput = props.items.map((item ,index)=>{
       return <h4 className={`comp-tab ${index === 0 ? 'comp-tab-active' : ''}`} data-tab={index} key={index}>{item.title}</h4>
     });

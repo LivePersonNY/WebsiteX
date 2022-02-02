@@ -272,6 +272,11 @@ p {
         }
     }
 
+    &.btn-link {
+        color: $primaryBlue;
+        text-decoration: none;
+    }
+
 }
 
 .pill {

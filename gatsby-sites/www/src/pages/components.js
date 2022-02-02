@@ -40,8 +40,35 @@ const IndexPage = () => (
     <Seo title="Home" />
     {/* {Parser(page.content)} */}
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> Hero</p>
+          <p><span className="fw-bold">CSS Class Name:</span> hero</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector - bg-primary-light/bg-neutral-96/bg-blue-20/bg-lavendar-20</li>
+            <li><span className="fw-bold">header: </span> Text</li>
+            <li><span className="fw-bold">subHeader: </span> Text</li>
+            <li><span className="fw-bold">heroImage: </span> Image</li>
+            <li><span className="fw-bold">heroImageAlt: </span> Text</li>
+            <li><span className="fw-bold">heroVariant: </span> Selector - logo-wall/buttons</li>
+            <li><span className="fw-bold">underBodyImg: </span> Image (when using logo-wall)</li>
+            <li><span className="fw-bold">buttons: </span> Array (when using buttons)
+              <ul>
+                <li><span className="fw-bold">btnType: </span> Selector - primary/secondary</li>
+                <li><span className="fw-bold">btnText: </span> Text</li>
+                <li><span className="fw-bold">btnLink: </span> Url</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <Hero
-      backgroundColor="bg-neutral-84"
+      backgroundColor="bg-neutral-96"
       header="LivePerson's unique value proposition"
       subHeader="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus
               elementum sollicitudin magna bibendum sit ultricies arcu. Nullam
@@ -65,6 +92,23 @@ const IndexPage = () => (
       ]}
     />
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> MktoForm</p>
+          <p><span className="fw-bold">CSS Class Name:</span> pane-form</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector - bg-rainbow/bg-primary-light/bg-neutral-96/bg-blue-20/bg-lavendar-20</li>
+            <li><span className="fw-bold">sticky: </span> Toggle</li>
+            <li><span className="fw-bold">header: </span> Text</li>
+            <li><span className="fw-bold">formId: </span> Number</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <MktoForm 
       backgroundColor="bg-rainbow"
       formId="3733" 
@@ -81,6 +125,27 @@ const IndexPage = () => (
     /> */}
     {/* 2580, 3733 */}
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> PlainContent</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-plain-content</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector - bg-primary-light/bg-neutral-96/bg-blue-20/bg-lavendar-20</li>
+            <li><span className="fw-bold">colWidth: </span> Number</li>            
+            <li><span className="fw-bold">headerLevel: </span> Selector</li>
+            <li><span className="fw-bold">alignmentClass: </span></li>
+            <li><span className="fw-bold">header: </span> Text</li>
+            <li><span className="fw-bold">body: </span> Text</li>
+            <li><span className="fw-bold">linkText: </span> Text</li>
+            <li><span className="fw-bold">linkUrl: </span> Url</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <PlainContent
       backgroundColor="bg-primary-light"
       colWidth="8"
@@ -93,6 +158,30 @@ const IndexPage = () => (
       linkUrl="#"
     />
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> LeftRight</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-left-right</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">kicker: </span> Text</li>            
+            <li><span className="fw-bold">title: </span> Text</li>
+            <li><span className="fw-bold">body: </span> Text</li>
+            <li><span className="fw-bold">imgSrc: </span> Image</li>
+            <li><span className="fw-bold">repeat: </span> Toggle (Use if there will be another LeftRight underneath this one. It will reduce the padding between them)</li>
+            <li><span className="fw-bold">linkText: </span> Text (Secondary Button Styles)</li>
+            <li><span className="fw-bold">linkUrl: </span> Url</li>
+            <li><span className="fw-bold">linkSecondaryText: </span> Text (Tertiary Button/Link Styles)</li>
+            <li><span className="fw-bold">linkSecondaryUrl: </span> Url</li>
+            <li><span className="fw-bold">flipColumns: </span> Toggle (flip columns so image is on the right)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <LeftRight
       backgroundColor="bg-primary-light"
       kicker="UNDERSTAND"
@@ -103,6 +192,10 @@ const IndexPage = () => (
               enim ad minim veniam, quis nostrud exercitation ullamco laboris."
       imgSrc="https://picsum.photos/640/480?random=2"
       repeat="true"
+      linkText="Secondary"
+      linkUrl="#"
+      linkSecondaryText="Tertiary"
+      linkSecondaryUrl="#"
     />
 
     <LeftRight
@@ -116,6 +209,8 @@ const IndexPage = () => (
       imgSrc="https://picsum.photos/640/480?random=3"
       imgAlt="alt text"
       repeat="true"
+      linkSecondaryText="Tertiary"
+      linkSecondaryUrl="#"
     />
 
     <LeftRight
@@ -127,6 +222,27 @@ const IndexPage = () => (
       enim ad minim veniam, quis nostrud exercitation ullamco laboris."
       imgSrc="https://picsum.photos/640/480?random=4"
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> StatsGrid</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-stat-grid</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>            
+            <li><span className="fw-bold">Stat: </span> Array
+              <ul>
+                <li><span className="fw-bold">stat: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <StatsGrid
       backgroundColor="bg-primary-light"
@@ -155,7 +271,7 @@ const IndexPage = () => (
       ]}
     />
 
-    <div className="pane bg-primary-light">
+    {/* <div className="pane bg-primary-light">
       <div className="container comp-left-right">
         <div className="row align-items-center">
           <div className="col-lg-5">
@@ -183,6 +299,29 @@ const IndexPage = () => (
           <div className="col-lg-6 offset-lg-1">
             <img src="https://picsum.photos/640/720" alt="" />
           </div>
+        </div>
+      </div>
+    </div> */}
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> TabsA</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-tabs-a</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>            
+            <li><span className="fw-bold">Tab: </span> Array
+              <ul>
+                <li><span className="fw-bold">title: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+                <li><span className="fw-bold">img: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -217,6 +356,33 @@ const IndexPage = () => (
         }
       ]}
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> TabsB</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-tabs-b</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>            
+            <li><span className="fw-bold">Tab: </span> Array
+              <ul>
+                <li><span className="fw-bold">title: </span> Text (Tab title)</li>
+                <li><span className="fw-bold">kicker: </span> Text (Kicker of body area)</li>
+                <li><span className="fw-bold">header: </span> Text (Title of body area)</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+                <li><span className="fw-bold">linkText: </span> Text</li>
+                <li><span className="fw-bold">linkUrl: </span> Url</li>
+                <li><span className="fw-bold">img: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <TabsB
       backgroundColor="bg-primary-light"
@@ -254,6 +420,36 @@ const IndexPage = () => (
         }
       ]}
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> TabsC</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-tabs-c</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>    
+            <li><span className="fw-bold">mobilePillsWidth: </span> Pixels ex. "700px" (I will see if theres a way to automatically set it, but right now its needed to get that scroll/swipe effect for mobile)</li>    
+            <li><span className="fw-bold">Tab: </span> Array
+              <ul>
+                <li><span className="fw-bold">title: </span> Text (Tab title)</li>
+                <li><span className="fw-bold">icon: </span> Image</li>
+                <li><span className="fw-bold">iconAlt: </span> Text</li>
+                <li><span className="fw-bold">kicker: </span> Text (Kicker of body area)</li>
+                <li><span className="fw-bold">header: </span> Text (Title of body area)</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+                <li><span className="fw-bold">linkText: </span> Text</li>
+                <li><span className="fw-bold">linkUrl: </span> Url</li>
+                <li><span className="fw-bold">img: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <TabsC
       backgroundColor="bg-blue-20"
@@ -307,6 +503,31 @@ const IndexPage = () => (
         }
       ]}
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> CardGrid</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-card-grid</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>     
+            <li><span className="fw-bold">Card: </span> Array
+              <ul>
+                <li><span className="fw-bold">img: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+                <li><span className="fw-bold">linkText: </span> Text</li>
+                <li><span className="fw-bold">linkUrl: </span> Url</li>
+                
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <CardGrid
       backgroundColor="bg-primary-light"
@@ -494,6 +715,7 @@ const IndexPage = () => (
       backgroundColor="bg-primary-light"
       header="How Rapid Testing Can Help IconTextD+E"
       body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra ultrices ac sagittis elit amet id. Justo arcu pharetra et montes, neque nisi. Egestas dictum viverra faucibus."
+      centerBody="true"
       items={[
         {
           "img":"https://picsum.photos/56/56?random=10",
