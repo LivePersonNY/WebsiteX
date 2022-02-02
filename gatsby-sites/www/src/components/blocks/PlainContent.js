@@ -15,7 +15,7 @@ const PlainContent = function(props) {
             <div className={`col-lg-${props.colWidth||12}`}>
               {headerLevel == "h2" && <h2>{props.header}</h2>}
               {headerLevel == "h1" && <h1>{props.header}</h1>}
-              {props.content && (<Paragraph text={props.content} />)}
+              {props.body && (<Paragraph text={props.body} />)}
               {props.linkText && (
                 <a className="link link-mt-large" href={props.linkUrl}>
                   {props.linkText}

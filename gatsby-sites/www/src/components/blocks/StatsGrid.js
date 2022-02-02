@@ -8,7 +8,7 @@ const StatsGrid = (props) => {
     return (
       <div className="col" key={index}>
         <p className="h1">{item.stat}</p>
-        <p className="subtitle2">{item.content}</p>
+        <p className="subtitle2">{item.body}</p>
       </div>
     )
   });

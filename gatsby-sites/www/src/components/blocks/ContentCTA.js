@@ -4,14 +4,14 @@ import Link from 'gatsby-link';
 
 const ContentCTA = (props) => {
   return (  
-    <div className={`pane comp-content-cta ${props.backgroundColor||"bg-transparent"} ${props.content ? 'pane-with-lead-text' : ''}`}>
+    <div className={`pane comp-content-cta ${props.backgroundColor||"bg-transparent"} ${props.body ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
             <div className="comp-content-cta-container bg-neutral-96">
               <div className="row align-items-center text-center text-lg-start">
                 <div className="col-lg-8 offset-lg-1">
-                  <h2>{props.content}</h2>
+                  <h2>{props.body}</h2>
                 </div>
                 <div className="col-lg-3">
                     {props.linkText && (

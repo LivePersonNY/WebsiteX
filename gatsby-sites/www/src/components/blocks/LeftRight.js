@@ -25,7 +25,7 @@ const LeftRight = (props) => {
                 props.flipColumns ? 'order-lg-first' : ''
               }`}
             >
-              {props.kicker && <h6>{props.kicker}</h6>}
+              {props.kicker && <p clasName="h6 text-uppercase">{props.kicker}</p>}
               {props.headLevel == 'h2' && <h2>{props.title}</h2>}
               {props.headLevel == 'h3' && <h3>{props.title}</h3>}
               <Paragraph text={props.body} />
