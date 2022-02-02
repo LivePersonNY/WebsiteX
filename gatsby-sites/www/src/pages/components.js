@@ -66,7 +66,7 @@ const IndexPage = () => (
     />
 
     <MktoForm 
-      // backgroundColor="bg-neutral-96"
+      backgroundColor="bg-rainbow"
       formId="3733" 
       runFilters={true} 
       sticky="true"
