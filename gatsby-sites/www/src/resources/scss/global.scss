@@ -543,6 +543,7 @@ img {
 
             .comp-body-container {
                 padding: 40px 20px;
+                height: 100%;
 
                 @include media-breakpoint-up(lg) {
                     padding: 40px 60px;
