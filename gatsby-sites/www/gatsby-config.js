@@ -13,7 +13,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gatsby-cloud`,
       options: {
-        generateMatchPathRewrites: false
+        generateMatchPathRewrites: true
       }
     },
     `gatsby-plugin-react-helmet`,
