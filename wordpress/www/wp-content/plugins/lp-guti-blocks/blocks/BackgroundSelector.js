@@ -35,6 +35,12 @@ export default function BackgroundSelectorMenu({ callback, selected }) {
 				icon: 'admin-customizer bg-neutral-96',
 				isActive: selected == 'bg-neutral-96',
 				onClick: () => callback('bg-neutral-96')
+			},
+			{
+				title: 'Light Gray',
+				icon: 'admin-customizer bg-primary-light',
+				isActive: selected == 'bg-primary-light',
+				onClick: () => callback('bg-primary-light')
 			}
 		] }
 	/>);
