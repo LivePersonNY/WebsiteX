@@ -448,11 +448,11 @@ img {
         }
 
         .comp-tabs-img-container {
-            margin-top: -88px;
+            margin-top: -88px !important;
             z-index: 0;
 
             @include media-breakpoint-up(lg) {
-                margin-top: 0;
+                margin-top: 0 !important;
             }
 
             @include media-breakpoint-down(lg) {
@@ -932,6 +932,7 @@ img {
 
 .component-doc {
     padding: 20px 0;
+    width: 90%;
 
     .row {
         div {

@@ -777,6 +777,21 @@ const IndexPage = () => (
       ]}
     />
 
+<QuoteSlider
+      backgroundColor="bg-neutral-92"
+      header="Why customers love Voice"
+      items={[
+        {
+          "brandImg":"https://picsum.photos/120/28",
+          "brandImgAlt":"Alt text",
+          "author":"Richard Branson · CEO",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        }
+      ]}
+    />
+
     <ContainedContent 
       backgroundColor="bg-primary-light"
       header="Call to action goes here"

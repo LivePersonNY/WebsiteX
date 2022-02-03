@@ -7,15 +7,17 @@ const QuoteSlider = (props) => {
     let quoteBlock = props.items.map((item, index)=>{
       return (
         <>
+          {item.img && (
             <div className="col-lg-3 offset-lg-1" key={index}>
               {!item.imgCtl && <img src={item.img} alt={item.imgAlt} /> || item.imgCtl}
             </div>
-            <div className="col-lg-7">
+          )}
+            <div className={`${item.img ? 'col-lg-7' : 'col-lg-10 offset-lg-1'}`}>
               {!item.brandImgCtl && <img className="comp-brand-img" src={item.brandImg} alt={item.brandImgAlt} /> || item.brandImgCtl}
               <p className="h6 comp-quote-author">{item.author}</p>
               <Paragraph className="quote1" text={item.body} />
               {item.linkText && (
-                <a className="link" href={item.linkUrl}>
+                <a className="link link-mt-large" href={item.linkUrl}>
                   {item.linkText}
                 </a>
               )}
