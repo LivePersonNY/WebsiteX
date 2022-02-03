@@ -17,7 +17,7 @@ const QuoteSlider = (props) => {
               <p className="h6 comp-quote-author">{item.author}</p>
               <Paragraph className="quote1" text={item.body} />
               {item.linkText && (
-                <a className="link" href={item.linkUrl}>
+                <a className="link link-mt-large" href={item.linkUrl}>
                   {item.linkText}
                 </a>
               )}
