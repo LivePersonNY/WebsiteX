@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Logos",
 	"category": "liveperson",
-	"icon": "smiley",
+	"icon": "image-filter",
 	"description": "Logo stripe",
 	"supports": {
 		"html": false

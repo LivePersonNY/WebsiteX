@@ -18,6 +18,13 @@
 		"backgroundColor": {},
 		"backgroundImage": {},
 		"backgroundImageID": {},
+		"logoWall": {},
+		"logoWallId": {},
+		"logoWallAlt": {},
+		"primaryBtnText": {},
+		"primaryBtnLink": {},
+		"secondaryBtnText": {},
+		"secondaryBtnLink": {},
 		"kicker": {
 			"default": "LIVEPERSON KICKER"
 		},

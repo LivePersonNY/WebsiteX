@@ -10830,20 +10830,20 @@ const Hero = props => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createE
   className: "h6 text-uppercase"
 }, props.kicker), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, props.header), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_3__["default"], {
   text: props.subHeader
-}), props.heroVariant === 'logo-wall' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h6", {
+}), (props.imgLogoCtl || props.underBodyImg) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h6", {
   className: "mt-4"
 }, "TRUSTED BY 100K LEADING BRANDS"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
   className: "body-image"
-}, !props.imgCtl && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+}, !props.imgLogoCtl && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
   src: props.underBodyImg,
   alt: props.underBodyImgAlt
-}) || props.imgCtl)), props.heroVariant === 'buttons' && props.buttons.map((item, index) => {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: item.btnLink,
-    className: `btn ${item.btnType === 'primary' ? 'btn-primary' : item.btnType === 'secondary' ? 'btn-outline-secondary' : ''}`,
-    key: index
-  }, item.btnText);
-})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+}) || props.imgLogoCtl)), props.primaryBtnText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  href: props.primaryBtnLink,
+  className: `btn btn-primary`
+}, props.primaryBtnText), props.secondaryBtnText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  href: props.secondaryBtnLink,
+  className: `btn btn-outline-secondary`
+}, props.secondaryBtnText)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
   className: "col-lg-6 offset-lg-1"
 }, !props.imgCtl && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
   src: props.heroImage,
@@ -13968,6 +13968,37 @@ function Edit(_ref) {
       });
     }
   }));
+  let logoControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+    onSelect: function (media) {
+      setAttributes({
+        logoWall: media.url,
+        logoWallId: media.id,
+        logoWallAlt: media.alt || ""
+      });
+    },
+    value: attributes.logoWallId,
+    allowedTypes: ['image'],
+    render: _ref3 => {
+      let {
+        open
+      } = _ref3;
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, attributes.logoWall && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        className: "imageSelector",
+        src: attributes.logoWall,
+        onClick: open
+      }) || (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+        variant: "link",
+        onClick: open
+      }, "Select Image"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+        variant: "link",
+        isDestructive: true,
+        onClick: () => setAttributes({
+          logoWall: null,
+          logoWallId: null
+        })
+      }, "Remove Image"));
+    }
+  }));
 
   let changeHeroBGimage = function (media) {
     setAttributes({
@@ -13986,14 +14017,46 @@ function Edit(_ref) {
     callback: changeBackground,
     selected: attributes.backgroundColor
   }));
+  let linkTextControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wp-control-wrapper"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    value: attributes.primaryBtnText,
+    onChange: val => setAttributes({
+      primaryBtnText: val
+    }),
+    className: "embedded-input",
+    placeholder: "Link Text"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    value: attributes.primaryBtnLink,
+    onChange: val => setAttributes({
+      primaryBtnLink: val
+    }),
+    placeholder: "Link URL"
+  }));
+  let linkSecondaryTextControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wp-control-wrapper"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    value: attributes.secondaryBtnText,
+    onChange: val => setAttributes({
+      secondaryBtnText: val
+    }),
+    className: "embedded-input",
+    placeholder: "Link Text"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    value: attributes.secondaryBtnLink,
+    onChange: val => setAttributes({
+      secondaryBtnLink: val
+    }),
+    placeholder: "Link URL"
+  }));
   if (isSelected) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.useBlockProps)(), addButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
     onSelect: changeHeroBGimage,
     value: attributes.backgroundImageID,
     allowedTypes: ['image'],
-    render: _ref3 => {
+    render: _ref4 => {
       let {
         open
-      } = _ref3;
+      } = _ref4;
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
         icon: "format-image",
         onClick: open,
@@ -14008,21 +14071,29 @@ function Edit(_ref) {
       }));
     }
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_Hero__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    imgLogoCtl: logoControl,
     backgroundImage: attributes.backgroundImage,
     backgroundColor: attributes.backgroundColor,
     header: headerControl,
     subHeader: subHeaderControl,
     kicker: kickerControl,
-    imgCtl: imageControl
+    imgCtl: imageControl,
+    primaryBtnText: linkTextControl,
+    secondaryBtnText: linkSecondaryTextControl
   }));
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_Hero__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    underBodyImg: attributes.logoWall,
     backgroundImage: attributes.backgroundImage,
     backgroundColor: attributes.backgroundColor,
     header: attributes.header,
     subHeader: attributes.subHeader,
     kicker: attributes.kicker,
     heroImage: attributes.mediaUrl,
-    heroImageAlt: attributes.mediaAlt
+    heroImageAlt: attributes.mediaAlt,
+    primaryBtnText: attributes.primaryBtnText,
+    secondaryBtnText: attributes.secondaryBtnText,
+    primaryBtnLink: attributes.primaryBtnLink,
+    secondaryBtnLink: attributes.secondaryBtnLink
   }));
 }
 
@@ -14135,12 +14206,18 @@ function save(_ref) {
     attributes
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_Hero__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    underBodyImg: attributes.logoWall,
     backgroundImage: attributes.backgroundImage,
     backgroundColor: attributes.backgroundColor,
     header: attributes.header,
-    kicker: attributes.kicker,
     subHeader: attributes.subHeader,
-    heroImage: attributes.mediaUrl
+    kicker: attributes.kicker,
+    heroImage: attributes.mediaUrl,
+    heroImageAlt: attributes.mediaAlt,
+    primaryBtnText: attributes.primaryBtnText,
+    secondaryBtnText: attributes.secondaryBtnText,
+    primaryBtnLink: attributes.primaryBtnLink,
+    secondaryBtnLink: attributes.secondaryBtnLink
   });
 }
 
