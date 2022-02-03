@@ -9885,6 +9885,10 @@ a > .block-editor-block-list__layout code {
   background: #3863E5;
   border-color: #3863E5;
 }
+.block-editor-block-list__layout .btn.btn-link {
+  color: #3863E5;
+  text-decoration: none;
+}
 .block-editor-block-list__layout .pill {
   border-radius: 20px;
   padding: 8px 20px;
@@ -10062,6 +10066,33 @@ a > .block-editor-block-list__layout code {
 }
 .block-editor-block-list__layout .comp-left-right h6, .block-editor-block-list__layout .comp-left-right .h6 {
   margin-bottom: 8px;
+}
+.block-editor-block-list__layout .comp-left-right .btn {
+  margin-top: 20px;
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-left-right .btn {
+    margin-top: 40px;
+  }
+}
+.block-editor-block-list__layout .comp-left-right .btn.btn-outline-secondary {
+  margin-right: 20px;
+}
+.block-editor-block-list__layout .comp-left-right .btn.btn-outline-secondary + .btn-link {
+  padding: 12px 32px;
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-left-right .btn.btn-outline-secondary + .btn-link {
+    margin-top: 40px;
+  }
+}
+.block-editor-block-list__layout .comp-left-right .btn.btn-link {
+  padding: 0;
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-left-right .btn.btn-link {
+    margin-top: 31px;
+  }
 }
 .block-editor-block-list__layout .comp-card-grid .comp-card-grid-container .col {
   margin-top: 32px;
@@ -10280,7 +10311,9 @@ a > .block-editor-block-list__layout code {
   margin-bottom: 8px;
 }
 .block-editor-block-list__layout .comp-icon-text-b .comp-card-grid-container .col .card.text-center {
-  border: 2px solid #E849B7;
+  border: 2px solid;
+  -o-border-image: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%) 1;
+     border-image: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%) 1;
   border-radius: 0;
   box-shadow: none;
   background: none;
@@ -10446,7 +10479,9 @@ a > .block-editor-block-list__layout code {
 .block-editor-block-list__layout .comp-horizontal-text .comp-horizontal-text-block {
   padding-top: 40px;
   padding-bottom: 48px;
-  border-bottom: 1px solid #E849B7;
+  border-bottom: 1px solid;
+  -o-border-image: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%) 1;
+     border-image: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%) 1;
 }
 @media (min-width: 992px) {
   .block-editor-block-list__layout .comp-horizontal-text .comp-horizontal-text-block {
@@ -10593,6 +10628,15 @@ a > .block-editor-block-list__layout code {
 .block-editor-block-list__layout .comp-exec-card .comp-exec-card-container .subtitle1 {
   margin-top: 20px;
 }
+.block-editor-block-list__layout .component-doc {
+  padding: 20px 0;
+}
+.block-editor-block-list__layout .component-doc .row div {
+  border: 1px solid red;
+}
+.block-editor-block-list__layout .component-doc .row div p {
+  margin-bottom: 6px;
+}
 .block-editor-block-list__layout .navbar .navbar-collapse {
   justify-content: center;
 }
@@ -10683,6 +10727,7 @@ a > .block-editor-block-list__layout code {
   text-align: center;
   z-index: 100;
   display: block !important;
+  opacity: 1 !important;
 }
 .block-editor-block-list__layout .pane-form.swapPosition {
   position: absolute;
@@ -10892,6 +10937,7 @@ a > .block-editor-block-list__layout code {
 }
 .components-dropdown-menu__menu .bg-rainbow {
   background: linear-gradient(90deg, #AAD5EA 0%, #C1C1F3 33.3%, #F7B1B1 66.6%, #F7B995 100%);
+  color: #191919;
 }
 .components-dropdown-menu__menu .is-active {
   background: #191919;
@@ -10899,9 +10945,18 @@ a > .block-editor-block-list__layout code {
 }
 .components-dropdown-menu__menu .bg-lavendar-20 {
   background: #EFEFFC;
+  color: #191919;
 }
 .components-dropdown-menu__menu .bg-blue-20 {
   background: #E7F2F7;
+  color: #191919;
+}
+.components-dropdown-menu__menu .bg-neutral-96 {
+  background: #F4F4F6;
+  color: #191919;
+}
+.components-dropdown-menu__menu .bg-primary-light {
+  background: #fcfcfc;
 }
 
 .block-editor-inserter button {
@@ -11111,6 +11166,14 @@ a > .block-editor-block-list__layout code {
 /*!*******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/callout/src/editor.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/logos/src/editor.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
 /**
  * The following styles get applied inside the editor only.
  *

@@ -35,7 +35,7 @@ export default function save({attributes}) {
 		btnText={attributes.btnText}
 		btnUrl={attributes.btnUrl} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 		{attributes.blocktype == "IconTextC" && <IconTextC header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-		{attributes.blocktype == "IconTextD" && <IconTextD body={attributes.body} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+		{attributes.blocktype == "IconTextD" && <IconTextD centerBody={attributes.centerBody} body={attributes.body} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 		</>
 	);
 }

@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps } from '@wordpress/block-editor';
-import Faq from '../../../../../../../../gatsby-sites/www/src/components/blocks/Faq';
+import LogosUniversal from '../../../../../../../../gatsby-sites/www/src/components/blocks/LogosUniversal';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -25,12 +25,9 @@ import Faq from '../../../../../../../../gatsby-sites/www/src/components/blocks/
  */
 export default function save({ attributes }) {
 	return (
-		<Faq
+		<LogosUniversal
 			header={attributes.header}
-			kicker={attributes.kicker}
-			items={attributes.faqs}
-			btnText={attributes.btnText}
-			btnUrl={attributes.btnUrl}
+			items={attributes.logos}
 			backgroundColor={attributes.backgroundColor}
 		/>
 	)

@@ -32,7 +32,7 @@ const NavPanel = ({ label, path, children, order, cssClasses }) => {
             {children.map(function(item, index) {
               var cssClasses = item.cssClasses.join(" ");
               return (
-                <div className={cssClasses}>
+                <div className={`${cssClasses} col`}>
                   <p className="dropdown-section-title">{item.label}</p>
                   {item.childItems.nodes.map(function(item, index) {
                     let descr = '';

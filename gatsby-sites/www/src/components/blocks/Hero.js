@@ -4,17 +4,24 @@ import Paragraph from '../Paragraph';
 
 const Hero = (props) => (
   <div className={`pane hero ${props.backgroundColor||"bg-transparent"}`}>
+    {props.backgroundImage && 
+      <style>
+        {`.pane.hero {
+          background-image: url(${props.backgroundImage});
+        }`}
+      </style>
+    }
     <div className="container">
       <div className="row align-items-center">
         <div className="col-lg-5">
           {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
           <h1>{props.header}</h1>
           <Paragraph text={props.subHeader} />
-          {props.heroVariant === 'logo-wall' && (
+          {(props.imgLogoCtl || props.underBodyImg) && (
             <>
               <h6 className="mt-4">TRUSTED BY 100K LEADING BRANDS</h6>
               <div className="body-image">
-                {!props.imgCtl && <img src={props.underBodyImg} alt={props.underBodyImgAlt} /> || props.imgCtl}
+                {!props.imgLogoCtl && <img src={props.underBodyImg} alt={props.underBodyImgAlt} /> || props.imgLogoCtl}
               </div>
             </>
           )}

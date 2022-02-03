@@ -12,7 +12,7 @@ import $ from 'jquery';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor';
 import PlainContent from '../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent';
 import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 
@@ -36,21 +36,31 @@ import './editor.scss';
 export default function Edit({attributes, isSelected, setAttributes}) {
 
 	let headerControl = (
-		<TextControl
+		<TextareaControl
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
 			placeholder="Header Text"
+			rows="2"
+		/>
+	);
+
+	let kickerControl = (
+		<TextControl
+			value={ attributes.kicker }
+			onChange={ ( val ) => setAttributes( { kicker: val } ) }
+			className="embedded-input"
+			placeholder="Kicker Text"
 		/>
 	);
 
 	let contentControl = (
-		<TextareaControl
+		<RichText
+			tagName="p"
 			value={ attributes.content }
 			onChange={ ( val ) => setAttributes( { content: val } ) }
 			className="embedded-input"
-			placeholder="Body Text"
-			rows="1"
+			allowedFormats={ [ 'core/bold', 'core/italic', 'core/link'] }
 		/>
 	);
 
@@ -124,7 +134,14 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		return (
 			<div {...useBlockProps()}>
 				{alignButton}
-				<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} header={headerControl}body={contentControl} linkText={linkTextControl} />
+				<PlainContent
+					kicker={kickerControl}
+					colWidth={attributes.colWidth}
+					headLevel={attributes.headLevel}
+					alignmentClass={`text-${attributes.alignment}`}
+					header={headerControl}
+					body={contentControl}
+					linkText={linkTextControl} />
 			</div>
 
 		);
@@ -132,7 +149,14 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} header={attributes.header}body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
+			<PlainContent
+				kicker={attributes.kicker}
+				colWidth={attributes.colWidth}
+				headLevel={attributes.headLevel}
+				alignmentClass={`text-${attributes.alignment}`}
+				header={attributes.header}body={attributes.content}
+				linkText={attributes.linkText}
+				linkUrl={attributes.linkUrl} />
 		</div>
 	)
 

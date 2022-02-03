@@ -35,5 +35,6 @@ registerBlockType('lp-guti-blocks/tabs-callout', {
 	 * @see ./save.js
 	 */
 	save,
+	example: {}
 
 });

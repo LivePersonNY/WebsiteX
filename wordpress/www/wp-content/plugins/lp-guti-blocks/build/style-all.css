@@ -9863,6 +9863,10 @@ a > .site code {
   background: #3863E5;
   border-color: #3863E5;
 }
+.site .btn.btn-link {
+  color: #3863E5;
+  text-decoration: none;
+}
 .site .pill {
   border-radius: 20px;
   padding: 8px 20px;
@@ -10040,6 +10044,33 @@ a > .site code {
 }
 .site .comp-left-right h6, .site .comp-left-right .h6 {
   margin-bottom: 8px;
+}
+.site .comp-left-right .btn {
+  margin-top: 20px;
+}
+@media (min-width: 992px) {
+  .site .comp-left-right .btn {
+    margin-top: 40px;
+  }
+}
+.site .comp-left-right .btn.btn-outline-secondary {
+  margin-right: 20px;
+}
+.site .comp-left-right .btn.btn-outline-secondary + .btn-link {
+  padding: 12px 32px;
+}
+@media (min-width: 992px) {
+  .site .comp-left-right .btn.btn-outline-secondary + .btn-link {
+    margin-top: 40px;
+  }
+}
+.site .comp-left-right .btn.btn-link {
+  padding: 0;
+}
+@media (min-width: 992px) {
+  .site .comp-left-right .btn.btn-link {
+    margin-top: 31px;
+  }
 }
 .site .comp-card-grid .comp-card-grid-container .col {
   margin-top: 32px;
@@ -10258,7 +10289,9 @@ a > .site code {
   margin-bottom: 8px;
 }
 .site .comp-icon-text-b .comp-card-grid-container .col .card.text-center {
-  border: 2px solid #E849B7;
+  border: 2px solid;
+  -o-border-image: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%) 1;
+     border-image: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%) 1;
   border-radius: 0;
   box-shadow: none;
   background: none;
@@ -10424,7 +10457,9 @@ a > .site code {
 .site .comp-horizontal-text .comp-horizontal-text-block {
   padding-top: 40px;
   padding-bottom: 48px;
-  border-bottom: 1px solid #E849B7;
+  border-bottom: 1px solid;
+  -o-border-image: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%) 1;
+     border-image: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%) 1;
 }
 @media (min-width: 992px) {
   .site .comp-horizontal-text .comp-horizontal-text-block {
@@ -10571,6 +10606,15 @@ a > .site code {
 .site .comp-exec-card .comp-exec-card-container .subtitle1 {
   margin-top: 20px;
 }
+.site .component-doc {
+  padding: 20px 0;
+}
+.site .component-doc .row div {
+  border: 1px solid red;
+}
+.site .component-doc .row div p {
+  margin-bottom: 6px;
+}
 .site .navbar .navbar-collapse {
   justify-content: center;
 }
@@ -10661,6 +10705,7 @@ a > .site code {
   text-align: center;
   z-index: 100;
   display: block !important;
+  opacity: 1 !important;
 }
 .site .pane-form.swapPosition {
   position: absolute;
@@ -10987,6 +11032,15 @@ a > .site code {
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/callout/src/style.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/logos/src/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
 /**
  * The following styles get applied both on the front of your site
  * and in the editor.

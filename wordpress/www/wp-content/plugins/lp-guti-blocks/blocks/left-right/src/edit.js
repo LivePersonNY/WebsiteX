@@ -68,7 +68,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 			tagName="p"
 			value={ attributes.text }
 			onChange={ ( val ) => setAttributes( { text: val } ) }
-			allowedFormats={ [ 'core/bold'] }
+			allowedFormats={ [ 'core/bold', 'core/italic', 'core/link'] }
 		/>
 	);
 
