@@ -55,13 +55,10 @@ const IndexPage = () => (
             <li><span className="fw-bold">heroImageAlt: </span> Text</li>
             <li><span className="fw-bold">heroVariant: </span> Selector - logo-wall/buttons</li>
             <li><span className="fw-bold">underBodyImg: </span> Image (when using logo-wall)</li>
-            <li><span className="fw-bold">buttons: </span> Array (when using buttons)
-              <ul>
-                <li><span className="fw-bold">btnType: </span> Selector - primary/secondary</li>
-                <li><span className="fw-bold">btnText: </span> Text</li>
-                <li><span className="fw-bold">btnLink: </span> Url</li>
-              </ul>
-            </li>
+            <li><span className="fw-bold">primaryBtnText: </span> Text</li>
+            <li><span className="fw-bold">primaryBtnLink: </span> Url</li>
+            <li><span className="fw-bold">secondaryBtnText: </span> Text</li>
+            <li><span className="fw-bold">secondaryBtnLink: </span> Url</li>
           </ul>
         </div>
       </div>
@@ -78,18 +75,10 @@ const IndexPage = () => (
       heroVariant="buttons"
       underBodyImg="https://picsum.photos/360/40?random=1"
       underBodyImgAlt="test"
-      buttons={[
-        {
-          "btnType":"primary",
-          "btnText":"Get Demo",
-          "btnLink":"#"
-        },
-        {
-          "btnType":"secondary",
-          "btnText":"Get Moar Demos",
-          "btnLink":"#"
-        },
-      ]}
+      primaryBtnText="Get Demo"
+      primaryBtnLink="#"
+      secondaryBtnText="Get Moar Demos"
+      secondaryBtnLink="#"
     />
 
     <div className="container component-doc">
