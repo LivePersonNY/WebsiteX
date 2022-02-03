@@ -82,6 +82,7 @@
 
                     &.col-4 {
                         padding-left: 40px;
+                        width: 480px;
 
                         .dropdown-item {
                             background: $neutral99;
@@ -93,10 +94,56 @@
                                 background: $neutral94;
                             }
                         }
+
+                        .dropdown-featured-container {
+                            img {
+                                float: left;
+                            }
+
+                            .dropdown-featured-body {
+                                float: left;
+                                margin-left: 20px;
+                                max-width: 228px;
+
+                                .subtitle3 {
+                                    margin-bottom: 8px;
+                                }
+
+                                .featured-body {
+                                    font-size: 14px;
+                                    line-height: 20px;
+                                    font-family: $familySpaceGrotesk;
+                                    font-weight: $fontBold;
+                                    margin-bottom: 11px;
+                                }
+
+                                .dropdown-link-blue {
+                                    font-size: 14px;
+                                    line-height: 16px;
+                                    font-family: $familySpaceGrotesk;
+                                    font-weight: $fontBold;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
                     }
                 }
 
 
+            }
+
+            &.resources {
+                .container {
+                    width: 784px;
+
+                    .col:not(.col-4) {
+                        .dropdown-section-title {
+                            display: none;
+                        }
+                    }
+
+                    .col-4 {}
+                }
             }
         }
     }

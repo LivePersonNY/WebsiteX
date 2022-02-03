@@ -366,12 +366,16 @@ img {
             padding: 0;
         }
 
-        h3 {
-            margin-top: 24px;
+        img {
+            margin-bottom: 24px;
 
             @include media-breakpoint-up(lg) {
-                margin-top: 32px;
+                margin-bottom: 32px;
             }
+        }
+
+        .h6 {
+            margin-bottom: 8px;
         }
 
         p {

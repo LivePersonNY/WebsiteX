@@ -57,14 +57,18 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                   <p>News test</p>
                 )}
                 {featuredResource && (
-                  <p>Resource test</p>
+                  <div className="bg-neutral-96 col-4 col">
+                    <p className="dropdown-section-title h6">Featured Resource</p>
+                    <div className="dropdown-featured-container">
+                      <img src="https://picsum.photos/152/120" alt="" />
+                      <div className="dropdown-featured-body">
+                        <p className="subtitle3">On-Demand Webinar</p>
+                        <p className="featured-body">Reimagining communication in the travel and hospitality industry</p>
+                        <a className="dropdown-link-blue" href="#">Watch Now</a>
+                      </div>
+                    </div>
+                  </div>
                 )}
-                <div className="bg-neutral-96 col-4 col">
-                  <p className="dropdown-section-title h6">Featured Resource</p>
-                  <li>
-                    <a className="dropdown-item" href="/products-conversational-cloud/">On-Demand Webinar <br /><span className="dropdown-item-content subtitle3">Reimagining communication in the travel and hospitality industry</span><span className="dropdown-link-blue">Watch Now</span></a>
-                  </li>
-                </div>
               </>
               )
             })}

@@ -423,6 +423,7 @@ const IndexPage = () => (
             <li><span className="fw-bold">mobilePillsWidth: </span> Pixels ex. "700px" (I will see if theres a way to automatically set it, but right now its needed to get that scroll/swipe effect for mobile)</li>    
             <li><span className="fw-bold">Tab: </span> Array
               <ul>
+                <li><span className="fw-bold">kicker: </span> Text</li>
                 <li><span className="fw-bold">title: </span> Text (Tab title)</li>
                 <li><span className="fw-bold">icon: </span> Image</li>
                 <li><span className="fw-bold">iconAlt: </span> Text</li>
@@ -447,6 +448,7 @@ const IndexPage = () => (
       mobilePillsWidth="700px"
       items={[
         {
+          "kicker":"kicker",
           "title": "Conversational Cloud",
           "icon": "https://picsum.photos/56/56?random=1",
           "iconAlt": "https://picsum.photos/56/56",
@@ -469,6 +471,7 @@ const IndexPage = () => (
           "imgAlt": "Image Here"
         },
         {
+          "kicker":"kicker",
           "title": "Managed Services",
           "icon": "https://picsum.photos/56/56?random=3",
           "iconAlt": "https://picsum.photos/56/56",
