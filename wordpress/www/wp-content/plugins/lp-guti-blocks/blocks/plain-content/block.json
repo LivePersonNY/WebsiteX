@@ -19,6 +19,7 @@
 		"colWidth": {"default": 10},
 		"alignment": {"default": "left" },
 		"header": {"default": "Plain Header"},
+		"kicker": {},
 		"content": {"default": "This should be compelling content. But it isn't."},
 		"linkText": {"default": "Here's a link text"},
 		"linkUrl": {"default": "https://www.liveperson.com"}

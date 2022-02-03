@@ -45,6 +45,15 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		/>
 	);
 
+	let kickerControl = (
+		<TextControl
+			value={ attributes.kicker }
+			onChange={ ( val ) => setAttributes( { kicker: val } ) }
+			className="embedded-input"
+			placeholder="Kicker Text"
+		/>
+	);
+
 	let contentControl = (
 		<RichText
 			tagName="p"
@@ -125,7 +134,14 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		return (
 			<div {...useBlockProps()}>
 				{alignButton}
-				<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} header={headerControl}body={contentControl} linkText={linkTextControl} />
+				<PlainContent
+					kicker={kickerControl}
+					colWidth={attributes.colWidth}
+					headLevel={attributes.headLevel}
+					alignmentClass={`text-${attributes.alignment}`}
+					header={headerControl}
+					body={contentControl}
+					linkText={linkTextControl} />
 			</div>
 
 		);
@@ -133,7 +149,14 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} header={attributes.header}body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
+			<PlainContent
+				kicker={attributes.kicker}
+				colWidth={attributes.colWidth}
+				headLevel={attributes.headLevel}
+				alignmentClass={`text-${attributes.alignment}`}
+				header={attributes.header}body={attributes.content}
+				linkText={attributes.linkText}
+				linkUrl={attributes.linkUrl} />
 		</div>
 	)
 

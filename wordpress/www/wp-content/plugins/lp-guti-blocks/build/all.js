@@ -15423,6 +15423,14 @@ function Edit(_ref) {
     placeholder: "Header Text",
     rows: "2"
   });
+  let kickerControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextControl, {
+    value: attributes.kicker,
+    onChange: val => setAttributes({
+      kicker: val
+    }),
+    className: "embedded-input",
+    placeholder: "Kicker Text"
+  });
   let contentControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
     tagName: "p",
     value: attributes.content,
@@ -15504,6 +15512,7 @@ function Edit(_ref) {
 
   if (isSelected) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), alignButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_PlainContent__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      kicker: kickerControl,
       colWidth: attributes.colWidth,
       headLevel: attributes.headLevel,
       alignmentClass: `text-${attributes.alignment}`,
@@ -15514,6 +15523,7 @@ function Edit(_ref) {
   }
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_PlainContent__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    kicker: attributes.kicker,
     colWidth: attributes.colWidth,
     headLevel: attributes.headLevel,
     alignmentClass: `text-${attributes.alignment}`,
