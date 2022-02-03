@@ -5,14 +5,14 @@ import TempIcon from './TempIcon';
 
 import { BsArrowUpRight } from "react-icons/bs";
 
-const NavPanel = ({ label, path, children, order, cssClasses }) => {
+const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, featuredResource }) => {
   if (children.length > 0) {
     children.sort(function(a,b) {
       return a.order - b.order;
     });
     cssClasses += ' dropdown-menu';
     return (
-      <li className="nav-item dropdown" style={{ position: 'static' }} order={order}>
+      <li className={`nav-item dropdown ${label.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'')}`} style={{ position: 'static' }} order={order}>
         <a
           className="nav-link dropdown-toggle"
           href="#"
@@ -32,8 +32,9 @@ const NavPanel = ({ label, path, children, order, cssClasses }) => {
             {children.map(function(item, index) {
               var cssClasses = item.cssClasses.join(" ");
               return (
+              <>
                 <div className={`${cssClasses} col`}>
-                  <p className="dropdown-section-title">{item.label}</p>
+                  <p className="dropdown-section-title h6">{item.label}</p>
                   {item.childItems.nodes.map(function(item, index) {
                     let descr = '';
                     let extIcon = '';
@@ -41,7 +42,7 @@ const NavPanel = ({ label, path, children, order, cssClasses }) => {
                       extIcon = <BsArrowUpRight />
                     }
                     if (item.description) {
-                      descr = <span className="dropdown-item-content">{item.description}</span>
+                      descr = <span className="dropdown-item-content subtitle3">{item.description}</span>
                     }
                     return (<li>
                         <a title={item.title} className="dropdown-item" href={item.path} target={item.target}>
@@ -52,6 +53,19 @@ const NavPanel = ({ label, path, children, order, cssClasses }) => {
                       </li>)
                   })}
                 </div>
+                {featuredNews && (
+                  <p>News test</p>
+                )}
+                {featuredResource && (
+                  <p>Resource test</p>
+                )}
+                <div className="bg-neutral-96 col-4 col">
+                  <p className="dropdown-section-title h6">Featured Resource</p>
+                  <li>
+                    <a className="dropdown-item" href="/products-conversational-cloud/">On-Demand Webinar <br /><span className="dropdown-item-content subtitle3">Reimagining communication in the travel and hospitality industry</span><span className="dropdown-link-blue">Watch Now</span></a>
+                  </li>
+                </div>
+              </>
               )
             })}
             </div>

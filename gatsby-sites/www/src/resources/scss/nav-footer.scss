@@ -8,13 +8,15 @@
                 font-weight: $fontBold;
                 font-size: 14px;
                 line-height: 20px;
-                // missing font family
             }
 
             .dropdown-menu {
                 background: $primaryLight;
                 left: 50%;
                 transform: translateX(-50%);
+                padding: 0;
+                margin: 0;
+                border: 0;
 
                 .dropdown-section-gray {
                     background: $neutral95;
@@ -25,46 +27,76 @@
                 }
 
                 .dropdown-section-title {
-                    color: $neutral30;
-                    font-weight: $fontBold;
-                    font-size: 12px;
-                    line-height: 16px;
+                    color: $neutral16;
                     text-transform: uppercase;
-                    // missing font family
+                    font-family: $familySpaceGrotesk;
+                    margin-bottom: 16px;
                 }
 
                 .tempIcon {
                     margin-right: 6px;
                 }
 
-                .dropdown-item {
+                .col {
+                    padding-top: 40px;
+                    padding-bottom: 48px;
+                    padding-right: 40px;
                     padding-left: 0;
-                    padding-right: 0;
-                    color: $secondaryDark;
-                    font-weight: $fontBold;
-                    font-size: 14px;
-                    line-height: 20px;
-                    margin-bottom: 20px;
-                    white-space: pre-wrap;
 
-                    .dropdown-item-content {
-                        color: $neutral45;
-                        font-size: 12px;
-                        line-height: 16px;
+                    &:first-child {
+                        padding-left: 40px;
                     }
 
-                    .dropdown-featured-title {
-                        color: $secondaryDark;
-                        font-weight: $fontNormal;
-                        font-size: 12px;
-                        line-height: 16px;
+                    .dropdown-item {
+                        padding: 0;
+                        color: $neutral12;
+                        font-weight: $fontBold;
+                        font-family: $familySpaceGrotesk;
+                        font-size: 14px;
+                        line-height: 20px;
+                        margin-bottom: 20px;
+                        white-space: pre-wrap;
+
+                        &:hover {
+                            background: $neutral96;
+                        }
+
+                        .dropdown-item-content {
+                            color: $neutral24;
+                            margin-top: 4px;
+                            font-weight: $fontNormal;
+                        }
+
+                        .dropdown-featured-title {
+                            color: $secondaryDark;
+                            font-weight: $fontNormal;
+                            font-size: 12px;
+                            line-height: 16px;
+                        }
+
+                        .dropdown-link-blue {
+                            font-weight: $fontSemiBold;
+                            color: $primaryBlue;
+                        }
+                    }
+
+                    &.col-4 {
+                        padding-left: 40px;
+
+                        .dropdown-item {
+                            background: $neutral99;
+                            border-radius: 48px;
+                            padding: 12px 40px 12px 84px;
+                            margin-bottom: 12px;
+
+                            &:hover {
+                                background: $neutral94;
+                            }
+                        }
                     }
                 }
 
-                .dropdown-link-blue {
-                    font-weight: $fontSemiBold;
-                    color: $primaryBlue;
-                }
+
             }
         }
     }
