@@ -29,21 +29,6 @@ const IconTextB = (props) => {
     )
   });
 
-  // let ctaCol = props.cardCTA.map((item, index)=>{
-  //   return (
-  //     <div className="col" key={index}>
-  //       <div className="card h-100 text-center">
-  //         <div className="card-body d-flex flex-column justify-content-center align-items-center">
-  //           <h3 className="card-text">{item.body}</h3>
-  //           <a href={item.btnUrl} className="btn btn-primary">
-  //             {item.btnText}
-  //           </a>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   )
-  // });
-
   return (  
     <div className={`pane comp-icon-text-b ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">

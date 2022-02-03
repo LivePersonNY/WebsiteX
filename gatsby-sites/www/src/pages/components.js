@@ -562,6 +562,33 @@ const IndexPage = () => (
       flipColumns="true"
     />
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> CalloutGrid</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-callout-grid</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>    
+            <li><span className="fw-bold">linkText: </span> Text (top right link)</li>
+            <li><span className="fw-bold">linkUrl: </span> Url</li> 
+            <li><span className="fw-bold">Callout: </span> Array
+              <ul>
+                <li><span className="fw-bold">imgSrc: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">category: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+                <li><span className="fw-bold">author: </span> Text</li>
+                <li><span className="fw-bold">linkUrl: </span> Url</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <CalloutGrid
       backgroundColor="bg-neutral-84"
       header="Related Insights"
@@ -593,6 +620,29 @@ const IndexPage = () => (
         },
       ]}
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> IconTextA</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-icon-text-a</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>    
+            <li><span className="fw-bold">Card: </span> Array
+              <ul>
+                <li><span className="fw-bold">img: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">title: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <IconTextA 
       backgroundColor="bg-neutral-92"
@@ -637,6 +687,35 @@ const IndexPage = () => (
       ]}
     />
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> IconTextB</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-icon-text-b</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>    
+            <li><span className="fw-bold">Card: </span> Array
+              <ul>
+                <li><span className="fw-bold">img: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">title: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+                <li><span className="fw-bold">linkText: </span> Text</li>
+                <li><span className="fw-bold">linkUrl: </span> Url</li>
+              </ul>
+            </li>
+          </ul>
+          <li><span className="fw-bold">cardCTA:</span> Selector (this will include the CTA card at the end</li>
+          <li><span className="fw-bold">cardCTAbody: </span> Text</li>
+          <li><span className="fw-bold">btnText: </span> Text</li>
+          <li><span className="fw-bold">btnUrl: </span> Url</li>
+        </div>
+      </div>
+    </div>
+
     <IconTextB
       backgroundColor="bg-neutral-92"
       header="Headline about our customers"
@@ -679,6 +758,31 @@ const IndexPage = () => (
       btnUrl="#"
       cardCTAbody="Call to action goes right here"
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> IconTextC</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-icon-text-a</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>    
+            <li><span className="fw-bold">Card: </span> Array
+              <ul>
+                <li><span className="fw-bold">img: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">title: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+                <li><span className="fw-bold">linkText: </span> Text</li>
+                <li><span className="fw-bold">linkUrl: </span> Url</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     
     <IconTextC
       backgroundColor="bg-primary-light"
@@ -702,6 +806,31 @@ const IndexPage = () => (
         },
       ]}
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> IconTextD</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-icon-text-d</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>    
+            <li><span className="fw-bold">body: </span> Text</li>    
+            <li><span className="fw-bold">centerBody: </span> Selector (will center all card body</li>    
+            <li><span className="fw-bold">Card: </span> Array
+              <ul>
+                <li><span className="fw-bold">img: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">title: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <IconTextD
       backgroundColor="bg-primary-light"
@@ -736,6 +865,27 @@ const IndexPage = () => (
       ]}
     />
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> LogosUniversal</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-logo-universal</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>    
+            <li><span className="fw-bold">Image: </span> Array
+              <ul>
+                <li><span className="fw-bold">img: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <LogosUniversal 
       backgroundColor="bg-neutral-92"
       header="Trusted by the world's biggest brands"
@@ -763,6 +913,33 @@ const IndexPage = () => (
       ]}
     />
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> QuoteSlider</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-quote-slider</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>    
+            <li><span className="fw-bold">Quote: </span> Array
+              <ul>
+                <li><span className="fw-bold">img: </span> Image (the Big image on left)</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">brandImg: </span> Image (the Small image next to author)</li>
+                <li><span className="fw-bold">brandImgAlt: </span> Text</li>
+                <li><span className="fw-bold">author: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+                <li><span className="fw-bold">linkText: </span> Text</li>
+                <li><span className="fw-bold">linkUrl: </span> Url</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <QuoteSlider
       backgroundColor="bg-neutral-92"
       header="Why customers love Voice"
@@ -780,7 +957,7 @@ const IndexPage = () => (
       ]}
     />
 
-<QuoteSlider
+    <QuoteSlider
       backgroundColor="bg-neutral-92"
       header="Why customers love Voice"
       items={[
@@ -795,6 +972,26 @@ const IndexPage = () => (
       ]}
     />
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> ContainedContent</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-contained-content</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>    
+            <li><span className="fw-bold">body: </span> Text</li>    
+            <li><span className="fw-bold">linkText: </span> Text</li>
+            <li><span className="fw-bold">linkUrl: </span> Url</li>
+            <li><span className="fw-bold">imgSrc: </span> Image (the Big image on left)</li>
+            <li><span className="fw-bold">imgAlt: </span> Text</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <ContainedContent 
       backgroundColor="bg-primary-light"
       header="Call to action goes here"
@@ -805,12 +1002,51 @@ const IndexPage = () => (
       imgAlt="test"
     />
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> ContentCTA</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-content-cta</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li> 
+            <li><span className="fw-bold">body: </span> Text</li>    
+            <li><span className="fw-bold">linkText: </span> Text</li>
+            <li><span className="fw-bold">linkUrl: </span> Url</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <ContentCTA
       backgroundColor="bg-primary-light"
       body="Learn more about Voicebase"
       linkText="Explore Voicebase"
       linkUrl="#"
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> SideBySide</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-side-side</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">Card: </span> Array
+              <ul>
+                <li><span className="fw-bold">imgSrc: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">header: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <SideBySide
       backgroundColor="bg-primary-light"
@@ -830,6 +1066,27 @@ const IndexPage = () => (
       ]}
     />
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> ScrollHorizontalText</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-scroll-horizontal-text</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>
+            <li><span className="fw-bold">Text Block: </span> Array
+              <ul>
+                <li><span className="fw-bold">blockTitle: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <ScrollHorizontalText
       backgroundColor="bg-primary-light"
       header="Included Features"
@@ -848,6 +1105,30 @@ const IndexPage = () => (
         },
       ]}
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> Faq</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-faq</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">kicker: </span> Text</li>
+            <li><span className="fw-bold">header: </span> Text</li>
+            <li><span className="fw-bold">btnText: </span> Text</li>
+            <li><span className="fw-bold">btnUrl: </span> URL</li>
+            <li><span className="fw-bold">FAQ items: </span> Array
+              <ul>
+                <li><span className="fw-bold">title: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <Faq 
       backgroundColor="bg-primary-light"
@@ -874,6 +1155,32 @@ const IndexPage = () => (
         },
       ]}
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> CardGridB</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-card-grid-b</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">backgroundColor:</span> Selector</li>
+            <li><span className="fw-bold">header: </span> Text</li>
+            <li><span className="fw-bold">body: </span> Text</li>
+            <li><span className="fw-bold">Card: </span> Array
+              <ul>
+                <li><span className="fw-bold">imgSrc: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">cardTitle: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+                <li><span className="fw-bold">linkText: </span> Text</li>
+                <li><span className="fw-bold">linkUrl: </span> URL</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <CardGridB
       backgroundColor="bg-neutral-92"
@@ -931,6 +1238,32 @@ const IndexPage = () => (
       ]}
     />
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> ProgramCard</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-program-card</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">Card: </span> Array
+              <ul>
+                <li><span className="fw-bold">imgSrc: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">kicker: </span> Text</li>
+                <li><span className="fw-bold">header: </span> Text</li>
+                <li><span className="fw-bold">eventDate: </span> Text</li>
+                <li><span className="fw-bold">eventTime: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+                <li><span className="fw-bold">btnText: </span> Text</li>
+                <li><span className="fw-bold">btnUrl: </span> URL</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <ProgramCard
       backgroundColor="bg-primary-light"
       items={[
@@ -969,6 +1302,29 @@ const IndexPage = () => (
         }
       ]}
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> TeamCards</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-team-cards</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">Card: </span> Array
+              <ul>
+                <li><span className="fw-bold">imgSrc: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">name: </span> Text</li>
+                <li><span className="fw-bold">title: </span> Text</li>
+                <li><span className="fw-bold">btnText: </span> Text</li>
+                <li><span className="fw-bold">linkedInUrl: </span> URL</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <TeamCards
       backgroundColor="bg-neutral-92"
@@ -1025,6 +1381,25 @@ const IndexPage = () => (
       ]}
     />
 
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> HorizontalText</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-scroll-horizontal-text</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">Text Block: </span> Array
+              <ul>
+                <li><span className="fw-bold">header: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <HorizontalText
       backgroundColor="bg-primary-light"
       items={[
@@ -1046,6 +1421,30 @@ const IndexPage = () => (
         },
       ]}
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> ExecutiveCard</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-exec-card</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>
+          <ul>
+            <li><span className="fw-bold">Card: </span> Array
+              <ul>
+                <li><span className="fw-bold">imgSrc: </span> Image</li>
+                <li><span className="fw-bold">imgAlt: </span> Text</li>
+                <li><span className="fw-bold">name: </span> Text</li>
+                <li><span className="fw-bold">title: </span> Text</li>
+                <li><span className="fw-bold">bio: </span> Text</li>
+                <li><span className="fw-bold">btnText: </span> Text</li>
+                <li><span className="fw-bold">linkedInUrl: </span> Url</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <ExecutiveCard
       backgroundColor="bg-primary-light"
@@ -1079,6 +1478,26 @@ const IndexPage = () => (
         },
       ]}
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> BoardCards</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-team-cards</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>          
+          <ul>
+            <li><span className="fw-bold">header: </span> Text</li>
+            <li><span className="fw-bold">Card: </span> Array
+              <ul>
+                <li><span className="fw-bold">name: </span> Text</li>
+                <li><span className="fw-bold">title: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <BoardCards
       backgroundColor="bg-primary-light"
@@ -1115,6 +1534,29 @@ const IndexPage = () => (
         
       ]}
     />
+
+    <div className="container component-doc">
+      <div className="row">
+        <div className="col-lg-6">
+          <p><span className="fw-bold">React Component Name:</span> ScrollContent</p>
+          <p><span className="fw-bold">CSS Class Name:</span> comp-scroll-horizontal-text</p>
+          <p><span className="fw-bold">WordPress Name:</span> </p>
+          <p><span className="fw-bold">Properties:</span></p>          
+          <ul>
+            <li><span className="fw-bold">kicker: </span> Text</li>
+            <li><span className="fw-bold">header: </span> Text</li>
+            <li><span className="fw-bold">imgSrc: </span> Text</li>
+            <li><span className="fw-bold">imgAlt: </span> Text</li>
+            <li><span className="fw-bold">Content Block: </span> Array
+              <ul>
+                <li><span className="fw-bold">blockTitle: </span> Text</li>
+                <li><span className="fw-bold">body: </span> Text</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <ScrollContent
       backgroundColor="bg-blue-20"
