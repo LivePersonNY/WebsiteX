@@ -4,6 +4,13 @@ import Paragraph from '../Paragraph';
 
 const Hero = (props) => (
   <div className={`pane hero ${props.backgroundColor||"bg-transparent"}`}>
+    {props.backgroundImage && 
+      <style>
+        {`.pane.hero {
+          background-image: url(${props.backgroundImage});
+        }`}
+      </style>
+    }
     <div className="container">
       <div className="row align-items-center">
         <div className="col-lg-5">

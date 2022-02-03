@@ -47,84 +47,46 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 		/>
 	);
 
-	let contentControl = (
-		<TextareaControl
-			value={ attributes.content }
-			onChange={ ( val ) => setAttributes( { content: val } ) }
-			className="embedded-input"
-			rows="1"
-		/>
-	);
-
-	let kickerControl = (
-		<TextControl
-			value={ attributes.kicker }
-			onChange={ ( val ) => setAttributes( { kicker: val } ) }
-			className="embedded-input"
-		/>
-	);
-
-	let faqs = [...attributes.faqs];
-	let controls = attributes.faqs.map((item ,index)=>{
+	let logos = [...attributes.logos];
+	let controls = attributes.logos.map((item ,index)=>{
 		return {
-			title: (
-				<TextControl
-					value={faqs[index].title}
-					onChange={function(value) {
-						faqs[index].title = value;
-						setAttributes({ faqs: faqs});
+			imgCtl: (
+				<div class="logo-control-wrap">
+				<MediaUploadCheck>
+					<MediaUpload
+						onSelect={function(media) {
+							logos[index].img = media.url;
+							logos[index].mediaId = media.id;
+							logos[index].imgAlt = media.alt || '';
+							setAttributes({ logos: logos});
+						}}
+						value={logos[index].mediaId}
+						allowedTypes={ ['image'] }
+						render={({open}) => (
+							<img src={logos[index].img || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
+						)}
+					/>
+				</MediaUploadCheck>
+				<ItemControls
+					index={index}
+					itemArray={logos}
+					callback={function(items) {
+						setAttributes({ logos: logos});
 					}}
-					className="embedded-input"
 				/>
-			),
-			body: (
-				<div className="wp-control-wrapper">
-					<TextareaControl
-						value={faqs[index].body}
-						onChange={function(value) {
-							faqs[index].body = value;
-							setAttributes({ faqs: faqs});
-						}}
-						className="embedded-input"
-						rows="1"
-					/>
-					<ItemControls
-						index={index}
-						itemArray={faqs}
-						callback={function(items) {
-							setAttributes({ faqs: faqs});
-						}}
-					/>
 				</div>
 			)
 		}
 	});
 
-	let linkTextControl = (
-		<div className="wp-control-wrapper">
-			<TextControl
-				value={ attributes.btnText }
-				onChange={ ( val ) => setAttributes( { btnText: val } ) }
-				className="embedded-input"
-				placeholder="Link Text"
-			/>
-
-			<TextControl
-				value={ attributes.btnUrl }
-				onChange={ ( val ) => setAttributes( { btnUrl: val } ) }
-				placeholder="Link URL"
-			/>
-		</div>
-	);
-
 	let addTabFunc = function() {
 
-		faqs.push({
+		logos.push({
 			"img": "https://picsum.photos/224/30?random=3",
 			"imgAlt": "Placeholder image"
 		});
 		setAttributes({
-			cards: cards
+			logos: logos
 		});
 	}
 
@@ -151,7 +113,8 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			{addButton}
 			<LogosUniversal
 				header={headerControl}
-				logos={controls}
+				items={controls}
+				backgroundColor={attributes.backgroundColor}
 			/>
 		</div>
 	);
@@ -160,7 +123,8 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 		<div { ...useBlockProps() }>
 			<LogosUniversal
 				header={attributes.header}
-				logos={controls}
+				items={attributes.logos}
+				backgroundColor={attributes.backgroundColor}
 			/>
 		</div>
 	)

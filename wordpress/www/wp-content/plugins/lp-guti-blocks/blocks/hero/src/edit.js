@@ -5,12 +5,13 @@
  */
 import { __ } from '@wordpress/i18n';
 import $ from 'jquery';
-import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper } from '@wordpress/components';
-const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
+import { __experimentalGrid as Grid,Placeholder, ToolbarButton, TextControl, TextareaControl, Button, ResponsiveWrapper } from '@wordpress/components';
+const { MediaUpload, MediaUploadCheck, BlockControls } = wp.blockEditor;
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
 const { Fragment } = wp.element;
 import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks/Hero';
+import BackgroundSelectorMenu from '../../BackgroundSelector';
 
 import LineBreaks from '../../LineBreaks';
 /**
@@ -89,17 +90,62 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		</MediaUploadCheck>
 	);
 
+	let changeHeroBGimage = function(media) {
+		setAttributes({
+			backgroundImage: media.url,
+			backgroundImageID: media.id,
+		});
+	}
+
+	let changeBackground = function(color) {
+		setAttributes({ backgroundColor: color });
+	}
+
+	let addButton = (
+		<BlockControls>
+
+			<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+		</BlockControls>
+	);
+
 
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
-			<Hero header={headerControl} subHeader={subHeaderControl} kicker={kickerControl} imgCtl={imageControl} />
+			{addButton}
+			<MediaUploadCheck>
+				<MediaUpload
+					onSelect={changeHeroBGimage}
+					value={attributes.backgroundImageID}
+					allowedTypes={ ['image'] }
+					render={({open}) => (
+						<BlockControls>
+							<ToolbarButton
+								icon="format-image"
+								onClick={open}
+								label="Background Image"
+							/>
+							{attributes.backgroundImageID &&
+								<ToolbarButton
+									icon="remove"
+									onClick={() => setAttributes({
+										backgroundImage: '',
+										backgroundImageID: null
+									})}
+									label="Remove Background"
+								/>
+							}
+						</BlockControls>
+					)}
+				/>
+			</MediaUploadCheck>
+			<Hero backgroundImage={attributes.backgroundImage} backgroundColor={attributes.backgroundColor} header={headerControl} subHeader={subHeaderControl} kicker={kickerControl} imgCtl={imageControl} />
 		</div>
 
 	);
 
 	return (
 		<div {...useBlockProps()}>
-			<Hero header={attributes.header} subHeader={attributes.subHeader} kicker={attributes.kicker} heroImage={attributes.mediaUrl} heroImageAlt={attributes.mediaAlt} />
+			<Hero backgroundImage={attributes.backgroundImage} backgroundColor={attributes.backgroundColor} header={attributes.header} subHeader={attributes.subHeader} kicker={attributes.kicker} heroImage={attributes.mediaUrl} heroImageAlt={attributes.mediaAlt} />
 		</div>
 	);
 

@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Logos",
 	"category": "liveperson",
-	"icon": "info",
+	"icon": "smiley",
 	"description": "Logo stripe",
 	"supports": {
 		"html": false
@@ -15,17 +15,30 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
+		"header": {"default": "Logos of all the things"},
+		"backgroundColor": {"default": "bg-neutral-96"},
 		"logos": {
 			"type": "array",
-			"default": {
+			"default":
 				[
-					'https://picsum.photos/80/80',
-					'https://picsum.photos/241/56',
-					'https://picsum.photos/100/40',
-					'https://picsum.photos/185/48',
-					'https://picsum.photos/135/40'
+					{
+						"img": "https://picsum.photos/224/30?random=3",
+						"imgAlt": "Placeholder image"
+					},
+					{
+						"img": "https://picsum.photos/224/30?random=4",
+						"imgAlt": "Placeholder image"
+					},
+					{
+						"img": "https://picsum.photos/224/30?random=5",
+						"imgAlt": "Placeholder image"
+					},
+					{
+						"img": "https://picsum.photos/224/30?random=6",
+						"imgAlt": "Placeholder image"
+					}
 				]
-			}
+
 		}
 	}
 }

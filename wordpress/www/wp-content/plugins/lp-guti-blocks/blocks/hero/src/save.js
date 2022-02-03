@@ -26,7 +26,7 @@ import LineBreaks from '../../LineBreaks';
 export default function save({attributes}) {
 	return (
 
-			<Hero header={attributes.header} kicker={attributes.kicker} subHeader={attributes.subHeader} heroImage={attributes.mediaUrl}/>
+			<Hero backgroundImage={attributes.backgroundImage} backgroundColor={attributes.backgroundColor} header={attributes.header} kicker={attributes.kicker} subHeader={attributes.subHeader} heroImage={attributes.mediaUrl}/>
 
 	);
 }

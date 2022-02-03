@@ -6,17 +6,19 @@ const LogosUniversal = (props) => {
 
   let logoImg = props.items.map((item, index)=>{
     return (
-      <img 
+      <>
+      {!item.imgCtl && <img 
         key={index}
         className=""
         src={item.img}
         alt={item.imgAlt}
-      />
+      /> || item.imgCtl}
+      </>
     )
   });
 
   return (  
-    <div className={`pane comp-logo-universal ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
+    <div className={`pane comp-logo-universal ${props.backgroundColor||"bg-neutral-96"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         {props.header && (
           <div className="row">
