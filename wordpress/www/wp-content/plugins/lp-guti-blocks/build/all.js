@@ -11430,14 +11430,14 @@ __webpack_require__.r(__webpack_exports__);
 
 const QuoteSlider = props => {
   let quoteBlock = props.items.map((item, index) => {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, item.img && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "col-lg-3 offset-lg-1",
       key: index
     }, !item.imgCtl && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       src: item.img,
       alt: item.imgAlt
     }) || item.imgCtl), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "col-lg-7"
+      className: `${item.img ? 'col-lg-7' : 'col-lg-10 offset-lg-1'}`
     }, !item.brandImgCtl && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       className: "comp-brand-img",
       src: item.brandImg,
@@ -11448,7 +11448,7 @@ const QuoteSlider = props => {
       className: "quote1",
       text: item.body
     }), item.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-      className: "link",
+      className: "link link-mt-large",
       href: item.linkUrl
     }, item.linkText)));
   });

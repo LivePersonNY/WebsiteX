@@ -10217,12 +10217,12 @@ a > .site code {
   margin-top: 16px;
 }
 .site .comp-tabs-b .row .comp-tabs-img-container {
-  margin-top: -88px;
+  margin-top: -88px !important;
   z-index: 0;
 }
 @media (min-width: 992px) {
   .site .comp-tabs-b .row .comp-tabs-img-container {
-    margin-top: 0;
+    margin-top: 0 !important;
   }
 }
 @media (max-width: 991.98px) {
@@ -10608,6 +10608,7 @@ a > .site code {
 }
 .site .component-doc {
   padding: 20px 0;
+  width: 90%;
 }
 .site .component-doc .row div {
   border: 1px solid red;
@@ -10772,6 +10773,14 @@ a > .site code {
   width: 40px;
   margin: auto;
   margin-bottom: 12px;
+}
+.site .pane-form.form--sticky .container .mktoForm {
+  display: none;
+}
+@media (min-width: 992px) {
+  .site .pane-form.form--sticky .container .mktoForm {
+    display: block;
+  }
 }
 .site .pane-form .mktoForm {
   width: 100% !important;

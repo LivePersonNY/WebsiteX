@@ -108,10 +108,12 @@ const NavBar = ({ siteTitle }) => {
           <ul className="navbar-nav">
             {topItems.nodes.map((item, index) => {
               const cssClasses = item.cssClasses.length
-              let featuredResource = item.cssClasses.indexOf('featured-resource') >= 0;
-              let featuredNews = item.cssClasses.indexOf('featured-news') >= 0;
               ? item.cssClasses.join(' ')
               : '';
+              
+              let featuredResource = item.cssClasses.indexOf('featured-resource') >= 0;
+              let featuredNews = item.cssClasses.indexOf('featured-news') >= 0;
+              
               if (item.childItems.nodes.length > 0) {
                 return (
                   <NavPanel
