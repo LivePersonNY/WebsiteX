@@ -108,11 +108,21 @@ const NavBar = ({ siteTitle }) => {
           <ul className="navbar-nav">
             {topItems.nodes.map((item, index) => {
               const cssClasses = item.cssClasses.length
+              let featuredResource = item.cssClasses.indexOf('featured-resource') >= 0;
+              let featuredNews = item.cssClasses.indexOf('featured-news') >= 0;
               ? item.cssClasses.join(' ')
               : '';
               if (item.childItems.nodes.length > 0) {
                 return (
-                  <NavPanel cssClasses={cssClasses} order={item.order} label={item.label} path={item.path} children={item.childItems.nodes} />
+                  <NavPanel
+                    cssClasses={cssClasses} 
+                    order={item.order} 
+                    label={item.label} 
+                    path={item.path} 
+                    children={item.childItems.nodes}
+                    featuredNews={featuredNews}
+                    featuredResource={featuredResource}
+                     />
                 )
               } else {
                 return (
