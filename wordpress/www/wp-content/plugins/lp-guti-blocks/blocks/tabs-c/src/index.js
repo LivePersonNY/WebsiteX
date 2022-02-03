@@ -35,5 +35,6 @@ registerBlockType('lp-guti-blocks/tabs-horizontal', {
 	 * @see ./save.js
 	 */
 	save,
+	example: {}
 
 });

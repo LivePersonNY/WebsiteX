@@ -35,5 +35,6 @@ registerBlockType('lp-guti-blocks/hero', {
 	 * @see ./save.js
 	 */
 	save,
+	example: {}
 
 });

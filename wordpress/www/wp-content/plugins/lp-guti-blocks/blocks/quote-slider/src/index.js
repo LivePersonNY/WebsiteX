@@ -35,5 +35,6 @@ registerBlockType('lp-guti-blocks/quote-slider', {
 	 * @see ./save.js
 	 */
 	save,
+	example: {}
 
 });

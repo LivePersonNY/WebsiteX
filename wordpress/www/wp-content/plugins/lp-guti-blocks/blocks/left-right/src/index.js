@@ -35,5 +35,6 @@ registerBlockType('lp-guti-blocks/left-right', {
 	 * @see ./save.js
 	 */
 	save,
+	example: {}
 
 });

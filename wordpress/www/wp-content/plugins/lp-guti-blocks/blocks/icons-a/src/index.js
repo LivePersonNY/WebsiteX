@@ -35,5 +35,6 @@ registerBlockType('lp-guti-blocks/icons-a', {
 	 * @see ./save.js
 	 */
 	save,
+	example: {}
 
 });

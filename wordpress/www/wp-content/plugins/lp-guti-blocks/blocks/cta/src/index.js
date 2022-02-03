@@ -35,5 +35,6 @@ registerBlockType('lp-guti-blocks/cta', {
 	 * @see ./save.js
 	 */
 	save,
+	example: {}
 
 });

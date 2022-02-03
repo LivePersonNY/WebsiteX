@@ -35,5 +35,6 @@ registerBlockType('lp-guti-blocks/faqs', {
 	 * @see ./save.js
 	 */
 	save,
+	example: {}
 
 });

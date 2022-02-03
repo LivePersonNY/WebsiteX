@@ -35,5 +35,6 @@ registerBlockType('lp-guti-blocks/mkto-form', {
 	 * @see ./save.js
 	 */
 	save,
+	example: {}
 
 });

@@ -35,5 +35,6 @@ registerBlockType('lp-guti-blocks/logos', {
 	 * @see ./save.js
 	 */
 	save,
+	example: {}
 
 });
