@@ -15414,22 +15414,23 @@ function Edit(_ref) {
     isSelected,
     setAttributes
   } = _ref;
-  let headerControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextControl, {
+  let headerControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextareaControl, {
     value: attributes.header,
     onChange: val => setAttributes({
       header: val
     }),
     className: "embedded-input",
-    placeholder: "Header Text"
+    placeholder: "Header Text",
+    rows: "2"
   });
-  let contentControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TextareaControl, {
+  let contentControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+    tagName: "p",
     value: attributes.content,
     onChange: val => setAttributes({
       content: val
     }),
     className: "embedded-input",
-    placeholder: "Body Text",
-    rows: "1"
+    allowedFormats: ['core/bold', 'core/italic', 'core/link']
   });
   let linkTextControl = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wp-control-wrapper"

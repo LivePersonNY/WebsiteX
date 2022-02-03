@@ -12,7 +12,7 @@ import $ from 'jquery';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor';
 import PlainContent from '../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent';
 import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 
@@ -36,21 +36,22 @@ import './editor.scss';
 export default function Edit({attributes, isSelected, setAttributes}) {
 
 	let headerControl = (
-		<TextControl
+		<TextareaControl
 			value={ attributes.header }
 			onChange={ ( val ) => setAttributes( { header: val } ) }
 			className="embedded-input"
 			placeholder="Header Text"
+			rows="2"
 		/>
 	);
 
 	let contentControl = (
-		<TextareaControl
+		<RichText
+			tagName="p"
 			value={ attributes.content }
 			onChange={ ( val ) => setAttributes( { content: val } ) }
 			className="embedded-input"
-			placeholder="Body Text"
-			rows="1"
+			allowedFormats={ [ 'core/bold', 'core/italic', 'core/link'] }
 		/>
 	);
 
