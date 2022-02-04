@@ -13,7 +13,7 @@ import '../../../../../../../../gatsby-sites/www/liveperson-scripts';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 import TabsC from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsC';
@@ -21,6 +21,7 @@ import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, B
 
 import AddItemButton from '../../AddItemButton';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
+import ItemControls from '../../ItemControls';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -88,32 +89,27 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						value={itemValues[index].title}
 						onChange={function(value) {
 							itemValues[index].title = value;
+							itemValues[index].kicker = value;
 							setAttributes({ tabItems: itemValues});
 						}}
 						className="embedded-input"
 					/>
-					<a
-						className="v-tab-remove"
-						onClick={
-						function(e) {
-							itemValues.splice(index, 1);
-							setAttributes({ tabItems: itemValues});
+					<ItemControls index={index} itemArray={itemValues} callback={
+						function(items) {
+							setAttributes({ tabItems: items});
 						}
-					}>
-						<span className="dashicons-before dashicons-remove"></span>
-					</a>
+					} />
 				</div>
 			),
 			kicker: itemValues[index].title,
 			body: (
-				<TextareaControl
+				<RichText
 					value={itemValues[index].body}
 					onChange={function(value) {
 						itemValues[index].body = value;
 						setAttributes({ tabItems: itemValues});
 					}}
-					className="embedded-input"
-					rows="1"
+					allowedFormats={['core/bold', 'core/italic', 'core/link']}
 				/>
 
 			),
@@ -129,7 +125,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						value={itemValues[index].iconId}
 						allowedTypes={ ['image'] }
 						render={({open}) => (
-							<img src={itemValues[index].icon || `https://loremicon.com/rect/64/64/${index}/png`} data-tab-content={index} key={index} onClick={open} />
+							<img className="imageSelector" src={itemValues[index].icon || `https://loremicon.com/rect/64/64/${index}/png`} data-tab-content={index} key={index} onClick={open} />
 						)}
 					/>
 				</MediaUploadCheck>
@@ -146,7 +142,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						value={itemValues[index].mediaId}
 						allowedTypes={ ['image'] }
 						render={({open}) => (
-							<img src={itemValues[index].img || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
+							<img className="imageSelector" src={itemValues[index].img || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
 						)}
 					/>
 				</MediaUploadCheck>
@@ -160,6 +156,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		itemValues.push({
 			title: `The Translation`,
+			kicker: `The Translation`,
 			header: `1914 translation by H. Rackham`,
 			body: `But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.`,
 			linkUrl: 'https://www.lipsum.com/',

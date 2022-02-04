@@ -17311,7 +17311,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _AddItemButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../AddItemButton */ "./blocks/AddItemButton.js");
 /* harmony import */ var _BackgroundSelector__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../BackgroundSelector */ "./blocks/BackgroundSelector.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./editor.scss */ "./blocks/tabs-c/src/editor.scss");
+/* harmony import */ var _ItemControls__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../ItemControls */ "./blocks/ItemControls.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./editor.scss */ "./blocks/tabs-c/src/editor.scss");
 
 
 /**
@@ -17334,6 +17335,7 @@ const {
   MediaUpload,
   MediaUploadCheck
 } = wp.blockEditor;
+
 
 
 
@@ -17410,24 +17412,23 @@ function Edit(_ref) {
         value: itemValues[index].title,
         onChange: function (value) {
           itemValues[index].title = value;
+          itemValues[index].kicker = value;
           setAttributes({
             tabItems: itemValues
           });
         },
         className: "embedded-input"
-      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-        className: "v-tab-remove",
-        onClick: function (e) {
-          itemValues.splice(index, 1);
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ItemControls__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        index: index,
+        itemArray: itemValues,
+        callback: function (items) {
           setAttributes({
-            tabItems: itemValues
+            tabItems: items
           });
         }
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-        className: "dashicons-before dashicons-remove"
-      }))),
+      })),
       kicker: itemValues[index].title,
-      body: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextareaControl, {
+      body: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
         value: itemValues[index].body,
         onChange: function (value) {
           itemValues[index].body = value;
@@ -17435,8 +17436,7 @@ function Edit(_ref) {
             tabItems: itemValues
           });
         },
-        className: "embedded-input",
-        rows: "1"
+        allowedFormats: ['core/bold', 'core/italic', 'core/link']
       }),
       iconCtl: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
         onSelect: function (media) {
@@ -17454,6 +17454,7 @@ function Edit(_ref) {
             open
           } = _ref2;
           return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+            className: "imageSelector",
             src: itemValues[index].icon || `https://loremicon.com/rect/64/64/${index}/png`,
             "data-tab-content": index,
             key: index,
@@ -17477,6 +17478,7 @@ function Edit(_ref) {
             open
           } = _ref3;
           return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+            className: "imageSelector",
             src: itemValues[index].img || `https://picsum.photos/752/568?random=${index}`,
             "data-tab-content": index,
             key: index,
@@ -17491,6 +17493,7 @@ function Edit(_ref) {
     let thisIndex = itemValues.length;
     itemValues.push({
       title: `The Translation`,
+      kicker: `The Translation`,
       header: `1914 translation by H. Rackham`,
       body: `But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.`,
       linkUrl: 'https://www.lipsum.com/',
