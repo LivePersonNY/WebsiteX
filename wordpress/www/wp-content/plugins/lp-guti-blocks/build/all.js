@@ -15833,7 +15833,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _AddItemButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../AddItemButton */ "./blocks/AddItemButton.js");
 /* harmony import */ var _ItemControls__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../ItemControls */ "./blocks/ItemControls.js");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./editor.scss */ "./blocks/program-card/src/editor.scss");
+/* harmony import */ var _BackgroundSelector__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../BackgroundSelector */ "./blocks/BackgroundSelector.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./editor.scss */ "./blocks/program-card/src/editor.scss");
 
 
 /**
@@ -15856,6 +15857,7 @@ const {
   MediaUpload,
   MediaUploadCheck
 } = wp.blockEditor;
+
 
 
 
@@ -16024,14 +16026,21 @@ function Edit(_ref) {
 
   let addButton = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddItemButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
     callback: addTabFunc
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_BackgroundSelector__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    callback: color => setAttributes({
+      backgroundColor: color
+    }),
+    selected: attributes.backgroundColor
   })));
   if (isSelected) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), addButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_ProgramCard__WEBPACK_IMPORTED_MODULE_5__["default"], {
     items: itemControls,
-    runFilters: true
+    runFilters: true,
+    backgroundColor: attributes.backgroundColor
   }));
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_ProgramCard__WEBPACK_IMPORTED_MODULE_5__["default"], {
     items: attributes.quotes,
-    runFilters: true
+    runFilters: true,
+    backgroundColor: attributes.backgroundColor
   }));
 }
 
@@ -16142,7 +16151,8 @@ function save(_ref) {
     attributes
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_ProgramCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    items: attributes.quotes
+    items: attributes.quotes,
+    backgroundColor: attributes.backgroundColor
   });
 }
 

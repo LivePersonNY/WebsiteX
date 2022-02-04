@@ -16,6 +16,7 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"header": {"default": "Header above events"},
+		"backgroundColor": {},
 		"quotes": {
 			"type": "array",
 			"default": [
