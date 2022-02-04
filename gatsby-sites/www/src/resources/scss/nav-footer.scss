@@ -66,7 +66,8 @@
                         color: $neutral16;
                         text-transform: uppercase;
                         font-family: $familySpaceGrotesk;
-                        margin-bottom: 16px;
+                        margin-bottom: 6px;
+                        margin-left: 10px;
                     }
 
                     .tempIcon {
@@ -84,13 +85,12 @@
                         }
 
                         .dropdown-item {
-                            padding: 0;
+                            padding: 10px;
                             color: $neutral12;
                             font-weight: $fontBold;
                             font-family: $familySpaceGrotesk;
                             font-size: 14px;
                             line-height: 20px;
-                            margin-bottom: 20px;
                             white-space: pre-wrap;
 
                             &:hover {
