@@ -70,6 +70,11 @@ module.exports = {
             /w-*/,
             /p-*/,
             /m-*/,
+            'solutions',
+            'success-services',
+            'about',
+            'curiously-human-ai',
+            'resources'
           ], // Don't remove this selector
         },
         // More options defined here https://purgecss.com/configuration.html#options
