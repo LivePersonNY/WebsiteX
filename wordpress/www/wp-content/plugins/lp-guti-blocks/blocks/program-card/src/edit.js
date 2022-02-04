@@ -145,7 +145,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						value={itemValues[index].mediaId}
 						allowedTypes={ ['image'] }
 						render={({open}) => (
-							<img src={itemValues[index].imgSrc || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
+							<img className="imageSelector" src={itemValues[index].imgSrc || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
 						)}
 					/>
 				</MediaUploadCheck>
