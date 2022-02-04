@@ -70,8 +70,18 @@ class LP_Resources
 			'type' => 'String',
 			'description' => 'Company Logo',
 			'resolve' => function() {
-				$custom_logo_id = get_option('site_logo');
-				$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+				$logo_id = get_option('site_logo');
+				$image = wp_get_attachment_image_src( $logo_id , 'full' );
+				return $image[0] ?? null;
+			}
+		]);
+		
+		register_graphql_field( 'Settings', 'site_logo', [
+			'type' => 'String',
+			'description' => 'Company Logo',
+			'resolve' => function() {
+				$logo_id = get_option('site_icon');
+				$image = wp_get_attachment_image_src( $logo_id , 'full' );
 				return $image[0] ?? null;
 			}
 		]);

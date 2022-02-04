@@ -19,6 +19,9 @@ const Seo = ({ description, lang, meta, title }) => {
             title
             description
           }
+          allSettings {
+            siteIcon
+          }
         }
 
         # if there's more than one user this would need to be filtered to the main user
@@ -31,6 +34,7 @@ const Seo = ({ description, lang, meta, title }) => {
 
   const metaDescription = description || wp.generalSettings?.description;
   const defaultTitle = wp.generalSettings?.title;
+  const favicon = wp.allSettings?.siteIcon;
 
   return (
     <Helmet
@@ -74,6 +78,7 @@ const Seo = ({ description, lang, meta, title }) => {
         },
       ].concat(meta)}
     >
+      <link rel="icon" type="image/png" href={favicon} sizes="32x32" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
       <link
