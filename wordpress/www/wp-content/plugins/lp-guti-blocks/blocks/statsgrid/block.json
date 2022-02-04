@@ -21,11 +21,11 @@
 			"default": [
 				{
 					"stat": "42",
-					"content": "The answer to the great question"
+					"body": "The answer to the great question"
 				},
 				{
 					"stat": "8 Days",
-					"content": "Per week. Beatles can't count."
+					"body": "Per week. Beatles can't count."
 				}
 			]
 		}

@@ -67,6 +67,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 							setAttributes({ statItems: stack});
 						}}
 						className="embedded-input"
+						placeholder="Some data about the stat"
 					/>
 					<ItemControls
 						index={index}

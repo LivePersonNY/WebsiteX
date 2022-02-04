@@ -16488,7 +16488,8 @@ function Edit(_ref) {
             statItems: stack
           });
         },
-        className: "embedded-input"
+        className: "embedded-input",
+        placeholder: "Some data about the stat"
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ItemControls__WEBPACK_IMPORTED_MODULE_4__["default"], {
         index: index,
         itemArray: stack,
