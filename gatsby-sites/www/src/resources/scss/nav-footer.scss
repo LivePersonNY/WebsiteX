@@ -142,6 +142,14 @@
                     }
                 }
 
+                &.curiously-human-ai {
+                    .col {
+                        .dropdown-section-title {
+                            display: none;
+                        }
+                    }
+                }
+
                 &.resources,
                 &.about,
                 &.success-services,
