@@ -15,7 +15,7 @@ class LP_Resources
 		//add_filter( 'block_parser_class', [$this, 'change_filter'], 10, 1 );
 		//add_filter( 'render_block_data', [$this, 'render_block_data'], 10, 2);
 		
-		//add_action('graphql_register_types', [$this, 'graphql_fields']);
+		add_action('graphql_register_types', [$this, 'graphql_fields']);
 		
 		add_filter( 'block_categories_all', [$this, 'block_categories'], 10, 2 );
 		
@@ -37,7 +37,7 @@ class LP_Resources
 	
 	public function graphql_fields()
 	{
-		register_graphql_field( 'Page', 'vimeo_video', [
+		/*register_graphql_field( 'Page', 'vimeo_video', [
 		   'type' => 'String',
 		   'description' => __( 'The url of the featured video', 'wp-graphql' ),
 		   'resolve' => function( $post ) {
@@ -61,6 +61,18 @@ class LP_Resources
 			'description' => 'IP Address from request',
 			'resolve' => function() {
 				return $_SERVER['REMOTE_ADDR'];
+			}
+		]);*/
+		
+		
+		
+		register_graphql_field( 'Settings', 'site_logo', [
+			'type' => 'String',
+			'description' => 'Company Logo',
+			'resolve' => function() {
+				$custom_logo_id = get_option('site_logo');
+				$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+				return $image[0] ?? null;
 			}
 		]);
 	}

@@ -5,9 +5,14 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import NavPanel from './NavPanel';
 
 const NavBar = ({ siteTitle }) => {
-  const { topItems, loginItems } = useStaticQuery(
+  const { topItems, loginItems, settings } = useStaticQuery(
     graphql`
       query topLevelQuery {
+        settings: wp {
+          allSettings {
+            siteLogo
+          }
+        }
         loginItems: allWpMenuItem(
           filter: {
             menu: { node: { locations: { in: [LOGIN_MENU] } } }
@@ -92,7 +97,7 @@ const NavBar = ({ siteTitle }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container" style={{ position: 'relative' }}>
-        <a href="/">{siteTitle}</a>
+        <a href="/"><img src={settings.allSettings.siteLogo} /></a>
         <button
           className="navbar-toggler"
           type="button"
