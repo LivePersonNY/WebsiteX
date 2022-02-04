@@ -11430,7 +11430,7 @@ const ProgramCard = props => {
     }) || item.imgCtl), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "col-lg-6 offset-lg-1"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-      className: "subtitle3 text-uppercase"
+      className: "subtitle3 h6 text-uppercase"
     }, item.kicker), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
       className: "card1"
     }, item.header), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
