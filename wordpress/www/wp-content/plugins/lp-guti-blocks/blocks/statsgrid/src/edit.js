@@ -58,12 +58,12 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 					className="embedded-input"
 				/>
 			),
-			content: (
+			body: (
 				<div className="wp-control-wrapper">
 					<TextControl
-						value={stack[index].content}
+						value={stack[index].body}
 						onChange={function(value) {
-							stack[index].content = value;
+							stack[index].body = value;
 							setAttributes({ statItems: stack});
 						}}
 						className="embedded-input"
@@ -83,8 +83,8 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 	let addTabFunc = function() {
 
 		stack.push({
-			stat: "42%",
-			content: "The answer to the great question"
+			stat: "42",
+			body: "The answer to the great question"
 		});
 		setAttributes({
 			statItems: stack
