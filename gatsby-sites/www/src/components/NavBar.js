@@ -129,6 +129,7 @@ const NavBar = ({ siteTitle }) => {
                     children={item.childItems.nodes}
                     featuredNews={featuredNews}
                     featuredResource={featuredResource}
+                    key={index}
                      />
                 )
               } else {
@@ -154,7 +155,7 @@ const NavBar = ({ siteTitle }) => {
                 ? item.cssClasses.join(' ')
                 : 'nav-link';
               return (
-                <li className="nav-item">
+                <li className="nav-item" key={index}>
                   <a
                     target={item.target}
                     title={item.title}
