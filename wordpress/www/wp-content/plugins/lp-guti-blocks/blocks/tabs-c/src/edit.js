@@ -107,7 +107,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 					value={itemValues[index].body}
 					onChange={function(value) {
 						itemValues[index].body = value;
-						setAttributes({ tabItems: itemValues});
+						setAttributes({ tabItems: itemValues });
 					}}
 					allowedFormats={['core/bold', 'core/italic', 'core/link']}
 				/>
@@ -187,7 +187,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<TabsC header={headerControl} items={itemControls} runFilters={true} backgroundColor={attributes.backgroundColor} />
+			<TabsC header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor} />
 		</div>
 	);
 

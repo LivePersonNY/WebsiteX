@@ -4,6 +4,7 @@ $(document).ready(function() {
 	console.log('Document ready.');
 	
 	$('body').on('click', '.comp-tabs-a h4.accordion-header button', function(e) {
+		e.preventDefault();
 		$('.comp-tabs-a .accordion-item').removeClass('accordion-item-active');
 		$(this).parents('.accordion-item').addClass('accordion-item-active');
 		let tabIndex = $(this).data('tab');
@@ -12,6 +13,7 @@ $(document).ready(function() {
 	});
 	
 	$('body').on('click', '.comp-tabs-b h4.comp-tab', function(e) {
+		e.preventDefault();
 		$('.comp-tabs-b .comp-tabs-list-container h4').removeClass('comp-tab-active');
 		$(this).addClass('comp-tab-active');
 		let tabIndex = $(this).data('tab');
@@ -20,6 +22,7 @@ $(document).ready(function() {
 	});
 	
 	$('body').on('click', '.comp-tabs-c .btn.pill', function(e) {
+		e.preventDefault();
 		$('.comp-tabs-c .btn.pill').removeClass('pill-active');
 		$(e.target).addClass('pill-active');
 		let tabIndex = $(e.target).data('tab');
