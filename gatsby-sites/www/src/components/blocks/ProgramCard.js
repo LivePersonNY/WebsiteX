@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import Paragraph from '../Paragraph';
 
 const ProgramCard = (props) => {
 
@@ -15,7 +16,7 @@ const ProgramCard = (props) => {
             <h2 className="card1">{item.header}</h2>
             <p className="subtitle2 event-date">{item.eventDate}</p>
             <p className="subtitle2 event-time">{item.eventTime}</p>
-            <p className="subtitle2 event-body" dangerouslySetInnerHTML={{__html:  item.body }}></p>
+            <Paragraph className="subtitle2 event-body" text={item.body} />
             <a href={item.btnUrl} className="btn btn2 btn-primary">
               {item.btnText}
             </a>

@@ -16,6 +16,7 @@ import './faqs/src/index';
 import './callout/src/index';
 import './logos/src/index';
 import './side-by-side/src/index';
+import './program-card/src/index';
 
 import $ from 'jquery';
 

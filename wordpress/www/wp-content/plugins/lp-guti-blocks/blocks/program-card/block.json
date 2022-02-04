@@ -1,0 +1,35 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/program-block",
+	"version": "0.1.0",
+	"title": "Events Program",
+	"category": "liveperson",
+	"icon": "calendar",
+	"description": "Sliding quote callout",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"header": {"default": "Header above events"},
+		"quotes": {
+			"type": "array",
+			"default": [
+				{
+					"kicker": "Enchantment under the sea Dance",
+					"header": "Be there or be square.",
+					"eventDate": "November 12, 1955",
+					"eventTime": "7:00 PM",
+					"body": "After Marty went into the past for the first time, he inadvertently changed how his parents met, with Marty being the one that was hit by the car and attending the dance with Lorraine instead of George. To fix his mistake, Marty formed a plan to make George look like a hero to Lorraine in order to get her to fall in love with him. The original plan was that on the night of the dance, George was to confront Marty in the school parking lot while Marty was in a car with Lorraine.",
+					"btnUrl": "https://backtothefuture.fandom.com/wiki/Enchantment_Under_the_Sea",
+					"btnText": "Learn More",
+					"imgSrc": "https://imgc.allpostersimages.com/img/posters/enchantment-under-the-sea-dance-movie-poster_u-L-F5C1PW0.jpg?artHeight=550&artPerspective=n&artWidth=550&background=ffffff"
+				}
+			]
+		}
+	}
+}

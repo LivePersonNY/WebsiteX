@@ -11395,6 +11395,71 @@ const PlainContent = function (props) {
 
 /***/ }),
 
+/***/ "../../../../../gatsby-sites/www/src/components/blocks/ProgramCard.js":
+/*!****************************************************************************!*\
+  !*** ../../../../../gatsby-sites/www/src/components/blocks/ProgramCard.js ***!
+  \****************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "../../../../../gatsby-sites/www/node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Paragraph__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Paragraph */ "../../../../../gatsby-sites/www/src/components/Paragraph.js");
+
+
+
+
+
+const ProgramCard = props => {
+  let programBlock = props.items.map((item, index) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "comp-program-card-container bg-neutral-96",
+      key: index
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "row align-items-center"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "col-lg-3 offset-lg-1"
+    }, !item.imgCtl && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: item.imgSrc,
+      alt: item.imgAlt
+    }) || item.imgCtl), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "col-lg-6 offset-lg-1"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "subtitle3"
+    }, item.kicker), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+      className: "card1"
+    }, item.header), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "subtitle2 event-date"
+    }, item.eventDate), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "subtitle2 event-time"
+    }, item.eventTime), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      className: "subtitle2 event-body",
+      text: item.body
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: item.btnUrl,
+      className: "btn btn2 btn-primary"
+    }, item.btnText))));
+  });
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `pane comp-program-card ${props.backgroundColor || "bg-transparent"}`
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "container"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "row"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "col-lg-12"
+  }, programBlock))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ProgramCard);
+
+/***/ }),
+
 /***/ "../../../../../gatsby-sites/www/src/components/blocks/QuoteSlider.js":
 /*!****************************************************************************!*\
   !*** ../../../../../gatsby-sites/www/src/components/blocks/QuoteSlider.js ***!
@@ -12036,8 +12101,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _callout_src_index__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./callout/src/index */ "./blocks/callout/src/index.js");
 /* harmony import */ var _logos_src_index__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./logos/src/index */ "./blocks/logos/src/index.js");
 /* harmony import */ var _side_by_side_src_index__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./side-by-side/src/index */ "./blocks/side-by-side/src/index.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _program_card_src_index__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./program-card/src/index */ "./blocks/program-card/src/index.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_19__);
+
 
 
 
@@ -15737,6 +15804,345 @@ function save(_ref) {
     body: attributes.content,
     linkText: attributes.linkText,
     linkUrl: attributes.linkUrl
+  });
+}
+
+/***/ }),
+
+/***/ "./blocks/program-card/src/edit.js":
+/*!*****************************************!*\
+  !*** ./blocks/program-card/src/edit.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Edit; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+/* harmony import */ var _gatsby_sites_www_liveperson_scripts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../../gatsby-sites/www/liveperson-scripts */ "../../../../../gatsby-sites/www/liveperson-scripts.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _gatsby_sites_www_src_components_blocks_ProgramCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../../../../gatsby-sites/www/src/components/blocks/ProgramCard */ "../../../../../gatsby-sites/www/src/components/blocks/ProgramCard.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _AddItemButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../AddItemButton */ "./blocks/AddItemButton.js");
+/* harmony import */ var _ItemControls__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../ItemControls */ "./blocks/ItemControls.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./editor.scss */ "./blocks/program-card/src/editor.scss");
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ */
+
+
+const {
+  MediaUpload,
+  MediaUploadCheck
+} = wp.blockEditor;
+
+
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * Those files can contain any CSS code that gets applied to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function Edit(_ref) {
+  let {
+    attributes,
+    isSelected,
+    setAttributes,
+    onChange
+  } = _ref;
+  let itemValues = [...attributes.quotes];
+  let itemControls = attributes.quotes.map((item, index) => {
+    return {
+      header: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+        value: itemValues[index].header,
+        onChange: function (value) {
+          itemValues[index].header = value;
+          setAttributes({
+            quotes: itemValues
+          });
+        },
+        className: "embedded-input"
+      }),
+      kicker: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+        value: itemValues[index].kicker,
+        onChange: function (value) {
+          itemValues[index].kicker = value;
+          setAttributes({
+            quotes: itemValues
+          });
+        },
+        className: "embedded-input"
+      }),
+      eventDate: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+        value: itemValues[index].eventDate,
+        onChange: function (value) {
+          itemValues[index].eventDate = value;
+          setAttributes({
+            quotes: itemValues
+          });
+        },
+        className: "embedded-input"
+      }),
+      eventTime: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+        value: itemValues[index].eventTime,
+        onChange: function (value) {
+          itemValues[index].eventTime = value;
+          setAttributes({
+            quotes: itemValues
+          });
+        },
+        className: "embedded-input"
+      }),
+      btnUrl: null,
+      btnText: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "wp-control-wrapper"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+        value: itemValues[index].btnText,
+        onChange: function (value) {
+          itemValues[index].btnText = value;
+          setAttributes({
+            quotes: itemValues
+          });
+        },
+        className: "embedded-input",
+        placeholder: "Link Text"
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+        value: itemValues[index].btnUrl,
+        onChange: function (value) {
+          itemValues[index].btnUrl = value;
+          setAttributes({
+            quotes: itemValues
+          });
+        },
+        placeholder: "Link URL"
+      })),
+      author: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "wp-control-wrapper"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+        value: itemValues[index].author,
+        onChange: function (value) {
+          itemValues[index].author = value;
+          setAttributes({
+            quotes: itemValues
+          });
+        },
+        className: "embedded-input"
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ItemControls__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        itemArray: itemValues,
+        callback: function (items) {
+          setAttributes({
+            quotes: items
+          });
+        }
+      })),
+      body: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
+        value: itemValues[index].body,
+        onChange: function (value) {
+          itemValues[index].body = value;
+          setAttributes({
+            quotes: itemValues
+          });
+        },
+        allowedFormats: ['core/bold', 'core/italic', 'core/link']
+      }),
+      imgCtl: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+        onSelect: function (media) {
+          itemValues[index].imgSrc = media.url;
+          itemValues[index].mediaId = media.id;
+          itemValues[index].imgAlt = media.alt || '';
+          setAttributes({
+            quotes: itemValues
+          });
+        },
+        value: itemValues[index].mediaId,
+        allowedTypes: ['image'],
+        render: _ref2 => {
+          let {
+            open
+          } = _ref2;
+          return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+            src: itemValues[index].imgSrc || `https://picsum.photos/752/568?random=${index}`,
+            "data-tab-content": index,
+            key: index,
+            onClick: open
+          });
+        }
+      }))
+    };
+  });
+
+  let addTabFunc = function () {
+    let thisIndex = itemValues.length;
+    itemValues.push({
+      "kicker": "Enchantment under the sea Dance",
+      "header": "Be there or be square.",
+      "eventDate": "November 12, 1955",
+      "eventTime": "7:00 PM",
+      "body": "After Marty went into the past for the first time, he inadvertently changed how his parents met, with Marty being the one that was hit by the car and attending the dance with Lorraine instead of George. To fix his mistake, Marty formed a plan to make George look like a hero to Lorraine in order to get her to fall in love with him. The original plan was that on the night of the dance, George was to confront Marty in the school parking lot while Marty was in a car with Lorraine.",
+      "btnUrl": "https://backtothefuture.fandom.com/wiki/Enchantment_Under_the_Sea",
+      "btnText": "Learn More",
+      "imgSrc": "https://imgc.allpostersimages.com/img/posters/enchantment-under-the-sea-dance-movie-poster_u-L-F5C1PW0.jpg?artHeight=550&artPerspective=n&artWidth=550&background=ffffff"
+    });
+    setAttributes({
+      quotes: itemValues
+    });
+  };
+
+  let addButton = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.ToolbarGroup, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddItemButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    callback: addTabFunc
+  })));
+  if (isSelected) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), addButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_ProgramCard__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    items: itemControls,
+    runFilters: true
+  }));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_ProgramCard__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    items: attributes.quotes,
+    runFilters: true
+  }));
+}
+
+/***/ }),
+
+/***/ "./blocks/program-card/src/index.js":
+/*!******************************************!*\
+  !*** ./blocks/program-card/src/index.js ***!
+  \******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./blocks/program-card/src/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./blocks/program-card/src/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./blocks/program-card/src/save.js");
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('lp-guti-blocks/program-block', {
+  /**
+   * @see ./edit.js
+   */
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+
+  /**
+   * @see ./save.js
+   */
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"],
+  example: {}
+});
+
+/***/ }),
+
+/***/ "./blocks/program-card/src/save.js":
+/*!*****************************************!*\
+  !*** ./blocks/program-card/src/save.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ save; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _gatsby_sites_www_src_components_blocks_ProgramCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../../gatsby-sites/www/src/components/blocks/ProgramCard */ "../../../../../gatsby-sites/www/src/components/blocks/ProgramCard.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ */
+
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function save(_ref) {
+  let {
+    attributes
+  } = _ref;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_ProgramCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    items: attributes.quotes
   });
 }
 
@@ -24003,6 +24409,32 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************!*\
   !*** ./blocks/plain-content/src/style.scss ***!
   \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./blocks/program-card/src/editor.scss":
+/*!*********************************************!*\
+  !*** ./blocks/program-card/src/editor.scss ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./blocks/program-card/src/style.scss":
+/*!********************************************!*\
+  !*** ./blocks/program-card/src/style.scss ***!
+  \********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
