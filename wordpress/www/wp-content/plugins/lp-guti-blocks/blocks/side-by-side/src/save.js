@@ -34,6 +34,7 @@ export default function save({attributes}) {
 			imgRightSrc={attributes.imgRightSrc}
 			imgLeftAlt={attributes.imgLeftAlt}
 			imgRightAlt={attributes.imgRightAlt}
+			backgroundColor={attributes.backgroundColor}
 		/>
 	);
 }

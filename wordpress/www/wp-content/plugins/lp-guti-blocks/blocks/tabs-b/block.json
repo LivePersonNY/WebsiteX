@@ -16,6 +16,7 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"header": {"default": "Header above tabs"},
+		"backgroundColor":{},
 		"tabItems": {
 			"type": "array",
 			"default": [

@@ -17,6 +17,9 @@ const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 import TabsA from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA';
 import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
+import BackgroundSelectorMenu from '../../BackgroundSelector';
+import AddItemButton from '../../AddItemButton';
+
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -51,6 +54,10 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			mediaUrl: media.url,
 			mediaAlt: media.alt || '',
 		});*/
+	}
+
+	let changeBackground = function(color) {
+		setAttributes({ backgroundColor: color });
 	}
 
 	let itemValues = [...attributes.tabItems];
@@ -127,11 +134,8 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
-				<ToolbarButton
-					icon="plus-alt2"
-					label="Add Tab"
-					onClick={ addTabFunc }
-				/>
+				<AddItemButton callback={addTabFunc} />
+				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 			</ToolbarGroup>
 		</BlockControls>
 	);
@@ -140,14 +144,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<TabsA header={headerControl} items={itemControls} />
+			<TabsA header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<TabsA header={attributes.header} items={attributes.tabItems}/>
+			<TabsA header={attributes.header} items={attributes.tabItems} backgroundColor={attributes.backgroundColor}/>
 		</div>
 	)
 

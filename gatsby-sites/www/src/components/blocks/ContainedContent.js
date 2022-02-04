@@ -25,9 +25,9 @@ const ContainedContent = (props) => {
               </div>
               <div className="row">
                 <div className="col-lg-12 text-center">
-                  {props.imgSrc && (
-                    <img src={props.imgSrc} alt={props.imgAlt} />
-                  )}
+                  {!props.imgCtl && props.imgSrc && (
+                    <img src={props.imgSrc} alt={props.imgAlt} className="d-block mx-auto" />
+                  ) || props.imgCtl}
                 </div>
               </div>
             </div>

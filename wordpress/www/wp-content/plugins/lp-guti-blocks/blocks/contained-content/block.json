@@ -15,10 +15,14 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
+		"backgroundColor": {},
 		"kicker": {"default": "If you want a kicker..."},
 		"header": {"default": "I think you should do something."},
 		"content": {"default": "Provided you're ready and willing, you might want to click that button."},
 		"linkText": {"default": "That Button"},
-		"linkUrl": {"default": "https://www.liveperson.com"}
+		"linkUrl": {"default": "https://www.liveperson.com"},
+		"imgSrc": {},
+		"imgAlt": {},
+		"imgId": {}
 	}
 }

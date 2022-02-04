@@ -15,7 +15,7 @@ import $ from 'jquery';
 import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck, RichText } from '@wordpress/block-editor';
 import SideBySide from '../../../../../../../../gatsby-sites/www/src/components/blocks/SideBySide';
 import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup, ToolbarButton } from '@wordpress/components';
-
+import BackgroundSelectorMenu from '../../BackgroundSelector';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -115,10 +115,23 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		</MediaUploadCheck>
 	);
 
+	let changeBackground = function(color) {
+		setAttributes({ backgroundColor: color });
+	}
+
+	let bgMenu = (
+		<BlockControls>
+			<ToolbarGroup>
+				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+			</ToolbarGroup>
+		</BlockControls>
+	);
+
 	if (isSelected)	{
 
 		return (
 			<div {...useBlockProps()}>
+				{bgMenu}
 				<SideBySide
 					headerLeft={headerLeftControl}
 					headerRight={headerRightControl}
@@ -126,6 +139,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					bodyRight={contentRightControl}
 					imgLeftCtl={imageLeftControl}
 					imgRightCtl={imageRightControl}
+					backgroundColor={attributes.backgroundColor}
 				/>
 			</div>
 
@@ -143,6 +157,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				imgRightSrc={attributes.imgRightSrc}
 				imgLeftAlt={attributes.imgLeftAlt}
 				imgRightAlt={attributes.imgRightAlt}
+				backgroundColor={attributes.backgroundColor}
 			/>
 		</div>
 	)

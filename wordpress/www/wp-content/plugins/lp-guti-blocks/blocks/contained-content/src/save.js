@@ -25,6 +25,15 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-			<ContainedContent kicker={attributes.kicker} header={attributes.header}body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
+			<ContainedContent
+				kicker={attributes.kicker}
+				header={attributes.header}
+				body={attributes.content}
+				linkText={attributes.linkText}
+				linkUrl={attributes.linkUrl}
+				backgroundColor={attributes.backgroundColor}
+				imgSrc={attributes.imgSrc}
+				imgAlt={attributes.imgAlt}
+				/>
 	);
 }

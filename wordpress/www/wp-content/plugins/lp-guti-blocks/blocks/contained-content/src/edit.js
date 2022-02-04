@@ -12,9 +12,11 @@ import $ from 'jquery';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import ContainedContent from '../../../../../../../../gatsby-sites/www/src/components/blocks/ContainedContent';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper } from '@wordpress/components';
+import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup, ToolbarDropdownMenu, ToolbarButton } from '@wordpress/components';
+
+import BackgroundSelectorMenu from '../../BackgroundSelector';
 
 
 /**
@@ -62,6 +64,10 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		/>
 	);
 
+	let changeBackground = function(color) {
+		setAttributes({ backgroundColor: color });
+	}
+
 	let linkTextControl = (
 		<div className="wp-control-wrapper">
 			<TextControl
@@ -77,11 +83,46 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		</div>
 	);
 
+	let addButton = (
+		<BlockControls>
+			<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+		</BlockControls>
+	);
+
+	let imageControl = (
+		<MediaUploadCheck>
+			<MediaUpload
+				onSelect={function(media) {
+					setAttributes({
+						imgSrc: media.url,
+						imgId: media.id,
+						imgAlt: media.alt || ""
+					});
+				}}
+				value={attributes.imgId}
+				allowedTypes={ ['image'] }
+				render={({open}) => (
+					<>
+						{attributes.imgSrc && <img className="imageSelector d-block mx-auto" src={attributes.imgSrc} onClick={open} /> ||
+						<Button className="mt-2" variant="link" onClick={open}>Select Image</Button>
+					}
+						<Button className="mt-2" variant="link" isDestructive={true} onClick={() => setAttributes({imgSrc: null, imgId: null})}>Remove Image</Button>
+					</>
+
+				)}
+			/>
+		</MediaUploadCheck>
+	);
+
 	if (isSelected)	{
 
 		return (
 			<div {...useBlockProps()}>
-				<ContainedContent kicker={kickerControl} header={headerControl}body={contentControl} linkText={linkTextControl} />
+			{addButton}
+				<ContainedContent kicker={kickerControl} header={headerControl}body={contentControl} linkText={linkTextControl}
+				backgroundColor={attributes.backgroundColor}
+				imgCtl={imageControl}
+				/>
 			</div>
 
 		);
@@ -89,7 +130,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<ContainedContent kicker={attributes.kicker} header={attributes.header}body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
+			<ContainedContent kicker={attributes.kicker} header={attributes.header}body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} backgroundColor={attributes.backgroundColor}
+			imgSrc={attributes.imgSrc}
+			imgAlt={attributes.imgAlt}/>
 		</div>
 	)
 

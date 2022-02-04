@@ -20,6 +20,8 @@ import TabsC from '../../../../../../../../gatsby-sites/www/src/components/block
 import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
 import AddItemButton from '../../AddItemButton';
+import BackgroundSelectorMenu from '../../BackgroundSelector';
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -171,10 +173,15 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		});
 	}
 
+	let changeBackground = function(color) {
+		setAttributes({ backgroundColor: color });
+	}
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
 				<AddItemButton callback={addTabFunc} />
+				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 			</ToolbarGroup>
 		</BlockControls>
 	);
@@ -183,14 +190,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<TabsC header={headerControl} items={itemControls} runFilters={true} />
+			<TabsC header={headerControl} items={itemControls} runFilters={true} backgroundColor={attributes.backgroundColor} />
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<TabsC header={attributes.header} items={attributes.tabItems} runFilters={true}/>
+			<TabsC header={attributes.header} items={attributes.tabItems} runFilters={true} backgroundColor={attributes.backgroundColor} />
 		</div>
 	)
 
