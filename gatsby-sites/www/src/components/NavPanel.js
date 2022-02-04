@@ -33,7 +33,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
               var cssClasses = item.cssClasses.join(" ");
               return (
               <>
-                <div className={`${cssClasses} col`}>
+                <div className={`${cssClasses} col`} key={index}>
                   <p className="dropdown-section-title h6">{item.label}</p>
                   {item.childItems.nodes.map(function(item, index) {
                     let descr = '';
@@ -45,7 +45,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                       descr = <span className="dropdown-item-content subtitle3">{item.description}</span>
                     }
                     return (<li>
-                        <a title={item.title} className="dropdown-item" href={item.path} target={item.target}>
+                        <a title={item.title} className="dropdown-item" href={item.path} target={item.target} key={index}>
                           {item.label} {extIcon}
                           <br />
                           {descr}
@@ -54,10 +54,20 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                   })}
                 </div>
                 {featuredNews && (
-                  <p>News test</p>
+                  <div className="bg-neutral-96 col-lg-7 col">
+                    <p className="dropdown-section-title h6">Featured Resource</p>
+                    <div className="dropdown-featured-container">
+                      <img src="https://picsum.photos/152/120" alt="" />
+                      <div className="dropdown-featured-body">
+                        <p className="subtitle3">On-Demand Webinar</p>
+                        <p className="featured-body">Reimagining communication in the travel and hospitality industry</p>
+                        <a className="dropdown-link-blue" href="#">Watch Now</a>
+                      </div>
+                    </div>
+                  </div>
                 )}
                 {featuredResource && (
-                  <div className="bg-neutral-96 col-4 col">
+                  <div className="bg-neutral-96 col-lg-7 col">
                     <p className="dropdown-section-title h6">Featured Resource</p>
                     <div className="dropdown-featured-container">
                       <img src="https://picsum.photos/152/120" alt="" />
