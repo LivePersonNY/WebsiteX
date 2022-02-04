@@ -80,9 +80,9 @@
                         }
                     }
 
-                    &.col-4 {
+                    &.col-lg-4 {
                         padding-left: 40px;
-                        width: 480px;
+                        // width: 480px;
 
                         .dropdown-item {
                             background: $neutral99;
@@ -134,15 +134,15 @@
 
             &.resources {
                 .container {
-                    width: 784px;
+                    // width: 784px;
 
-                    .col:not(.col-4) {
+                    .col:not(.col-lg-4) {
                         .dropdown-section-title {
                             display: none;
                         }
                     }
 
-                    .col-4 {}
+                    .col-lg-4 {}
                 }
             }
         }
