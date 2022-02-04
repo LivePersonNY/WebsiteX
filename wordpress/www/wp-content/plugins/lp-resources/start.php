@@ -76,7 +76,7 @@ class LP_Resources
 			}
 		]);
 		
-		register_graphql_field( 'Settings', 'site_logo', [
+		register_graphql_field( 'Settings', 'site_icon', [
 			'type' => 'String',
 			'description' => 'Company Logo',
 			'resolve' => function() {
