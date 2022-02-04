@@ -3,23 +3,22 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
 const SideBySide = (props) => {
-
-  let content = props.items.map((item, index)=>{
-    return (
-      <div className={`col-lg-6 `} key={index}>
-        {!item.imgCtl && <img src={item.imgSrc} alt={item.imgAlt} /> || item.imgCtl}
-        <h2>{item.header}</h2>
-        <p>{item.body}</p>
-      </div>
-    )
-  })
   
   return (
     <>
       <div className={`pane comp-side-side ${props.backgroundColor||"bg-transparent"}`}>
         <div className="container">
           <div className="row align-items-center">
-            {content}
+            <div className={`col-lg-6 `}>
+              {!props.imgLeftCtl && <img src={props.imgLeftSrc} alt={props.imgLeftAlt} /> || props.imgLeftCtl}
+              <h2>{props.headerLeft}</h2>
+              <p>{props.bodyLeft}</p>
+            </div>
+            <div className={`col-lg-6 `}>
+              {!props.imgRightCtl && <img src={props.imgRightSrc} alt={props.imgRightAlt} /> || props.imgRightCtl}
+              <h2>{props.headerRight}</h2>
+              <p>{props.bodyRight}</p>
+            </div>
           </div>
         </div>
       </div>

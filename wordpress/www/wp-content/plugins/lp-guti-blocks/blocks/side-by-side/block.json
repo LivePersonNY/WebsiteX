@@ -1,0 +1,29 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/side-by-side",
+	"version": "0.1.0",
+	"title": "Side by Side",
+	"category": "liveperson",
+	"icon": "columns",
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"imgLeftSrc":{"default":"https://picsum.photos/752/568"},
+		"imgLeftId":{},
+		"imgRightId":{},
+		"imgLeftAlt":{},
+		"imgRightSrc": {"default":"https://picsum.photos/752/568"},
+		"imgRightAlt": {},
+		"headerLeft":{},
+		"headerRight":{},
+		"bodyLeft":{},
+		"bodyRight":{}
+	}
+}

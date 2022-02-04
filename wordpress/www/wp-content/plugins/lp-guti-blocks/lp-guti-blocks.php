@@ -37,7 +37,7 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/faqs/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/callout/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/logos/' );
-
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/side-by-side/' );
 
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );

@@ -1048,24 +1048,6 @@ const IndexPage = () => (
       </div>
     </div>
 
-    <SideBySide
-      backgroundColor="bg-primary-light"
-      items={[
-        {
-          "imgSrc":"https://picsum.photos/640/428",
-          "imgAlt":"test",
-          "header":"Transform voice networks",
-          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim sagittis senectus iaculis sem nisi, purus dignissim maecenas. Imperdiet eget scelerisque iaculis ut aliquam nisl, auctor. Euismod turpis mauris in."
-        },
-        {
-          "imgSrc":"https://picsum.photos/640/428?random=1",
-          "imgAlt":"test",
-          "header":"Work with any voice vendor",
-          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Enim sagittis senectus iaculis sem nisi, purus dignissim maecenas. Imperdiet eget scelerisque iaculis ut aliquam nisl, auctor. Euismod turpis mauris in."
-        },
-      ]}
-    />
-
     <div className="container component-doc">
       <div className="row">
         <div className="col-lg-6">
