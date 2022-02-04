@@ -12,7 +12,7 @@ const ProgramCard = (props) => {
             {!item.imgCtl && <img src={item.imgSrc} alt={item.imgAlt} /> || item.imgCtl}
           </div>
           <div className="col-lg-6 offset-lg-1">
-            <p className="subtitle3">{item.kicker}</p>
+            <p className="subtitle3 text-uppercase">{item.kicker}</p>
             <h2 className="card1">{item.header}</h2>
             <p className="subtitle2 event-date">{item.eventDate}</p>
             <p className="subtitle2 event-time">{item.eventTime}</p>
