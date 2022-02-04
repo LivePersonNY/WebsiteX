@@ -46,6 +46,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	let itemControls = attributes.quotes.map((item ,index)=>{
 		return {
 			header: (
+				<>
 				<TextControl
 					value={itemValues[index].header}
 					onChange={function(value) {
@@ -54,6 +55,10 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 					}}
 					className="embedded-input"
 				/>
+				<ItemControls index={index} itemArray={itemValues} callback={function(items) {
+					setAttributes({ quotes: items});
+				}}/>
+				</>
 			),
 			kicker: (
 				<TextControl
@@ -105,21 +110,6 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						}}
 						placeholder="Link URL"
 					/>
-				</div>
-			),
-			author: (
-				<div className="wp-control-wrapper">
-					<TextControl
-						value={itemValues[index].author}
-						onChange={function(value) {
-							itemValues[index].author = value;
-							setAttributes({ quotes: itemValues});
-						}}
-						className="embedded-input"
-					/>
-					<ItemControls itemArray={itemValues} callback={function(items) {
-						setAttributes({ quotes: items});
-					}}/>
 				</div>
 			),
 			body: (
