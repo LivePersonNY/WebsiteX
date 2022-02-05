@@ -1,0 +1,34 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/exec-card",
+	"version": "0.1.0",
+	"title": "Executive Headshots",
+	"category": "liveperson",
+	"icon": "admin-users",
+	"description": "Executive Headshots",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"header": {"default": "Meet the Scarers"},
+		"backgroundColor": {},
+		"quotes": {
+			"type": "array",
+			"default": [
+				{
+					"name": "James Sullivan",
+					"title": "Top Scarer",
+					"btnUrl": "https://movies.disney.com/monsters-inc",
+					"btnText": "Connect with James",
+					"imgSrc": "https://pbs.twimg.com/profile_images/660927373693571072/V7d5UQnA_400x400.jpg",
+					"bio": "James P. Sullivan, also known as Jimmy or Sulley, is the main character of Monsters, Inc. and one of the main characters of its prequel Monsters University. He also returned as a main character in the series Monsters at Work. He is a large mammalian monster with shaggy aqua fur with purple blotches, two small horns on his head, and a long tail."
+				}
+			]
+		}
+	}
+}

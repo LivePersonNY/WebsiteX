@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import Paragraph from '../Paragraph';
 
 const ExecutiveCard = (props) => {
 
@@ -13,10 +14,10 @@ const ExecutiveCard = (props) => {
           <div className="col-lg-6 offset-lg-1">
             <h2 className="card1">{item.name}</h2>
             <p className="body2">{item.title}</p>
-            <a href={item.linkedInUrl} className="btn btn2 btn-outline-secondary">
+            <a href={item.btnUrl} className="btn btn2 btn-outline-secondary">
               {item.btnText}
             </a>
-            <p className="subtitle1">{item.bio}</p>
+            <Paragraph className="subtitle1" text={item.bio} />
           </div>
         </div>
       </div>

@@ -39,6 +39,9 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/logos/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/side-by-side/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/program-card/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/team-card/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/board-card/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/exec-card/' );
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
 
