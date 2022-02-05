@@ -33,7 +33,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
               var cssClasses = item.cssClasses.join(" ");
               return (
               <>
-                <div className={`${cssClasses} col`} key={index}>
+                <div className={`${cssClasses} col-lg`} key={index}>
                   <p className="dropdown-section-title h6">{item.label}</p>
                   {item.childItems.nodes.map(function(item, index) {
                     let descr = '';
@@ -54,7 +54,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                   })}
                 </div>
                 {featuredNews && (
-                  <div className="bg-neutral-96 col-lg-7 col">
+                  <div className="col-lg-7 col-lg">
                     <p className="dropdown-section-title h6">Featured Resource</p>
                     <div className="dropdown-featured-container">
                       <img src="https://picsum.photos/152/120" alt="" />
@@ -67,7 +67,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                   </div>
                 )}
                 {featuredResource && (
-                  <div className="bg-neutral-96 col-lg-7 col">
+                  <div className="col-lg-7 col-lg">
                     <p className="dropdown-section-title h6">Featured Resource</p>
                     <div className="dropdown-featured-container">
                       <img src="https://picsum.photos/152/120" alt="" />
