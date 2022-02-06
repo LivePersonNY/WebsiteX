@@ -11,7 +11,7 @@ import bootstrap from 'bootstrap';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 import TabsA from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA';
@@ -48,6 +48,15 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		/>
 	);
 
+	let bodyControl = (
+		<RichText
+			value={ attributes.body }
+			onChange={ (val) => setAttributes( { body: val } ) }
+			allowedFormats={['core/bold', 'core/italic']}
+			placeholder="Tagline copy for this section"
+		/>
+	)
+
 	const onSelectMedia = (media) => {
 		/*setAttributes({
 			mediaId: media.id,
@@ -75,14 +84,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			),
 			body: (
 				<div>
-					<TextareaControl
+					<RichText
 						value={itemValues[index].body}
 						onChange={function(value) {
 							itemValues[index].body = value;
 							setAttributes({ tabItems: itemValues});
 						}}
 						className="embedded-input"
-						rows="1"
+						allowedFormats={['core/bold', 'core/italic']}
 					/>
 					<button
 						className="v-tab-remove"
@@ -144,14 +153,13 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<TabsA header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>
+			<TabsA body={bodyControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
-			{addButton}
-			<TabsA header={attributes.header} items={attributes.tabItems} backgroundColor={attributes.backgroundColor}/>
+			<TabsA body={attributes.body} header={attributes.header} items={attributes.tabItems} backgroundColor={attributes.backgroundColor}/>
 		</div>
 	)
 

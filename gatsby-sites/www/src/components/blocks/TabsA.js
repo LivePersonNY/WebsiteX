@@ -37,6 +37,7 @@ const TabsA = (props) => {
         <div className="row">
           <div className="col-lg-12">
             <h2 className="text-center">{props.header}</h2>
+            {props.body && <Paragraph className="text-center mb-8" text={props.body} />}
           </div>
         </div>
         <div className="row align-items-center">

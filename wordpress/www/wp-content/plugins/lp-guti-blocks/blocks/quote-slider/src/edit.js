@@ -13,7 +13,7 @@ import '../../../../../../../../gatsby-sites/www/liveperson-scripts';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 import QuoteSlider from '../../../../../../../../gatsby-sites/www/src/components/blocks/QuoteSlider';
@@ -99,14 +99,13 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 				</div>
 			),
 			body: (
-				<TextareaControl
+				<RichText
 					value={itemValues[index].body}
 					onChange={function(value) {
 						itemValues[index].body = value;
 						setAttributes({ quotes: itemValues});
 					}}
-					className="embedded-input"
-					rows="1"
+					allowedFormats={['core/bold', 'core/italic']}
 				/>
 
 			),
@@ -139,7 +138,16 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						value={itemValues[index].mediaId}
 						allowedTypes={ ['image'] }
 						render={({open}) => (
-							<img src={itemValues[index].img || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
+							<>
+								{itemValues[index].img && <img className="imageSelector" src={itemValues[index].img} onClick={open} /> ||
+								<Button className="mt-2" variant="link" onClick={open}>Select Image</Button>
+							}
+								<Button className="mt-2" variant="link" isDestructive={true} onClick={() => {
+									itemValues[index].img = null;
+									itemValues[index].mediaId = null;
+									setAttributes({quotes: itemValues});
+								}}>Remove Image</Button>
+							</>
 						)}
 					/>
 				</MediaUploadCheck>

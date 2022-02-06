@@ -74,11 +74,13 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				value={ attributes.linkText }
 				onChange={ ( val ) => setAttributes( { linkText: val } ) }
 				className="embedded-input"
+				placeholder="Link Text"
 			/>
 
 			<TextControl
 				value={ attributes.linkUrl }
 				onChange={ ( val ) => setAttributes( { linkUrl: val } ) }
+				placeholder="Link URL"
 			/>
 		</div>
 	);
