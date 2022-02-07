@@ -11069,11 +11069,11 @@ const IconTextB = props => {
       className: "card h-100"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "card-body"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    }, !item.imgCtl && item.img && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       className: "card-image-internal",
       src: item.img,
       alt: item.imgAlt
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    }) || item.imgCtl, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
       className: ""
     }, item.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_4__["default"], {
       className: "card-text subtitle1",
@@ -15387,6 +15387,7 @@ function Edit(_ref) {
             open
           } = _ref2;
           return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+            className: "imageSelector",
             src: itemValues[index].img || `https://picsum.photos/752/568?random=${index}`,
             "data-tab-content": index,
             key: index,

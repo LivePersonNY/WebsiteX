@@ -11,11 +11,13 @@ const IconTextB = (props) => {
       <div className="col" key={index}>
         <div className="card h-100">
           <div className="card-body">
-            <img
-              className="card-image-internal"
-              src={item.img}
-              alt={item.imgAlt}
-            />
+            {!item.imgCtl && item.img &&
+              <img
+                className="card-image-internal"
+                src={item.img}
+                alt={item.imgAlt}
+              /> || item.imgCtl
+            }
             <h3 className="">{item.title}</h3>
             <Paragraph className="card-text subtitle1" text={item.body} />
           </div>
