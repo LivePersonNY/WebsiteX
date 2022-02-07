@@ -22,6 +22,7 @@
 		"kicker": {},
 		"content": {"default": "This should be compelling content. But it isn't."},
 		"linkText": {"default": "Here's a link text"},
-		"linkUrl": {"default": "https://www.liveperson.com"}
+		"linkUrl": {"default": "https://www.liveperson.com"},
+		"backgroundColor": {}
 	}
 }
