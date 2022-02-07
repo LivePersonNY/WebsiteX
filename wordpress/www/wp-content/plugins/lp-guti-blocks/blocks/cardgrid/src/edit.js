@@ -18,7 +18,7 @@ import Reorder from 'react-reorder';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck, RichText } from '@wordpress/block-editor';
 import { useInstanceId } from '@wordpress/compose';
 
 
@@ -50,11 +50,12 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 	);
 
 	let contentControl = (
-		<TextareaControl
+		<RichText
 			value={ attributes.content }
 			onChange={ ( val ) => setAttributes( { content: val } ) }
 			className="embedded-input"
-			rows="1"
+			allowedFormats={['core/bold', 'core/italic']}
+			placeholder="Body copy for this section"
 		/>
 	);
 
@@ -95,21 +96,41 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 						value={cards[index].mediaId}
 						allowedTypes={ ['image'] }
 						render={({open}) => (
-							<img src={cards[index].imgSrc || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
+							<>
+								{cards[index].imgSrc && <img className="imageSelector" src={cards[index].imgSrc} onClick={open} /> ||
+								<Button className="mt-2" variant="link" onClick={open}>Select Image</Button>
+							}
+								<Button className="mt-2" variant="link" isDestructive={true} onClick={() => {
+									cards[index].imgSrc = null;
+									cards[index].mediaId = null;
+									setAttributes({cards: cards});
+								}}>Remove Image</Button>
+							</>
 						)}
 					/>
 				</MediaUploadCheck>
 			),
+			cardTitle: (
+				<TextControl
+					value={cards[index].cardTitle}
+					onChange={function(value) {
+						cards[index].cardTitle = value;
+						setAttributes({ cards: cards});
+					}}
+					className="embedded-input"
+					placeholder="Header"
+				/>
+			),
 			body: (
 				<div className="wp-control-wrapper">
-					<TextareaControl
+					<RichText
 						value={cards[index].body}
 						onChange={function(value) {
 							cards[index].body = value;
 							setAttributes({ cards: cards});
 						}}
-						className="embedded-input"
-						rows="1"
+						allowedFormats={['core/bold', 'core/italic']}
+						placeholder="Card copy"
 					/>
 					<ItemControls
 						index={index}
@@ -181,13 +202,14 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			<CardGrid
 				header={headerControl}
 				items={controls}
+				body={contentControl}
 				backgroundColor={attributes.backgroundColor}
 			/>}
 			{attributes.blocktype == "CardGridB" &&
 			<CardGridB
 				header={headerControl}
 				items={controls}
-				content={contentControl}
+				body={contentControl}
 				backgroundColor={attributes.backgroundColor}
 			/>}
 		</div>
@@ -199,6 +221,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			{attributes.blocktype == "CardGrid" &&
 			<CardGrid
 				header={attributes.header}
+				body={attributes.content}
 				items={attributes.cards}
 				backgroundColor={attributes.backgroundColor}
 			/>}
@@ -206,7 +229,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			<CardGridB
 				header={attributes.header}
 				items={attributes.cards}
-				content={attributes.content}
+				body={attributes.content}
 				backgroundColor={attributes.backgroundColor}
 			/>}
 		</div>

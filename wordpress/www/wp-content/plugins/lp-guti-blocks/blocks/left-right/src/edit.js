@@ -13,6 +13,7 @@ const { Fragment, useState } = wp.element;
 import LeftRight from '../../../../../../../../gatsby-sites/www/src/components/blocks/LeftRight';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 
+
 import LineBreaks from '../../LineBreaks';
 /**
  * React hook that is used to mark the block wrapper element.
@@ -68,7 +69,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 			tagName="p"
 			value={ attributes.text }
 			onChange={ ( val ) => setAttributes( { text: val } ) }
-			allowedFormats={ [ 'core/bold', 'core/italic', 'core/link'] }
+			allowedFormats={ [ 'core/bold', 'core/italic', 'core/link', 'core/image', 'lp-guti-blocks/heading'] }
 		/>
 	);
 

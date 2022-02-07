@@ -17,7 +17,7 @@ const IconTextD = (props) => {
           }
           <h3>{item.title}</h3>
           <Paragraph text={item.body} />
-          {props.linkText && (
+          {item.linkText && (
             <a href={item.linkUrl} className="link link-mt-small">
             {item.linkText}
           </a>

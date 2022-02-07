@@ -8,7 +8,8 @@ export default function Paragraph(props) {
 	
 	if (typeof props.text === 'string') {
 		fullText = props.text.split('<br>').map(function(str, index) {
-			if (str) return (<p className={props.className} data-tag="br split" key={index}>{Parser(str)}</p>);
+			console.log(str);
+			if (str.trim()) return (<p className={props.className} data-tag="br split" key={index}>{Parser(str)}</p>);
 		});
 		
 		if (fullText) return fullText;

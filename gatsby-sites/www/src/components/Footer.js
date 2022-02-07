@@ -1,8 +1,19 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import TempIcon from './TempIcon';
 
 const Footer = () => {
+  
+  /*useEffect(() => {
+    const wpHost = `http://127.0.0.1:3000/wp-admin/`;
+    
+    fetch(wpHost).then(function(response) {
+      const status = response.status;
+      console.log(response);
+    });
+  });*/
+  
   const { topItems } = useStaticQuery(
     graphql`
       query topLevelQueryForFooter {
