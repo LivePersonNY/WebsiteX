@@ -546,20 +546,6 @@ img {
             h3 {
                 margin-bottom: 8px;
             }
-
-            .card.text-center {
-                border: 2px solid;
-                border-image: $borderGradient 1;
-                border-radius: 0;
-                box-shadow: none;
-                background: none;
-
-                .card-body.d-flex {
-                    h3 {
-                        margin-bottom: 24px;
-                    }
-                }
-            }
         }
     }
 }
@@ -594,6 +580,20 @@ img {
                     margin-top: 0;
                 }
             }
+        }
+    }
+}
+
+.card.icon-text-cta {
+    border: 2px solid;
+    border-image: $borderGradient 1;
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+
+    .card-body.d-flex {
+        h3 {
+            margin-bottom: 24px;
         }
     }
 }

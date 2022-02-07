@@ -34,7 +34,7 @@ const IconTextA = (props) => {
           {blockCol}
           {props.cardCTA && 
             <div className="col">
-              <div className="card h-100 text-center">
+              <div className="card h-100 text-center icon-text-cta">
                 <div className="card-body d-flex flex-column justify-content-center align-items-center">
                   <h3 className="card-text">{props.cardCTAbody}</h3>
                   <a href={props.btnUrl} className="btn btn-primary">

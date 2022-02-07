@@ -678,13 +678,11 @@ const IndexPage = () => (
           "title":"Conversation Orchestrator",
           "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
-        {
-          "img":"https://picsum.photos/64/64?random=6",
-          "imgAlt":"Conversation Analytics",
-          "title":"Conversation Analytics",
-          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
-        },
       ]}
+      cardCTA={true}
+      btnText="Primary CTA"
+      btnUrl="#"
+      cardCTAbody="Call to action goes right here"
     />
 
     <div className="container component-doc">
@@ -796,15 +794,11 @@ const IndexPage = () => (
           "linkText":"Discover Commerce Solutions",
           "linkUrl":"#"
         },
-        {
-          "img":"https://picsum.photos/64/64?random=11",
-          "imgAlt":"Alt text",
-          "title":"Customer Care",
-          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
-          "linkText":"Discover Customer Care",
-          "linkUrl":"#"
-        },
       ]}
+      cardCTA={true}
+      btnText="Primary CTA"
+      btnUrl="#"
+      cardCTAbody="Call to action goes right here"
     />
 
     <div className="container component-doc">
@@ -856,13 +850,11 @@ const IndexPage = () => (
           "title":"Fast Results",
           "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
-        {
-          "img":"https://picsum.photos/56/56?random=13",
-          "imgAlt":"Alt text",
-          "title":"Self-administrable",
-          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
-        },
       ]}
+      cardCTA={true}
+      btnText="Primary CTA"
+      btnUrl="#"
+      cardCTAbody="Call to action goes right here"
     />
 
     <div className="container component-doc">
