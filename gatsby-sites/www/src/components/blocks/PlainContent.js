@@ -13,6 +13,9 @@ const PlainContent = function(props) {
         <div className="container">
           <div className="row align-items-center justify-content-center">
             <div className={`col-lg-${props.colWidth||12}`}>
+              {props.kicker && (
+                <p className="h6 text-uppercase">{props.kicker}</p>
+              )}
               {headerLevel == "h2" && <h2>{props.header}</h2>}
               {headerLevel == "h1" && <h1>{props.header}</h1>}
               {props.body && (<Paragraph text={props.body} />)}

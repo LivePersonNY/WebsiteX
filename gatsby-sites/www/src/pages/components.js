@@ -138,6 +138,7 @@ const IndexPage = () => (
     <PlainContent
       backgroundColor="bg-primary-light"
       colWidth="8"
+      kicker="I kick"
       header="What is LivePerson?"
       body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci,
               pellentesque a tincidunt dignissim adipiscing blandit eu. Sagittis
