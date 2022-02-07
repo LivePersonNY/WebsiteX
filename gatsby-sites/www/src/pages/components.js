@@ -526,6 +526,7 @@ const IndexPage = () => (
     <CardGrid
       backgroundColor="bg-primary-light"
       header="Headline about our customers"
+      runFilters={true}
       items={[
         {
           "img":"https://picsum.photos/224/30?random=1",
@@ -545,6 +546,20 @@ const IndexPage = () => (
           "img":"https://picsum.photos/224/30?random=3",
           "imgAlt":"Alt text",
           "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/224/30?random=3",
+          "imgAlt":"Alt text",
+          "body":"4",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/224/30?random=3",
+          "imgAlt":"Alt text",
+          "body":"5",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },
@@ -938,6 +953,26 @@ const IndexPage = () => (
       backgroundColor="bg-neutral-92"
       header="Why customers love Voice"
       items={[
+        {
+          "img":"https://picsum.photos/304/360",
+          "imgAlt":"Alt text",
+          "brandImg":"https://picsum.photos/120/28",
+          "brandImgAlt":"Alt text",
+          "author":"Richard Branson · CEO",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/304/360",
+          "imgAlt":"Alt text",
+          "brandImg":"https://picsum.photos/120/28",
+          "brandImgAlt":"Alt text",
+          "author":"Richard Branson · CEO",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
         {
           "img":"https://picsum.photos/304/360",
           "imgAlt":"Alt text",

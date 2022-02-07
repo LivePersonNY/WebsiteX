@@ -6,12 +6,13 @@ const QuoteSlider = (props) => {
 
     let quoteBlock = props.items.map((item, index)=>{
       return (
-        <>
-          {(item.img || item.imgCtl) && (
-            <div className="col-lg-3 offset-lg-1" key={index}>
-              {!item.imgCtl && <img src={item.img} alt={item.imgAlt} /> || item.imgCtl}
-            </div>
-          )}
+        <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+          <div className={`row align-items-center`}>
+            {(item.img || item.imgCtl) && (
+              <div className="col-lg-3 offset-lg-1" key={index}>
+                {!item.imgCtl && <img src={item.img} alt={item.imgAlt} /> || item.imgCtl}
+              </div>
+            )}
             <div className={`${item.img || item.imgCtl ? 'col-lg-7' : 'col-lg-10 offset-lg-1'}`}>
               {!item.brandImgCtl && <img className="comp-brand-img" src={item.brandImg} alt={item.brandImgAlt} /> || item.brandImgCtl}
               <p className="h6 comp-quote-author">{item.author}</p>
@@ -22,7 +23,8 @@ const QuoteSlider = (props) => {
                 </a>
               )}
             </div>
-        </>
+          </div>
+        </div>
       )
     });
    
@@ -38,9 +40,19 @@ const QuoteSlider = (props) => {
                     <h2>{props.header}</h2>
                   </div>
                 </div>
-                <div className={`row align-items-center`}>
-                  {quoteBlock}
-                </div>
+                  <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span className="visually-hidden">Previous</span>
+                    </button>
+                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span className="visually-hidden">Next</span>
+                    </button>
+                    <div className="carousel-inner">
+                      {quoteBlock}
+                    </div>
+                  </div>
               </div>
             </div>
           </div>

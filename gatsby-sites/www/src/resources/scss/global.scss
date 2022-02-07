@@ -274,14 +274,84 @@ img {
 
 
 .comp-card-grid {
+    h2 {
+        margin-bottom: 20px;
+    }
+
     .comp-card-grid-container {
-        .col {
-            margin-top: 32px;
+        @include media-breakpoint-up(lg) {
+            margin-left: -32px;
+            margin-right: -32px;
+        }
+
+        .carousel-inner {
+            padding-bottom: 7px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            @include media-breakpoint-up(lg) {
+                top: -62px;
+            }
+        }
+
+        .carousel-control-prev {
+            @include media-breakpoint-up(lg) {
+                left: 1242px;
+            }
+        }
+
+        .carousel-control-next {
+            @include media-breakpoint-up(lg) {
+                right: 36px;
+            }
+        }
+
+        .carousel-item .col-lg-4 {
+            margin-top: 20px;
 
             @include media-breakpoint-up(lg) {
                 margin-top: 48px;
+                padding-left: 16px;
+                padding-right: 16px;
             }
         }
+
+        @include media-breakpoint-down(lg) {
+            .carousel-inner .carousel-item>div {
+                display: none;
+            }
+
+            .carousel-inner .carousel-item>div:first-child {
+                display: block;
+            }
+        }
+
+        .carousel-inner .carousel-item.active,
+        .carousel-inner .carousel-item-next,
+        .carousel-inner .carousel-item-prev {
+            display: flex;
+        }
+
+        /* medium and up screens */
+        @include media-breakpoint-up(lg) {
+
+            .carousel-inner .carousel-item-end.active,
+            .carousel-inner .carousel-item-next {
+                transform: translateX(33.33%);
+            }
+
+            .carousel-inner .carousel-item-start.active,
+            .carousel-inner .carousel-item-prev {
+                transform: translateX(-33.33%);
+            }
+        }
+
+        .carousel-inner .carousel-item-end,
+        .carousel-inner .carousel-item-start {
+            transform: translateX(0);
+        }
+
     }
 }
 
@@ -628,7 +698,7 @@ img {
         }
 
         h2 {
-            margin-bottom: 50px;
+            margin-bottom: 20px;
 
             @include media-breakpoint-up(lg) {
                 margin-bottom: 72px;
@@ -650,6 +720,25 @@ img {
 
             @include media-breakpoint-up(lg) {
                 margin-bottom: 32px;
+            }
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            @include media-breakpoint-up(lg) {
+                top: -104px;
+            }
+        }
+
+        .carousel-control-prev {
+            @include media-breakpoint-up(lg) {
+                left: 1112px;
+            }
+        }
+
+        .carousel-control-next {
+            @include media-breakpoint-up(lg) {
+                right: 112px;
             }
         }
     }
@@ -955,5 +1044,27 @@ img {
 .comp-plain-content {
     .h6 {
         margin-bottom: 8px;
+    }
+}
+
+.carousel.slide {
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        background: red;
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        position: relative;
+        display: inline-block;
+        margin-right: 10px;
+        margin-bottom: 40px;
+
+        @include media-breakpoint-up(lg) {
+            position: absolute;
+            display: flex;
+            margin-right: 0;
+            margin-bottom: 0;
+        }
     }
 }
