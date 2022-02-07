@@ -468,11 +468,11 @@ img {
 }
 
 .comp-tabs-a {
-    h2 {
-        margin-bottom: 48px;
+    .row.align-items-center {
+        margin-top: 48px;
 
         @include media-breakpoint-up(lg) {
-            margin-bottom: 72px;
+            margin-top: 72px;
         }
     }
 
@@ -489,6 +489,11 @@ img {
 
                 button {
                     color: $neutral12;
+                    padding-bottom: 8px;
+                }
+
+                .subtitle1 {
+                    padding-bottom: 20px;
                 }
 
             }
@@ -500,10 +505,6 @@ img {
                 padding: 20px 0;
                 color: $neutral64;
                 text-align: left;
-            }
-
-            .subtitle1 {
-                margin-top: 8px;
             }
         }
     }

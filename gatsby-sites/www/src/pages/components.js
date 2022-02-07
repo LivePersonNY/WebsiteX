@@ -319,6 +319,7 @@ const IndexPage = () => (
     <TabsA
       backgroundColor="bg-primary-light"
       header="How LivePerson can benefit your customers"
+      body="Our team can be your experts or support your experts. Together, we’ll co-innovate and help deliver personalized customer experiences at scale"
       items={[
         {
           "title": "Ennhance the customer journey",
