@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Icons + Text",
 	"category": "liveperson",
-	"icon": "table-col-after",
+	"icon": "image-filter",
 	"description": "Blocks of text with supporting icons, 3 variations of layout.",
 	"supports": {
 		"html": false

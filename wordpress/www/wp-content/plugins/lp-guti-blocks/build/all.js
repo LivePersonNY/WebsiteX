@@ -17283,6 +17283,7 @@ function Edit(_ref) {
             open
           } = _ref2;
           return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+            className: "imageSelector",
             src: itemValues[index].brandImg || `https://loremicon.com/rect/64/64/${index}/png`,
             "data-tab-content": index,
             key: index,
