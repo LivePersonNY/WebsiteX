@@ -11020,7 +11020,18 @@ const IconTextA = props => {
     className: "text-center"
   }, props.header))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row row-cols-lg-3 row-cols-1 comp-block-grid-container"
-  }, blockCol)));
+  }, blockCol, props.cardCTA && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "col"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card h-100 text-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card-body d-flex flex-column justify-content-center align-items-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "card-text"
+  }, props.cardCTAbody), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: props.btnUrl,
+    className: "btn btn-primary"
+  }, props.btnText)))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (IconTextA);
@@ -11153,7 +11164,18 @@ const IconTextA = props => {
     className: ""
   }, props.header))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row row-cols-lg-2 row-cols-1 comp-block-grid-container"
-  }, blockCol)));
+  }, blockCol, props.cardCTA && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "col"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card h-100 text-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card-body d-flex flex-column justify-content-center align-items-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "card-text"
+  }, props.cardCTAbody), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: props.btnUrl,
+    className: "btn btn-primary"
+  }, props.btnText)))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (IconTextA);
@@ -11213,7 +11235,18 @@ const IconTextD = props => {
     text: props.body
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `row row-cols-lg-2 row-cols-1 comp-block-grid-container ${props.centerBody ? 'text-center' : ''}`
-  }, blockCol)));
+  }, blockCol, props.cardCTA && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "col"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card h-100 text-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "card-body d-flex flex-column justify-content-center align-items-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "card-text"
+  }, props.cardCTAbody), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: props.btnUrl,
+    className: "btn btn-primary"
+  }, props.btnText)))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (IconTextD);
@@ -15208,10 +15241,6 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-const {
-  MediaUpload,
-  MediaUploadCheck
-} = wp.blockEditor;
 
 
 
@@ -15331,7 +15360,7 @@ function Edit(_ref) {
         },
         placeholder: "https://www.example.com"
       })),
-      body: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__.TextareaControl, {
+      body: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
         value: itemValues[index].body,
         onChange: function (value) {
           itemValues[index].body = value;
@@ -15340,9 +15369,9 @@ function Edit(_ref) {
           });
         },
         className: "embedded-input",
-        rows: "1"
+        allowedFormats: ['core/bold', 'core/italic']
       }),
-      imgCtl: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(MediaUpload, {
+      imgCtl: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.MediaUpload, {
         onSelect: function (media) {
           itemValues[index].img = media.url;
           itemValues[index].mediaId = media.id;
@@ -15415,7 +15444,7 @@ function Edit(_ref) {
         centerBody: !attributes.centerBody
       });
     }
-  }), attributes.blocktype == 'IconTextB' && ctaButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__.ToolbarDropdownMenu, {
+  }), ctaButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_11__.ToolbarDropdownMenu, {
     icon: "admin-settings",
     label: "Select a version",
     controls: [{
@@ -15456,6 +15485,9 @@ function Edit(_ref) {
     selected: attributes.backgroundColor
   })));
   if (isSelected) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), addButton, attributes.blocktype == "IconTextA" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_IconTextA__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    cardCTA: attributes.cta,
+    cardCTAbody: ctaBodyControl,
+    btnText: btnControl,
     header: headerControl,
     items: itemControls,
     backgroundColor: attributes.backgroundColor
@@ -15467,10 +15499,16 @@ function Edit(_ref) {
     items: itemControls,
     backgroundColor: attributes.backgroundColor
   }), attributes.blocktype == "IconTextC" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_IconTextC__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    cardCTA: attributes.cta,
+    cardCTAbody: ctaBodyControl,
+    btnText: btnControl,
     header: headerControl,
     items: itemControls,
     backgroundColor: attributes.backgroundColor
   }), attributes.blocktype == "IconTextD" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_IconTextD__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    cardCTA: attributes.cta,
+    cardCTAbody: ctaBodyControl,
+    btnText: btnControl,
     centerBody: attributes.centerBody,
     body: bodyControl,
     header: headerControl,
@@ -15478,6 +15516,10 @@ function Edit(_ref) {
     backgroundColor: attributes.backgroundColor
   }));
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), addButton, attributes.blocktype == "IconTextA" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_IconTextA__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    cardCTA: attributes.cta,
+    cardCTAbody: attributes.ctaBody,
+    btnText: attributes.btnText,
+    btnUrl: attributes.btnUrl,
     header: attributes.header,
     items: attributes.icons,
     backgroundColor: attributes.backgroundColor
@@ -15490,10 +15532,18 @@ function Edit(_ref) {
     items: attributes.icons,
     backgroundColor: attributes.backgroundColor
   }), attributes.blocktype == "IconTextC" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_IconTextC__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    cardCTA: attributes.cta,
+    cardCTAbody: attributes.ctaBody,
+    btnText: attributes.btnText,
+    btnUrl: attributes.btnUrl,
     header: attributes.header,
     items: attributes.icons,
     backgroundColor: attributes.backgroundColor
   }), attributes.blocktype == "IconTextD" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_IconTextD__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    cardCTA: attributes.cta,
+    cardCTAbody: attributes.ctaBody,
+    btnText: attributes.btnText,
+    btnUrl: attributes.btnUrl,
     centerBody: attributes.centerBody,
     body: attributes.body,
     header: attributes.header,
@@ -15615,6 +15665,10 @@ function save(_ref) {
     attributes
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, attributes.blocktype == "IconTextA" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_IconTextA__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    cardCTA: attributes.cta,
+    cardCTAbody: attributes.ctaBody,
+    btnText: attributes.btnText,
+    btnUrl: attributes.btnUrl,
     header: attributes.header,
     items: attributes.icons,
     backgroundColor: attributes.backgroundColor
@@ -15627,10 +15681,18 @@ function save(_ref) {
     items: attributes.icons,
     backgroundColor: attributes.backgroundColor
   }), attributes.blocktype == "IconTextC" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_IconTextC__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    cardCTA: attributes.cta,
+    cardCTAbody: attributes.ctaBody,
+    btnText: attributes.btnText,
+    btnUrl: attributes.btnUrl,
     header: attributes.header,
     items: attributes.icons,
     backgroundColor: attributes.backgroundColor
   }), attributes.blocktype == "IconTextD" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_IconTextD__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    cardCTA: attributes.cta,
+    cardCTAbody: attributes.ctaBody,
+    btnText: attributes.btnText,
+    btnUrl: attributes.btnUrl,
     centerBody: attributes.centerBody,
     body: attributes.body,
     header: attributes.header,

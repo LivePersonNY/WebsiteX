@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Quote Slider",
 	"category": "liveperson",
-	"icon": "table-col-after",
+	"icon": "format-quote",
 	"description": "Sliding quote callout",
 	"supports": {
 		"html": false
@@ -15,24 +15,24 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
-		"header": {"default": "Header above tabs"},
+		"header": {},
 		"quotes": {
 			"type": "array",
 			"default": [
 				{
 					"author": "Kermit D. Frog",
-					"body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+					"body": "It's not easy being green",
 					"linkUrl": "https://www.lipsum.com/",
 					"linkText": "Learn More",
-					"img": "https://picsum.photos/568/752",
+					"img": "https://www.looper.com/img/gallery/kermit-the-frogs-history-explained/intro-1601411424.jpg",
 					"brandImg": "https://loremicon.com/rect/64/64/8903836/png"
 				},
 				{
-					"author": "Kermit D. Frog",
-					"body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+					"author": "Groucho Marx",
+					"body": "Time flies like an arrow... Fruit flies like a banana.",
 					"linkUrl": "https://www.lipsum.com/",
 					"linkText": "Learn More",
-					"img": "https://picsum.photos/568/752",
+					"img": "https://cbsnews1.cbsistatic.com/hub/i/r/2020/03/05/513f6b9b-c499-411c-a5e6-05f453fed7fb/thumbnail/1200x630/5aa3f528d858ccb26bcfc81593ed76b1/groucho-marx.jpg",
 					"brandImg": "https://loremicon.com/rect/64/64/8903836/png"
 				}
 			]

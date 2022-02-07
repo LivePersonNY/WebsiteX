@@ -13,8 +13,7 @@ import '../../../../../../../../gatsby-sites/www/liveperson-scripts';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls } from '@wordpress/block-editor';
-const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
+import { useBlockProps, BlockControls, RichText, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 
 import IconTextA from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextA';
 import IconTextB from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextB';
@@ -135,14 +134,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 				</div>
 			),
 			body: (
-				<TextareaControl
+				<RichText
 					value={itemValues[index].body}
 					onChange={function(value) {
 						itemValues[index].body = value;
 						setAttributes({ icons: itemValues});
 					}}
 					className="embedded-input"
-					rows="1"
+					allowedFormats={['core/bold', 'core/italic']}
 				/>
 
 			),
@@ -217,7 +216,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						}
 					}
 				/>}
-				{attributes.blocktype == 'IconTextB' && ctaButton}
+				{ctaButton}
 				<ToolbarDropdownMenu
 					icon="admin-settings"
 					label="Select a version"
@@ -262,13 +261,19 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<div {...useBlockProps()}>
 			{addButton}
 
-			{attributes.blocktype == "IconTextA" && <IconTextA header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextA" && <IconTextA cardCTA={attributes.cta}
+			cardCTAbody={ctaBodyControl}
+			btnText={btnControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
 			{attributes.blocktype == "IconTextB" && <IconTextB cardCTA={attributes.cta}
 			cardCTAbody={ctaBodyControl}
 			btnText={btnControl}
 			header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextC" && <IconTextC header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextD" && <IconTextD centerBody={attributes.centerBody} body={bodyControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextC" && <IconTextC cardCTA={attributes.cta}
+			cardCTAbody={ctaBodyControl}
+			btnText={btnControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextD" && <IconTextD cardCTA={attributes.cta}
+			cardCTAbody={ctaBodyControl}
+			btnText={btnControl} centerBody={attributes.centerBody} body={bodyControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>}
 
 		</div>
 	);
@@ -276,14 +281,23 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			{attributes.blocktype == "IconTextA" && <IconTextA header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextA" && <IconTextA cardCTA={attributes.cta}
+			cardCTAbody={attributes.ctaBody}
+			btnText={attributes.btnText}
+			btnUrl={attributes.btnUrl} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 			{attributes.blocktype == "IconTextB" && <IconTextB cardCTA={attributes.cta}
 			cardCTAbody={attributes.ctaBody}
 			btnText={attributes.btnText}
 			btnUrl={attributes.btnUrl}
 			header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextC" && <IconTextC header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-			{attributes.blocktype == "IconTextD" && <IconTextD centerBody={attributes.centerBody} body={attributes.body} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextC" && <IconTextC cardCTA={attributes.cta}
+			cardCTAbody={attributes.ctaBody}
+			btnText={attributes.btnText}
+			btnUrl={attributes.btnUrl} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			{attributes.blocktype == "IconTextD" && <IconTextD cardCTA={attributes.cta}
+			cardCTAbody={attributes.ctaBody}
+			btnText={attributes.btnText}
+			btnUrl={attributes.btnUrl} centerBody={attributes.centerBody} body={attributes.body} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 
 		</div>
 	)
