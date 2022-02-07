@@ -125,7 +125,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					label="Width"
 					onClick={ changeColumns }
 				/>
-				<BackgroundSelectorMenu selected={attributes.backgroundColor} onChange={function(color) {
+				<BackgroundSelectorMenu selected={attributes.backgroundColor} callback={function(color) {
 					setAttributes({backgroundColor: color});
 				}} />
 			</ToolbarGroup>

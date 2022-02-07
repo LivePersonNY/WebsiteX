@@ -16725,7 +16725,7 @@ function Edit(_ref) {
     onClick: changeColumns
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_BackgroundSelector__WEBPACK_IMPORTED_MODULE_6__["default"], {
     selected: attributes.backgroundColor,
-    onChange: function (color) {
+    callback: function (color) {
       setAttributes({
         backgroundColor: color
       });
