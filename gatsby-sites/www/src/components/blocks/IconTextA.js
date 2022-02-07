@@ -16,6 +16,11 @@ const IconTextA = (props) => {
         }
         <p className="card1">{item.title}</p>
         <Paragraph className="subtitle1" text={item.body} />
+        {item.linkText && (
+          <a href={item.linkUrl} className="link link-mt-small">
+          {item.linkText}
+        </a>
+        )}
       </div>
     )
   });

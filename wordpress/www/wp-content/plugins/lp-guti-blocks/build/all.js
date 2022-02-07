@@ -11009,7 +11009,10 @@ const IconTextA = props => {
     }, item.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_4__["default"], {
       className: "subtitle1",
       text: item.body
-    }));
+    }), item.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: item.linkUrl,
+      className: "link link-mt-small"
+    }, item.linkText));
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `pane comp-icon-text-a ${props.backgroundColor || "bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`
