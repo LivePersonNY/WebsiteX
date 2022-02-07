@@ -17,7 +17,8 @@
 	"attributes": {
 		"header": {"default": "Related Insights"},
 		"backgroundColor": {"default": "bg-transparent" },
-		"linkText": {"default": "Show All"},
+		"linkText": {},
+		"linkUrl": {},
 		"cards": {
 			"type": "array",
 			"default": [

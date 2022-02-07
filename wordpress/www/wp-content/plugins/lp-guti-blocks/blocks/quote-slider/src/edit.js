@@ -121,7 +121,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						value={itemValues[index].iconId}
 						allowedTypes={ ['image'] }
 						render={({open}) => (
-							<img src={itemValues[index].brandImg || `https://loremicon.com/rect/64/64/${index}/png`} data-tab-content={index} key={index} onClick={open} />
+							<img className="imageSelector" src={itemValues[index].brandImg || `https://loremicon.com/rect/64/64/${index}/png`} data-tab-content={index} key={index} onClick={open} />
 						)}
 					/>
 				</MediaUploadCheck>

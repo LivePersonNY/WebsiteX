@@ -131,12 +131,46 @@ WP_HOST=http://localhost:3000
 
 main, deploy
 
-## Workflow
+## Gutenberg Blocks
 
-TODO
+The LivePerson custom Gutenberg blocks for Wordpress can be found within the plugins directory `lp-guti-blocks`.
+
+```
+wordpress
+└ www
+  └ wp-content
+	└ plugins
+	  └ lp-guti-blocks
+	    └ blocks
+		| └ hero
+		| └ left-right
+		| └ (...)
+		| | AddItemButton.js
+		| | all.js
+		| | BackgroundSelector.js
+		| | HeadingFormat.js
+		| | ItemControls.js
+		| | LineBreaks.js
+		└ build
+		└ node_modules
+		| .editorconfig
+		| .gitignore
+		| lp-guti-blocks.php
+		| package-lock.json
+		| package.json
+		| readme.txt
+```
+
+The entrance point for all gutenberg blocks in this plugin is `all.js`
 
 ## Pages
 
-### Linking Gatsby page to Wordpress page
+### Dynamic Pages
 
-This is how to tie a wordpress page to a gatsby page.
+By Default, all pages in wordpress are converted to Gatsby pages. A page in wordpress with the permalink `products/conversational`, for example, will result in a Gatsby page of the same url. Permalinks by default are the hyphened slugs that WordPress generates, but can be changed under "Permalink Manager"
+
+![image](https://user-images.githubusercontent.com/6423115/152843534-fe90a017-2014-403b-ba03-effae801e913.png)
+
+### Fixed Pages
+
+To create a static page in Gatsby, follow the standard procedure of creating the necessary JS file, for example, `example.js` under the pages directory in the gatsby site files.

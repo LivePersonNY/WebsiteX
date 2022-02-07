@@ -19,7 +19,17 @@ class LP_Resources
 		
 		add_filter( 'block_categories_all', [$this, 'block_categories'], 10, 2 );
 		
+		add_Action('admin_init', [$this, 'admin_init'], 100);
+
+		
 	}
+	
+	function admin_init()
+	{
+		header("Access-Control-Allow-Origin: *");
+		header_remove("Referrer-Policy");
+	}
+
 	
 	function block_categories( $block_categories, $editor_context ) {
 		if ( ! empty( $editor_context->post ) ) {
