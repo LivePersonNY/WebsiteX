@@ -8,7 +8,7 @@ import $ from 'jquery';
 const CardGrid = (props) => {
 
   let tabScript = `
-    let items = document.querySelectorAll('.carousel .carousel-item');
+    let items = document.querySelectorAll('#cardGridCarousel.carousel .carousel-item');
 
     items.forEach((el) => {
       const minPerSlide = 4
