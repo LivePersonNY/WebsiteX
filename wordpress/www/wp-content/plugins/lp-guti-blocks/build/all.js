@@ -16584,7 +16584,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _gatsby_sites_www_src_components_blocks_PlainContent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent */ "../../../../../gatsby-sites/www/src/components/blocks/PlainContent.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./blocks/plain-content/src/editor.scss");
+/* harmony import */ var _BackgroundSelector__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../BackgroundSelector */ "./blocks/BackgroundSelector.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./editor.scss */ "./blocks/plain-content/src/editor.scss");
 
 
 /**
@@ -16600,6 +16601,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
+
 
 
 
@@ -16721,6 +16723,13 @@ function Edit(_ref) {
     icon: "image-flip-horizontal",
     label: "Width",
     onClick: changeColumns
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_BackgroundSelector__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    selected: attributes.backgroundColor,
+    onChange: function (color) {
+      setAttributes({
+        backgroundColor: color
+      });
+    }
   })));
 
   if (isSelected) {
@@ -16731,6 +16740,7 @@ function Edit(_ref) {
       alignmentClass: `text-${attributes.alignment}`,
       header: headerControl,
       body: contentControl,
+      backgroundColor: attributes.backgroundColor,
       linkText: linkTextControl
     }));
   }
@@ -16742,6 +16752,7 @@ function Edit(_ref) {
     alignmentClass: `text-${attributes.alignment}`,
     header: attributes.header,
     body: attributes.content,
+    backgroundColor: attributes.backgroundColor,
     linkText: attributes.linkText,
     linkUrl: attributes.linkUrl
   }));
@@ -16860,7 +16871,8 @@ function save(_ref) {
     header: attributes.header,
     body: attributes.content,
     linkText: attributes.linkText,
-    linkUrl: attributes.linkUrl
+    linkUrl: attributes.linkUrl,
+    backgroundColor: attributes.backgroundColor
   });
 }
 

@@ -16,7 +16,7 @@ import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor'
 import PlainContent from '../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent';
 import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 
-
+import BackgroundSelectorMenu from '../../BackgroundSelector';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -125,6 +125,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					label="Width"
 					onClick={ changeColumns }
 				/>
+				<BackgroundSelectorMenu selected={attributes.backgroundColor} onChange={function(color) {
+					setAttributes({backgroundColor: color});
+				}} />
 			</ToolbarGroup>
 		</BlockControls>
 	);
@@ -141,6 +144,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					alignmentClass={`text-${attributes.alignment}`}
 					header={headerControl}
 					body={contentControl}
+					backgroundColor={attributes.backgroundColor}
 					linkText={linkTextControl} />
 			</div>
 
@@ -155,6 +159,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				headLevel={attributes.headLevel}
 				alignmentClass={`text-${attributes.alignment}`}
 				header={attributes.header}body={attributes.content}
+				backgroundColor={attributes.backgroundColor}
 				linkText={attributes.linkText}
 				linkUrl={attributes.linkUrl} />
 		</div>
