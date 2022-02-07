@@ -138,6 +138,7 @@ const IndexPage = () => (
     <PlainContent
       backgroundColor="bg-primary-light"
       colWidth="8"
+      kicker="I kick"
       header="What is LivePerson?"
       body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci,
               pellentesque a tincidunt dignissim adipiscing blandit eu. Sagittis
@@ -318,6 +319,7 @@ const IndexPage = () => (
     <TabsA
       backgroundColor="bg-primary-light"
       header="How LivePerson can benefit your customers"
+      body="Our team can be your experts or support your experts. Together, we’ll co-innovate and help deliver personalized customer experiences at scale"
       items={[
         {
           "title": "Ennhance the customer journey",
@@ -524,6 +526,7 @@ const IndexPage = () => (
     <CardGrid
       backgroundColor="bg-primary-light"
       header="Headline about our customers"
+      runFilters={true}
       items={[
         {
           "img":"https://picsum.photos/224/30?random=1",
@@ -543,6 +546,20 @@ const IndexPage = () => (
           "img":"https://picsum.photos/224/30?random=3",
           "imgAlt":"Alt text",
           "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/224/30?random=3",
+          "imgAlt":"Alt text",
+          "body":"4",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/224/30?random=3",
+          "imgAlt":"Alt text",
+          "body":"5",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },
@@ -678,13 +695,11 @@ const IndexPage = () => (
           "title":"Conversation Orchestrator",
           "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
-        {
-          "img":"https://picsum.photos/64/64?random=6",
-          "imgAlt":"Conversation Analytics",
-          "title":"Conversation Analytics",
-          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
-        },
       ]}
+      cardCTA={true}
+      btnText="Primary CTA"
+      btnUrl="#"
+      cardCTAbody="Call to action goes right here"
     />
 
     <div className="container component-doc">
@@ -796,15 +811,11 @@ const IndexPage = () => (
           "linkText":"Discover Commerce Solutions",
           "linkUrl":"#"
         },
-        {
-          "img":"https://picsum.photos/64/64?random=11",
-          "imgAlt":"Alt text",
-          "title":"Customer Care",
-          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
-          "linkText":"Discover Customer Care",
-          "linkUrl":"#"
-        },
       ]}
+      cardCTA={true}
+      btnText="Primary CTA"
+      btnUrl="#"
+      cardCTAbody="Call to action goes right here"
     />
 
     <div className="container component-doc">
@@ -856,13 +867,11 @@ const IndexPage = () => (
           "title":"Fast Results",
           "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
         },
-        {
-          "img":"https://picsum.photos/56/56?random=13",
-          "imgAlt":"Alt text",
-          "title":"Self-administrable",
-          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.",
-        },
       ]}
+      cardCTA={true}
+      btnText="Primary CTA"
+      btnUrl="#"
+      cardCTAbody="Call to action goes right here"
     />
 
     <div className="container component-doc">
@@ -944,6 +953,26 @@ const IndexPage = () => (
       backgroundColor="bg-neutral-92"
       header="Why customers love Voice"
       items={[
+        {
+          "img":"https://picsum.photos/304/360",
+          "imgAlt":"Alt text",
+          "brandImg":"https://picsum.photos/120/28",
+          "brandImgAlt":"Alt text",
+          "author":"Richard Branson · CEO",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/304/360",
+          "imgAlt":"Alt text",
+          "brandImg":"https://picsum.photos/120/28",
+          "brandImgAlt":"Alt text",
+          "author":"Richard Branson · CEO",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
         {
           "img":"https://picsum.photos/304/360",
           "imgAlt":"Alt text",
