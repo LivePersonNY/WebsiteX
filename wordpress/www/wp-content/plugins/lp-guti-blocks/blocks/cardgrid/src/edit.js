@@ -204,6 +204,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				items={controls}
 				body={contentControl}
 				backgroundColor={attributes.backgroundColor}
+				runFilters={true}
 			/>}
 			{attributes.blocktype == "CardGridB" &&
 			<CardGridB
@@ -223,6 +224,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				header={attributes.header}
 				body={attributes.content}
 				items={attributes.cards}
+				runFilters={true}
 				backgroundColor={attributes.backgroundColor}
 			/>}
 			{attributes.blocktype == "CardGridB" &&
