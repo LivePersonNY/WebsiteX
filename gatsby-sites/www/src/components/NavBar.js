@@ -22,6 +22,8 @@ const NavBar = ({ siteTitle }) => {
           nodes {
             id
             label
+            target
+            title
             parentId
             order
             cssClasses
