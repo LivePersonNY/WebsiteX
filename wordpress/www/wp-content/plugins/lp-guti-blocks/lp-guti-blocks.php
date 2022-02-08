@@ -52,7 +52,7 @@ function lp_when_admin_inits() {
 	add_filter( 'page_link', 'lp_gatsby_urls', 1000, 2);
 	add_filter( 'post_type_link', 'lp_gatsby_urls', 1000, 2);
 }
-add_action( 'init', 'lp_when_admin_inits');
+//add_action( 'init', 'lp_when_admin_inits');
 
 function lp_gatsby_urls($permalink) {
 	$home = $_ENV['SITE_HOME'];

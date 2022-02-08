@@ -16,6 +16,7 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"header": {},
+		"small": {"default": false},
 		"quotes": {
 			"type": "array",
 			"default": [
