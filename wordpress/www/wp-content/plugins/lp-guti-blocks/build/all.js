@@ -11691,10 +11691,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const QuoteSlider = props => {
+  let tabScript = `
+      let items = document.querySelectorAll('carouselExampleControls.carousel .carousel-item');
+    
+      items.forEach((el) => {
+        const minPerSlide = 4;
+        let next = el.nextElementSibling;
+        for (var i=1; i != minPerSlide; i++) {
+          if (!next) {
+              // wrap carousel by using first child
+              next = items[0];
+          }
+          let cloneChild = next.cloneNode(true);
+          el.appendChild(cloneChild.children[0]);
+          next = next.nextElementSibling;
+        }
+      });
+    `;
+
+  if (props.runFilters && props.small) {
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+      eval(tabScript);
+    });
+  }
+
   let quoteBlock = props.items.map((item, index) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: `carousel-item ${index === 0 ? 'active' : ''}`
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: `col-lg-${props.small ? "4" : "12"}`
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: `row align-items-center`
     }, (item.img || item.imgCtl) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -11717,7 +11744,7 @@ const QuoteSlider = props => {
     }), item.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       className: "link link-mt-large",
       href: item.linkUrl
-    }, item.linkText))));
+    }, item.linkText)))));
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `pane comp-quote-slider ${props.backgroundColor || "bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`
@@ -11759,7 +11786,7 @@ const QuoteSlider = props => {
     className: "visually-hidden"
   }, "Next")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "carousel-inner"
-  }, quoteBlock)))))));
+  }, quoteBlock)), props.small && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", null, tabScript))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (QuoteSlider);
