@@ -98,7 +98,7 @@ const NavBar = ({ siteTitle }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container" style={{ position: 'relative' }}>
-        <a href="/"><img src={settings.allSettings.siteLogo} /></a>
+        <a href="/"><img className="site-logo" src={settings.allSettings.siteLogo} /></a>
         <button
           className="navbar-toggler"
           type="button"

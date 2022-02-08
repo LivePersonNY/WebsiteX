@@ -10,24 +10,27 @@ const CardGrid = (props) => {
 
   let cardCol = props.items.map((item, index)=>{
     return (
-        <div className="col-lg" key={index} id={index}>
-          <div className="card h-100">
-            <div className="card-body">
-              {!item.imgCtl && <img
-                className="card-image-internal"
-                src={item.imgSrc}
-                alt={item.imgAlt}
-              /> || item.imgCtl}
-              
-              <Paragraph text={item.body} className="card-text quote1" />
-            </div>
-            <div className="card-footer">
-              <a href={item.linkUrl} className="card-link link">
-                {item.linkText}
-              </a>
-            </div>
+     
+
+      <div className="col-lg" key={index} id={index}>
+        <div className="card h-100">
+          <div className="card-body">
+            {!item.imgCtl && <img
+              className="card-image-internal"
+              src={item.imgSrc}
+              alt={item.imgAlt}
+            /> || item.imgCtl}
+            
+            <p className="card-text quote1">{item.body}</p>
+          </div>
+          <div className="card-footer">
+            <a href={item.linkUrl} className="card-link link">
+              {item.linkText}
+            </a>
+
           </div>
         </div>
+      </div>
     )
   });
   

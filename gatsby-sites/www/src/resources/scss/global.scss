@@ -1,3 +1,7 @@
+.site-logo {
+    max-height: 24px;
+}
+
 .bg-primary-light {
     background: $primaryLight;
 }
@@ -21,6 +25,11 @@
 .bg-rainbow {
     background: $rainbow;
 
+}
+
+.bg-grad-image {
+    background-image: url("https://static.liveperson.com/static-assets/2022/02/08121310/lp-gradient-10p-1-1.jpg");
+    background-size: cover;
 }
 
 .bg-lavendar-20 {

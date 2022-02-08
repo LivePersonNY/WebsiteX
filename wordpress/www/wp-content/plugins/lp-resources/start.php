@@ -111,7 +111,10 @@ class LP_Resources
 			'show_in_rest' => true,
 		]);
 		
-		
+		/*if (!is_user_logged_in()) {
+			if ($_SERVER['REQUEST_METHOD'] != 'GET') return;
+			wp_redirect('https://liveperson.okta.com/home/wordpress_ssoscim/0oaer2x0ifOaljlZF2p7/aln1ivllsm7a1KmQ61d8?fromHome=true', 302);
+		}*/
 		
 	}
 		
