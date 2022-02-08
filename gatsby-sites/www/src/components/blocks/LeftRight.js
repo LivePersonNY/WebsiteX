@@ -28,7 +28,7 @@ const LeftRight = (props) => {
               {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
               {props.headLevel == 'h2' && <h2>{props.title}</h2>}
               {props.headLevel == 'h3' && <h3>{props.title}</h3>}
-              <Paragraph text={props.body} />
+              <Paragraph text={props.body} wrapClass="rich-container" />
               {props.linkText && (
                 <a className="btn btn-outline-secondary" href={props.linkUrl}>
                   {props.linkText}

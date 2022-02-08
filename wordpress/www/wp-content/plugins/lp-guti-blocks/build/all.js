@@ -10411,7 +10411,17 @@ function Paragraph(props) {
         key: index
       }, (0,html_react_parser__WEBPACK_IMPORTED_MODULE_3__["default"])(str));
     });
-    if (fullText) return fullText;
+
+    if (fullText) {
+      if (props.wrapClass) {
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: props.wrapClass
+        }, fullText);
+      }
+
+      return fullText;
+    }
+
     fullText = props.text.split('\n').map(function (str, index) {
       if (str) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
         className: props.className,
@@ -10419,7 +10429,16 @@ function Paragraph(props) {
         key: index
       }, (0,html_react_parser__WEBPACK_IMPORTED_MODULE_3__["default"])(str));
     });
-    return fullText;
+
+    if (fullText) {
+      if (props.wrapClass) {
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: props.wrapClass
+        }, fullText);
+      }
+
+      return fullText;
+    }
   }
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
@@ -11353,7 +11372,8 @@ const LeftRight = props => {
   }, props.kicker && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "h6 text-uppercase"
   }, props.kicker), props.headLevel == 'h2' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.title), props.headLevel == 'h3' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, props.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    text: props.body
+    text: props.body,
+    wrapClass: "rich-container"
   }), props.linkText && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "btn btn-outline-secondary",
     href: props.linkUrl
