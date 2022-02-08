@@ -14,9 +14,22 @@ const Footer = () => {
     });
   });*/
   
-  const { topItems } = useStaticQuery(
+  const { topItems, legalItems } = useStaticQuery(
     graphql`
       query topLevelQueryForFooter {
+        legalItems: allWpMenuItem(
+          filter: {
+            menu: { node: { locations: { in: [LEGAL_MENU] } } }
+            parentId: { eq: null }
+          }
+        ) {
+          nodes {
+            id
+            label
+            path
+            order
+          }
+        }
         topItems: allWpMenuItem(
           filter: {
             menu: { node: { locations: { in: [GATSBY_FOOTER_MENU] } } }
@@ -69,6 +82,7 @@ const Footer = () => {
     return a.order - b.order;
   }
   topItems.nodes.sort(sortFunc);
+  legalItems.nodes.sort(sortFunc);
   
   return (
     <footer>
@@ -96,6 +110,18 @@ const Footer = () => {
               </div>
             )
           })}
+        </div>
+        <div className="row">
+          <div className="col-lg-12">
+            <p className="footer-legal">
+              © {new Date().getFullYear()} LivePerson. All rights reserved.
+            </p>
+            {legalItems.nodes.map(function(link) {
+              return (<a href={link.path} className="footer-legal footer-legal-link">
+                  {link.label}
+                </a>)
+            })}
+          </div>
         </div>
       </div>
       
