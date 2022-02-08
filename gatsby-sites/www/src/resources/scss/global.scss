@@ -282,6 +282,20 @@ img {
         }
     }
 
+    .rich-container {
+        a {
+            font-family: $familySpaceGrotesk;
+            font-weight: $fontBold;
+            color: $primaryBlue;
+            text-decoration: none;
+            display: inline-block;
+
+            &:hover {
+                color: $primaryBlueVariant;
+            }
+        }
+    }
+
 }
 
 
@@ -449,11 +463,13 @@ img {
             padding: 0;
         }
 
-        img {
-            margin-bottom: 24px;
+        .col-lg-4 {
+            img {
+                margin-bottom: 24px;
 
-            @include media-breakpoint-up(lg) {
-                margin-bottom: 32px;
+                @include media-breakpoint-up(lg) {
+                    margin-bottom: 32px;
+                }
             }
         }
 
