@@ -13,6 +13,12 @@ export default function BackgroundSelectorMenu({ callback, selected }) {
 				onClick: () => callback('bg-transparent')
 			},
 			{
+				title: 'Gradiant Image',
+				icon: 'admin-customizer bg-grad-image',
+				isActive: selected == 'bg-grad-image',
+				onClick: () => callback('bg-grad-image')
+			},
+			{
 				title: 'Rainbow',
 				icon: 'admin-customizer bg-rainbow',
 				isActive: selected == 'bg-rainbow',
