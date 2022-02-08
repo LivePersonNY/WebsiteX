@@ -10,7 +10,7 @@ const CardGrid = (props) => {
 
   let cardCol = props.items.map((item, index)=>{
     return (
-      
+     
 
       <div className="col-lg" key={index} id={index}>
         <div className="card h-100">
