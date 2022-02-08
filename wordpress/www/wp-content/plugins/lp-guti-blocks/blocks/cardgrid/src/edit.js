@@ -150,6 +150,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			"imgSrc": "https://picsum.photos/224/30?random=3",
 			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
 			"linkText": "More about Lorem",
+			"cardTitle": "Title",
 			"linkUrl": "#"
 		});
 		setAttributes({
@@ -203,8 +204,8 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				header={headerControl}
 				items={controls}
 				body={contentControl}
-				backgroundColor={attributes.backgroundColor}
 				runFilters={true}
+				backgroundColor={attributes.backgroundColor}
 			/>}
 			{attributes.blocktype == "CardGridB" &&
 			<CardGridB

@@ -12,13 +12,31 @@ export default function Paragraph(props) {
 			if (str.trim()) return (<p className={props.className} data-tag="br split" key={index}>{Parser(str)}</p>);
 		});
 		
-		if (fullText) return fullText;
+		
+		
+		if (fullText) {
+			
+			if (props.wrapClass) {
+				return (<div className={props.wrapClass}>{fullText}</div>);
+			}
+			
+			return fullText;
+			
+		}
 		
 		fullText = props.text.split('\n').map(function(str, index) {
 			if (str) return (<p className={props.className} data-tag="new line split" key={index}>{Parser(str)}</p>);
 		});
 		
-		return fullText;
+		if (fullText) {
+					
+			if (props.wrapClass) {
+				return (<div className={props.wrapClass}>{fullText}</div>);
+			}
+			
+			return fullText;
+			
+		}
 	}
 		
 	

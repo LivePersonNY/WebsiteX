@@ -5,7 +5,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, ToolbarGroup, ToolbarDropdownMenu, ToolbarButton, Dashicon, Button } from '@wordpress/components';
-import Faq from '../../../../../../../../gatsby-sites/www/src/components/blocks/Faq';
+import HorizontalText from '../../../../../../../../gatsby-sites/www/src/components/blocks/HorizontalText';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import ItemControls from '../../ItemControls';
 
@@ -17,7 +17,7 @@ import Reorder from 'react-reorder';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck, RichText } from '@wordpress/block-editor';
 import { useInstanceId } from '@wordpress/compose';
 
 
@@ -39,62 +39,36 @@ import './editor.scss';
  */
 export default function Edit({ attributes, className, setAttributes, isSelected }) {
 
-	let headerControl = (
-		<TextControl
-			value={ attributes.header }
-			onChange={ ( val ) => setAttributes( { header: val } ) }
-			className="embedded-input"
-			placeholder="Header Text"
-		/>
-	);
-
-	let contentControl = (
-		<TextareaControl
-			value={ attributes.content }
-			onChange={ ( val ) => setAttributes( { content: val } ) }
-			className="embedded-input"
-			rows="1"
-		/>
-	);
-
-	let kickerControl = (
-		<TextControl
-			value={ attributes.kicker }
-			onChange={ ( val ) => setAttributes( { kicker: val } ) }
-			className="embedded-input"
-			placeholder="Kicker Text"
-		/>
-	);
-
-	let faqs = [...attributes.faqs];
-	let controls = attributes.faqs.map((item ,index)=>{
+	let text = [...attributes.text];
+	let controls = attributes.text.map((item ,index)=>{
 		return {
-			title: (
+			header: (
 				<TextControl
-					value={faqs[index].title}
+					value={text[index].header}
 					onChange={function(value) {
-						faqs[index].title = value;
-						setAttributes({ faqs: faqs});
+						text[index].header = value;
+						setAttributes({ text: text});
 					}}
 					className="embedded-input"
+					placeholder="Header Text"
 				/>
 			),
 			body: (
 				<div className="wp-control-wrapper">
-					<TextareaControl
-						value={faqs[index].body}
+					<RichText
+						value={text[index].body}
 						onChange={function(value) {
-							faqs[index].body = value;
-							setAttributes({ faqs: faqs});
+							text[index].body = value;
+							setAttributes({ text: text});
 						}}
-						className="embedded-input"
-						rows="1"
+						allowedFormats={['core/bold', 'core/italic', 'core/link']}
+						placeholder="Body Text"
 					/>
 					<ItemControls
 						index={index}
-						itemArray={faqs}
+						itemArray={text}
 						callback={function(items) {
-							setAttributes({ faqs: items});
+							setAttributes({ text: items});
 						}}
 					/>
 				</div>
@@ -102,31 +76,15 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 		}
 	});
 
-	let linkTextControl = (
-		<div className="wp-control-wrapper">
-			<TextControl
-				value={ attributes.btnText }
-				onChange={ ( val ) => setAttributes( { btnText: val } ) }
-				className="embedded-input"
-				placeholder="Link Text"
-			/>
-
-			<TextControl
-				value={ attributes.btnUrl }
-				onChange={ ( val ) => setAttributes( { btnUrl: val } ) }
-				placeholder="Link URL"
-			/>
-		</div>
-	);
 
 	let addTabFunc = function() {
 
-		faqs.push({
-			"title": "Dude, where's my car?",
+		text.push({
+			"header": "Dude, where's my car?",
 			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
 		});
 		setAttributes({
-			faqs: faqs
+			text: text
 		});
 	}
 
@@ -139,7 +97,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			<ToolbarGroup>
 				<ToolbarButton
 					icon="plus-alt2"
-					label="Add FAQ"
+					label="Add"
 					onClick={ addTabFunc }
 				/>
 
@@ -152,11 +110,8 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 	if (isSelected) return (
 		<div { ...useBlockProps() }>
 			{addButton}
-			<Faq
-				header={headerControl}
-				kicker={kickerControl}
+			<HorizontalText
 				items={controls}
-				btnText={linkTextControl}
 				backgroundColor={attributes.backgroundColor}
 			/>
 		</div>
@@ -164,13 +119,8 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 
 	return (
 		<div { ...useBlockProps() }>
-			{addButton}
-			<Faq
-				header={attributes.header}
-				kicker={attributes.kicker}
-				items={attributes.faqs}
-				btnText={attributes.btnText}
-				btnUrl={attributes.btnUrl}
+			<HorizontalText
+				items={attributes.text}
 				backgroundColor={attributes.backgroundColor}
 			/>
 		</div>

@@ -87,12 +87,13 @@ const NavBar = ({ siteTitle }) => {
     `
   );
   
-  topItems.nodes.sort(function(a, b) {
+  let sortFunc = function(a, b) {
     return a.order - b.order;
-  });
-  loginItems.nodes.sort(function(a,b) {
-    return a.order - b.order;
-  });
+  }
+  
+  topItems.nodes.sort(sortFunc);
+  loginItems.nodes.sort(sortFunc
+  );
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -120,6 +121,7 @@ const NavBar = ({ siteTitle }) => {
               let featuredNews = item.cssClasses.indexOf('featured-news') >= 0;
               
               if (item.childItems.nodes.length > 0) {
+                item.childItems.nodes.sort(sortFunc);
                 return (
                   <NavPanel
                     cssClasses={cssClasses} 

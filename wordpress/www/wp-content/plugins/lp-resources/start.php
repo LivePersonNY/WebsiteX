@@ -145,6 +145,7 @@ class LP_Resources
 	{
 		register_nav_menus(apply_filters('gatsby_locations', [
 			'login-menu' => __( 'Login Menu [Added by LivePerson]', 'WPGatsby' ),
+			'legal-menu' => __( 'Legal Menu [Added by LivePerson]', 'WPGatsby' )
 		]));
 	}
 	
