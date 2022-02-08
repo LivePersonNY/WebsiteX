@@ -10590,35 +10590,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const CardGrid = props => {
-  let tabScript = `
-    let items = document.querySelectorAll('#cardGridCarousel.carousel .carousel-item');
-
-    items.forEach((el) => {
-      const minPerSlide = 4;
-      let next = el.nextElementSibling;
-      for (var i=1; i != minPerSlide; i++) {
-        if (!next) {
-            // wrap carousel by using first child
-            next = items[0];
-        }
-        let cloneChild = next.cloneNode(true);
-        el.appendChild(cloneChild.children[0]);
-        next = next.nextElementSibling;
-      }
-    });
-  `;
-
-  if (props.runFilters) {
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-      eval(tabScript);
-    });
-  }
-
   let cardCol = props.items.map((item, index) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: `carousel-item ${index === 0 ? 'active' : ''}`
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "col-lg-4",
+      className: "col-lg",
       key: index,
       id: index
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -10629,15 +10603,14 @@ const CardGrid = props => {
       className: "card-image-internal",
       src: item.imgSrc,
       alt: item.imgAlt
-    }) || item.imgCtl, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      text: item.body,
+    }) || item.imgCtl, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
       className: "card-text quote1"
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    }, item.body)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "card-footer"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       href: item.linkUrl,
       className: "card-link link"
-    }, item.linkText)))));
+    }, item.linkText))));
   });
   let sortable = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row row-cols-lg-3 comp-card-grid-container"
@@ -10656,34 +10629,7 @@ const CardGrid = props => {
     className: ""
   }, props.body))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row comp-card-grid-container"
-  }, props.sorter, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    id: "cardGridCarousel",
-    className: "carousel slide",
-    "data-bs-ride": "carousel"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "carousel-control-prev",
-    type: "button",
-    "data-bs-target": "#cardGridCarousel",
-    "data-bs-slide": "prev"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "carousel-control-prev-icon",
-    "aria-hidden": "true"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "visually-hidden"
-  }, "Previous")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "carousel-control-next",
-    type: "button",
-    "data-bs-target": "#cardGridCarousel",
-    "data-bs-slide": "next"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "carousel-control-next-icon",
-    "aria-hidden": "true"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "visually-hidden"
-  }, "Next")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "carousel-inner",
-    role: "listbox"
-  }, cardCol)))), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", null, tabScript));
+  }, props.sorter, cardCol)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (CardGrid);
