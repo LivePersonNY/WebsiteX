@@ -27,13 +27,7 @@ if (!function_exists('byvex_woocommerce_starter_setup')) :
 			'header-text' => true,
 		));
 		add_theme_support(
-			'custom-logo',
-			array(
-				'height' => 100,
-				'weight' => 100,
-				'flex-height' => true,
-				'flex-weight' => true,
-			)
+			'custom-logo'
 		);
 		add_theme_support('customize-selective-refresh-widgets');
 		add_theme_support(
