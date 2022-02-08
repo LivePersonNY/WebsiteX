@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import Paragraph from '../Paragraph';
 
 const HorizontalText = (props) => {
 
@@ -10,7 +11,7 @@ const HorizontalText = (props) => {
             <h2>{item.header}</h2>            
           </div>
           <div className="col-lg-6">
-            <p>{item.body}</p>
+            <Paragraph text={item.body} wrapClass="rich-container" />
           </div>
         </div>
     )

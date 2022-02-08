@@ -21,6 +21,7 @@ import './team-card/src/index';
 import './board-card/src/index';
 import './exec-card/src/index';
 import './HeadingFormat';
+import './horizontal-text/src/index';
 
 import $ from 'jquery';
 
