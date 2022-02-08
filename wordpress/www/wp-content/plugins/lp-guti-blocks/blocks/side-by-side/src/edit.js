@@ -92,6 +92,16 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				render={({open}) => (
 					<img className="imageSelector" src={attributes.imgLeftSrc} onClick={open} />
 				)}
+				render={({open}) => (
+					<>
+						{attributes.imgLeftSrc && <img className="imageSelector" src={attributes.imgLeftSrc} onClick={open} /> ||
+							<Button className="mt-2" variant="link" onClick={open}>Select Image</Button>
+						}
+						<Button className="mt-2" variant="link" isDestructive={true} onClick={() => {
+							setAttributes({imgLeftSrc: null});
+						}}>Remove Image</Button>
+					</>
+				)}
 			/>
 		</MediaUploadCheck>
 	);
@@ -109,7 +119,14 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				value={attributes.imgRightId}
 				allowedTypes={ ['image'] }
 				render={({open}) => (
-					<img className="imageSelector" src={attributes.imgRightSrc} onClick={open} />
+					<>
+						{attributes.imgRightSrc && <img className="imageSelector" src={attributes.imgRightSrc} onClick={open} /> ||
+							<Button className="mt-2" variant="link" onClick={open}>Select Image</Button>
+						}
+						<Button className="mt-2" variant="link" isDestructive={true} onClick={() => {
+							setAttributes({imgRightSrc: null});
+						}}>Remove Image</Button>
+					</>
 				)}
 			/>
 		</MediaUploadCheck>
@@ -119,9 +136,22 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		setAttributes({ backgroundColor: color });
 	}
 
+	let changeHeadLevel = function() {
+		if (attributes.headLevel == "h2") {
+			setAttributes({ headLevel: "h3" });
+		} else {
+			setAttributes({ headLevel: "h2" });
+		}
+	}
+
 	let bgMenu = (
 		<BlockControls>
 			<ToolbarGroup>
+				<ToolbarButton
+					icon="heading"
+					label="Head Level H2/H3"
+					onClick={ changeHeadLevel }
+				/>
 				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 			</ToolbarGroup>
 		</BlockControls>
@@ -140,6 +170,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					imgLeftCtl={imageLeftControl}
 					imgRightCtl={imageRightControl}
 					backgroundColor={attributes.backgroundColor}
+					headLevel={attributes.headLevel}
 				/>
 			</div>
 
@@ -149,6 +180,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	return (
 		<div {...useBlockProps()}>
 			<SideBySide
+				headLevel={attributes.headLevel}
 				headerLeft={attributes.headerLeft}
 				headerRight={attributes.headerRight}
 				bodyLeft={attributes.bodyLeft}

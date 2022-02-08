@@ -25,6 +25,7 @@
 		"headerRight":{},
 		"bodyLeft":{},
 		"bodyRight":{},
-		"backgroundColor":{}
+		"backgroundColor":{},
+		"headerLevel": {}
 	}
 }

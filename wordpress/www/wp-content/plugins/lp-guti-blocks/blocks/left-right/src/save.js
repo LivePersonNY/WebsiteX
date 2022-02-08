@@ -39,6 +39,7 @@ export default function save({attributes}) {
 			flipColumns={attributes.flipped}
 			imgSrc={attributes.mediaUrl}
 			imgAlt={attributes.mediaAlt}
+			headLevel={attributes.headLevel}
 		 />
 	);
 }
