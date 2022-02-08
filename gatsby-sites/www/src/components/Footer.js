@@ -91,7 +91,7 @@ const Footer = () => {
           {topItems.nodes.map(function(item) {
             item.childItems.nodes.sort(sortFunc);
             return (
-              <div className="col-lg-2">
+              <div className="col-lg-2 col-6">
                 {item.childItems.nodes.map(function(section) {
                   section.childItems.nodes.sort(sortFunc);
                   return (
@@ -112,7 +112,7 @@ const Footer = () => {
           })}
         </div>
         <div className="row">
-          <div className="col-lg-12">
+          <div className="col-lg-12 footer-legal-container">
             <p className="footer-legal">
               © {new Date().getFullYear()} LivePerson. All rights reserved.
             </p>
