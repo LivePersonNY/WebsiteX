@@ -526,7 +526,6 @@ const IndexPage = () => (
     <CardGrid
       backgroundColor="bg-primary-light"
       header="Headline about our customers"
-      runFilters={true}
       items={[
         {
           "img":"https://picsum.photos/224/30?random=1",
@@ -539,27 +538,6 @@ const IndexPage = () => (
           "img":"https://picsum.photos/224/30?random=2",
           "imgAlt":"Alt text",
           "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
-          "linkText":"Read Customer Story",
-          "linkUrl":"#"
-        },
-        {
-          "img":"https://picsum.photos/224/30?random=3",
-          "imgAlt":"Alt text",
-          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
-          "linkText":"Read Customer Story",
-          "linkUrl":"#"
-        },
-        {
-          "img":"https://picsum.photos/224/30?random=3",
-          "imgAlt":"Alt text",
-          "body":"4",
-          "linkText":"Read Customer Story",
-          "linkUrl":"#"
-        },
-        {
-          "img":"https://picsum.photos/224/30?random=3",
-          "imgAlt":"Alt text",
-          "body":"5",
           "linkText":"Read Customer Story",
           "linkUrl":"#"
         },
