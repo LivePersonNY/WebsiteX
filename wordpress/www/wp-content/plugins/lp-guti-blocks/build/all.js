@@ -10578,8 +10578,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "../../../../../gatsby-sites/www/node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var gatsby_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! gatsby-link */ "../../../../../gatsby-sites/www/node_modules/gatsby-link/index.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Paragraph__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Paragraph */ "../../../../../gatsby-sites/www/src/components/Paragraph.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -10627,9 +10629,10 @@ const CardGrid = props => {
       className: "card-image-internal",
       src: item.imgSrc,
       alt: item.imgAlt
-    }) || item.imgCtl, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    }) || item.imgCtl, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      text: item.body,
       className: "card-text quote1"
-    }, item.body)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "card-footer"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       href: item.linkUrl,
@@ -13462,6 +13465,7 @@ function Edit(_ref) {
       "imgSrc": "https://picsum.photos/224/30?random=3",
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
       "linkText": "More about Lorem",
+      "cardTitle": "Title",
       "linkUrl": "#"
     });
     setAttributes({
@@ -13507,8 +13511,8 @@ function Edit(_ref) {
     header: headerControl,
     items: controls,
     body: contentControl,
-    backgroundColor: attributes.backgroundColor,
-    runFilters: true
+    runFilters: true,
+    backgroundColor: attributes.backgroundColor
   }), attributes.blocktype == "CardGridB" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_CardGridB__WEBPACK_IMPORTED_MODULE_4__["default"], {
     header: headerControl,
     items: controls,

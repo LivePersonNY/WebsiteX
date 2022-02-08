@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
+import Paragraph from '../Paragraph';
 
 import $ from 'jquery';
 
@@ -43,7 +44,7 @@ const CardGrid = (props) => {
                 alt={item.imgAlt}
               /> || item.imgCtl}
               
-              <p className="card-text quote1">{item.body}</p>
+              <Paragraph text={item.body} className="card-text quote1" />
             </div>
             <div className="card-footer">
               <a href={item.linkUrl} className="card-link link">
