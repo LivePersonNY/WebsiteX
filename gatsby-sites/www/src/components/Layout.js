@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Header from './Header';
 import Footer from './Footer';
 
-const Layout = ({ isHomePage, children }) => {
+const Layout = ({ isHomePage, children, mainClass }) => {
   const {
     wp: {
       generalSettings: { title },
@@ -24,7 +24,7 @@ const Layout = ({ isHomePage, children }) => {
   return (
     <>
       <Header siteTitle={title || `Title`} />
-      <main>{children}</main>
+      <main className={mainClass}>{children}</main>
       <Footer />
     </>
   );

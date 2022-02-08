@@ -1047,24 +1047,26 @@ img {
     }
 }
 
-.carousel.slide {
+main:not(.company-careers) {
+    .carousel.slide {
 
-    .carousel-control-prev,
-    .carousel-control-next {
-        background: red;
-        width: 40px;
-        height: 40px;
-        border-radius: 100px;
-        position: relative;
-        display: inline-block;
-        margin-right: 10px;
-        margin-bottom: 40px;
+        .carousel-control-prev,
+        .carousel-control-next {
+            background: red;
+            width: 40px;
+            height: 40px;
+            border-radius: 100px;
+            position: relative;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 40px;
 
-        @include media-breakpoint-up(lg) {
-            position: absolute;
-            display: flex;
-            margin-right: 0;
-            margin-bottom: 0;
+            @include media-breakpoint-up(lg) {
+                position: absolute;
+                display: flex;
+                margin-right: 0;
+                margin-bottom: 0;
+            }
         }
     }
 }

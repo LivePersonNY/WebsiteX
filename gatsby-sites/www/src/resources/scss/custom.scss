@@ -1,0 +1,67 @@
+.company-careers {
+
+    #wf-form-Search-Form,
+    .resume-upload {
+        max-width: 400px;
+        width: 100%;
+        margin: auto;
+        position: relative;
+    }
+
+    .search-button-link-a {
+        position: absolute;
+        top: 7px;
+        right: 12px;
+    }
+
+    .hero-or {
+        margin: 20px 0;
+    }
+
+    .resume-upload {
+        * {
+            display: inline-block;
+        }
+
+        .cloud-image-a {
+            margin-right: 18px;
+            margin-top: -4px;
+        }
+
+        .upload-button-text {
+            color: $neutral99;
+        }
+    }
+
+    .carousel.slide {
+        margin-top: 24px;
+    }
+
+    .comp-card-grid-b {
+        .card {
+            text-align: center;
+            background: none;
+            box-shadow: none;
+
+            .card-img-top {
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+            }
+
+            .card-body {
+                padding: 20px;
+                background: $neutral99;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+
+                .card-title {
+                    margin: 0;
+                }
+            }
+
+            .card-footer {
+                display: none;
+            }
+        }
+    }
+}
