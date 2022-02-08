@@ -17,9 +17,11 @@ const ProgramCard = (props) => {
             <p className="subtitle2 event-date">{item.eventDate}</p>
             <p className="subtitle2 event-time">{item.eventTime}</p>
             <Paragraph className="subtitle2 event-body" text={item.body} />
+            {item.btnText && (
             <a href={item.btnUrl} className="btn btn2 btn-primary">
               {item.btnText}
             </a>
+            )}
           </div>
         </div>
       </div>

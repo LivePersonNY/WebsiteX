@@ -1286,8 +1286,6 @@ const IndexPage = () => (
           "eventDate":"November 10, 2020",
           "eventTime":"9:30am – 10:30am",
           "body":"Supporting Materials",
-          "btnText":"Listen to webcast",
-          "btnUrl":"#"
         }
       ]}
     />
