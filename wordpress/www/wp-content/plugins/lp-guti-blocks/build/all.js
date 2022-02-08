@@ -18161,7 +18161,7 @@ function save(_ref) {
     attributes
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_StatsGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    header: attributes.heading,
+    header: attributes.header,
     items: attributes.statItems
   });
 }
