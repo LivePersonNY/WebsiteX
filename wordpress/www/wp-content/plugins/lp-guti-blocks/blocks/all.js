@@ -25,6 +25,10 @@ import './horizontal-text/src/index';
 
 import $ from 'jquery';
 
+$(document).ready(function() {
+	window.documentReadyFn();
+});
+
 /*
 "editorScript": "file:../../build/all.js",
 "editorStyle": "file:../../build/all.css",

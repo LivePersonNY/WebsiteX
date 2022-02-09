@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 window.loadForm = function(id, thankyou) {
-	if ($('form').children().length > 0) return;
+	//if ($('form').children().length > 0) return;
 	if (!window.MktoForms2) {
 		setTimeout(function() {
 			loadForm(id, thankyou);
@@ -27,7 +27,7 @@ window.loadForm = function(id, thankyou) {
 }
 
 window.documentReadyFn = function() {
-	window.mktoRuntime();
+	
 	console.log('Document ready.');
 		
 		$('body').on('click', 'a.mobileForm', function(e) {

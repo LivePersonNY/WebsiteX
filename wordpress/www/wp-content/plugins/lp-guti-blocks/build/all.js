@@ -10324,8 +10324,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.loadForm = function (id, thankyou) {
-  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('form').children().length > 0) return;
-
+  //if ($('form').children().length > 0) return;
   if (!window.MktoForms2) {
     setTimeout(function () {
       loadForm(id, thankyou);
@@ -10345,7 +10344,6 @@ window.loadForm = function (id, thankyou) {
 };
 
 window.documentReadyFn = function () {
-  window.mktoRuntime();
   console.log('Document ready.');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', 'a.mobileForm', function (e) {
     e.preventDefault();
@@ -12597,6 +12595,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+jquery__WEBPACK_IMPORTED_MODULE_24___default()(document).ready(function () {
+  window.documentReadyFn();
+});
 /*
 "editorScript": "file:../../build/all.js",
 "editorStyle": "file:../../build/all.css",
