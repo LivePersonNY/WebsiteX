@@ -1,8 +1,5 @@
 console.log('careers script loaded');
 
-document.getElementById('Job_Search').addEventListener('keyup', handleKey);
-document.getElementById('wf-form-Search-Form').addEventListener('keyup', handleKey);
-
    window.onload = (e) => {
     document.querySelectorAll('.comp-body-container a').forEach(function(lnk) {
         var href = lnk.href.concat("&gh_src=").concat(ghsrc ?? "");
@@ -45,7 +42,6 @@ function sendGA() {
     ga('send', 'event', 'careers', 'click', 'Job search');
 }
 
-document.getElementById('Job_Search').addEventListener('input', setURLParams);
 function setURLParams(e) {
   let keyWordQuery = document.getElementById('Job_Search').value;
 
@@ -59,6 +55,10 @@ function setURLParams(e) {
   a.href = searchURLParams;
   b.setAttribute('action', searchURLParams);
 }
+
+document.getElementById('Job_Search').addEventListener('keyup', handleKey);
+document.getElementById('wf-form-Search-Form').addEventListener('keyup', handleKey);
+document.getElementById('Job_Search').addEventListener('input', setURLParams);
 
 document.querySelector('.resume-upload').addEventListener('click',function(){
   ga('send', 'event', 'careers', 'click', 'Match resume');
