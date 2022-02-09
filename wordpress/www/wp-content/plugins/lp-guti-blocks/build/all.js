@@ -10323,7 +10323,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
-function loadForm(id, thankyou) {
+window.loadForm = function (id, thankyou) {
   if (!window.MktoForms2) {
     setTimeout(function () {
       loadForm(id, thankyou);
@@ -10340,7 +10340,7 @@ function loadForm(id, thankyou) {
       });
     });
   }
-}
+};
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   console.log('Document ready.');
@@ -11489,7 +11489,7 @@ const MktoForm = props => {
 
   let formId = props.formId;
   let mktoFormScript = `
-      loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
+      window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
     `;
 
   if (props.runFilters) {

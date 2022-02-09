@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-function loadForm(id, thankyou) {
+window.loadForm = function(id, thankyou) {
 	if (!window.MktoForms2) {
 		setTimeout(function() {
 			loadForm(id, thankyou);
