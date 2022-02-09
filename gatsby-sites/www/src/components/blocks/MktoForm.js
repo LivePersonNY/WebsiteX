@@ -20,23 +20,7 @@ const MktoForm = (props) => {
     let formId = props.formId;
     
     let mktoFormScript = `
-      while (!window.MktoForms2) {}
-      window.MktoForms2.loadForm(
-        '//info.liveperson.com',
-        '501-BLE-979',
-        ${formId || 1},
-        function(form){
-          console.log("form loading", form);
-          form.onSuccess(function(values, followUpUrl) {
-            
-            form.getFormElem().html('<p class="thank-you-message">${props.thankyou}</p>');
-
-            dataLayer.push({'event' : 'request-demo-form'});
-      
-            return false;
-          });
-        }
-      );
+      loadForm(${formId}, "<p class="thank-you-message">${props.thankyou}</p>");
     `;
     
     if (props.runFilters) {

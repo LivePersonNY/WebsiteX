@@ -1,5 +1,31 @@
 import $ from 'jquery';
 
+function loadForm(id, thankyou) {
+	if (!window.MktoForms2) {
+		setTimeout(function() {
+			loadForm(id, thankyou);
+		},200);
+	} else {
+		while (!window.MktoForms2) {}
+	  	window.MktoForms2.loadForm(
+			'//info.liveperson.com',
+			'501-BLE-979',
+			id,
+			function(form){
+		  	console.log("form loading", form);
+		  	form.onSuccess(function(values, followUpUrl) {
+				
+				form.getFormElem().html(thankyou);
+		
+				dataLayer.push({'event' : 'request-demo-form'});
+	  	
+				return false;
+		  	});
+			}
+	  	);
+	}
+}
+
 $(document).ready(function() {
 	console.log('Document ready.');
 	
