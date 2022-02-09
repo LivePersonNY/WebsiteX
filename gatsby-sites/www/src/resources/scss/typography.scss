@@ -25,6 +25,12 @@
     }
 }
 
+h1 {
+    background: $h1Gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 h1,
 .h1 {
     font-family: $familySpaceGrotesk;
@@ -203,7 +209,7 @@ h6 {
     margin: 0;
 
     +p,
-    .rich-container {
+    +.rich-container {
         margin-top: 16px;
 
         @include media-breakpoint-up(lg) {
