@@ -11517,6 +11517,7 @@ const MktoForm = props => {
       }
     }, []);
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+      if (mktoRuntime !== undefined) mktoRuntime();
       isLoaded && eval(mktoFormScript);
     }, [isLoaded, formId]);
 

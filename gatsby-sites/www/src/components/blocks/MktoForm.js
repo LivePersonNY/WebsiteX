@@ -44,6 +44,7 @@ const MktoForm = (props) => {
       }, []);
     
       useEffect(() => {
+        if (mktoRuntime !== undefined) mktoRuntime();
         isLoaded &&
           eval(mktoFormScript);
       }, [isLoaded, formId]);
