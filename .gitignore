@@ -70,9 +70,7 @@ yarn-error.log
 .yarn-integrity
 
 # Wordpress
-database/
-wordpress/wp-content/db.php
-/wordpress/wp-content/database/.ht.sqlite
+/wordpress/www/wp-content/database/*
 /vendor/
 .wordpress-cache
 uploads/
