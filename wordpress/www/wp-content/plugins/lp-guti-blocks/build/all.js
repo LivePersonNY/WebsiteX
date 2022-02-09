@@ -10325,7 +10325,7 @@ __webpack_require__.r(__webpack_exports__);
 
 window.documentReadyFn = function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(document.scripts).each(function (index, item) {
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).attr('data-type') == 'mktoScript') {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).attr('data-type') == 'pageScript') {
       console.log("executing form script...");
       eval(item.text);
     }
@@ -11586,7 +11586,7 @@ const MktoForm = props => {
   }))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
     id: `mktoForm_${formId}`
   }), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", {
-    "data-type": "mktoScript"
+    "data-type": "pageScript"
   }, mktoFormScript)))));
 };
 
@@ -11820,7 +11820,9 @@ const QuoteSlider = props => {
     className: "visually-hidden"
   }, "Next")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "carousel-inner"
-  }, quoteBlock)), props.small && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", null, tabScript))))));
+  }, quoteBlock)), props.small && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", {
+    "data-type": "pageScript"
+  }, tabScript))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (QuoteSlider);
@@ -12199,7 +12201,9 @@ const TabsC = props => {
     style: {
       width: props.mobilePillsWidth
     }
-  }, pillListOutput))), tabsContent), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", null, tabScript)));
+  }, pillListOutput))), tabsContent), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", {
+    "data-type": "pageScript"
+  }, tabScript)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TabsC);

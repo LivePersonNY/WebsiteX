@@ -82,7 +82,7 @@ const QuoteSlider = (props) => {
                       
                     </div>
                   </div>
-                  {props.small && <script>{tabScript}</script>}
+                  {props.small && <script data-type="pageScript">{tabScript}</script>}
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@ import $ from 'jquery';
 window.documentReadyFn = function() {
 	
 	$(document.scripts).each(function(index, item) {
-		if ($(item).attr('data-type') == 'mktoScript') {
+		if ($(item).attr('data-type') == 'pageScript') {
 			console.log("executing form script...");
 			eval(item.text);
 		}

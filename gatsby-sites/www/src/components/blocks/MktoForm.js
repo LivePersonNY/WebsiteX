@@ -109,7 +109,7 @@ const MktoForm = (props) => {
               </a>
               <form id={`mktoForm_${formId}`}></form>      
               {!props.runFilters && (
-                <script data-type="mktoScript">{mktoFormScript}</script>
+                <script data-type="pageScript">{mktoFormScript}</script>
               )}
           </div>
         </div>
