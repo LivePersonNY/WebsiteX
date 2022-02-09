@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
@@ -8,6 +9,12 @@ import Hero from '../components/blocks/Hero';
 import Parser from 'html-react-parser';
 
 const PageTemplate = ({ data: { page } }) => {
+	
+	useEffect(() => {
+			
+		console.log('test');
+				
+  	});
 	
 	let meta = [
 		{
