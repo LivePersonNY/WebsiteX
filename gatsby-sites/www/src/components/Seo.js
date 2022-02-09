@@ -9,6 +9,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import { useState, useEffect } from 'react';
+
 
 const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   const { wp, wpUser } = useStaticQuery(
