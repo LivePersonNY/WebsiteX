@@ -1,3 +1,5 @@
+console.log('careers script loaded');
+
 document.getElementById('Job_Search').addEventListener('keyup', handleKey);
 document.getElementById('wf-form-Search-Form').addEventListener('keyup', handleKey);
 
@@ -61,3 +63,9 @@ function setURLParams(e) {
 document.querySelector('.resume-upload').addEventListener('click',function(){
   ga('send', 'event', 'careers', 'click', 'Match resume');
 })
+
+document.querySelector('.hero-or').addEventListener('click',function(){
+  console.log('click test');
+})
+
+console.log('end of careers script');
