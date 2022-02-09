@@ -32,7 +32,7 @@ const MktoForm = (props) => {
           console.log("form loading", id);
           form.onSuccess(function(values, followUpUrl) {
           
-          form.getFormElem().html(<p class="thank-you-message">${props.thankyou}</p>);
+          form.getFormElem().html('<p class="thank-you-message">${props.thankyou}</p>');
       
           dataLayer.push({'event' : 'request-demo-form'});
         
