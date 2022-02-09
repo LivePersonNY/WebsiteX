@@ -75,6 +75,9 @@ define( 'AS3CF_SETTINGS', serialize([
     'secret-access-key' => $_ENV['STORAGE_KEY_SECRET'] ?? ''
 ]) );
 
+define( 'DBI_AWS_ACCESS_KEY_ID', $_ENV['STORAGE_KEY_ID'] ?? '' );
+define( 'DBI_AWS_SECRET_ACCESS_KEY', $_ENV['STORAGE_KEY_SECRET'] ?? '' );
+
 /**#@-*/
 
 /**
