@@ -23,7 +23,7 @@ const MktoForm = (props) => {
       
       var id = ${formId};
       
-      if (document.querySelector('form#mktoForm_${formId}').childElementCount > 0) return;
+      if (document.querySelector('form#mktoForm_${formId}').childElementCount <= 0) {
       window.MktoForms2.loadForm(
         '//info.liveperson.com',
         '501-BLE-979',
@@ -40,7 +40,7 @@ const MktoForm = (props) => {
           });
         }
         );
-      
+      }
     `;
     
     if (props.runFilters) {
