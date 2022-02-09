@@ -74,7 +74,11 @@ module.exports = {
             'success-services',
             'about',
             'curiously-human-ai',
-            'resources'
+            'resources',
+            'voice',
+            'cloud',
+            'health',
+            'success'
           ], // Don't remove this selector
         },
         // More options defined here https://purgecss.com/configuration.html#options
