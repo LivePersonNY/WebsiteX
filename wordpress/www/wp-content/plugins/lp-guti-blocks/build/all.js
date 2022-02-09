@@ -11586,8 +11586,7 @@ const MktoForm = props => {
   }))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
     id: `mktoForm_${formId}`
   }), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", {
-    "data-type": "mktoScript",
-    id: Math.random()
+    "data-type": "mktoScript"
   }, mktoFormScript)))));
 };
 
