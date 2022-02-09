@@ -10331,7 +10331,7 @@ window.documentReadyFn = function () {
     }
   });
   console.log('Document ready.');
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', 'a.mobileForm', function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click', 'a.mobileForm').on('click', 'a.mobileForm', function (e) {
     e.preventDefault();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.form--sticky').toggleClass('expanded');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.form--sticky .mktoForm').slideToggle(300);

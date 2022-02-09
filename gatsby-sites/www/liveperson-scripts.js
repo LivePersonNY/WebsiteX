@@ -11,7 +11,7 @@ window.documentReadyFn = function() {
 	
 	console.log('Document ready.');
 		
-		$('body').on('click', 'a.mobileForm', function(e) {
+		$('body').off('click', 'a.mobileForm').on('click', 'a.mobileForm', function(e) {
 			e.preventDefault();
 			$('.form--sticky').toggleClass('expanded');
 			$('.form--sticky .mktoForm').slideToggle(300);
