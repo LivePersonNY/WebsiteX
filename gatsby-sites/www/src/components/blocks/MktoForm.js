@@ -28,23 +28,26 @@ const MktoForm = (props) => {
             loadForm(id, thankyou);
           },200);
         } else {
-          if (document.querySelector('form#mktoForm_' + id).childElementCount > 0) return;
-          window.MktoForms2.loadForm(
-            '//info.liveperson.com',
-            '501-BLE-979',
-            id,
-            function(form){
-              console.log("form loading", id);
-              form.onSuccess(function(values, followUpUrl) {
-              
-              form.getFormElem().html(thankyou);
-          
-              dataLayer.push({'event' : 'request-demo-form'});
+          setTimeout(function() {
+            if (document.querySelector('form#mktoForm_' + id).childElementCount > 0) return;
+            window.MktoForms2.loadForm(
+              '//info.liveperson.com',
+              '501-BLE-979',
+              id,
+              function(form){
+                console.log("form loading", id);
+                form.onSuccess(function(values, followUpUrl) {
+                
+                form.getFormElem().html(thankyou);
             
-              return false;
-              });
-            }
-            );
+                dataLayer.push({'event' : 'request-demo-form'});
+              
+                return false;
+                });
+              }
+              );
+          }, 200);
+          
         }
       }
       window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
