@@ -88,7 +88,12 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap"
         rel="stylesheet"
       />
-      
+      <script
+        id="mktoForms"
+        type="text/javascript"
+        src="https://info.liveperson.com/js/forms2/js/forms2.min.js"
+        async={true}
+      />
       
     </Helmet>
   );
