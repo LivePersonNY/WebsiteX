@@ -27,7 +27,7 @@ window.loadForm = function(id, thankyou) {
 }
 
 window.documentReadyFn = function() {
-	
+	window.mktoRuntime();
 	console.log('Document ready.');
 		
 		$('body').on('click', 'a.mobileForm', function(e) {

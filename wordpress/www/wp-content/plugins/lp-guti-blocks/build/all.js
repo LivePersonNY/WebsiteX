@@ -10345,6 +10345,7 @@ window.loadForm = function (id, thankyou) {
 };
 
 window.documentReadyFn = function () {
+  window.mktoRuntime();
   console.log('Document ready.');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', 'a.mobileForm', function (e) {
     e.preventDefault();
