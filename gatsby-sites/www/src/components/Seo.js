@@ -39,6 +39,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   const favicon = wp.allSettings?.siteIcon;
   
   useEffect(() => {
+      window.mktoRuntime = null;
       
       function waitForDocumentReadyFn() {
         if (!window.documentReadyFn) {
