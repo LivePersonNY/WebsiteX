@@ -10323,26 +10323,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
-window.loadForm = function (id, thankyou) {
-  //if ($('form').children().length > 0) return;
-  if (!window.MktoForms2) {
-    setTimeout(function () {
-      loadForm(id, thankyou);
-    }, 200);
-  } else {
-    window.MktoForms2.loadForm('//info.liveperson.com', '501-BLE-979', id, function (form) {
-      console.log("form loading", id);
-      form.onSuccess(function (values, followUpUrl) {
-        form.getFormElem().html(thankyou);
-        dataLayer.push({
-          'event': 'request-demo-form'
-        });
-        return false;
-      });
-    });
-  }
-};
-
 window.documentReadyFn = function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(document.scripts).each(function (index, item) {
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).attr('data-type') == 'mktoScript') {
