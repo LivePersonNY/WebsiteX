@@ -30,7 +30,8 @@ $(document).ready(function() {
 	
 	$('body').on('click', 'a.mobileForm', function(e) {
 		e.preventDefault();
-		$('.form--sticky .mktoForm').slideToggle(300).toggleClass('expanded');
+		$('.form--sticky').toggleClass('expanded');
+		$('.form--sticky .mktoForm').slideToggle(300);
 		$('.span1').toggleClass('swap');
 		$('.span2').toggleClass('swap');
 	});

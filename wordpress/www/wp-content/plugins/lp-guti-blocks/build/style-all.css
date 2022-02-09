@@ -9934,7 +9934,7 @@ a > .site code {
     background-image: url("https://static.liveperson.com/static-assets/2022/02/09120243/Nav-CTA-Collapsed%402x-1.jpg");
     background-size: cover;
   }
-  .site .bg-grad-image .mktoForm.expanded {
+  .site .bg-grad-image.expanded {
     background-image: url("https://static.liveperson.com/static-assets/2022/02/09122528/Nav-CTA-Expanded%402x.jpg");
     background-size: cover;
   }

@@ -9956,7 +9956,7 @@ a > .block-editor-block-list__layout code {
     background-image: url("https://static.liveperson.com/static-assets/2022/02/09120243/Nav-CTA-Collapsed%402x-1.jpg");
     background-size: cover;
   }
-  .block-editor-block-list__layout .bg-grad-image .mktoForm.expanded {
+  .block-editor-block-list__layout .bg-grad-image.expanded {
     background-image: url("https://static.liveperson.com/static-assets/2022/02/09122528/Nav-CTA-Expanded%402x.jpg");
     background-size: cover;
   }
