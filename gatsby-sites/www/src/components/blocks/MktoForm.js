@@ -21,9 +21,9 @@ const MktoForm = (props) => {
     
     let mktoFormScript = `
       
-      function mktoRuntime() {
+      window.mktoRuntime = function() {
         if (!window.loadForm) {
-          setTimeout(mktoRuntime, 100);
+          setTimeout(window.mktoRuntime, 100);
         } else {
           window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
         }

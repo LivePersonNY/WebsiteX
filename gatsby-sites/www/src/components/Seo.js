@@ -48,6 +48,14 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         }
       }
       waitForDocumentReadyFn();
+      
+      function waitForMktoFormScript() {
+        if (!window.mktoRuntime) {
+          setTimeout(waitForMktoFormScript, 100);
+        } else {
+          window.mktoRuntime();
+        }
+      }
           
   });
 

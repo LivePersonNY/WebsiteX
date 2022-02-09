@@ -10343,7 +10343,6 @@ window.loadForm = function (id, thankyou) {
 };
 
 window.documentReadyFn = function () {
-  mktoRuntime();
   console.log('Document ready.');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', 'a.mobileForm', function (e) {
     e.preventDefault();
@@ -11498,9 +11497,9 @@ const MktoForm = props => {
   let formId = props.formId;
   let mktoFormScript = `
       
-      function mktoRuntime() {
+      window.mktoRuntime = function() {
         if (!window.loadForm) {
-          setTimeout(mktoRuntime, 100);
+          setTimeout(window.mktoRuntime, 100);
         } else {
           window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
         }
