@@ -1055,6 +1055,15 @@ const IndexPage = () => (
       </div>
     </div>
 
+    <SideBySide
+      imgLeftSrc="https://picsum.photos/1088/544"
+      headerLeft="Header"
+      bodyLeft="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum."
+      imgRightSrc="https://picsum.photos/1088/544"
+      headerRight="Header"
+      bodyRight="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis cursus commodo purus urna tempus interdum blandit. Et, eget justo mauris posuere cras consectetur mi lectus cum.m ipsum dolor sit amet, consectetur adipiscing elit. Vel fermentum felis ipsum tortor. Blandit nascetur laoreet nisi, donec risus, enim ornare scelerisque. Sagittis c"
+    />
+
     <div className="container component-doc">
       <div className="row">
         <div className="col-lg-6">
