@@ -30,6 +30,7 @@ window.documentReadyFn = function() {
 	
 	$(document.scripts).each(function(index, item) {
 		if ($(item).attr('data-type') == 'mktoScript') {
+			console.log("executing form script...");
 			eval(item.text);
 		}
 	});

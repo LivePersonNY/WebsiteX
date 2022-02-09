@@ -10346,6 +10346,7 @@ window.loadForm = function (id, thankyou) {
 window.documentReadyFn = function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(document.scripts).each(function (index, item) {
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).attr('data-type') == 'mktoScript') {
+      console.log("executing form script...");
       eval(item.text);
     }
   });
