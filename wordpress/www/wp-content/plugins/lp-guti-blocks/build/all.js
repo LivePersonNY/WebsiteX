@@ -11489,11 +11489,14 @@ const MktoForm = props => {
 
   let formId = props.formId;
   let mktoFormScript = `
-      window.$('a.mobileForm').click(function(e) {
+    
+      var jq = window.$ || window.jQuery;
+    
+      jq('a.mobileForm').click(function(e) {
         e.preventDefault();
-        window.$('.form--sticky .mktoForm').slideToggle(300);
-        window.$('.span1').toggleClass('swap');
-        window.$('.span2').toggleClass('swap');
+        jq('.form--sticky .mktoForm').slideToggle(300);
+        jq('.span1').toggleClass('swap');
+        jq('.span2').toggleClass('swap');
       });
       function mktoRuntime() {
         if (!window.loadForm) {
