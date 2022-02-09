@@ -20,6 +20,12 @@ const MktoForm = (props) => {
     let formId = props.formId;
     
     let mktoFormScript = `
+      $('a.mobileForm').click(function(e) {
+        e.preventDefault();
+        $('.form--sticky .mktoForm').slideToggle(300);
+        $('.span1').toggleClass('swap');
+        $('.span2').toggleClass('swap');
+      });
       function mktoRuntime() {
         if (!window.loadForm) {
           setTimeout(mktoRuntime, 100);
@@ -77,7 +83,7 @@ const MktoForm = (props) => {
         <div className="row">
           <div className="col-lg-12">
                        
-              <a className="mobileForm" onClick={mktoFormMobile}>
+              <a className="mobileForm" >
                 <span className="span1">Request demo</span>
                 <span className="span2">
                   <svg version="1.1" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" style={{width:'40px'}}>
