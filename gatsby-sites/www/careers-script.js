@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 window.documentReadyFn = function() {
 	
-	console.log('careers script loaded');
+	console.log('careers script loaded2');
 
    window.onload = (e) => {
     document.querySelectorAll('.comp-body-container a').forEach(function(lnk) {
