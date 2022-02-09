@@ -11491,7 +11491,7 @@ const MktoForm = props => {
   let mktoFormScript = `
       setTimeout(function() {
         window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
-      }, 500); 
+      }, 2000); 
     `;
 
   if (props.runFilters) {
