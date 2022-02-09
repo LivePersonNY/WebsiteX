@@ -28,6 +28,13 @@ window.loadForm = function(id, thankyou) {
 $(document).ready(function() {
 	console.log('Document ready.');
 	
+	$('body').on('click', 'a.mobileForm', function(e) {
+		e.preventDefault();
+		$('.form--sticky .mktoForm').slideToggle(300);
+		$('.span1').toggleClass('swap');
+		$('.span2').toggleClass('swap');
+	});
+	
 	$('body').on('click', '.comp-tabs-a h4.accordion-header button', function(e) {
 		e.preventDefault();
 		$('.comp-tabs-a .accordion-item').removeClass('accordion-item-active');

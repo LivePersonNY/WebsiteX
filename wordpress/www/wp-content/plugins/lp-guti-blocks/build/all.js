@@ -10344,6 +10344,12 @@ window.loadForm = function (id, thankyou) {
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   console.log('Document ready.');
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', 'a.mobileForm', function (e) {
+    e.preventDefault();
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.form--sticky .mktoForm').slideToggle(300);
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.span1').toggleClass('swap');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.span2').toggleClass('swap');
+  });
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', '.comp-tabs-a h4.accordion-header button', function (e) {
     e.preventDefault();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.comp-tabs-a .accordion-item').removeClass('accordion-item-active');
@@ -11489,22 +11495,6 @@ const MktoForm = props => {
 
   let formId = props.formId;
   let mktoFormScript = `
-    
-      function waitForJquery() {
-        if (window.$) {
-                        
-          window.$('body').on('click', 'a.mobileForm', function(e) {
-            e.preventDefault();
-            window.$('.form--sticky .mktoForm').slideToggle(300);
-            window.$('.span1').toggleClass('swap');
-            window.$('.span2').toggleClass('swap');
-          });
-          
-        } else {
-          setTimeout(waitForJquery, 100);
-        }
-      }
-      waitForJquery();
       
       function mktoRuntime() {
         if (!window.loadForm) {

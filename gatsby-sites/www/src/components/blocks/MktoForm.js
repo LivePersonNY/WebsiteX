@@ -20,22 +20,6 @@ const MktoForm = (props) => {
     let formId = props.formId;
     
     let mktoFormScript = `
-    
-      function waitForJquery() {
-        if (window.$) {
-                        
-          window.$('body').on('click', 'a.mobileForm', function(e) {
-            e.preventDefault();
-            window.$('.form--sticky .mktoForm').slideToggle(300);
-            window.$('.span1').toggleClass('swap');
-            window.$('.span2').toggleClass('swap');
-          });
-          
-        } else {
-          setTimeout(waitForJquery, 100);
-        }
-      }
-      waitForJquery();
       
       function mktoRuntime() {
         if (!window.loadForm) {
