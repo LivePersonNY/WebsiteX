@@ -6,8 +6,7 @@ function loadForm(id, thankyou) {
 			loadForm(id, thankyou);
 		},200);
 	} else {
-		while (!window.MktoForms2) {}
-	  	window.MktoForms2.loadForm(
+		window.MktoForms2.loadForm(
 			'//info.liveperson.com',
 			'501-BLE-979',
 			id,
