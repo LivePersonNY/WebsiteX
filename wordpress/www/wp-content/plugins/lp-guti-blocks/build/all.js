@@ -11491,14 +11491,13 @@ const MktoForm = props => {
   let mktoFormScript = `
     
       function waitForJquery() {
-        if (window.$ || window.jQuery) {
-          let jq = window.$ || window.jQuery;
+        if (window.$) {
                         
-          jq('body').on('click', 'a.mobileForm', function(e) {
+          window.$('body').on('click', 'a.mobileForm', function(e) {
             e.preventDefault();
-            jq('.form--sticky .mktoForm').slideToggle(300);
-            jq('.span1').toggleClass('swap');
-            jq('.span2').toggleClass('swap');
+            window.$('.form--sticky .mktoForm').slideToggle(300);
+            window.$('.span1').toggleClass('swap');
+            window.$('.span2').toggleClass('swap');
           });
           
         } else {
