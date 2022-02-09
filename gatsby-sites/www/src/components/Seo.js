@@ -56,6 +56,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
           window.mktoRuntime();
         }
       }
+      waitForMktoFormScript();
           
   });
 
