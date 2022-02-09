@@ -36,6 +36,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                 <div className={`${cssClasses} col-lg`} key={index}>
                   <p className="dropdown-section-title h6">{item.label}</p>
                   {item.childItems.nodes.map(function(item, index) {
+                    let cssLinkClass = item.cssClasses.join(" ");
                     let descr = '';
                     let extIcon = '';
                     if (item.target) {
@@ -45,7 +46,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                       descr = <span className="dropdown-item-content subtitle3">{item.description}</span>
                     }
                     return (<li>
-                        <a title={item.title} className="dropdown-item" href={item.path} target={item.target} key={index}>
+                        <a title={item.title} className={`dropdown-item ${cssLinkClass}`} href={item.path} target={item.target} key={index}>
                           {item.label} {extIcon}
                           <br />
                           {descr}

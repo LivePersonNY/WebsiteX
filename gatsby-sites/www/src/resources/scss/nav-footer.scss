@@ -210,6 +210,8 @@
                                     height: 10px;
                                     width: 10px;
                                 }
+                                
+                                
                             }
                         }
                     }
@@ -239,6 +241,30 @@
 
                                 &:hover {
                                     background: $neutral94;
+                                }
+                                
+                                &.cloud {
+                                    background-image: url(https://static.liveperson.com/static-assets/2022/02/01233807/icon_product-conversational-cloud_circle-gradient.png);
+                                    background-repeat: no-repeat;
+                                    background-position: 12px 50%;
+                                }
+                                
+                                &.health {
+                                    background-image: url(https://static.liveperson.com/static-assets/2022/02/01233808/icon_product-bella-health_circle-gradient.png);
+                                    background-repeat: no-repeat;
+                                    background-position: 12px 50%;
+                                }
+                                
+                                &.voice {
+                                    background-image: url(https://static.liveperson.com/static-assets/2022/02/01233808/icon_product-voice_circle-gradient.png);
+                                    background-repeat: no-repeat;
+                                    background-position: 12px 50%;
+                                }
+                                
+                                &.success {
+                                    background-image: url(https://static.liveperson.com/static-assets/2022/02/01233807/icon_product-succes-services_circle-gradient.png);
+                                    background-repeat: no-repeat;
+                                    background-position: 12px 50%;
                                 }
                             }
                         }
