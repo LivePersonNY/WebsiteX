@@ -22,12 +22,13 @@ const MktoForm = (props) => {
     let mktoFormScript = `
       
       window.loadForm = function(id, thankyou) {
-        if (document.querySelector('form#mktoForm_' + id).childElementCount > 0) return;
+        
         if (!window.MktoForms2) {
           setTimeout(function() {
             loadForm(id, thankyou);
           },200);
         } else {
+          if (document.querySelector('form#mktoForm_' + id).childElementCount > 0) return;
           window.MktoForms2.loadForm(
             '//info.liveperson.com',
             '501-BLE-979',
