@@ -7,7 +7,7 @@ import Helmet from "react-helmet"
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 import CardGridB from '../../components/blocks/CardGridB';
-
+import '../../../careers-script';
 
 const CareersPage = () => (
   <Layout mainClass="company-careers">
