@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-const Seo = ({ description, lang, meta, title }) => {
+const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   const { wp, wpUser } = useStaticQuery(
     graphql`
       query {
@@ -78,6 +78,9 @@ const Seo = ({ description, lang, meta, title }) => {
         },
       ].concat(meta)}
     >
+      <link rel="canonical" href={canonical} />
+      <meta name="robots" content={robots} />
+      <meta name="theme-color" content="#FA772E" />
       <link rel="icon" type="image/png" href={favicon} sizes="32x32" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
@@ -89,6 +92,7 @@ const Seo = ({ description, lang, meta, title }) => {
         type="text/javascript"
         src="https://info.liveperson.com/js/forms2/js/forms2.min.js"
       />
+      
     </Helmet>
   );
 };

@@ -36,9 +36,15 @@ const PageTemplate = ({ data: { page } }) => {
 		}
 	];
 	
+	
+	let robots = [
+		page.seo.metaRobotsNoindex,
+		page.seo.metaRobotsNofollow
+	];
+	
 	if (!page) return "The slug does not exist in the CMS";
   return (<Layout>
-	<Seo title={page.seo.title} description={page.seo.metaDesc} meta={meta} />
+	<Seo title={page.seo.title} description={page.seo.metaDesc} meta={meta} canonical={page.seo.canonical} robots={robots.join(", ")} />
 	{Parser(page.content)}
   </Layout>)
 };
@@ -56,6 +62,7 @@ export const pageQuery = graphql`
 		  canonical
 		  cornerstone
 		  focuskw
+		  fullHead
 		  metaDesc
 		  metaKeywords
 		  metaRobotsNofollow
