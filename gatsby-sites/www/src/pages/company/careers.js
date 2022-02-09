@@ -7,12 +7,13 @@ import Helmet from "react-helmet"
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 import CardGridB from '../../components/blocks/CardGridB';
+import '../../../careers-script';
 
 const CareersPage = () => (
   <Layout mainClass="company-careers">
-    <Helmet>
+    {/* <Helmet>
       <script src={withPrefix('scripts/careers.js')} type="text/javascript" data-type="pageScript" />
-    </Helmet>
+    </Helmet> */}
     <Seo title="Careers - Become a LivePerson AI Native" description="Are you interested in working at LivePerson? Browse through our list of available career opportunities around the globe or contact us for assistance." />
 
     <div className="pane comp-plain-content bg-neutral-96 text-center pane-with-lead-text">
