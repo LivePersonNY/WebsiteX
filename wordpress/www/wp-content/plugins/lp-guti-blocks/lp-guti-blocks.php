@@ -74,5 +74,5 @@ add_action( 'wp_enqueue_scripts', 'register_mkto_script');
 add_filter( 'wp_editor_set_quality', 'image_quality_lp' );
 // This will remove the default image sizes and the medium_large size.
 function image_quality_lp( ) {
-    return 10;
+    return 15;
 }
