@@ -10,7 +10,7 @@ const SideBySide = (props) => {
     <>
       <div className={`pane comp-side-side ${props.backgroundColor||"bg-transparent"}`}>
         <div className="container">
-          <div className="row align-items-center">
+          <div className="row">
             <div className={`col-lg-6 `}>
               {!props.imgLeftCtl && props.imgLeftSrc && <img src={props.imgLeftSrc} alt={props.imgLeftAlt} /> || props.imgLeftCtl}
               {hlevel == "h2" && <h2>{props.headerLeft}</h2>}
