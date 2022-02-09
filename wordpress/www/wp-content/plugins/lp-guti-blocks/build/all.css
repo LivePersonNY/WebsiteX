@@ -9627,6 +9627,11 @@ a > .block-editor-block-list__layout code {
     line-height: 72px;
   }
 }
+.block-editor-block-list__layout h1, .block-editor-block-list__layout .h1 {
+  background: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .block-editor-block-list__layout h1,
 .block-editor-block-list__layout .h1 {
   font-family: "Space Grotesk", Roboto;
@@ -9809,30 +9814,54 @@ a > .block-editor-block-list__layout code {
   margin: 0;
 }
 .block-editor-block-list__layout h1 + p, .block-editor-block-list__layout .h1 + p,
+.block-editor-block-list__layout h1 + .rich-container,
+.block-editor-block-list__layout .h1 + .rich-container,
 .block-editor-block-list__layout h2 + p,
 .block-editor-block-list__layout .h2 + p,
+.block-editor-block-list__layout h2 + .rich-container,
+.block-editor-block-list__layout .h2 + .rich-container,
 .block-editor-block-list__layout h3 + p,
 .block-editor-block-list__layout .h3 + p,
+.block-editor-block-list__layout h3 + .rich-container,
+.block-editor-block-list__layout .h3 + .rich-container,
 .block-editor-block-list__layout h4 + p,
 .block-editor-block-list__layout .h4 + p,
+.block-editor-block-list__layout h4 + .rich-container,
+.block-editor-block-list__layout .h4 + .rich-container,
 .block-editor-block-list__layout h5 + p,
 .block-editor-block-list__layout .h5 + p,
+.block-editor-block-list__layout h5 + .rich-container,
+.block-editor-block-list__layout .h5 + .rich-container,
 .block-editor-block-list__layout h6 + p,
-.block-editor-block-list__layout .h6 + p {
+.block-editor-block-list__layout .h6 + p,
+.block-editor-block-list__layout h6 + .rich-container,
+.block-editor-block-list__layout .h6 + .rich-container {
   margin-top: 16px;
 }
 @media (min-width: 992px) {
   .block-editor-block-list__layout h1 + p, .block-editor-block-list__layout .h1 + p,
+.block-editor-block-list__layout h1 + .rich-container,
+.block-editor-block-list__layout .h1 + .rich-container,
 .block-editor-block-list__layout h2 + p,
 .block-editor-block-list__layout .h2 + p,
+.block-editor-block-list__layout h2 + .rich-container,
+.block-editor-block-list__layout .h2 + .rich-container,
 .block-editor-block-list__layout h3 + p,
 .block-editor-block-list__layout .h3 + p,
+.block-editor-block-list__layout h3 + .rich-container,
+.block-editor-block-list__layout .h3 + .rich-container,
 .block-editor-block-list__layout h4 + p,
 .block-editor-block-list__layout .h4 + p,
+.block-editor-block-list__layout h4 + .rich-container,
+.block-editor-block-list__layout .h4 + .rich-container,
 .block-editor-block-list__layout h5 + p,
 .block-editor-block-list__layout .h5 + p,
+.block-editor-block-list__layout h5 + .rich-container,
+.block-editor-block-list__layout .h5 + .rich-container,
 .block-editor-block-list__layout h6 + p,
-.block-editor-block-list__layout .h6 + p {
+.block-editor-block-list__layout .h6 + p,
+.block-editor-block-list__layout h6 + .rich-container,
+.block-editor-block-list__layout .h6 + .rich-container {
     margin-top: 24px;
   }
 }
@@ -9921,6 +9950,12 @@ a > .block-editor-block-list__layout code {
 .block-editor-block-list__layout .bg-grad-image {
   background-image: url("https://static.liveperson.com/static-assets/2022/02/08121310/lp-gradient-10p-1-1.jpg");
   background-size: cover;
+}
+@media screen and (max-width: 991px) {
+  .block-editor-block-list__layout .bg-grad-image {
+    background-image: url("https://static.liveperson.com/static-assets/2022/02/09114205/Nav-CTA-Collapsed%402x.jpg");
+    background-size: cover;
+  }
 }
 .block-editor-block-list__layout .bg-lavendar-20 {
   background: #EFEFFC;

@@ -9605,6 +9605,11 @@ a > .site code {
     line-height: 72px;
   }
 }
+.site h1, .site .h1 {
+  background: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .site h1,
 .site .h1 {
   font-family: "Space Grotesk", Roboto;
@@ -9787,30 +9792,54 @@ a > .site code {
   margin: 0;
 }
 .site h1 + p, .site .h1 + p,
+.site h1 + .rich-container,
+.site .h1 + .rich-container,
 .site h2 + p,
 .site .h2 + p,
+.site h2 + .rich-container,
+.site .h2 + .rich-container,
 .site h3 + p,
 .site .h3 + p,
+.site h3 + .rich-container,
+.site .h3 + .rich-container,
 .site h4 + p,
 .site .h4 + p,
+.site h4 + .rich-container,
+.site .h4 + .rich-container,
 .site h5 + p,
 .site .h5 + p,
+.site h5 + .rich-container,
+.site .h5 + .rich-container,
 .site h6 + p,
-.site .h6 + p {
+.site .h6 + p,
+.site h6 + .rich-container,
+.site .h6 + .rich-container {
   margin-top: 16px;
 }
 @media (min-width: 992px) {
   .site h1 + p, .site .h1 + p,
+.site h1 + .rich-container,
+.site .h1 + .rich-container,
 .site h2 + p,
 .site .h2 + p,
+.site h2 + .rich-container,
+.site .h2 + .rich-container,
 .site h3 + p,
 .site .h3 + p,
+.site h3 + .rich-container,
+.site .h3 + .rich-container,
 .site h4 + p,
 .site .h4 + p,
+.site h4 + .rich-container,
+.site .h4 + .rich-container,
 .site h5 + p,
 .site .h5 + p,
+.site h5 + .rich-container,
+.site .h5 + .rich-container,
 .site h6 + p,
-.site .h6 + p {
+.site .h6 + p,
+.site h6 + .rich-container,
+.site .h6 + .rich-container {
     margin-top: 24px;
   }
 }
@@ -9899,6 +9928,12 @@ a > .site code {
 .site .bg-grad-image {
   background-image: url("https://static.liveperson.com/static-assets/2022/02/08121310/lp-gradient-10p-1-1.jpg");
   background-size: cover;
+}
+@media screen and (max-width: 991px) {
+  .site .bg-grad-image {
+    background-image: url("https://static.liveperson.com/static-assets/2022/02/09114205/Nav-CTA-Collapsed%402x.jpg");
+    background-size: cover;
+  }
 }
 .site .bg-lavendar-20 {
   background: #EFEFFC;

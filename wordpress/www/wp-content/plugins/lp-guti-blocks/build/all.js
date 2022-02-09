@@ -11489,6 +11489,12 @@ const MktoForm = props => {
 
   let formId = props.formId;
   let mktoFormScript = `
+      $('a.mobileForm').click(function(e) {
+        e.preventDefault();
+        $('.form--sticky .mktoForm').slideToggle(300);
+        $('.span1').toggleClass('swap');
+        $('.span2').toggleClass('swap');
+      });
       function mktoRuntime() {
         if (!window.loadForm) {
           setTimeout(mktoRuntime, 100);
@@ -11547,8 +11553,7 @@ const MktoForm = props => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "col-lg-12"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    className: "mobileForm",
-    onClick: mktoFormMobile
+    className: "mobileForm"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "span1"
   }, "Request demo"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
