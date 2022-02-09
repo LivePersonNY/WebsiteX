@@ -71,9 +71,8 @@ function register_mkto_script() {
 //add_action( 'admin_enqueue_scripts', 'register_mkto_script');
 add_action( 'wp_enqueue_scripts', 'register_mkto_script');
 
-add_filter( 'intermediate_image_sizes_advanced', 'prefix_remove_default_images' );
+add_filter( 'wp_editor_set_quality', 'image_quality_lp' );
 // This will remove the default image sizes and the medium_large size.
-function prefix_remove_default_images( $sizes ) {
-
- return [];
+function image_quality_lp( ) {
+    return 50;
 }
