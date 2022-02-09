@@ -25,7 +25,7 @@ const MktoForm = (props) => {
         if (window.$ || window.jQuery) {
           let jq = window.$ || window.jQuery;
                         
-          jq('a.mobileForm').click(function(e) {
+          jq('body').on('click', 'a.mobileForm', function(e) {
             e.preventDefault();
             jq('.form--sticky .mktoForm').slideToggle(300);
             jq('.span1').toggleClass('swap');
