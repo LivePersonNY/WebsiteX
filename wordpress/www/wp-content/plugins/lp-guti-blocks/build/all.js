@@ -11491,17 +11491,18 @@ const MktoForm = props => {
   let mktoFormScript = `
     
       function waitForJquery() {
-        if (!window.$ && !window.jQuery) {
-          setTimeout(waitForJquery, 100);
-        } else {
+        if (window.$ || window.jQuery) {
           let jq = window.$ || window.jQuery;
-              
+                        
           jq('a.mobileForm').click(function(e) {
             e.preventDefault();
             jq('.form--sticky .mktoForm').slideToggle(300);
             jq('.span1').toggleClass('swap');
             jq('.span2').toggleClass('swap');
           });
+          
+        } else {
+          setTimeout(waitForJquery, 100);
         }
       }
       waitForJquery();
