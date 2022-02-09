@@ -30,11 +30,11 @@
 .bg-grad-image {
     background-image: url("https://static.liveperson.com/static-assets/2022/02/08121310/lp-gradient-10p-1-1.jpg");
     background-size: cover;
-    
+
     @media screen and (max-width: 991px) {
         background-image: url("https://static.liveperson.com/static-assets/2022/02/09120243/Nav-CTA-Collapsed%402x-1.jpg");
         background-size: cover;
-        
+
         &.expanded {
             background-image: url("https://static.liveperson.com/static-assets/2022/02/09122528/Nav-CTA-Expanded%402x.jpg");
             background-size: cover;
@@ -277,9 +277,11 @@ img {
             +.btn-link {
                 padding: 12px 32px;
 
+
                 @include media-breakpoint-up(lg) {
                     margin-top: 40px;
                 }
+
             }
         }
 
@@ -288,6 +290,26 @@ img {
 
             @include media-breakpoint-up(lg) {
                 margin-top: 31px;
+            }
+
+            &::after {
+                content: "";
+                background-image: url(https://static.liveperson.com/static-assets/2022/02/09152151/arrow-icon-sprite-20px%402x.png);
+                background-repeat: no-repeat;
+                background-size: 300px 20px;
+                position: absolute;
+                width: 18px;
+                height: 24px;
+                background-position: -120px 3px;
+                margin-left: 4px;
+            }
+
+            &:hover {
+                color: $primaryBlueVariant;
+
+                &::after {
+                    background-position: -140px 3px;
+                }
             }
         }
     }
@@ -300,8 +322,24 @@ img {
             text-decoration: none;
             display: inline-block;
 
+            &::after {
+                content: "";
+                background-image: url(https://static.liveperson.com/static-assets/2022/02/09152151/arrow-icon-sprite-20px%402x.png);
+                background-repeat: no-repeat;
+                background-size: 300px 20px;
+                position: absolute;
+                width: 18px;
+                height: 24px;
+                background-position: -120px 5px;
+                margin-left: 4px;
+            }
+
             &:hover {
                 color: $primaryBlueVariant;
+
+                &::after {
+                    background-position: -140px 5px;
+                }
             }
         }
     }
@@ -447,6 +485,10 @@ img {
 
         .subtitle2 {
             margin-top: 16px;
+        }
+
+        .link::after {
+            display: none;
         }
     }
 }

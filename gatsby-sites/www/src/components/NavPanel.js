@@ -40,15 +40,14 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                     let descr = '';
                     let extIcon = '';
                     if (item.target) {
-                      extIcon = <BsArrowUpRight />
+                      extIcon = "link-external"
                     }
                     if (item.description) {
                       descr = <span className="dropdown-item-content subtitle3">{item.description}</span>
                     }
                     return (<li>
                         <a title={item.title} className={`dropdown-item ${cssLinkClass}`} href={item.path} target={item.target} key={index}>
-                          {item.label} {extIcon}
-                          <br />
+                          <span className={`dropdown-item-span ${extIcon}`}>{item.label}</span>
                           {descr}
                         </a>
                       </li>)
