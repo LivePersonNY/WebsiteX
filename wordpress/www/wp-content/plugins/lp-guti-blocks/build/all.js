@@ -10343,6 +10343,7 @@ window.loadForm = function (id, thankyou) {
 };
 
 window.documentReadyFn = function () {
+  mktoRuntime();
   console.log('Document ready.');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', 'a.mobileForm', function (e) {
     e.preventDefault();
@@ -11504,7 +11505,7 @@ const MktoForm = props => {
           window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
         }
       }
-      mktoRuntime();
+      
     `;
 
   if (props.runFilters) {
