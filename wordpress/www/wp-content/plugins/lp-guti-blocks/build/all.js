@@ -10323,36 +10323,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
-window.loadForm = function (id, thankyou) {
-  //if ($('form').children().length > 0) return;
-  if (!window.MktoForms2) {
-    setTimeout(function () {
-      loadForm(id, thankyou);
-    }, 200);
-  } else {
-    window.MktoForms2.loadForm('//info.liveperson.com', '501-BLE-979', id, function (form) {
-      console.log("form loading", id);
-      form.onSuccess(function (values, followUpUrl) {
-        form.getFormElem().html(thankyou);
-        dataLayer.push({
-          'event': 'request-demo-form'
-        });
-        return false;
-      });
-    });
-  }
-};
-
 window.documentReadyFn = function () {
+  Array.from(document.scripts).forEach(function (item) {
+    if (item.attributes['data-type']?.value == 'pageScript') {
+      console.log("executing form script...");
+      eval(item.text);
+    }
+  });
   console.log('Document ready.');
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', 'a.mobileForm', function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click', 'a.mobileForm').on('click', 'a.mobileForm', function (e) {
     e.preventDefault();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.form--sticky').toggleClass('expanded');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.form--sticky .mktoForm').slideToggle(300);
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.span1').toggleClass('swap');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.span2').toggleClass('swap');
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', '.comp-tabs-a h4.accordion-header button', function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click', '.comp-tabs-a h4.accordion-header button').on('click', '.comp-tabs-a h4.accordion-header button', function (e) {
     e.preventDefault();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.comp-tabs-a .accordion-item').removeClass('accordion-item-active');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parents('.accordion-item').addClass('accordion-item-active');
@@ -10360,7 +10346,7 @@ window.documentReadyFn = function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-a .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-a .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', '.comp-tabs-b h4.comp-tab', function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click', '.comp-tabs-b h4.comp-tab').on('click', '.comp-tabs-b h4.comp-tab', function (e) {
     e.preventDefault();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.comp-tabs-b .comp-tabs-list-container h4').removeClass('comp-tab-active');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('comp-tab-active');
@@ -10368,7 +10354,7 @@ window.documentReadyFn = function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-b .comp-tabs-content[data-tab-content="${tabIndex}"], .comp-tabs-b .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-b .comp-tabs-content:not([data-tab-content="${tabIndex}"]), .comp-tabs-b .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', '.comp-tabs-c .btn.pill', function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click', '.comp-tabs-c .btn.pill').on('click', '.comp-tabs-c .btn.pill', function (e) {
     e.preventDefault();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.comp-tabs-c .btn.pill').removeClass('pill-active');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).addClass('pill-active');
@@ -10376,7 +10362,7 @@ window.documentReadyFn = function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('scroll', function () {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('scroll').on('scroll', function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.pane:not(.hero, .pane-form)').each(function (i) {
       var bottom_of_object = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).position().top;
       var bottom_of_window = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop() + jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height();
@@ -10397,7 +10383,7 @@ window.documentReadyFn = function () {
       this.setAttribute("style", "height:" + this.scrollHeight + "px;overflow-y:hidden;");
     });
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', '.comp-faq h4.accordion-header button', function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click', '.comp-faq h4.accordion-header button').on('click', '.comp-faq h4.accordion-header button', function (e) {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.comp-faq .accordion-item').removeClass('accordion-item-active');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parents('.accordion-item').addClass('accordion-item-active');
   });
@@ -10432,7 +10418,6 @@ function Paragraph(props) {
 
   if (typeof props.text === 'string') {
     fullText = props.text.split('<br>').map(function (str, index) {
-      console.log(str);
       if (str.trim()) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
         className: props.className,
         "data-tag": "br split",
@@ -11498,15 +11483,26 @@ const MktoForm = props => {
   let formId = props.formId;
   let mktoFormScript = `
       
-      window.mktoRuntime = function() {
-        if (!window.loadForm) {
-          setTimeout(window.mktoRuntime, 100);
-        } else {
-          window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
-        }
-      }
-      window.mktoRuntime();
+      var id = ${formId};
       
+      if (document.querySelector('form#mktoForm_${formId}').childElementCount == 0) {
+      window.MktoForms2.loadForm(
+        '//info.liveperson.com',
+        '501-BLE-979',
+        id,
+        function(form){
+          console.log("form loading", id);
+          form.onSuccess(function(values, followUpUrl) {
+          
+          form.getFormElem().html('<p class="thank-you-message">${props.thankyou}</p>');
+      
+          dataLayer.push({'event' : 'request-demo-form'});
+        
+          return false;
+          });
+        }
+        );
+      }
     `;
 
   if (props.runFilters) {
@@ -11589,7 +11585,9 @@ const MktoForm = props => {
     d: "m29.483 0.51724l-29.26 29.26"
   }))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
     id: `mktoForm_${formId}`
-  }), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", null, mktoFormScript)))));
+  }), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", {
+    "data-type": "pageScript"
+  }, mktoFormScript)))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MktoForm);
@@ -11822,7 +11820,9 @@ const QuoteSlider = props => {
     className: "visually-hidden"
   }, "Next")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "carousel-inner"
-  }, quoteBlock)), props.small && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", null, tabScript))))));
+  }, quoteBlock)), props.small && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", {
+    "data-type": "pageScript"
+  }, tabScript))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (QuoteSlider);
@@ -12201,7 +12201,9 @@ const TabsC = props => {
     style: {
       width: props.mobilePillsWidth
     }
-  }, pillListOutput))), tabsContent), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", null, tabScript)));
+  }, pillListOutput))), tabsContent), !props.runFilters && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("script", {
+    "data-type": "pageScript"
+  }, tabScript)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TabsC);

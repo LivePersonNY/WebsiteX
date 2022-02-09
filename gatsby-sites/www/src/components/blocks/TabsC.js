@@ -76,7 +76,7 @@ const TabsC = (props) => {
           
       </div>
       {!props.runFilters && (
-        <script>{tabScript}</script>
+        <script data-type="pageScript">{tabScript}</script>
       )}
     </div>
     
