@@ -20,11 +20,11 @@ const MktoForm = (props) => {
     let formId = props.formId;
     
     let mktoFormScript = `
-      window.jQuery('a.mobileForm').click(function(e) {
+      window.$('a.mobileForm').click(function(e) {
         e.preventDefault();
-        window.jQuery('.form--sticky .mktoForm').slideToggle(300);
-        window.jQuery('.span1').toggleClass('swap');
-        window.jQuery('.span2').toggleClass('swap');
+        window.$('.form--sticky .mktoForm').slideToggle(300);
+        window.$('.span1').toggleClass('swap');
+        window.$('.span2').toggleClass('swap');
       });
       function mktoRuntime() {
         if (!window.loadForm) {
