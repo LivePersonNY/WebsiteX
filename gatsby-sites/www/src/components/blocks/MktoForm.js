@@ -25,6 +25,7 @@ const MktoForm = (props) => {
         '501-BLE-979',
         ${formId || 1},
         function(form){
+          console.log("form loading", form);
           form.onSuccess(function(values, followUpUrl) {
             
             form.getFormElem().html('<p class="thank-you-message">${props.thankyou}</p>');

@@ -89,6 +89,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         rel="stylesheet"
       />
       <script
+        id="mktoForms"
         type="text/javascript"
         src="https://info.liveperson.com/js/forms2/js/forms2.min.js"
       />
