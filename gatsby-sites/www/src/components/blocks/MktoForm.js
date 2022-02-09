@@ -8,31 +8,6 @@ import $ from 'jquery';
 const marketoScriptId = 'mktoForms';
 
 const MktoForm = (props) => {
-  
-    window.loadForm = function(id, thankyou) {
-      if (!window.MktoForms2) {
-        setTimeout(function() {
-          loadForm(id, thankyou);
-        },200);
-      } else {
-        window.MktoForms2.loadForm(
-          '//info.liveperson.com',
-          '501-BLE-979',
-          id,
-          function(form){
-            console.log("form loading", form);
-            form.onSuccess(function(values, followUpUrl) {
-            
-            form.getFormElem().html(thankyou);
-        
-            dataLayer.push({'event' : 'request-demo-form'});
-          
-            return false;
-            });
-          }
-          );
-      }
-    }
 
     let mktoFormMobile = function(e) {
       // $('body').toggleClass('locked');
@@ -45,9 +20,14 @@ const MktoForm = (props) => {
     let formId = props.formId;
     
     let mktoFormScript = `
-      setTimeout(function() {
-        window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
-      }, 50); 
+      function mktoRuntime() {
+        if (!window.loadForm) {
+          setTimeout(mktoRuntime, 100);
+        } else {
+          window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
+        }
+      }
+      
     `;
     
     if (props.runFilters) {
