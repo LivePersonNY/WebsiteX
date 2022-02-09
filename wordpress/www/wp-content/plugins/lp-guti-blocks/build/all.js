@@ -10402,10 +10402,6 @@ window.documentReadyFn = function () {
   });
 };
 
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  window.documentReadyFn();
-});
-
 /***/ }),
 
 /***/ "../../../../../gatsby-sites/www/src/components/Paragraph.js":

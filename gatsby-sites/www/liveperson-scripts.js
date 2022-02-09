@@ -92,7 +92,3 @@ window.documentReadyFn = function() {
 		});
 	
 }
-
-$(document).ready(function() {
-	window.documentReadyFn();
-});
