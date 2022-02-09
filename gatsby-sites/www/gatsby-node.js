@@ -11,21 +11,38 @@ const chunk = require(`lodash/chunk`);
  *
  * See https://www.gatsbyjs.com/docs/node-apis/#createPages for more info.
  */
-/*exports.createPages = async (gatsbyUtilities) => {
-  // Query our posts from the GraphQL server
-  const posts = await getPosts(gatsbyUtilities);
-
-  // If there are no posts in WordPress, don't do anything
-  if (!posts.length) {
-    return;
-  }
-
-  // If there are posts, create pages for them
-  await createIndividualBlogPostPages({ posts, gatsbyUtilities });
-
-  // And a paginated archive
-  await createBlogPostArchive({ posts, gatsbyUtilities });
-};*/
+exports.createPages = async (props) => {
+  const { data: wpSettings } = await props.graphql(/* GraphQL */ `
+    {
+      wp {
+        readingSettings {
+          postsPerPage
+        }
+        seo {
+          redirects {
+            format
+            origin
+            target
+            type
+          }
+        }
+      }
+    }
+  `)
+  
+  const { createRedirect } = props.actions;
+  const { redirects } = JSON.parse(JSON.stringify(wpSettings.wp.seo));
+  if (redirects) {
+      redirects.forEach((redirect) => {
+      createRedirect({
+        fromPath: '/'+redirect.origin,
+        toPath: '/'+redirect.target,
+        redirectInBrowser: true,
+        isPermanent: redirect.type == 301,
+      });
+    });
+  } 
+}
 
 /**
  * This function creates all the individual blog pages in this site
