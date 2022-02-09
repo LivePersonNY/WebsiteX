@@ -10338,7 +10338,7 @@ window.documentReadyFn = function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.span1').toggleClass('swap');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.span2').toggleClass('swap');
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', '.comp-tabs-a h4.accordion-header button', function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click', '.comp-tabs-a h4.accordion-header button').on('click', '.comp-tabs-a h4.accordion-header button', function (e) {
     e.preventDefault();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.comp-tabs-a .accordion-item').removeClass('accordion-item-active');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parents('.accordion-item').addClass('accordion-item-active');
@@ -10346,7 +10346,7 @@ window.documentReadyFn = function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-a .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-a .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', '.comp-tabs-b h4.comp-tab', function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click', '.comp-tabs-b h4.comp-tab').on('click', '.comp-tabs-b h4.comp-tab', function (e) {
     e.preventDefault();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.comp-tabs-b .comp-tabs-list-container h4').removeClass('comp-tab-active');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('comp-tab-active');
@@ -10354,7 +10354,7 @@ window.documentReadyFn = function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-b .comp-tabs-content[data-tab-content="${tabIndex}"], .comp-tabs-b .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-b .comp-tabs-content:not([data-tab-content="${tabIndex}"]), .comp-tabs-b .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', '.comp-tabs-c .btn.pill', function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click', '.comp-tabs-c .btn.pill').on('click', '.comp-tabs-c .btn.pill', function (e) {
     e.preventDefault();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.comp-tabs-c .btn.pill').removeClass('pill-active');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).addClass('pill-active');
@@ -10362,7 +10362,7 @@ window.documentReadyFn = function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('scroll', function () {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('scroll').on('scroll', function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.pane:not(.hero, .pane-form)').each(function (i) {
       var bottom_of_object = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).position().top;
       var bottom_of_window = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop() + jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height();
@@ -10383,7 +10383,7 @@ window.documentReadyFn = function () {
       this.setAttribute("style", "height:" + this.scrollHeight + "px;overflow-y:hidden;");
     });
   });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', '.comp-faq h4.accordion-header button', function (e) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click', '.comp-faq h4.accordion-header button').on('click', '.comp-faq h4.accordion-header button', function (e) {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.comp-faq .accordion-item').removeClass('accordion-item-active');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parents('.accordion-item').addClass('accordion-item-active');
   });

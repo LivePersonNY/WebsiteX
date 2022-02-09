@@ -19,7 +19,7 @@ window.documentReadyFn = function() {
 			$('.span2').toggleClass('swap');
 		});
 		
-		$('body').on('click', '.comp-tabs-a h4.accordion-header button', function(e) {
+		$('body').off('click', '.comp-tabs-a h4.accordion-header button').on('click', '.comp-tabs-a h4.accordion-header button', function(e) {
 			e.preventDefault();
 			$('.comp-tabs-a .accordion-item').removeClass('accordion-item-active');
 			$(this).parents('.accordion-item').addClass('accordion-item-active');
@@ -28,7 +28,7 @@ window.documentReadyFn = function() {
 			$(`.comp-tabs-a .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
 		});
 		
-		$('body').on('click', '.comp-tabs-b h4.comp-tab', function(e) {
+		$('body').off('click', '.comp-tabs-b h4.comp-tab').on('click', '.comp-tabs-b h4.comp-tab', function(e) {
 			e.preventDefault();
 			$('.comp-tabs-b .comp-tabs-list-container h4').removeClass('comp-tab-active');
 			$(this).addClass('comp-tab-active');
@@ -37,7 +37,7 @@ window.documentReadyFn = function() {
 			$(`.comp-tabs-b .comp-tabs-content:not([data-tab-content="${tabIndex}"]), .comp-tabs-b .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
 		});
 		
-		$('body').on('click', '.comp-tabs-c .btn.pill', function(e) {
+		$('body').off('click', '.comp-tabs-c .btn.pill').on('click', '.comp-tabs-c .btn.pill', function(e) {
 			e.preventDefault();
 			$('.comp-tabs-c .btn.pill').removeClass('pill-active');
 			$(e.target).addClass('pill-active');
@@ -46,7 +46,7 @@ window.documentReadyFn = function() {
 			$(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
 		});
 	
-		$(window).on('scroll', function(){
+		$(window).off('scroll').on('scroll', function(){
 			$('.pane:not(.hero, .pane-form)').each( function(i){
 				var bottom_of_object = $(this).position().top;
 				var bottom_of_window = $(window).scrollTop() + $(window).height();
@@ -69,7 +69,7 @@ window.documentReadyFn = function() {
 		
 		
 	
-		$('body').on('click', '.comp-faq h4.accordion-header button', function(e) {
+		$('body').off('click', '.comp-faq h4.accordion-header button').on('click', '.comp-faq h4.accordion-header button', function(e) {
 			$('.comp-faq .accordion-item').removeClass('accordion-item-active');
 			$(this).parents('.accordion-item').addClass('accordion-item-active');
 		});
