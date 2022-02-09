@@ -21,14 +21,32 @@ const MktoForm = (props) => {
     
     let mktoFormScript = `
       
-      window.mktoRuntime = function() {
-        if (!window.loadForm) {
-          setTimeout(window.mktoRuntime, 100);
+      window.loadForm = function(id, thankyou) {
+        if (document.querySelector('form#mktoForm_' + id).childElementCount > 0) return;
+        if (!window.MktoForms2) {
+          setTimeout(function() {
+            loadForm(id, thankyou);
+          },200);
         } else {
-          window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
+          window.MktoForms2.loadForm(
+            '//info.liveperson.com',
+            '501-BLE-979',
+            id,
+            function(form){
+              console.log("form loading", id);
+              form.onSuccess(function(values, followUpUrl) {
+              
+              form.getFormElem().html(thankyou);
+          
+              dataLayer.push({'event' : 'request-demo-form'});
+            
+              return false;
+              });
+            }
+            );
         }
       }
-      window.mktoRuntime();
+      window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
       
     `;
     
@@ -98,7 +116,7 @@ const MktoForm = (props) => {
               </a>
               <form id={`mktoForm_${formId}`}></form>      
               {!props.runFilters && (
-                <script>{mktoFormScript}</script>
+                <script data-type="mktoScript" id={Math.random()}>{mktoFormScript}</script>
               )}
           </div>
         </div>

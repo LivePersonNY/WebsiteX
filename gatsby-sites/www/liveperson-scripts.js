@@ -28,6 +28,12 @@ window.loadForm = function(id, thankyou) {
 
 window.documentReadyFn = function() {
 	
+	$(document.scripts).each(function(index, item) {
+		if ($(item).attr('data-type') == 'mktoScript') {
+			eval(item.text);
+		}
+	});
+	
 	console.log('Document ready.');
 		
 		$('body').on('click', 'a.mobileForm', function(e) {
