@@ -2,8 +2,8 @@ import $ from 'jquery';
 
 window.documentReadyFn = function() {
 	
-	$(document.scripts).each(function(index, item) {
-		if ($(item).attr('data-type') == 'pageScript') {
+	Array.from(document.scripts).forEach(function(item) {
+		if (item.attributes['data-type']?.value == 'pageScript') {
 			console.log("executing form script...");
 			eval(item.text);
 		}

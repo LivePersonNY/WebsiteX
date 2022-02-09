@@ -10324,8 +10324,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.documentReadyFn = function () {
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(document.scripts).each(function (index, item) {
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(item).attr('data-type') == 'pageScript') {
+  Array.from(document.scripts).forEach(function (item) {
+    if (item.attributes['data-type']?.value == 'pageScript') {
       console.log("executing form script...");
       eval(item.text);
     }
