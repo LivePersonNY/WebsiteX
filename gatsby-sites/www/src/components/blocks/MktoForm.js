@@ -20,6 +20,7 @@ const MktoForm = (props) => {
     let formId = props.formId;
     
     let mktoFormScript = `
+      while (!window.MktoForms2) {}
       window.MktoForms2.loadForm(
         '//info.liveperson.com',
         '501-BLE-979',
