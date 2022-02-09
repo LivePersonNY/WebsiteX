@@ -11,7 +11,7 @@ window.loadForm = function(id, thankyou) {
 			'501-BLE-979',
 			id,
 			function(form){
-		  	console.log("form loading", form);
+		  	console.log("form loading", id);
 		  	form.onSuccess(function(values, followUpUrl) {
 				
 				form.getFormElem().html(thankyou);
