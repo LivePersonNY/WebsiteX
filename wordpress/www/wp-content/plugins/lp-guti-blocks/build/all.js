@@ -10342,7 +10342,7 @@ window.loadForm = function (id, thankyou) {
   }
 };
 
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+window.documentReadyFn = function () {
   console.log('Document ready.');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', 'a.mobileForm', function (e) {
     e.preventDefault();
@@ -10400,6 +10400,10 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.comp-faq .accordion-item').removeClass('accordion-item-active');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parents('.accordion-item').addClass('accordion-item-active');
   });
+};
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+  window.documentReadyFn();
 });
 
 /***/ }),

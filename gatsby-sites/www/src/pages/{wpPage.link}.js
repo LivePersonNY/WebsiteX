@@ -10,11 +10,6 @@ import Parser from 'html-react-parser';
 
 const PageTemplate = ({ data: { page } }) => {
 	
-	useEffect(() => {
-			
-		console.log('test');
-				
-  	});
 	
 	let meta = [
 		{

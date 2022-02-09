@@ -35,6 +35,19 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   const metaDescription = description || wp.generalSettings?.description;
   const defaultTitle = wp.generalSettings?.title;
   const favicon = wp.allSettings?.siteIcon;
+  
+  useEffect(() => {
+      
+      function waitForDocumentReadyFn() {
+        if (!window.documentReadyFn) {
+          setTimeout(waitForDocumentReadyFn, 100);
+        } else {
+          window.documentReadyFn();
+        }
+      }
+      waitForDocumentReadyFn();
+          
+  });
 
   return (
     <Helmet
