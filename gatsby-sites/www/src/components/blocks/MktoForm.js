@@ -28,6 +28,7 @@ const MktoForm = (props) => {
           window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
         }
       }
+      window.mktoRuntime();
       
     `;
     
