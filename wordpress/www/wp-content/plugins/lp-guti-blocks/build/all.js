@@ -11483,36 +11483,25 @@ const MktoForm = props => {
   let formId = props.formId;
   let mktoFormScript = `
       
-      window.loadForm = function(id, thankyou) {
-        
-        if (!window.MktoForms2) {
-          setTimeout(function() {
-            loadForm(id, thankyou);
-          },200);
-        } else {
-          setTimeout(function() {
-            if (document.querySelector('form#mktoForm_' + id).childElementCount > 0) return;
-            window.MktoForms2.loadForm(
-              '//info.liveperson.com',
-              '501-BLE-979',
-              id,
-              function(form){
-                console.log("form loading", id);
-                form.onSuccess(function(values, followUpUrl) {
-                
-                form.getFormElem().html(thankyou);
-            
-                dataLayer.push({'event' : 'request-demo-form'});
-              
-                return false;
-                });
-              }
-              );
-          }, 200);
+      var id = ${formId};
+      
+      if (document.querySelector('form#mktoForm_${formId}').childElementCount > 0) return;
+      window.MktoForms2.loadForm(
+        '//info.liveperson.com',
+        '501-BLE-979',
+        id,
+        function(form){
+          console.log("form loading", id);
+          form.onSuccess(function(values, followUpUrl) {
           
+          form.getFormElem().html(<p class="thank-you-message">${props.thankyou}</p>);
+      
+          dataLayer.push({'event' : 'request-demo-form'});
+        
+          return false;
+          });
         }
-      }
-      window.loadForm(${formId}, '<p class="thank-you-message">${props.thankyou}</p>');
+        );
       
     `;
 
