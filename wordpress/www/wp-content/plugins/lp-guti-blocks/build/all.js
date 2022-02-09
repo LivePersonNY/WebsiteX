@@ -10346,7 +10346,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   console.log('Document ready.');
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click', 'a.mobileForm', function (e) {
     e.preventDefault();
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.form--sticky .mktoForm').slideToggle(300);
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.form--sticky .mktoForm').slideToggle(300).toggleClass('expanded');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.span1').toggleClass('swap');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('.span2').toggleClass('swap');
   });
