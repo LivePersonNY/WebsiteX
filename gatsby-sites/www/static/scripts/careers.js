@@ -1,4 +1,4 @@
-console.log('careers script loaded');
+console.log('careers script loaded maybe');
 
    window.onload = (e) => {
     document.querySelectorAll('.comp-body-container a').forEach(function(lnk) {
