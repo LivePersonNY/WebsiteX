@@ -28,7 +28,7 @@ const HeroLottie = (props) => {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'iPhone-Convo_rm_4.json'
+      path: 'https://static.liveperson.com/static-assets/2022/02/10151018/iPhone-Convo_rm_4.json'
     })
   })
 
@@ -68,7 +68,7 @@ return (
       </div>
     </div>
     {/* {!props.runFilters && (
-      <script data-type="">{lottieScript}</script>
+      <script data-type="pageScript">{lottieScript}</script>
     )} */}
   </div>
   );
