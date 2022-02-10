@@ -76,3 +76,10 @@ add_filter( 'wp_editor_set_quality', 'image_quality_lp' );
 function image_quality_lp( ) {
     return 15;
 }
+
+function lp_mime_types($mimes) {
+	$mimes['json'] = 'application/json';
+	return $mimes;
+}
+
+add_filter('upload_mimes', 'lp_mime_types');
