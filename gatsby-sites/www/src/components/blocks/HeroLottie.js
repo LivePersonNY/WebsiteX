@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import Link from 'gatsby-link';
 import Paragraph from '../Paragraph';
-import lottie from "lottie-web";
 
 const HeroLottie = (props) => {
 
