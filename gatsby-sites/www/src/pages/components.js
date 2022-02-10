@@ -91,7 +91,7 @@ const IndexPage = () => (
       heroVariant="buttons"
       underBodyImg="https://picsum.photos/360/40?random=1"
       underBodyImgAlt="test"
-      primaryBtnText="Get Demo"
+      primaryBtnText="Get Demso"
       primaryBtnLink="#"
       secondaryBtnText="Get Moar Demos"
       secondaryBtnLink="#"

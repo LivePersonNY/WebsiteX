@@ -24,22 +24,22 @@ const HeroLottie = (props) => {
     loadLottieAnim();
   `;
 
-  // if (props.runFilters) {
-  //   useEffect(() => {
-  //     eval(lottieScript);
-  //   });
-  // }
+  if (props.runFilters) {
+    useEffect(() => {
+      eval(lottieScript);
+    });
+  }
 
-  useEffect(() => {
-    lottie.loadAnimation({
-      container: document.querySelector('.lottie-container'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      // path: 'iPhone-Convo_rm_4.json'
-      path: 'https://static.liveperson.com/static-assets/2022/02/10151018/iPhone-Convo_rm_4.json'
-    })
-  })
+  // useEffect(() => {
+  //   lottie.loadAnimation({
+  //     container: document.querySelector('.lottie-container'),
+  //     renderer: 'svg',
+  //     loop: true,
+  //     autoplay: true,
+  //     path: 'iPhone-Convo_rm_4.json'
+  //     // path: 'https://static.liveperson.com/static-assets/2022/02/10151018/iPhone-Convo_rm_4.json'
+  //   })
+  // })
 
 return (
   <div className={`pane hero ${props.backgroundColor||"bg-transparent"} ${props.removePB ? 'pb-0' : ''}`}>
@@ -76,9 +76,9 @@ return (
         </div>
       </div>
     </div>
-    {/* {!props.runFilters && (
+    {!props.runFilters && (
       <script data-type="pageScript">{lottieScript}</script>
-    )} */}
+    )}
   </div>
   );
 }
