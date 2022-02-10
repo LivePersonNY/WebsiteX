@@ -1,0 +1,12 @@
+{
+	"redirects": {
+		"/about/blogs/*": "/",
+		"/about/contact/(.*)": "/company",
+		"/about/engagement?-marketing/(.*)": "/",
+		"/about/index/(.*)": "/company",
+		"/about/openings/(.*)": "/company/careers",
+		"/about/privacy/(.*)": "/policies/privacy",
+		"/about/resource?-center/(.*)": "/resources",
+		"/admin?-news?-type/(.*)": "/"
+	}
+}

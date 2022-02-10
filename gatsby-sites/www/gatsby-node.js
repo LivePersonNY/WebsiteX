@@ -1,6 +1,8 @@
 const path = require(`path`);
 const chunk = require(`lodash/chunk`);
 
+const redirectManifest = require("./redirects.json");
+
 // This is a simple debugging tool
 // dd() will prettily dump to the terminal and kill the process
 // const { dd } = require(`dumper.js`)
@@ -41,7 +43,18 @@ exports.createPages = async (props) => {
         isPermanent: redirect.type == 301,
       });
     });
-  } 
+  }
+  
+  Object.keys(redirectManifest.redirects).forEach(function(item) {
+    console.log("redirecting " + item + " --> " + redirectManifest.redirects[item]);
+    createRedirect({
+      fromPath: item,
+      toPath: redirectManifest.redirects[item],
+      redirectInBrowser: true,
+      isPermanent: true
+    });
+  });
+  
 }
 
 /**
