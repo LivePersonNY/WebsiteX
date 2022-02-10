@@ -43,6 +43,18 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	const instanceId = useInstanceId( TextControl );
 
+
+
+	let logoHeaderControl = (
+		<TextareaControl
+			value={ attributes.logoHeader }
+			onChange={ ( val ) => setAttributes( { logoHeader: val } ) }
+			className="embedded-input"
+			rows="1"
+			placeholder="Logo Header"
+		/>
+	);
+
 	let headerControl = (
 		<TextareaControl
 			value={ attributes.header }
@@ -125,27 +137,6 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 						<Button variant="link" isDestructive={true} onClick={() => setAttributes({logoWall: null, logoWallId: null})}>Remove Image</Button>
 					</>
 
-				)}
-			/>
-		</MediaUploadCheck>
-	);
-
-	let lottieControl = (
-		<MediaUploadCheck>
-			<MediaUpload
-				onSelect={function(media) {
-					setAttributes({
-						lottieFile: media.url,
-						lottieId: media.id,
-					});
-				}}
-				value={attributes.lottieId}
-				allowedTypes={ ['application/json'] }
-				render={({open}) => (
-					<>
-						<Button variant="link" onClick={open}>Select Lottie</Button>
-						{attributes.lottieId && <Button variant="link" isDestructive={true} onClick={() => setAttributes({lottieFile: null, lottieId: null})}>Remove Lottie</Button>}
-					</>
 				)}
 			/>
 		</MediaUploadCheck>
@@ -253,6 +244,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				primaryBtnText={linkTextControl}
 				secondaryBtnText={linkSecondaryTextControl}
 				removePB={attributes.togglePadding}
+				logoHeader={logoHeaderControl}
 			 />
 		</div>
 
@@ -276,6 +268,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				lottieFile={attributes.lottieFile}
 				runFilters={true}
 				removePB={attributes.togglePadding}
+				logoHeader={attributes.logoHeader}
 			/>
 		</div>
 	);

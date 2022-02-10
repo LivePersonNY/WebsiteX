@@ -50,6 +50,7 @@
 		"mediaAlt": {
 			"type": "string",
 			"default": "PlaceHolder"
-		}
+		},
+		"logoHeader": {}
 	}
 }

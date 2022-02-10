@@ -41,6 +41,7 @@ export default function save({attributes}) {
 				secondaryBtnLink={attributes.secondaryBtnLink}
 				lottieFile={attributes.lottieFile}
 				removePB={attributes.togglePadding}
+				logoHeader={attributes.logoHeader}
 			/>
 
 	);
