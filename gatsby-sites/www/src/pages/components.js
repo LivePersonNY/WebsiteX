@@ -34,6 +34,7 @@ import HorizontalText from '../components/blocks/HorizontalText';
 import ExecutiveCard from '../components/blocks/ExecutiveCard';
 import BoardCards from '../components/blocks/BoardCards';
 import ScrollContent from '../components/blocks/ScrollContent';
+import HeroLottie from '../components/blocks/HeroLottie';
 
 const IndexPage = () => (
   <Layout>
@@ -81,38 +82,22 @@ const IndexPage = () => (
       secondaryBtnLink="#"
     />
 
-    <div className="container component-doc">
-      <div className="row">
-        <div className="col-lg-6">
-          <p><span className="fw-bold">React Component Name:</span> MktoForm</p>
-          <p><span className="fw-bold">CSS Class Name:</span> pane-form</p>
-          <p><span className="fw-bold">WordPress Name:</span> </p>
-          <p><span className="fw-bold">Properties:</span></p>
-          <ul>
-            <li><span className="fw-bold">backgroundColor:</span> Selector - bg-rainbow/bg-primary-light/bg-neutral-96/bg-blue-20/bg-lavendar-20</li>
-            <li><span className="fw-bold">sticky: </span> Toggle</li>
-            <li><span className="fw-bold">header: </span> Text</li>
-            <li><span className="fw-bold">formId: </span> Number</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <MktoForm 
-      backgroundColor="bg-rainbow"
-      formId="3733" 
-      runFilters={true} 
-      sticky="true"
-      // header="Strong benefit that weaves in security of the LivePerson platform"
+    <HeroLottie
+      backgroundColor="bg-neutral-96"
+      header="LivePerson's unique value proposition"
+      subHeader="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus
+              elementum sollicitudin magna bibendum sit ultricies arcu. Nullam
+              tincidunt varius."
+      heroVariant="buttons"
+      underBodyImg="https://picsum.photos/360/40?random=1"
+      underBodyImgAlt="test"
+      primaryBtnText="Get Demo"
+      primaryBtnLink="#"
+      secondaryBtnText="Get Moar Demos"
+      secondaryBtnLink="#"
     />
 
-    {/* <MktoForm 
-      backgroundColor="bg-rainbow"
-      formId="2580" 
-      runFilters={true} 
-      // header="Strong benefit that weaves in security of the LivePerson platform"
-    /> */}
-    {/* 2580, 3733 */}
+
 
     <div className="container component-doc">
       <div className="row">
