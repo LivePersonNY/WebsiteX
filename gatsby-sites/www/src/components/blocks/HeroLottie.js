@@ -8,10 +8,10 @@ const HeroLottie = (props) => {
  
   let lottieScript = `
     function loadLottieAnim() {
-      if (!lottie) {
+      if (!window.lottie) {
         setTimeout(loadLottieAnim, 100);
       } else {
-        lottie.loadAnimation({
+        window.lottie.loadAnimation({
           container: document.querySelector('.lottie-container'),
           renderer: 'svg',
           loop: true,
