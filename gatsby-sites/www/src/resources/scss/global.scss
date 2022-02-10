@@ -50,6 +50,10 @@
     background: $blue20
 }
 
+.pb-0 {
+    padding-bottom: 0;
+}
+
 .pane {
     padding: 80px 0;
 
@@ -249,7 +253,7 @@ img {
             display: inline-block;
         }
     }
-    
+
     .body-image {
         img {
             max-height: 40px;
