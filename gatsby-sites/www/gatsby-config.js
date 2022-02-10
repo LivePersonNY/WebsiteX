@@ -33,6 +33,9 @@ module.exports = {
         debug: {
           preview: true,
         },
+        production: {
+          allow401Images: true,
+        }
       },
     },
     {
