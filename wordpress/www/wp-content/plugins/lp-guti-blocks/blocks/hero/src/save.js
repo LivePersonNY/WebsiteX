@@ -39,6 +39,8 @@ export default function save({attributes}) {
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
+				lottieFile={attributes.lottieFile}
+				removePB={attributes.togglePadding}
 			/>
 
 	);

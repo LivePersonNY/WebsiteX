@@ -75,16 +75,31 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		<MediaUploadCheck>
 			<MediaUpload
 				onSelect={function(media) {
-					setAttributes({
-						mediaUrl: media.url,
-						mediaId: media.id,
-						mediaAlt: media.alt || ""
-					});
+					if (media.mime == "application/json") {
+						setAttributes({
+							lottieFile: media.url,
+							lottieId: media.id,
+							mediaUrl: null,
+							mediaId: null,
+							mediaAlt: null
+						});
+					} else {
+						setAttributes({
+							mediaUrl: media.url,
+							mediaId: media.id,
+							mediaAlt: media.alt || "",
+							lottieFile: null,
+							lottieId: null
+						});
+					}
 				}}
-				value={attributes.mediaId}
-				allowedTypes={ ['image'] }
+				value={attributes.mediaId || attributes.lottieId}
+				allowedTypes={ ['image', 'application/json'] }
 				render={({open}) => (
-					<img className="imageSelector" src={attributes.mediaUrl} onClick={open} />
+					<>
+						{attributes.mediaUrl && <img className="imageSelector" src={attributes.mediaUrl || "https://picsum.photos/752/568?random=1"} onClick={open} />}
+						{attributes.lottieFile && <img className="imageSelector" src="https://cdn.dribbble.com/users/409537/screenshots/3017834/placeholder_fadein_mockup.gif" onClick={open} />}
+					</>
 				)}
 			/>
 		</MediaUploadCheck>
@@ -115,6 +130,27 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		</MediaUploadCheck>
 	);
 
+	let lottieControl = (
+		<MediaUploadCheck>
+			<MediaUpload
+				onSelect={function(media) {
+					setAttributes({
+						lottieFile: media.url,
+						lottieId: media.id,
+					});
+				}}
+				value={attributes.lottieId}
+				allowedTypes={ ['application/json'] }
+				render={({open}) => (
+					<>
+						<Button variant="link" onClick={open}>Select Lottie</Button>
+						{attributes.lottieId && <Button variant="link" isDestructive={true} onClick={() => setAttributes({lottieFile: null, lottieId: null})}>Remove Lottie</Button>}
+					</>
+				)}
+			/>
+		</MediaUploadCheck>
+	);
+
 	let changeHeroBGimage = function(media) {
 		setAttributes({
 			backgroundImage: media.url,
@@ -128,7 +164,15 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	let addButton = (
 		<BlockControls>
-
+			<ToolbarButton
+				icon="image-flip-vertical"
+				isActive={attributes.togglePadding}
+				onClick={function() {
+					window.jQuery('.lottie-container').html("");
+					setAttributes({ togglePadding: !attributes.togglePadding });
+				}}
+				label="Toggle Padding"
+			/>
 			<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 		</BlockControls>
 	);
@@ -198,6 +242,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				/>
 			</MediaUploadCheck>
 			<Hero
+				lottieFile={attributes.lottieFile}
 				imgLogoCtl={logoControl}
 				backgroundImage={attributes.backgroundImage}
 				backgroundColor={attributes.backgroundColor}
@@ -207,6 +252,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				imgCtl={imageControl}
 				primaryBtnText={linkTextControl}
 				secondaryBtnText={linkSecondaryTextControl}
+				removePB={attributes.togglePadding}
 			 />
 		</div>
 
@@ -227,6 +273,9 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
+				lottieFile={attributes.lottieFile}
+				runFilters={true}
+				removePB={attributes.togglePadding}
 			/>
 		</div>
 	);

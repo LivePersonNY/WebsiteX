@@ -15,6 +15,12 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
+		"togglePadding": {
+			"type": "boolean",
+			"default": false
+		},
+		"lottieFile": {},
+		"lottieId": {},
 		"backgroundColor": {},
 		"backgroundImage": {},
 		"backgroundImageID": {},
@@ -40,10 +46,7 @@
 			"default": 0,
 			"type": "number"
 		},
-		"mediaUrl": {
-			"type": "string",
-			"default": "https://picsum.photos/752/568?random=1"
-		},
+		"mediaUrl": {},
 		"mediaAlt": {
 			"type": "string",
 			"default": "PlaceHolder"
