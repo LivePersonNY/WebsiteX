@@ -153,7 +153,7 @@ const NavBar = ({ siteTitle }) => {
             })}
           </ul>
 
-          <ul className="navbar-nav login-link">
+          <ul className="navbar-nav login-menu">
             {loginItems.nodes.map((item, index) => {
               const cssClasses = item.cssClasses.length
                 ? item.cssClasses.join(' ')
