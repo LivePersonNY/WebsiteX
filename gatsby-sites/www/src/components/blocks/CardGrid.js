@@ -24,9 +24,9 @@ const CardGrid = (props) => {
             <p className="card-text quote1">{item.body}</p>
           </div>
           <div className="card-footer">
-            <a href={item.linkUrl} className="card-link link">
+            {item.linkText && (<a href={item.linkUrl} className="card-link link">
               {item.linkText}
-            </a>
+            </a>)}
 
           </div>
         </div>
