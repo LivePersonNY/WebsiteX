@@ -74,3 +74,5 @@ yarn-error.log
 /vendor/
 .wordpress-cache
 uploads/
+
+/wordpress/www/wp-content/ewww/*
