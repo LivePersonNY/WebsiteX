@@ -109,7 +109,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				allowedTypes={ ['image', 'application/json'] }
 				render={({open}) => (
 					<>
-						{attributes.mediaUrl && <img className="imageSelector" src={attributes.mediaUrl || "https://picsum.photos/752/568?random=1"} onClick={open} />}
+						{!attributes.lottieFile && <img className="imageSelector" src={attributes.mediaUrl || "https://picsum.photos/752/568?random=1"} onClick={open} />}
 						{attributes.lottieFile && <img className="imageSelector" src="https://cdn.dribbble.com/users/409537/screenshots/3017834/placeholder_fadein_mockup.gif" onClick={open} />}
 					</>
 				)}
