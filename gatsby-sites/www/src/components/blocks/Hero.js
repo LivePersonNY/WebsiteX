@@ -60,7 +60,7 @@ const Hero = (props) => {
           )}
         </div>
         <div className={`col-lg-6 offset-lg-1 ${props.lottieFile ? "lottie-container":""}`}>
-          {!props.imgCtl && !props.lottieFile && <img src={props.heroImage} alt={props.heroImageAlt || ""} /> || props.imgCtl}
+          {!props.imgCtl && !props.lottieFile && <img src={props.heroImage || "https://picsum.photos/752/568?random=1"} alt={props.heroImageAlt || ""} /> || props.imgCtl}
         </div>
       </div>
     </div>
