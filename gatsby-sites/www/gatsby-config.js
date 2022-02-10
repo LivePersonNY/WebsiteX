@@ -35,9 +35,6 @@ module.exports = {
         },
         production: {
           allow404Images: true,
-        },
-        develop: {
-          allow404Images: true,
         }
       },
     },
