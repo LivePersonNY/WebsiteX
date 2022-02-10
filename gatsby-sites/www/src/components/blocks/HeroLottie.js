@@ -12,7 +12,8 @@ const HeroLottie = (props) => {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'iPhone-Convo_rm_4.json'
+      // path: 'iPhone-Convo_rm_4.json'
+      path: 'https://static.liveperson.com/static-assets/2022/02/10151018/iPhone-Convo_rm_4.json'
     })
   `;
 
@@ -28,6 +29,7 @@ const HeroLottie = (props) => {
       renderer: 'svg',
       loop: true,
       autoplay: true,
+      // path: 'iPhone-Convo_rm_4.json'
       path: 'https://static.liveperson.com/static-assets/2022/02/10151018/iPhone-Convo_rm_4.json'
     })
   })
