@@ -95,6 +95,8 @@ const IndexPage = () => (
       primaryBtnLink="#"
       secondaryBtnText="Get Moar Demos"
       secondaryBtnLink="#"
+      runFilters={true}
+      removePB={true}
     />
 
 

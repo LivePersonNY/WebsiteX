@@ -6,19 +6,34 @@ import lottie from "lottie-web";
 
 const HeroLottie = (props) => {
 
+  let lottieScript = `
+    lottie.loadAnimation({
+      container: document.querySelector('.lottie-container'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'iPhone-Convo_rm_4.json'
+    })
+  `;
+
+  // if (props.runFilters) {
+  //   useEffect(() => {
+  //     eval(lottieScript);
+  //   });
+  // }
+
   useEffect(() => {
     lottie.loadAnimation({
       container: document.querySelector('.lottie-container'),
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      // path: 'https://maxst.icons8.com/vue-static/landings/animated-icons/icons/pause/pause.json'
-      // path: '../../resources/lottie/iPhone-Convo_rm_4.json'
+      path: 'iPhone-Convo_rm_4.json'
     })
   })
 
 return (
-  <div className={`pane hero ${props.backgroundColor||"bg-transparent"}`}>
+  <div className={`pane hero ${props.backgroundColor||"bg-transparent"} ${props.removePB ? 'pb-0' : ''}`}>
     {props.backgroundImage && 
       <style>
         {`.pane.hero {
@@ -52,7 +67,11 @@ return (
         </div>
       </div>
     </div>
+    {/* {!props.runFilters && (
+      <script data-type="">{lottieScript}</script>
+    )} */}
   </div>
-);
-          }
+  );
+}
+
 export default HeroLottie;
