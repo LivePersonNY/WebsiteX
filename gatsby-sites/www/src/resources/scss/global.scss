@@ -249,6 +249,12 @@ img {
             display: inline-block;
         }
     }
+    
+    .body-image {
+        img {
+            max-height: 40px;
+        }
+    }
 }
 
 .comp-left-right {
