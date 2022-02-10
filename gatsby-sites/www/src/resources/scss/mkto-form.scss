@@ -79,17 +79,31 @@
                     margin-bottom: 12px;
                 }
             }
+            
+            form {
+                @include media-breakpoint-up(lg) {
+                    height: 0;
+                    transition: .5s height ease;
+                    overflow: hidden;
+                }
+            }
 
             .mktoForm {
                 display: none;
+                
+                
 
                 @include media-breakpoint-up(lg) {
                     display: block;
+                    height: 48px;
                 }
             }
+            
+            
         }
+        
     }
-
+    
     .mktoForm {
 
         width: 100% !important;
