@@ -6,15 +6,22 @@ import lottie from "lottie-web";
 
 const HeroLottie = (props) => {
 
+ 
   let lottieScript = `
-    lottie.loadAnimation({
-      container: document.querySelector('.lottie-container'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      // path: 'iPhone-Convo_rm_4.json'
-      path: 'https://static.liveperson.com/static-assets/2022/02/10151018/iPhone-Convo_rm_4.json'
-    })
+    function loadLottieAnim() {
+      if (!lottie) {
+        setTimeout(loadLottieAnim, 100);
+      } else {
+        lottie.loadAnimation({
+          container: document.querySelector('.lottie-container'),
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          path: 'https://static.liveperson.com/static-assets/2022/02/10151018/iPhone-Convo_rm_4.json'
+        });
+      }
+    } 
+    loadLottieAnim();
   `;
 
   // if (props.runFilters) {
