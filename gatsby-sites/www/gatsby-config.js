@@ -34,7 +34,7 @@ module.exports = {
           preview: true,
         },
         production: {
-          allow404Images: true,
+          allow404Images: true
         }
       },
     },
