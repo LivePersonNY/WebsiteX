@@ -57,7 +57,7 @@ return (
           <Paragraph text={props.subHeader} />
           {(props.imgLogoCtl || props.underBodyImg) && (
             <>
-              <h6 className="mt-4">TRUSTED BY 100K LEADING BRANDS</h6>
+              <h6 className="mt-4">{props.logoHeader}</h6>
               <div className="body-image">
                 {!props.imgLogoCtl && <img src={props.underBodyImg} alt={props.underBodyImgAlt} /> || props.imgLogoCtl}
               </div>
