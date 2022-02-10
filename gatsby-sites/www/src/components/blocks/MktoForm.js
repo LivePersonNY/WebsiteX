@@ -23,24 +23,32 @@ const MktoForm = (props) => {
       
       var id = ${formId};
       
-      if (document.querySelector('form#mktoForm_${formId}').childElementCount == 0) {
-      window.MktoForms2.loadForm(
-        '//info.liveperson.com',
-        '501-BLE-979',
-        id,
-        function(form){
-          console.log("form loading", id);
-          form.onSuccess(function(values, followUpUrl) {
+      function initMktoForm() {
+        if (!window.MktoForms2) {
+          setTimeout(initMktoForm, 100);
+        } else {
+          if (document.querySelector('form#mktoForm_${formId}').childElementCount == 0) {
+          window.MktoForms2.loadForm(
+            '//info.liveperson.com',
+            '501-BLE-979',
+            id,
+            function(form){
+              console.log("form loading", id);
+              form.onSuccess(function(values, followUpUrl) {
+              
+              form.getFormElem().html('<p class="thank-you-message">${props.thankyou}</p>');
           
-          form.getFormElem().html('<p class="thank-you-message">${props.thankyou}</p>');
-      
-          dataLayer.push({'event' : 'request-demo-form'});
-        
-          return false;
-          });
+              dataLayer.push({'event' : 'request-demo-form'});
+            
+              return false;
+              });
+            }
+            );
+          }
         }
-        );
       }
+      initMktoForm();
+      
     `;
     
     if (props.runFilters) {
