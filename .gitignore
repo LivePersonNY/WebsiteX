@@ -75,4 +75,4 @@ yarn-error.log
 .wordpress-cache
 uploads/
 
-# /wordpress/www/wp-content/ewww/*
+/wordpress/www/wp-content/ewww/*
