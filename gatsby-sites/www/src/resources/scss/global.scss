@@ -1161,3 +1161,44 @@ main:not(.company-careers) {
         }
     }
 }
+
+.comp-quick-links {
+    padding: 0;
+
+    .row {
+        padding-top: 22px;
+        padding-bottom: 22px;
+        border-top: 1px solid $neutral72;
+        border-bottom: 1px solid $neutral72;
+
+        p {
+            font-family: $familySpaceGrotesk;
+            font-size: 14px;
+            line-height: 20px;
+            color: $neutral16;
+            display: block;
+            padding: 6px 0;
+
+            @include media-breakpoint-up(lg) {
+                display: flex;
+                padding: 0;
+            }
+        }
+
+        a {
+            font-family: $familySpaceGrotesk;
+            font-weight: $fontBold;
+            font-size: 14px;
+            line-height: 20px;
+            color: $neutral12;
+            text-decoration: none;
+            display: block;
+            padding: 6px 0;
+
+            @include media-breakpoint-up(lg) {
+                display: flex;
+                padding: 0;
+            }
+        }
+    }
+}
