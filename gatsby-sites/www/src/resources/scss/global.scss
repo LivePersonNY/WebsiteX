@@ -259,9 +259,10 @@ img {
             max-height: 40px;
         }
     }
-    
+
     &.rem-padding {
         padding: 80px 0;
+
         .col-lg-6 {
             margin-bottom: -6rem;
         }
@@ -1150,7 +1151,8 @@ main:not(.company-careers) {
 
         .carousel-control-prev,
         .carousel-control-next {
-            background: red;
+            background-image: url("https://static.liveperson.com/static-assets/2022/02/09152152/chevron-icon-sprite-20px%402x.png");
+            background-repeat: no-repeat;
             width: 40px;
             height: 40px;
             border-radius: 100px;
@@ -1158,6 +1160,8 @@ main:not(.company-careers) {
             display: inline-block;
             margin-right: 10px;
             margin-bottom: 40px;
+            border: 2px solid $neutral80;
+            border-radius: 24px;
 
             @include media-breakpoint-up(lg) {
                 position: absolute;
@@ -1165,6 +1169,19 @@ main:not(.company-careers) {
                 margin-right: 0;
                 margin-bottom: 0;
             }
+
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                background: none;
+            }
+        }
+
+        .carousel-control-prev {
+            background-position: -563px -2px;
+        }
+
+        .carousel-control-next {
+            background-position: -601px -2px;
         }
     }
 }
