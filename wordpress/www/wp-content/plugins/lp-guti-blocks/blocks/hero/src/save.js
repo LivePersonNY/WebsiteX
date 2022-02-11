@@ -11,9 +11,10 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks/Hero';
 import LineBreaks from '../../LineBreaks';
+
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -23,7 +24,7 @@ import LineBreaks from '../../LineBreaks';
  *
  * @return {WPElement} Element to render.
  */
-export default function save({attributes}) {
+export default function save({attributes, clientId}) {
 
 	let lottiePlayerElement = attributes.lottieFile && (
 		<lottie-player
@@ -35,7 +36,7 @@ export default function save({attributes}) {
 	  );
 
 	return (
-
+		<>
 			<Hero
 				underBodyImg={attributes.logoWall}
 				underBodyImgAlt={attributes.logoWallAlt}
@@ -44,16 +45,17 @@ export default function save({attributes}) {
 				header={attributes.header}
 				subHeader={attributes.subHeader}
 				kicker={attributes.kicker}
-				heroImage={attributes.mediaUrl}
+				heroImage={attributes.innerBlockCount < 1 && attributes.mediaUrl}
 				heroImageAlt={attributes.mediaAlt}
 				primaryBtnText={attributes.primaryBtnText}
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
-				lottiePlayer={lottiePlayerElement}
+				lottiePlayer={attributes.innerBlockCount < 1 && lottiePlayerElement}
 				removePB={attributes.togglePadding}
 				logoHeader={attributes.logoHeader}
+				vimeoVideoOption={attributes.innerBlockCount == 1 && <InnerBlocks.Content />}
 			/>
-
+		</>
 	);
 }

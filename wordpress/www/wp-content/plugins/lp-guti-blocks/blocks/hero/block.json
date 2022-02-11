@@ -51,6 +51,10 @@
 			"type": "string",
 			"default": "PlaceHolder"
 		},
-		"logoHeader": {}
+		"logoHeader": {},
+		"innerBlockCount": {
+			"type": "number",
+			"default": 0
+		}
 	}
 }

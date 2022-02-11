@@ -5,8 +5,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import $ from 'jquery';
+import { useSelect } from '@wordpress/data';
 import { __experimentalGrid as Grid,Placeholder, ToolbarButton, TextControl, TextareaControl, Button, ResponsiveWrapper } from '@wordpress/components';
-const { MediaUpload, MediaUploadCheck, BlockControls } = wp.blockEditor;
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
 const { Fragment } = wp.element;
@@ -23,7 +23,7 @@ import LineBreaks from '../../LineBreaks';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, MediaUpload, MediaUploadCheck, BlockControls, InnerBlocks, ButtonBlockerAppender  } from '@wordpress/block-editor';
 import { useInstanceId } from '@wordpress/compose';
 
 /**
@@ -42,7 +42,7 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({attributes, setAttributes, isSelected}) {
+export default function Edit({attributes, setAttributes, isSelected, clientId}) {
 
 	const instanceId = useInstanceId( TextControl );
 
@@ -179,6 +179,18 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		</div>
 	);
 
+	const innerBlockCount = useSelect( ( select ) => select( 'core/block-editor' ).getBlock( clientId ).innerBlocks );
+	setAttributes({innerBlockCount: innerBlockCount.length});
+
+	const appenderToUse = () => {
+		if ( innerBlockCount.length < 1 ) {
+			return (
+				<InnerBlocks.ButtonBlockAppender className="robsclass" />
+			);
+		} else {
+			return false;
+		}
+	}
 
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
@@ -217,12 +229,13 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				header={headerControl}
 				subHeader={subHeaderControl}
 				kicker={kickerControl}
-				imgCtl={imageControl}
+				imgCtl={innerBlockCount.length < 1 && imageControl}
 				primaryBtnText={linkTextControl}
 				secondaryBtnText={linkSecondaryTextControl}
 				runFilters={true}
 				removePB={attributes.togglePadding}
 				logoHeader={logoHeaderControl}
+				vimeoVideoOption={<InnerBlocks allowedBlocks={['vimeo/create']} renderAppender={ () => appenderToUse() } />}
 			 />
 		</div>
 
@@ -238,15 +251,18 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				header={attributes.header}
 				subHeader={attributes.subHeader}
 				kicker={attributes.kicker}
-				heroImage={attributes.mediaUrl}
+				heroImage={innerBlockCount.length < 1 && attributes.mediaUrl}
 				heroImageAlt={attributes.mediaAlt}
 				primaryBtnText={attributes.primaryBtnText}
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
-				lottiePlayer={lottiePlayerElement}
+				lottiePlayer={innerBlockCount.length < 1 && lottiePlayerElement}
 				removePB={attributes.togglePadding}
 				logoHeader={attributes.logoHeader}
+				vimeoVideoOption={<InnerBlocks
+						allowedBlocks={['vimeo/create']} renderAppender={ () => appenderToUse() }
+					/>}
 			/>
 		</div>
 	);

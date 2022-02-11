@@ -39,6 +39,7 @@ const Hero = (props) => {
             !props.imgCtl && (
               (props.heroImage && <img src={props.heroImage || `https://picsum.photos/752/568?random=${parseInt(Math.random()*100)}`} alt={props.heroImageAlt || ""} />)) || props.imgCtl || props.lottiePlayer
           }
+          {props.vimeoVideoOption}
         </div>
       </div>
     </div>
