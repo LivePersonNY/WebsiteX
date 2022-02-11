@@ -16,7 +16,7 @@ module.exports = {
         generateMatchPathRewrites: false
       }
     },
-    `gatsby-plugin-no-index`,
+    process.env.NO_INDEX,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
