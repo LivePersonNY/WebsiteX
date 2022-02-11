@@ -24,6 +24,16 @@ import LineBreaks from '../../LineBreaks';
  * @return {WPElement} Element to render.
  */
 export default function save({attributes}) {
+
+	let lottiePlayerElement = attributes.lottieFile && (
+		<lottie-player
+		  autoplay
+		  loop
+		  mode="normal"
+		  src={attributes.lottieFile}
+		/>
+	  );
+
 	return (
 
 			<Hero
@@ -39,6 +49,9 @@ export default function save({attributes}) {
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
+				lottiePlayer={lottiePlayerElement}
+				removePB={attributes.togglePadding}
+				logoHeader={attributes.logoHeader}
 			/>
 
 	);

@@ -12,6 +12,7 @@ const { PanelBody } = wp.components;
 const { Fragment } = wp.element;
 import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks/Hero';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
+import * as LottiePlayer from "@lottiefiles/lottie-player";
 
 import LineBreaks from '../../LineBreaks';
 /**
@@ -42,6 +43,18 @@ import './editor.scss';
 export default function Edit({attributes, setAttributes, isSelected}) {
 
 	const instanceId = useInstanceId( TextControl );
+
+
+
+	let logoHeaderControl = (
+		<TextareaControl
+			value={ attributes.logoHeader }
+			onChange={ ( val ) => setAttributes( { logoHeader: val } ) }
+			className="embedded-input"
+			rows="1"
+			placeholder="Logo Header"
+		/>
+	);
 
 	let headerControl = (
 		<TextareaControl
@@ -75,20 +88,50 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		<MediaUploadCheck>
 			<MediaUpload
 				onSelect={function(media) {
-					setAttributes({
-						mediaUrl: media.url,
-						mediaId: media.id,
-						mediaAlt: media.alt || ""
-					});
+					if (media.mime == "application/json") {
+						setAttributes({
+							lottieFile: media.url,
+							lottieId: media.id,
+							mediaUrl: null,
+							mediaId: null,
+							mediaAlt: null
+						});
+					} else {
+						setAttributes({
+							mediaUrl: media.url,
+							mediaId: media.id,
+							mediaAlt: media.alt || "",
+							lottieFile: null,
+							lottieId: null
+						});
+					}
 				}}
-				value={attributes.mediaId}
-				allowedTypes={ ['image'] }
+				value={attributes.mediaId || attributes.lottieId}
+				allowedTypes={ ['image', 'application/json'] }
 				render={({open}) => (
-					<img className="imageSelector" src={attributes.mediaUrl} onClick={open} />
+					<>
+						{!attributes.lottieFile && <img className="imageSelector" src={attributes.mediaUrl || "https://picsum.photos/752/568?random=1"} onClick={open} />}
+						{attributes.lottieFile && <lottie-player
+							  autoplay
+							  loop
+							  mode="normal"
+							  src={attributes.lottieFile}
+							  onClick={open}
+							/>}
+					</>
 				)}
 			/>
 		</MediaUploadCheck>
 	);
+
+	let lottiePlayerElement = attributes.lottieFile && (
+		<lottie-player
+		  autoplay
+		  loop
+		  mode="normal"
+		  src={attributes.lottieFile}
+		/>
+	  );
 
 	let logoControl = (
 		<MediaUploadCheck>
@@ -128,7 +171,15 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 
 	let addButton = (
 		<BlockControls>
-
+			<ToolbarButton
+				icon="image-flip-vertical"
+				isActive={attributes.togglePadding}
+				onClick={function() {
+					window.jQuery('.lottie-container').html("");
+					setAttributes({ togglePadding: !attributes.togglePadding });
+				}}
+				label="Toggle Padding"
+			/>
 			<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 		</BlockControls>
 	);
@@ -198,6 +249,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				/>
 			</MediaUploadCheck>
 			<Hero
+				lottieFile={attributes.lottieFile}
 				imgLogoCtl={logoControl}
 				backgroundImage={attributes.backgroundImage}
 				backgroundColor={attributes.backgroundColor}
@@ -207,6 +259,9 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				imgCtl={imageControl}
 				primaryBtnText={linkTextControl}
 				secondaryBtnText={linkSecondaryTextControl}
+				runFilters={true}
+				removePB={attributes.togglePadding}
+				logoHeader={logoHeaderControl}
 			 />
 		</div>
 
@@ -227,6 +282,9 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
+				lottiePlayer={lottiePlayerElement}
+				removePB={attributes.togglePadding}
+				logoHeader={attributes.logoHeader}
 			/>
 		</div>
 	);

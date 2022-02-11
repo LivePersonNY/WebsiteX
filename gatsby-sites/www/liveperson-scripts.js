@@ -1,13 +1,18 @@
 import $ from 'jquery';
 import lottie from "lottie-web";
 
+window.lottie = lottie;
+
+window.readyTimeout = null;
+
+
 window.documentReadyFn = function() {
 	
-	window.lottie = lottie;
+	window.lottieFiles = [];
 	
 	Array.from(document.scripts).forEach(function(item) {
 		if (item.attributes['data-type']?.value == 'pageScript') {
-			console.log("executing form script...");
+			console.log("executing script...");
 			eval(item.text);
 		}
 	});
