@@ -2088,7 +2088,6 @@
 		"/resources/videos": "/resources/#webinar",
 		"/resources/whitepapers": "/resources/#expert-guide",
 		"/covid-19": "/resources/covid-19",
-<<<<<<< HEAD
 		"/resources/news/*": "/resources-news/",
 		"/resources/releases/*": "/resources-releases/",
 		"/resources/expert-guide/*": "/resources-expert-guide/",
@@ -2099,31 +2098,13 @@
 		"/partners/services/foundations-cso": "https://policies.liveperson.com/partners/services/foundations-cso",
 		"/partners/services/offerings-pso": "https://policies.liveperson.com/partners/services/offerings-pso",
 		"/mychatbot": "mywhatsappbot",
-=======
-		"/resources/news/*": "/resources-news/%1",
-		"/resources/releases/*": "/resources-releases/%1",
-		"/resources/expert-guide/*": "/resources-expert-guide/%1",
-		"/resources/success-story/*": "/resources-success-story/%1",
-		"/resources/video-guide/*": "/resources-video-guide/%1",
-		"/policies/*": "https://policies.liveperson.com/%1",
-		"/resources-expert-guide/covid-19-library": "/resources/covid-19",
-		"/partners/services/foundations-cso": "https://policies.liveperson.com/partners/services/foundations-cso",
-		"/partners/services/offerings-pso": "https://policies.liveperson.com/partners/services/offerings-pso",
-		"/mychatbot*": "mywhatsappbot%1",
->>>>>>> fe12a75a97cac25922d974cb3dc72864ef851a66
 		"/landing-pages/company/customers": "/",
 		"/landing-pages/contact/cobrowse_disclaimer": "/",
 		"/landing-pages/email-management/anti-spam": "/",
 		"/landing-pages/industries/interactive-entertainment": "/",
-<<<<<<< HEAD
-		"/landing-pages/live-chat": "/",
-		"/landing-pages/liveengage": "/",
-		"/landing-pages/liveengageupgrade0313": "/",
-=======
 		"/landing-pages/live-chat*": "/",
 		"/landing-pages/liveengage": "/",
 		"/landing-pages/liveengageupgrade0313*": "/",
->>>>>>> fe12a75a97cac25922d974cb3dc72864ef851a66
 		"/landing-pages/product-packages/*": "/",
 		"/landing-pages/sb/email_management_screens": "/",
 		"/landing-pages/training/agent_tour/pro": "/",
