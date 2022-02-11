@@ -46,7 +46,7 @@
 			"default": 0,
 			"type": "number"
 		},
-		"mediaUrl": {},
+		"mediaUrl": {"default":"https://picsum.photos/752/568?random=1"},
 		"mediaAlt": {
 			"type": "string",
 			"default": "PlaceHolder"
