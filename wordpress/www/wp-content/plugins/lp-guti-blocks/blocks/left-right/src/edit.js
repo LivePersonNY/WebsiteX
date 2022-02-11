@@ -163,6 +163,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				title={titleControl}
 				flipColumns={attributes.flipped}
 				imgCtl={imageControl}
+				lottieFile={attributes.lottieFile}
 			/>
 			<Fragment>
 				<InspectorControls>
@@ -204,9 +205,10 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				body={attributes.text}
 				title={attributes.title}
 				flipColumns={attributes.flipped}
-				lottiePlayer={lottiePlayerElement}
 				imgSrc={attributes.mediaUrl}
 				imgAlt={attributes.mediaAlt}
+				lottiePlayer={lottiePlayerElement}
+
 			/>
 		</div>
 	);

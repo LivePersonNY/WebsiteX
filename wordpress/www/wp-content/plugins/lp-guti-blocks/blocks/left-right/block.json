@@ -30,7 +30,6 @@
 			"type": "number"
 		},
 		"mediaUrl": {
-			"type": "string",
 			"default": "https://picsum.photos/752/568?random=1"
 		},
 		"mediaAlt": {
@@ -49,6 +48,8 @@
 		"linkText": {"default": "Here's button link text"},
 		"linkUrl": {"default": "https://www.liveperson.com"},
 		"linkSecondaryText": {"default": "Here's a link text"},
-		"linkSecondaryUrl": {"default": "https://www.liveperson.com"}
+		"linkSecondaryUrl": {"default": "https://www.liveperson.com"},
+		"lottieFile": {},
+		"lottieId": {}
 	}
 }

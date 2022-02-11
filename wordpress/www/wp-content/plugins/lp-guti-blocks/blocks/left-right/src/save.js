@@ -37,7 +37,8 @@ export default function save({attributes}) {
 
 
 	return (
-		<LeftRight headLevel={attributes.headLevel}
+		<LeftRight
+			headLevel={attributes.headLevel}
 			kicker={attributes.kicker}
 			backgroundColor={attributes.backgroundColor}
 			repeat={attributes.repeat}
@@ -50,8 +51,8 @@ export default function save({attributes}) {
 			flipColumns={attributes.flipped}
 			imgSrc={attributes.mediaUrl}
 			imgAlt={attributes.mediaAlt}
-			headLevel={attributes.headLevel}
 			lottiePlayer={lottiePlayerElement}
-		 />
+
+		/>
 	);
 }
