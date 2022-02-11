@@ -259,6 +259,12 @@ img {
             max-height: 40px;
         }
     }
+    
+    &.rem-padding {
+        col-lg-6 {
+            margin-bottom: -6rem;
+        }
+    }
 }
 
 .comp-left-right {
