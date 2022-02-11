@@ -3,9 +3,12 @@ import lottie from "lottie-web";
 
 window.lottie = lottie;
 
+window.readyTimeout = null;
+
+
 window.documentReadyFn = function() {
 	
-
+	window.lottieFiles = [];
 	
 	Array.from(document.scripts).forEach(function(item) {
 		if (item.attributes['data-type']?.value == 'pageScript') {

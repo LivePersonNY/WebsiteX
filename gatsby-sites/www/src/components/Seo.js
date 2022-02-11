@@ -42,8 +42,9 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       
       function waitForDocumentReadyFn() {
         if (!window.documentReadyFn) {
-          setTimeout(waitForDocumentReadyFn, 100);
+          window.readyTimeout = setTimeout(waitForDocumentReadyFn, 50);
         } else {
+          clearTimeout(window.readyTimeout);
           window.documentReadyFn();
         }
       }

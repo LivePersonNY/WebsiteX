@@ -12,6 +12,7 @@ const { PanelBody } = wp.components;
 const { Fragment } = wp.element;
 import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks/Hero';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
+import * as LottiePlayer from "@lottiefiles/lottie-player";
 
 import LineBreaks from '../../LineBreaks';
 /**
@@ -110,12 +111,27 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				render={({open}) => (
 					<>
 						{!attributes.lottieFile && <img className="imageSelector" src={attributes.mediaUrl || "https://picsum.photos/752/568?random=1"} onClick={open} />}
-						{attributes.lottieFile && <img className="imageSelector" src="https://cdn.dribbble.com/users/409537/screenshots/3017834/placeholder_fadein_mockup.gif" onClick={open} />}
+						{attributes.lottieFile && <lottie-player
+							  autoplay
+							  loop
+							  mode="normal"
+							  src={attributes.lottieFile}
+							  onClick={open}
+							/>}
 					</>
 				)}
 			/>
 		</MediaUploadCheck>
 	);
+
+	let lottiePlayerElement = attributes.lottieFile && (
+		<lottie-player
+		  autoplay
+		  loop
+		  mode="normal"
+		  src={attributes.lottieFile}
+		/>
+	  );
 
 	let logoControl = (
 		<MediaUploadCheck>
@@ -243,6 +259,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				imgCtl={imageControl}
 				primaryBtnText={linkTextControl}
 				secondaryBtnText={linkSecondaryTextControl}
+				runFilters={true}
 				removePB={attributes.togglePadding}
 				logoHeader={logoHeaderControl}
 			 />
@@ -265,8 +282,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
-				lottieFile={attributes.lottieFile}
-				runFilters={true}
+				lottiePlayer={lottiePlayerElement}
 				removePB={attributes.togglePadding}
 				logoHeader={attributes.logoHeader}
 			/>
