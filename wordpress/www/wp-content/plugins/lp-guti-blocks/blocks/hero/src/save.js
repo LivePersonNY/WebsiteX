@@ -38,6 +38,7 @@ export default function save({attributes}) {
 
 			<Hero
 				underBodyImg={attributes.logoWall}
+				underBodyImgAlt={attributes.logoWallAlt}
 				backgroundImage={attributes.backgroundImage}
 				backgroundColor={attributes.backgroundColor}
 				header={attributes.header}

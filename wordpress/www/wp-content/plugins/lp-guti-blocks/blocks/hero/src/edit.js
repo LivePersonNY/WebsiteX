@@ -232,6 +232,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		<div {...useBlockProps()}>
 			<Hero
 				underBodyImg={attributes.logoWall}
+				underBodyImgAlt={attributes.logoWallAlt}
 				backgroundImage={attributes.backgroundImage}
 				backgroundColor={attributes.backgroundColor}
 				header={attributes.header}
