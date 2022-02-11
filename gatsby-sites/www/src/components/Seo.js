@@ -111,6 +111,8 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         async={true}
       />
       
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
+      
     </Helmet>
   );
 };
