@@ -4,36 +4,6 @@ import Paragraph from '../Paragraph';
 import { useEffect } from 'react';
 
 const Hero = (props) => {
-  
-  /*let lottieScript = `
-    function loadLottieAnim() {
-      if (!window.lottie) {
-        window.lottieTimeout = setTimeout(loadLottieAnim, 100);
-      } else {
-        clearTimeout(window.lottieTimeout);
-        if (window.lottieFiles.indexOf('${props.lottieFile}') == -1) {
-          window.lottieFiles.push('${props.lottieFile}');
-          window.lottie.loadAnimation({
-            container: document.querySelector('.lottie-container'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: '${props.lottieFile}'
-          });
-        }
-      }
-    } 
-    loadLottieAnim();
-  `;
-  
-  if (props.runFilters && props.lottieFile) {
-    useEffect(() => {
-      eval(lottieScript);
-      setTimeout(function() {
-        window.lottieFiles = [];
-      }, 2000);
-    });
-  }*/
     
   return (<div className={`pane hero ${props.backgroundColor||"bg-transparent"} ${props.removePB ? 'rem-padding' : ''}`}>
     {props.backgroundImage && 
@@ -67,7 +37,7 @@ const Hero = (props) => {
         <div className={`col-lg-6 offset-lg-1`}>
           {
             !props.imgCtl && (
-              (props.heroImage && <img src={props.heroImage || "https://picsum.photos/752/568?random=1"} alt={props.heroImageAlt || ""} />)) || props.imgCtl || props.lottiePlayer
+              (props.heroImage && <img src={props.heroImage || `https://picsum.photos/752/568?random=${parseInt(Math.random()*100)}`} alt={props.heroImageAlt || ""} />)) || props.imgCtl || props.lottiePlayer
           }
         </div>
       </div>

@@ -12,6 +12,8 @@ const { PanelBody } = wp.components;
 const { Fragment, useState } = wp.element;
 import LeftRight from '../../../../../../../../gatsby-sites/www/src/components/blocks/LeftRight';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
+import MediaPicker from '../../MediaPicker';
+import LottieFilePlayer from '../../LottieFilePlayer';
 
 
 import LineBreaks from '../../LineBreaks';
@@ -83,23 +85,12 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	);
 
 	let imageControl = (
-		<MediaUploadCheck>
-			<MediaUpload
-				onSelect={function(media) {
-					setAttributes({
-						mediaUrl: media.url,
-						mediaId: media.id,
-						mediaAlt: media.alt || ""
-					});
-				}}
-				value={attributes.mediaId}
-				allowedTypes={ ['image'] }
-				render={({open}) => (
-					<img className="imageSelector" src={attributes.mediaUrl} onClick={open} />
-				)}
-			/>
-		</MediaUploadCheck>
+		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} />
 	);
+
+	let lottiePlayerElement = (
+		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
+	)
 
 	let linkTextControl = (
 		<div className="wp-control-wrapper">
@@ -213,6 +204,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				body={attributes.text}
 				title={attributes.title}
 				flipColumns={attributes.flipped}
+				lottiePlayer={lottiePlayerElement}
 				imgSrc={attributes.mediaUrl}
 				imgAlt={attributes.mediaAlt}
 			/>

@@ -18,7 +18,10 @@ const LeftRight = (props) => {
             <div
               className={`col-lg-6 ${props.flipColumns ? 'order-lg-last' : ''}`}
             >
-              {!props.imgCtl && <img src={props.imgSrc} alt={props.imgAlt} /> || props.imgCtl}
+              {
+                !props.imgCtl && (
+                  (props.imgSrc && <img src={props.imgSrc || `https://picsum.photos/752/568?random=${parseInt(Math.random()*100)}`} alt={props.imgAlt || ""} />)) || props.imgCtl || props.lottiePlayer
+              }
             </div>
             <div
               className={`col-lg-6 ${

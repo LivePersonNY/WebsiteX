@@ -13,6 +13,8 @@ const { Fragment } = wp.element;
 import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks/Hero';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import * as LottiePlayer from "@lottiefiles/lottie-player";
+import MediaPicker from '../../MediaPicker';
+import LottieFilePlayer from '../../LottieFilePlayer';
 
 import LineBreaks from '../../LineBreaks';
 /**
@@ -85,53 +87,12 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	);
 
 	let imageControl = (
-		<MediaUploadCheck>
-			<MediaUpload
-				onSelect={function(media) {
-					if (media.mime == "application/json") {
-						setAttributes({
-							lottieFile: media.url,
-							lottieId: media.id,
-							mediaUrl: null,
-							mediaId: null,
-							mediaAlt: null
-						});
-					} else {
-						setAttributes({
-							mediaUrl: media.url,
-							mediaId: media.id,
-							mediaAlt: media.alt || "",
-							lottieFile: null,
-							lottieId: null
-						});
-					}
-				}}
-				value={attributes.mediaId || attributes.lottieId}
-				allowedTypes={ ['image', 'application/json'] }
-				render={({open}) => (
-					<>
-						{!attributes.lottieFile && <img className="imageSelector" src={attributes.mediaUrl || "https://picsum.photos/752/568?random=1"} onClick={open} />}
-						{attributes.lottieFile && <lottie-player
-							  autoplay
-							  loop
-							  mode="normal"
-							  src={attributes.lottieFile}
-							  onClick={open}
-							/>}
-					</>
-				)}
-			/>
-		</MediaUploadCheck>
+		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} />
 	);
 
-	let lottiePlayerElement = attributes.lottieFile && (
-		<lottie-player
-		  autoplay
-		  loop
-		  mode="normal"
-		  src={attributes.lottieFile}
-		/>
-	  );
+	let lottiePlayerElement = (
+		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
+	)
 
 	let logoControl = (
 		<MediaUploadCheck>

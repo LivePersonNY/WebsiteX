@@ -25,6 +25,17 @@ import LineBreaks from '../../LineBreaks';
  * @return {WPElement} Element to render.
  */
 export default function save({attributes}) {
+
+	let lottiePlayerElement = attributes.lottieFile && (
+		<lottie-player
+		  autoplay
+		  loop
+		  mode="normal"
+		  src={attributes.lottieFile}
+		/>
+	  );
+
+
 	return (
 		<LeftRight headLevel={attributes.headLevel}
 			kicker={attributes.kicker}
@@ -40,6 +51,7 @@ export default function save({attributes}) {
 			imgSrc={attributes.mediaUrl}
 			imgAlt={attributes.mediaAlt}
 			headLevel={attributes.headLevel}
+			lottiePlayer={lottiePlayerElement}
 		 />
 	);
 }
