@@ -94,6 +94,18 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
 	)
 
+	let vimeoUrlControls = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Vimeo URL" initialOpen={ false }>
+					<TextControl value={attributes.vimeoUrl} onChange={function(value) {
+						setAttributes({vimeoUrl: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+	);
+
 	let logoControl = (
 		<MediaUploadCheck>
 			<MediaUpload
@@ -195,6 +207,7 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
 			{addButton}
+			{vimeoUrlControls}
 			<MediaUploadCheck>
 				<MediaUpload
 					onSelect={changeHeroBGimage}
@@ -229,13 +242,14 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 				header={headerControl}
 				subHeader={subHeaderControl}
 				kicker={kickerControl}
-				imgCtl={innerBlockCount.length < 1 && imageControl}
+				imgCtl={!attributes.vimeoUrl && imageControl}
 				primaryBtnText={linkTextControl}
 				secondaryBtnText={linkSecondaryTextControl}
 				runFilters={true}
 				removePB={attributes.togglePadding}
 				logoHeader={logoHeaderControl}
-				vimeoVideoOption={<InnerBlocks allowedBlocks={['vimeo/create']} renderAppender={ () => appenderToUse() } />}
+				vimeoUrl={attributes.vimeoUrl}
+				/*vimeoVideoOption={<InnerBlocks allowedBlocks={['vimeo/create']} renderAppender={ () => appenderToUse() } />}*/
 			 />
 		</div>
 
@@ -251,18 +265,19 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 				header={attributes.header}
 				subHeader={attributes.subHeader}
 				kicker={attributes.kicker}
-				heroImage={innerBlockCount.length < 1 && attributes.mediaUrl}
+				heroImage={!attributes.vimeoUrl && attributes.mediaUrl}
 				heroImageAlt={attributes.mediaAlt}
 				primaryBtnText={attributes.primaryBtnText}
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
-				lottiePlayer={innerBlockCount.length < 1 && lottiePlayerElement}
+				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				removePB={attributes.togglePadding}
 				logoHeader={attributes.logoHeader}
-				vimeoVideoOption={<InnerBlocks
+				vimeoUrl={attributes.vimeoUrl}
+				/*vimeoVideoOption={<InnerBlocks
 						allowedBlocks={['vimeo/create']} renderAppender={ () => appenderToUse() }
-					/>}
+					/>}*/
 			/>
 		</div>
 	);

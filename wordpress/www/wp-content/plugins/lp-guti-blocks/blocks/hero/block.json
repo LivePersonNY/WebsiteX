@@ -55,6 +55,7 @@
 		"innerBlockCount": {
 			"type": "number",
 			"default": 0
-		}
+		},
+		"vimeoUrl": {}
 	}
 }

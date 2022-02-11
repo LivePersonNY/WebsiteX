@@ -5,6 +5,12 @@ import { useEffect } from 'react';
 
 const Hero = (props) => {
     
+  let vFrame = (
+    <div className="vimeoContainer">
+      <iframe src={props.vimeoUrl} className="vimeoFrame"></iframe>
+    </div>
+  );
+    
   return (<div className={`pane hero ${props.backgroundColor||"bg-transparent"} ${props.removePB ? 'rem-padding' : ''}`}>
     {props.backgroundImage && 
       <style>
@@ -39,7 +45,7 @@ const Hero = (props) => {
             !props.imgCtl && (
               (props.heroImage && <img src={props.heroImage || `https://picsum.photos/752/568?random=${parseInt(Math.random()*100)}`} alt={props.heroImageAlt || ""} />)) || props.imgCtl || props.lottiePlayer
           }
-          {props.vimeoVideoOption}
+          {props.vimeoUrl && vFrame}
         </div>
       </div>
     </div>

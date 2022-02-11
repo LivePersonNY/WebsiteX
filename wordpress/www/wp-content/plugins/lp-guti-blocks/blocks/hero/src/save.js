@@ -45,16 +45,17 @@ export default function save({attributes, clientId}) {
 				header={attributes.header}
 				subHeader={attributes.subHeader}
 				kicker={attributes.kicker}
-				heroImage={attributes.innerBlockCount < 1 && attributes.mediaUrl}
+				heroImage={!attributes.vimeoUrl && attributes.mediaUrl}
 				heroImageAlt={attributes.mediaAlt}
 				primaryBtnText={attributes.primaryBtnText}
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
-				lottiePlayer={attributes.innerBlockCount < 1 && lottiePlayerElement}
+				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				removePB={attributes.togglePadding}
 				logoHeader={attributes.logoHeader}
-				vimeoVideoOption={attributes.innerBlockCount == 1 && <InnerBlocks.Content />}
+				/*vimeoVideoOption={attributes.innerBlockCount == 1 && <InnerBlocks.Content />}*/
+				vimeoUrl={attributes.vimeoUrl}
 			/>
 		</>
 	);
