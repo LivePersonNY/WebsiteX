@@ -35,6 +35,7 @@ import ExecutiveCard from '../components/blocks/ExecutiveCard';
 import BoardCards from '../components/blocks/BoardCards';
 import ScrollContent from '../components/blocks/ScrollContent';
 import HeroLottie from '../components/blocks/HeroLottie';
+import QuickLinks from '../components/blocks/QuickLinks';
 
 const IndexPage = () => (
   <Layout>
@@ -249,37 +250,30 @@ const IndexPage = () => (
       ]}
     />
 
-    {/* <div className="pane bg-primary-light">
-      <div className="container comp-left-right">
-        <div className="row align-items-center">
-          <div className="col-lg-5">
-            <h6>PRE-HEADER TEXT</h6>
-            <h2>LivePerson for your business</h2>
-            <img src="https://picsum.photos/18/18" alt="" />
-            <h3>Commerce</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat
-              eros, est dolor ullamcorper dui tellus eleifend.
-            </p>
-            <a className="link link-mt-small" href="#">
-              Discover Commerce Solutions
-            </a>
-            <img src="https://picsum.photos/18/18" alt="" />
-            <h3>Customer Care</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat
-              eros, est dolor ullamcorper dui tellus eleifend.
-            </p>
-            <a className="link link-mt-small" href="#">
-              Discover Customer Care
-            </a>
-          </div>
-          <div className="col-lg-6 offset-lg-1">
-            <img src="https://picsum.photos/640/720" alt="" />
-          </div>
-        </div>
-      </div>
-    </div> */}
+    <QuickLinks
+      items={[
+        {
+          "linkText":"Our journey",
+          "linkUrl":"#"
+        },
+        {
+          "linkText":"The Curiously Human™ approach",
+          "linkUrl":"#"
+        },
+        {
+          "linkText":"Executive team",
+          "linkUrl":"#"
+        },
+        {
+          "linkText":"Leadership team",
+          "linkUrl":"#"
+        },
+        {
+          "linkText":"Board of directors",
+          "linkUrl":"#"
+        },
+      ]}
+    />
 
     <div className="container component-doc">
       <div className="row">
