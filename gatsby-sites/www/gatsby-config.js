@@ -116,7 +116,7 @@ module.exports = {
         // Defaults to false
         enableWebVitalsTracking: true,
         // Defaults to https://www.googletagmanager.com
-        selfHostedOrigin: "YOUR_SELF_HOSTED_ORIGIN",
+        // selfHostedOrigin: "YOUR_SELF_HOSTED_ORIGIN",
       },
     },
   ],
