@@ -45,6 +45,9 @@ const MktoForm = (props) => {
             }
             );
           }
+          window.MktoForms2.whenReady(function(form) {
+            window.LivePerson.FormReady(form);
+          });
         }
       }
       initMktoForm();
