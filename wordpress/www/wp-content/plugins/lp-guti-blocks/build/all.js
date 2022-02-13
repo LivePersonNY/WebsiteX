@@ -27154,16 +27154,16 @@ const LivePerson = {
         Cookie.set('lp-lsRef', document.location.href, 1);
       } else {
         // Everything else
-        for (i = 0; i < lsOrganic.length; i++) {
-          if (lsRef.indexOf(lsOrganic[i]) !== -1) {
+        for (i = 0; i < Dictionary.organicSites.length; i++) {
+          if (lsRef.indexOf(Dictionary.organicSites[i]) !== -1) {
             Cookie.set('lp-leadSource', 'Organic', 1);
             leadSourceCookie = 'Organic';
             return false;
           }
         }
 
-        for (i = 0; i < lsSocial.length; i++) {
-          if (lsRef.indexOf(lsSocial[i]) !== -1) {
+        for (i = 0; i < Dictionary.socialSites.length; i++) {
+          if (lsRef.indexOf(Dictionary.socialSites[i]) !== -1) {
             Cookie.set('lp-leadSource', 'Social', 30);
             Cookie.set('lp-lsRef', lsRef, 30);
             leadSourceCookie = 'Social';
@@ -27171,8 +27171,8 @@ const LivePerson = {
           }
         }
 
-        for (i = 0; i < lsReview.length; i++) {
-          if (lsRef.indexOf(lsReview[i]) !== -1) {
+        for (i = 0; i < Dictionary.reviewSites.length; i++) {
+          if (lsRef.indexOf(Dictionary.reviewSites[i]) !== -1) {
             Cookie.set('lp-leadSource', 'Review website', 30);
             Cookie.set('lp-lsRef', lsRef, 30);
             leadSourceCookie = 'Review website';
@@ -27180,8 +27180,8 @@ const LivePerson = {
           }
         }
 
-        for (i = 0; i < lsPR.length; i++) {
-          if (lsRef.indexOf(lsPR[i]) !== -1) {
+        for (i = 0; i < Dictionary.prSites.length; i++) {
+          if (lsRef.indexOf(Dictionary.prSites[i]) !== -1) {
             Cookie.set('lp-leadSource', 'PR', 1);
             leadSourceCookie = 'PR';
             return false;
