@@ -59,7 +59,6 @@ const MktoForms = {
 			MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId);
 		});		
 		
-		
 	}
 }
 
