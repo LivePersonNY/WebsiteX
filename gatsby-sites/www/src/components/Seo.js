@@ -49,16 +49,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         }
       }
       waitForDocumentReadyFn();
-      
-      function waitForAttribution() {
-        if (!window.attributionReadyFn) {
-          window.attrTimeout = setTimeout(waitForDocumentReadyFn, 50);
-        } else {
-          clearTimeout(window.attrTimeout);
-          window.attributionReadyFn();
-        }
-      }
-      waitForAttribution();
           
   });
 

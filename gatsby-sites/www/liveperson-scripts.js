@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import lottie from "lottie-web";
+import { Cookie, Query, LivePerson } from "./liveperson-attribution";
 
 window.lottie = lottie;
 
@@ -120,5 +121,7 @@ window.documentReadyFn = function() {
 			$(".LPMcontainer .LPMimage").attr("onclick", "ga('send', 'event', 'chat', 'click', 'site-wide button')");
 			$(".LPMcontainer").attr("onclick", "ga('send', 'event', 'form', 'submit', 'Chat engagement clicks')");
 		}, 3000);
+	
+	window.LivePerson = LivePerson;
 	
 }
