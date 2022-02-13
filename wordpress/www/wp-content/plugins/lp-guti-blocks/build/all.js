@@ -27003,9 +27003,311 @@ function withinMaxClamp(min, value, max) {
 /*!*****************************************************************!*\
   !*** ../../../../../gatsby-sites/www/liveperson-attribution.js ***!
   \*****************************************************************/
-/***/ (function() {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/rlester/GitHub/WebsiteX/gatsby-sites/www/liveperson-attribution.js: Identifier 'name' has already been declared. (12:15)\n\n\u001b[0m \u001b[90m 10 |\u001b[39m \t\tdocument\u001b[33m.\u001b[39mcookie \u001b[33m=\u001b[39m name \u001b[33m+\u001b[39m \u001b[32m\"=\"\u001b[39m \u001b[33m+\u001b[39m value \u001b[33m+\u001b[39m expires \u001b[33m+\u001b[39m \u001b[32m\"; path=/; domain=liveperson.com;\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 11 |\u001b[39m \t}\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m \t\u001b[36mget\u001b[39m\u001b[33m:\u001b[39m \u001b[36mfunction\u001b[39m(name) {\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \t              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 13 |\u001b[39m \t\t\u001b[36mlet\u001b[39m name \u001b[33m=\u001b[39m cname \u001b[33m+\u001b[39m \u001b[32m\"=\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 14 |\u001b[39m \t\t\u001b[36mlet\u001b[39m decodedCookie \u001b[33m=\u001b[39m decodeURIComponent(document\u001b[33m.\u001b[39mcookie)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 15 |\u001b[39m \t\t\u001b[36mlet\u001b[39m ca \u001b[33m=\u001b[39m decodedCookie\u001b[33m.\u001b[39msplit(\u001b[32m';'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n    at Object._raise (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:569:17)\n    at Object.raiseWithData (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:562:17)\n    at Object.raise (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:523:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:1731:12)\n    at ScopeHandler.declareName (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:1711:14)\n    at Object.checkLVal (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:11158:24)\n    at Object.checkParams (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:12913:12)\n    at Object.<anonymous> (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:12888:14)\n    at Object.parseBlockOrModuleBlockBody (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:14137:23)\n    at Object.parseBlockBody (/Users/rlester/GitHub/WebsiteX/wordpress/www/wp-content/plugins/lp-guti-blocks/node_modules/@babel/parser/lib/index.js:14105:10)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Query": function() { return /* binding */ Query; },
+/* harmony export */   "Cookie": function() { return /* binding */ Cookie; },
+/* harmony export */   "LivePerson": function() { return /* binding */ LivePerson; },
+/* harmony export */   "MktoForms": function() { return /* binding */ MktoForms; }
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const Dictionary = __webpack_require__(/*! ./dictionary.json */ "../../../../../gatsby-sites/www/dictionary.json");
+
+const Cookie = {
+  set: function (name, value, days) {
+    var date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    var expires = "; expires=" + date.toGMTString();
+    document.cookie = name + "=" + value + expires + "; path=/; domain=liveperson.com;";
+  },
+  get: function (cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+
+    return "";
+  }
+};
+const Query = {
+  get: function (key) {
+    var match = RegExp('[?&]' + key + '=([^&]*)').exec(window.location.search);
+    var value = match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    return value;
+  }
+};
+const MktoForms = {
+  Bind: function () {
+    if (!window.formsBinded) {
+      window.formsBinded = true;
+      MktoForms2.whenReady(function (form) {
+        LivePerson.FormReady(form);
+        form.onValidate(function () {
+          LivePerson.Validate(form);
+        });
+        form.onSuccess(function (values, forwardUrl) {
+          LivePerson.ShowAfterMessage(form);
+          window.dataLayer && dataLayer.push({
+            'event': 'request-demo-form'
+          });
+          return false;
+        });
+      });
+    }
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('form:not(.mktoForm)').each(function () {
+      const formId = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('mkto');
+      if (!formId) return;
+      MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId);
+    });
+  }
+};
+const LivePerson = {
+  HydrateAttributes: function () {
+    var leadSourceCookie = Cookie.get("lp-leadSource");
+    var lsRef = Cookie.get("lp-lsRef");
+    var lsTerms = Cookie.get("lp-lsTerms");
+    var lsCampaign = Cookie.get("lp-lsCampaign");
+    var lsSource = Cookie.get("lp-lsSource");
+    var lsMedium = Cookie.get("lp-lsMedium");
+    var lsContent = Cookie.get("lp-lsContent");
+    var queryString = Cookie.get("lp-queryString");
+
+    var _mkto_trk = Cookie.get("_mkto_trk");
+
+    if (lsTerms === '') {
+      lsTerms = Query.get('utm_term') || Query.get('keywords') || Query.get('keyword') || Query.get('oquery') || Query.get('query') || Query.get('_bk');
+      Cookie.set('lp-lsTerms', lsTerms, 30);
+    }
+
+    if (lsCampaign === '') {
+      lsCampaign = Query.get('utm_campaign');
+      Cookie.set('lp-lsCampaign', lsCampaign, 30);
+    }
+
+    if (lsSource === '') {
+      lsSource = Query.get('utm_source');
+      Cookie.set('lp-lsSource', lsSource, 30);
+    }
+
+    if (lsMedium === '') {
+      lsMedium = Query.get('utm_medium');
+      Cookie.set('lp-lsMedium', lsMedium, 30);
+    }
+
+    if (lsContent === '') {
+      lsContent = Query.get('utm_content');
+      Cookie.set('lp-lsContent', lsContent, 30);
+    }
+
+    if (queryString === '') {
+      queryString = window.location.search;
+      Cookie.set('lp-queryString', queryString, 30);
+    }
+
+    if (lsRef === '') {
+      Cookie.set('lp-lsRef', document.referrer, 1);
+      lsRef = document.referrer;
+    }
+
+    var lpindex = lsRef.indexOf('liveperson.com') || lsRef.indexOf('us.platform.sh');
+
+    if (leadSourceCookie === '') {
+      if (Query.get('utm_medium') == 'remarketing') {
+        // Remarketing
+        Cookie.set('lp-leadSource', 'Remarketing', 30);
+        leadSourceCookie = 'Remarketing';
+        Cookie.set('lp-lsRef', lsRef, 30);
+      } else if (Query.get('utm_medium') == 'display') {
+        // Display
+        Cookie.set('lp-leadSource', 'Display', 30);
+        leadSourceCookie = 'Display';
+        Cookie.set('lp-lsRef', lsRef, 30);
+      } else if (Query.get('utm_medium') == 'social') {
+        // Social
+        Cookie.set('lp-leadSource', 'Social', 30);
+        leadSourceCookie = 'Social';
+        Cookie.set('lp-lsRef', lsRef, 30);
+      } else if (Query.get('gclid')) {
+        // Paid Search
+        Cookie.set('lp-leadSource', 'Paid search', 30);
+        leadSourceCookie = 'Paid search';
+        Cookie.set('lp-lsRef', lsRef, 30);
+      } else if (Query.get('msclkid')) {
+        // Paid Search
+        Cookie.set('lp-leadSource', 'Paid search', 30);
+        leadSourceCookie = 'Paid search';
+        Cookie.set('lp-lsRef', lsRef, 30);
+      } else if (Query.get('utm_medium') === 'email') {
+        // Email
+        Cookie.set('lp-leadSource', 'Email', 1);
+        leadSourceCookie = 'Email';
+      } else if (lsRef.indexOf('go.liveperson.com') >= 0 || lsRef.indexOf('mkto-g0178.com') >= 0) {
+        Cookie.set('lp-leadSource', 'Email', 1);
+        leadSourceCookie = 'Email';
+      } else if (lsRef === '' || !lsRef || lpindex > -1 && lpindex < 15) {
+        // Direct
+        Cookie.set('lp-leadSource', 'Direct', 1);
+        leadSourceCookie = 'Direct';
+        lsRef = document.location.href;
+        Cookie.set('lp-lsRef', document.location.href, 1);
+      } else {
+        // Everything else
+        for (i = 0; i < Dictionary.organicSites.length; i++) {
+          if (lsRef.indexOf(Dictionary.organicSites[i]) !== -1) {
+            Cookie.set('lp-leadSource', 'Organic', 1);
+            leadSourceCookie = 'Organic';
+            return false;
+          }
+        }
+
+        for (i = 0; i < Dictionary.socialSites.length; i++) {
+          if (lsRef.indexOf(Dictionary.socialSites[i]) !== -1) {
+            Cookie.set('lp-leadSource', 'Social', 30);
+            Cookie.set('lp-lsRef', lsRef, 30);
+            leadSourceCookie = 'Social';
+            return false;
+          }
+        }
+
+        for (i = 0; i < Dictionary.reviewSites.length; i++) {
+          if (lsRef.indexOf(Dictionary.reviewSites[i]) !== -1) {
+            Cookie.set('lp-leadSource', 'Review website', 30);
+            Cookie.set('lp-lsRef', lsRef, 30);
+            leadSourceCookie = 'Review website';
+            return false;
+          }
+        }
+
+        for (i = 0; i < Dictionary.prSites.length; i++) {
+          if (lsRef.indexOf(Dictionary.prSites[i]) !== -1) {
+            Cookie.set('lp-leadSource', 'PR', 1);
+            leadSourceCookie = 'PR';
+            return false;
+          }
+        }
+
+        Cookie.set('lp-leadSource', 'Other referral', 1);
+        leadSourceCookie = 'Other referral';
+      }
+    }
+  },
+  decodeHtml: function (html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+  },
+  SetFullName: function (a, b, c, form) {
+    String.prototype.capitalize = function () {
+      return this.replace(/(^)([a-z])/g, function (m, p1, p2) {
+        return p1 + p2.toUpperCase();
+      });
+    };
+
+    var fullName, first, last;
+    fullName = form.getValues().wholeName;
+
+    if ((fullName.match(/ /g) || []).length === 0 || fullName.substring(fullName.indexOf(" ") + 1, fullName.length) === "") {
+      first = fullName.capitalize();
+      last = "null";
+    } else if (fullName.substring(0, fullName.indexOf(" ")).indexOf(".") > -1) {
+      first = fullName.substring(0, fullName.indexOf(" ")).capitalize() + " " + fullName.substring(fullName.indexOf(" ") + 1, fullName.length).substring(0, fullName.substring(fullName.indexOf(" ") + 1, fullName.length).indexOf(" ")).capitalize();
+      last = fullName.substring(first.length + 1, fullName.length).capitalize();
+    } else {
+      first = fullName.substring(0, fullName.indexOf(" ")).capitalize();
+      last = fullName.substring(fullName.indexOf(" ") + 1, fullName.length).capitalize();
+    }
+
+    var vals = {
+      FirstName: first,
+      LastName: last,
+      wholeName: fullName
+    };
+    form.setValues(vals);
+    return;
+  },
+  FormReady: function (form) {
+    var _this = this; // TODO Address form directly, not all labels.
+
+
+    form.getFormElem().find('label').each(function () {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('aria-label', jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('for'));
+    });
+  },
+  ShowAfterMessage: function (form) {
+    const element = form.getFormElem().next();
+    console.log(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
+    var messageParagraph = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<p>').addClass('thank-you-message').append(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
+    form.getFormElem().html("").append(messageParagraph);
+  },
+  Validate: function (form) {
+    if (form.getValues().wholeName !== undefined && form.getValues().wholeName !== '') {
+      LivePerson.SetFullName("FirstName", "LastName", "wholeName", form);
+    }
+
+    var formID = form.getId();
+    var emailField = form.getFormElem().find('#Email').first();
+    var emailVal = emailField.val(); //Hotjar recording tag
+
+    LivePerson.HotJar('Form fill - Attempt');
+
+    if (!LivePerson.EmailGood(emailVal)) {
+      console.log("Email Invalid " + emailVal, form.vals());
+      form.submittable(false);
+      form.showErrorMessage("Must be Business email.", emailField);
+    } else {
+      //continueDemandbase(formID);
+      form.vals({
+        'GCLID__c': window.lp_attr.gclid,
+        'MSCLIKID__c': window.lp_attr.msclkid,
+        'LeadSource': window.lp_attr.leadSource,
+        'Referring_URL__c': window.lp_attr.referringUrl,
+        'campaignSearchKeywords__c': window.lp_attr.searchTearms,
+        'campaignID__c': window.lp_attr.campaign,
+        'campaignSource__c': window.lp_attr.campaignSource,
+        'campaignMedium__c': window.lp_attr.campaignMedium,
+        'campaignCreative__c': window.lp_attr.campaignContent
+      });
+      form.submittable(true);
+      console.log("Submitting values: " + JSON.stringify(form.vals()));
+    }
+  },
+  EmailGood: function (email) {
+    email = email.toLowerCase();
+    var valid = true;
+    Dictionary.personalEmails.forEach(function (domain) {
+      if (email.indexOf(domain) >= 0 || email === '' || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
+        valid = false;
+      }
+    });
+    return valid;
+  },
+  HotJar: function (tag) {
+    window.hj = window.hj || function () {
+      (hj.q = hj.q || []).push(arguments);
+    };
+
+    hj('tagRecording', [tag]);
+  }
+};
+
 
 /***/ }),
 
@@ -45582,6 +45884,17 @@ function _extends() {
 
   return _extends.apply(this, arguments);
 }
+
+/***/ }),
+
+/***/ "../../../../../gatsby-sites/www/dictionary.json":
+/*!*******************************************************!*\
+  !*** ../../../../../gatsby-sites/www/dictionary.json ***!
+  \*******************************************************/
+/***/ (function(module) {
+
+"use strict";
+module.exports = JSON.parse('{"personalEmails":["@aim.com","@aol.com","@att.net","@comcast.net","@earthlink","@email","@embarqmail","@facebook.com","@gmail","@gmx","@googlemail","@hotmail.co.uk","@hotmail","@hush","@icloud","@inbox.com","@juno","@live.","@mac.","@mail.com","@me.com","@msn","@outlook","@rocketmail","@safe-mail","@sbcglobal","@tmails","@yahoo","@yandex","@verizon.net","@ymail","@yourdomain.com","@247.ai","@247-inc","@8x8","@bold360","@creativevirtual","@dimelo","@drift","@five9","@frontapp","@genesys","@genesyslab","@genesysmicro","@iadvize","@intercom","@inthechat","@kayako","@kustomer","@layer","@livechatinc","@nuance","@olark","@pubble","@pypestream","@salemove","@salesforce","@snapengage","@sparkcentral","@userlike","@verint","@verintsystems","@wechat","@zendesk","@zopim"],"prSites":["www.wsj.com","www.emarketer.com","www.inc.com","www.msn.com","www.bandt.com.au","www.christianpost.com","sg.news.yahoo.com","www.nasdaq.com","www.bizjournals.com","www.bloomberg.com","www.crmirewards.com","www.bizreport.com","mobilemarketingwatch.com","www.applianceretailer.com.au","www.independent.ie","detroit.cbslocal.com","truepundit.com","www.ibm.comblogs","www.businessinsider.com","www.everyjoe.com","www.bizreport.com","praisecleveland.com","www.breitbart.com","www.newsweek.com","uk.news.yahoo.com","redpilltimes.com","wtkr.com","www.cbs8.com","next.aftrs.edu.au","stlouis.cbslocal.com","baltimore.cbslocal.com","connecticut.cbslocal.com","philadelphia.cbslocal.com","denver.cbslocal.com","miami.cbslocal.com","dfw.cbslocal.com","www.studyfinds.org","www.chainstoreage.com","ciokurator.com","istart.com.au","www.medianet.com.au","www.mybusiness.com.au","www.dailymail.co.uk","www.governmentnews.com.au","marketingland.com","thenextweb.com","venturebeat.com","www.itwire.com","www.loyalty360.org","www.nojitter.com","www.huffingtonpost.de","www.huffingtonpost.com","www.nytimes.com","www.amny.com","www.metro.us","www.crainsnewyork.com","www.tnooz.com","www.travolution.com","www.thegrocer.co.uk","www.mycustomer.com","www.marconomy.de","www.cmo.com.au","www.cmo.com","www.usatoday.com","www.usnews.com","www.handelsblatt.com","fortune.com","www.entrepreneur.comus","www.financial-news.co.uk","www.ft.com","www.itproportal.com","www.smartertravel.com","www.smartcustomerservice.com","businesstech.co.za","skift.com","www.ags-airlinegroundservices.com","airlinegeeks.com","www.mobilemarketer.com","www.frequentbusinesstraveler.com","www.lead-digital.de","insidesmallbusiness.com.au","www.topbots.com","www.ibusiness.de","www.werbewoche.ch","www.contentmanager.de","www.markenartikel-magazin.de","www.tagesspiegel.de","www.startupsense.net","www.standard.co.uk","www.thetimes.co.uk","www.nbc29.com","www.richmond.com","www.computerworld.com.au","www.computerworld.com","www.itnews.com.au","www.globaladvisors.biz","magazineclick.com","www.thenibbler.com.au","thehustle.co","www.thrillist.com","qz.com","www.destinationcrmblog.com","www.nbcnews.com","www.cnbc.com","www.cnn.com","www.ibtimes.com","www.marketwatch.com","www.investors.com","www.retaildive.com","www.digitalcommerce360.com","www.wiwo.de","www.traveltalkmag.com.au","www.adnews.com.au","www.rfigroup.com","www.dynamicbusiness.com.au","www.deutschlandfunk.de","martechseries.com","martechtoday.com","www.retaildive.com","risnews.com","www.zdnet.de","www.content-technology.com","www.zdnet.com","www.theaustralian.com.au","www.marketingdive.com","www.techrepublic.com","www.newsbytesapp.com","www.ubergizmo.com","techgroundnews.com","sk8.tech","www.digitaltrends.com","www.inquisitr.com","www.macrumors.com","www.techtimes.com","appleinsider.com","techcrunch.com","www.thedrum.com","www.travelweekly.com.au","www.bbc.com","www.futureofeverything.io","www.bankingtech.com","www.finextra.com","wwd.com","www.cmswire.com","adexchanger.com","www.cable.co.uk","www.globalbankingandfinance.com","www.thesun.ie","internetretailing.net","www.express.co.uk","www.ciodive.com","www.paymentssource.com","chatbotsmagazine.com","www.marketingweek.com","www.pymnts.com","www.autonews.com","www.mediapost.com","www.foxbusiness.com","www.reuters.com","adage.com","www.adweek.com","www.ap.org","www.buzzfeed.com","digiday.com","www.fastcompany.com","www.forbes.com","hbr.org","mashable.com","www.recode.net","www.theverge.com","www.washingtonpost.com","www.vice.com","www.americanbanker.com","www.wired.com","arstechnica.com","bankinnovation.net","www.banktech.com","www.bankingtech.com","bgr.com","www.chiefmarketer.com","www.cnet.com","www.engadget.com","gizmodo.com","www.informationweek.com","multichannelmerchant.com","www.pcmag.com","www.retailtouchpoints.com","stores.org","www.techradar.com","www.theinquirer.net","www.travelpulse.com","www.economist.com","www.theguardian.com","www.itproportal.com","www.metro.us","www.techworld.com","www.cbr.com","www.information-age.com","www.financedigest.com","digitalmarketingmagazine.co.uk","cxm.co.uk","cxm.world","www.thebanker.com","www.marketingtechnews.net","www.computerweekly.com","uxmag.com","businessnewsdaily.com","prnewswire.com","channelpronetwork.com","crn.com","e-channelnews.com","channelpartnersonline.com","channelnomics.com","channelbuzz.ca","channelfutures.com","comptia.org","channele2e.com","channelinfo.net","channelinsider.com","smbnation.com","ascii.com","the2112group.com","451research.com","channelemea.com","canalys.com","iteuropa.com","channelexecutivemag.com","independent.co.uk"],"organicSites":["www.google.","com.google","www.bing.","www.yahoo.","search.yahoo.","cn.bing."],"socialSites":["plus.url.google.com","plus.google.com","facebook.com","linkedin.com","twitter.com","//t.co","youtube.com","pinterest.com","t.umblr.com","instagram.com","lnkd.in","com.linkedin"],"reviewSites":["capterra.","capmain.com","crozdesk.com","discovercloud.com","financesonline.com","g2crowd.com","consumersadvocate.org","saasgenius.com","softwareadvice.com","getapp.com","itcentralstation.com","financesonline.com","business.com","saasgenius.com","itcentralstation.com","selecthub.com","siftery.com","picksaas.com","bestcompany.com","softwaresuggest.com","serchen.com","ketchell.com","shanebarker.com"]}');
 
 /***/ })
 

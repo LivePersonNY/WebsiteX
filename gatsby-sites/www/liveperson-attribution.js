@@ -9,7 +9,7 @@ const Cookie = {
 		var expires = "; expires=" + date.toGMTString();
 		document.cookie = name + "=" + value + expires + "; path=/; domain=liveperson.com;";
 	},
-	get: function(name) {
+	get: function(cname) {
 		let name = cname + "=";
 		let decodedCookie = decodeURIComponent(document.cookie);
 		let ca = decodedCookie.split(';');
