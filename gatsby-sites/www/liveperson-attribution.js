@@ -61,7 +61,7 @@ const LivePerson = {
 			$(this).attr('aria-label', $(this).attr('for'));
 		});
 		
-		callback(form);
+		if (callback) callback(form);
 	},
 	
 	Validate: function(form, callback) {
