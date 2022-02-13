@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-const EmailBlacklist = require("./blacklist.json");
+const Dictionary = require("./dictionary.json");
 
 const Cookie = {
 	set: function(name, value, days) {
@@ -52,6 +52,127 @@ const MktoForms = {
 }
 
 const LivePerson = {
+	
+	HydrateAttributes: function() {
+		var leadSourceCookie = Cookie.get("lp-leadSource");
+		var lsRef = Cookie.get("lp-lsRef");
+		var lsTerms = Cookie.get("lp-lsTerms");
+		var lsCampaign = Cookie.get("lp-lsCampaign");
+		var lsSource = Cookie.get("lp-lsSource");
+		var lsMedium = Cookie.get("lp-lsMedium");
+		var lsContent = Cookie.get("lp-lsContent");
+		var queryString = Cookie.get("lp-queryString");
+		var _mkto_trk = Cookie.get("_mkto_trk");
+		
+		if (lsTerms === '') {
+			lsTerms = Query.get('utm_term') || Query.get('keywords') || Query.get('keyword') || Query.get('oquery') || Query.get('query') || Query.get('_bk');
+			Cookie.set('lp-lsTerms', lsTerms, 30);
+		}
+		
+		if (lsCampaign === '') {
+			lsCampaign = Query.get('utm_campaign');
+			Cookie.set('lp-lsCampaign', lsCampaign, 30);
+		}
+		
+		if (lsSource === '') {
+			lsSource = Query.get('utm_source');
+			Cookie.set('lp-lsSource', lsSource, 30);
+		}
+		
+		if (lsMedium === '') {
+			lsMedium = Query.get('utm_medium');
+			Cookie.set('lp-lsMedium', lsMedium, 30);
+		}
+		
+		if (lsContent === '') {
+			lsContent = Query.get('utm_content');
+			Cookie.set('lp-lsContent', lsContent, 30);
+		}
+		
+		if (queryString === '') {
+			queryString = window.location.search;
+			Cookie.set('lp-queryString', queryString, 30);
+		}
+		
+		if (lsRef === '') {
+			Cookie.set('lp-lsRef', document.referrer, 1);
+			lsRef = document.referrer;
+		}
+		
+		var lpindex = lsRef.indexOf('liveperson.com') || lsRef.indexOf('us.platform.sh');
+		
+		if (leadSourceCookie === '') {
+		
+			if (Query.get('utm_medium') == 'remarketing') { // Remarketing
+				Cookie.set('lp-leadSource', 'Remarketing', 30);
+				leadSourceCookie = 'Remarketing';
+				Cookie.set('lp-lsRef', lsRef, 30);
+			} else if (Query.get('utm_medium') == 'display') { // Display
+				Cookie.set('lp-leadSource', 'Display', 30);
+				leadSourceCookie = 'Display';
+				Cookie.set('lp-lsRef', lsRef, 30);
+			} else if (Query.get('utm_medium') == 'social') { // Social
+				Cookie.set('lp-leadSource', 'Social', 30);
+				leadSourceCookie = 'Social';
+				Cookie.set('lp-lsRef', lsRef, 30);
+			} else if (Query.get('gclid')) { // Paid Search
+				Cookie.set('lp-leadSource', 'Paid search', 30);
+				leadSourceCookie = 'Paid search';
+				Cookie.set('lp-lsRef', lsRef, 30);
+			} else if (Query.get('msclkid')) { // Paid Search
+				Cookie.set('lp-leadSource', 'Paid search', 30);
+				leadSourceCookie = 'Paid search';
+				Cookie.set('lp-lsRef', lsRef, 30);
+			} else if (Query.get('utm_medium') === 'email') { // Email
+				Cookie.set('lp-leadSource', 'Email', 1);
+				leadSourceCookie = 'Email';
+			} else if (lsRef.indexOf('go.liveperson.com') >= 0 || lsRef.indexOf('mkto-g0178.com') >= 0) {
+				Cookie.set('lp-leadSource', 'Email', 1);
+				leadSourceCookie = 'Email';
+			} else if (lsRef === '' || !lsRef || (lpindex > -1 && lpindex < 15)) { // Direct
+				Cookie.set('lp-leadSource', 'Direct', 1);
+				leadSourceCookie = 'Direct';
+				lsRef = document.location.href;
+				Cookie.set('lp-lsRef', document.location.href, 1);
+			} else {
+				// Everything else
+				for (i = 0; i < lsOrganic.length; i++) {
+					if (lsRef.indexOf(lsOrganic[i]) !== -1) {
+						Cookie.set('lp-leadSource', 'Organic', 1);
+						leadSourceCookie = 'Organic';
+						return false;
+					}
+				}
+				for (i = 0; i < lsSocial.length; i++) {
+					if (lsRef.indexOf(lsSocial[i]) !== -1) {
+						Cookie.set('lp-leadSource', 'Social', 30);
+						Cookie.set('lp-lsRef', lsRef, 30);
+						leadSourceCookie = 'Social';
+						return false;
+					}
+				}
+				for (i = 0; i < lsReview.length; i++) {
+					if (lsRef.indexOf(lsReview[i]) !== -1) {
+						Cookie.set('lp-leadSource', 'Review website', 30);
+						Cookie.set('lp-lsRef', lsRef, 30);
+						leadSourceCookie = 'Review website';
+						return false;
+					}
+				}
+				for (i = 0; i < lsPR.length; i++) {
+					if (lsRef.indexOf(lsPR[i]) !== -1) {
+						Cookie.set('lp-leadSource', 'PR', 1);
+						leadSourceCookie = 'PR';
+						return false;
+					}
+				}
+				
+				Cookie.set('lp-leadSource', 'Other referral', 1);
+				leadSourceCookie = 'Other referral';
+			}
+		
+		}
+	},
 	
 	decodeHtml: function(html) {
 		var txt = document.createElement("textarea");
@@ -146,7 +267,7 @@ const LivePerson = {
 		email = email.toLowerCase();
 		var valid = true;
 		
-		EmailBlacklist.emails.forEach(function(domain) {
+		Dictionary.personalEmails.forEach(function(domain) {
 			if (email.indexOf(domain) >= 0 || email === '' || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
 				valid = false;
 			}

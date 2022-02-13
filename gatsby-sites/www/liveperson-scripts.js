@@ -19,6 +19,8 @@ window.documentReadyFn = function() {
 		}
 	});
 	
+	LivePerson.HydrateAttributes();
+	
 	console.log('Document ready.');
 		
 		$('body').off('click', 'a.mobileForm').on('click', 'a.mobileForm', function(e) {
