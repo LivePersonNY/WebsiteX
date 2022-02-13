@@ -16,6 +16,7 @@ import MktoForm from '../../../../../../../../gatsby-sites/www/src/components/bl
 import { __experimentalGrid as Panel, PanelBody, Grid,Placeholder, TextareaControl, ToolbarButton, TextControl, Button, ResponsiveWrapper, ToolbarGroup } from '@wordpress/components';
 const { Fragment, useState } = wp.element;
 import BackgroundSelectorMenu from '../../BackgroundSelector';
+import MktoExecute from '../../MktoExecute';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -114,13 +115,14 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				</InspectorControls>
 			</Fragment>
 			<MktoForm thankyou={attributes.thankyou} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true}/>
-
+			<MktoExecute />
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
 			<MktoForm thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true}/>
+			<MktoExecute />
 		</div>
 	)
 

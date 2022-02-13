@@ -1,4 +1,5 @@
 import '../../../../../../gatsby-sites/www/liveperson-scripts';
+import '../../../../../../gatsby-sites/www/liveperson-attribution';
 import './hero/src/index';
 import './plain-content/src/index';
 import './statsgrid/src/index';
@@ -28,6 +29,7 @@ import $ from 'jquery';
 $(document).ready(function() {
 	window.documentReadyFn();
 });
+
 
 /*
 "editorScript": "file:../../build/all.js",

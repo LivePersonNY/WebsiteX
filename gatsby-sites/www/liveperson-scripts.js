@@ -8,11 +8,10 @@ window.readyTimeout = null;
 
 window.lp_attr = {};
 
-
 window.documentReadyFn = function() {
 	
 	window.lottieFiles = [];
-	
+		
 	Array.from(document.scripts).forEach(function(item) {
 		if (item.attributes['data-type']?.value == 'pageScript') {
 			console.log("executing script...");
@@ -123,7 +122,5 @@ window.documentReadyFn = function() {
 			$(".LPMcontainer .LPMimage").attr("onclick", "ga('send', 'event', 'chat', 'click', 'site-wide button')");
 			$(".LPMcontainer").attr("onclick", "ga('send', 'event', 'form', 'submit', 'Chat engagement clicks')");
 		}, 3000);
-	
-	window.LivePerson = LivePerson;
-	
+		
 }

@@ -10,7 +10,9 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useState, useEffect } from 'react';
+import { LivePerson, MktoForms } from '../../liveperson-attribution';
 
+const marketoScriptId = 'mktoForms';
 
 const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   const { wp, wpUser } = useStaticQuery(
@@ -38,6 +40,81 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   const defaultTitle = wp.generalSettings?.title;
   const favicon = wp.allSettings?.siteIcon;
   
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  MktoForms.Bind(function(MktoForms2, $) {
+    setTimeout(function() {
+      $('form').each(function() {
+        var formId = $(this).attr('mkto');
+        //var afterMessage = LivePerson.decodeHtml($(`mkto-after[mkto="${formId}"]`).html());
+        MktoForms2.loadForm(
+          'https://info.liveperson.com',
+          '501-BLE-979',
+          $(this).attr('mkto'),
+          function(form) {
+            
+            console.log("Loaded callback...", form);
+            
+            console.log("form loading", form);
+          }
+        )
+      });
+    }, 2000);
+    MktoForms2.whenReady(function(form) {
+      // TODO Address form directly, not all labels.
+      
+      form.onSuccess(function(values, followUpUrl) {
+        console.log(values);
+        //form.getFormElem().replace('<p class="thank-you-message">' + afterMessage + '</p>');
+      
+        //dataLayer.push({'event' : 'request-demo-form'});
+         return false;
+      });
+      
+      form.onValidate(function () {
+            
+              
+        if (form.getValues().wholeName !== undefined && form.getValues().wholeName !== '') {
+          LivePerson.SetFullName("FirstName", "LastName", "wholeName", form);
+        }
+    
+        var formID = form.getId();
+        var emailField = form.getFormElem().find('#Email').first();
+        var emailVal = emailField.val();
+    
+        //Hotjar recording tag
+        LivePerson.HotJar('Form fill - Attempt');
+    
+        if (!LivePerson.EmailGood(emailVal)) {
+          window.testform = form;
+          console.log("Email Invalid " + emailVal, form.vals());
+          form.showErrorMessage("Must be Business email.", emailField);
+          form.submittable(false);
+         
+        } else { 			
+          //continueDemandbase(formID);
+          form.vals({
+            'GCLID__c': window.lp_attr.gclid,
+            'MSCLIKID__c': window.lp_attr.msclkid,
+            'LeadSource': window.lp_attr.leadSource,
+            'Referring_URL__c': window.lp_attr.referringUrl,
+            'campaignSearchKeywords__c': window.lp_attr.searchTearms,
+            'campaignID__c': window.lp_attr.campaign,
+            'campaignSource__c': window.lp_attr.campaignSource,
+            'campaignMedium__c': window.lp_attr.campaignMedium,
+            'campaignCreative__c': window.lp_attr.campaignContent
+          });
+          
+        	form.submittable(true);
+        }
+
+      }).getFormElem().find('label').each(function() {
+        $(this).attr('aria-label', $(this).attr('for'));
+      });
+    });
+    
+  });
+  
   useEffect(() => {
       
       function waitForDocumentReadyFn() {
@@ -49,8 +126,29 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         }
       }
       waitForDocumentReadyFn();
+      
+      if (!document.getElementById(marketoScriptId)) {
+        loadScript();
+      } else {
+        setIsLoaded(true);
+      }
           
   });
+  
+  const loadScript = () => {
+    var s = document.createElement('script');
+    s.id = marketoScriptId;
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://info.liveperson.com/js/forms2/js/forms2.min.js';
+    s.onreadystatechange = function() {
+      if (this.readyState === 'complete' || this.readyState === 'loaded') {
+        setIsLoaded(true);
+      }
+    };
+    s.onload = () => setIsLoaded(true);
+    document.getElementsByTagName('head')[0].appendChild(s);
+  };
 
   return (
     <Helmet
@@ -103,13 +201,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap"
         rel="stylesheet"
-      />
-      
-      <script
-        id="mktoForms"
-        type="text/javascript"
-        src="https://info.liveperson.com/js/forms2/js/forms2.min.js"
-        async={true}
       />
       
       <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>

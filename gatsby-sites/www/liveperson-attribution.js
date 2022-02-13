@@ -22,7 +22,28 @@ const Query = {
 	}
 }
 
+const MktoForms = {
+	Bind: function(callback) {
+		if (window.formsBinded) return;
+		if (!window.MktoForms2) {
+			window.lpAttrWaitForM = setTimeout(function() {
+				MktoForms.Bind(callback);
+			}, 100);
+		} else {
+			window.formsBinded = true;
+			clearTimeout(window.lpAttrWaitForM);
+			if (callback) callback(window.MktoForms2, $);
+		}
+	}
+}
+
 const LivePerson = {
+	
+	decodeHtml: function(html) {
+		var txt = document.createElement("textarea");
+		txt.innerHTML = html;
+		return txt.value;
+	},
 	
 	SetFullName: function(a, b, c, form) {
 		String.prototype.capitalize = function () {
@@ -57,6 +78,7 @@ const LivePerson = {
 		
 		var _this = this;
 		// TODO Address form directly, not all labels.
+		
 		form.getFormElem().find('label').each(function() {
 			$(this).attr('aria-label', $(this).attr('for'));
 		});
@@ -66,22 +88,26 @@ const LivePerson = {
 	
 	Validate: function(form, callback) {
 		
+		console.log("lp Validate", form);
+		
 		var _this = this;
 		form.onValidate(function () {
+			
+			console.log("form onValidate", form);
 						
 			if (form.getValues().wholeName !== undefined && form.getValues().wholeName !== '') {
 				_this.SetFullName("FirstName", "LastName", "wholeName", form);
 			}
 	
 			var formID = form.getId();
-			var emailField = form.getFormElem().find('#Email');
+			var emailField = form.getFormElem().find('#Email').first();
 			var emailVal = emailField.val();
 	
 			//Hotjar recording tag
 			_this.HotJar('Form fill - Attempt');
 	
 			if (!_this.EmailGood(emailVal)) {
-				console.log("Email Invalid " + emailVal, form);
+				console.log("Email Invalid " + emailVal, form.vals());
 				form.submittable(false);
 				form.showErrorMessage("Must be Business email.", emailField);
 			} else { 			
@@ -98,7 +124,7 @@ const LivePerson = {
 					'campaignCreative__c': window.lp_attr.campaignContent
 				});				
 				form.submittable(true);
-				console.log("Submitted values: " + JSON.stringify(form.vals()));
+				console.log("Submitting values: " + JSON.stringify(form.vals()));
 			}
 		});
 	},
@@ -130,5 +156,6 @@ const LivePerson = {
 export {
 	Query,
 	Cookie,
-	LivePerson
+	LivePerson,
+	MktoForms
 }
