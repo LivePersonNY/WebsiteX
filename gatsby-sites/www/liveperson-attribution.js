@@ -65,6 +65,8 @@ const LivePerson = {
 	},
 	
 	Validate: function(form, callback) {
+		
+		var _this = this;
 		form.onValidate(function () {
 						
 			if (form.getValues().wholeName !== undefined && form.getValues().wholeName !== '') {
@@ -79,24 +81,24 @@ const LivePerson = {
 			_this.HotJar('Form fill - Attempt');
 	
 			if (!_this.EmailGood(emailVal)) {
+				console.log("Email Invalid " + emailVal, form);
 				form.submittable(false);
 				form.showErrorMessage("Must be Business email.", emailField);
 			} else { 			
 				//continueDemandbase(formID);
 				form.vals({
-					'GCLID__c': gclid,
-					'MSCLIKID__c': msclkid,
-					'LeadSource': leadSourceCookie,
-					'Referring_URL__c': lsRef,
-					'campaignSearchKeywords__c': lsTerms,
-					'campaignID__c': lsCampaign,
-					'campaignSource__c': lsSource,
-					'campaignMedium__c': lsMedium,
-					'campaignCreative__c': lsContent
+					'GCLID__c': window.lp_attr.gclid,
+					'MSCLIKID__c': window.lp_attr.msclkid,
+					'LeadSource': window.lp_attr.leadSource,
+					'Referring_URL__c': window.lp_attr.referringUrl,
+					'campaignSearchKeywords__c': window.lp_attr.searchTearms,
+					'campaignID__c': window.lp_attr.campaign,
+					'campaignSource__c': window.lp_attr.campaignSource,
+					'campaignMedium__c': window.lp_attr.campaignMedium,
+					'campaignCreative__c': window.lp_attr.campaignContent
 				});				
 				form.submittable(true);
-				vals = form.vals();
-				console.log("Submitted values: " + JSON.stringify(vals));
+				console.log("Submitted values: " + JSON.stringify(form.vals()));
 			}
 		});
 	},

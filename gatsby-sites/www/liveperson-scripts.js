@@ -6,6 +6,8 @@ window.lottie = lottie;
 
 window.readyTimeout = null;
 
+window.lp_attr = {};
+
 
 window.documentReadyFn = function() {
 	
