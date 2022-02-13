@@ -27038,18 +27038,29 @@ const Query = {
   }
 };
 const MktoForms = {
-  Bind: function (callback) {
-    if (window.formsBinded) return;
-
-    if (!window.MktoForms2) {
-      window.lpAttrWaitForM = setTimeout(function () {
-        MktoForms.Bind(callback);
-      }, 100);
-    } else {
+  Bind: function () {
+    if (!window.formsBinded) {
       window.formsBinded = true;
-      clearTimeout(window.lpAttrWaitForM);
-      if (callback) callback(window.MktoForms2, (jquery__WEBPACK_IMPORTED_MODULE_0___default()));
+      MktoForms2.whenReady(function (form) {
+        LivePerson.FormReady(form);
+        form.onValidate(function () {
+          LivePerson.Validate(form);
+        });
+        form.onSuccess(function (values, forwardUrl) {
+          LivePerson.ShowAfterMessage(form);
+          window.dataLayer && dataLayer.push({
+            'event': 'request-demo-form'
+          });
+          return false;
+        });
+      });
     }
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('form:not(.mktoForm)').each(function () {
+      const formId = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('mkto');
+      if (!formId) return;
+      MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId);
+    });
   }
 };
 const LivePerson = {
@@ -27087,56 +27098,52 @@ const LivePerson = {
     form.setValues(vals);
     return;
   },
-  FormReady: function (form, callback) {
+  FormReady: function (form) {
     var _this = this; // TODO Address form directly, not all labels.
 
 
     form.getFormElem().find('label').each(function () {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('aria-label', jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('for'));
     });
-    if (callback) callback(form);
   },
-  Validate: function (form, callback) {
-    console.log("lp Validate", form);
-
-    var _this = this;
-
-    form.onValidate(function () {
-      console.log("form onValidate", form);
-
-      if (form.getValues().wholeName !== undefined && form.getValues().wholeName !== '') {
-        _this.SetFullName("FirstName", "LastName", "wholeName", form);
-      }
-
-      var formID = form.getId();
-      var emailField = form.getFormElem().find('#Email').first();
-      var emailVal = emailField.val(); //Hotjar recording tag
-
-      _this.HotJar('Form fill - Attempt');
-
-      if (!_this.EmailGood(emailVal)) {
-        console.log("Email Invalid " + emailVal, form.vals());
-        form.submittable(false);
-        form.showErrorMessage("Must be Business email.", emailField);
-      } else {
-        //continueDemandbase(formID);
-        form.vals({
-          'GCLID__c': window.lp_attr.gclid,
-          'MSCLIKID__c': window.lp_attr.msclkid,
-          'LeadSource': window.lp_attr.leadSource,
-          'Referring_URL__c': window.lp_attr.referringUrl,
-          'campaignSearchKeywords__c': window.lp_attr.searchTearms,
-          'campaignID__c': window.lp_attr.campaign,
-          'campaignSource__c': window.lp_attr.campaignSource,
-          'campaignMedium__c': window.lp_attr.campaignMedium,
-          'campaignCreative__c': window.lp_attr.campaignContent
-        });
-        form.submittable(true);
-        console.log("Submitting values: " + JSON.stringify(form.vals()));
-      }
-    });
+  ShowAfterMessage: function (form) {
+    const element = form.getFormElem().next();
+    console.log(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
+    var messageParagraph = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<p>').addClass('thank-you-message').append(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
+    form.getFormElem().html("").append(messageParagraph);
   },
-  ShouldSubmit: function (form) {},
+  Validate: function (form) {
+    if (form.getValues().wholeName !== undefined && form.getValues().wholeName !== '') {
+      LivePerson.SetFullName("FirstName", "LastName", "wholeName", form);
+    }
+
+    var formID = form.getId();
+    var emailField = form.getFormElem().find('#Email').first();
+    var emailVal = emailField.val(); //Hotjar recording tag
+
+    LivePerson.HotJar('Form fill - Attempt');
+
+    if (!LivePerson.EmailGood(emailVal)) {
+      console.log("Email Invalid " + emailVal, form.vals());
+      form.submittable(false);
+      form.showErrorMessage("Must be Business email.", emailField);
+    } else {
+      //continueDemandbase(formID);
+      form.vals({
+        'GCLID__c': window.lp_attr.gclid,
+        'MSCLIKID__c': window.lp_attr.msclkid,
+        'LeadSource': window.lp_attr.leadSource,
+        'Referring_URL__c': window.lp_attr.referringUrl,
+        'campaignSearchKeywords__c': window.lp_attr.searchTearms,
+        'campaignID__c': window.lp_attr.campaign,
+        'campaignSource__c': window.lp_attr.campaignSource,
+        'campaignMedium__c': window.lp_attr.campaignMedium,
+        'campaignCreative__c': window.lp_attr.campaignContent
+      });
+      form.submittable(true);
+      console.log("Submitting values: " + JSON.stringify(form.vals()));
+    }
+  },
   EmailGood: function (email) {
     email = email.toLowerCase();
     var valid = true;
@@ -28431,14 +28438,56 @@ const marketoScriptId = 'mktoForms';
 
 const MktoForm = props => {
   let mktoFormMobile = function (e) {
-    // $('body').toggleClass('locked');
-    // $('.form--sticky').toggleClass('swapPosition');
     jquery__WEBPACK_IMPORTED_MODULE_5___default()('.form--sticky .mktoForm').slideToggle(300);
     jquery__WEBPACK_IMPORTED_MODULE_5___default()('.span1').toggleClass('swap');
     jquery__WEBPACK_IMPORTED_MODULE_5___default()('.span2').toggleClass('swap');
   };
 
-  let formId = props.formId;
+  let formId = props.formId; // Strictly for WP //  
+
+  if (props.runFilters) {
+    const [isLoaded, setIsLoaded] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+
+    const loadScript = () => {
+      var s = document.createElement('script');
+      s.id = marketoScriptId;
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://info.liveperson.com/js/forms2/js/forms2.min.js';
+
+      s.onreadystatechange = function () {
+        if (this.readyState === 'complete' || this.readyState === 'loaded') {
+          setIsLoaded(true);
+        }
+      };
+
+      s.onload = () => {
+        setIsLoaded(true);
+      };
+
+      document.getElementsByTagName('head')[0].appendChild(s);
+    };
+
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+      if (!document.getElementById(marketoScriptId)) {
+        loadScript();
+      } else {
+        setIsLoaded(true);
+      }
+    }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+      if (isLoaded) {
+        if (jquery__WEBPACK_IMPORTED_MODULE_5___default()('#mktoForm_' + formId).children().length == 0) {
+          MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId, function (form) {
+            form.onValidate(function () {
+              form.submittable(false);
+            });
+          });
+        }
+      }
+    }, [isLoaded, formId]);
+  }
+
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `pane pane-form ${props.sticky ? 'form--sticky' : ''} ${props.backgroundColor || "bg-rainbow"} ${props.header ? 'pane-with-lead-text' : ''}`,
     style: {
@@ -29536,49 +29585,6 @@ function MediaPicker(_ref) {
       }));
     }
   })));
-}
-
-/***/ }),
-
-/***/ "./blocks/MktoExecute.js":
-/*!*******************************!*\
-  !*** ./blocks/MktoExecute.js ***!
-  \*******************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ MktoExecute; }
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _gatsby_sites_www_liveperson_attribution__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../gatsby-sites/www/liveperson-attribution */ "../../../../../gatsby-sites/www/liveperson-attribution.js");
-
-
-function MktoExecute(props) {
-  _gatsby_sites_www_liveperson_attribution__WEBPACK_IMPORTED_MODULE_1__.MktoForms.Bind(function (MktoForms2, $) {
-    console.log('binding called');
-    $('form').each(function () {
-      var formId = $(this).attr('mkto');
-      var afterMessage = $(`mkto-after[mkto="${formId}"]`).remove().html();
-      MktoForms2.loadForm('//info.liveperson.com', '501-BLE-979', $(this).attr('mkto'), function (form) {
-        console.log("form loading", formId);
-        form.onSuccess(function (values, followUpUrl) {
-          console.log('Success');
-          form.getFormElem().html(`<p class="thank-you-message">${afterMessage}</p>`); //dataLayer.push({'event' : 'request-demo-form'});
-
-          return false;
-        });
-      });
-    });
-    MktoForms2.whenReady(function (form) {
-      _gatsby_sites_www_liveperson_attribution__WEBPACK_IMPORTED_MODULE_1__.LivePerson.FormReady(form, function (form) {
-        _gatsby_sites_www_liveperson_attribution__WEBPACK_IMPORTED_MODULE_1__.LivePerson.Validate(form);
-      });
-    });
-  });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
 }
 
 /***/ }),
@@ -31879,7 +31885,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _BackgroundSelector__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../BackgroundSelector */ "./blocks/BackgroundSelector.js");
-/* harmony import */ var _MktoExecute__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../MktoExecute */ "./blocks/MktoExecute.js");
+/* harmony import */ var _gatsby_sites_www_liveperson_attribution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../../../../gatsby-sites/www/liveperson-attribution */ "../../../../../gatsby-sites/www/liveperson-attribution.js");
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editor.scss */ "./blocks/form/src/editor.scss");
 
 
@@ -31902,7 +31908,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const {
   Fragment,
-  useState
+  useState,
+  useEffect
 } = wp.element;
 
 
@@ -31914,6 +31921,7 @@ const {
  */
 
 
+const marketoScriptId = 'mktoForms';
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -31986,34 +31994,38 @@ function Edit(_ref) {
     allowedFormats: ['core/bold', 'core/italic', 'core/image', 'core/link'],
     placeholder: "Thank you message after submitting the form."
   }));
-  if (isSelected) return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), addButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
-    title: "Thank you message",
-    initialOpen: true
-  }, thankyouControl, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
-    icon: "welcome-view-site",
-    variant: "primary",
-    onClick: function () {
-      window.jQuery(`#mktoForm_${mktoId}`).html(`<p class="thank-you-message">${attributes.thankyou}</p>`);
-      setTimeout(function () {
-        setAttributes({
-          mktoFormId: 0
-        });
-      }, 2000);
-      setTimeout(function () {
-        window.jQuery('.thank-you-message').remove();
-        setAttributes({
-          mktoFormId: mktoId
-        });
-      }, 2010);
-    }
-  }, "Preview"))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_gatsby_sites_www_src_components_blocks_MktoForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    thankyou: attributes.thankyou,
-    header: titleControl,
-    sticky: attributes.sticky,
-    backgroundColor: attributes.backgroundColor,
-    formId: attributes.mktoFormId,
-    runFilters: true
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_MktoExecute__WEBPACK_IMPORTED_MODULE_7__["default"], null));
+
+  if (isSelected) {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), addButton, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
+      title: "Thank you message",
+      initialOpen: true
+    }, thankyouControl, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.Button, {
+      icon: "welcome-view-site",
+      variant: "primary",
+      onClick: function () {
+        window.jQuery(`#mktoForm_${mktoId}`).html(`<p class="thank-you-message">${attributes.thankyou}</p>`);
+        setTimeout(function () {
+          setAttributes({
+            mktoFormId: 0
+          });
+        }, 2000);
+        setTimeout(function () {
+          window.jQuery('.thank-you-message').remove();
+          setAttributes({
+            mktoFormId: mktoId
+          });
+        }, 2010);
+      }
+    }, "Preview"))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_gatsby_sites_www_src_components_blocks_MktoForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      thankyou: attributes.thankyou,
+      header: titleControl,
+      sticky: attributes.sticky,
+      backgroundColor: attributes.backgroundColor,
+      formId: attributes.mktoFormId,
+      runFilters: true
+    }));
+  }
+
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_gatsby_sites_www_src_components_blocks_MktoForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
     thankyou: attributes.thankyou,
     header: attributes.header,
@@ -32021,7 +32033,7 @@ function Edit(_ref) {
     backgroundColor: attributes.backgroundColor,
     formId: attributes.mktoFormId,
     runFilters: true
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_MktoExecute__WEBPACK_IMPORTED_MODULE_7__["default"], null));
+  }));
 }
 
 /***/ }),

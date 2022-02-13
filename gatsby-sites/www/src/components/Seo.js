@@ -42,62 +42,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   
   const [isLoaded, setIsLoaded] = useState(false);
   
-  /*MktoForms.Bind(function(MktoForms2, $) {
-    MktoForms2.whenReady(function(form) {
-      // TODO Address form directly, not all labels.
-      
-      form.onSuccess(function(values, followUpUrl) {
-        console.log(values);
-        //form.getFormElem().replace('<p class="thank-you-message">' + afterMessage + '</p>');
-      
-        //dataLayer.push({'event' : 'request-demo-form'});
-         return false;
-      });
-      
-      form.onValidate(function () {
-            
-              
-        if (form.getValues().wholeName !== undefined && form.getValues().wholeName !== '') {
-          LivePerson.SetFullName("FirstName", "LastName", "wholeName", form);
-        }
-    
-        var formID = form.getId();
-        var emailField = form.getFormElem().find('#Email').first();
-        var emailVal = emailField.val();
-    
-        //Hotjar recording tag
-        LivePerson.HotJar('Form fill - Attempt');
-    
-        if (!LivePerson.EmailGood(emailVal)) {
-          window.testform = form;
-          console.log("Email Invalid " + emailVal, form.vals());
-          form.showErrorMessage("Must be Business email.", emailField);
-          form.submittable(false);
-         
-        } else { 			
-          //continueDemandbase(formID);
-          form.vals({
-            'GCLID__c': window.lp_attr.gclid,
-            'MSCLIKID__c': window.lp_attr.msclkid,
-            'LeadSource': window.lp_attr.leadSource,
-            'Referring_URL__c': window.lp_attr.referringUrl,
-            'campaignSearchKeywords__c': window.lp_attr.searchTearms,
-            'campaignID__c': window.lp_attr.campaign,
-            'campaignSource__c': window.lp_attr.campaignSource,
-            'campaignMedium__c': window.lp_attr.campaignMedium,
-            'campaignCreative__c': window.lp_attr.campaignContent
-          });
-          
-        	form.submittable(true);
-        }
-
-      }).getFormElem().find('label').each(function() {
-        $(this).attr('aria-label', $(this).attr('for'));
-      });
-    });
-    
-  });*/
-  
   useEffect(() => {
       
       function waitForDocumentReadyFn() {
@@ -117,11 +61,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       }
       
       if (isLoaded) {
-        MktoForms2.loadForm(
-          'https://info.liveperson.com',
-          '501-BLE-979',
-          2580
-        )
+        MktoForms.Bind();
       }
           
   });

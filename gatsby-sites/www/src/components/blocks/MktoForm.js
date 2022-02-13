@@ -9,17 +9,60 @@ const marketoScriptId = 'mktoForms';
 
 const MktoForm = (props) => {
 
-    let mktoFormMobile = function(e) {
-      // $('body').toggleClass('locked');
-      // $('.form--sticky').toggleClass('swapPosition');
-      $('.form--sticky .mktoForm').slideToggle(300);
-      $('.span1').toggleClass('swap');
-      $('.span2').toggleClass('swap');
-    };
+  let mktoFormMobile = function(e) {
+    $('.form--sticky .mktoForm').slideToggle(300);
+    $('.span1').toggleClass('swap');
+    $('.span2').toggleClass('swap');
+  };
 
-    let formId = props.formId;
+  let formId = props.formId;
     
+  // Strictly for WP //  
+  
+  if (props.runFilters) {
+    const [isLoaded, setIsLoaded] = useState(false);
+  
+    const loadScript = () => {
+      var s = document.createElement('script');
+      s.id = marketoScriptId;
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://info.liveperson.com/js/forms2/js/forms2.min.js';
+      s.onreadystatechange = function() {
+        if (this.readyState === 'complete' || this.readyState === 'loaded') {
+        setIsLoaded(true);
+        }
+      };
+      s.onload = () => {
+        setIsLoaded(true);
+  
+      }
+      document.getElementsByTagName('head')[0].appendChild(s);
+      };
+  
+    useEffect(() => {
+  
+      if (!document.getElementById(marketoScriptId)) {
+        loadScript();
+      } else {
+        setIsLoaded(true);
+      }
+  
+    }, []);
     
+    useEffect(() => {
+      if (isLoaded) {
+        if ($('#mktoForm_' + formId).children().length == 0) {
+          MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId, function(form) {
+            form.onValidate(function() {
+              form.submittable(false);
+            });
+          });
+        }
+        
+      }
+    }, [isLoaded, formId]);  
+  }
   
 
   return (

@@ -14,9 +14,9 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, BlockControls, InspectorControls, RichText } from '@wordpress/block-editor';
 import MktoForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/MktoForm';
 import { __experimentalGrid as Panel, PanelBody, Grid,Placeholder, TextareaControl, ToolbarButton, TextControl, Button, ResponsiveWrapper, ToolbarGroup } from '@wordpress/components';
-const { Fragment, useState } = wp.element;
+const { Fragment, useState, useEffect } = wp.element;
 import BackgroundSelectorMenu from '../../BackgroundSelector';
-import MktoExecute from '../../MktoExecute';
+import { MktoForms } from '../../../../../../../../gatsby-sites/www/liveperson-attribution';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -25,6 +25,8 @@ import MktoExecute from '../../MktoExecute';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+
+const marketoScriptId = 'mktoForms';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -91,38 +93,40 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	);
 
-	if (isSelected)	return (
-		<div {...useBlockProps()}>
-			{addButton}
-			<Fragment>
-				<InspectorControls>
-					<div>
-						<PanelBody title="Thank you message" initialOpen={ true }>
-							{thankyouControl}
-							<Button icon="welcome-view-site" variant="primary" onClick={ function() {
-								window.jQuery(`#mktoForm_${mktoId}`).html(`<p class="thank-you-message">${attributes.thankyou}</p>`);
-								setTimeout(function() {
-									setAttributes({ mktoFormId: 0});
-								}, 2000);
-								setTimeout(function() {
-									window.jQuery('.thank-you-message').remove();
-									setAttributes({ mktoFormId: mktoId});
-								}, 2010);
-							}
-							 }>Preview</Button>
-						</PanelBody>
-					</div>
-				</InspectorControls>
-			</Fragment>
-			<MktoForm thankyou={attributes.thankyou} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true}/>
-			<MktoExecute />
-		</div>
-	);
+	if (isSelected)	{
+
+
+		return (
+			<div {...useBlockProps()}>
+				{addButton}
+				<Fragment>
+					<InspectorControls>
+						<div>
+							<PanelBody title="Thank you message" initialOpen={ true }>
+								{thankyouControl}
+								<Button icon="welcome-view-site" variant="primary" onClick={ function() {
+									window.jQuery(`#mktoForm_${mktoId}`).html(`<p class="thank-you-message">${attributes.thankyou}</p>`);
+									setTimeout(function() {
+										setAttributes({ mktoFormId: 0});
+									}, 2000);
+									setTimeout(function() {
+										window.jQuery('.thank-you-message').remove();
+										setAttributes({ mktoFormId: mktoId});
+									}, 2010);
+								}
+							 	}>Preview</Button>
+							</PanelBody>
+						</div>
+					</InspectorControls>
+				</Fragment>
+				<MktoForm thankyou={attributes.thankyou} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
+			</div>
+		);
+	}
 
 	return (
 		<div {...useBlockProps()}>
-			<MktoForm thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true}/>
-			<MktoExecute />
+			<MktoForm thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
 		</div>
 	)
 

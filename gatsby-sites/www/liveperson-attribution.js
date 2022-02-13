@@ -23,17 +23,31 @@ const Query = {
 }
 
 const MktoForms = {
-	Bind: function(callback) {
-		if (window.formsBinded) return;
-		if (!window.MktoForms2) {
-			window.lpAttrWaitForM = setTimeout(function() {
-				MktoForms.Bind(callback);
-			}, 100);
-		} else {
+	Bind: function() {
+		
+		if (!window.formsBinded) {
 			window.formsBinded = true;
-			clearTimeout(window.lpAttrWaitForM);
-			if (callback) callback(window.MktoForms2, $);
+			MktoForms2.whenReady(function(form) {
+				LivePerson.FormReady(form);
+				form.onValidate(function() {
+					LivePerson.Validate(form);
+				});
+				
+				form.onSuccess(function(values, forwardUrl) {
+					LivePerson.ShowAfterMessage(form);
+					window.dataLayer && dataLayer.push({'event' : 'request-demo-form'});
+					return false;
+				});
+			});
 		}
+		
+		$('form:not(.mktoForm)').each(function() {
+			const formId = $(this).attr('mkto');
+			if (!formId) return;
+			MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId);
+		});		
+		
+		
 	}
 }
 
@@ -74,7 +88,7 @@ const LivePerson = {
 		return;
 	},
 	
-	FormReady: function(form, callback) {
+	FormReady: function(form) {
 		
 		var _this = this;
 		// TODO Address form directly, not all labels.
@@ -83,56 +97,51 @@ const LivePerson = {
 			$(this).attr('aria-label', $(this).attr('for'));
 		});
 		
-		if (callback) callback(form);
 	},
 	
-	Validate: function(form, callback) {
-		
-		console.log("lp Validate", form);
-		
-		var _this = this;
-		form.onValidate(function () {
-			
-			console.log("form onValidate", form);
-						
-			if (form.getValues().wholeName !== undefined && form.getValues().wholeName !== '') {
-				_this.SetFullName("FirstName", "LastName", "wholeName", form);
-			}
-	
-			var formID = form.getId();
-			var emailField = form.getFormElem().find('#Email').first();
-			var emailVal = emailField.val();
-	
-			//Hotjar recording tag
-			_this.HotJar('Form fill - Attempt');
-	
-			if (!_this.EmailGood(emailVal)) {
-				console.log("Email Invalid " + emailVal, form.vals());
-				form.submittable(false);
-				form.showErrorMessage("Must be Business email.", emailField);
-			} else { 			
-				//continueDemandbase(formID);
-				form.vals({
-					'GCLID__c': window.lp_attr.gclid,
-					'MSCLIKID__c': window.lp_attr.msclkid,
-					'LeadSource': window.lp_attr.leadSource,
-					'Referring_URL__c': window.lp_attr.referringUrl,
-					'campaignSearchKeywords__c': window.lp_attr.searchTearms,
-					'campaignID__c': window.lp_attr.campaign,
-					'campaignSource__c': window.lp_attr.campaignSource,
-					'campaignMedium__c': window.lp_attr.campaignMedium,
-					'campaignCreative__c': window.lp_attr.campaignContent
-				});				
-				form.submittable(true);
-				console.log("Submitting values: " + JSON.stringify(form.vals()));
-			}
-		});
+	ShowAfterMessage: function(form) {
+		const element = form.getFormElem().next();
+		console.log(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
+		var messageParagraph = $('<p>').addClass('thank-you-message').append(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
+		form.getFormElem().html("").append(messageParagraph);
 	},
 	
-	ShouldSubmit: function(form) {
+	Validate: function(form) {
+										
+		if (form.getValues().wholeName !== undefined && form.getValues().wholeName !== '') {
+			LivePerson.SetFullName("FirstName", "LastName", "wholeName", form);
+		}
+
+		var formID = form.getId();
+		var emailField = form.getFormElem().find('#Email').first();
+		var emailVal = emailField.val();
+
+		//Hotjar recording tag
+		LivePerson.HotJar('Form fill - Attempt');
+
+		if (!LivePerson.EmailGood(emailVal)) {
+			console.log("Email Invalid " + emailVal, form.vals());
+			form.submittable(false);
+			form.showErrorMessage("Must be Business email.", emailField);
+		} else { 			
+			//continueDemandbase(formID);
+			form.vals({
+				'GCLID__c': window.lp_attr.gclid,
+				'MSCLIKID__c': window.lp_attr.msclkid,
+				'LeadSource': window.lp_attr.leadSource,
+				'Referring_URL__c': window.lp_attr.referringUrl,
+				'campaignSearchKeywords__c': window.lp_attr.searchTearms,
+				'campaignID__c': window.lp_attr.campaign,
+				'campaignSource__c': window.lp_attr.campaignSource,
+				'campaignMedium__c': window.lp_attr.campaignMedium,
+				'campaignCreative__c': window.lp_attr.campaignContent
+			});				
+			form.submittable(true);
+			console.log("Submitting values: " + JSON.stringify(form.vals()));
+		}
 		
 	},
-	
+
 	EmailGood: function(email) {
 		email = email.toLowerCase();
 		var valid = true;
