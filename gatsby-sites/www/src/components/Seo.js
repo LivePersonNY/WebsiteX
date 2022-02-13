@@ -42,24 +42,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   
   const [isLoaded, setIsLoaded] = useState(false);
   
-  MktoForms.Bind(function(MktoForms2, $) {
-    setTimeout(function() {
-      $('form').each(function() {
-        var formId = $(this).attr('mkto');
-        //var afterMessage = LivePerson.decodeHtml($(`mkto-after[mkto="${formId}"]`).html());
-        MktoForms2.loadForm(
-          'https://info.liveperson.com',
-          '501-BLE-979',
-          $(this).attr('mkto'),
-          function(form) {
-            
-            console.log("Loaded callback...", form);
-            
-            console.log("form loading", form);
-          }
-        )
-      });
-    }, 2000);
+  /*MktoForms.Bind(function(MktoForms2, $) {
     MktoForms2.whenReady(function(form) {
       // TODO Address form directly, not all labels.
       
@@ -113,7 +96,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       });
     });
     
-  });
+  });*/
   
   useEffect(() => {
       
@@ -131,6 +114,14 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         loadScript();
       } else {
         setIsLoaded(true);
+      }
+      
+      if (isLoaded) {
+        MktoForms2.loadForm(
+          'https://info.liveperson.com',
+          '501-BLE-979',
+          2580
+        )
       }
           
   });
