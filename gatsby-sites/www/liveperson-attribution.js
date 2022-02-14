@@ -40,6 +40,10 @@ const MktoForms = {
 		if (!window.formsBinded) {
 			window.formsBinded = true;
 			MktoForms2.whenReady(function(form) {
+				
+				const formId = form.getId();
+				const ctaString = Dictionary.ctas[formId];
+				
 				LivePerson.FormReady(form);
 				form.onValidate(function() {
 					LivePerson.Validate(form);
@@ -47,7 +51,7 @@ const MktoForms = {
 				
 				form.onSuccess(function(values, forwardUrl) {
 					LivePerson.ShowAfterMessage(form);
-					window.dataLayer && dataLayer.push({'event' : 'request-demo-form'});
+					window.dataLayer && dataLayer.push({event: ctaString});
 					return false;
 				});
 			});
