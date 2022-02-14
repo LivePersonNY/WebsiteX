@@ -11,7 +11,7 @@ const Hero = (props) => {
     </div>
   );
     
-  return (<div className={`pane hero ${props.backgroundColor||"bg-transparent"} ${props.removePB ? 'rem-padding' : ''}`}>
+  return (<div id={props.anchor} className={`pane hero ${props.backgroundColor||"bg-transparent"} ${props.removePB ? 'rem-padding' : ''}`}>
     {props.backgroundImage && 
       <style>
         {`.pane.hero {

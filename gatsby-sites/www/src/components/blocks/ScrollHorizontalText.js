@@ -14,7 +14,7 @@ const ScrollHorizontalText = (props) => {
   });
 
   return (  
-    <div className={`pane comp-scroll-horizontal-text ${props.backgroundColor||"bg-transparent"}`}>
+    <div id={props.anchor} className={`pane comp-scroll-horizontal-text ${props.backgroundColor||"bg-transparent"}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-4">

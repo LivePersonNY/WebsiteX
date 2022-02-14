@@ -18,7 +18,7 @@ const HorizontalText = (props) => {
   });
 
   return (  
-    <div className={`pane comp-horizontal-text ${props.backgroundColor}`}>
+    <div id={props.anchor} className={`pane comp-horizontal-text ${props.backgroundColor}`}>
       <div className="container">
         {textBlock}
       </div>

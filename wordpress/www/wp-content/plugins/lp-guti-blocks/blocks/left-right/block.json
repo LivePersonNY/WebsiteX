@@ -50,6 +50,8 @@
 		"linkSecondaryText": {"default": "Here's a link text"},
 		"linkSecondaryUrl": {"default": "https://www.liveperson.com"},
 		"lottieFile": {},
-		"lottieId": {}
+		"lottieId": {},
+		"vimeoUrl": {},
+		"anchor": {}
 	}
 }

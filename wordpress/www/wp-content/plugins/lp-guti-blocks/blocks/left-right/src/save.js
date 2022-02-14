@@ -49,10 +49,11 @@ export default function save({attributes}) {
 			body={attributes.text}
 			title={attributes.title}
 			flipColumns={attributes.flipped}
-			imgSrc={attributes.mediaUrl}
+			imgSrc={!attributes.vimeoUrl && attributes.mediaUrl}
 			imgAlt={attributes.mediaAlt}
-			lottiePlayer={lottiePlayerElement}
-
+			lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
+			vimeoUrl={attributes.vimeoUrl}
+			anchor={attributes.anchor}
 		/>
 	);
 }

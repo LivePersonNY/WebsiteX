@@ -26,7 +26,7 @@ const Faq = (props) => {
 
   return (
   <>
-    <div className={`pane comp-faq ${props.backgroundColor||"bg-transparent"}`}>
+    <div id={props.anchor} className={`pane comp-faq ${props.backgroundColor||"bg-transparent"}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-4">

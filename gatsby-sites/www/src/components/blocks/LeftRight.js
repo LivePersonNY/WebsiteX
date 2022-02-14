@@ -5,10 +5,16 @@ import Paragraph from '../Paragraph';
 
 const LeftRight = (props) => {
   let repeat;
+  
+  let vFrame = (
+    <div className="vimeoContainer">
+      <iframe src={props.vimeoUrl} className="vimeoFrame"></iframe>
+    </div>
+  );
 
   return (
     <>
-      <div
+      <div id={props.anchor} 
         className={`pane ${props.backgroundColor||"bg-transparent"} comp-left-right ${
           props.repeat ? 'comp-left-right-repeat' : ''
         }`}
@@ -22,6 +28,7 @@ const LeftRight = (props) => {
                 !props.imgCtl && (
                   (props.imgSrc && <img src={props.imgSrc || `https://picsum.photos/752/568?random=${parseInt(Math.random()*100)}`} alt={props.imgAlt || ""} />)) || props.imgCtl || props.lottiePlayer
               }
+              {props.vimeoUrl && vFrame}
             </div>
             <div
               className={`col-lg-6 ${

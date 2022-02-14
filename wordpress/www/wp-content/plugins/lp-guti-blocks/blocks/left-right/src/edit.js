@@ -14,7 +14,7 @@ import LeftRight from '../../../../../../../../gatsby-sites/www/src/components/b
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import MediaPicker from '../../MediaPicker';
 import LottieFilePlayer from '../../LottieFilePlayer';
-
+import Anchor from '../../Anchor';
 
 import LineBreaks from '../../LineBreaks';
 /**
@@ -92,6 +92,18 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
 	)
 
+	let vimeoUrlControls = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Vimeo URL" initialOpen={ false }>
+					<TextControl value={attributes.vimeoUrl} onChange={function(value) {
+						setAttributes({vimeoUrl: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+	);
+
 	let linkTextControl = (
 		<div className="wp-control-wrapper">
 			<TextControl
@@ -152,6 +164,10 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	if (isSelected)	return (
 		<div {...useBlockProps()}>
 			{addButton}
+			{vimeoUrlControls}
+			<Anchor value={attributes.anchor} callback={function(val) {
+				setAttributes({ anchor: val });
+			}} />
 			<LeftRight
 				headLevel={attributes.headLevel}
 				kicker={kickerControl}
@@ -162,8 +178,10 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				body={contentControl}
 				title={titleControl}
 				flipColumns={attributes.flipped}
-				imgCtl={imageControl}
+				imgCtl={!attributes.vimeoUrl && imageControl}
 				lottieFile={attributes.lottieFile}
+				vimeoUrl={attributes.vimeoUrl}
+				anchor={attributes.anchor}
 			/>
 			<Fragment>
 				<InspectorControls>
@@ -205,10 +223,11 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				body={attributes.text}
 				title={attributes.title}
 				flipColumns={attributes.flipped}
-				imgSrc={attributes.mediaUrl}
+				imgSrc={!attributes.vimeoUrl && attributes.mediaUrl}
 				imgAlt={attributes.mediaAlt}
-				lottiePlayer={lottiePlayerElement}
-
+				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
+				vimeoUrl={attributes.vimeoUrl}
+				anchor={attributes.anchor}
 			/>
 		</div>
 	);

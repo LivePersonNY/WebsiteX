@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const ContainedContent = (props) => {
 
   return (
-    <div className={`pane comp-contained-content ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
+    <div id={props.anchor} className={`pane comp-contained-content ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">

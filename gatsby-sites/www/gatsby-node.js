@@ -46,7 +46,7 @@ exports.createPages = async (props) => {
   }
   
   Object.keys(redirectManifest.redirects).forEach(function(item) {
-    console.log("redirecting " + item + " --> " + redirectManifest.redirects[item]);
+    //console.log("redirecting " + item + " --> " + redirectManifest.redirects[item]);
     createRedirect({
       fromPath: item,
       toPath: redirectManifest.redirects[item],
