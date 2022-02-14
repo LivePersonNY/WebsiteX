@@ -54,6 +54,16 @@
     padding-bottom: 0;
 }
 
+@mixin remTopSameColor() {
+    margin-top: -80px;
+    &.pane-with-lead-text {
+        margin-top: -72px;
+        @include media-breakpoint-up(lg) {
+            margin-top: -104px;
+        }
+    }
+}
+
 .pane {
     padding: 80px 0;
 
@@ -71,37 +81,37 @@
 
     &.bg-primary-light {
         +.bg-primary-light {
-            padding-top: 0;
+            @include remTopSameColor;
         }
     }
 
     &.bg-neutral-84 {
         +.bg-neutral-84 {
-            padding-top: 0;
+            @include remTopSameColor;
         }
     }
 
     &.bg-neutral-92 {
         +.bg-neutral-92 {
-            padding-top: 0;
+            @include remTopSameColor;
         }
     }
 
     &.bg-neutral-96 {
         +.bg-neutral-96 {
-            padding-top: 0;
+            @include remTopSameColor;
         }
     }
 
     &.bg-blue-20 {
         +.bg-blue-20 {
-            padding-top: 0;
+            @include remTopSameColor;
         }
     }
 
     &.bg-transparent {
         +.bg-transparent {
-            padding-top: 0;
+            @include remTopSameColor;
         }
     }
 
