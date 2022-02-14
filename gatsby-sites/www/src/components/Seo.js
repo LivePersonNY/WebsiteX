@@ -87,7 +87,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={`%s`}
       meta={[
         {
           name: `description`,

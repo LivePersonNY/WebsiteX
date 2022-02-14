@@ -32,9 +32,11 @@ window.documentReadyFn = function() {
 		}
 	});
 	
-	LivePerson.HydrateAttributes(function() {
-		LivePerson.BindToChat();
-	});
+	if(window.lpTag) {
+		LivePerson.HydrateAttributes(function() {
+			LivePerson.BindToChat();
+		});
+	}
 	
 	console.log('Document ready.');
 		
