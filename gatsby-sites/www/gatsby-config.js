@@ -105,8 +105,8 @@ module.exports = {
         defaultDataLayer: { platform: "gatsby" },
     
         // Specify optional GTM environment details.
-        gtmAuth: "TNFk-wT-SP5OBASkQywSVg",
-        gtmPreview: "env-42",
+        gtmAuth: process.env.GTM_AUTH || null,
+        gtmPreview: process.env.GTM_ENV || null,
         // dataLayerName: "YOUR_DATA_LAYER_NAME",
     
         // Name of the event that is triggered
