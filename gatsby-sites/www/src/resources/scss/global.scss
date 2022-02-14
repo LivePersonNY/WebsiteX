@@ -522,7 +522,11 @@ img {
         }
 
         .pill {
-            margin: 0 8px;
+            margin: 8px;
+
+            @include media-breakpoint-up(lg) {
+                margin: 0 8px;
+            }
         }
     }
 
