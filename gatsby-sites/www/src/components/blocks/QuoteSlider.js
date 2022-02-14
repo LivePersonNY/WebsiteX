@@ -68,7 +68,10 @@ const QuoteSlider = (props) => {
                     <h2>{props.header}</h2>
                   </div>
                 </div>
+                 
                   <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+                  {props.items.length > 1 && (
+                    <>
                     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                       <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span className="visually-hidden">Previous</span>
@@ -77,6 +80,8 @@ const QuoteSlider = (props) => {
                       <span className="carousel-control-next-icon" aria-hidden="true"></span>
                       <span className="visually-hidden">Next</span>
                     </button>
+                    </>
+                  )}
                     <div className="carousel-inner">
                       {quoteBlock}
                       

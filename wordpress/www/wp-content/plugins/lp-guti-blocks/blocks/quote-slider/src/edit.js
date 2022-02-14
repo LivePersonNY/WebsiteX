@@ -93,8 +93,10 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						}}
 						className="embedded-input"
 					/>
-					<ItemControls itemArray={itemValues} callback={function(items) {
+					<ItemControls index={index} itemArray={itemValues} callback={function(items) {
+						console.log(ItemControls);
 						setAttributes({ quotes: items});
+
 					}}/>
 				</div>
 			),
