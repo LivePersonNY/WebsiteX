@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import lottie from "lottie-web";
 import { Cookie, Query, LivePerson } from "./liveperson-attribution";
+import * as Engagement from "multibuttonengagement";
 
 window.lottie = lottie;
 
@@ -11,6 +12,10 @@ window.lp_attr = {};
 window.documentReadyFn = function() {
 	
 	window.lottieFiles = [];
+	
+	Engagement.init({}, function() {
+		console.log('its running...');
+	});
 		
 	Array.from(document.scripts).forEach(function(item) {
 		if (item.attributes['data-type']?.value == 'pageScript') {
