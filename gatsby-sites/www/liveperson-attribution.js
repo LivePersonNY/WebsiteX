@@ -259,7 +259,8 @@ const LivePerson = {
 	},
 	
 	BindToChat: function() {
-		(window.lpTag.sdes || []).push({
+		window.lpTag.sdes = window.lpTag.sdes || [];
+		window.lpTag.sdes.push({
 			"type": "ctmrinfo",  //MANDATORY
 			"info": {
 			   "cstatus": window.lp_attr.leadSource, // LEAD SOURCE
@@ -271,7 +272,7 @@ const LivePerson = {
 			   "imei": window.lp_attr.campaign || '',  // CAMPAIGN NAME
 			}
 		});
-		(window.lpTag.sdes || []).push({
+		window.lpTag.sdes.push({
 			"type": "personal", //MANDATORY
 			"personal": {
 				"company": window.location.href // VISITOR COMPANY NAME
