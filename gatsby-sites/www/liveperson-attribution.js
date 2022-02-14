@@ -40,6 +40,10 @@ const MktoForms = {
 		if (!window.formsBinded) {
 			window.formsBinded = true;
 			MktoForms2.whenReady(function(form) {
+				
+				const formId = form.getId();
+				const ctaString = Dictionary.ctas[formId];
+				
 				LivePerson.FormReady(form);
 				form.onValidate(function() {
 					LivePerson.Validate(form);
@@ -47,7 +51,7 @@ const MktoForms = {
 				
 				form.onSuccess(function(values, forwardUrl) {
 					LivePerson.ShowAfterMessage(form);
-					window.dataLayer && dataLayer.push({'event' : 'request-demo-form'});
+					window.dataLayer && dataLayer.push({event: ctaString});
 					return false;
 				});
 			});
@@ -64,7 +68,7 @@ const MktoForms = {
 
 const LivePerson = {
 	
-	HydrateAttributes: function() {
+	HydrateAttributes: function(callback) {
 		var leadSourceCookie = Cookie.get("lp-leadSource");
 		var lsRef = Cookie.get("lp-lsRef");
 		var lsTerms = Cookie.get("lp-lsTerms");
@@ -147,14 +151,14 @@ const LivePerson = {
 				Cookie.set('lp-lsRef', document.location.href, 1);
 			} else {
 				// Everything else
-				for (i = 0; i < Dictionary.organicSites.length; i++) {
+				for (var i = 0; i < Dictionary.organicSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.organicSites[i]) !== -1) {
 						Cookie.set('lp-leadSource', 'Organic', 1);
 						leadSourceCookie = 'Organic';
 						return false;
 					}
 				}
-				for (i = 0; i < Dictionary.socialSites.length; i++) {
+				for (var i = 0; i < Dictionary.socialSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.socialSites[i]) !== -1) {
 						Cookie.set('lp-leadSource', 'Social', 30);
 						Cookie.set('lp-lsRef', lsRef, 30);
@@ -162,7 +166,7 @@ const LivePerson = {
 						return false;
 					}
 				}
-				for (i = 0; i < Dictionary.reviewSites.length; i++) {
+				for (var i = 0; i < Dictionary.reviewSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.reviewSites[i]) !== -1) {
 						Cookie.set('lp-leadSource', 'Review website', 30);
 						Cookie.set('lp-lsRef', lsRef, 30);
@@ -170,7 +174,7 @@ const LivePerson = {
 						return false;
 					}
 				}
-				for (i = 0; i < Dictionary.prSites.length; i++) {
+				for (var i = 0; i < Dictionary.prSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.prSites[i]) !== -1) {
 						Cookie.set('lp-leadSource', 'PR', 1);
 						leadSourceCookie = 'PR';
@@ -183,6 +187,22 @@ const LivePerson = {
 			}
 		
 		}
+		
+		window.lp_attr = $.extend(window.lp_attr || {}, {
+			gclid: Query.get('gclid'),
+			msclkid: Query.get('msclkid'),
+			leadSource: leadSourceCookie,
+			referringUrl: lsRef,
+			searchTerms: lsTerms,
+			campaign: lsCampaign,
+			campaignSource: lsSource,
+			campaignMedium: lsMedium,
+			campaignContent: lsContent,
+			query: queryString,
+			mkto: _mkto_trk
+		});
+		
+		if (callback) callback();
 	},
 	
 	decodeHtml: function(html) {
@@ -236,6 +256,27 @@ const LivePerson = {
 		console.log(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
 		var messageParagraph = $('<p>').addClass('thank-you-message').append(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
 		form.getFormElem().html("").append(messageParagraph);
+	},
+	
+	BindToChat: function() {
+		(window.lpTag.sdes || []).push({
+			"type": "ctmrinfo",  //MANDATORY
+			"info": {
+			   "cstatus": window.lp_attr.leadSource, // LEAD SOURCE
+			   "ctype": window.lp_attr.mkto,  // Munchkin cookie
+			   "companyBranch": window.lp_attr.referringUrl,  // REFERING URL
+			   "socialId": window.lp_attr.query,  // URL QUERY
+			   "accountName": "",  // AB TEST KEY
+			   "role": window.lp_attr.searchTerms || '',  // SEARCH TERMS
+			   "imei": window.lp_attr.campaign || '',  // CAMPAIGN NAME
+			}
+		});
+		(window.lpTag.sdes || []).push({
+			"type": "personal", //MANDATORY
+			"personal": {
+				"company": window.location.href // VISITOR COMPANY NAME
+			}
+		});
 	},
 	
 	Validate: function(form) {
