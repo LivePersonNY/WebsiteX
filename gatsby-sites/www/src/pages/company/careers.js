@@ -4,6 +4,7 @@ import { withPrefix, Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import queryString from 'query-string';
 import Helmet from "react-helmet"
+import { Query } from "../../../liveperson-attribution";
 
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
@@ -11,10 +12,15 @@ import CardGridB from '../../components/blocks/CardGridB';
 
 const CareersPage = () => {
 
-  let careersScript = `
-  console.log('careers script loaded4');
+
+  useEffect(() => {
+    console.log('careers script loaded4');
 
   window.onload = (e) => {
+
+    let ghsrc = Query.get('gh_src');
+    console.log('ghsrc is: ' + ghsrc);
+
    document.querySelectorAll('.comp-body-container a').forEach(function(lnk) {
        var href = lnk.href.concat("&gh_src=").concat(ghsrc ?? "");
         lnk.href = href;
@@ -83,10 +89,6 @@ const CareersPage = () => {
   })
 
   console.log('end of careers script');
-  `;
-
-  useEffect(() => {
-    eval(careersScript);
   });
 
  
