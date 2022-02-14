@@ -20,7 +20,9 @@ window.documentReadyFn = function() {
 		}
 	});
 	
-	LivePerson.HydrateAttributes();
+	LivePerson.HydrateAttributes(function() {
+		LivePerson.BindToChat();
+	});
 	
 	console.log('Document ready.');
 		

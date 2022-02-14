@@ -68,7 +68,7 @@ const MktoForms = {
 
 const LivePerson = {
 	
-	HydrateAttributes: function() {
+	HydrateAttributes: function(callback) {
 		var leadSourceCookie = Cookie.get("lp-leadSource");
 		var lsRef = Cookie.get("lp-lsRef");
 		var lsTerms = Cookie.get("lp-lsTerms");
@@ -187,6 +187,22 @@ const LivePerson = {
 			}
 		
 		}
+		
+		window.lp_attr = $.extend(window.lp_attr || {}, {
+			gclid: Query.get('gclid'),
+			msclkid: Query.get('msclkid'),
+			leadSource: leadSourceCookie,
+			referringUrl: lsRef,
+			searchTerms: lsTerms,
+			campaign: lsCampaign,
+			campaignSource: lsSource,
+			campaignMedium: lsMedium,
+			campaignContent: lsContent,
+			query: queryString,
+			mkto: _mkto_trk
+		});
+		
+		if (callback) callback();
 	},
 	
 	decodeHtml: function(html) {
@@ -240,6 +256,27 @@ const LivePerson = {
 		console.log(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
 		var messageParagraph = $('<p>').addClass('thank-you-message').append(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
 		form.getFormElem().html("").append(messageParagraph);
+	},
+	
+	BindToChat: function() {
+		(window.lpTag.sdes || []).push({
+			"type": "ctmrinfo",  //MANDATORY
+			"info": {
+			   "cstatus": window.lp_attr.leadSource, // LEAD SOURCE
+			   "ctype": window.lp_attr.mkto,  // Munchkin cookie
+			   "companyBranch": window.lp_attr.referringUrl,  // REFERING URL
+			   "socialId": window.lp_attr.query,  // URL QUERY
+			   "accountName": "",  // AB TEST KEY
+			   "role": window.lp_attr.searchTerms || '',  // SEARCH TERMS
+			   "imei": window.lp_attr.campaign || '',  // CAMPAIGN NAME
+			}
+		});
+		(window.lpTag.sdes || []).push({
+			"type": "personal", //MANDATORY
+			"personal": {
+				"company": window.location.href // VISITOR COMPANY NAME
+			}
+		});
 	},
 	
 	Validate: function(form) {

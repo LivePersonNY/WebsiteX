@@ -74,6 +74,7 @@ module.exports = {
             /p-*/,
             /m-*/,
             /d-*/,
+            /nav-*/,
             'solutions',
             'success-services',
             'about',
