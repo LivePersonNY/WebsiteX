@@ -10,7 +10,9 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useState, useEffect } from 'react';
+import { LivePerson, MktoForms } from '../../liveperson-attribution';
 
+const marketoScriptId = 'mktoForms';
 
 const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   const { wp, wpUser } = useStaticQuery(
@@ -38,6 +40,8 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   const defaultTitle = wp.generalSettings?.title;
   const favicon = wp.allSettings?.siteIcon;
   
+  const [isLoaded, setIsLoaded] = useState(false);
+  
   useEffect(() => {
       
       function waitForDocumentReadyFn() {
@@ -50,17 +54,32 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       }
       waitForDocumentReadyFn();
       
-      function waitForAttribution() {
-        if (!window.attributionReadyFn) {
-          window.attrTimeout = setTimeout(waitForDocumentReadyFn, 50);
-        } else {
-          clearTimeout(window.attrTimeout);
-          window.attributionReadyFn();
-        }
+      if (!document.getElementById(marketoScriptId)) {
+        loadScript();
+      } else {
+        setIsLoaded(true);
       }
-      waitForAttribution();
+      
+      if (isLoaded) {
+        MktoForms.Bind();
+      }
           
   });
+  
+  const loadScript = () => {
+    var s = document.createElement('script');
+    s.id = marketoScriptId;
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://info.liveperson.com/js/forms2/js/forms2.min.js';
+    s.onreadystatechange = function() {
+      if (this.readyState === 'complete' || this.readyState === 'loaded') {
+        setIsLoaded(true);
+      }
+    };
+    s.onload = () => setIsLoaded(true);
+    document.getElementsByTagName('head')[0].appendChild(s);
+  };
 
   return (
     <Helmet
@@ -113,13 +132,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap"
         rel="stylesheet"
-      />
-      
-      <script
-        id="mktoForms"
-        type="text/javascript"
-        src="https://info.liveperson.com/js/forms2/js/forms2.min.js"
-        async={true}
       />
       
       <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>

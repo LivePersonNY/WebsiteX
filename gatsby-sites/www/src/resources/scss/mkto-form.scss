@@ -1,4 +1,7 @@
 .pane-form {
+    mkto-after {
+        display: none;
+    }
     text-align: center;
     z-index: 100;
     display: block !important;
@@ -82,20 +85,19 @@
             
             form {
                 @include media-breakpoint-up(lg) {
-                    height: 0;
-                    transition: .5s height ease;
-                    overflow: hidden;
+                    height: 48px;
+                    transition: .5s opacity ease;
+                    opacity: 0;
                 }
             }
 
             .mktoForm {
                 display: none;
-                
+                opacity: 1;
                 
 
                 @include media-breakpoint-up(lg) {
                     display: block;
-                    height: 48px;
                 }
             }
             

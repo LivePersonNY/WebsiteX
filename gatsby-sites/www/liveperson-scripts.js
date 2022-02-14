@@ -1,21 +1,30 @@
 import $ from 'jquery';
 import lottie from "lottie-web";
+import { Cookie, Query, LivePerson } from "./liveperson-attribution";
+import * as Engagement from "multibuttonengagement";
 
 window.lottie = lottie;
 
 window.readyTimeout = null;
 
+window.lp_attr = {};
 
 window.documentReadyFn = function() {
 	
 	window.lottieFiles = [];
 	
+	Engagement.init({}, function() {
+		console.log('its running...');
+	});
+		
 	Array.from(document.scripts).forEach(function(item) {
 		if (item.attributes['data-type']?.value == 'pageScript') {
 			console.log("executing script...");
 			eval(item.text);
 		}
 	});
+	
+	LivePerson.HydrateAttributes();
 	
 	console.log('Document ready.');
 		
@@ -120,5 +129,5 @@ window.documentReadyFn = function() {
 			$(".LPMcontainer .LPMimage").attr("onclick", "ga('send', 'event', 'chat', 'click', 'site-wide button')");
 			$(".LPMcontainer").attr("onclick", "ga('send', 'event', 'form', 'submit', 'Chat engagement clicks')");
 		}, 3000);
-	
+		
 }

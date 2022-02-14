@@ -9,81 +9,60 @@ const marketoScriptId = 'mktoForms';
 
 const MktoForm = (props) => {
 
-    let mktoFormMobile = function(e) {
-      // $('body').toggleClass('locked');
-      // $('.form--sticky').toggleClass('swapPosition');
-      $('.form--sticky .mktoForm').slideToggle(300);
-      $('.span1').toggleClass('swap');
-      $('.span2').toggleClass('swap');
-    };
+  let mktoFormMobile = function(e) {
+    $('.form--sticky .mktoForm').slideToggle(300);
+    $('.span1').toggleClass('swap');
+    $('.span2').toggleClass('swap');
+  };
 
-    let formId = props.formId;
+  let formId = props.formId;
     
-    let mktoFormScript = `
-      
-      var id = ${formId};
-      
-      function initMktoForm() {
-        if (!window.MktoForms2) {
-          setTimeout(initMktoForm, 100);
-        } else {
-          if (document.querySelector('form#mktoForm_${formId}').childElementCount == 0) {
-          window.MktoForms2.loadForm(
-            '//info.liveperson.com',
-            '501-BLE-979',
-            id,
-            function(form){
-              console.log("form loading", id);
-              form.onSuccess(function(values, followUpUrl) {
-              
-              form.getFormElem().html('<p class="thank-you-message">${props.thankyou}</p>');
-          
-              dataLayer.push({'event' : 'request-demo-form'});
-            
-              return false;
-              });
-            }
-            );
-          }
-        }
-      }
-      initMktoForm();
-      
-    `;
-    
-    if (props.runFilters) {
-      const [isLoaded, setIsLoaded] = useState(false);
-      
+  // Strictly for WP //  
   
-      useEffect(() => {
-        if (!document.getElementById(marketoScriptId)) {
-          loadScript();
-        } else {
-          setIsLoaded(true);
+  if (props.runFilters) {
+    const [isLoaded, setIsLoaded] = useState(false);
+  
+    const loadScript = () => {
+      var s = document.createElement('script');
+      s.id = marketoScriptId;
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://info.liveperson.com/js/forms2/js/forms2.min.js';
+      s.onreadystatechange = function() {
+        if (this.readyState === 'complete' || this.readyState === 'loaded') {
+        setIsLoaded(true);
         }
-      }, []);
-    
-      useEffect(() => {
-        
-        isLoaded && eval(mktoFormScript);
-                
-      }, [isLoaded, formId]);
-    
-      const loadScript = () => {
-        var s = document.createElement('script');
-        s.id = marketoScriptId;
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'https://info.liveperson.com/js/forms2/js/forms2.min.js';
-        s.onreadystatechange = function() {
-          if (this.readyState === 'complete' || this.readyState === 'loaded') {
-            setIsLoaded(true);
-          }
-        };
-        s.onload = () => setIsLoaded(true);
-        document.getElementsByTagName('head')[0].appendChild(s);
       };
-    }
+      s.onload = () => {
+        setIsLoaded(true);
+  
+      }
+      document.getElementsByTagName('head')[0].appendChild(s);
+      };
+  
+    useEffect(() => {
+  
+      if (!document.getElementById(marketoScriptId)) {
+        loadScript();
+      } else {
+        setIsLoaded(true);
+      }
+  
+    }, []);
+    
+    useEffect(() => {
+      if (isLoaded) {
+        if ($('#mktoForm_' + formId).children().length == 0) {
+          MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId, function(form) {
+            form.onValidate(function() {
+              form.submittable(false);
+            });
+          });
+        }
+        
+      }
+    }, [isLoaded, formId]);  
+  }
   
 
   return (
@@ -115,10 +94,9 @@ const MktoForm = (props) => {
                   </svg>
                 </span>
               </a>
-              <form id={`mktoForm_${formId}`}></form>      
-              {!props.runFilters && (
-                <script data-type="pageScript">{mktoFormScript}</script>
-              )}
+              <form id={`mktoForm_${formId}`} mkto={formId}></form>      
+              <mkto-after mkto={formId}>{props.thankyou}</mkto-after>
+              
           </div>
         </div>
       </div>
