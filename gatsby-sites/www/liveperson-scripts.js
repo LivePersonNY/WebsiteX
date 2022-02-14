@@ -14,8 +14,15 @@ window.documentReadyFn = function() {
 	window.lottieFiles = [];
 	
 	window.lpCallbacks.forEach(function(item) {
-		if (item) item();
-		console.log("ready callback executed", item);
+		try {
+			if (item) {
+				item($);
+				console.log("cb called");
+			}
+		} catch (error) {
+			console.log("callback failed", error);
+		}
+		
 	});
 		
 	Array.from(document.scripts).forEach(function(item) {
