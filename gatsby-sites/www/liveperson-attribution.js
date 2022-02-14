@@ -147,14 +147,14 @@ const LivePerson = {
 				Cookie.set('lp-lsRef', document.location.href, 1);
 			} else {
 				// Everything else
-				for (i = 0; i < Dictionary.organicSites.length; i++) {
+				for (var i = 0; i < Dictionary.organicSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.organicSites[i]) !== -1) {
 						Cookie.set('lp-leadSource', 'Organic', 1);
 						leadSourceCookie = 'Organic';
 						return false;
 					}
 				}
-				for (i = 0; i < Dictionary.socialSites.length; i++) {
+				for (var i = 0; i < Dictionary.socialSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.socialSites[i]) !== -1) {
 						Cookie.set('lp-leadSource', 'Social', 30);
 						Cookie.set('lp-lsRef', lsRef, 30);
@@ -162,7 +162,7 @@ const LivePerson = {
 						return false;
 					}
 				}
-				for (i = 0; i < Dictionary.reviewSites.length; i++) {
+				for (var i = 0; i < Dictionary.reviewSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.reviewSites[i]) !== -1) {
 						Cookie.set('lp-leadSource', 'Review website', 30);
 						Cookie.set('lp-lsRef', lsRef, 30);
@@ -170,7 +170,7 @@ const LivePerson = {
 						return false;
 					}
 				}
-				for (i = 0; i < Dictionary.prSites.length; i++) {
+				for (var i = 0; i < Dictionary.prSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.prSites[i]) !== -1) {
 						Cookie.set('lp-leadSource', 'PR', 1);
 						leadSourceCookie = 'PR';

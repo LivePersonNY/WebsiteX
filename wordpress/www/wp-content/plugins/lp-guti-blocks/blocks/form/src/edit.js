@@ -87,7 +87,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 			tagName="p"
 			value={attributes.thankyou}
 			onChange={ (val) => setAttributes({thankyou: val}) }
-			allowedFormats={ [ 'core/bold', 'core/italic', 'core/image', 'core/link'] }
+			allowedFormats={ [ 'core/bold', 'core/italic', 'core/image', 'core/link', 'core/color'] }
 			placeholder="Thank you message after submitting the form."
 		/>
 
