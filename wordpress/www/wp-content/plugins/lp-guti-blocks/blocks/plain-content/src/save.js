@@ -25,6 +25,17 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-			<PlainContent colWidth={attributes.colWidth} headLevel={attributes.headLevel} alignmentClass={`text-${attributes.alignment}`} header={attributes.header}body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} backgroundColor={attributes.backgroundColor}/>
+			<PlainContent
+				kicker={attributes.kicker}
+				anchor={attributes.anchor}
+				colWidth={attributes.colWidth}
+				headLevel={attributes.headLevel}
+				alignmentClass={`text-${attributes.alignment}`}
+				header={attributes.header}
+				body={attributes.content}
+				linkText={attributes.linkText}
+				linkUrl={attributes.linkUrl}
+				backgroundColor={attributes.backgroundColor}
+			/>
 	);
 }

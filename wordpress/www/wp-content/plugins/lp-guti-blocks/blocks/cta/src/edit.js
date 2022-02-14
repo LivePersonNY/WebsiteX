@@ -15,6 +15,7 @@ import $ from 'jquery';
 import { useBlockProps } from '@wordpress/block-editor';
 import ContentCTA from '../../../../../../../../gatsby-sites/www/src/components/blocks/ContentCTA';
 import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper } from '@wordpress/components';
+import Anchor from '../../Anchor';
 
 
 /**
@@ -63,7 +64,10 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 		return (
 			<div {...useBlockProps()}>
-				<ContentCTA body={contentControl} linkText={linkTextControl} />
+				<Anchor value={attributes.anchor} callback={function(val) {
+					setAttributes({ anchor: val });
+				}} />
+				<ContentCTA anchor={attributes.anchor} body={contentControl} linkText={linkTextControl} />
 			</div>
 
 		);
@@ -71,7 +75,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<ContentCTA body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
+			<ContentCTA anchor={attributes.anchor} body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
 		</div>
 	)
 
