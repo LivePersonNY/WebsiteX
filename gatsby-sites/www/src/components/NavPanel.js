@@ -53,28 +53,29 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                       </li>)
                   })}
                 </div>
-                {featuredNews && (
+                {featuredResource  && (
                   <div className="col-lg-7 col-lg">
                     <p className="dropdown-section-title h6">Featured Resource</p>
                     <div className="dropdown-featured-container">
-                      <img src="https://picsum.photos/152/120" alt="" />
+                      <img src="https://static.liveperson.com/static-assets/2022/02/14154907/nav_feature_By-need_Commerce_15-Photo-152x120-1.jpg" alt="" />
                       <div className="dropdown-featured-body">
-                        <p className="subtitle3">On-Demand Webinar</p>
-                        <p className="featured-body">Reimagining communication in the travel and hospitality industry</p>
-                        <a className="dropdown-link-blue" href="#">Watch Now</a>
+                        <p className="subtitle3">Consumer Survey Report</p>
+                        <p className="featured-body">Conversational AI is brilliant for business
+</p>
+                        <a className="dropdown-link-blue" href="/resources-reports/2021-conversational-commerce" target="_blank">Learn more</a>
                       </div>
                     </div>
                   </div>
                 )}
-                {featuredResource && (
+                {featuredNews && (
                   <div className="col-lg-7 col-lg">
-                    <p className="dropdown-section-title h6">Featured Resource</p>
+                    <p className="dropdown-section-title h6">Featured News</p>
                     <div className="dropdown-featured-container">
-                      <img src="https://picsum.photos/152/120" alt="" />
+                      <img src="https://static.liveperson.com/static-assets/2022/02/14154908/nav_feature_gradient_152x120.jpg" alt="" />
                       <div className="dropdown-featured-body">
-                        <p className="subtitle3">On-Demand Webinar</p>
-                        <p className="featured-body">Reimagining communication in the travel and hospitality industry</p>
-                        <a className="dropdown-link-blue" href="#">Watch Now</a>
+                        <p className="subtitle3">Curiously Human™ Launch</p>
+                        <p className="featured-body">LivePerson announces new AI capabilities and integrations</p>
+                        <a className="dropdown-link-blue" href="/curiously-human-launch" target="_blank">Learn more</a>
                       </div>
                     </div>
                   </div>
