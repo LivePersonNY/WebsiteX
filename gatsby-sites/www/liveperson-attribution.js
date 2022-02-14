@@ -259,6 +259,7 @@ const LivePerson = {
 	},
 	
 	BindToChat: function() {
+		
 		window.lpTag.sdes = window.lpTag.sdes || [];
 		window.lpTag.sdes.push({
 			"type": "ctmrinfo",  //MANDATORY
