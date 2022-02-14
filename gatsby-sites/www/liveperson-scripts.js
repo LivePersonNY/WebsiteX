@@ -7,11 +7,16 @@ window.lottie = lottie;
 window.readyTimeout = null;
 
 window.lp_attr = {};
+window.lpCallbacks = window.lpCallbacks || [];
 
 window.documentReadyFn = function() {
 	
 	window.lottieFiles = [];
 	
+	window.lpCallbacks.forEach(function(item) {
+		if (item) item();
+		console.log("ready callback executed", item);
+	});
 		
 	Array.from(document.scripts).forEach(function(item) {
 		if (item.attributes['data-type']?.value == 'pageScript') {
@@ -94,14 +99,19 @@ window.documentReadyFn = function() {
 		$('.nav-menu + a').click(function(){
 			hj('tagRecording', ['Sign in button clicked']);
 		});
+		
+		
 		// Uncomment below when we have GTM loaded
-		// setTimeout(function(){
-		// 	var sixSenseData = JSON.parse(localStorage.getItem('_6senseCompanyDetails'));
-		// 	hj('identify', null, {
-		// 		'6S_Company': sixSenseData.company.name,
-		// 		'6S_Industry' : sixSenseData.company.industry
-		// 	});
-		// }, 5000);
+		setTimeout(function(){
+			var sixSenseData = JSON.parse(localStorage.getItem('_6senseCompanyDetails'));
+			if (!sixSenseData) return;
+			hj('identify', null, {
+		 		'6S_Company': sixSenseData.company.name,
+		 		'6S_Industry' : sixSenseData.company.industry
+		 	});
+		}, 5000);
+		
+		
 		var timeOnSite = sessionStorage.getItem('timeOnSite') || Math.round(performance.now());
 		var timerInterval = setInterval(function(){
 		  timeOnSite = parseInt(sessionStorage.getItem('timeOnSite'))? parseInt(sessionStorage.getItem('timeOnSite')) + 15000 : 15000;
