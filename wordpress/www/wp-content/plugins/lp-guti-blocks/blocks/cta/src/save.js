@@ -25,6 +25,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-			<ContentCTA body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
+			<ContentCTA anchor={attributes.anchor} body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} />
 	);
 }

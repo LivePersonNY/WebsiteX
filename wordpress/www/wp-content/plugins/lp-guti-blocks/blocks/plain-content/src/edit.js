@@ -15,6 +15,7 @@ import $ from 'jquery';
 import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor';
 import PlainContent from '../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent';
 import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup, ToolbarButton } from '@wordpress/components';
+import Anchor from '../../Anchor';
 
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 /**
@@ -137,7 +138,11 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		return (
 			<div {...useBlockProps()}>
 				{alignButton}
+				<Anchor value={attributes.anchor} callback={function(val) {
+					setAttributes({ anchor: val });
+				}} />
 				<PlainContent
+					anchor={attributes.anchor}
 					kicker={kickerControl}
 					colWidth={attributes.colWidth}
 					headLevel={attributes.headLevel}
@@ -154,6 +159,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	return (
 		<div {...useBlockProps()}>
 			<PlainContent
+				anchor={attributes.anchor}
 				kicker={attributes.kicker}
 				colWidth={attributes.colWidth}
 				headLevel={attributes.headLevel}

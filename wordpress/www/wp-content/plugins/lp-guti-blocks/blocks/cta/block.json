@@ -17,6 +17,7 @@
 	"attributes": {
 		"content": {"default": "Provided you're ready and willing, you might want to click that button."},
 		"linkText": {"default": "That Button"},
-		"linkUrl": {"default": "https://www.liveperson.com"}
+		"linkUrl": {"default": "https://www.liveperson.com"},
+		"anchor": {}
 	}
 }
