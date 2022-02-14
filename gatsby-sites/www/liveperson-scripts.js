@@ -15,7 +15,10 @@ window.documentReadyFn = function() {
 	
 	window.lpCallbacks.forEach(function(item) {
 		try {
-			if (item) item($);
+			if (item) {
+				item($);
+				console.log("cb called");
+			}
 		} catch (error) {
 			console.log("callback failed", error);
 		}
