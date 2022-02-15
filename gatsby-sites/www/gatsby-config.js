@@ -17,7 +17,7 @@ module.exports = {
       }
     },
     // process.env.NO_INDEX,
-    `gatsby-plugin-no-index`,
+    // `gatsby-plugin-no-index`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
