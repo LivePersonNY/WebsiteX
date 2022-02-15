@@ -36,7 +36,14 @@ module.exports = {
         },
         production: {
           allow404Images: true
-        }
+        },
+        type: {
+          MediaItem: {
+            localFile: {
+               excludeByMimeTypes: [`image/png`, `image/jpeg`], // add your images format
+             },
+          },
+        },
       },
     },
     {

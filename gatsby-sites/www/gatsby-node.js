@@ -3,6 +3,8 @@ const chunk = require(`lodash/chunk`);
 
 const redirectManifest = require("./redirects.json");
 
+const fetch = require(`node-fetch`);
+
 // This is a simple debugging tool
 // dd() will prettily dump to the terminal and kill the process
 // const { dd } = require(`dumper.js`)
@@ -14,6 +16,7 @@ const redirectManifest = require("./redirects.json");
  * See https://www.gatsbyjs.com/docs/node-apis/#createPages for more info.
  */
 exports.createPages = async (props) => {
+  const { createRedirect, createPage } = props.actions;
   const { data: wpSettings } = await props.graphql(/* GraphQL */ `
     {
       wp {
@@ -30,9 +33,17 @@ exports.createPages = async (props) => {
         }
       }
     }
-  `)
+  `);
   
-  const { createRedirect } = props.actions;
+  const testPage = await fetch("https://www.liveperson.com/products/conversation-builder");
+  createPage({
+    path: "/products/conversation-builder",
+    component: path.resolve(`./src/templates/Empty.js`),
+    context: {
+      content: await testPage.text()
+    }
+  });
+  
   const { redirects } = JSON.parse(JSON.stringify(wpSettings.wp.seo));
   if (redirects) {
       redirects.forEach((redirect) => {
