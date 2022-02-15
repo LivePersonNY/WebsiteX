@@ -1035,6 +1035,10 @@ img {
             @include media-breakpoint-up(lg) {
                 margin-top: 32px;
             }
+
+            .link:after {
+                background-position: -120px -1px;
+            }
         }
     }
 }
