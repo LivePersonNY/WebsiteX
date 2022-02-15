@@ -15,9 +15,9 @@ window.documentReadyFn = function() {
 	// window.dataLayer && dataLayer.push({ event: 'virtualPageview' });
 
 	
-	// const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
-	// window.ga && window.ga('set', 'page', pagePath);
-	// window.ga && window.ga('send', 'pageview');
+	const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
+	window.ga && window.ga('set', 'page', pagePath);
+	window.ga && window.ga('send', 'pageview');
 
 	// window.dataLayer = window.dataLayer || [];
 	// 	window.dataLayer.push({
