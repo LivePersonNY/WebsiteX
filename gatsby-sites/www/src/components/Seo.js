@@ -41,15 +41,17 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   const favicon = wp.allSettings?.siteIcon;
   
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   
   useEffect(() => {
       
       function waitForDocumentReadyFn() {
         if (!window.documentReadyFn) {
-          window.readyTimeout = setTimeout(waitForDocumentReadyFn, 50);
+          window.readyTimeout = setTimeout(waitForDocumentReadyFn, 10);
         } else {
           clearTimeout(window.readyTimeout);
-          window.documentReadyFn();
+          //window.documentReadyFn();
+          setIsReady(true);
         }
       }
       waitForDocumentReadyFn();
@@ -63,12 +65,16 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       if (isLoaded) {
         MktoForms.Bind();
       }
+      
+      if (isReady) {
+        window.documentReadyFn();
+      }
 
       const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
       // window.ga && window.ga('set', 'page', pagePath);
       window.ga && window.ga('send', 'pageview');
           
-  });
+  }, [isLoaded]);
   
   const loadScript = () => {
     var s = document.createElement('script');
