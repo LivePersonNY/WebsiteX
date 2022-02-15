@@ -76,4 +76,4 @@ yarn-error.log
 uploads/
 
 /wordpress/www/wp-content/ewww/*
-*/static/
+/gatsby-sites/www/static/
