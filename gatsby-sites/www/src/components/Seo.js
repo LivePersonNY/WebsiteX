@@ -15,6 +15,7 @@ import { LivePerson, MktoForms } from '../../liveperson-attribution';
 const marketoScriptId = 'mktoForms';
 
 const Seo = ({ description, lang, meta, title, canonical, robots }) => {
+  
   const { wp, wpUser } = useStaticQuery(
     graphql`
       query {
@@ -36,9 +37,9 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
     `
   );
 
-  const metaDescription = description || wp.generalSettings?.description;
-  const defaultTitle = wp.generalSettings?.title;
-  const favicon = wp.allSettings?.siteIcon;
+  const metaDescription = description || wp.generalSettings?.description || ``;
+  const defaultTitle = wp.generalSettings?.title || ``;
+  const favicon = wp.allSettings?.siteIcon || ``;
   
   const [isLoaded, setIsLoaded] = useState(false);
   const [isReady, setIsReady] = useState(false);
@@ -92,54 +93,31 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
     document.getElementsByTagName('head')[0].appendChild(s);
   };
 
+  console.log(meta);
+  
+  let socialTags = meta.map(function(item) {
+    return (
+      <meta name={item.name || item.property} content={item.content} />
+    );
+  });
+  
   return (
     <Helmet
+      defer={false}
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={title || defaultTitle}
       titleTemplate={`%s`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: wpUser?.twitter || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
     >
+      {socialTags}
       <link rel="canonical" href={canonical} />
       <meta name="robots" content={robots} />
       <meta name="theme-color" content="#FA772E" />
       <link rel="icon" type="image/png" href={favicon} sizes="32x32" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+      <meta name="og:title" content={title} />
       <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap"
         rel="stylesheet"

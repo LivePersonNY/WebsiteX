@@ -43,7 +43,7 @@ exports.createPages = async (props) => {
       }
     }
   `);
-  
+    
   Object.keys(oldPages).forEach(function(domain) {
     oldPages[domain].forEach(async function(item) {
       await sleep(300);
