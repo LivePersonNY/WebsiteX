@@ -32,7 +32,7 @@ const PageTemplate = ({ data: { page } }) => {
 		},
 		{
 		  property: `twitter:image`,
-		  content: page.seo.twitterImage ? page.seo.twitterImage.mediaItemUrl : ``,
+		  content: page.seo.twitterImage ? page.seo.twitterImage.mediaItemUrl || page.seo.opengraphImage : ``,
 		}
 	];
 	
