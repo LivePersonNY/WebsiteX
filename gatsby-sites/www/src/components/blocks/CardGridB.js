@@ -19,9 +19,11 @@ const CardGridB = (props) => {
             <p className="card-text subtitle2">{item.body}</p>
           </div>
           <div className="card-footer">
-            <a href={item.linkUrl} className="card-link link">
-              {item.linkText}
-            </a>
+            {item.linkText &&
+              <a href={item.linkUrl} className="card-link link">
+                {item.linkText}
+              </a>
+            }
           </div>
         </div>
       </div>

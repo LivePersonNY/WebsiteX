@@ -56,8 +56,14 @@
 
 @mixin remTopSameColor() {
     margin-top: -80px;
+
+    @include media-breakpoint-up(lg) {
+        margin-top: -120px;
+    }
+
     &.pane-with-lead-text {
         margin-top: -72px;
+
         @include media-breakpoint-up(lg) {
             margin-top: -104px;
         }
@@ -788,10 +794,10 @@ img {
     }
 
     img {
-        padding: 12px 0;
+        padding: 12px;
 
         @include media-breakpoint-up(lg) {
-            padding: 0;
+            padding: 20px;
         }
     }
 }
@@ -1028,6 +1034,10 @@ img {
 
             @include media-breakpoint-up(lg) {
                 margin-top: 32px;
+            }
+
+            .link:after {
+                background-position: -120px -1px;
             }
         }
     }
