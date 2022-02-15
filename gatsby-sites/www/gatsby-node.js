@@ -46,7 +46,6 @@ exports.createPages = async (props) => {
     
   Object.keys(oldPages).forEach(function(domain) {
     oldPages[domain].forEach(async function(item) {
-      await sleep(300);
       const pageData = await fetch(`https://${domain}/${item}`);
       fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
         if (err) console.log(err);
