@@ -70,8 +70,8 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         window.documentReadyFn();
       }
 
-      //const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
-      //window.ga && window.ga('set', 'page', pagePath);
+      const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
+      window.ga && window.ga('set', 'page', pagePath);
       //window.ga && window.ga('send', 'pageview');
           
   }, [isLoaded]);
