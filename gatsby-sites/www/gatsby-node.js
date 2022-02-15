@@ -40,7 +40,7 @@ exports.createPages = async (props) => {
   
   Object.keys(oldPages).forEach(function(domain) {
     oldPages[domain].forEach(async function(item) {
-      const pageData = await fetch(`https://lpsn-staging.webflow.io/${item}`);
+      const pageData = await fetch(`https://${domain}/${item}`);
       fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
         if (err) console.log(err);
         else {
