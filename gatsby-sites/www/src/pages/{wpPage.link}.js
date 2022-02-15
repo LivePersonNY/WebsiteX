@@ -30,11 +30,11 @@ const PageTemplate = ({ data: { page } }) => {
 		},
 		{
 		  property: `og:image`,
-		  content: page.seo.opengraphImage || page.seo.opengraphImage.mediaItemUrl || ``,
+		  content: page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``,
 		},
 		{
 		  property: `twitter:image`,
-		  content: page.seo.twitterImage.mediaItemUrl || page.seo.opengraphImage || ``,
+		  content: (page.seo.twitterImage ? page.seo.twitterImage.mediaItemUrl : ``) || (page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``) || ``,
 		},
 		{
 		  property: `og:type`,
