@@ -48,10 +48,8 @@ exports.createPages = async (props) => {
         if (e) {
           console.log("Error writing file", e);
         }
-      })
+      });
     });
-  });
-    
   });
  
   
