@@ -2,6 +2,7 @@ const path = require(`path`);
 const chunk = require(`lodash/chunk`);
 
 const redirectManifest = require("./redirects.json");
+const oldPages = require("./old-pages.json");
 
 const fetch = require(`node-fetch`);
 
@@ -37,20 +38,17 @@ exports.createPages = async (props) => {
     }
   `);
   
-  const testPage = await fetch("https://lpsn-staging.webflow.io/products/conversation-builder");
-  fs.writeFile('./static/products/conversation-builder/index.html', await testPage.text(), function(e) {
-    if (e) {
-      console.log("Error writing file", e);
-    }
+  oldPages[`lpsn-staging.webflow.io`].forEach(async function(item) {
+    const pageData = await fetch(`https://lpsn-staging.webflow.io/${item}`);
+    fs.mkdir(`./static/${item}`, { recursive: true }, function(err) {console.log(err)});
+    fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
+      if (e) {
+        console.log("Error writing file", e);
+      }
+    });
+    
   });
-  /*createPage({
-    path: "/products/conversation-builder",
-    component: path.resolve(`./src/templates/Empty.js`),
-    context: {
-      content: await testPage.text()
-    }
-  });*/
-  
+ 
   
   const { redirects } = JSON.parse(JSON.stringify(wpSettings.wp.seo));
   if (redirects) {
