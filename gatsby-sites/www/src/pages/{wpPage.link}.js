@@ -14,11 +14,11 @@ const PageTemplate = ({ data: { page } }) => {
 	let meta = [
 		{
 		  name: `twitter:title`,
-		  content: page.seo.twitterTitle || ``,
+		  content: page.seo.title || ``,
 		},
 		{
 		  name: `twitter:description`,
-		  content: page.seo.twitterDescription || ``,
+		  content: page.seo.twitterDescription || page.seo.metaDesc || ``,
 		},
 		{
 		  property: `og:title`,
@@ -30,11 +30,19 @@ const PageTemplate = ({ data: { page } }) => {
 		},
 		{
 		  property: `og:image`,
-		  content: page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``,
+		  content: page.seo.opengraphImage || page.seo.opengraphImage.mediaItemUrl || ``,
 		},
 		{
 		  property: `twitter:image`,
-		  content: page.seo.twitterImage ? page.seo.twitterImage.mediaItemUrl : ``,
+		  content: page.seo.twitterImage.mediaItemUrl || page.seo.opengraphImage || ``,
+		},
+		{
+		  property: `og:type`,
+		  content: page.seo.opengraphType || `website`,
+		},
+		{
+		  property: `og:url`,
+		  content: page.seo.canonical,
 		}
 	];
 	
