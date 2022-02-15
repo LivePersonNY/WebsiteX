@@ -38,16 +38,19 @@ exports.createPages = async (props) => {
     }
   `);
   
-  oldPages[`lpsn-staging.webflow.io`].forEach(async function(item) {
-    const pageData = await fetch(`https://lpsn-staging.webflow.io/${item}`);
-    fs.mkdir(`./static/${item}`, { recursive: true }, function(err) {
-      if (err) console.log(err);
+  Object.keys(oldPages).forEach(function(domain) {
+    oldPages[domain].forEach(async function(item) {
+      const pageData = await fetch(`https://lpsn-staging.webflow.io/${item}`);
+      fs.mkdir(`./static/${item}`, { recursive: true }, function(err) {
+        if (err) console.log(err);
+      });
+      fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
+        if (e) {
+          console.log("Error writing file", e);
+        }
+      })
     });
-    fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
-      if (e) {
-        console.log("Error writing file", e);
-      }
-    });
+  });
     
   });
  
