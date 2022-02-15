@@ -40,7 +40,9 @@ exports.createPages = async (props) => {
   
   oldPages[`lpsn-staging.webflow.io`].forEach(async function(item) {
     const pageData = await fetch(`https://lpsn-staging.webflow.io/${item}`);
-    fs.mkdir(`./static/${item}`, { recursive: true }, function(err) {console.log(err)});
+    fs.mkdir(`./static/${item}`, { recursive: true }, function(err) {
+      if (err) console.log(err);
+    });
     fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
       if (e) {
         console.log("Error writing file", e);
@@ -55,10 +57,11 @@ exports.createPages = async (props) => {
       redirects.forEach((redirect) => {
       createRedirect({
         fromPath: '/'+redirect.origin,
-        toPath: '/'+redirect.target,
+        toPath: redirect.target == '/' ? '/' : (redirect.target.indexOf("http") >= 0 ? redirect.target : '/'+redirect.target),
         redirectInBrowser: true,
         isPermanent: redirect.type == 301,
       });
+      console.log("redirecting " + '/'+redirect.origin + " --> " + (redirect.target == '/' ? '/' : (redirect.target.indexOf("http") >= 0 ? redirect.target : '/'+redirect.target)));
     });
   }
   
