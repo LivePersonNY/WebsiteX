@@ -1,11 +1,11 @@
 import * as React from 'react';
 import Parser from 'html-react-parser';
 
-const Empty = (props) => {
+const Empty = ({pageContext}) => {
 	
-	console.log(props.content);
+	console.log(pageContext);
 	return (<>
-		{Parser(props.content)}
+		{Parser(pageContext.content)}
 	</>);
 };
 export default Empty;

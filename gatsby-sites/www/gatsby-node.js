@@ -5,6 +5,8 @@ const redirectManifest = require("./redirects.json");
 
 const fetch = require(`node-fetch`);
 
+const fs = require('fs');
+
 // This is a simple debugging tool
 // dd() will prettily dump to the terminal and kill the process
 // const { dd } = require(`dumper.js`)
@@ -35,14 +37,20 @@ exports.createPages = async (props) => {
     }
   `);
   
-  const testPage = await fetch("https://www.liveperson.com/products/conversation-builder");
-  createPage({
+  const testPage = await fetch("https://lpsn-staging.webflow.io/products/conversation-builder");
+  fs.writeFile('./static/products/conversation-builder/index.html', await testPage.text(), function(e) {
+    if (e) {
+      console.log("Error writing file", e);
+    }
+  });
+  /*createPage({
     path: "/products/conversation-builder",
     component: path.resolve(`./src/templates/Empty.js`),
     context: {
       content: await testPage.text()
     }
-  });
+  });*/
+  
   
   const { redirects } = JSON.parse(JSON.stringify(wpSettings.wp.seo));
   if (redirects) {
