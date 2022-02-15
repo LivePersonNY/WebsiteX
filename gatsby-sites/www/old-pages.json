@@ -227,5 +227,10 @@
 		"webinars/three-strategies-to-expedite-contactless-commerce",
 		"webinars/virgin-airlines-customer-care",
 		"webinars/win-holiday-season-with-conversational-ai"
+	],
+	"policies.liveperson.com": [
+		"policies/services-agreement",
+		"policies/conversational-cloud-channels-and-usage-charges-dar",
+		"policies/additional_product_and_third_party_application_terms"
 	]
 }
