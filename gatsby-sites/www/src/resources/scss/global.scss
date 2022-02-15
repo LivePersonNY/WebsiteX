@@ -794,10 +794,10 @@ img {
     }
 
     img {
-        padding: 12px 0;
+        padding: 12px;
 
         @include media-breakpoint-up(lg) {
-            padding: 0;
+            padding: 20px;
         }
     }
 }
