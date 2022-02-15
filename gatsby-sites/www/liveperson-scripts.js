@@ -12,7 +12,13 @@ window.lpCallbacks = window.lpCallbacks || [];
 window.documentReadyFn = function() {
 
 	// window.dataLayer && dataLayer.push({ virtualTitle: this.props.data.articlePage.title });
-	window.dataLayer && dataLayer.push({ event: 'virtualPageview' });
+	// window.dataLayer && dataLayer.push({ event: 'virtualPageview' });
+
+	
+	const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
+	window.ga && window.ga('set', 'page', pagePath);
+	window.ga && window.ga('send', 'pageview');
+	
 	
 	window.lottieFiles = [];
 	
