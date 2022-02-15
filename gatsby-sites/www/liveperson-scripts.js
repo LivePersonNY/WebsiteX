@@ -10,6 +10,9 @@ window.lp_attr = {};
 window.lpCallbacks = window.lpCallbacks || [];
 
 window.documentReadyFn = function() {
+
+	// window.dataLayer && dataLayer.push({ virtualTitle: this.props.data.articlePage.title });
+	window.dataLayer && dataLayer.push({ event: 'virtualPageview' });
 	
 	window.lottieFiles = [];
 	
