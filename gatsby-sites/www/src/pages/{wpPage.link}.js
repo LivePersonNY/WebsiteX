@@ -22,7 +22,7 @@ const PageTemplate = ({ data: { page } }) => {
 		},
 		{
 		  property: `og:title`,
-		  content: page.seo.opengraphTitle || page.seo.title || page.title || ``,
+		  content: page.seo.title || ``,
 		},
 		{
 		  property: `og:description`,
