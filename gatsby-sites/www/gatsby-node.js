@@ -8,6 +8,12 @@ const fetch = require(`node-fetch`);
 
 const fs = require('fs');
 
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 // This is a simple debugging tool
 // dd() will prettily dump to the terminal and kill the process
 // const { dd } = require(`dumper.js`)
@@ -40,6 +46,7 @@ exports.createPages = async (props) => {
   
   Object.keys(oldPages).forEach(function(domain) {
     oldPages[domain].forEach(async function(item) {
+      await sleep(300);
       const pageData = await fetch(`https://${domain}/${item}`);
       fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
         if (err) console.log(err);
