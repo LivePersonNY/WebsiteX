@@ -51,6 +51,29 @@ exports.createPages = async (props) => {
       });
     });
   });
+  
+  /*fs.rm(`./static/`, {
+    recursive: true
+  }, function(err) {
+    if (err) console.log(err);
+    fs.mkdir(`./static`, function(err) {
+      if (err) console.log(err);
+      Object.keys(oldPages).forEach(function(domain) {
+        oldPages[domain].forEach(async function(item) {
+          const pageData = await fetch(`https://lpsn-staging.webflow.io/${item}`);
+          fs.mkdir(`./static/${item}`, { recursive: true }, function(err) {
+            if (err) console.log(err);
+          });
+          fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
+            if (e) {
+              console.log("Error writing file", e);
+            }
+          });
+        });
+      });
+    });
+  });*/
+  
  
   
   const { redirects } = JSON.parse(JSON.stringify(wpSettings.wp.seo));
@@ -68,9 +91,11 @@ exports.createPages = async (props) => {
   
   Object.keys(redirectManifest.redirects).forEach(function(item) {
     //console.log("redirecting " + item + " --> " + redirectManifest.redirects[item]);
+    let target = redirectManifest.redirects[item];
+    if (target.indexOf("http") < 0) target = "https://www.liveperson.com" + target;
     createRedirect({
       fromPath: item,
-      toPath: redirectManifest.redirects[item],
+      toPath: target,
       redirectInBrowser: true,
       isPermanent: true
     });
