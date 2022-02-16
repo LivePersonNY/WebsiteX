@@ -60,6 +60,26 @@ exports.createPages = async (props) => {
     });
   });
   
+  const webFlowPostRequest = await fetch(`https://api.webflow.com/collections/61e8954616f792b504940141/items`, {
+    headers: {
+      "Authorization": "Bearer ab169568a95cb58067d4c936d6e932e805122c5296dbf7c75aa6d2b032611b23",
+      "accept-version": "1.0.0"
+    }
+  });
+  
+  const webFlowPosts = await webFlowPostRequest.json();
+  //console.log(webFlowPosts);
+  webFlowPosts.items.forEach(function(post) {
+    createPage({
+      path: `blog/${post.slug}`,
+      component: path.resolve('./src/templates/BlogPost.js'),
+      context: {
+        post: post
+      }
+    });
+  });
+  
+  
   /*fs.rm(`./static/`, {
     recursive: true
   }, function(err) {
