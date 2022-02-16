@@ -99,6 +99,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ["CAN_ROOT"]
+      },
+    },
+    {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: "GTM-K85P2PM",
