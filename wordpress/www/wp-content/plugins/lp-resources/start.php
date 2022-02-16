@@ -21,7 +21,7 @@ class LP_Resources
 		
 		add_action('admin_init', [$this, 'admin_init'], 100);
 
-		//add_filter('register_post_type_args', [$this, 'filter_post_type_args'], 10, 2);
+		add_filter('register_post_type_args', [$this, 'filter_post_type_args'], 10, 2);
 		
 	}
 	
@@ -101,7 +101,7 @@ class LP_Resources
 	public function filter_post_type_args($args, $post_type)
 	{
 		if ($post_type == 'post') {
-			$args['rewrite']['slug'] = 'blog';
+			$args['supports'][] = 'post-formats';
 		}
 		return $args;
 	}
@@ -132,7 +132,7 @@ class LP_Resources
 			'supports' => [
 				'title',
 				'editor',
-				'post-format',
+				'post-formats',
 				'excerpt',
 				'thumbnail',
 				'author',
