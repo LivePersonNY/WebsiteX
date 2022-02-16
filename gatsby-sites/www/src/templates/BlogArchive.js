@@ -29,11 +29,11 @@ const BlogIndex = ({
     <Layout isHomePage>
       <Seo title="All posts" />
       
-      <div className="container blog">
+      <div className="container blog mt-5">
       
         <div class="row">
           <div className="col-4">
-          
+            <h1>Blog</h1>
           </div>
           <div className="col-8">
             <div className="row align-items-center">
@@ -42,11 +42,13 @@ const BlogIndex = ({
                   data: post.featuredImage?.node?.mediaItemUrl || ``,
                   alt: post.featuredImage?.node?.altText || ``,
                 };
+                const author = post.author.node;
+                console.log(author);
                 return (
-                  <div className={index === 0 ? `col-md-12` : `col-md-6`}>
-                    <Link to={post.uri} itemProp="url" className="post-link">
+                  <div className={`${index === 0 ? `col-md-12` : `col-md-6`} h-100`}>
+                    <Link to={post.uri} itemProp="url" className="post-link shadow-none bg-blue-20 card h-100 mb-4">
                       <article
-                        className="post-list-item mb-4 shadow-none bg-blue-20 card"
+                        className="post-list-item"
                         itemScope
                         itemType="http://schema.org/Article"
                       >
@@ -56,11 +58,11 @@ const BlogIndex = ({
                           
                           <p className="h6 text-uppercase">{post.seo.opengraphType}</p>
                           <header>
-                            <p>
-                              <span itemProp="headline">{Parse(post.title)}</span>
+                            <p className="h3 mb-2" itemProp="headline">
+                              {Parse(post.title)}
                             </p>
                           </header>
-                          
+                          <p className="h5">{author.firstName} {author.lastName} &bull; {post.seo.readingTime} minutes</p>
                         </div>
                       </article>
                     </Link>
