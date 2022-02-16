@@ -2184,6 +2184,18 @@
 		"/company/careers-b": "/company/careers",
 		"/experts/spirituality-religion/tarot-reading": "https://www.kasamba.com/tarot-reading/",
 		"/sites/default/files/pdfs/docs/LivePerson-Inc-GDPR-Addendum.pdf": "https://policies.liveperson.com/gdpr-addendum",
-		"/curiously-human-launch": "/news/curiously-human-ai"
+		"/curiously-human-launch": "/news/curiously-human-ai",
+		"/solutions/managed-service": "/services/gainshare",
+		"/solutions/sales-and-marketing": "/solutions/conversational-commerce",
+		"/products/ai-chatbots": "/data-science",
+		"/products/conversation-analytics": "/products/conversational-analytics",
+		"/company/security": "/resources/security",
+		"/solutions/covid-19-testing": "/products/bella-health",
+		"/mywhatsappbot": "https://www.liveperson.com/products/whatsapp",
+		"/partners/bpo": "/partners",
+		"/partners/digital-agency": "/partners",
+		"/partners/solution-provider": "/partners",
+		"/solutions/enterprise": "/",
+		"/solutions/smb": "/"
 	}
 }
