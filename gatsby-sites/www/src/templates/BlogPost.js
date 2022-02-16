@@ -6,8 +6,9 @@ import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
 import { Link, graphql } from 'gatsby';
 
-const BlogPost = ({ data: { previous, next, post } }) => {
+const BlogPost = ({ data: { previous, next, post, postLegacy } }) => {
 
+	post = post || postLegacy;
 	
 	const featuredImage = {
 		data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
@@ -57,9 +58,9 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 				<div className="post-container">
 					<p className="h6 text-uppercase">{post.kicker}</p>
 					<h1>{post.title}</h1>
-					<img className="my-4 rounded-3" src={post[`resource-image`].url} alt={post[`resource-image-alt-text`]} />
+					<img className="my-4 rounded-3" src={featuredImage.data} alt={featuredImage.alt} />
 					<hr className="mb-4" />
-					{Parser(post[`blog-content`])}
+					{Parser(post.content)}
 				</div>
 			</div>
 		</div>
@@ -96,11 +97,40 @@ export const pageQuery = graphql`
 		}
 	  }
 	}
+	postLegacy: wpLegacyPost(id: { eq: $id }) {
+	  id
+	  content
+	  title
+	excerpt
+	  date(formatString: "MMMM DD, YYYY")
+	  featuredImage {
+		node {
+		  altText
+		  localFile {
+			childImageSharp {
+			  gatsbyImageData(
+				quality: 100
+				placeholder: TRACED_SVG
+				layout: FULL_WIDTH
+			  )
+			}
+		  }
+		}
+	  }
+	}
 	previous: wpPost(id: { eq: $previousPostId }) {
 	  uri
 	  title
 	}
 	next: wpPost(id: { eq: $nextPostId }) {
+	  uri
+	  title
+	}
+	previousLegacy: wpLegacyPost(id: { eq: $previousPostId }) {
+	  uri
+	  title
+	}
+	nextLegacy: wpLegacyPost(id: { eq: $nextPostId }) {
 	  uri
 	  title
 	}
