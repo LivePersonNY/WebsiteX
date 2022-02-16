@@ -50,7 +50,8 @@ const BlogPost = ({ pageContext }) => {
 				<div className="post-container">
 					<p className="h6 text-uppercase">{post.kicker}</p>
 					<h1>{post.title}</h1>
-					<img className="my-4" src={post[`resource-image`].url} alt={post[`resource-image-alt-text`]} />
+					<img className="my-4 rounded-3" src={post[`resource-image`].url} alt={post[`resource-image-alt-text`]} />
+					<hr className="mb-4" />
 					{Parser(post[`blog-content`])}
 				</div>
 			</div>
