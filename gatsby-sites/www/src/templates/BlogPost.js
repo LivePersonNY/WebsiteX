@@ -4,6 +4,8 @@ import Parser from 'html-react-parser';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
+import Bio from '../components/Bio';
+
 import { Link, graphql } from 'gatsby';
 
 const BlogPost = ({ data: { previous, next, post, postLegacy } }) => {
@@ -11,9 +13,11 @@ const BlogPost = ({ data: { previous, next, post, postLegacy } }) => {
 	post = post || postLegacy;
 	
 	const featuredImage = {
-		data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-		alt: post.featuredImage?.node?.alt || ``,
+		data: post.featuredImage?.node?.mediaItemUrl || ``,
+		alt: post.featuredImage?.node?.altText || ``,
 	  };
+	  
+	console.log(featuredImage);
 	
 	let meta = [
 		{
@@ -58,6 +62,7 @@ const BlogPost = ({ data: { previous, next, post, postLegacy } }) => {
 				<div className="post-container">
 					<p className="h6 text-uppercase">{post.kicker}</p>
 					<h1>{post.title}</h1>
+					<Bio id={post.author.node.id} date={post.date} readingTime={post.seo.readingTime} />
 					<img className="my-4 rounded-3" src={featuredImage.data} alt={featuredImage.alt} />
 					<hr className="mb-4" />
 					{Parser(post.content)}
@@ -81,19 +86,26 @@ export const pageQuery = graphql`
 	  excerpt
 	  content
 	  title
+	  excerpt
+	  author {
+		node {
+		  id
+		  firstName
+		  lastName
+		  url
+		  avatar {
+			url
+		  }
+		}
+	  }
+	  seo {
+		readingTime
+	  }
 	  date(formatString: "MMMM DD, YYYY")
 	  featuredImage {
 		node {
 		  altText
-		  localFile {
-			childImageSharp {
-			  gatsbyImageData(
-				quality: 100
-				placeholder: TRACED_SVG
-				layout: FULL_WIDTH
-			  )
-			}
-		  }
+		  mediaItemUrl
 		}
 	  }
 	}
@@ -101,20 +113,26 @@ export const pageQuery = graphql`
 	  id
 	  content
 	  title
-	excerpt
+	  excerpt
+	  author {
+		node {
+		  id
+		  firstName
+		  lastName
+		  url
+		  avatar {
+			url
+		  }
+		}
+	  }
+	  seo {
+		readingTime
+	  }
 	  date(formatString: "MMMM DD, YYYY")
 	  featuredImage {
 		node {
 		  altText
-		  localFile {
-			childImageSharp {
-			  gatsbyImageData(
-				quality: 100
-				placeholder: TRACED_SVG
-				layout: FULL_WIDTH
-			  )
-			}
-		  }
+		  mediaItemUrl
 		}
 	  }
 	}
