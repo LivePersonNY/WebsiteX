@@ -36,7 +36,7 @@ const BlogIndex = ({
           
           </div>
           <div className="col-8">
-            <div className="row align-items-center">
+            <div className="row">
               {posts.map((post, index) => {
                 const featuredImage = {
                   data: post.featuredImage?.node?.mediaItemUrl || ``,
@@ -46,7 +46,7 @@ const BlogIndex = ({
                   <div className={index === 0 ? `col-md-12` : `col-md-6`}>
                     <Link to={post.uri} itemProp="url" className="post-link">
                       <article
-                        className="post-list-item mb-4 shadow-none bg-blue-20 card"
+                        className="post-list-item mb-4 shadow-none bg-blue-20 card h-100"
                         itemScope
                         itemType="http://schema.org/Article"
                       >
