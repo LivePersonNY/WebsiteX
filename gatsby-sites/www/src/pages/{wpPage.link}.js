@@ -10,6 +10,9 @@ import Parser from 'html-react-parser';
 
 const PageTemplate = ({ data: { page } }) => {
 	
+	let canRoot = process.env.CAN_ROOT;
+	let canonical = page.seo.canonical;
+	if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
 	
 	let meta = [
 		{
@@ -54,7 +57,7 @@ const PageTemplate = ({ data: { page } }) => {
 	
 	if (!page) return "The slug does not exist in the CMS";
   return (<Layout>
-	<Seo title={page.seo.title} description={page.seo.metaDesc} meta={meta} canonical={page.seo.canonical} robots={robots.join(", ")} />
+	<Seo title={page.seo.title} description={page.seo.metaDesc} meta={meta} canonical={canonical} robots={robots.join(", ")} />
 	{Parser(page.content)}
   </Layout>)
 };

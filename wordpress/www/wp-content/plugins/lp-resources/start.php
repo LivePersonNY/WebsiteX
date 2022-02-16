@@ -19,8 +19,9 @@ class LP_Resources
 		
 		add_filter( 'block_categories_all', [$this, 'block_categories'], 10, 2 );
 		
-		add_Action('admin_init', [$this, 'admin_init'], 100);
+		add_action('admin_init', [$this, 'admin_init'], 100);
 
+		//add_filter('register_post_type_args', [$this, 'filter_post_type_args'], 10, 2);
 		
 	}
 	
@@ -97,6 +98,14 @@ class LP_Resources
 		]);
 	}
 	
+	public function filter_post_type_args($args, $post_type)
+	{
+		if ($post_type == 'post') {
+			$args['rewrite']['slug'] = 'blog';
+		}
+		return $args;
+	}
+	
 	public function register_type()
 	{
 		register_post_type('resource', [
@@ -117,6 +126,20 @@ class LP_Resources
 			],
 			'public' => true,
 			'show_in_rest' => false,
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'LegacyPost',
+			'graphql_plural_name' => 'LegacyPosts',
+			'supports' => [
+				'title',
+				'editor',
+				'post-format',
+				'excerpt',
+				'thumbnail',
+				'author',
+			],
+			/*'rewrite' => [
+				'slug' => 'blog'
+			]*/
 		]);
 		
 		/*if (!is_user_logged_in()) {
