@@ -45,22 +45,25 @@ exports.createPages = async (props) => {
   `);
     
   Object.keys(oldPages).forEach(function(domain) {
-    oldPages[domain].forEach(async function(item) {
-      const pageData = await fetch(`https://${domain}/${item}`);
-      fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
-        if (err) console.log(err);
-        else {
-          fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
-            if (e) {
-              console.log("Error writing file", e);
-            }
-          });
-        }
+    oldPages[domain].forEach(function(item) {
+      fs.exists(`./${item}/index.html`, async function(exists) {
+        if (!exists) return;
+        const pageData = await fetch(`https://${domain}/${item}`);
+        fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
+          if (err) console.log(err);
+          else {
+            fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
+              if (e) {
+                console.log("Error writing file", e);
+              }
+            });
+          }
+        });
       });
     });
   });
   
-  const webFlowPostRequest = await fetch(`https://api.webflow.com/collections/61e8954616f792b504940141/items`, {
+  /*const webFlowPostRequest = await fetch(`https://api.webflow.com/collections/61e8954616f792b504940141/items`, {
     headers: {
       "Authorization": "Bearer ab169568a95cb58067d4c936d6e932e805122c5296dbf7c75aa6d2b032611b23",
       "accept-version": "1.0.0"
@@ -77,7 +80,7 @@ exports.createPages = async (props) => {
         post: post
       }
     });
-  });
+  });*/
   
   
   /*fs.rm(`./static/`, {
