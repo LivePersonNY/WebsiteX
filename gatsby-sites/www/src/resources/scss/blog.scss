@@ -1,6 +1,42 @@
 .post-container {
-	padding: 100px;
+	padding: 40px 20px;
 	background: $blue20;
 	border-radius: 30px;
 	margin: 80px 0;
+
+	@include media-breakpoint-up(lg) {
+		padding: 80px 96px;
+	}
+
+	>.h6 {
+		margin-bottom: 8px;
+	}
+
+	h1 {
+		margin-bottom: 16px;
+
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 24px;
+		}
+	}
+
+	.bio {
+		.bio-img {
+			float: left;
+			margin-right: 24px;
+
+			img {
+				width: 52px;
+			}
+		}
+
+		.bio-body {
+			float: left;
+			margin-top: 4px;
+
+			.date {
+				margin-top: 0;
+			}
+		}
+	}
 }
