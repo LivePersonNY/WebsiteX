@@ -35,17 +35,15 @@ const Bio = ({ id, date, readingTime }) => {
         return (
           <div className="bio">
             <div class="row">
-              <div class="col-sm-8">
-                <div class="row">
-                  <div class="col-2">
-                    <a href={author.seo.social.linkedIn}>
-                      <img src={avatarUrl} className="rounded-circle" />
-                    </a>
-                  </div>
-                  <div class="col-10">
-                    <p class="h5">{author.firstName} {author.lastName}</p>
-                    <p class="h6 date">{date} &bull; {readingTime} minutes</p>
-                  </div>
+              <div class="col-lg-8">
+                <div class="bio-img">
+                  <a href={author.seo.social.linkedIn}>
+                    <img src={avatarUrl} className="rounded-circle" />
+                  </a>
+                </div>
+                <div class="bio-body">
+                  <p class="h5">{author.firstName} {author.lastName}</p>
+                  <p class="h6 date">{date} &bull; {readingTime} minutes</p>
                 </div>
               </div>
             </div>
