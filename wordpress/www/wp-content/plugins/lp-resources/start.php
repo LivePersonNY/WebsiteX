@@ -120,6 +120,14 @@ class LP_Resources
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'LegacyPost',
 			'graphql_plural_name' => 'LegacyPosts',
+			'supports' => [
+				'title',
+				'editor',
+				'post-format',
+				'excerpt',
+				'thumbnail',
+				'author',
+			]
 		]);
 		
 		/*if (!is_user_logged_in()) {
