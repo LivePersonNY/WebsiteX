@@ -60,7 +60,7 @@ const BlogPost = ({ data: { previous, next, post, postLegacy } }) => {
 		<div className="row justify-content-md-center">
 			<div className="col-lg-9">
 				<div className="post-container">
-					<p className="h6 text-uppercase">{post.kicker}</p>
+					<p className="h6 text-uppercase">{post.seo.opengraphType}</p>
 					<h1>{post.title}</h1>
 					<Bio id={post.author.node.id} date={post.date} readingTime={post.seo.readingTime} />
 					<img className="my-4 rounded-3" src={featuredImage.data} alt={featuredImage.alt} />
@@ -100,6 +100,10 @@ export const pageQuery = graphql`
 	  }
 	  seo {
 		readingTime
+		opengraphType
+		schema {
+			articleType
+		}
 	  }
 	  date(formatString: "MMMM DD, YYYY")
 	  featuredImage {
@@ -127,6 +131,10 @@ export const pageQuery = graphql`
 	  }
 	  seo {
 		readingTime
+		opengraphType
+		schema {
+			articleType
+		}
 	  }
 	  date(formatString: "MMMM DD, YYYY")
 	  featuredImage {
