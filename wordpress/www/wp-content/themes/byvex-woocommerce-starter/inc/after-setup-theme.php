@@ -45,7 +45,11 @@ if (!function_exists('byvex_woocommerce_starter_setup')) :
 		);*/
 		add_theme_support('post-thumbnails');
 		add_theme_support('title-tag');
-		add_theme_support('post-formats');
+		add_theme_support('post-formats', [
+			'aside',
+			'video',
+			'quote'
+		]);
 		
 		/*register_nav_menus(array(
 			'primary' => esc_html__('Primary', 'byvex-woocommerce-starter'),
