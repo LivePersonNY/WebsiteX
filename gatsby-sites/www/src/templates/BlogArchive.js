@@ -36,7 +36,7 @@ const BlogIndex = ({
             <h1>Blog</h1>
           </div>
           <div className="col-8">
-            <div className="row align-items-center">
+            <div className="row">
               {posts.map((post, index) => {
                 const featuredImage = {
                   data: post.featuredImage?.node?.mediaItemUrl || ``,
@@ -45,7 +45,7 @@ const BlogIndex = ({
                 const author = post.author.node;
                 console.log(author);
                 return (
-                  <div className={`${index === 0 ? `col-md-12` : `col-md-6`} h-100`}>
+                  <div className={`${index === 0 ? `col-md-12` : `col-md-6`}`}>
                     <Link to={post.uri} itemProp="url" className="post-link shadow-none bg-blue-20 card h-100 mb-4">
                       <article
                         className="post-list-item"
