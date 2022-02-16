@@ -4,13 +4,20 @@ import Parser from 'html-react-parser';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
+import { Link, graphql } from 'gatsby';
 
-const BlogPost = ({ pageContext }) => {
-	const { post } = pageContext;
+const BlogPost = ({ data: { previous, next, post } }) => {
+
+	
+	const featuredImage = {
+		data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
+		alt: post.featuredImage?.node?.alt || ``,
+	  };
+	
 	let meta = [
 		{
 		  name: `twitter:title`,
-		  content: post[`meta-title`] || ``,
+		  content: post.title || ``,
 		},
 		{
 		  name: `twitter:description`,
@@ -18,7 +25,7 @@ const BlogPost = ({ pageContext }) => {
 		},
 		{
 		  property: `og:title`,
-		  content: post[`meta-title`] || ``,
+		  content: post.title || ``,
 		},
 		{
 		  property: `og:description`,
@@ -43,7 +50,7 @@ const BlogPost = ({ pageContext }) => {
 	];
 	
   return (<Layout>
-	<Seo title={post[`meta-title`]} description={post[`meta-description`]} meta={meta} />
+	<Seo title={post.title} description={post.excerpt} meta={meta} />
 	<div className="container">
 		<div className="row justify-content-md-center">
 			<div className="col-lg-9">
@@ -61,3 +68,41 @@ const BlogPost = ({ pageContext }) => {
 	
 };
 export default BlogPost;
+
+export const pageQuery = graphql`
+  query BlogPostById(
+	$id: String!
+	$previousPostId: String
+	$nextPostId: String
+  ) {
+	post: wpPost(id: { eq: $id }) {
+	  id
+	  excerpt
+	  content
+	  title
+	  date(formatString: "MMMM DD, YYYY")
+	  featuredImage {
+		node {
+		  altText
+		  localFile {
+			childImageSharp {
+			  gatsbyImageData(
+				quality: 100
+				placeholder: TRACED_SVG
+				layout: FULL_WIDTH
+			  )
+			}
+		  }
+		}
+	  }
+	}
+	previous: wpPost(id: { eq: $previousPostId }) {
+	  uri
+	  title
+	}
+	next: wpPost(id: { eq: $nextPostId }) {
+	  uri
+	  title
+	}
+  }
+`;
