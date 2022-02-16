@@ -63,7 +63,7 @@ const BlogPost = ({ data: { previous, next, post, postLegacy } }) => {
 					<p className="h6 text-uppercase">{post.seo.opengraphType}</p>
 					<h1>{post.title}</h1>
 					<Bio id={post.author.node.id} date={post.date} readingTime={post.seo.readingTime} />
-					<img className="my-4 rounded-3" src={featuredImage.data} alt={featuredImage.alt} />
+					<img className="my-4 rounded-3 w-100" src={featuredImage.data} alt={featuredImage.alt} />
 					<hr className="mb-4" />
 					{Parser(post.content)}
 				</div>
