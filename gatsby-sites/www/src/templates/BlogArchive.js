@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import parse from 'html-react-parser';
+import Parse from 'html-react-parser';
 
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
@@ -10,7 +10,7 @@ const BlogIndex = ({
   data,
   pageContext: { nextPagePath, previousPagePath },
 }) => {
-  const posts = data.allWpPost.nodes;
+  const posts = data.posts.nodes.concat(data.postsLegacy.nodes);
 
   if (!posts.length) {
     return (
@@ -28,42 +28,57 @@ const BlogIndex = ({
   return (
     <Layout isHomePage>
       <Seo title="All posts" />
-
-      <Bio />
-
-      <ol style={{ listStyle: `none` }}>
-        {posts.map((post) => {
-          const { title } = post;
-
-          return (
-            <li key={post.uri}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.uri} itemProp="url">
-                      <span itemProp="headline">{parse(title)}</span>
+      
+      <div className="container blog">
+      
+        <div class="row">
+          <div className="col-4">
+          
+          </div>
+          <div className="col-8">
+            <div className="row align-items-center">
+              {posts.map((post, index) => {
+                const featuredImage = {
+                  data: post.featuredImage?.node?.mediaItemUrl || ``,
+                  alt: post.featuredImage?.node?.altText || ``,
+                };
+                return (
+                  <div className={index === 0 ? `col-md-12` : `col-md-6`}>
+                    <Link to={post.uri} itemProp="url" className="post-link">
+                      <article
+                        className="post-list-item mb-4 shadow-none bg-blue-20 card"
+                        itemScope
+                        itemType="http://schema.org/Article"
+                      >
+                        <img src={featuredImage.data} alt={featuredImage.alt} />
+                        <div class="card-body">
+                          
+                          
+                          <p className="h6 text-uppercase">{post.seo.opengraphType}</p>
+                          <header>
+                            <p>
+                              <span itemProp="headline">{Parse(post.title)}</span>
+                            </p>
+                          </header>
+                          
+                        </div>
+                      </article>
                     </Link>
-                  </h2>
-                  <small>{post.date}</small>
-                </header>
-                <section itemProp="description">{parse(post.excerpt)}</section>
-              </article>
-            </li>
-          );
-        })}
-      </ol>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
 
-      {previousPagePath && (
-        <>
-          <Link to={previousPagePath}>Previous page</Link>
-          <br />
-        </>
-      )}
-      {nextPagePath && <Link to={nextPagePath}>Next page</Link>}
+        {previousPagePath && (
+          <>
+            <Link to={previousPagePath}>Previous page</Link>
+            <br />
+          </>
+        )}
+        {nextPagePath && <Link to={nextPagePath}>Next page</Link>}
+      </div>
     </Layout>
   );
 };
@@ -72,7 +87,7 @@ export default BlogIndex;
 
 export const pageQuery = graphql`
   query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
-    allWpPost(
+    posts: allWpPost(
       sort: { fields: [date], order: DESC }
       limit: $postsPerPage
       skip: $offset
@@ -83,6 +98,67 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         excerpt
+        featuredImage {
+        node {
+          altText
+          mediaItemUrl
+        }
+        }
+        author {
+        node {
+          id
+          firstName
+          lastName
+          url
+          avatar {
+          url
+          }
+        }
+        }
+        seo {
+        readingTime
+        opengraphType
+        schema {
+          articleType
+        }
+        }
+      }
+    }
+    postsLegacy: allWpLegacyPost(
+      sort: { fields: [date], order: DESC }
+      limit: $postsPerPage
+      skip: $offset
+    ) {
+      nodes {
+        excerpt
+        uri
+        date(formatString: "MMMM DD, YYYY")
+        title
+        excerpt
+        featuredImage {
+        node {
+          altText
+          mediaItemUrl
+        }
+        }
+        author {
+        node {
+          id
+          firstName
+          lastName
+          url
+          avatar {
+          url
+          }
+        }
+        }
+        seo {
+        readingTime
+        opengraphType
+        schema {
+          articleType
+        }
+        }
       }
     }
   }

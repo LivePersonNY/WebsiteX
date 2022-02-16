@@ -140,6 +140,8 @@ exports.createPages = async (props) => {
   
   await createIndividualBlogPostPages({ posts, props });
   
+  await createBlogPostArchive({ posts, props });
+  
 }
 
 /**
@@ -218,7 +220,7 @@ async function createBlogPostArchive({ posts, props }) {
         path: getPagePath(pageNumber),
 
         // use the blog post archive template as the page component
-        component: path.resolve(`./src/templates/blog-post-archive.js`),
+        component: path.resolve(`./src/templates/BlogArchive.js`),
 
         // `context` is available in the template as a prop and
         // as a variable in GraphQL.
