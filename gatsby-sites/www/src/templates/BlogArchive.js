@@ -46,13 +46,9 @@ const BlogIndex = ({
                 console.log(author);
                 return (
                   <div className={`${index === 0 ? `col-md-12` : `col-md-6`}`}>
-                    <Link to={post.uri} itemProp="url" className="post-link shadow-none bg-blue-20 card h-100 mb-4">
+                    <Link to={post.uri} itemProp="url" className="post-link">
                       <article
-<<<<<<< HEAD
                         className="post-list-item mb-4 shadow-none bg-blue-20 card h-100"
-=======
-                        className="post-list-item"
->>>>>>> d1e6e0f179190c8ab72ec811a3c8c5695067e13f
                         itemScope
                         itemType="http://schema.org/Article"
                       >
