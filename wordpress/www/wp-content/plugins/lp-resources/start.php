@@ -117,6 +117,7 @@ class LP_Resources
 			],
 			'public' => true,
 			'show_in_rest' => false,
+			'show_in_graphql' => true,
 		]);
 		
 		/*if (!is_user_logged_in()) {
