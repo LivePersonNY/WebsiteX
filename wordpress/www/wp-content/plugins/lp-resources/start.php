@@ -135,7 +135,7 @@ class LP_Resources
 			],
 		]);
 		
-		register_post_type('post_legacy', [
+		/*register_post_type('post_legacy', [
 			'labels' => [
 				'name' => 'Posts (Legacy)',
 			],
@@ -155,10 +155,8 @@ class LP_Resources
 			'taxonomies' => [
 				'category',
 			],
-			/*'rewrite' => [
-				'slug' => 'blog'
-			]*/
-		]);
+			
+		]);*/
 		
 		/*if (!is_user_logged_in()) {
 			if ($_SERVER['REQUEST_METHOD'] != 'GET') return;
