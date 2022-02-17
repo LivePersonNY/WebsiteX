@@ -231,6 +231,8 @@ async function createBlogPostArchive({ posts, props }) {
 
           nextPagePath: getPagePath(pageNumber + 1),
           previousPagePath: getPagePath(pageNumber - 1),
+          
+          category: false
         },
       });
     })

@@ -1,5 +1,8 @@
 div.container.blog {
-	
+	.return-link {
+		margin-top: 40px;
+		display: block;
+	}
 	* {
 		text-decoration: none;
 	}
@@ -43,11 +46,13 @@ div.container.blog {
 	}
 }
 
+
+
 .post-container {
 	padding: 40px 20px;
 	background: $blue20;
 	border-radius: 30px;
-	margin: 80px 0;
+	margin: 40px 0;
 
 	@include media-breakpoint-up(lg) {
 		padding: 80px 96px;

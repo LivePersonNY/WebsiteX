@@ -35,6 +35,7 @@ const BlogIndex = ({
         <div class="row">
           <div className="col-md-4">
             <h1 className="mb-4">Blog</h1>
+            <p class="h6 text-uppercase">Topics</p>
             <ul className="categories">
               {categories.map((category, index) => {
                 return (<li><a href={category.link}>{category.name}</a></li>)
@@ -50,7 +51,15 @@ const BlogIndex = ({
                   alt: post.featuredImage?.node?.altText || ``,
                 };
                 const author = post.author.node;
-                return (
+                let isInCategory = false || !category;
+                
+                if (category) {
+                  post.categories.nodes.map((_category) => {
+                    if (category.id == _category.id) isInCategory = true;
+                  });
+                }
+                
+                return isInCategory && (
                   <>
                     {index == 3 && <div class="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
                     <div className={`${index === 0 ? `col-lg-12 featured` : `col-lg-6`} mb-4`}>
@@ -115,6 +124,12 @@ export const pageQuery = graphql`
         uri
         date(formatString: "MMMM DD, YYYY")
         title
+        categories {
+          nodes {
+            name
+            id
+          }
+        }
         excerpt
         featuredImage {
         node {
@@ -152,6 +167,12 @@ export const pageQuery = graphql`
         uri
         date(formatString: "MMMM DD, YYYY")
         title
+        categories {
+          nodes {
+            name
+            id
+          }
+        }
         excerpt
         featuredImage {
         node {

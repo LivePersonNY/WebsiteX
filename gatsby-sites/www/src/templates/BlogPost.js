@@ -56,9 +56,11 @@ const BlogPost = ({ data: { previous, next, post, postLegacy } }) => {
 	
   return (<Layout>
 	<Seo title={post.title} description={post.excerpt} meta={meta} />
-	<div className="container">
+	<div className="container blog">
+		
 		<div className="row justify-content-md-center">
 			<div className="col-lg-9">
+				<a href="/blog" className="return-link">Blog</a>
 				<div className="post-container">
 					<p className="h6 text-uppercase">{post.seo.opengraphType}</p>
 					<h1>{post.title}</h1>
