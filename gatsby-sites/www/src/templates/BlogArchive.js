@@ -38,7 +38,7 @@ const BlogIndex = ({
             <p class="h6 text-uppercase">Topics</p>
             <ul className="categories">
               {categories.map((category, index) => {
-                return (<li><a href={category.link}>{category.name}</a></li>)
+                return (<li><a className="link link-mt-small" href={category.link}>{category.name}</a></li>)
               })}
             </ul>
           </div>
