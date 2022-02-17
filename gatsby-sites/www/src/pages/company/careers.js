@@ -128,6 +128,7 @@ const CareersPage = () => {
           <div className="col-lg-8">
             <h2>Be anyone, be anywhere</h2>
             <p>We’re an employee-choice company, meaning we fully understand that every individual works best in their own way whether it’s in an office, remotely, or a hybrid. We celebrate different voices because by empowering all, we fuel better ideas. We’re looking for people who will contribute meaningful, innovative work from anywhere in the world — so come join our team.</p>
+            <a className="link link-mt-small" href="/company/">See our values</a>
             <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
               <div className="carousel-inner">
                 <div className="carousel-item active">
