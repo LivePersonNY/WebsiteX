@@ -108,6 +108,11 @@ class LP_Resources
 	
 	public function register_type()
 	{
+		register_taxonomy('resource-type', 'resource', [
+			'hierarchical' => true,
+			'public' => true,
+		]);
+		
 		register_post_type('resource', [
 			'labels' => [
 				'name' => 'Resources',
@@ -118,6 +123,16 @@ class LP_Resources
 			'public' => true,
 			'menu_icon' => 'dashicons-table-col-after',
 			'show_in_rest' => true,
+			'supports' => [
+				'title',
+				'editor',
+				'excerpt',
+				'thumbnail',
+				'author',
+			],
+			'taxonomies' => [
+				'resource-type',
+			],
 		]);
 		
 		register_post_type('post_legacy', [
@@ -125,7 +140,7 @@ class LP_Resources
 				'name' => 'Posts (Legacy)',
 			],
 			'public' => true,
-			'show_in_rest' => false,
+			'show_in_rest' => true,
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'LegacyPost',
 			'graphql_plural_name' => 'LegacyPosts',
