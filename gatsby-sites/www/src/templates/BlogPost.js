@@ -8,9 +8,7 @@ import Bio from '../components/Bio';
 
 import { Link, graphql } from 'gatsby';
 
-const BlogPost = ({ data: { previous, next, post, postLegacy } }) => {
-
-	post = post || postLegacy;
+const BlogPost = ({ data: { previous, next, post } }) => {
 	
 	const featuredImage = {
 		data: post.featuredImage?.node?.mediaItemUrl || ``,
@@ -84,37 +82,6 @@ export const pageQuery = graphql`
 	post: wpPost(id: { eq: $id }) {
 	  id
 	  excerpt
-	  content
-	  title
-	  excerpt
-	  author {
-		node {
-		  id
-		  firstName
-		  lastName
-		  url
-		  avatar {
-			url
-		  }
-		}
-	  }
-	  seo {
-		readingTime
-		opengraphType
-		schema {
-			articleType
-		}
-	  }
-	  date(formatString: "MMMM DD, YYYY")
-	  featuredImage {
-		node {
-		  altText
-		  mediaItemUrl
-		}
-	  }
-	}
-	postLegacy: wpLegacyPost(id: { eq: $id }) {
-	  id
 	  content
 	  title
 	  excerpt
