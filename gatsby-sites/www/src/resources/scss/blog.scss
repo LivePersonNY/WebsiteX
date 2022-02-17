@@ -13,6 +13,31 @@ div.container.blog {
 	}
 	.post-link {
 		height: 100%;
+		article {
+			opacity: 1;
+			transition: opacity 1s ease;
+		}
+		&:hover {
+			article {
+				opacity: .5;
+			}
+		}
+	}
+	
+	.chat-button {
+		img {
+			width: 100%;
+			margin-bottom: 1.5rem !important;
+		}
+	}
+	
+	.featured {
+		article {
+			flex-direction: row;
+			img {
+				width: 60%;
+			}
+		}
 	}
 }
 

@@ -45,28 +45,31 @@ const BlogIndex = ({
                 const author = post.author.node;
                 console.log(author);
                 return (
-                  <div className={`${index === 0 ? `col-md-12` : `col-md-6`} mb-4`}>
-                    <Link to={post.uri} itemProp="url" className="post-link">
-                      <article
-                        className="post-list-item shadow-none bg-blue-20 card h-100"
-                        itemScope
-                        itemType="http://schema.org/Article"
-                      >
-                        <img src={featuredImage.data} alt={featuredImage.alt} />
-                        <div class="card-body">
-                          
-                          
-                          <p className="h6 text-uppercase">{post.seo.opengraphType}</p>
-                          <header>
-                            <p className="h3 mb-2" itemProp="headline">
-                              {Parse(post.title)}
-                            </p>
-                          </header>
-                          <p className="h5">{author.firstName} {author.lastName} &bull; {post.seo.readingTime} minutes</p>
-                        </div>
-                      </article>
-                    </Link>
-                  </div>
+                  <>
+                    {index == 3 && <div class="col-md-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
+                    <div className={`${index === 0 ? `col-md-12 featured` : `col-md-6`} mb-4`}>
+                      <Link to={post.uri} itemProp="url" className="post-link">
+                        <article
+                          className="post-list-item shadow-none bg-blue-20 card h-100"
+                          itemScope
+                          itemType="http://schema.org/Article"
+                        >
+                          <img src={featuredImage.data} alt={featuredImage.alt} />
+                          <div class="card-body">
+                            
+                            
+                            <p className="h6 text-uppercase">{post.seo.opengraphType}</p>
+                            <header>
+                              <p className="h3 mb-2" itemProp="headline">
+                                {Parse(post.title)}
+                              </p>
+                            </header>
+                            <p className="h5">{author.firstName} {author.lastName} &bull; {post.seo.readingTime} minutes</p>
+                          </div>
+                        </article>
+                      </Link>
+                    </div>
+                  </>
                 );
               })}
             </div>
