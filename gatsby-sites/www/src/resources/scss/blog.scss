@@ -15,14 +15,22 @@ div.container.blog {
 			position: absolute;
 			width: 18px;
 			height: 24px;
-			background-position: -81px 4px;
+			background-position: -81px 1px;
 			margin-left: -22px;
+
+			@include media-breakpoint-up(lg) {
+				background-position: -81px 4px;
+			}
 		}
 
 		&:hover {
 
 			&::before {
-				background-position: -101px 4px;
+				background-position: -101px 1px;
+
+				@include media-breakpoint-up(lg) {
+					background-position: -101px 4px;
+				}
 			}
 		}
 	}
