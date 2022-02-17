@@ -62,46 +62,6 @@ exports.createPages = async (props) => {
       });
     });
   });
-    
-  /*Object.keys(oldPages).forEach(function(domain) {
-    oldPages[domain].forEach(async function(item) {
-      const pageData = await fetch(`https://${domain}/${item}`);
-      fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
-        if (err) console.log(err);
-        else {
-          fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
-            if (e) {
-              console.log("Error writing file", e);
-            }
-          });
-        }
-      });
-    });
-  });*/
-  
-  /*fs.rm(`./static/`, {
-    recursive: true
-  }, function(err) {
-    if (err) console.log(err);
-    fs.mkdir(`./static`, function(err) {
-      if (err) console.log(err);
-      Object.keys(oldPages).forEach(function(domain) {
-        oldPages[domain].forEach(async function(item) {
-          const pageData = await fetch(`https://lpsn-staging.webflow.io/${item}`);
-          fs.mkdir(`./static/${item}`, { recursive: true }, function(err) {
-            if (err) console.log(err);
-          });
-          fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
-            if (e) {
-              console.log("Error writing file", e);
-            }
-          });
-        });
-      });
-    });
-  });*/
-  
- 
   
   const { redirects } = JSON.parse(JSON.stringify(wpSettings.wp.seo));
   if (redirects) {
@@ -128,23 +88,36 @@ exports.createPages = async (props) => {
     });
   });
   
+  const posts = await getPosts(props);
+  
+  if (!posts.length) {
+    return;
+  }
+  
+  await createIndividualBlogPostPages({ posts, props });
+  
+  await createBlogPostArchive({ posts, props });
+  
 }
 
 /**
  * This function creates all the individual blog pages in this site
  */
-const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
+const createIndividualBlogPostPages = async ({ posts, props }) =>
   Promise.all(
+    
+    
+    
     posts.map(({ previous, post, next }) =>
       // createPage is an action passed to createPages
       // See https://www.gatsbyjs.com/docs/actions#createPage for more info
-      gatsbyUtilities.actions.createPage({
+      props.actions.createPage({
         // Use the WordPress uri as the Gatsby page path
         // This is a good idea so that internal links and menus work 👍
         path: post.uri,
 
         // use the blog post template as the page component
-        component: path.resolve(`./src/templates/blog-post.js`),
+        component: path.resolve(`./src/templates/BlogPost.js`),
 
         // `context` is available in the template as a prop and
         // as a variable in GraphQL.
@@ -165,8 +138,8 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
 /**
  * This function creates all the individual blog pages in this site
  */
-async function createBlogPostArchive({ posts, gatsbyUtilities }) {
-  const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
+async function createBlogPostArchive({ posts, props }) {
+  const graphqlResult = await props.graphql(/* GraphQL */ `
     {
       wp {
         readingSettings {
@@ -199,11 +172,11 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
 
       // createPage is an action passed to createPages
       // See https://www.gatsbyjs.com/docs/actions#createPage for more info
-      await gatsbyUtilities.actions.createPage({
+      await props.actions.createPage({
         path: getPagePath(pageNumber),
 
         // use the blog post archive template as the page component
-        component: path.resolve(`./src/templates/blog-post-archive.js`),
+        component: path.resolve(`./src/templates/BlogArchive.js`),
 
         // `context` is available in the template as a prop and
         // as a variable in GraphQL.
@@ -253,6 +226,24 @@ async function getPosts({ graphql, reporter }) {
             id
           }
         }
+      },
+      allWpLegacyPost(sort: { fields: [date], order: DESC }) {
+        edges {
+          previous {
+            id
+          }
+      
+          # note: this is a GraphQL alias. It renames "node" to "post" for this query
+          # We're doing this because this "node" is a post! It makes our code more readable further down the line.
+          post: node {
+            id
+            uri
+          }
+      
+          next {
+            id
+          }
+        }
       }
     }
   `);
@@ -265,5 +256,7 @@ async function getPosts({ graphql, reporter }) {
     return;
   }
 
-  return graphqlResult.data.allWpPost.edges;
+  return graphqlResult.data.allWpPost.edges.concat(graphqlResult.data.allWpLegacyPost.edges);
 }
+
+

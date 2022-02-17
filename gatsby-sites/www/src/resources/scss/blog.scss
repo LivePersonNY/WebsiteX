@@ -1,0 +1,87 @@
+div.container.blog {
+	
+	* {
+		text-decoration: none;
+	}
+	.card {
+		background: $blue20;
+		padding: 0;
+		overflow: hidden;
+		.card-body {
+			padding: 48px 40px 40px;
+		}
+	}
+	.post-link {
+		height: 100%;
+		article {
+			opacity: 1;
+			transition: opacity 1s ease;
+		}
+		&:hover {
+			article {
+				opacity: .5;
+			}
+		}
+	}
+	
+	.chat-button {
+		img {
+			width: 100%;
+			margin-bottom: 1.5rem !important;
+		}
+	}
+	
+	@include media-breakpoint-up(xl) {
+		.featured {
+			article {
+				flex-direction: row;
+				img {
+					width: 60%;
+				}
+			}
+		}
+	}
+}
+
+.post-container {
+	padding: 40px 20px;
+	background: $blue20;
+	border-radius: 30px;
+	margin: 80px 0;
+
+	@include media-breakpoint-up(lg) {
+		padding: 80px 96px;
+	}
+
+	>.h6 {
+		margin-bottom: 8px;
+	}
+
+	h1 {
+		margin-bottom: 16px;
+
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 24px;
+		}
+	}
+
+	.bio {
+		.bio-img {
+			float: left;
+			margin-right: 24px;
+
+			img {
+				width: 52px;
+			}
+		}
+
+		.bio-body {
+			float: left;
+			margin-top: 4px;
+
+			.date {
+				margin-top: 0;
+			}
+		}
+	}
+}
