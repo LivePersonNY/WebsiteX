@@ -137,6 +137,9 @@ class LP_Resources
 				'thumbnail',
 				'author',
 			],
+			'taxonomies' => [
+				'category',
+			],
 			/*'rewrite' => [
 				'slug' => 'blog'
 			]*/
