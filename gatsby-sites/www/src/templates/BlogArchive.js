@@ -32,10 +32,10 @@ const BlogIndex = ({
       <div className="container blog mt-5">
       
         <div class="row">
-          <div className="col-4">
-            <h1>Blog</h1>
+          <div className="col-md-4">
+            <h1 className="mb-4">Blog</h1>
           </div>
-          <div className="col-8">
+          <div className="col-md-8">
             <div className="row">
               {posts.map((post, index) => {
                 const featuredImage = {
@@ -46,8 +46,8 @@ const BlogIndex = ({
                 console.log(author);
                 return (
                   <>
-                    {index == 3 && <div class="col-md-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
-                    <div className={`${index === 0 ? `col-md-12 featured` : `col-md-6`} mb-4`}>
+                    {index == 3 && <div class="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
+                    <div className={`${index === 0 ? `col-lg-12 featured` : `col-lg-6`} mb-4`}>
                       <Link to={post.uri} itemProp="url" className="post-link">
                         <article
                           className="post-list-item shadow-none bg-blue-20 card h-100"

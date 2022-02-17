@@ -31,11 +31,13 @@ div.container.blog {
 		}
 	}
 	
-	.featured {
-		article {
-			flex-direction: row;
-			img {
-				width: 60%;
+	@include media-breakpoint-up(xl) {
+		.featured {
+			article {
+				flex-direction: row;
+				img {
+					width: 60%;
+				}
 			}
 		}
 	}
