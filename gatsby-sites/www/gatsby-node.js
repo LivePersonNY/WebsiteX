@@ -292,24 +292,6 @@ async function getPosts({ graphql, reporter }) {
             id
           }
         }
-      },
-      allWpLegacyPost(sort: { fields: [date], order: DESC }) {
-        edges {
-          previous {
-            id
-          }
-      
-          # note: this is a GraphQL alias. It renames "node" to "post" for this query
-          # We're doing this because this "node" is a post! It makes our code more readable further down the line.
-          post: node {
-            id
-            uri
-          }
-      
-          next {
-            id
-          }
-        }
       }
     }
   `);
@@ -322,7 +304,7 @@ async function getPosts({ graphql, reporter }) {
     return;
   }
 
-  return graphqlResult.data.allWpPost.edges.concat(graphqlResult.data.allWpLegacyPost.edges);
+  return graphqlResult.data.allWpPost.edges;
 }
 
 

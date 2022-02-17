@@ -157,48 +157,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    postsLegacy: allWpLegacyPost(
-      sort: { fields: [date], order: DESC }
-      limit: $postsPerPage
-      skip: $offset
-    ) {
-      nodes {
-        excerpt
-        uri
-        date(formatString: "MMMM DD, YYYY")
-        title
-        categories {
-          nodes {
-            name
-            id
-          }
-        }
-        excerpt
-        featuredImage {
-        node {
-          altText
-          mediaItemUrl
-        }
-        }
-        author {
-        node {
-          id
-          firstName
-          lastName
-          url
-          avatar {
-          url
-          }
-        }
-        }
-        seo {
-        readingTime
-        opengraphType
-        schema {
-          articleType
-        }
-        }
-      }
-    }
   }
 `;
