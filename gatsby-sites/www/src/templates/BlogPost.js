@@ -121,13 +121,5 @@ export const pageQuery = graphql`
 	  uri
 	  title
 	}
-	previousLegacy: wpLegacyPost(id: { eq: $previousPostId }) {
-	  uri
-	  title
-	}
-	nextLegacy: wpLegacyPost(id: { eq: $nextPostId }) {
-	  uri
-	  title
-	}
   }
 `;
