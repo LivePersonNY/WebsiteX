@@ -4,7 +4,7 @@
     },
     "scripts": {
         "wordpress": "php -S 127.0.0.1:3000 -t wordpress/www",
-        "www": "cd gatsby-sites/www && gatsby clean && gatsby develop --open",
+        "www": "cd gatsby-sites/www && rm -rf ./static && gatsby clean && gatsby develop --open",
         "blog": "cd gatsby-sites/blog && gatsby clean && gatsby develop --open",
         "docs": "docsify serve ./docs --port=3001",
         "guti-run": "cd wordpress/www/wp-content/plugins/lp-guti-blocks && npm run start",
