@@ -8,10 +8,11 @@ import Seo from '../components/Seo';
 
 const BlogIndex = ({
   data,
-  pageContext: { nextPagePath, previousPagePath },
+  pageContext: { nextPagePath, previousPagePath, category },
 }) => {
   const posts = data.posts.nodes.concat(data.postsLegacy.nodes);
-
+  const categories = data.categories.nodes;
+  
   if (!posts.length) {
     return (
       <Layout isHomePage>
@@ -34,16 +35,21 @@ const BlogIndex = ({
         <div class="row">
           <div className="col-md-4">
             <h1 className="mb-4">Blog</h1>
+            <ul className="categories">
+              {categories.map((category, index) => {
+                return (<li><a href={category.link}>{category.name}</a></li>)
+              })}
+            </ul>
           </div>
           <div className="col-md-8">
             <div className="row">
+              {category && <h2 className="mb-4">{category.name}</h2>}
               {posts.map((post, index) => {
                 const featuredImage = {
                   data: post.featuredImage?.node?.mediaItemUrl || ``,
                   alt: post.featuredImage?.node?.altText || ``,
                 };
                 const author = post.author.node;
-                console.log(author);
                 return (
                   <>
                     {index == 3 && <div class="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
@@ -92,6 +98,13 @@ export default BlogIndex;
 
 export const pageQuery = graphql`
   query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
+    categories: allWpCategory {
+      nodes {
+        id
+        name
+        link
+      }
+    }
     posts: allWpPost(
       sort: { fields: [date], order: DESC }
       limit: $postsPerPage

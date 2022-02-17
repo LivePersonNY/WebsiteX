@@ -48,17 +48,21 @@ exports.createPages = async (props) => {
   fs.mkdir(`./static`, function(){
     Object.keys(oldPages).forEach(function(domain) {
       oldPages[domain].forEach(async function(item) {
-        const pageData = await fetch(`https://${domain}/${item}`);
-        fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
-          if (err) console.log(err);
-          else {
-            fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
-              if (e) {
-                console.log("Error writing file", e);
-              }
-            });
-          }
-        });
+        try {
+          const pageData = await fetch(`https://${domain}/${item}`);
+          fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
+            if (err) console.log(err);
+            else {
+              fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
+                if (e) {
+                  console.log("Error writing file", e);
+                }
+              });
+            }
+          });
+        } catch (error) {
+          console.log("Error generating static page", error);
+        }
       });
     });
   });
@@ -89,6 +93,7 @@ exports.createPages = async (props) => {
   });
   
   const posts = await getPosts(props);
+  const categories = await getCategories(props);
   
   if (!posts.length) {
     return;
@@ -98,8 +103,43 @@ exports.createPages = async (props) => {
   
   await createBlogPostArchive({ posts, props });
   
+  await createBlogPostCategory({ categories, props });
+  
 }
 
+async function createBlogPostCategory({ categories, props }) {
+  const graphqlResult = await props.graphql(/* GraphQL */ `
+    {
+      wp {
+        readingSettings {
+          postsPerPage
+        }
+      }
+    }
+  `);
+  
+  const { postsPerPage } = graphqlResult.data.wp.readingSettings;
+  
+  return Promise.all(
+    categories.map(async (category, index) => {
+      await props.actions.createPage({
+        path: category.link,
+
+        // use the blog post archive template as the page component
+        component: path.resolve(`./src/templates/BlogArchive.js`),
+        
+        context: {
+          nextPagePath: ``,
+          previousPagePath: ``,
+          postsPerPage,
+          category,
+          offset: 0
+        }
+
+      });
+    })
+  );
+}
 /**
  * This function creates all the individual blog pages in this site
  */
@@ -195,6 +235,30 @@ async function createBlogPostArchive({ posts, props }) {
       });
     })
   );
+}
+
+async function getCategories({ graphql, reporter }) {
+  const graphqlResult = await graphql(`
+    query WpCategories {
+      categories: allWpCategory {
+        nodes {
+          id
+          name
+          link
+        }
+      }
+    }
+  `);
+  
+  if (graphqlResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your blog categories`,
+      graphqlResult.errors
+    );
+    return;
+  }
+  
+  return graphqlResult.data.categories.nodes;
 }
 
 /**
