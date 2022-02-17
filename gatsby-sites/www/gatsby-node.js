@@ -122,6 +122,7 @@ async function createBlogPostCategory({ categories, props }) {
   
   return Promise.all(
     categories.map(async (category, index) => {
+      //if (category.name == 'Uncategorized') return;
       await props.actions.createPage({
         path: category.link,
 

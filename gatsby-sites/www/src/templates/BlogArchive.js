@@ -10,7 +10,7 @@ const BlogIndex = ({
   data,
   pageContext: { nextPagePath, previousPagePath, category },
 }) => {
-  const posts = data.posts.nodes.concat(data.postsLegacy.nodes);
+  const posts = data.posts.nodes;
   const categories = data.categories.nodes;
   
   if (!posts.length) {
