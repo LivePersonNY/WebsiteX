@@ -115,12 +115,13 @@ export const pageQuery = graphql`
       }
     }
     posts: allWpPost(
-      sort: { fields: [date], order: DESC }
+      sort: { fields: [isSticky, date], order: [DESC, DESC] }
       limit: $postsPerPage
       skip: $offset
     ) {
       nodes {
         excerpt
+        isSticky
         uri
         date(formatString: "MMMM DD, YYYY")
         title
