@@ -4,7 +4,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-lp-guti-blocks-* {
+.wp-block, div[class^="wp-block-lp-guti-blocks-"] {
 	max-width: 100%;
 	margin-top: 2px;
 	margin-bottom: 2px;
