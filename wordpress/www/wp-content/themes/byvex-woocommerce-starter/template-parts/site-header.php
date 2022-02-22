@@ -3,7 +3,8 @@
 		<div class="container" style="position: relative">
 			<a class="navbar-brand fw-bold m-0 p-0 text-truncate" href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>">
 				<?php if (get_option('site_logo')) : ?>
-					<?php echo get_custom_logo(); ?>
+					<?php $logo_id = get_option('site_logo'); $image = wp_get_attachment_image_src( $logo_id , 'full' ); ?>
+					<img src="<?php echo $image[0] ?? null ?>" class="site-logo" />
 				<?php endif; ?>
 			</a>
 	

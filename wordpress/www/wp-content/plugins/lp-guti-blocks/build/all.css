@@ -11,7 +11,7 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block, div[class^=wp-block-lp-guti-blocks-] {
+div[class*=wp-block-lp-guti-blocks-] {
   max-width: 100%;
   margin-top: 2px;
   margin-bottom: 2px;
@@ -11757,6 +11757,14 @@ a > .block-editor-block-list__layout code {
 }
 .block-editor-inserter button svg * {
   color: #fff !important;
+}
+
+.post-type-post .editor-styles-wrapper {
+  background: #F4F4F6;
+  width: 1000px;
+  margin: 40px auto;
+  padding: 0 0 60px;
+  border-radius: 30px;
 }
 /*!*************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/plain-content/src/editor.scss ***!

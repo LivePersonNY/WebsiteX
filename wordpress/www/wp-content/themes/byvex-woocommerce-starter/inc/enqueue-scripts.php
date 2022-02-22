@@ -10,6 +10,8 @@ function byvex_woocommerce_starter_enqueue_scripts()
 {
 	// Bootstrap CSS
 	wp_enqueue_style('byvex-woocommerce-starter-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), filemtime(get_template_directory() . "/css/bootstrap.min.css"));
+	
+	//wp_enqueue_style('liveperson-styles', "https://www.liveperson.com")
 
 	// Style CSS
 	wp_enqueue_style('byvex-woocommerce-starter-style', get_template_directory_uri() . '/css/style.css', array('byvex-woocommerce-starter-bootstrap'), filemtime(get_template_directory() . "/css/style.css"));

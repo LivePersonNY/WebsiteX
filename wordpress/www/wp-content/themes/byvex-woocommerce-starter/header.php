@@ -7,7 +7,7 @@
  */
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?> class="h-100">
+<html <?php language_attributes(); ?> class="h-100 site">
 
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />

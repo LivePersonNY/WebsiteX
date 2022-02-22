@@ -22,7 +22,13 @@ class LP_Resources
 		add_action('admin_init', [$this, 'admin_init'], 100);
 
 		//add_filter('register_post_type_args', [$this, 'filter_post_type_args'], 10, 2);
-		
+		add_filter('get_custom_logo_image_attributes', [$this, 'logo_class']);
+	}
+	
+	function logo_class($attr)
+	{
+		$attr['class'] = 'site-logo';
+		return $attr;
 	}
 	
 	function admin_init()
