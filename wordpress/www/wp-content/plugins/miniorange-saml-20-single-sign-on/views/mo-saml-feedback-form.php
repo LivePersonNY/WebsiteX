@@ -1,15 +1,11 @@
 <?php
-require_once dirname(__FILE__) . '/includes/lib/mo-saml-options-enum.php';
-
 function mo_saml_display_saml_feedback_form() {
 	if ( 'plugins.php' != basename( $_SERVER['PHP_SELF'] ) ) {
 		return;
 	}
 
-	wp_enqueue_style( 'wp-pointer' );
-	wp_enqueue_script( 'wp-pointer' );
 	wp_enqueue_script( 'utils' );
-	wp_enqueue_style( 'mo_saml_admin_plugins_page_style', plugins_url( '/includes/css/style_settings.css?ver=4.8.60', __FILE__ ) );
+	wp_enqueue_style( 'mo_saml_admin_plugins_page_style', plugins_url( '/includes/css/style_settings.min.css', mo_saml_options_plugin_constants::PLUGIN_FILE ), array(), mo_saml_options_plugin_constants::Version, false );
 	?>
 
     </head>
@@ -32,25 +28,25 @@ function mo_saml_display_saml_feedback_form() {
 					
 					<div id="smi_rate" style="text-align:center">
 					<input type="radio" name="rate" id="angry" value="1"/>
-						<label for="angry"><img class="sm" src="<?php echo plugin_dir_url( __FILE__ ) . 'images/angry.png'; ?>" />
+						<label for="angry"><img class="sm" src="<?php echo plugin_dir_url( mo_saml_options_plugin_constants::PLUGIN_FILE ) . 'images/angry.png'; ?>" />
 						</label>
 						
 					<input type="radio" name="rate" id="sad" value="2"/>
-						<label for="sad"><img class="sm" src="<?php echo plugin_dir_url( __FILE__ ) . 'images/sad.png'; ?>" />
+						<label for="sad"><img class="sm" src="<?php echo plugin_dir_url( mo_saml_options_plugin_constants::PLUGIN_FILE ) . 'images/sad.png'; ?>" />
 						</label>
 					
 					
 					<input type="radio" name="rate" id="neutral" value="3"/>
-						<label for="neutral"><img class="sm" src="<?php echo plugin_dir_url( __FILE__ ) . 'images/normal.png'; ?>" />
+						<label for="neutral"><img class="sm" src="<?php echo plugin_dir_url( mo_saml_options_plugin_constants::PLUGIN_FILE ) . 'images/normal.png'; ?>" />
 						</label>
 						
 					<input type="radio" name="rate" id="smile" value="4"/>
 						<label for="smile">
-						<img class="sm" src="<?php echo plugin_dir_url( __FILE__ ) . 'images/smile.png'; ?>" />
+						<img class="sm" src="<?php echo plugin_dir_url( mo_saml_options_plugin_constants::PLUGIN_FILE ) . 'images/smile.png'; ?>" />
 						</label>
 						
 					<input type="radio" name="rate" id="happy" value="5" checked/>
-						<label for="happy"><img class="sm" src="<?php echo plugin_dir_url( __FILE__ ) . 'images/happy.png'; ?>" />
+						<label for="happy"><img class="sm" src="<?php echo plugin_dir_url( mo_saml_options_plugin_constants::PLUGIN_FILE ) . 'images/happy.png'; ?>" />
 						</label>
 						
 					<div id="outer" style="visibility:visible"><span id="result"><?php _e('Thank you for appreciating our work','miniorange-saml-20-single-sign-on');?></span></div>
@@ -69,7 +65,7 @@ function mo_saml_display_saml_feedback_form() {
                               placeholder="<?php _e('Please enter your email address','miniorange-saml-20-single-sign-on');?>" required value="<?php echo $email; ?>" readonly="readonly"/>
 						
 						<input type="radio" name="edit" id="edit" onclick="editName()" value=""/>
-						<label for="edit"><img class="editable" src="<?php echo plugin_dir_url( __FILE__ ) . 'images/61456.png'; ?>" />
+						<label for="edit"><img class="editable" src="<?php echo plugin_dir_url( mo_saml_options_plugin_constants::PLUGIN_FILE ) . 'images/61456.png'; ?>" />
 						</label>
 						
 						</div>
