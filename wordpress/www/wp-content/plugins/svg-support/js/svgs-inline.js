@@ -38,12 +38,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				if( typeof imgID === 'undefined' ){
 					if( typeof svgID === 'undefined' ) {
 						imgID = 'svg-replaced-'+bodhisvgsReplacements;
-						svg.getAttribute('id', imgID);
+						svg.setAttribute('id', imgID);
 					} else {
 						imgID = svgID;
 					}
 				} else {
-					svg.getAttribute('id', imgID);
+					svg.setAttribute('id', imgID);
 				}
 
 				// Add replaced image's classes to the new SVG

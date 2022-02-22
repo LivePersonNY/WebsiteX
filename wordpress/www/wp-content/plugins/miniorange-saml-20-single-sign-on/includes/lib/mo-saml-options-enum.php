@@ -10,64 +10,6 @@ class mo_saml_options_enum_identity_providerMoSAML extends MoSAMLBasicEnum{
 	const SP_Entity_ID = 'mo_saml_sp_entity_id';
 }
 
-class mo_saml_options_tab_names extends  MoSAMLBasicEnum{
-     const Service_provider_settings = 'service-provider-setup';
-     const Identity_provider_settting = 'identity-provider-setup';
-     const Redirection_sso_links = 'redirection-sso-links';
-     const Entire_plugin_tour = 'entire-plugin-tour';
-     const Attribute_role_mapping = 'attribute-role-mapping';
-}
-
-class mo_saml_options_enum_pointersMoSAML extends MoSAMLBasicEnum{
-    public static
-        $DEFAULT = array(
-        'custom_admin_pointers4_8_52_default-miniorange-sp-metadata-url',
-        'custom_admin_pointers4_8_52_default-miniorange-select-your-idp',
-        'custom_admin_pointers4_8_52_default-miniorange-upload-metadata',
-        'custom_admin_pointers4_8_52_default-miniorange-test-configuration',
-        'custom_admin_pointers4_8_52_default-miniorange-attribute-mapping',
-        'custom_admin_pointers4_8_52_default-miniorange-role-mapping',
-		'custom_admin_pointers4_8_52_default-minorange-use-widget',
-		'custom_admin_pointers4_8_52_default-miniorange-addons',
-		'custom_admin_pointers4_8_52_default-miniorange-support-pointer'
-    );
-    public static $DEFAULT_SKIP = array(
-        'custom_admin_pointers4_8_52_default-miniorange-sp-metadata-url',
-        'custom_admin_pointers4_8_52_default-miniorange-select-your-idp',
-        'custom_admin_pointers4_8_52_default-miniorange-upload-metadata',
-        'custom_admin_pointers4_8_52_default-miniorange-test-configuration',
-        'custom_admin_pointers4_8_52_default-miniorange-attribute-mapping',
-        'custom_admin_pointers4_8_52_default-miniorange-role-mapping',
-        'custom_admin_pointers4_8_52_default-minorange-use-widget',
-        'custom_admin_pointers4_8_52_default-miniorange-addons',
-    );
-	public static $SERVICE_PROVIDER = array(
-		'custom_admin_pointers4_8_52_miniorange-select-your-idp',
-		'custom_admin_pointers4_8_52_miniorange-upload-metadata',
-		'custom_admin_pointers4_8_52_miniorange-test-configuration',
-		'custom_admin_pointers4_8_52_miniorange-import-config',
-		'custom_admin_pointers4_8_52_export-import-config',
-		'custom_admin_pointers4_8_52_configure-service-restart-tour');
-	public static $IDENTITY_PROVIDER = array(
-		'custom_admin_pointers4_8_52_metadata_manual',
-		'custom_admin_pointers4_8_52_miniorange-sp-metadata-url',
-		'custom_admin_pointers4_8_52_identity-provider-restart-tour'
-		);
-	public static $ATTRIBUTE_MAPPING = array(
-		'custom_admin_pointers4_8_52_miniorange-attribute-mapping',
-		'custom_admin_pointers4_8_52_miniorange-role-mapping',
-		'custom_admin_pointers4_8_52_attribute-mapping-restart-tour');
-	public static $REDIRECTION_LINK = array(
-		'custom_admin_pointers4_8_52_minorange-use-widget',
-		'custom_admin_pointers4_8_52_miniorange-auto-redirect',
-		'custom_admin_pointers4_8_52_miniorange-auto-redirect-login-page',
-		'custom_admin_pointers4_8_52_miniorange-short-code',
-		'custom_admin_pointers4_8_52_miniorange-redirection-sso-restart-tour'
-		);
-
-}
-
-
 class mo_saml_options_enum_service_providerMoSAML extends MoSAMLBasicEnum{
 	const Identity_name ='saml_identity_name';
 	const Login_binding_type='saml_login_binding_type';
@@ -118,9 +60,40 @@ class mo_saml_options_plugin_constants extends  MoSAMLBasicEnum{
      const CMS_Name = "WP";
      const Application_Name = "WP miniOrange SAML 2.0 SSO Plugin";
      const Application_type = "SAML";
-     const Version = "4.9.14";
+     const Version = "4.9.16";
      const HOSTNAME = "https://login.xecurify.com";
-     const WP_Version = "5.8.2";
+     const WP_Version = "5.9";
+     const PLUGIN_FILE = "miniorange-saml-20-single-sign-on/login.php";
+}
+
+class mo_saml_options_plugin_idp_specific_ads extends MoSAMLBasicEnum{
+    public static $idp_specific_ads = array(
+        "ADFS" => ["Text"=>"miniOrange SAML Single Sign On Plugin allows users in a corporate Active Directory setup to log into WordPress using their Windows Credentials. Once the user is logged in to a domain joined machine, they will not have to re-enter credentials in order to log into WordPress.",
+            "Link"=>"https://plugins.miniorange.com/saml-single-sign-on-sso-wordpress-using-adfs#step8",
+            "Heading"=>"Enable Windows SSO","Link_Title"=>"See Configuration"],
+        "Azure AD" => ["Text"=>"User Sync for Azure AD / Azure B2C plugin Offers WordPress integrations with Microsoft Azure AD Graph APIs and provides Bi-directional User Synchronization, PowerBI integration, Sharepoint integration, etc.",
+            "Link"=>"https://wordpress.org/plugins/user-sync-for-azure-office365/","Heading"=>"User Sync for Azure AD / Azure B2C","Link_Title"=>"Download","Know_Title"=>"Know More","Know_Link"=>"https://plugins.miniorange.com/wordpress-azure-office365-integrations"],
+        "Azure B2C" => ["Text"=>"User Sync for Azure AD / Azure B2C plugin Offers WordPress integrations with Microsoft Azure AD Graph APIs and provides Bi-directional User Synchronization, PowerBI integration, Sharepoint integration, etc.",
+            "Link"=>"https://wordpress.org/plugins/user-sync-for-azure-office365/","Heading"=>"User Sync for Azure AD / Azure B2C","Link_Title"=>"Download","Know_Title"=>"Know More","Know_Link"=>"https://plugins.miniorange.com/wordpress-azure-office365-integrations"],
+        "SalesForce" => ["Text"=>"Object Data Sync For Salesforce plugin provides a bi-directional data synchronization between WP and Salesforce objects",
+            "Link"=>"https://wordpress.org/plugins/object-data-sync-for-salesforce/","Heading"=>"Object Data Sync For Salesforce","Link_Title"=>"Download","Know_Title"=>"Know More","Know_Link"=>"https://plugins.miniorange.com/wordpress-object-sync-for-salesforce"],
+        "Community" => ["Text"=>"Object Data Sync For Salesforce plugin provides a bi-directional data synchronization between WP and Salesforce objects",
+            "Link"=>"https://wordpress.org/plugins/object-data-sync-for-salesforce/","Heading"=>"Object Data Sync For Salesforce","Link_Title"=>"Download","Know_Title"=>"Know More","Know_Link"=>"https://plugins.miniorange.com/wordpress-object-sync-for-salesforce"],
+        "Windows SSO" => ["Text"=>"miniOrange SAML Single Sign On Plugin allows users in a corporate Active Directory setup to log into WordPress using their Windows Credentials. Once the user is logged in to a domain joined machine, they will not have to re-enter credentials in order to log into WordPress.",
+            "Link"=>"https://plugins.miniorange.com/saml-single-sign-on-sso-wordpress-using-adfs#step8",
+            "Heading"=>"Enable Windows SSO","Link_Title"=>"See Configuration"],
+    );
+}
+
+class mo_saml_options_suggested_add_ons extends  MoSAMLBasicEnum {
+    public static $suggested_addons = array (
+        "page-restriction" => ["title"=>"Page / Post Restriction",
+            "text" => "Restrict access to WordPress pages/posts based on user roles and their login status, thereby protecting these pages/posts from unauthorized access.",
+            "link" => "https://wordpress.org/plugins/page-and-post-restriction/","knw-link"=>"https://plugins.miniorange.com/wordpress-page-restriction"],
+        "scim" => ["title"=>"SCIM User Provisioning",
+            "text" => "Allows real-time user sync (automatic user create, delete, and update) from your Identity Provider such as Azure, Okta, Onelogin into your WordPress site.",
+            "link" => "https://wordpress.org/plugins/scim-user-provisioning/","knw-link"=>"https://plugins.miniorange.com/wordpress-user-provisioning"]
+    );
 }
 
 class mo_saml_options_plugin_idp extends  MoSAMLBasicEnum{
@@ -173,8 +146,8 @@ class mo_saml_options_plugin_idp extends  MoSAMLBasicEnum{
 
 class mo_saml_options_plugin_idp_videos extends  MoSAMLBasicEnum{
     public static $IDP_VIDEOS = array(
-        "azure-ad"=> "eHen4aiflFU",
-        "azure-b2c"=> "",
+        "azure-ad"=> "4-zyFUFiOXU",
+        "azure-b2c"=> "B8zCYjhV3UU",
         "adfs"=> "rLBHbRbrY5E",
         "okta"=> "YHE8iYojUqM",
         "salesforce"=> "LRQrmgr255Q",
@@ -201,9 +174,9 @@ class mo_saml_options_plugin_idp_videos extends  MoSAMLBasicEnum{
         "wso2" => "",
         "rsa-secureid" => "",
         "custom-idp" => "gilfhNFYsgc",
-        "wordpress" => "",
-         "office365" => "",
-        "jumpcloud" => "",
+        "wordpress" => "DA61F7PqnQU",
+         "office365" => "4-zyFUFiOXU",
+        "jumpcloud" => "OTP35vbQrts",
         "identityserver4" => "",
         "cyberark" => "",
         "duo" => "",
@@ -211,7 +184,7 @@ class mo_saml_options_plugin_idp_videos extends  MoSAMLBasicEnum{
         "secureauth" => "",
         "netIQ" => "",
         "fonteva" => "",
-        "windows" => "",
+        "windows" => "rLBHbRbrY5E",
         "surfconext" => "",
         "phenixid" => "",
         "classlink" => "",

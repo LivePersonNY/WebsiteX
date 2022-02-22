@@ -6,8 +6,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: permalinks, custom permalinks, url editor, permalinks, woocommerce permalinks
 Requires at least: 4.4.0
 Requires PHP: 5.4
-Tested up to: 5.8.3
-Stable tag: 2.2.15.1
+Tested up to: 5.9
+Stable tag: 2.2.16
 
 Permalink Manager lets you customize the complete URL addresses of your posts, pages, custom post types, terms, and WooCommerce links with ease without touching any core files.
 
@@ -95,14 +95,20 @@ It is because Permalink Manager overwrites one of the core Wordpress functionali
 
 == Changelog ==
 
+= 2.2.16 (January 23, 2021) =
+* Enhancement - Improved support for "Primary category" feature included in Yoast SEO
+* Enhancement - Added support for Avia/Enfold breadcrumbs filter
+* Enhancement - Further optimisation and improvements for Permalink_Manager_Core_Functions->new_uri_redirect_and_404() function
+* Fix - Permalink Manager now recognises the "Explore" listing page in MyListing theme properly
+
 = 2.2.15.1 (January 14, 2021) =
 * Fix - "Regenerate/reset" tool works correctly again in Permalink Manager Lite
 
 = 2.2.15 (January 12, 2021) =
 * Enhancement - UI Improvements for Regenerate/reset tool
-* Dev - WPML_URL_Filters->permalink_filter() hook is also used by Permalink Manager to filter custom permalinks.
+* Dev - WPML_URL_Filters->permalink_filter() hook is also used by Permalink Manager to filter custom permalinks
 * Enhancement - wp_make_link_relative() function is used to prevent redirect loops in new_uri_redirect_and_404() (suggested by mgussekloo)
-* Fix - Enhancements to the debug function's security to avoid XSS injection.
+* Fix - Adjustments to the debug function's security to prevent XSS injection
 
 = 2.2.14 (October 20, 2021) =
 * Enhancement - Improvements for Gutenberg Editor

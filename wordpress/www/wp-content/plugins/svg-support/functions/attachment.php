@@ -58,7 +58,6 @@ function bodhi_svgs_get_dimensions( $svg ) {
 
 /**
  * Generate attachment metadata (Thanks @surml)
- *
  * Fixes Illegal String Offset Warning for Height & Width
  */
 function bodhi_svgs_generate_svg_attachment_metadata( $metadata, $attachment_id ) {
@@ -87,28 +86,26 @@ function bodhi_svgs_generate_svg_attachment_metadata( $metadata, $attachment_id 
 		// Might come in handy to create the sizes array too - But it's not needed for this workaround! Always links to original svg-file => Hey, it's a vector graphic! ;)
 		$sizes = array();
 		foreach ( get_intermediate_image_sizes() as $s ) {
+
 			$sizes[$s] = array( 'width' => '', 'height' => '', 'crop' => false );
 
-			// for svg with widh and height set, we need to adjust the thumbnails accordingly
-			if( $width !== 0 && $height !== 0 ){
+			// for svg with width and height set, we need to adjust the thumbnails accordingly
+			if ( $width !== 0 && $height !== 0 ) {
 
 				// follow width of request size e.g. 150, 300 etc..
-				if ( isset( $_wp_additional_image_sizes[$s]['width'] ) )
+				if ( isset( $_wp_additional_image_sizes[$s]['width'] ) ) {
 					$width_current_size = intval( $_wp_additional_image_sizes[$s]['width'] );
-				else
+				} else {
 					$width_current_size = get_option( "{$s}_size_w" );
+				}
 
 				// we have dimensions available. Use them
-				if( $width > $height ){
-
+				if ( $width > $height ) {
 					$ratio = round($width / $height,2);
 					$new_height = round($width_current_size / $ratio);
-
-				}else{
-
+				} else {
 					$ratio = round($height / $width,2);
 					$new_height = round($width_current_size * $ratio);
-
 				}
 
 				$sizes[$s]['width'] = $width_current_size;
@@ -117,41 +114,47 @@ function bodhi_svgs_generate_svg_attachment_metadata( $metadata, $attachment_id 
 				// svgs can't be cropped by WP
 				$sizes[$s]['crop'] = false;
 
-			}else{
+			} else {
 
 				// no change is needed
-				if ( isset( $_wp_additional_image_sizes[$s]['width'] ) )
+				if ( isset( $_wp_additional_image_sizes[$s]['width'] ) ) {
 					$sizes[$s]['width'] = intval( $_wp_additional_image_sizes[$s]['width'] ); // For theme-added sizes
-				else
+				} else {
 					$sizes[$s]['width'] = get_option( "{$s}_size_w" ); // For default sizes set in options
+				}
 
-				if ( isset( $_wp_additional_image_sizes[$s]['height'] ) )
+				if ( isset( $_wp_additional_image_sizes[$s]['height'] ) ) {
 					$sizes[$s]['height'] = intval( $_wp_additional_image_sizes[$s]['height'] ); // For theme-added sizes
-				else
+				} else {
 					$sizes[$s]['height'] = get_option( "{$s}_size_h" ); // For default sizes set in options
+				}
 
-				if ( isset( $_wp_additional_image_sizes[$s]['crop'] ) )
+				if ( isset( $_wp_additional_image_sizes[$s]['crop'] ) ) {
 					$sizes[$s]['crop'] = intval( $_wp_additional_image_sizes[$s]['crop'] ); // For theme-added sizes
-				else
+				} else {
 					$sizes[$s]['crop'] = get_option( "{$s}_crop" ); // For default sizes set in options
+				}
 
 			}
 
 			$sizes[$s]['file'] =  $filename;
 			$sizes[$s]['mime-type'] =  'image/svg+xml';
+
 		}
+
 		$metadata['sizes'] = $sizes;
+
 	}
 
 	return $metadata;
+
 }
 add_filter( 'wp_generate_attachment_metadata', 'bodhi_svgs_generate_svg_attachment_metadata', 10, 3 );
 
 /*
-*	SVG Sanitization
-*	Only triggers when its enabled by admin
-*/
-
+ * SVG Sanitization
+ * Only triggers when its enabled by admin
+ */
 function bodhi_svgs_sanitize( $file ){
 
 	global $sanitizer;
@@ -185,7 +188,7 @@ function bodhi_svgs_sanitize( $file ){
 		return false;
 	}
 
-	// If we were gzipped, we need to re-zip
+	// if we were gzipped, we need to re-zip
 	if ( $is_zipped ) {
 		$clean = gzencode( $clean );
 	}
@@ -201,7 +204,7 @@ function bodhi_svgs_minify( ) {
 	global $bodhi_svgs_options;
 	global $sanitizer;
 
-	if( !empty($bodhi_svgs_options['minify_svg']) && $bodhi_svgs_options['minify_svg'] === 'on' ){
+	if ( !empty($bodhi_svgs_options['minify_svg']) && $bodhi_svgs_options['minify_svg'] === 'on' ) {
 		$sanitizer->minify(true);
 	}
 
@@ -221,7 +224,7 @@ function bodhi_svgs_sanitize_svg( $file ){
 
 	global $bodhi_svgs_options;
 
-	if( !empty($bodhi_svgs_options['sanitize_svg']) && $bodhi_svgs_options['sanitize_svg'] === 'on' ){
+	if ( !empty($bodhi_svgs_options['sanitize_svg']) && $bodhi_svgs_options['sanitize_svg'] === 'on' ) {
 
 		if ( $file['type'] === 'image/svg+xml' ) {
 
@@ -238,7 +241,7 @@ function bodhi_svgs_sanitize_svg( $file ){
 
 }
 
-// sanizite svg if user has enabled option
+// Sanitize svg if user has enabled option
 add_filter( 'wp_handle_upload_prefilter', 'bodhi_svgs_sanitize_svg' );
 
 // Fix image widget PHP warnings
@@ -260,17 +263,24 @@ function bodhi_svgs_get_attachment_metadata( $data ) {
 function bodhi_svgs_disable_srcset( $sources ) {
 
 	$first_element = reset($sources);
-	if( isset($first_element) && !empty($first_element['url']) ){
+	if ( isset($first_element) && !empty($first_element['url']) ) {
 
 		$ext = pathinfo(reset($sources)['url'], PATHINFO_EXTENSION);
 
-		if( $ext == 'svg' ){
-			return false;
-		}else{
+		if ( $ext == 'svg' ) {
+
+			// return empty array
+			$sources = array();
+
 			return $sources;
+
+		} else {
+
+			return $sources;
+
 		}
 
-	}else{
+	} else {
 
 		return $sources;
 
@@ -283,15 +293,15 @@ add_filter( 'wp_calculate_image_srcset', 'bodhi_svgs_disable_srcset' );
 // proposed by starsis
 // https://github.com/WordPress/gutenberg/issues/36603
 
-function bodhi_svgs_dimension_fallback( $image, $attachment_id, $size, $icon ){
+function bodhi_svgs_dimension_fallback( $image, $attachment_id, $size, $icon ) {
 
 	// only manipulate for svgs
-	if( get_post_mime_type($attachment_id) == 'image/svg+xml' ){
+	if ( get_post_mime_type($attachment_id) == 'image/svg+xml' ) {
 
-		if( !isset($image[1]) or $image[1] === 0 ){
+		if ( !isset($image[1]) or $image[1] === 0 ) {
 			$image[1] = 1;
 		}
-		if( !isset($image[2]) or $image[2] === 0 ){
+		if ( !isset($image[2]) or $image[2] === 0 ) {
 			$image[2] = 1;
 		}
 
@@ -300,5 +310,4 @@ function bodhi_svgs_dimension_fallback( $image, $attachment_id, $size, $icon ){
 	return $image;
 
 }
-
 add_filter( 'wp_get_attachment_image_src', 'bodhi_svgs_dimension_fallback', 10, 4 );
