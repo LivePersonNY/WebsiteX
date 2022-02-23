@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
 import Bio from '../components/Bio';
+import AddThis from '../components/AddThis';
 
 import { Link, graphql } from 'gatsby';
 
@@ -58,12 +59,13 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 		
 		<div className="row justify-content-md-center">
 			<div className="col-lg-9">
-				<a href="/blog" className="return-link link">Blog</a>
+				<a href="javascript:history.back()" className="return-link link link-mt-large">Blog</a>
 				<div className="post-container">
 					<p className="h6 text-uppercase">{post.seo.opengraphType}</p>
 					<h1>{post.title}</h1>
 					<Bio id={post.author.node.id} date={post.date} readingTime={post.seo.readingTime} />
 					<img className="my-4 rounded-3 w-100" src={featuredImage.data} alt={featuredImage.alt} />
+					<AddThis />
 					<hr className="mb-4" />
 					{Parser(post.content)}
 				</div>

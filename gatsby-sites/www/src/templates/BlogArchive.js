@@ -28,13 +28,12 @@ const BlogIndex = ({
 
   return (
     <Layout isHomePage>
-      <Seo title="All posts" />
+      <Seo title="The Conversational, a LivePerson blog | LivePerson" />
       
       <div className="container blog mt-5">
       
         <div class="row">
           <div className="col-md-4">
-            <h1 className="mb-4">Blog</h1>
             <p class="h6 text-uppercase">Topics</p>
             <ul className="categories">
               {categories.map((category, index) => {
@@ -43,8 +42,9 @@ const BlogIndex = ({
             </ul>
           </div>
           <div className="col-md-8">
+            {!category && <h1 className="mb-4">Blog</h1>}
             <div className="row">
-              {category && <h2 className="mb-4">{category.name}</h2>}
+              {category && <h1 className="mb-4">{category.name} <span className="d-block"><a href="/blog" className="return-link link">Blog</a></span></h1>}
               {posts.map((post, index) => {
                 const featuredImage = {
                   data: post.featuredImage?.node?.mediaItemUrl || ``,
