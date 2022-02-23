@@ -22,7 +22,8 @@ export default function AddThis(props) {
 	
 	return (
 		<>
-			<div class="addthis_inline_share_toolbox"></div>
+			{props.type == "share" && <div class="addthis_inline_share_toolbox"></div>}
+			{props.type == "related" && <div class="addthis_relatedposts_inline"></div>}
 			<Script
 				url="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-621685298b452c11"
 				onLoad={handleAddthisLoaded} />
