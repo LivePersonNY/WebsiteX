@@ -117,6 +117,7 @@ class LP_Resources
 		register_taxonomy('resource-type', 'resource', [
 			'hierarchical' => true,
 			'public' => true,
+			'show_in_rest' => true,
 		]);
 		
 		register_post_type('resource', [
@@ -135,39 +136,18 @@ class LP_Resources
 				'excerpt',
 				'thumbnail',
 				'author',
+				'post-formats',
 			],
 			'taxonomies' => [
 				'resource-type',
+				'post-format'
 			],
 		]);
 		
-		/*register_post_type('post_legacy', [
-			'labels' => [
-				'name' => 'Posts (Legacy)',
-			],
-			'public' => true,
-			'show_in_rest' => true,
-			'show_in_graphql' => true,
-			'graphql_single_name' => 'LegacyPost',
-			'graphql_plural_name' => 'LegacyPosts',
-			'supports' => [
-				'title',
-				'editor',
-				'post-formats',
-				'excerpt',
-				'thumbnail',
-				'author',
-			],
-			'taxonomies' => [
-				'category',
-			],
-			
-		]);*/
-		
-		if (!is_user_logged_in() && $_ENV['NO_LOGIN_SCREEN'] === TRUE) {
+		/*if (!is_user_logged_in() && $_ENV['NO_LOGIN_SCREEN'] === TRUE) {
 			if ($_SERVER['REQUEST_METHOD'] != 'GET') return;
 			wp_redirect('https://liveperson.okta.com/home/wordpress_ssoscim/0oaer2x0ifOaljlZF2p7/aln1ivllsm7a1KmQ61d8?fromHome=true', 302);
-		}
+		}*/
 		
 	}
 		
