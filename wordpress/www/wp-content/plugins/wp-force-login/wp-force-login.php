@@ -55,7 +55,7 @@ function v_forcelogin() {
 	 * @param string $url The visited URL.
 	 */
 	$bypass = apply_filters( 'v_forcelogin_bypass', in_array( $url, $allowed ), $url );
-
+	
 	// Bail if bypass is enabled
 	if ( $bypass ) {
 		return;
@@ -97,7 +97,7 @@ function v_forcelogin_rest_access( $result ) {
 	}
 	return $result;
 }
-add_filter( 'rest_authentication_errors', 'v_forcelogin_rest_access', 99 );
+//add_filter( 'rest_authentication_errors', 'v_forcelogin_rest_access', 99 );
 
 /*
  * Localization
