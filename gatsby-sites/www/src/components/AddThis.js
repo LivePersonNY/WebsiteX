@@ -7,17 +7,17 @@ import Script from 'react-load-script';
 import { Link, graphql } from 'gatsby';
 
 export default function AddThis(props) {
-	
+		
 	useEffect(() => {
 		if (window.addthis) {
-			window.addthis.update('share', 'url', props.url); 
+			window.addthis.layers.refresh();
+			window.addthis.update('share', 'url', props.url);
 		}
 	}, [props.url]);
 	
 	const handleAddthisLoaded = () => {
 		window.addthis.init();
-		console.log('handled script...');
-		//window.addthis.update('share', 'url', props.url);
+		window.addthis.update('share', 'url', props.url);
 	};
 	
 	return (

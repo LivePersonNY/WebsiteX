@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.liveperson.com',
+    siteUrl: 'https://www.liveperson.com/',
     title: 'WebsiteX',
     description: 'New WebsiteX site for all your needs',
     author: 'LivePerson',

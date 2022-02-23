@@ -16,45 +16,52 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 		alt: post.featuredImage?.node?.altText || ``,
 	  };
 	  
-	console.log(featuredImage);
-	
+	let canRoot = process.env.CAN_ROOT;
+	let canonical = post.seo.canonical || post.link;
+	if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
+	  	
 	let meta = [
 		{
 		  name: `twitter:title`,
-		  content: post.title || ``,
+		  content: post.seo.title || ``,
 		},
 		{
 		  name: `twitter:description`,
-		  content: ``,
+		  content: post.seo.twitterDescription || post.seo.metaDesc || ``,
 		},
 		{
 		  property: `og:title`,
-		  content: post.title || ``,
+		  content: post.seo.title || ``,
 		},
 		{
 		  property: `og:description`,
-		  content: ``,
+		  content: post.seo.opengraphDescription || post.seo.metaDesc || ``,
 		},
 		{
 		  property: `og:image`,
-		  content: ``,
+		  content: post.seo.opengraphImage ? post.seo.opengraphImage.mediaItemUrl : featuredImage.data,
 		},
 		{
 		  property: `twitter:image`,
-		  content: ``,
+		  content: (post.seo.twitterImage ? post.seo.twitterImage.mediaItemUrl : ``) || (post.seo.opengraphImage ? post.seo.opengraphImage.mediaItemUrl : featuredImage.data) || ``,
 		},
 		{
 		  property: `og:type`,
-		  content: `website`,
+		  content: post.seo.opengraphType || post.seo.schema.articleType || `website`,
 		},
 		{
 		  property: `og:url`,
-		  content: ``,
+		  content: post.seo.canonical,
 		}
 	];
 	
+	let robots = [
+		post.seo.metaRobotsNoindex,
+		post.seo.metaRobotsNofollow
+	];
+	
   return (<Layout>
-	<Seo title={post.title} description={post.excerpt} meta={meta} />
+	<Seo title={post.title} description={post.seo.metaDesc} meta={meta} canonical={canonical} robots={robots.join(", ")} />
 	<div className="container blog">
 		
 		<div className="row justify-content-md-center">
@@ -65,7 +72,7 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 					<h1>{post.title}</h1>
 					<Bio id={post.author.node.id} date={post.date} readingTime={post.seo.readingTime} />
 					<img className="my-4 rounded-3 w-100" src={featuredImage.data} alt={featuredImage.alt} />
-					<AddThis />
+					<AddThis url={canonical} />
 					<hr className="mb-4" />
 					{Parser(post.content)}
 				</div>
@@ -89,6 +96,7 @@ export const pageQuery = graphql`
 	  content
 	  title
 	  excerpt
+	  link
 	  author {
 		node {
 		  id
@@ -102,7 +110,29 @@ export const pageQuery = graphql`
 	  }
 	  seo {
 		readingTime
+		canonical
+		cornerstone
+		focuskw
+		fullHead
+		metaDesc
+		metaKeywords
+		metaRobotsNofollow
+		metaRobotsNoindex
+		opengraphAuthor
+		opengraphDescription
+		opengraphModifiedTime
+		opengraphPublishedTime
+		opengraphPublisher
+		opengraphSiteName
+		opengraphTitle
 		opengraphType
+		opengraphUrl
+		title
+		twitterDescription
+		twitterTitle
+		opengraphImage {
+			mediaItemUrl  
+		}
 		schema {
 			articleType
 		}
