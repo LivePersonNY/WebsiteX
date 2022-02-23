@@ -60,6 +60,11 @@
                     border-bottom: 1px solid $neutral84;
 
                     @include media-breakpoint-up(lg) {
+                        margin-right: 15px;
+                        border: 0;
+                    }
+
+                    @include media-breakpoint-up(xl) {
                         margin-right: 18px;
                         border: 0;
                     }
