@@ -254,7 +254,7 @@ const LivePerson = {
 	ShowAfterMessage: function(form) {
 		const element = form.getFormElem().next();
 		console.log(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
-		var messageParagraph = $('<p>').addClass('thank-you-message').append(element.text().replaceAll("”", "\"").replaceAll("’", "\""));
+		var messageParagraph = $('<p>').addClass('thank-you-message').append(element.html().replaceAll("”", "\"").replaceAll("’", "\""));
 		form.getFormElem().html("").append(messageParagraph);
 	},
 	
