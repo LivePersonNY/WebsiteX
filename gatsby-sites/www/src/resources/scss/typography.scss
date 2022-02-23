@@ -260,6 +260,15 @@ p {
     }
 }
 
+p.thank-you-message a {
+    @extend .link;
+    font-size: inherit;
+    text-decoration: none;
+    &::after {
+        display: none;
+    }
+}
+
 .btn {
     font-family: $familySpaceGrotesk;
     font-weight: $fontBold;
