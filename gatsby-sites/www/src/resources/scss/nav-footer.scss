@@ -25,10 +25,8 @@
             justify-content: inherit;
 
             .navbar-nav {
-                margin-left: 0px;
-
-                @include media-breakpoint-up(lg) {
-                    margin-left: 180px;
+                &:not(.login-menu) {
+                    margin: auto;
                 }
 
                 &.login-menu {
@@ -62,6 +60,11 @@
                     border-bottom: 1px solid $neutral84;
 
                     @include media-breakpoint-up(lg) {
+                        margin-right: 15px;
+                        border: 0;
+                    }
+
+                    @include media-breakpoint-up(xl) {
                         margin-right: 18px;
                         border: 0;
                     }
