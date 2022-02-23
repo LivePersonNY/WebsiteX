@@ -1,8 +1,28 @@
 # Change Log
 
+## 2.3.2
+
+Previously Author and Contributor roles couldn't properly use Gatsby Cloud Preview. This release introduces new custom role capabilities which allow all authenticated users that can use WP preview to use Gatsby Preview.
+
+## 2.3.1
+
+Fixes bug in last version where not having the right ACF version installed would throw an error about `Call to undefined function "acf_get_options_pages"`
+
+## 2.3.0
+
+Added action monitor tracking for ACF options pages via PR #206. Thanks @henrikwirth!
+
+## 2.2.1
+
+Bumped the "tested to" version to latest WP version.
+
+## 2.2.0
+
+Added support for Gatsby Cloud Preview's new feature "eager redirects" which reduces the amount of time spent watching the preview loading screen by redirecting to the preview frontend as soon as possible and then letting the user wait for the preview to finish building there.
+
 ## 2.1.1
 
-Changing away from the default UTC+0 timezone in WP could cause problems with local development and syncing changed data from WP. This releas fixes that via PR #204.
+Changing away from the default UTC+0 timezone in WP could cause problems with local development and syncing changed data from WP. This release fixes that via PR #204.
 
 ## 2.1.0
 

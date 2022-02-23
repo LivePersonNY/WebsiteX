@@ -4,7 +4,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block {
+div[class*="wp-block-lp-guti-blocks-"] {
 	max-width: 100%;
 	margin-top: 2px;
 	margin-bottom: 2px;
@@ -88,5 +88,15 @@
 				color: #fff !important;
 			}
 		}
+	}
+}
+
+.post-type-post {
+	.editor-styles-wrapper {
+		background: $neutral96;
+		width: 1000px;
+		margin: 40px auto;
+		padding: 0 0 60px;
+		border-radius: 30px;
 	}
 }

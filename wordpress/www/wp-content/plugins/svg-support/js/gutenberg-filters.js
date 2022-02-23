@@ -17,7 +17,7 @@ function wrapPostFeaturedImage( OriginalComponent ) {
             el(
                 wp.element.Fragment,
                 {},
-                'Prepend above',
+                '',
                 el(
                     OriginalComponent,
                     props

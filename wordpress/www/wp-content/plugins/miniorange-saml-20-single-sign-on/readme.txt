@@ -3,9 +3,9 @@ Contributors: miniOrange
 Donate link: http://miniorange.com
 Tags: SAML,WordPress SSO, login, Azure AD, Single sign on
 Requires at least: 3.7
-Tested up to: 5.8
+Tested up to: 5.9
 Requires PHP: 5.4
-Stable tag: 4.9.14
+Stable tag: 4.9.16
 License: MIT/Expat
 License URI: https://docs.miniorange.com/mit-license
 
@@ -255,6 +255,14 @@ Visit Help & FAQ section in the plugin OR email us at <a href="mailto:info@xecur
 
 == Changelog ==
 
+= 4.9.16 =
+* Revamped plugin's UI
+* NameID Format fix for ADFS
+
+= 4.9.15 =
+* Compatibility with WordPress 5.9
+* Added Support for NameID Policy in SAML Request
+
 = 4.9.14 =
 * Removed end of year sale
 * Readme updates
@@ -314,6 +322,14 @@ Visit Help & FAQ section in the plugin OR email us at <a href="mailto:info@xecur
 For older changelog entries, please see the [additional changelog.txt file](https://plugins.svn.wordpress.org/miniorange-saml-20-single-sign-on/trunk/changelog.txt) provided with the plugin.
 
 == Upgrade Notice ==
+
+= 4.9.16 =
+* Revamped plugin's UI
+* NameID Format fix for ADFS
+
+= 4.9.15 =
+* Compatibility with WordPress 5.9
+* Added Support for NameID Policy in SAML Request
 
 = 4.9.14 =
 * Removed end of year sale

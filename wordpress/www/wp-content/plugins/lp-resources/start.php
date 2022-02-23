@@ -22,7 +22,13 @@ class LP_Resources
 		add_action('admin_init', [$this, 'admin_init'], 100);
 
 		//add_filter('register_post_type_args', [$this, 'filter_post_type_args'], 10, 2);
-		
+		add_filter('get_custom_logo_image_attributes', [$this, 'logo_class']);
+	}
+	
+	function logo_class($attr)
+	{
+		$attr['class'] = 'site-logo';
+		return $attr;
 	}
 	
 	function admin_init()
@@ -108,6 +114,12 @@ class LP_Resources
 	
 	public function register_type()
 	{
+		register_taxonomy('resource-type', 'resource', [
+			'hierarchical' => true,
+			'public' => true,
+			'show_in_rest' => true,
+		]);
+		
 		register_post_type('resource', [
 			'labels' => [
 				'name' => 'Resources',
@@ -118,34 +130,21 @@ class LP_Resources
 			'public' => true,
 			'menu_icon' => 'dashicons-table-col-after',
 			'show_in_rest' => true,
-		]);
-		
-		register_post_type('post_legacy', [
-			'labels' => [
-				'name' => 'Posts (Legacy)',
-			],
-			'public' => true,
-			'show_in_rest' => false,
-			'show_in_graphql' => true,
-			'graphql_single_name' => 'LegacyPost',
-			'graphql_plural_name' => 'LegacyPosts',
 			'supports' => [
 				'title',
 				'editor',
-				'post-formats',
 				'excerpt',
 				'thumbnail',
 				'author',
+				'post-formats',
 			],
 			'taxonomies' => [
-				'category',
+				'resource-type',
+				'post-format'
 			],
-			/*'rewrite' => [
-				'slug' => 'blog'
-			]*/
 		]);
 		
-		/*if (!is_user_logged_in()) {
+		/*if (!is_user_logged_in() && $_ENV['NO_LOGIN_SCREEN'] === TRUE) {
 			if ($_SERVER['REQUEST_METHOD'] != 'GET') return;
 			wp_redirect('https://liveperson.okta.com/home/wordpress_ssoscim/0oaer2x0ifOaljlZF2p7/aln1ivllsm7a1KmQ61d8?fromHome=true', 302);
 		}*/
