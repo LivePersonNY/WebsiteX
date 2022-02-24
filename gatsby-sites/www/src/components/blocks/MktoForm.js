@@ -97,7 +97,7 @@ const MktoForm = (props) => {
                 </span>
               </a>
               <form id={`mktoForm_${formId}`} mkto={formId}></form>      
-              <mkto-after mkto={formId}>{Parser(props.thankyou)}</mkto-after>
+              <mkto-after mkto={formId}>{props.thankyouControl || Parser(props.thankyou)}</mkto-after>
               
           </div>
         </div>
