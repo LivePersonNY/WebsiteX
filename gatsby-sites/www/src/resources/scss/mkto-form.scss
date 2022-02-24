@@ -86,6 +86,8 @@
 
             form {
                 @include media-breakpoint-up(lg) {
+                    min-height: 48px;
+                    height: auto;
                     transition: .5s opacity ease;
                     opacity: 0;
                 }
