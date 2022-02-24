@@ -14,6 +14,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks/Hero';
 import LineBreaks from '../../LineBreaks';
+import LottieFilePlayer from '../../LottieFilePlayer';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -27,13 +28,8 @@ import LineBreaks from '../../LineBreaks';
 export default function save({attributes, clientId}) {
 
 	let lottiePlayerElement = attributes.lottieFile && (
-		<lottie-player
-		  autoplay
-		  loop
-		  mode="normal"
-		  src={attributes.lottieFile}
-		/>
-	  );
+		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
+	);
 
 	return (
 		<>

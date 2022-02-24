@@ -14,6 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
+	<script src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
 	
 	<?php wp_head(); ?>
 </head>

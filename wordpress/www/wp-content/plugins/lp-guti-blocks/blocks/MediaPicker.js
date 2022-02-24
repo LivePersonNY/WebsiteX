@@ -1,5 +1,6 @@
 import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck, InnerBlocks } from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
+import LottieFilePlayer from './LottieFilePlayer';
 
 export default function MediaPicker({setAttributes, attributes, allowLottie}) {
 
@@ -31,13 +32,7 @@ export default function MediaPicker({setAttributes, attributes, allowLottie}) {
 					render={({open}) => (
 						<>
 							{!attributes.lottieFile && <img className="imageSelector" src={attributes.mediaUrl || "https://picsum.photos/752/568?random=1"} onClick={open} />}
-							{attributes.lottieFile && <lottie-player
-							  	autoplay
-							  	loop
-							  	mode="normal"
-							  	src={attributes.lottieFile}
-							  	onClick={open}
-								/>}
+							{attributes.lottieFile && <LottieFilePlayer onClick={open} lottieFile={attributes.lottieFile} autoplay={true} loop={true} />}
 						</>
 					)}
 				/>
