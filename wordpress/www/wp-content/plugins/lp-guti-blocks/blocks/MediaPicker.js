@@ -27,7 +27,7 @@ export default function MediaPicker({setAttributes, attributes, allowLottie}) {
 						}
 					}}
 					value={attributes.mediaId || attributes.lottieId}
-					allowedTypes={ allowLottie ? ['image', 'application/json'] : ['image'] }
+					allowedTypes={ allowLottie ? ['image', 'application/json', 'application/zip'] : ['image'] }
 					render={({open}) => (
 						<>
 							{!attributes.lottieFile && <img className="imageSelector" src={attributes.mediaUrl || "https://picsum.photos/752/568?random=1"} onClick={open} />}
