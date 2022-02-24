@@ -5,6 +5,8 @@ import Parse from 'html-react-parser';
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
+import { Helmet } from 'react-helmet';
+
 
 const BlogIndex = ({
   data,
@@ -28,6 +30,11 @@ const BlogIndex = ({
 
   return (
     <Layout isHomePage>
+      <Helmet
+        bodyAttributes={{
+          class: 'blog'
+        }}
+      />
       <Seo title="The Conversational, a LivePerson blog | LivePerson" />
       
       <div className="container blog mt-5">

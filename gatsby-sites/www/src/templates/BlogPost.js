@@ -6,6 +6,8 @@ import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
 import Bio from '../components/Bio';
 import AddThis from '../components/AddThis';
+import { Helmet } from 'react-helmet';
+
 
 import { Link, graphql } from 'gatsby';
 
@@ -61,8 +63,13 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 	];
 	
   return (<Layout>
+	<Helmet
+		bodyAttributes={{
+			class: 'blog blog-post'
+		}}
+	/>
 	<Seo title={post.title} description={post.seo.metaDesc} meta={meta} canonical={canonical} robots={robots.join(", ")} />
-	<div className="container blog">
+	<div className="container">
 		
 		<div className="row justify-content-md-center">
 			<div className="col-lg-9">

@@ -1,4 +1,4 @@
-div.container.blog {
+body.blog {
 	.return-link {
 		padding-left: 20px;
 
@@ -59,7 +59,7 @@ div.container.blog {
 
 		article {
 			opacity: 1;
-			transition: opacity 1s ease;
+			transition: opacity .5s ease;
 		}
 
 		&:hover {
@@ -131,5 +131,33 @@ div.container.blog {
 				margin-top: 0;
 			}
 		}
+	}
+	
+}
+
+body.dark-theme {
+	
+	&.blog {
+		* {
+			color: $neutral96;
+		}
+		
+		background: $neutral16;
+		
+		.card, .post-container {
+			background: $neutral24;
+		
+		}
+		
+		a,.link {
+			color: $pink100;
+			&::after, &::before {
+				display: none;
+			}
+			&:hover {
+				color: #8D46EB;
+			}
+		}
+
 	}
 }
