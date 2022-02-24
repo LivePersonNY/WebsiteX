@@ -8,7 +8,7 @@ export default function MediaPicker({setAttributes, attributes, allowLottie}) {
 			<MediaUploadCheck>
 				<MediaUpload
 					onSelect={function(media) {
-						if (media.mime == "application/json") {
+						if (media.mime == "application/json" || media.mime == "application/zip") {
 							setAttributes({
 								lottieFile: media.url,
 								lottieId: media.id,
