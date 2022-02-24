@@ -2,6 +2,7 @@
     mkto-after {
         display: none;
     }
+
     text-align: center;
     z-index: 100;
     display: block !important;
@@ -82,10 +83,9 @@
                     margin-bottom: 12px;
                 }
             }
-            
+
             form {
                 @include media-breakpoint-up(lg) {
-                    height: 48px;
                     transition: .5s opacity ease;
                     opacity: 0;
                 }
@@ -94,18 +94,18 @@
             .mktoForm {
                 display: none;
                 opacity: 1;
-                
+
 
                 @include media-breakpoint-up(lg) {
                     display: block;
                 }
             }
-            
-            
+
+
         }
-        
+
     }
-    
+
     .mktoForm {
 
         width: 100% !important;
