@@ -145,6 +145,7 @@ wordpress
 		| └ hero
 		| └ left-right
 		| └ (...)
+		| |
 		| | AddItemButton.js
 		| | all.js
 		| | BackgroundSelector.js
@@ -174,3 +175,23 @@ By Default, all pages in wordpress are converted to Gatsby pages. A page in word
 ### Fixed Pages
 
 To create a static page in Gatsby, follow the standard procedure of creating the necessary JS file, for example, `example.js` under the pages directory in the gatsby site files.
+
+### Pages from other web properties
+
+We've built a script as part of the GatsbyJS build that allows you to consume a page from another web property and create its static mirror under the project at the same URL. Currently re-writing the url is not supported.
+
+To do this, use the `./old-pages.json` file, it is an associative array (JSON object) of domains, each with a child array of pages to clone. Follow the format within, and you should be fine.
+
+```json
+{
+    "example.domain.com": [
+        "page",
+	"another/page",
+	"yet/another/page"
+    ],
+    "another.domain.com": [
+        "youget/thepicture"
+    ]
+}
+```
+
