@@ -26,7 +26,7 @@ class Simple_Local_Avatars {
 	 * Register actions and filters.
 	 */
 	public function add_hooks() {
-		add_filter( 'pre_get_avatar_data', array( $this, 'get_avatar_data' ), 10, 2 );
+		add_filter( 'pre_get_avatar_data', array( $this, 'get_avatar_data' ), 5, 2 );
 
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 

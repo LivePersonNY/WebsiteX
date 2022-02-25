@@ -23,6 +23,27 @@ class LP_Resources
 
 		//add_filter('register_post_type_args', [$this, 'filter_post_type_args'], 10, 2);
 		add_filter('get_custom_logo_image_attributes', [$this, 'logo_class']);
+		
+		add_filter('gatsby_action_monitors', [$this, 'filter_gatsby_hooks']);
+		
+		//add_filter('simple_local_avatar', [$this, 'filter_avatar']);
+	}
+	
+	function filter_avatar($avatar)
+	{
+		var_dump($avatar);
+		exit;
+		return $avatar;
+	}
+	
+	function filter_gatsby_hooks($actions)
+	{
+		unset($actions['MediaMonitor']);
+		unset($actions['UserMonitor']);
+		unset($actions['AcfMonitor']);
+		unset($actions['PreviewMonitor']);
+		
+		return $actions;
 	}
 	
 	function logo_class($attr)

@@ -79,6 +79,7 @@ function image_quality_lp( ) {
 
 function lp_mime_types($mimes) {
 	$mimes['json'] = 'application/json';
+	$mimes['lottie'] = 'application/zip';
 	return $mimes;
 }
 

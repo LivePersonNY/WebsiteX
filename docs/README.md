@@ -73,11 +73,17 @@ composer install && npm install
 # Serve and run the main website locally
 composer www
 
-# Serve and run the blog project locally
+# Serve and run the blog project locally *NOTE We currently do not use this project.
 composer blog
 
 # Serve and run WordPress locally
 composer wordpress
+
+# Run the wordpress block compiler for development
+composer guti-run
+
+# Build the gutenberg blocks for deployment
+composer guti-build
 
 # Serve and run the doc page locally
 composer docs
@@ -94,6 +100,19 @@ composer wordpress
 ```
 
 When you run this for the first time and visit localhost:3000, you will be prompted to choose a language and create some site settings.
+
+You will need to enable some plugins for your gatsby instance to actually connect to the local wordpress site. Required plugins are:
+
+* Add WPGraphQL SEO
+* Lp Guti Blocks (Not required for GJS but required if you want to develop our custom blocks)
+* LP Resources (Enables our custom post types and taxonomies)
+* Permalink Manager Lite (Required if you need to test permalink structures)
+* WP Gatsby
+* WP GraphQL
+* WP-REST-API V2 Menus
+* WPGraphQL Meta Query
+
+All of these plugins are part of the code repository and do not need to be installed. Simply visit the plugin manager and click "Activate" on them, in no particular order.
 
 ## Running GatsbyJS locally
 
@@ -145,6 +164,7 @@ wordpress
 		| └ hero
 		| └ left-right
 		| └ (...)
+		| |
 		| | AddItemButton.js
 		| | all.js
 		| | BackgroundSelector.js
@@ -174,3 +194,23 @@ By Default, all pages in wordpress are converted to Gatsby pages. A page in word
 ### Fixed Pages
 
 To create a static page in Gatsby, follow the standard procedure of creating the necessary JS file, for example, `example.js` under the pages directory in the gatsby site files.
+
+### Pages from other web properties
+
+We've built a script as part of the GatsbyJS build that allows you to consume a page from another web property and create its static mirror under the project at the same URL. Currently re-writing the url is not supported.
+
+To do this, use the `./old-pages.json` file, it is an associative array (JSON object) of domains, each with a child array of pages to clone. Follow the format within, and you should be fine.
+
+```json
+{
+    "example.domain.com": [
+        "page",
+	"another/page",
+	"yet/another/page"
+    ],
+    "another.domain.com": [
+        "youget/thepicture"
+    ]
+}
+```
+

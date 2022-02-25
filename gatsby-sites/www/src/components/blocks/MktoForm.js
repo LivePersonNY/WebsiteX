@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import $ from 'jquery'; 
+import Parser from 'html-react-parser';
+
 
 const marketoScriptId = 'mktoForms';
 
@@ -95,7 +97,7 @@ const MktoForm = (props) => {
                 </span>
               </a>
               <form id={`mktoForm_${formId}`} mkto={formId}></form>      
-              <mkto-after mkto={formId}>{props.thankyou}</mkto-after>
+              <mkto-after mkto={formId}>{props.thankyouControl || Parser(props.thankyou)}</mkto-after>
               
           </div>
         </div>

@@ -64,12 +64,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
-				<ToolbarButton
-					icon="admin-post"
-					label="Toggle Sticky Form Status"
-					isActive={attributes.sticky}
-					onClick={toggleSticky}
-				/>
+
 				<TextControl value={attributes.mktoFormId} className="form-selector" onChange={ ( val ) => {
 
 						window.jQuery(`#mktoForm_${mktoId}`).after(`<form id="mktoForm_${val}"></form>`).remove();
@@ -77,7 +72,21 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 						setAttributes( { mktoFormId: val } );
 
 				}} />
+				<ToolbarButton
+					icon="admin-post"
+					label="Toggle Sticky Form Status"
+					isActive={attributes.sticky}
+					onClick={toggleSticky}
+				/>
 				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+				<ToolbarButton
+					icon="yes-alt"
+					label="Thank you message"
+					onClick={function() {
+						window.jQuery(`#mktoForm_${mktoId}`).toggle();
+						window.jQuery(`#mktoForm_${mktoId}`).next().addClass('thank-you-message').toggle();
+					}}
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
@@ -99,27 +108,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		return (
 			<div {...useBlockProps()}>
 				{addButton}
-				<Fragment>
-					<InspectorControls>
-						<div>
-							<PanelBody title="Thank you message" initialOpen={ true }>
-								{thankyouControl}
-								<Button icon="welcome-view-site" variant="primary" onClick={ function() {
-									window.jQuery(`#mktoForm_${mktoId}`).html(`<p class="thank-you-message">${attributes.thankyou}</p>`);
-									setTimeout(function() {
-										setAttributes({ mktoFormId: 0});
-									}, 2000);
-									setTimeout(function() {
-										window.jQuery('.thank-you-message').remove();
-										setAttributes({ mktoFormId: mktoId});
-									}, 2010);
-								}
-							 	}>Preview</Button>
-							</PanelBody>
-						</div>
-					</InspectorControls>
-				</Fragment>
-				<MktoForm thankyou={attributes.thankyou} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
+				<MktoForm thankyouControl={thankyouControl} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
 			</div>
 		);
 	}
