@@ -83,7 +83,6 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 					<AddThis url={canonical} type="share" />
 					<hr className="mb-4" />
 					{Parser(post.content)}
-					<MktoForm formId={2580} />
 					<hr className="mb-4" />
 					<AddThis url={canonical} type="related" />
 				</div>
