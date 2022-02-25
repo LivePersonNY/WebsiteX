@@ -86,8 +86,12 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 					<hr className="mb-4" />
 					<AddThis url={canonical} type="related" />
 				</div>
+				
 			</div>
 		</div>
+	</div>
+	<div id="form">
+		<MktoForm formId="3733" backgroundColor="bg-neutral-96" header="" />
 	</div>
   </Layout>)
 	
