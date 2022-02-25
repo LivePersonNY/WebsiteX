@@ -26,14 +26,61 @@ class LP_Resources
 		
 		add_filter('gatsby_action_monitors', [$this, 'filter_gatsby_hooks']);
 		
-		//add_filter('simple_local_avatar', [$this, 'filter_avatar']);
+		add_filter('get_avatar_url', [$this, 'filter_avatar'], 10, 2);
+		
 	}
+
 	
-	function filter_avatar($avatar)
+	function filter_avatar($url, $id_or_email)
 	{
-		var_dump($avatar);
-		exit;
-		return $avatar;
+		//wp_die($url);
+		// Get user ID, if is numeric
+		if ( is_numeric($id_or_email) ) {
+		
+			$user_id = (int)$id_or_email;
+					
+		// If is string, maybe the user email
+		} elseif ( is_string($id_or_email) ) {
+		
+			// Find user by email
+			$user = get_user_by( 'email', $id_or_email );
+		
+			// If user doesn't exists or this is not an ID
+			if ( !isset($user->ID) || !is_numeric($user->ID) ) {
+				return $url;
+			}
+		
+			$user_id = (int)$user->ID;
+		
+		// If is an object
+		} elseif ( is_object($id_or_email) ) {
+		
+			// If this is not an ID
+			if ( !isset($id_or_email->ID) || !is_numeric($id_or_email->ID) ) {
+				return $url;
+			}
+		
+			$user_id = (int)$id_or_email->ID;
+		
+		}
+			
+		// Get attachment ID from user meta
+		$attachment_id = get_user_meta( $user_id, SUA_USER_META_KEY, true );
+		
+		if ( empty($attachment_id) || !is_numeric($attachment_id) ) {
+			return $url;
+		}
+		
+		// Get attachment image src
+		$attachment_src = wp_get_attachment_image_src( $attachment_id, 'medium' );
+		
+		// Override WordPress src
+		if ( $attachment_src !== false ) {
+			return $attachment_src[0];
+			//$avatar = preg_replace( '/src=("|\').*?("|\')/', "src='{$attachment_src[0]}'", $avatar );
+		}
+		
+		return $url;
 	}
 	
 	function filter_gatsby_hooks($actions)

@@ -11,7 +11,7 @@ import Parser from 'html-react-parser';
 const PageTemplate = ({ data: { page } }) => {
 	
 	let canRoot = process.env.CAN_ROOT;
-	let canonical = page.seo.canonical;
+	let canonical = page.seo.canonical || page.link;
 	if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
 	
 	let meta = [
