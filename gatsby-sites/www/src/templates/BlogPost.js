@@ -91,7 +91,7 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 		</div>
 	</div>
 	<div id="form">
-		<MktoForm formId="3733" backgroundColor="bg-neutral-96" header="" />
+		<MktoForm formId="3733" backgroundColor="bg-neutral-96" header="Let's talk about how LivePerson can work for your business" thankyou="Thanks! Someone from our team will get back to you soon." />
 	</div>
   </Layout>)
 	
@@ -109,7 +109,6 @@ export const pageQuery = graphql`
 	  excerpt
 	  content
 	  title
-	  excerpt
 	  link
 	  author {
 		node {
