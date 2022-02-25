@@ -15,6 +15,11 @@ const BlogIndex = ({
   const posts = data.posts.nodes;
   const categories = data.categories.nodes;
   
+  let robots = [
+    category ? category.seo.metaRobotsNoindex : `index`,
+    category ? category.seo.metaRobotsNofollow : `index`
+  ];
+  
   if (!posts.length) {
     return (
       <Layout isHomePage>
@@ -35,7 +40,7 @@ const BlogIndex = ({
           class: 'blog'
         }}
       />
-      <Seo title={category ? category.seo.title : `The Conversational, a LivePerson blog | LivePerson`} description={category ? (category.description || category.seo.metaDesc) : null} />
+      <Seo title={category ? category.seo.title : `The Conversational, a LivePerson blog | LivePerson`} description={category ? (category.description || category.seo.metaDesc) : null} robots={robots} />
       
       <div className="container blog mt-5">
       
