@@ -35,7 +35,7 @@ const BlogIndex = ({
           class: 'blog'
         }}
       />
-      <Seo title="The Conversational, a LivePerson blog | LivePerson" />
+      <Seo title={category ? category.seo.title : `The Conversational, a LivePerson blog | LivePerson`} description={category ? (category.description || category.seo.metaDesc) : null} />
       
       <div className="container blog mt-5">
       
@@ -119,6 +119,13 @@ export const pageQuery = graphql`
         id
         name
         link
+        seo {
+          metaDesc
+          metaRobotsNofollow
+          metaRobotsNoindex
+          metaKeywords
+          title
+        }
       }
     }
     posts: allWpPost(

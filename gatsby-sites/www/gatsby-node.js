@@ -248,6 +248,14 @@ async function getCategories({ graphql, reporter }) {
           id
           name
           link
+          description
+          seo {
+            metaDesc
+            metaRobotsNofollow
+            metaRobotsNoindex
+            metaKeywords
+            title
+          }
         }
       }
     }
