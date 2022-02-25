@@ -25,5 +25,7 @@ get_header();
 </div>
 
 <?php
+var_dump(get_avatar_url(1));
+//wp_die();
 get_footer();
 ?>
