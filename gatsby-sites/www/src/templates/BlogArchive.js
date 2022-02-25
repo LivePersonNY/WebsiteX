@@ -17,7 +17,7 @@ const BlogIndex = ({
   
   let robots = [
     category ? category.seo.metaRobotsNoindex : `index`,
-    category ? category.seo.metaRobotsNofollow : `index`
+    category ? category.seo.metaRobotsNofollow : `follow`
   ];
   
   if (!posts.length) {
