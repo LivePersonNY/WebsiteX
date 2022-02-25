@@ -66,7 +66,7 @@ const BlogIndex = ({
                   });
                 }
                 
-                return isInCategory && (
+                return isInCategory && post.seo.metaRobotsNoindex == 'index' && (
                   <>
                     {index == 3 && <div class="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
                     <div className={`${index === 0 ? `col-lg-12 featured` : `col-lg-6`} mb-4`}>
@@ -159,6 +159,7 @@ export const pageQuery = graphql`
         seo {
         readingTime
         opengraphType
+        metaRobotsNoindex
         schema {
           articleType
         }
