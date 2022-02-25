@@ -27,7 +27,9 @@ class LP_Resources
 		add_filter('gatsby_action_monitors', [$this, 'filter_gatsby_hooks']);
 		
 		add_filter('get_avatar_url', [$this, 'filter_avatar'], 10, 2);
+		
 	}
+
 	
 	function filter_avatar($url, $id_or_email)
 	{
