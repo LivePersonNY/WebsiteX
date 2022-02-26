@@ -57,7 +57,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                   <div className="col-lg-7 col-lg">
                     <p className="dropdown-section-title h6">Featured Resource</p>
                     <div className="dropdown-featured-container">
-                      <img src="https://static.liveperson.com/static-assets/2022/02/14154907/nav_feature_By-need_Commerce_15-Photo-152x120-1.jpg" alt="" />
+                      <img src="https://static.liveperson.com/static-assets/2022/02/25170441/nav_feature_By-need_Consumer_Pref_report-1.jpg" alt="" />
                       <div className="dropdown-featured-body">
                         <p className="subtitle3">Consumer Survey Report</p>
                         <p className="featured-body">Conversational AI is brilliant for business
