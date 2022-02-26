@@ -14,9 +14,11 @@ module.exports = {
       resolve: `gatsby-plugin-gatsby-cloud`,
       options: {
         generateMatchPathRewrites: false,
-        allPageHeaders: [
-          "Cache-Control: public, max-age=31536000, immutable",
-        ]
+        headers: {
+          "/*": [
+            "Cache-Control: public, max-age=31536000, immutable",
+          ]
+        }
       }
     },
     // process.env.NO_INDEX,
