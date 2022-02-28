@@ -20,6 +20,7 @@
     "bootstrap-icons": "^1.7.2",
     "gatsby": "^4.0.2",
     "gatsby-plugin-env-variables": "^2.2.0",
+    "gatsby-plugin-exclude": "^1.0.2",
     "gatsby-plugin-gatsby-cloud": "^4.6.0",
     "gatsby-plugin-google-tagmanager": "^4.7.0",
     "gatsby-plugin-image": "^2.2.0",

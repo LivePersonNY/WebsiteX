@@ -234,16 +234,21 @@ class LP_Resources
 		
 		register_post_type('staged-page', [
 			'labels' => [
-				'name_admin_bar' => 'Page',
+				'name_admin_bar' => 'Staged Page',
+				'name' => 'Staged Pages',
+				'singular_name' => 'Staged Page',
 			],
 			'public' => true,
 			//'publicly_queryable' => null,
 			'capability_type' => 'page',
-			'map_meta_cap' => true,
+			//'map_meta_cap' => true,
 			//'show_in_ui' => false,
 			'show_in_rest' => true,
-			'rest_base' => 'pages',
+			//'rest_base' => 'pages',
 			'hierarchical' => true,
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'staged_page',
+			'graphql_plural_name' => 'staged_pages',
 		]);
 		
 		/*if (!is_user_logged_in() && $_ENV['NO_LOGIN_SCREEN'] === TRUE) {

@@ -34,6 +34,10 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-exclude',
+      options: { paths: ['{wpStagedPage.link}.js'] },
+    },
+    {
       resolve: `gatsby-source-wordpress`,
       options: {
         url: `${process.env.WP_HOST || 'https://edit.liveperson.com'}/graphql`,
@@ -107,7 +111,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        allowList: ["CAN_ROOT"]
+        allowList: ["CAN_ROOT", "NODE_ENV"]
       },
     },
     {
