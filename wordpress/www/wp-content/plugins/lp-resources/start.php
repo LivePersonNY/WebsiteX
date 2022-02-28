@@ -28,7 +28,7 @@ class LP_Resources
 		
 		add_filter('get_avatar_url', [$this, 'filter_avatar'], 10, 2);
 		
-		add_action('init', [$this, 'add_custom_status'], 0);
+		add_action('init', [$this, 'add_custom_status'], 100);
 		
 	}
 	
