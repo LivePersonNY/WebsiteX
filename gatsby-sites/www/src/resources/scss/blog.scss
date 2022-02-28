@@ -113,25 +113,42 @@ body.blog {
 		}
 	}
 	
+	h1,h2,h3,h4,h5 {
+		* {
+			font-size: inherit;
+		}
+	}
+	
 	hr {
 		border-image: $borderGradient 1;
 		margin: 2rem auto;
 		height: 2px;
 		background: $borderGradient;
-		opacity: 1;
+		opacity: .75;
+		border-radius: 3px;
+	}
+	hr.wp-block-separator:not(.is-style-wide) {
 		@include media-breakpoint-up(lg) {
 			width: 30%;
 		}
 	}
 	
-	blockquote {
+	&>blockquote {
 		border-image: $borderGradient 1;
 		border-left: 5px solid $blue20;
 		padding-left: 2rem;
-		margin: 1rem 3rem 3rem;
-		cite {
-			float: right;
-			margin-top: 1rem;
+		margin: 3rem;
+		
+	}
+	
+	figure.wp-block-pullquote {
+		margin-bottom: 5rem;
+		blockquote {
+			margin: 3rem;
+			cite {
+				float: right;
+				margin-top: 1rem;
+			}
 		}
 	}
 
