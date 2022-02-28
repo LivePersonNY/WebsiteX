@@ -28,13 +28,13 @@ class LP_Resources
 		
 		add_filter('get_avatar_url', [$this, 'filter_avatar'], 10, 2);
 		
-		add_action('init', [$this, 'add_custom_status'], 100);
+		add_action('init', [$this, 'add_custom_status'], 10);
 		
 	}
 	
 	function add_custom_status()
 	{
-		register_post_status('draft', [
+		register_post_status('staging', [
 			'public' => true,
 			//'show_in_admin_status_list' => true,
 			//'show_in_admin_all_list' => true,
