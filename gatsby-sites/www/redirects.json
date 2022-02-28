@@ -121,6 +121,7 @@
 		"/video/*": "/resources",
 		"/whatsapp/*": "/products/whatsapp",
 		"/aaangel": "https://www.kasamba.com",
+		"/company/careers/marketing": "/company/careers",
 		"/about": "/company",
 		"/about/2010-annual-report": "https://ir.liveperson.com/financial-information/annual-reports",
 		"/about/aboutus.asp": "/company",
