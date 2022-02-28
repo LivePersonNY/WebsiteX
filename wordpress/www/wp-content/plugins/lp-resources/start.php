@@ -15,6 +15,7 @@ class LP_Resources
 		//add_filter( 'block_parser_class', [$this, 'change_filter'], 10, 1 );
 		//add_filter( 'render_block_data', [$this, 'render_block_data'], 10, 2);
 		add_filter('get_the_excerpt', [$this, 'the_excerpt'], 10, 2);
+		remove_filter( 'the_excerpt', 'wpautop' );
 		
 		add_action('graphql_register_types', [$this, 'graphql_fields']);
 		
