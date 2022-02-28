@@ -297,6 +297,7 @@ class LP_Resources
 			/* since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php */
 			jQuery.ajax({
 				url: 'https://webhook.gatsbyjs.com/hooks/builds/trigger/b0f54087-1595-4113-96cd-a0dc60c0d196',
+				method: 'POST',
 				headers: {
 					"x-gatsby-cache": "false"
 				}
