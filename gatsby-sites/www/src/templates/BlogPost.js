@@ -73,12 +73,12 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 	<div className="container">
 		
 		<div className="row justify-content-md-center">
-			<div className="col-lg-9">
+			<div className="col-lg-10">
 				<a href="javascript:history.back()" className="return-link link link-mt-large">Blog</a>
 				<div className="post-container">
 					<p className="h6 text-uppercase">{post.seo.opengraphType}</p>
 					<h1>{post.title}</h1>
-					{Parser(post.excerpt)}
+					<p className="h3 mb-4">{Parser(post.excerpt)}</p>
 					<Bio id={post.author.node.id} date={post.date} readingTime={post.seo.readingTime} />
 					<img className="my-4 rounded-3 w-100" src={featuredImage.data} alt={featuredImage.alt} />
 					<AddThis url={canonical} type="share" />
