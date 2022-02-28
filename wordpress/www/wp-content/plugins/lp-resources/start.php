@@ -14,6 +14,7 @@ class LP_Resources
 		add_action('init', [$this, 'register_menu_locations'] );
 		//add_filter( 'block_parser_class', [$this, 'change_filter'], 10, 1 );
 		//add_filter( 'render_block_data', [$this, 'render_block_data'], 10, 2);
+		add_filter('get_the_excerpt', [$this, 'the_excerpt'], 10, 2);
 		
 		add_action('graphql_register_types', [$this, 'graphql_fields']);
 		
@@ -30,6 +31,11 @@ class LP_Resources
 		
 		//add_action('init', [$this, 'add_custom_status'], 10);
 		
+	}
+	
+	function the_excerpt($value, $post)
+	{
+		return $post->post_excerpt;
 	}
 	
 	function add_custom_status()
