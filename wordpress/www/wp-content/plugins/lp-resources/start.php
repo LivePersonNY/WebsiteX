@@ -32,6 +32,9 @@ class LP_Resources
 		
 		//add_action('init', [$this, 'add_custom_status'], 10);
 		
+		add_action('admin_bar_menu', [$this, 'add_item'], 100);
+		add_action( 'admin_footer', [$this, 'cache_purge_action_js'] );
+		
 	}
 	
 	function the_excerpt($value, $post)
@@ -280,6 +283,27 @@ class LP_Resources
 	public function menu_fields($markup)
 	{
 		wp_die($markup);
+	}
+	
+	public function add_item( $admin_bar ){
+		global $pagenow;
+		$admin_bar->add_menu( array( 'id'=>'cache-purge','title'=>'Gatsby Hard Build','href'=>'#' ) );
+	}
+	
+	public function cache_purge_action_js() { ?>
+	  <script type="text/javascript" >
+		 jQuery("li#wp-admin-bar-cache-purge .ab-item").on( "click", function() {
+			
+			/* since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php */
+			jQuery.ajax({
+				url: 'https://webhook.gatsbyjs.com/hooks/builds/trigger/b0f54087-1595-4113-96cd-a0dc60c0d196',
+				headers: {
+					"x-gatsby-cache": "false"
+				}
+			})
+	
+		  });
+	  </script> <?php
 	}
 }
 new LP_Resources;
