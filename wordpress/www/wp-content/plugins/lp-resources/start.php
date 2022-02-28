@@ -28,8 +28,18 @@ class LP_Resources
 		
 		add_filter('get_avatar_url', [$this, 'filter_avatar'], 10, 2);
 		
+		add_action('init', [$this, 'add_custom_status'], 0);
+		
 	}
-
+	
+	function add_custom_status()
+	{
+		register_post_status('draft', [
+			'public' => true,
+			//'show_in_admin_status_list' => true,
+			//'show_in_admin_all_list' => true,
+		]);
+	}
 	
 	function filter_avatar($url, $id_or_email)
 	{
