@@ -13,7 +13,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gatsby-cloud`,
       options: {
-        generateMatchPathRewrites: false
+        generateMatchPathRewrites: false,
+        headers: {
+          "/*": [
+            "Cache-Control: max-age=31536000",
+            "Rob-test: testing",
+          ]
+        }
       }
     },
     // process.env.NO_INDEX,

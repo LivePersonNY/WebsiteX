@@ -21,15 +21,43 @@ class LP_Resources
 		
 		add_action('admin_init', [$this, 'admin_init'], 100);
 
-		//add_filter('register_post_type_args', [$this, 'filter_post_type_args'], 10, 2);
 		add_filter('get_custom_logo_image_attributes', [$this, 'logo_class']);
 		
 		add_filter('gatsby_action_monitors', [$this, 'filter_gatsby_hooks']);
 		
 		add_filter('get_avatar_url', [$this, 'filter_avatar'], 10, 2);
 		
+		add_filter( 'page_row_actions', [$this, 'add_stage_action' ], 10, 2 );
+		add_filter( 'post_row_actions', [$this, 'add_stage_action' ], 10, 2 );
+		
+		add_action( 'load-edit.php', [$this, 'set_to_stage']);
+		
 	}
 
+	function add_stage_action( $actions, $post )
+	{
+		
+		if ( get_post_status( $post ) != 'publish' )
+		{
+			$nonce = wp_create_nonce( 'quick-stage-action' ); 
+			$link = admin_url( "edit.php?update_id={$post->ID}&_wpnonce=$nonce" );
+			$actions['stage'] = "<a href='$link'>Stage</a>";
+		}   
+		return $actions;
+	}
+	
+	function set_to_stage() 
+	{
+		$nonce = isset( $_REQUEST['_wpnonce'] ) ? $_REQUEST['_wpnonce'] : null;
+		if ( wp_verify_nonce( $nonce, 'quick-stage-action' ) && isset( $_REQUEST['update_id'] ) )
+		{
+			$my_post = array();
+			$my_post['ID'] = $_REQUEST['update_id'];
+			$my_post['post_status'] = 'publish';
+			$my_post['post_type'] = 'staged-page';
+			wp_update_post( $my_post );
+		}
+	}
 	
 	function filter_avatar($url, $id_or_email)
 	{
@@ -172,14 +200,6 @@ class LP_Resources
 		]);
 	}
 	
-	public function filter_post_type_args($args, $post_type)
-	{
-		if ($post_type == 'post') {
-			$args['supports'][] = 'post-formats';
-		}
-		return $args;
-	}
-	
 	public function register_type()
 	{
 		register_taxonomy('resource-type', 'resource', [
@@ -210,6 +230,20 @@ class LP_Resources
 				'resource-type',
 				'post-format'
 			],
+		]);
+		
+		register_post_type('staged-page', [
+			'labels' => [
+				'name_admin_bar' => 'Page',
+			],
+			'public' => true,
+			//'publicly_queryable' => null,
+			'capability_type' => 'page',
+			'map_meta_cap' => true,
+			//'show_in_ui' => false,
+			'show_in_rest' => true,
+			'rest_base' => 'pages',
+			'hierarchical' => true,
 		]);
 		
 		/*if (!is_user_logged_in() && $_ENV['NO_LOGIN_SCREEN'] === TRUE) {
