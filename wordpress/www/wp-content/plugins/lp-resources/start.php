@@ -35,9 +35,11 @@ class LP_Resources
 	function add_custom_status()
 	{
 		register_post_status('staging', [
+			'exclude_from_search' => false,
 			'public' => true,
-			//'show_in_admin_status_list' => true,
-			//'show_in_admin_all_list' => true,
+			'publicly_queryable' => true,
+			'show_in_admin_status_list' => true,
+			'show_in_admin_all_list' => true,
 		]);
 	}
 	
