@@ -16,7 +16,7 @@ module.exports = {
         generateMatchPathRewrites: false,
         headers: {
           "/*": [
-            "Cache-Control: max-age=31536000",
+            "Cache-Control: public, max-age=700, must-revalidate",
             "Rob-test: testing",
           ]
         }
