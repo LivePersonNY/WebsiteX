@@ -104,6 +104,8 @@ define( 'WP_DEBUG', false );
 
 define('DISALLOW_FILE_MODS', $_ENV['WP_DISALLOW_FILE_MODS'] );
 
+define( 'GRAPHQL_JWT_AUTH_SECRET_KEY', $_ENV['JWT_AUTH_KEY'] );
+
 /* Add any custom values between this line and the "stop editing" line. */
 
 define('WP_MEMORY_LIMIT', '2048M');

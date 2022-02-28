@@ -40,7 +40,7 @@ module.exports = {
         type: {
           MediaItem: {
             localFile: {
-              excludeByMimeTypes: [`image/png`, `image/jpeg`, `application/json`, `image/svg`, `image/jpg`]
+              excludeByMimeTypes: [`image/png`, `image/jpeg`, `application/json`, `image/svg`, `image/jpg`, `application/zip`]
             },
           },
         },
