@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import { Helmet } from 'react-helmet';
 
+import Post from '../components/Post';
 
 const BlogIndex = ({
   data,
@@ -58,11 +59,8 @@ const BlogIndex = ({
             <div className="row">
               {category && <h1 className="mb-4">{category.name} <span className="d-block"><a href="/blog" className="return-link link">Blog</a></span></h1>}
               {posts.map((post, index) => {
-                const featuredImage = {
-                  data: post.featuredImage?.node?.mediaItemUrl || ``,
-                  alt: post.featuredImage?.node?.altText || ``,
-                };
-                const author = post.author.node;
+                
+                
                 let isInCategory = false || !category;
                 
                 if (category) {
@@ -74,28 +72,7 @@ const BlogIndex = ({
                 return isInCategory && post.seo.metaRobotsNoindex == 'index' && (
                   <>
                     {index == 3 && <div class="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
-                    <div className={`${post.isSticky ? `col-lg-12 featured` : `col-lg-6`} mb-4`}>
-                      <Link to={post.uri} itemProp="url" className="post-link">
-                        <article
-                          className="post-list-item shadow-none bg-blue-20 card h-100"
-                          itemScope
-                          itemType="http://schema.org/Article"
-                        >
-                          <img src={featuredImage.data} alt={featuredImage.alt} />
-                          <div class="card-body">
-                            
-                            
-                            <p className="h6 text-uppercase">{post.seo.opengraphType}</p>
-                            <header>
-                              <p className="h3 mb-2" itemProp="headline">
-                                {Parse(post.title)}
-                              </p>
-                            </header>
-                            <p className="h5">{author.firstName} {author.lastName} &bull; {post.seo.readingTime} minutes</p>
-                          </div>
-                        </article>
-                      </Link>
-                    </div>
+                    <Post post={post} />
                   </>
                 );
               })}
