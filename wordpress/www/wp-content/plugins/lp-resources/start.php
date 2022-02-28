@@ -301,7 +301,14 @@ class LP_Resources
 				headers: {
 					"x-gatsby-cache": "false"
 				}
-			})
+			});
+			jQuery.ajax({
+				url: 'https://webhook.gatsbyjs.com/hooks/builds/trigger/eff63a12-f9b6-4b1d-a131-e8e16ef6ed51',
+				method: 'POST',
+				headers: {
+					"x-gatsby-cache": "false"
+				}
+			});
 	
 		  });
 	  </script> <?php
