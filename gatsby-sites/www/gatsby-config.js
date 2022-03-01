@@ -27,6 +27,12 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sitemap`,
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        configFile: 'robots-txt.config.js'
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -40,6 +46,9 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
+        schema: {
+          timeout: 120000,
+        },
         url: `${process.env.WP_HOST || 'https://edit.liveperson.com'}/graphql`,
         debug: {
           preview: true,
