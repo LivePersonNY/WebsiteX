@@ -130,7 +130,6 @@ class LP_Resources
 			wp_update_post( $my_post );
 		}
 	}
->>>>>>> develop
 	
 	function filter_avatar($url, $id_or_email)
 	{
