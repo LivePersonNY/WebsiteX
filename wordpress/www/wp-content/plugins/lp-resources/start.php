@@ -49,11 +49,15 @@ class LP_Resources
 		
 		$image = wp_get_attachment_image_src($id, 'full');
 		if ($image !== false) {
-			wp_remote_post($zap, [
-				'body' => [
-					'path' => preg_replace("/(^.*(:[0-9]*|\.com))/", "", $image[0])
-				]
-			]);
+			try {
+				wp_remote_post($zap, [
+					'body' => [
+						'path' => preg_replace("/(^.*(:[0-9]*|\.com))/", "", $image[0])
+					]
+				]);
+			} catch (Exception $e) {
+				
+			}
 		}
 		
 		$meta         = wp_get_attachment_metadata( $id );
