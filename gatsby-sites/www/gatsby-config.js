@@ -16,12 +16,7 @@ module.exports = {
         generateMatchPathRewrites: false,
         headers: {
           "/*": [
-<<<<<<< HEAD
             "Cache-Control: public, max-age=31536000, immutable",
-=======
-            "Cache-Control: public, max-age=700, must-revalidate",
-            "Rob-test: testing",
->>>>>>> develop
           ]
         }
       }
