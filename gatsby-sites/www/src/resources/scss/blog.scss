@@ -43,6 +43,22 @@ body.blog {
 		list-style: none;
 		padding-left: 0;
 		padding-top: 5px;
+		.link {
+			&::after {
+				@include media-breakpoint-down(md) {
+					display: none;
+				}
+			}
+		}
+		li {
+			@include media-breakpoint-down(md) {
+				display: inline-block;
+				padding: .4rem .6rem 0 0;
+				a {
+					margin: 0;
+				}	
+			}
+		}
 	}
 
 	.card {

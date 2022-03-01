@@ -12,7 +12,7 @@ export default function Post({post}) {
 	const author = post.author.node;
 	
 	return (
-		<div className={`${post.isSticky ? `col-lg-12 featured` : `col-lg-6`} mb-4`}>
+		<div className={`${post.isSticky ? `col-lg-12 featured` : `col-xl-6`} mb-4`}>
 		  <Link to={post.uri} itemProp="url" className="post-link">
 			<article
 			  className="post-list-item shadow-none bg-blue-20 card h-100"

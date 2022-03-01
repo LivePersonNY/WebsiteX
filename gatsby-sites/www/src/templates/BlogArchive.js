@@ -33,6 +33,13 @@ const BlogIndex = ({
       </Layout>
     );
   }
+  
+  let titleElement = (
+    <>
+      {!category && <h1 className="mb-4">Blog</h1>}
+      {category && <h1 className="mb-4">{category.name} <span className="d-block"><a href="/blog" className="return-link link">Blog</a></span></h1>}
+    </>
+  );
 
   return (
     <Layout isHomePage>
@@ -47,6 +54,7 @@ const BlogIndex = ({
       
         <div class="row">
           <div className="col-md-4">
+            <div className="d-block d-sm-none">{titleElement}</div>
             <p class="h6 text-uppercase">Topics</p>
             <ul className="categories">
               {categories.map((category, index) => {
@@ -55,9 +63,9 @@ const BlogIndex = ({
             </ul>
           </div>
           <div className="col-md-8">
-            {!category && <h1 className="mb-4">Blog</h1>}
+            <div className="d-none d-sm-block">{titleElement}</div>
             <div className="row">
-              {category && <h1 className="mb-4">{category.name} <span className="d-block"><a href="/blog" className="return-link link">Blog</a></span></h1>}
+              
               {posts.map((post, index) => {
                 
                 
