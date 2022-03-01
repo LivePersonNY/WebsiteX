@@ -39,6 +39,23 @@ class LP_Resources
 		
 		add_filter('gatsby_trigger_dispatch_args', [$this, 'filter_gatsby_hooks'], 10, 2);
 		
+		add_action( 'tiny_image_after_compression', [$this, 'trigger_static_bust'], 10, 2);
+		
+	}
+	
+	function trigger_static_bust($id, $success)
+	{
+		$zap = 'https://hooks.zapier.com/hooks/catch/2941791/bir373r/';
+		if (true) {
+			$image = wp_get_attachment_image_src($id, 'full');
+			if ($image !== false) {
+				wp_remote_post($zap, [
+					'body' => [
+						'path' => preg_replace("/(^.*(:[0-9]*|\.com))/", "", $image[0])
+					]
+				]);
+			}
+		}
 	}
 	
 	function the_excerpt($value, $post)
