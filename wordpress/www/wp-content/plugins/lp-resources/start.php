@@ -39,23 +39,32 @@ class LP_Resources
 		
 		add_filter('gatsby_trigger_dispatch_args', [$this, 'filter_gatsby_hooks'], 10, 2);
 		
-		add_action( 'tiny_image_after_compression', [$this, 'trigger_static_bust'], 10, 2);
+		add_action( 'wp_update_attachment_metadata', [$this, 'trigger_static_bust'], 120, 2);
 		
 	}
 	
-	function trigger_static_bust($id, $success)
+	function trigger_static_bust($data, $id)
 	{
 		$zap = 'https://hooks.zapier.com/hooks/catch/2941791/bir373r/';
-		if (true) {
-			$image = wp_get_attachment_image_src($id, 'full');
-			if ($image !== false) {
-				wp_remote_post($zap, [
-					'body' => [
-						'path' => preg_replace("/(^.*(:[0-9]*|\.com))/", "", $image[0])
-					]
-				]);
-			}
+		
+		$image = wp_get_attachment_image_src($id, 'full');
+		if ($image !== false) {
+			wp_remote_post($zap, [
+				'body' => [
+					'path' => preg_replace("/(^.*(:[0-9]*|\.com))/", "", $image[0])
+				]
+			]);
 		}
+		
+		$meta         = wp_get_attachment_metadata( $id );
+		$backup_sizes = get_post_meta( $id, '_wp_attachment_backup_sizes', true );
+		$file         = get_attached_file( $id );
+		
+		if (metadata_exists('post', $id, 'tiny_compress_images') != '') {
+			wp_delete_attachment_files( $id, $meta, $backup_sizes, $file );
+		}
+		
+		return $data;
 	}
 	
 	function the_excerpt($value, $post)
