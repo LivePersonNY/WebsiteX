@@ -46,7 +46,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                       descr = <span className="dropdown-item-content subtitle3">{item.description}</span>
                     }
                     return (<li>
-                        <a title={item.title} className={`dropdown-item ${cssLinkClass}`} href={item.path} target={item.target} key={index}>
+                        <a title={item.title} className={`dropdown-item ${cssLinkClass}`} href={item.path} target={item.target} rel={item.target && `noopener noreferrer`} key={index}>
                           <span className={`dropdown-item-span ${extIcon}`}>{item.label}</span>
                           {descr}
                         </a>
@@ -62,7 +62,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                         <p className="subtitle3">Consumer Survey Report</p>
                         <p className="featured-body">Conversational AI is brilliant for business
 </p>
-                        <a className="dropdown-link-blue" href="/resources-reports/2021-conversational-commerce" target="_blank">Learn more</a>
+                        <a className="dropdown-link-blue" href="/resources-reports/2021-conversational-commerce" target="_blank" rel="noopener noreferrer">Learn more</a>
                       </div>
                     </div>
                   </div>
@@ -75,7 +75,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                       <div className="dropdown-featured-body">
                         <p className="subtitle3">Curiously Human™ Launch</p>
                         <p className="featured-body">LivePerson announces new AI capabilities and integrations</p>
-                        <a className="dropdown-link-blue" href="/curiously-human-launch" target="_blank">Learn more</a>
+                        <a className="dropdown-link-blue" href="/curiously-human-launch" target="_blank" rel="noopener noreferrer">Learn more</a>
                       </div>
                     </div>
                   </div>

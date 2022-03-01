@@ -98,7 +98,7 @@ const Footer = () => {
                     <div className="footer-section">
                       <p className="footer-section-title">{section.label}</p>
                       {section.childItems.nodes.map(function(link) {
-                        return (<a href={link.path} className="footer-section-link" target={link.target}>
+                        return (<a href={link.path} className="footer-section-link" target={link.target} rel={item.target && `noopener noreferrer`}>
                             {link.label}
                           </a>)
                       })}

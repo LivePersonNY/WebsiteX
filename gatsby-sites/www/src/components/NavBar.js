@@ -142,6 +142,7 @@ const NavBar = ({ siteTitle }) => {
                     <a
                       title={item.title}
                       target={item.target}
+                      rel={item.target && `noopener noreferrer`}
                       className={cssClasses}
                       href={item.path}
                     >
@@ -162,6 +163,7 @@ const NavBar = ({ siteTitle }) => {
                 <li className="nav-item" key={index}>
                   <a
                     target={item.target}
+                    rel={item.target && `noopener noreferrer`}
                     title={item.title}
                     className={cssClasses}
                     href={item.path}
