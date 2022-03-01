@@ -23,17 +23,21 @@ class LP_Resources
 		
 		add_action('admin_init', [$this, 'admin_init'], 100);
 
-		//add_filter('register_post_type_args', [$this, 'filter_post_type_args'], 10, 2);
 		add_filter('get_custom_logo_image_attributes', [$this, 'logo_class']);
 		
-		add_filter('gatsby_action_monitors', [$this, 'filter_gatsby_hooks']);
+		add_filter('gatsby_action_monitors', [$this, 'filter_gatsby_actions']);
 		
 		add_filter('get_avatar_url', [$this, 'filter_avatar'], 10, 2);
-		
-		//add_action('init', [$this, 'add_custom_status'], 10);
-		
+				
 		add_action('admin_bar_menu', [$this, 'add_item'], 100);
 		add_action( 'admin_footer', [$this, 'cache_purge_action_js'] );
+		
+		add_filter( 'page_row_actions', [$this, 'add_stage_action' ], 100, 2 );
+		add_filter( 'post_row_actions', [$this, 'add_stage_action' ], 10, 2 );
+		
+		add_action( 'load-edit.php', [$this, 'set_to_stage']);
+		
+		add_filter('gatsby_trigger_dispatch_args', [$this, 'filter_gatsby_hooks'], 10, 2);
 		
 	}
 	
@@ -52,6 +56,81 @@ class LP_Resources
 			'show_in_admin_all_list' => true,
 		]);
 	}
+	
+	function filter_gatsby_hooks($args, $webhook)
+	{
+		global $post;
+		if ($post->post_type == 'staged-page') {
+			return [
+				'headers' => [
+					'x-gatsby-cache' => 'false',
+				],
+			];
+		}
+		return [];
+	}
+	
+	function filter_gatsby_actions($actions)
+	{
+		unset($actions['MediaMonitor']);
+		unset($actions['UserMonitor']);
+		unset($actions['AcfMonitor']);
+		unset($actions['PreviewMonitor']);
+		
+		return $actions;
+	}
+
+	function add_stage_action( $actions, $post )
+	{
+
+		if ( get_post_status( $post ) != 'publish')
+		{
+			$nonce = wp_create_nonce( 'quick-stage-action' ); 
+			$link = admin_url( "edit.php?lp_update_id={$post->ID}&_wpnonce=$nonce&post_type=staged-page" );
+			$actions['stage'] = "<a href='$link'>Stage</a>";
+		}   
+		
+		if ( get_post_status( $post ) == 'publish' && $post->post_type == 'staged-page') {
+			unset($actions['create_revision']);
+			$nonce = wp_create_nonce( 'quick-stage-action' ); 
+			$link_p = admin_url( "edit.php?lp_publish_id={$post->ID}&_wpnonce=$nonce&post_type=page" );
+			$link_u = admin_url( "edit.php?lp_unstage_id={$post->ID}&_wpnonce=$nonce&post_type=page" );
+			$actions['publish'] = "<a href='$link_p'>Publish</a>";
+			$actions['unstage'] = "<a href='$link_u'>Unstage</a>";
+		}
+		return $actions;
+	}
+	
+	function set_to_stage() 
+	{
+		$nonce = isset( $_REQUEST['_wpnonce'] ) ? $_REQUEST['_wpnonce'] : null;
+		if ( wp_verify_nonce( $nonce, 'quick-stage-action' ) && isset( $_REQUEST['lp_update_id'] ) )
+		{
+			$my_post = array();
+			$my_post['ID'] = $_REQUEST['lp_update_id'];
+			$my_post['post_status'] = 'publish';
+			$my_post['post_type'] = 'staged-page';
+			wp_update_post( $my_post );
+		}
+		
+		if ( wp_verify_nonce( $nonce, 'quick-stage-action' ) && isset( $_REQUEST['lp_publish_id'] ) )
+		{
+			$my_post = array();
+			$my_post['ID'] = $_REQUEST['lp_publish_id'];
+			$my_post['post_type'] = 'page';
+			wp_update_post( $my_post );
+		}
+		
+		if ( wp_verify_nonce( $nonce, 'quick-stage-action' ) && isset( $_REQUEST['lp_unstage_id'] ) )
+		{
+			$my_post = array();
+			$my_post['ID'] = $_REQUEST['lp_unstage_id'];
+			$my_post['post_type'] = 'page';
+			$my_post['post_status'] = 'draft';
+			wp_update_post( $my_post );
+		}
+	}
+>>>>>>> develop
 	
 	function filter_avatar($url, $id_or_email)
 	{
@@ -105,15 +184,7 @@ class LP_Resources
 		return $url;
 	}
 	
-	function filter_gatsby_hooks($actions)
-	{
-		unset($actions['MediaMonitor']);
-		unset($actions['UserMonitor']);
-		unset($actions['AcfMonitor']);
-		unset($actions['PreviewMonitor']);
-		
-		return $actions;
-	}
+	
 	
 	function logo_class($attr)
 	{
@@ -194,14 +265,6 @@ class LP_Resources
 		]);
 	}
 	
-	public function filter_post_type_args($args, $post_type)
-	{
-		if ($post_type == 'post') {
-			$args['supports'][] = 'post-formats';
-		}
-		return $args;
-	}
-	
 	public function register_type()
 	{
 		register_taxonomy('resource-type', 'resource', [
@@ -232,6 +295,26 @@ class LP_Resources
 				'resource-type',
 				'post-format'
 			],
+		]);
+		
+		register_post_type('staged-page', [
+			'labels' => [
+				'name_admin_bar' => 'Staged Page',
+				'name' => 'Staged Pages',
+				'singular_name' => 'Staged Page',
+			],
+			'public' => true,
+			'menu_icon' => 'dashicons-hidden',
+			//'publicly_queryable' => null,
+			'capability_type' => 'page',
+			//'map_meta_cap' => true,
+			//'show_in_ui' => false,
+			'show_in_rest' => true,
+			//'rest_base' => 'pages',
+			'hierarchical' => true,
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'staged_page',
+			'graphql_plural_name' => 'staged_pages',
 		]);
 		
 		/*if (!is_user_logged_in() && $_ENV['NO_LOGIN_SCREEN'] === TRUE) {
