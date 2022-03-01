@@ -40,6 +40,9 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
+        schema: {
+          timeout: 120000,
+        },
         url: `${process.env.WP_HOST || 'https://edit.liveperson.com'}/graphql`,
         debug: {
           preview: true,

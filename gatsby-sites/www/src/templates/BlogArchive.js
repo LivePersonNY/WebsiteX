@@ -52,15 +52,25 @@ const BlogIndex = ({
       
       <div className="container blog mt-5">
       
-        <div class="row">
+        <div className="row">
           <div className="col-md-4">
             <div className="d-block d-sm-none">{titleElement}</div>
-            <p class="h6 text-uppercase">Topics</p>
-            <ul className="categories">
+            <p className="h6 text-uppercase desktop-only">Topics</p>
+            <ul className="categories desktop-only">
               {categories.map((category, index) => {
                 return (<li><a className="link link-mt-small" href={category.link}>{category.name}</a></li>)
               })}
             </ul>
+            <div className="dropdown mb-4 mobile-only">
+              <button className="btn btn2 btn-outline-secondary dropdown-toggle h6 text-uppercase" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Topics
+              </button>
+              <ul className="dropdown-menu categories px-3" aria-labelledby="dropdownMenuButton1">
+                {categories.map((category, index) => {
+                  return (<li><a className="link link-mt-small" href={category.link}>{category.name}</a></li>)
+                })}
+              </ul>
+            </div>
           </div>
           <div className="col-md-8">
             <div className="d-none d-sm-block">{titleElement}</div>
@@ -79,7 +89,7 @@ const BlogIndex = ({
                 
                 return isInCategory && post.seo.metaRobotsNoindex == 'index' && (
                   <>
-                    {index == 3 && <div class="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
+                    {index == 3 && <div className="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
                     <Post post={post} />
                   </>
                 );

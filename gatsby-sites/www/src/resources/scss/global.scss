@@ -139,6 +139,18 @@ img {
     display: none;
 }
 
+.desktop-only {
+    @include media-breakpoint-down(lg) {
+        display: none !important;
+    }
+}
+
+.mobile-only {
+    @include media-breakpoint-up(lg) {
+        display: none !important;
+    }
+}
+
 .pane:nth-child(n+4) {
     opacity: 0;
 }
