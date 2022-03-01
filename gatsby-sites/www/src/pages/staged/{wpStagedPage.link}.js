@@ -10,7 +10,7 @@ import Parser from 'html-react-parser';
 
 const PageTemplate = ({ data: { page } }) => {
 	
-	if (process.env.NODE_ENV != 'development') {
+	if (process.env.BRANCH != 'develop') {
 		return (<NotFoundPage />);
 	}
 	
