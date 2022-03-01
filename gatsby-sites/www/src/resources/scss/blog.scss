@@ -197,6 +197,12 @@ body.blog {
 			}
 		}
 	}
+	
+	p {
+		&.has-text-align-center {
+			text-align: center;
+		}
+	}
 
 }
 
