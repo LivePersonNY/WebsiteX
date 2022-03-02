@@ -164,6 +164,17 @@ body.blog {
 		margin: 3rem;
 
 	}
+	
+	figure.wp-block-embed {
+		margin: 2rem 0;
+		figcaption {
+			background: $neutral84;
+			padding: 1rem;
+			font-style: italic;
+		}
+		overflow: hidden;
+		border-radius: 5px;
+	}
 
 	figure.wp-block-pullquote {
 		margin-bottom: 5rem;
