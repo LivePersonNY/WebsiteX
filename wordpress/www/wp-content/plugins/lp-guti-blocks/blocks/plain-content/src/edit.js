@@ -61,7 +61,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 			value={ attributes.content }
 			onChange={ ( val ) => setAttributes( { content: val } ) }
 			className="embedded-input"
-			allowedFormats={ [ 'core/bold', 'core/italic', 'core/link'] }
+			allowedFormats={ [ 'core/bold', 'core/italic', 'core/link', 'core/list'] }
 		/>
 	);
 
