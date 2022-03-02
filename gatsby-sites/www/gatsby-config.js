@@ -106,10 +106,6 @@ module.exports = {
             'cloud',
             'health',
             'success',
-            'blockquote',
-            'figure',
-            '.wp-block-pullquote',
-            'cite',
           ], // Don't remove this selector
         },
         // More options defined here https://purgecss.com/configuration.html#options
