@@ -23,6 +23,7 @@ import './board-card/src/index';
 import './exec-card/src/index';
 import './HeadingFormat';
 import './horizontal-text/src/index';
+import './block-pane/src/index';
 
 import $ from 'jquery';
 

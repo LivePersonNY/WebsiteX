@@ -21,3 +21,4 @@ div[class*=wp-block-lp-guti-blocks-]{margin-bottom:2px;margin-top:2px;max-width:
 .comp-tabs-c .v-tab-remove span{color:red}.comp-tabs-c .comp-tabs-content .v-tab-remove{display:none}.comp-tabs-c .comp-tabs-img-container{min-height:400px}
 .comp-tabs-c .v-tab-remove span{color:red}.comp-tabs-c .comp-tabs-content .v-tab-remove{display:none}.comp-tabs-c .comp-tabs-img-container{min-height:400px}
 
+.form-selector,.form-selector div{margin:0!important}.form-selector input{margin:8px;width:55px!important}.pane-form .embedded-input input{-webkit-text-fill-color:#000!important}
