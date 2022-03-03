@@ -73,7 +73,7 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 	<div className="container">
 		
 		<div className="row justify-content-md-center">
-			<div className="col-lg-10">
+			<div className="col-xl-10">
 				<a href="javascript:history.back()" className="return-link link link-mt-large">Blog</a>
 				<div className="post-container">
 					<p className="h6 text-uppercase">{post.seo.opengraphType}</p>
