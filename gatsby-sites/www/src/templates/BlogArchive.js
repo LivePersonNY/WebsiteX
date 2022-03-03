@@ -86,8 +86,12 @@ const BlogIndex = ({
                 if (category) {
                   post.categories.nodes.map((_category) => {
                     if (category.id == _category.id) isInCategory = true;
-                    postCounter++;
+                    
                   });
+                }
+                
+                if (isInCategory && post.seo.metaRobotsNoindex == 'index') {
+                  postCounter++;
                 }
                                 
                 return isInCategory && post.seo.metaRobotsNoindex == 'index' && (
