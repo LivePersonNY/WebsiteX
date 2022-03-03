@@ -61,6 +61,9 @@ const MktoForms = {
 			});
 		}
 		
+		const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
+		lpTag.newPage(pagePath);
+		
 		$('form:not(.mktoForm)').each(function() {
 			const formId = $(this).attr('mkto');
 			if (!formId) return;
