@@ -264,11 +264,13 @@ const LivePerson = {
 	
 	BindToChat: function() {
 		
-		window.lpTag.newPage(window.location.href, {
-			section: [
-				'salesPages',
-			],
-		});
+		if (window.lpTag.newPage) {
+			window.lpTag.newPage(window.location.href, {
+				section: [
+					'salesPages',
+				],
+			});
+		}
 		
 		window.lpTag.sdes = window.lpTag.sdes || [];
 		window.lpTag.sdes.push({
