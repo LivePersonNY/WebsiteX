@@ -82,7 +82,6 @@ const BlogIndex = ({
                 
                 
                 let isInCategory = false || !category;
-                let postEngagement = ``;
                 
                 if (category) {
                   post.categories.nodes.map((_category) => {
@@ -94,15 +93,10 @@ const BlogIndex = ({
                 if (isInCategory && post.seo.metaRobotsNoindex == 'index') {
                   postCounter++;
                 }
-                
-                if (postCounter == 4) {
-                  postEngagement = (<div className="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>);
-                }
-                
                                 
                 return isInCategory && post.seo.metaRobotsNoindex == 'index' && (
                   <>
-                    {postEngagement}
+                    {postCounter == 4 && <div className="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
                     <Post post={post} />
                   </>
                 );
