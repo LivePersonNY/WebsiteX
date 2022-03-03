@@ -236,7 +236,12 @@
         font-size: 1.5rem;
         line-height: 1.75rem;
         text-align: center;
-        padding: 9px 0;
+        width: auto;
+        margin: 0 auto;
+        display: inline-block;
+        background: white;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
 
         a {
             color: $primaryBlue !important;
