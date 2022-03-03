@@ -86,11 +86,10 @@ const BlogIndex = ({
                 if (category) {
                   post.categories.nodes.map((_category) => {
                     if (category.id == _category.id) isInCategory = true;
+                    postCounter++;
                   });
                 }
-                
-                postCounter++;
-                
+                                
                 return isInCategory && post.seo.metaRobotsNoindex == 'index' && (
                   <>
                     {postCounter == 4 && <div className="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
