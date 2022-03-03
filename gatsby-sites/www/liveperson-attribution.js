@@ -61,9 +61,6 @@ const MktoForms = {
 			});
 		}
 		
-		const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
-		lpTag.newPage(pagePath);
-		
 		$('form:not(.mktoForm)').each(function() {
 			const formId = $(this).attr('mkto');
 			if (!formId) return;
@@ -266,6 +263,8 @@ const LivePerson = {
 	},
 	
 	BindToChat: function() {
+		
+		window.lpTag.newPage(window.location.href);
 		
 		window.lpTag.sdes = window.lpTag.sdes || [];
 		window.lpTag.sdes.push({
