@@ -83,7 +83,9 @@ body.blog {
 
 		&:hover {
 			article {
-				opacity: .5;
+				@include media-breakpoint-up(md) {
+					opacity: .5;
+				}
 			}
 		}
 	}
