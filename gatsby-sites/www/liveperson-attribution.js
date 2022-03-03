@@ -44,6 +44,10 @@ const MktoForms = {
 				const formId = form.getId();
 				const ctaString = Dictionary.ctas[formId];
 				
+				const buttonLabel = form.getFormElem().find(".mktoButton").text();
+				
+				form.getFormElem().siblings('a.mobileForm').find('.span1').text(buttonLabel);
+				
 				LivePerson.FormReady(form);
 				form.onValidate(function() {
 					LivePerson.Validate(form);
