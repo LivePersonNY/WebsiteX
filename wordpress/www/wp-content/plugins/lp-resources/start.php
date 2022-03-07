@@ -90,6 +90,13 @@ class LP_Resources
 			$actions['stage'] = "<a href='$link'>Stage</a>";
 		}   
 		
+		if ( get_post_status( $post ) != 'publish' && $post->post_type == 'post')
+		{
+			$nonce = wp_create_nonce( 'quick-stage-action' ); 
+			$link = admin_url( "edit.php?lp_update_id={$post->ID}&_wpnonce=$nonce&post_type=staged-post" );
+			$actions['stage'] = "<a href='$link'>Stage</a>";
+		}   
+		
 		if ( get_post_status( $post ) == 'publish' && $post->post_type == 'staged-page') {
 			unset($actions['create_revision']);
 			$nonce = wp_create_nonce( 'quick-stage-action' ); 
@@ -98,34 +105,44 @@ class LP_Resources
 			$actions['publish'] = "<a href='$link_p'>Publish</a>";
 			$actions['unstage'] = "<a href='$link_u'>Unstage</a>";
 		}
+		
+		if ( get_post_status( $post ) == 'publish' && $post->post_type == 'staged-post') {
+			unset($actions['create_revision']);
+			$nonce = wp_create_nonce( 'quick-stage-action' ); 
+			$link_p = admin_url( "edit.php?lp_publish_id={$post->ID}&_wpnonce=$nonce&post_type=post" );
+			$link_u = admin_url( "edit.php?lp_unstage_id={$post->ID}&_wpnonce=$nonce&post_type=post" );
+			$actions['publish'] = "<a href='$link_p'>Publish</a>";
+			$actions['unstage'] = "<a href='$link_u'>Unstage</a>";
+		}
+		
 		return $actions;
 	}
 	
 	function set_to_stage() 
 	{
 		$nonce = isset( $_REQUEST['_wpnonce'] ) ? $_REQUEST['_wpnonce'] : null;
-		if ( wp_verify_nonce( $nonce, 'quick-stage-action' ) && isset( $_REQUEST['lp_update_id'] ) )
+		if ( wp_verify_nonce( $nonce, 'quick-stage-action' ) && isset( $_REQUEST['lp_update_id'] ) && isset( $_REQUEST['post_type'] ) )
 		{
 			$my_post = array();
 			$my_post['ID'] = $_REQUEST['lp_update_id'];
 			$my_post['post_status'] = 'publish';
-			$my_post['post_type'] = 'staged-page';
+			$my_post['post_type'] = $_REQUEST['post_type'];
 			wp_update_post( $my_post );
 		}
 		
-		if ( wp_verify_nonce( $nonce, 'quick-stage-action' ) && isset( $_REQUEST['lp_publish_id'] ) )
+		if ( wp_verify_nonce( $nonce, 'quick-stage-action' ) && isset( $_REQUEST['lp_publish_id'] ) && isset( $_REQUEST['post_type'] ) )
 		{
 			$my_post = array();
 			$my_post['ID'] = $_REQUEST['lp_publish_id'];
-			$my_post['post_type'] = 'page';
+			$my_post['post_type'] = $_REQUEST['post_type'];
 			wp_update_post( $my_post );
 		}
 		
-		if ( wp_verify_nonce( $nonce, 'quick-stage-action' ) && isset( $_REQUEST['lp_unstage_id'] ) )
+		if ( wp_verify_nonce( $nonce, 'quick-stage-action' ) && isset( $_REQUEST['lp_unstage_id'] ) && isset( $_REQUEST['post_type'] ) )
 		{
 			$my_post = array();
 			$my_post['ID'] = $_REQUEST['lp_unstage_id'];
-			$my_post['post_type'] = 'page';
+			$my_post['post_type'] = $_REQUEST['post_type'];
 			$my_post['post_status'] = 'draft';
 			wp_update_post( $my_post );
 		}
@@ -314,6 +331,33 @@ class LP_Resources
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'staged_page',
 			'graphql_plural_name' => 'staged_pages',
+		]);
+		
+		register_post_type('staged-post', [
+			'labels' => [
+				'name_admin_bar' => 'Staged Post',
+				'name' => 'Staged Posts',
+				'singular_name' => 'Staged Post',
+			],
+			'public' => true,
+			'menu_icon' => 'dashicons-hidden',
+			//'publicly_queryable' => null,
+			'capability_type' => 'post',
+			//'map_meta_cap' => true,
+			//'show_in_ui' => false,
+			'show_in_rest' => true,
+			//'rest_base' => 'pages',
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'staged_post',
+			'graphql_plural_name' => 'staged_posts',
+			'supports' => [
+				'title',
+				'editor',
+				'excerpt',
+				'thumbnail',
+				'author',
+				'post-formats',
+			],
 		]);
 		
 		/*if (!is_user_logged_in() && $_ENV['NO_LOGIN_SCREEN'] === TRUE) {
