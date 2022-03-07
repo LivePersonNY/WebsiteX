@@ -21,15 +21,6 @@ module.exports = {
         }
       }
     },
-    {
-      resolve: `gatsby-plugin-trigger-deploy`,
-      options: {
-        secretKey: `${process.env.DEPLOY_KEY}`,
-        //addressCallback: 'http://localhost/endpoint/for/notifying',
-      },
-    },
-    // process.env.NO_INDEX,
-    // `gatsby-plugin-no-index`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sitemap`,
