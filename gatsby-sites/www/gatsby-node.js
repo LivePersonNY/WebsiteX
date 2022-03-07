@@ -99,7 +99,7 @@ exports.createPages = async (props) => {
     return;
   }
   
-  await createIndividualBlogPostPages({ posts, props });
+  //await createIndividualBlogPostPages({ posts, props });
   
   await createBlogPostArchive({ posts, props });
   
