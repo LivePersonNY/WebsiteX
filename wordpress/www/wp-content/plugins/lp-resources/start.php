@@ -83,7 +83,7 @@ class LP_Resources
 	function add_stage_action( $actions, $post )
 	{
 
-		if ( get_post_status( $post ) != 'publish')
+		if ( get_post_status( $post ) != 'publish' && $post->post_type == 'page')
 		{
 			$nonce = wp_create_nonce( 'quick-stage-action' ); 
 			$link = admin_url( "edit.php?lp_update_id={$post->ID}&_wpnonce=$nonce&post_type=staged-page" );
