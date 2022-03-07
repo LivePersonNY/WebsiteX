@@ -304,7 +304,10 @@ class LP_Resources
 				'editor',
 				'excerpt',
 				'thumbnail',
-			]
+			],
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'news',
+			'graphql_plural_name' => 'news',
 		]);
 		
 		register_post_type('staged-page', [
