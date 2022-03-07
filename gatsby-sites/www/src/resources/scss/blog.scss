@@ -180,6 +180,13 @@ body.blog {
 		overflow: hidden;
 		border-radius: 5px;
 	}
+	
+	div.wp-block-image {
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
 
 	figure.wp-block-pullquote {
 		margin-bottom: 5rem;
