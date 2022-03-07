@@ -289,28 +289,22 @@ class LP_Resources
 			'show_in_rest' => true,
 		]);
 		
-		register_post_type('resource', [
+		register_post_type('news', [
 			'labels' => [
-				'name' => 'Resources',
-				'singular_name' => 'Resource',
-				'add_new_item' => 'Add New Resource',
-				'edit_item' => 'Edit Resource',
+				'name' => 'News',
+				'singular_name' => 'News Item',
+				'add_new_item' => 'Add New Item',
+				'edit_item' => 'Edit News Item',
 			],
 			'public' => true,
-			'menu_icon' => 'dashicons-table-col-after',
+			'menu_icon' => 'dashicons-rss',
 			'show_in_rest' => true,
 			'supports' => [
 				'title',
 				'editor',
 				'excerpt',
 				'thumbnail',
-				'author',
-				'post-formats',
-			],
-			'taxonomies' => [
-				'resource-type',
-				'post-format'
-			],
+			]
 		]);
 		
 		register_post_type('staged-page', [
