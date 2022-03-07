@@ -81,7 +81,7 @@ const MktoForm = (props) => {
           <div className="col-lg-12">
                        
               <a className="mobileForm" >
-                <span className="span1">Request demo</span>
+                <span className="span1">...</span>
                 <span className="span2">
                   <svg version="1.1" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" style={{width:'40px'}}>
                     <g fill="#162036" fillRule="evenodd">

@@ -21,8 +21,6 @@ module.exports = {
         }
       }
     },
-    // process.env.NO_INDEX,
-    // `gatsby-plugin-no-index`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sitemap`,
@@ -120,7 +118,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        allowList: ["CAN_ROOT", "NODE_ENV", "BRANCH"]
+        allowList: ["CAN_ROOT", "NODE_ENV", "BRANCH", "GATSBY_IS_PREVIEW"]
       },
     },
     {

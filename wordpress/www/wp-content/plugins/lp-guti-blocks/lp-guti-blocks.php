@@ -43,6 +43,7 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/board-card/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/exec-card/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/horizontal-text/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/block-pane/' );
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
 
@@ -84,3 +85,11 @@ function lp_mime_types($mimes) {
 }
 
 add_filter('upload_mimes', 'lp_mime_types');
+
+add_filter( 'post_thumbnail_html', 'lp_remove_width_attribute', 10 );
+add_filter( 'image_send_to_editor', 'lp_remove_width_attribute', 10 );
+
+function lp_remove_width_attribute( $html ) {
+   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+   return $html;
+}

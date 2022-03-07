@@ -40,6 +40,8 @@ const BlogIndex = ({
       {category && <h1 className="mb-4">{category.name} <span className="d-block"><a href="/blog" className="return-link link">Blog</a></span></h1>}
     </>
   );
+  
+  let postCounter = 0;
 
   return (
     <Layout isHomePage>
@@ -84,12 +86,17 @@ const BlogIndex = ({
                 if (category) {
                   post.categories.nodes.map((_category) => {
                     if (category.id == _category.id) isInCategory = true;
+                    
                   });
                 }
                 
+                if (isInCategory && post.seo.metaRobotsNoindex == 'index') {
+                  postCounter++;
+                }
+                                
                 return isInCategory && post.seo.metaRobotsNoindex == 'index' && (
                   <>
-                    {index == 3 && <div className="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
+                    {postCounter == 4 && <div className="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
                     <Post post={post} />
                   </>
                 );

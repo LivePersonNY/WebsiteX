@@ -91,7 +91,7 @@ div[class*="wp-block-lp-guti-blocks-"] {
 	}
 }
 
-.post-type-post {
+.post-type-post, .post-type-staged-post {
 	.editor-styles-wrapper {
 		background: $neutral96;
 		width: 1000px;

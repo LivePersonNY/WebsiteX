@@ -8,11 +8,16 @@ import Bio from '../components/Bio';
 import AddThis from '../components/AddThis';
 import { Helmet } from 'react-helmet';
 import MktoForm from '../components/blocks/MktoForm';
+import NotFoundPage from './404';
 
 
 import { Link, graphql } from 'gatsby';
 
-const BlogPost = ({ data: { previous, next, post } }) => {
+const BlogStagedPost = ({ data: { previous, next, post } }) => {
+	
+	if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== "true") {
+		return (<NotFoundPage />);
+	}
 	
 	const featuredImage = {
 		data: post.featuredImage?.node?.mediaItemUrl || ``,
@@ -97,15 +102,15 @@ const BlogPost = ({ data: { previous, next, post } }) => {
   </Layout>)
 	
 };
-export default BlogPost;
+export default BlogStagedPost;
 
 export const pageQuery = graphql`
-  query BlogPostById(
+  query BlogStagedPostById(
 	$id: String!
 	$previousPostId: String
 	$nextPostId: String
   ) {
-	post: wpPost(id: { eq: $id }) {
+	post: wpStagedPost(id: { eq: $id }) {
 	  id
 	  excerpt
 	  content

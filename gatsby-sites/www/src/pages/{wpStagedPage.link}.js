@@ -2,15 +2,15 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import NotFoundPage from '../404';
+import NotFoundPage from './404';
 
-import Layout from '../../components/Layout';
-import Seo from '../../components/Seo';
+import Layout from '../components/Layout';
+import Seo from '../components/Seo';
 import Parser from 'html-react-parser';
 
 const PageTemplate = ({ data: { page } }) => {
 	
-	if (process.env.BRANCH != 'develop') {
+	if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== "true") {
 		return (<NotFoundPage />);
 	}
 	
