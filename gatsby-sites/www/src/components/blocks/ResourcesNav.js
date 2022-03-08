@@ -10,11 +10,11 @@ const ResourceNav = function ( { active } ) {
 	
 	return (
 		<div className="pills-container text-center my-4">
-			<a href="/resources" className={`btn pill mx-3 ${activeAll}`}>All Items</a>
-			<a href="/resources/success-stories" className={`btn pill mx-3 ${activeSuccess}`}>Success stories</a>
-			<a href="/resources/reports" className={`btn pill mx-3 ${activeReports}`}>Guides and reports</a>
-			<a href="/resources/news" className={`btn pill mx-3 ${activeNews}`}>In the news</a>
-			<a href="/resources/webinars" className={`btn pill ${activeWebinars}`}>Webinars</a>
+			<a href="/resources" className={`btn pill mx-2 ${activeAll}`}>All Items</a>
+			<a href="/resources/success-stories" className={`btn pill mx-2 ${activeSuccess}`}>Success stories</a>
+			<a href="/resources/reports" className={`btn pill mx-2 ${activeReports}`}>Guides and reports</a>
+			<a href="/resources/news" className={`btn pill mx-2 ${activeNews}`}>In the news</a>
+			<a href="/resources/webinars" className={`btn pill mx-2 ${activeWebinars}`}>Webinars</a>
 		</div>
 	)
 }

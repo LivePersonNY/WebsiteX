@@ -99,6 +99,8 @@ module.exports = {
             /w-*/,
             /p-*/,
             /m-*/,
+            /ml-*/,
+            /mr-*/,
             /d-*/,
             /nav-*/,
             'solutions',
