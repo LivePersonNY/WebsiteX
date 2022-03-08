@@ -12,7 +12,11 @@ const Resources = function( props ) {
 	
 	return (
 		<Layout>
-			<Helmet />
+			<Helmet 
+				bodyAttributes={{
+				  class: `resources ${props.active}`
+				}}
+			/>
 			<Seo title="" description="" meta={[]} canonical="" robots="index, follow" />
 			<div className="container">
 				<Hero header="Everything you need to know to go Conversational" kicker="Resource Library" />

@@ -66,7 +66,7 @@ const News = ({ data: { post } }) => {
   return (<Layout>
 	<Helmet
 		bodyAttributes={{
-			class: 'blog blog-post'
+			class: 'resources news item'
 		}}
 	/>
 	<Seo title={post.title} description={post.seo.metaDesc} meta={meta} canonical={canonical} robots={robots.join(", ")} />
