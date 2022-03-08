@@ -350,6 +350,26 @@ class LP_Resources
 			'graphql_plural_name' => 'staged_pages',
 		]);
 		
+		register_post_type('webinars', [
+			'labels' => [
+				'name_admin_bar' => 'Webinar',
+				'name' => 'Webinar',
+				'singular_name' => 'Webinars',
+			],
+			'public' => true,
+			'menu_icon' => 'dashicons-media-video',
+			//'publicly_queryable' => null,
+			'capability_type' => 'page',
+			//'map_meta_cap' => true,
+			//'show_in_ui' => false,
+			'show_in_rest' => true,
+			//'rest_base' => 'pages',
+			'hierarchical' => true,
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'webinar',
+			'graphql_plural_name' => 'webinars',
+		]);
+		
 		register_post_type('staged-post', [
 			'labels' => [
 				'name_admin_bar' => 'Staged Post',
