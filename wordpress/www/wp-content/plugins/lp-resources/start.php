@@ -357,7 +357,7 @@ class LP_Resources
 				'singular_name' => 'Webinars',
 			],
 			'public' => true,
-			'menu_icon' => 'dashicons-media-video',
+			'menu_icon' => 'dashicons-video-alt3',
 			//'publicly_queryable' => null,
 			'capability_type' => 'page',
 			//'map_meta_cap' => true,
