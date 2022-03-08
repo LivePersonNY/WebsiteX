@@ -5,11 +5,11 @@ import Parse from 'html-react-parser';
 export default function Post({post}) {
 	
 	const featuredImage = {
-	  data: post.featuredImage?.node?.mediaItemUrl || ``,
-	  alt: post.featuredImage?.node?.altText || ``,
+	  data: post?.featuredImage?.node?.mediaItemUrl || ``,
+	  alt: post?.featuredImage?.node?.altText || ``,
 	};
 	
-	const author = post.author.node;
+	const author = post?.author?.node;
 	
 	return (
 		<div className={`${post.isSticky ? `col-lg-12 featured` : `col-xl-6`} mb-4`}>
@@ -29,7 +29,7 @@ export default function Post({post}) {
 					{Parse(post.title)}
 				  </p>
 				</header>
-				<p className="h5">{author.firstName} {author.lastName} &bull; {post.seo.readingTime} minutes</p>
+				{author && (<p className="h5">{author.firstName} {author.lastName} &bull; {post.seo.readingTime} minutes</p>)}
 			  </div>
 			</article>
 		  </Link>

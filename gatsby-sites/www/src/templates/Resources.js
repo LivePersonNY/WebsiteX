@@ -5,6 +5,7 @@ import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
 import { Helmet } from 'react-helmet';
 import ResourcesNav from '../components/blocks/ResourcesNav';
+import Post from '../components/Post';
 
 const Resources = function( props ) {
 	
@@ -17,7 +18,13 @@ const Resources = function( props ) {
 				<Hero header="Everything you need to know to go Conversational" kicker="Resource Library" />
 				<ResourcesNav active={props.active || `all`} />
 				<div className="index">
-					{props.children}
+					<div class="row">
+						{props.items.map(function(item) {
+							return (
+								<Post post={item} />
+							);
+						})}
+					</div>
 				</div>
 			</div>
 			
