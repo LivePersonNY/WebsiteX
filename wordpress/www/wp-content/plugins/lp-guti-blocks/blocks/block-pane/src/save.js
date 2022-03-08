@@ -5,18 +5,10 @@
  */
 import { __ } from '@wordpress/i18n';
 import MktoForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/MktoForm';
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 
 import React, { useEffect } from 'react';
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
-import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
