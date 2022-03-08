@@ -350,6 +350,26 @@ class LP_Resources
 			'graphql_plural_name' => 'staged_pages',
 		]);
 		
+		register_post_type('success', [
+			'labels' => [
+				'name' => 'Success Stories',
+				'add_new_item' => 'Add Success Story',
+				'edit_item' => 'Edit Success Story',
+			],
+			'public' => true,
+			'menu_icon' => 'dashicons-nametag',
+			'show_in_rest' => true,
+			'supports' => [
+				'title',
+				'editor',
+				'excerpt',
+				'thumbnail',
+			],
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'success',
+			'graphql_plural_name' => 'success',
+		]);
+		
 		register_post_type('webinars', [
 			'labels' => [
 				'name_admin_bar' => 'Webinar',
