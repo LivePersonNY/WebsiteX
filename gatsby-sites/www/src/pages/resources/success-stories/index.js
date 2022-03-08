@@ -22,6 +22,7 @@ export const itemsQuery = graphql`
 		nodes {
 		  uri
 		  title
+		  nodeType
 		  featuredImage {
 			node {
 			  mediaItemUrl

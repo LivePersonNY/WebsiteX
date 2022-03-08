@@ -9,6 +9,12 @@ import Post from '../components/Post';
 
 const Resources = function( props ) {
 	
+	const nodeTypes = {
+		News: "In the news",
+		Success: "Success Story",
+		Report: "Guides & reports",
+		Webinar: "Webinar"
+	}
 	
 	return (
 		<Layout>
@@ -18,14 +24,15 @@ const Resources = function( props ) {
 				}}
 			/>
 			<Seo title="" description="" meta={[]} canonical="" robots="index, follow" />
-			<div className="container">
-				<PlainContent alignmentClass="text-center" headLevel="h1" header="Everything you need to know to go Conversational" kicker="Resource Library" />
-				<ResourcesNav active={props.active || `all`} />
-				<div className="index">
+			
+			<PlainContent alignmentClass="text-center" headLevel="h1" header="Everything you need to know to go Conversational" kicker="Resource Library" />
+			<ResourcesNav active={props.active || `all`} />
+			<div className="index">
+				<div className="container">
 					<div class="row">
 						{props.items.map(function(item) {
 							return (
-								<Post post={item} kicker={props.kicker} />
+								<Post post={item} kicker={nodeTypes[item.nodeType]} />
 							);
 						})}
 					</div>
