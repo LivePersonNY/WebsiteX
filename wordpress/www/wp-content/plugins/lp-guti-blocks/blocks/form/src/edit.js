@@ -84,7 +84,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					label="Thank you message"
 					onClick={function() {
 						window.jQuery(`#mktoForm_${mktoId}`).toggle();
-						window.jQuery(`#mktoForm_${mktoId}`).next().addClass('thank-you-message').toggle();
+						window.jQuery(`#mktoForm_${mktoId}`).next().toggleClass('thank-you-message');
 					}}
 				/>
 			</ToolbarGroup>
