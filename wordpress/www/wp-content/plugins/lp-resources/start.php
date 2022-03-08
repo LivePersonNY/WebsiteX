@@ -310,6 +310,26 @@ class LP_Resources
 			'graphql_plural_name' => 'news',
 		]);
 		
+		register_post_type('reports', [
+			'labels' => [
+				'name' => 'Guides & Reports',
+				'add_new_item' => 'Add New Item',
+				'edit_item' => 'Edit News Item',
+			],
+			'public' => true,
+			'menu_icon' => 'dashicons-media-document',
+			'show_in_rest' => true,
+			'supports' => [
+				'title',
+				'editor',
+				'excerpt',
+				'thumbnail',
+			],
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'report',
+			'graphql_plural_name' => 'reports',
+		]);
+		
 		register_post_type('staged-page', [
 			'labels' => [
 				'name_admin_bar' => 'Staged Page',
