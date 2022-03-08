@@ -4,21 +4,21 @@ import { graphql } from 'gatsby';
 
 import Resources from '../../../templates/Resources';
 
-const NewsIndex = function( props ) {
+const ReportsIndex = function( props ) {
 	
 	const items = props.data.items.nodes;
 	
 	console.log(items);
 	
 	return (
-		<Resources active="news" items={items} kicker="In the News" />
+		<Resources active="reports" items={items} kicker="Report" />
 	);
 }
-export default NewsIndex;
+export default ReportsIndex;
 
 export const itemsQuery = graphql`
   query {
-	  items: allWpNews {
+	  items: allWpReport {
 		nodes {
 		  uri
 		  title

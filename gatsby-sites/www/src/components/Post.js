@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 import Parse from 'html-react-parser';
 
-export default function Post({post}) {
+export default function Post({post, kicker}) {
 	
 	const featuredImage = {
 	  data: post?.featuredImage?.node?.mediaItemUrl || ``,
@@ -23,7 +23,7 @@ export default function Post({post}) {
 			  <div class="card-body">
 				
 				
-				<p className="h6 text-uppercase">{post.seo.opengraphType}</p>
+				<p className="h6 text-uppercase">{kicker || post.seo.opengraphType}</p>
 				<header>
 				  <p className="h3 mb-2" itemProp="headline">
 					{Parse(post.title)}
