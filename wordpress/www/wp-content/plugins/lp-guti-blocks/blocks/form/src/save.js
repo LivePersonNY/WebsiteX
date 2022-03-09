@@ -21,6 +21,6 @@ import React, { useEffect } from 'react';
 export default function save({attributes}) {
 
 	return (
-			<MktoForm thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} />
+			<MktoForm cssClasses={attributes.className} thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId}  />
 	);
 }

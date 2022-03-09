@@ -68,7 +68,7 @@ const MktoForm = (props) => {
   
 
   return (
-    <div className={`pane pane-form ${props.sticky ? 'form--sticky' : ''} ${props.backgroundColor||"bg-rainbow"} ${props.header ? 'pane-with-lead-text' : ''}`} style={{display:'none'}}>
+    <div className={`${props.cssClasses} pane pane-form ${props.sticky ? 'form--sticky' : ''} ${props.backgroundColor||"bg-rainbow"} ${props.header ? 'pane-with-lead-text' : ''}`} style={{display:'none'}}>
       <div className="container">
         {props.header && !props.sticky &&(
           <div className="row">

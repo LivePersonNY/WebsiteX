@@ -109,7 +109,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		return (
 			<div {...useBlockProps()}>
 				{addButton}
-				<MktoForm thankyouControl={thankyouControl} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
+				<MktoForm cssClasses={attributes.className} thankyouControl={thankyouControl} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
 
 			</div>
 		);
@@ -117,7 +117,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<MktoForm thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
+			<MktoForm cssClasses={attributes.className} thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
 		</div>
 	)
 
