@@ -222,8 +222,6 @@
             }
         }
 
-
-
         .mktoAsterix,
         .mktoGutter,
         .mktoOffset,
@@ -243,6 +241,7 @@
         padding: 0.5rem 1rem;
         border-radius: 5px;
         font-family: $familySpaceGrotesk;
+
         a {
             color: $primaryBlue !important;
             text-decoration: underline;
@@ -270,6 +269,22 @@
         }
     }
 
+    &.mktoForm-four-fields {
+        .mktoForm {
+            .mktoFormRow {
+                @include media-breakpoint-up(lg) {
+                    width: 19% !important;
+                }
+            }
+
+            .mktoButtonRow {
+                @include media-breakpoint-up(lg) {
+                    width: 20%;
+                }
+            }
+        }
+    }
+
 }
 
 body.locked {
@@ -279,7 +294,7 @@ body.locked {
 .wp-block-button {
     text-align: center;
     margin: 2rem auto;
-    
+
     .wp-block-button__link {
         font-family: "Space Grotesk", Roboto;
         font-weight: 700;
@@ -289,12 +304,13 @@ body.locked {
         padding: 12px 32px;
         background: $neutral12;
         color: #fff;
+
         &:hover {
             background: #0040d6 !important;
             color: #fff !important;
         }
     }
-    
+
     &.is-style-outline {
         .wp-block-button__link {
             background: transparent;
