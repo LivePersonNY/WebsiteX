@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, InspectorControls, RichText } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, InspectorControls, RichText, InnerBlocks } from '@wordpress/block-editor';
 import MktoForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/MktoForm';
 import { __experimentalGrid as Panel, PanelBody, Grid,Placeholder, TextareaControl, ToolbarButton, TextControl, Button, ResponsiveWrapper, ToolbarGroup } from '@wordpress/components';
 const { Fragment, useState, useEffect } = wp.element;
@@ -84,7 +84,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					label="Thank you message"
 					onClick={function() {
 						window.jQuery(`#mktoForm_${mktoId}`).toggle();
-						window.jQuery(`#mktoForm_${mktoId}`).next().addClass('thank-you-message').toggle();
+						window.jQuery(`#mktoForm_${mktoId}`).next().toggleClass('thank-you-message');
 					}}
 				/>
 			</ToolbarGroup>
@@ -92,14 +92,15 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	);
 
 	let thankyouControl = (
-		<RichText {...useBlockProps()}
-			tagName="p"
-			value={attributes.thankyou}
-			onChange={ (val) => setAttributes({thankyou: val}) }
-			allowedFormats={ [ 'core/bold', 'core/italic', 'core/image', 'core/link', 'core/color'] }
-			placeholder="Thank you message after submitting the form."
-		/>
-
+		<>
+			<RichText {...useBlockProps()}
+				tagName="p"
+				value={attributes.thankyou}
+				onChange={ (val) => setAttributes({thankyou: val}) }
+				allowedFormats={ [ 'core/bold', 'core/italic', 'core/image', 'core/link', 'core/color'] }
+				placeholder="Thank you message after submitting the form."
+			/>
+		</>
 	);
 
 	if (isSelected)	{
@@ -108,14 +109,15 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		return (
 			<div {...useBlockProps()}>
 				{addButton}
-				<MktoForm thankyouControl={thankyouControl} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
+				<MktoForm cssClasses={attributes.className} thankyouControl={thankyouControl} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
+
 			</div>
 		);
 	}
 
 	return (
 		<div {...useBlockProps()}>
-			<MktoForm thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
+			<MktoForm cssClasses={attributes.className} thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
 		</div>
 	)
 

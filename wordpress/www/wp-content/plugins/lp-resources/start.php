@@ -304,7 +304,30 @@ class LP_Resources
 				'editor',
 				'excerpt',
 				'thumbnail',
-			]
+			],
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'news',
+			'graphql_plural_name' => 'news',
+		]);
+		
+		register_post_type('reports', [
+			'labels' => [
+				'name' => 'Guides & Reports',
+				'add_new_item' => 'Add New Item',
+				'edit_item' => 'Edit News Item',
+			],
+			'public' => true,
+			'menu_icon' => 'dashicons-media-document',
+			'show_in_rest' => true,
+			'supports' => [
+				'title',
+				'editor',
+				'excerpt',
+				'thumbnail',
+			],
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'report',
+			'graphql_plural_name' => 'reports',
 		]);
 		
 		register_post_type('staged-page', [
@@ -325,6 +348,46 @@ class LP_Resources
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'staged_page',
 			'graphql_plural_name' => 'staged_pages',
+		]);
+		
+		register_post_type('success', [
+			'labels' => [
+				'name' => 'Success Stories',
+				'add_new_item' => 'Add Success Story',
+				'edit_item' => 'Edit Success Story',
+			],
+			'public' => true,
+			'menu_icon' => 'dashicons-nametag',
+			'show_in_rest' => true,
+			'supports' => [
+				'title',
+				'editor',
+				'excerpt',
+				'thumbnail',
+			],
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'success',
+			'graphql_plural_name' => 'success',
+		]);
+		
+		register_post_type('webinars', [
+			'labels' => [
+				'name_admin_bar' => 'Webinar',
+				'name' => 'Webinar',
+				'singular_name' => 'Webinars',
+			],
+			'public' => true,
+			'menu_icon' => 'dashicons-video-alt3',
+			//'publicly_queryable' => null,
+			'capability_type' => 'page',
+			//'map_meta_cap' => true,
+			//'show_in_ui' => false,
+			'show_in_rest' => true,
+			//'rest_base' => 'pages',
+			'hierarchical' => true,
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'webinar',
+			'graphql_plural_name' => 'webinars',
 		]);
 		
 		register_post_type('staged-post', [
