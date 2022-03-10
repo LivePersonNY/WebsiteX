@@ -1,14 +1,14 @@
 import * as React from 'react';
 import Parser from 'html-react-parser';
 
-import Layout from '../components/Layout';
-import Seo from '../components/Seo';
-import Hero from '../components/blocks/Hero';
-import Bio from '../components/Bio';
-import AddThis from '../components/AddThis';
+import Layout from '../../components/Layout';
+import Seo from '../../components/Seo';
+import Hero from '../../components/blocks/Hero';
+import Bio from '../../components/Bio';
+import AddThis from '../../components/AddThis';
 import { Helmet } from 'react-helmet';
-import MktoForm from '../components/blocks/MktoForm';
-import NotFoundPage from './404';
+import MktoForm from '../../components/blocks/MktoForm';
+import NotFoundPage from '../404';
 
 
 import { Link, graphql } from 'gatsby';
