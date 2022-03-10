@@ -186,6 +186,20 @@ body.blog {
 			max-width: 100%;
 			height: auto;
 		}
+		.aligncenter {
+			display: block;
+			margin: 18px auto;
+		}
+		@include media-breakpoint-up(md) {
+			.alignleft {
+				display: block;
+				float: left;
+			}
+			.alignright {
+				display: block;
+				float: right;
+			}
+		}
 	}
 
 	figure.wp-block-pullquote {
