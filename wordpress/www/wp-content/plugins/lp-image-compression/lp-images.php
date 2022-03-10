@@ -11,7 +11,7 @@ class LP_Image_Compression
 	public function __construct()
 	{
 		add_action( 'wp_update_attachment_metadata', [$this, 'trigger_static_bust'], 120, 2);
-		
+		add_filter( 'big_image_size_threshold', '__return_false' );
 	}
 	
 	public function trigger_static_bust($data, $id)
