@@ -3,9 +3,8 @@ import { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import Layout from '../components/Layout';
-import Seo from '../components/Seo';
-import Hero from '../components/blocks/Hero';
+import Layout from '../../../components/Layout';
+import Seo from '../../../components/Seo';
 import Parser from 'html-react-parser';
 
 const Webinar = ({ data: { page } }) => {
