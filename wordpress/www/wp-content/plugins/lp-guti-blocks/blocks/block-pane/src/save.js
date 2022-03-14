@@ -22,7 +22,7 @@ import React, { useEffect } from 'react';
 export default function save({attributes}) {
 
 	return (
-		<div className={`pane pane-blocks ${attributes.backgroundColor||"bg-transparent"}`}>
+		<div className={`pane pane-blocks ${attributes.backgroundColor||"bg-transparent"} ${attributes.gated ? "gated" : ""}`}>
 			<div className="container">
 				<InnerBlocks.Content />
 			</div>
