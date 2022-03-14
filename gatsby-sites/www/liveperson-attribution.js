@@ -56,7 +56,7 @@ const MktoForms = {
 				form.onSuccess(function(values, forwardUrl) {
 					LivePerson.ShowAfterMessage(form);
 					window.dataLayer && dataLayer.push({event: ctaString});
-					$('.pane.gated').fadeIn();
+					$('.pane.gated').addClass('show');
 					return false;
 				});
 			});
