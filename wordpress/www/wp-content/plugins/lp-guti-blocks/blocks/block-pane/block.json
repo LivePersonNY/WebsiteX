@@ -14,5 +14,12 @@
 	"editorScript": "file:../../build/all.js",
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
-	"attributes": {}
+	"attributes": {
+		"gated": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundColor": {"default": "bg-transparent"}
+
+	}
 }

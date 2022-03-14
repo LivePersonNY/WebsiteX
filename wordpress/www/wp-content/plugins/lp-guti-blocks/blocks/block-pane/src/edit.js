@@ -42,13 +42,32 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		setAttributes({ backgroundColor: color });
 	}
 
-	const ALLOWED_BLOCKS = [ 'core/image', 'core/paragraph', 'core/list' ];
+	const ALLOWED_BLOCKS = [
+		'core/image',
+		'core/paragraph',
+		'core/list',
+		'core/embed'
+	];
+
+	const toggleGated = function() {
+		if (attributes.gated) {
+			setAttributes({ gated: false });
+		} else {
+			setAttributes({ gated: true });
+		}
+	}
 
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
 
 				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+				<ToolbarButton
+					icon="admin-network"
+					label="Toggle form gated"
+					isActive={attributes.gated}
+					onClick={toggleGated}
+				/>
 
 			</ToolbarGroup>
 		</BlockControls>
@@ -56,6 +75,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
+			{addButton}
 			<div className={`pane pane-blocks ${attributes.backgroundColor||"bg-transparent"}`}>
 				<div className="container">
 					<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
