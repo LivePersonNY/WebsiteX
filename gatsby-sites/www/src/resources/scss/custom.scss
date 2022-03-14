@@ -23,6 +23,9 @@
 
 .pane.gated {
     display: none;
+    &.show {
+        display: block;
+    }
 }
 
 .company-careers {
