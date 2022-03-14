@@ -388,6 +388,11 @@ class LP_Resources
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'webinar',
 			'graphql_plural_name' => 'webinars',
+			'supports' => [
+				'title',
+				'editor',
+				'thumbnail',
+			],
 		]);
 		
 		register_post_type('staged-post', [
