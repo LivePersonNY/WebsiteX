@@ -102,7 +102,6 @@ export const pageQuery = graphql`
   ) {
 	post: wpWebinar(id: { eq: $id }) {
 	  id
-	  excerpt
 	  content
 	  title
 	  link
