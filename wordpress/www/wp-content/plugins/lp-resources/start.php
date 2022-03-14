@@ -318,11 +318,12 @@ class LP_Resources
 			],
 			'public' => true,
 			'menu_icon' => 'dashicons-media-document',
+			'capability_type' => 'page',
 			'show_in_rest' => true,
+			'hierarchical' => true,
 			'supports' => [
 				'title',
 				'editor',
-				'excerpt',
 				'thumbnail',
 			],
 			'show_in_graphql' => true,
