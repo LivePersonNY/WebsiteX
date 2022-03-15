@@ -64,34 +64,9 @@ const Report = ({ data: { post } }) => {
 	];
 	
   return (<Layout>
-	<Helmet
-		bodyAttributes={{
-			class: 'resources reports item'
-		}}
-	/>
-	<Seo title={post.title} description={post.seo.metaDesc} meta={meta} canonical={canonical} robots={robots.join(", ")} />
-	<div className="container">
-		
-		<div className="row justify-content-md-center">
-			<div className="col-xl-10">
-				<div className="post-container">
-					<p className="h6 text-uppercase">Guides & reports</p>
-					<h1>{post.title}</h1>
-					<img className="my-4 rounded-3 w-100" src={featuredImage.data} alt={featuredImage.alt} />
-					<AddThis url={canonical} type="share" />
-					<hr className="mb-4" />
-					{Parser(post.content)}
-					<hr className="mb-4" />
-					<AddThis url={canonical} type="related" />
-				</div>
-				
-			</div>
-		</div>
-	</div>
-	<div id="form">
-		<MktoForm formId="3733" backgroundColor="bg-neutral-96" header="Let's put LivePerson to work for you" thankyou="Thanks! Someone from our team will get back to you soon." />
-	</div>
-  </Layout>)
+	  <Seo title={post.seo.title} description={post.seo.metaDesc} meta={meta} canonical={canonical} robots={robots.join(", ")} />
+	  {Parser(post.content)}
+	</Layout>)
 	
 };
 export default Report;
@@ -102,7 +77,6 @@ export const pageQuery = graphql`
   ) {
 	post: wpReport(id: { eq: $id }) {
 	  id
-	  excerpt
 	  content
 	  title
 	  link

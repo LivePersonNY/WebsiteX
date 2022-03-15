@@ -144,6 +144,7 @@ export const pageQuery = graphql`
         excerpt
         isSticky
         uri
+        slug
         date(formatString: "MMMM DD, YYYY")
         title
         categories {

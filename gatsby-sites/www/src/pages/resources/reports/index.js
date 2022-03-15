@@ -21,6 +21,7 @@ export const itemsQuery = graphql`
 	  items: allWpReport {
 		nodes {
 		  uri
+		  slug
 		  title
 		  nodeType
 		  featuredImage {

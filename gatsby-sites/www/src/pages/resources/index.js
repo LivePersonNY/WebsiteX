@@ -23,6 +23,7 @@ export const itemsQuery = graphql`
       news: allWpNews {
 		nodes {
 		  uri
+		  slug
 		  title
 		  nodeType
 		  featuredImage {
@@ -44,6 +45,7 @@ export const itemsQuery = graphql`
 	  successStories: allWpSuccess {
 		nodes {
 		  uri
+		  slug
 		  title
 		  nodeType
 		  featuredImage {
@@ -65,6 +67,7 @@ export const itemsQuery = graphql`
 	  reports: allWpSuccess {
 		  nodes {
 			uri
+			slug
 			title
 			nodeType
 			featuredImage {
