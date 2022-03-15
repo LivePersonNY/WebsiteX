@@ -1,4 +1,13 @@
 /**
+ * JavaScript for interacting with Selectize instances.
+ *
+ * @since 	1.0.0
+ *
+ * @package Media_Library_Organizer
+ * @author 	Media Library Organizer
+ */
+
+/**
  * Initializes selectize instances
  *
  * @since 	1.0.7
@@ -9,121 +18,136 @@ function mediaLibraryOrganizerSelectizeInit( container ) {
 
 	var media_library_organizer_selectize_container = ( typeof container != 'undefined' ? container : 'body' );
 
-    ( function( $ ) {
+	( function( $ ) {
 
-    	/**
+		/**
 		 * Selectize Instances: Simple
 		 */
-		$( media_library_organizer_selectize.selectors.simple.join( ', ' ), $( media_library_organizer_selectize_container ) ).each( function() {
+		$( media_library_organizer_selectize.selectors.simple.join( ', ' ), $( media_library_organizer_selectize_container ) ).each(
+			function() {
 
-			var delimiter = ',';
-			if ( typeof $( this ).data( 'delimiter' ) !== 'undefined' ) {
-				delimiter = $( this ).data( 'delimiter' );
+				var delimiter = ',';
+				if ( typeof $( this ).data( 'delimiter' ) !== 'undefined' ) {
+					delimiter = $( this ).data( 'delimiter' );
+				}
+
+				$( this ).selectize(
+					{
+						delimiter: delimiter
+					}
+				);
+
 			}
-
-			$( this ).selectize( {
-				delimiter: delimiter
-			} );
-			
-		} );
+		);
 
 		/**
 		 * Selectize Instances: Multiple Values
 		 */
-		$( media_library_organizer_selectize.selectors.multiple.join( ', ' ), $( media_library_organizer_selectize_container ) ).each( function() {
+		$( media_library_organizer_selectize.selectors.multiple.join( ', ' ), $( media_library_organizer_selectize_container ) ).each(
+			function() {
 
-			$( this ).selectize( {
-				maxItems: 99999,
-			} );
-			
-		} );
+				$( this ).selectize(
+					{
+						maxItems: 99999,
+					}
+				);
 
-	    /**
+			}
+		);
+
+		/**
 		 * Selectize Instances: WordPress AJAX Search
 		 */
-		$( media_library_organizer_selectize.selectors.ajax.join( ', ' ), $( media_library_organizer_selectize_container ) ).each( function() {
+		$( media_library_organizer_selectize.selectors.ajax.join( ', ' ), $( media_library_organizer_selectize_container ) ).each(
+			function() {
 
-			var action 			= $( this ).data( 'action' ),
-				args 			= $( this ).data( 'args' ),
-				name 			= $( this ).attr( 'name' ),
-				name_field 		= $( this ).data( 'name-field' ),
-				value_field 	= $( this ).data( 'value-field' ),
-				method 			= $( this ).data( 'method' ),
-				output_fields 	= $( this ).data( 'output-fields' ).split( ',' ),
-				plugins 		= $( this ).data( 'plugins' ).split( ',' );
+				var action    = $( this ).data( 'action' ),
+				args          = $( this ).data( 'args' ),
+				name          = $( this ).attr( 'name' ),
+				name_field    = $( this ).data( 'name-field' ),
+				value_field   = $( this ).data( 'value-field' ),
+				method        = $( this ).data( 'method' ),
+				output_fields = $( this ).data( 'output-fields' ).split( ',' ),
+				plugins       = $( this ).data( 'plugins' ).split( ',' );
 
-			$( this ).selectize( {
-				plugins: 		plugins,
-			    delimiter: 		',',
-			    valueField: 	value_field, // The value to store in the select when the form is submitted
-			    labelField: 	name_field,  // What to display on the output?
-			    searchField: 	name_field,  // For some reason, this has to be specified
-			    options: 		[],
-			    create: 		false,
-			    render: {
-			        option: function( item, escape ) {
+				$( this ).selectize(
+					{
+						plugins: 		plugins,
+						delimiter: 		',',
+						valueField: 	value_field, // The value to store in the select when the form is submitted.
+						labelField: 	name_field,  // What to display on the output?
+						searchField: 	name_field,  // For some reason, this has to be specified.
+						options: 		[],
+						create: 		false,
+						render: {
+							option: function( item, escape ) {
 
-			        	// Build string
-			        	var output_string = [];
-			        	for ( var i = 0; i < output_fields.length; i++ ) {
-			        		output_string.push( item[ output_fields[ i ] ] );
-			        	}
+								// Build string.
+								var output_string        = [],
+									output_fields_length = output_fields.length;
+								for ( var i = 0; i < output_fields_length; i++ ) {
+									output_string.push( item[ output_fields[ i ] ] );
+								}
 
-			        	// Return output
-			        	return '<div>' + output_string.join( ', ' ) + '</div>';
+								// Return output.
+								return '<div>' + output_string.join( ', ' ) + '</div>';
 
-			        }
-			    },
-			    load: function( query, callback ) {
+							}
+						},
+						load: function( query, callback ) {
 
-			        // Bail if the query is too short
-			        if ( ! query.length || query.length < 3 ) {
-			        	return callback();
-			        }
+							// Bail if the query is too short.
+							if ( ! query.length || query.length < 3 ) {
+								return callback();
+							}
 
-			       	// Send request to Plugin's AJAX endpoint to call Georocket
-			       	$.ajax( {
-				        url: 		ajaxurl,
-				        type: 		method,
-				        dataType: 	'json',
-				        data: 	{
-				            'action': 		action,
-				            'query': 		query,
-				            'args': 		args
-				        },
-				        error: function() {
+							// Send request to Plugin's AJAX endpoint.
+							$.ajax(
+								{
+									url: 		ajaxurl,
+									type: 		method,
+									dataType: 	'json',
+									data: 	{
+										'action': 		action,
+										'query': 		query,
+										'args': 		args
+									},
+									error: function() {
 
-				            callback();
+										callback();
 
-				        },
-				        success: function( result ) {
+									},
+									success: function( result ) {
 
-				        	callback( result.data );
+										callback( result.data );
 
-				        }
-				    } );
-			    },
+									}
+								}
+							);
+						},
 
-			    /**
-			     * Copy values to hidden field as a comma separated string, which might be used
-			     */
-			    onChange: function( value ) {
+						/**
+						 * Copy values to hidden field as a comma separated string, which might be used
+						 */
+						onChange: function( value ) {
 
-			    	// Bail if no hidden field
-			    	if ( ! $( 'input[type=hidden]', this.$input.parent() ).length ) {
-			    		return;
-			    	}
+							// Bail if no hidden field.
+							if ( ! $( 'input[type=hidden]', this.$input.parent() ).length ) {
+								return;
+							}
 
-			    	if ( value === null || ! value.length ) {
-			    		$( 'input[type=hidden]', this.$input.parent() ).val( '' );
-			    		return;
-			    	}
-			    	
-			    	// Implode into comma separated string
-			    	$( 'input[type=hidden]', this.$input.parent() ).val( value.join() );
-			    }
-			} );
-		} );
+							if ( value === null || ! value.length ) {
+								$( 'input[type=hidden]', this.$input.parent() ).val( '' );
+								return;
+							}
+
+							// Implode into comma separated string.
+							$( 'input[type=hidden]', this.$input.parent() ).val( value.join() );
+						}
+					}
+				);
+			}
+		);
 
 	} )( jQuery );
 
@@ -142,38 +166,44 @@ function mediaLibraryOrganizerSelectizeDestroy( container ) {
 
 	( function( $ ) {
 
-    	/**
+		/**
 		 * Selectize Instances: Simple
 		 */
-		$( media_library_organizer_selectize.selectors.simple.join( ', ' ), $( media_library_organizer_selectize_container ) ).each( function() {
+		$( media_library_organizer_selectize.selectors.simple.join( ', ' ), $( media_library_organizer_selectize_container ) ).each(
+			function() {
 
-			if ( typeof this.selectize !== 'undefined' ) {
-				this.selectize.destroy();
+				if ( typeof this.selectize !== 'undefined' ) {
+					this.selectize.destroy();
+				}
+
 			}
-			
-		} );
+		);
 
 		/**
 		 * Selectize Instances: Multiple Values
 		 */
-		$( media_library_organizer_selectize.selectors.multiple.join( ', ' ), $( media_library_organizer_selectize_container ) ).each( function() {
+		$( media_library_organizer_selectize.selectors.multiple.join( ', ' ), $( media_library_organizer_selectize_container ) ).each(
+			function() {
 
-			if ( typeof this.selectize !== 'undefined' ) {
-				this.selectize.destroy();
+				if ( typeof this.selectize !== 'undefined' ) {
+					this.selectize.destroy();
+				}
+
 			}
-			
-		} );
+		);
 
 		/**
 		 * Selectize Instances: WordPress AJAX Search
 		 */
-		$( media_library_organizer_selectize.selectors.ajax.join( ', ' ), $( media_library_organizer_selectize_container ) ).each( function() {
+		$( media_library_organizer_selectize.selectors.ajax.join( ', ' ), $( media_library_organizer_selectize_container ) ).each(
+			function() {
 
-			if ( typeof this.selectize !== 'undefined' ) {
-				this.selectize.destroy();
+				if ( typeof this.selectize !== 'undefined' ) {
+					this.selectize.destroy();
+				}
+
 			}
-
-		} );
+		);
 
 	} )( jQuery );
 

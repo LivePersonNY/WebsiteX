@@ -1,9 +1,9 @@
 !function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
 
-Localize.on("initialize", function(data) {
-    console.log("Localize was initialized: ");
-    console.log(data);
-});
+// Localize.on("initialize", function(data) {
+//     console.log("Localize was initialized: ");
+//     console.log(data);
+// });
 
 Localize.on('setLanguage', function(data, event) {
     if (localStorage.getItem('loadedLang') !== data.to) {
@@ -13,18 +13,18 @@ Localize.on('setLanguage', function(data, event) {
             case "1": // Subdirectories
                 localStorage.setItem('loadedLang', data.to);
 
+                let pathArr = window.location.pathname.split('/');
+                let search = window.location.search;
+                let lang = pathArr[1];
+
+                if(AVAILABLE_LANGUAGES.includes(lang)) {
+                    pathArr.splice(0,2);
+                }
+
+                let finalPath = pathArr.join('/');
+                finalPath = finalPath + search;
+
                 if (data.to != SOURCE_LANGUAGE) {
-
-                    var pathArr = window.location.pathname.split('/');
-                    var search = window.location.search;
-                    var lang = pathArr[1];
-
-                    if(AVAILABLE_LANGUAGES.includes(lang)) {
-                        pathArr.splice(0,2);
-                    }
-
-                    var finalPath = pathArr.join('/');
-                    finalPath = finalPath + search;
 
 
                     if(localize_conf.permalink_plain=='1') {
@@ -49,26 +49,23 @@ Localize.on('setLanguage', function(data, event) {
                         window.location.href=urlFilter("/"+finalPath);
 
                     } else {
-
                         window.location.href=urlFilter("/");
-
                     }
 
                 }
                 break;
             case "2": // Subdomains
                 localStorage.setItem('loadedLang', data.to);
-
                 if (AVAILABLE_LANGUAGES.includes(data.to)) {
 
-                    var hostname = location.hostname.split('.');
-                    var lang = hostname[0];
+                    let hostname = location.hostname.split('.');
+                    let lang = hostname[0];
 
                     if(AVAILABLE_LANGUAGES.includes(lang)) {
                         hostname.shift();
                     }
 
-                    var hostNameFinal = hostname.join('.');
+                    let hostNameFinal = hostname.join('.');
 
 
                     if (data.to == SOURCE_LANGUAGE) {
@@ -111,7 +108,6 @@ function setLanguageByQueryParams(lng) {
     url.search = search_params.toString();
 
     var new_url = url.toString();
-    console.log(new_url);
     return new_url;
 
 }
@@ -162,9 +158,16 @@ function getAllQueryParams(){
 }
 
 if (PROJECT_KEY) {
-    Localize.initialize({ 
-        key: PROJECT_KEY, 
-        rememberLanguage: true,
+    let params = {
+        key: PROJECT_KEY,
+        rememberLanguage: (URL_OPTIONS != 1),
         blockedIds: ['wpadminbar'],
-    });
+    }
+    try {
+        if (OVERRIDE_LANG) {
+            params.targetLanguage = OVERRIDE_LANG;
+        }
+
+    } catch (err) {}
+    Localize.initialize(params);
 }

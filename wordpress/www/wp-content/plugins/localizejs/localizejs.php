@@ -4,11 +4,11 @@
  * Plugin URI: http://wordpress.org/plugins/localizejs/
  * Description: Easily integrate Localize into your WordPress site.
  * Author: Kirk Bobash and Payoda for Localize
- * Version: 1.1.5
+ * Version: 1.2.0
  * Author URI: https://localizejs.com
  */
 
-/*  Copyright 2021 Localize (support@localizejs.com)
+/*  Copyright 2022 Localize (support@localizejs.com)
 
         Original version: 2015 by Jonathan Wu
 
@@ -32,11 +32,8 @@
 */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-/**
- * Plugin setup
- *
- * Version 1.1.5
-*/
+// imports
+require(plugin_dir_path(__FILE__) . 'includes/class-localize-main.php');
 
 // Initialize Localize
 add_action('init','init_function');
@@ -44,9 +41,11 @@ add_action('init','init_function');
 
 function init_function() {
     add_action( 'wp_enqueue_scripts', 'add_localizejs_script', 1);
-    add_action( 'admin_menu', 'my_plugin_menu');
-    add_action( 'admin_init', 'my_plugin_settings' );
+    add_action( 'admin_menu', 'localize_plugin_menu');
+    add_action( 'admin_init', 'localize_plugin_settings' );
+
 };
+
 
 function localize_settings_validate($input) {
 
@@ -79,7 +78,20 @@ function add_localizejs_script() {
     
     if ($localizejs_settings_url_options > 0 && $localizejs_settings_url_options <= 2) {
         init_languages();
-        wp_localize_script( 'localizeFallback', 'AVAILABLE_LANGUAGES', (defined('AVAILABLE_LANGUAGES')) ? json_decode(AVAILABLE_LANGUAGES) : []);
+
+        $langs = (defined('AVAILABLE_LANGUAGES')) ? json_decode(AVAILABLE_LANGUAGES) : [];
+
+        $localize = new Localize_Main($langs);
+        if ($localizejs_settings_url_options == 1) {
+            $lang = $localize->detectLanguage() ?? SOURCE_LANGUAGE;
+        }
+        if ($lang) {
+            wp_add_inline_script('localizeFallback', "const OVERRIDE_LANG = '${lang}'", 'before');
+        }
+
+        add_filter( 'walker_nav_menu_start_el', [$localize, 'addLanguageToLinks'], 10, 2);
+
+        wp_localize_script( 'localizeFallback', 'AVAILABLE_LANGUAGES', $langs);
         wp_localize_script( 'localizeFallback', 'SOURCE_LANGUAGE', (defined('SOURCE_LANGUAGE')) ? SOURCE_LANGUAGE : NULL);
         wp_localize_script( 'localizeFallback', 'localize_conf', array('permalink_plain'=>get_permalink_plain_set()));
     } else {
@@ -89,54 +101,21 @@ function add_localizejs_script() {
 
 }
 
-function my_plugin_menu() {
+function localize_plugin_menu() {
     $icon_svg = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjE2MHB4IiBoZWlnaHQ9IjE2MHB4IiB2aWV3Qm94PSIwIDAgMTYwIDE2MCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpza2V0Y2g9Imh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaC9ucyI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDMuMy4zICgxMjA4MSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+SWNvbjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJMb2NhbGl6ZS1VSS1FbGVtZW50cyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+CiAgICAgICAgPGcgaWQ9Ikljb24iIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2LjAwMDAwMCwgMTYuMDAwMDAwKSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utb3BhY2l0eT0iMCIgc3Ryb2tlLXdpZHRoPSI1IiBmaWxsPSIjMjQ2Q0EwIj4KICAgICAgICAgICAgPHBhdGggZD0iTTY0LDEwMCBDODMuODgyMjUxLDEwMCAxMDAsODMuODgyMjUxIDEwMCw2NCBDMTAwLDQ0LjExNzc0OSA4My44ODIyNTEsMjggNjQsMjggQzQ0LjExNzc0OSwyOCAyOCw0NC4xMTc3NDkgMjgsNjQgQzI4LDgzLjg4MjI1MSA0NC4xMTc3NDksMTAwIDY0LDEwMCBaIE02NCwxMjAgQzk0LjkyNzk0NiwxMjAgMTIwLDk0LjkyNzk0NiAxMjAsNjQgQzEyMCwzMy4wNzIwNTQgOTQuOTI3OTQ2LDggNjQsOCBDMzMuMDcyMDU0LDggOCwzMy4wNzIwNTQgOCw2NCBDOCw5NC45Mjc5NDYgMzMuMDcyMDU0LDEyMCA2NCwxMjAgWiIgaWQ9Ik92YWwiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==';
-    add_menu_page('Localize', 'Localize', 'administrator', 'localizejs', 'my_plugin_settings_page', $icon_svg);
+    add_menu_page(
+            'Localize',
+            'Localize',
+            'administrator',
+            plugin_dir_path(__FILE__) . 'admin/view.php',
+            null, // no function needed since we link to admin settings page
+            $icon_svg);
 }
 
 // SET PROJECT KEY
-function my_plugin_settings() {
-    register_setting( 'my-plugin-settings-group', 'project_key' ,'localize_settings_validate');
-    register_setting( 'my-plugin-settings-group', 'localizejs_settings_url_options');
-}
-
-// SETTINGS PAGE SETUP
-function my_plugin_settings_page() {
-        ?>
-        <?php settings_errors(); ?>
-    <div class="wrap">
-        <h2>Localize Integration Settings</h2>
-
-        <p>Translate your WordPress site into multiple languages in minutes.</p>
-        <p>To use this plugin, login to your <a target="_blank" href="https://localizejs.com/project">Localize Dashboard</a> to get your Project Key.</p>
-        <p>Don't have an account? <a target="_blank" href="https://localizejs.com/signup">Signup for a 14 Day Free Trial</a></p>
-
-        <form method="post" action="options.php">
-            <?php settings_fields( 'my-plugin-settings-group' ); ?>
-            <?php do_settings_sections( 'my-plugin-settings-group' ); ?>
-            <table class="form-table">
-                <tr valign="top">
-                <th scope="row">Project Key</th>
-                <td><input type="text" name="project_key" placeholder="Enter Project Key" value="<?php echo esc_attr( get_option('project_key') ); ?>" /></td>
-                </tr>
-                        <tr valign="top">
-                            <th scope="row">Select SEO Options </th>
-                            <td>
-                                <?php $url_options = esc_attr( get_option('localizejs_settings_url_options') ); ?>
-                                <p><label for="options_none"><input type="radio" <?php echo ($url_options==0)?'checked="checked"':"" ?> id="options_none" name="localizejs_settings_url_options" value="0" class="defaultState">Disabled - Add Localize to your site.</label></p>
-                                <p><label for="options_subdirectory"><input type="radio" <?php echo ($url_options==1)?'checked="checked"':"" ?> id="options_subdirectory" name="localizejs_settings_url_options" value="1" class="defaultState">Subdirectory - Add Localize to your site using language-specific subdirectories (e.g. https://example.com/es/).</label></p>
-                                <p><label for="options_subdomain"><input type="radio" <?php echo ($url_options==2)?'checked="checked"':"" ?> id="options_subdomain" name="localizejs_settings_url_options" value="2" class="defaultState">Subdomain - Add Localize to your site using language-specific subdomains (e.g. https://es.example.com/).</label></p>
-                            </td>
-                </tr>
-            </table>
-            <?php submit_button(); ?>
-        </form>
-
-        <a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/localizejs?rate=5#postform">
-            <?php _e( 'Love Localize? Help spread the word by rating us 5* on WordPress.org', 'localizejs' ); ?>
-        </a>
-    </div>
-            <?php
+function localize_plugin_settings() {
+    register_setting( 'localize-settings-group', 'project_key' ,'localize_settings_validate');
+    register_setting( 'localize-settings-group', 'localizejs_settings_url_options');
 }
 
 if (!function_exists('curl_init')) {
@@ -158,8 +137,7 @@ function getAvailableLang() {
     $output=curl_exec($ch);
  
     curl_close($ch);
-    $outputObj = json_decode($output);
-    return $outputObj;
+    return json_decode($output);
 }
 
 function init_languages(){
@@ -322,7 +300,7 @@ function query_string_update_lang($url_query) {
                 $final_query_string[] = $url_query_str;
             }
         }
-        print_r($final_query_string);
+//        print_r($final_query_string);
 
     } else {
         $final_query_string[] = get_language_from_browser_url();
@@ -390,7 +368,7 @@ function wp_append_query($string) {
         $components = parse_url($match);
         
         print "<br>wp_append_query() we have a match<br>";        
-        print_r($components);
+//        print_r($components);
         //exit();
         
         if (!empty($components['host']) ) {

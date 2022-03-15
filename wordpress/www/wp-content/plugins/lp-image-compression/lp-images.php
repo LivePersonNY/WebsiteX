@@ -37,6 +37,8 @@ class LP_Image_Compression
 		
 		if (metadata_exists('post', $id, 'tiny_compress_images') != '') {
 			wp_delete_attachment_files( $id, $meta, $backup_sizes, $file );
+			//$uploadpath = wp_get_upload_dir();
+			//wp_delete_file_from_directory($file, $uploadpath['basedir']);
 		}
 		
 		return $data;

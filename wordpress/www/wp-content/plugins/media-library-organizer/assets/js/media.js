@@ -1,4 +1,14 @@
 /**
+ * JavaScript for Media Library List and Grid Views, including
+ * taxonomy filtering and sorting.
+ *
+ * @since 	1.0.0
+ *
+ * @package Media_Library_Organizer
+ * @author 	Media Library Organizer
+ */
+
+/**
  * Define vars for holding:
  * - Uploader instance
  * - Grid View Taxonomy Filters
@@ -6,11 +16,11 @@
  * - Grid View Order Filter
  * - Grid View Attachments Browser
  */
-var mediaLibraryOrganizerUploader = false, // Uploader instance
-	MediaLibraryOrganizerTaxonomyFilter = {}, // Grid View Taxonomy Dropdown Filters
-	MediaLibraryOrganizerTaxonomyOrderBy, // Grid View Dropdown Order By Filter
-	MediaLibraryOrganizerTaxonomyOrder, // Grid View Dropdown Order Filter
-	MediaLibraryOrganizerAttachmentsBrowser; // Grid View Attachments Browser
+var mediaLibraryOrganizerUploader       = false, // Uploader instance.
+	MediaLibraryOrganizerTaxonomyFilter = {}, // Grid View Taxonomy Dropdown Filters.
+	MediaLibraryOrganizerTaxonomyOrderBy, // Grid View Dropdown Order By Filter.
+	MediaLibraryOrganizerTaxonomyOrder, // Grid View Dropdown Order Filter.
+	MediaLibraryOrganizerAttachmentsBrowser; // Grid View Attachments Browser.
 
 /**
  * Grid View: Define Order By and Order Defaults on wp.media.query calls, which the Media Library
@@ -33,12 +43,21 @@ function mediaLibraryOrganizerQueryInitialize() {
 
 		wp.media.query = function( props ) {
 
-			return new wp.media.model.Attachments( null, {
-				props: _.extend( _.defaults( props || {}, { 
-					orderby: media_library_organizer_media.defaults.orderby,
-					order: media_library_organizer_media.defaults.order
-				} ), { query: true } )
-			} );
+			return new wp.media.model.Attachments(
+				null,
+				{
+					props: _.extend(
+						_.defaults(
+							props || {},
+							{
+								orderby: media_library_organizer_media.defaults.orderby,
+								order: media_library_organizer_media.defaults.order
+							}
+						),
+						{ query: true }
+					)
+				}
+			);
 
 		};
 
@@ -47,102 +66,127 @@ function mediaLibraryOrganizerQueryInitialize() {
 		 * sparodic instances where 'No items found' appears when adding media within Gutenberg.
 		 */
 		var Query = wp.media.model.Query;
-		_.extend( Query, {
+		_.extend(
+			Query,
+			{
 
-			get: (function(){
+				get: (function(){
 
-				/**
-				 * @static
-				 * @type Array
-				 */
-				var queries = [];
+					/**
+					 * Holds the queries.
+					 *
+					 * @type Array
+					 */
+					var queries = [];
 
-				/**
-				 * @returns {Query}
-				 */
-				return function( props, options ) {
+					/**
+					 * Extend and override wp.media.model.Query to disable query caching, which prevents
+					 * sparodic instances where 'No items found' appears when adding media within Gutenberg.
+					 *
+					 * @returns {Query}
+					 */
+					return function( props, options ) {
 
-					var args     = {},
+						var args = {},
 						orderby  = Query.orderby,
 						defaults = Query.defaultProps,
 						query,
-						cache    = false; // Always disable query
+						cache    = false; // Always disable query.
 
-					// Remove the `query` property. This isn't linked to a query,
-					// this *is* the query.
-					delete props.query;
-					delete props.cache;
+						// Remove the `query` property. This isn't linked to a query,
+						// this *is* the query.
+						delete props.query;
+						delete props.cache;
 
-					// Fill default args.
-					_.defaults( props, defaults );
+						// Fill default args.
+						_.defaults( props, defaults );
 
-					// Normalize the order.
-					props.order = props.order.toUpperCase();
-					if ( 'DESC' !== props.order && 'ASC' !== props.order ) {
-						props.order = defaults.order.toUpperCase();
-					}
-
-					// Ensure we have a valid orderby value.
-					if ( ! _.contains( orderby.allowed, props.orderby ) ) {
-						props.orderby = defaults.orderby;
-					}
-
-					_.each( [ 'include', 'exclude' ], function( prop ) {
-						if ( props[ prop ] && ! _.isArray( props[ prop ] ) ) {
-							props[ prop ] = [ props[ prop ] ];
-						}
-					} );
-
-					// Generate the query `args` object.
-					// Correct any differing property names.
-					_.each( props, function( value, prop ) {
-						if ( _.isNull( value ) ) {
-							return;
+						// Normalize the order.
+						props.order = props.order.toUpperCase();
+						if ( 'DESC' !== props.order && 'ASC' !== props.order ) {
+							props.order = defaults.order.toUpperCase();
 						}
 
-						args[ Query.propmap[ prop ] || prop ] = value;
-					});
+						// Ensure we have a valid orderby value.
+						if ( ! _.contains( orderby.allowed, props.orderby ) ) {
+							props.orderby = defaults.orderby;
+						}
 
-					// Fill any other default query args.
-					_.defaults( args, Query.defaultArgs );
+						_.each(
+							[ 'include', 'exclude' ],
+							function( prop ) {
+								if ( props[ prop ] && ! _.isArray( props[ prop ] ) ) {
+									props[ prop ] = [ props[ prop ] ];
+								}
+							}
+						);
 
-					// `props.orderby` does not always map directly to `args.orderby`.
-					// Substitute exceptions specified in orderby.keymap.
-					args.orderby = orderby.valuemap[ props.orderby ] || props.orderby;
+						// Generate the query `args` object.
+						// Correct any differing property names.
+						_.each(
+							props,
+							function( value, prop ) {
+								if ( _.isNull( value ) ) {
+									return;
+								}
 
-					// Disable query caching
-					cache = false;
+								args[ Query.propmap[ prop ] || prop ] = value;
+							}
+						);
 
-					// Search the query cache for a matching query.
-					if ( cache ) {
-						query = _.find( queries, function( query ) {
-							return _.isEqual( query.args, args );
-						});
-					} else {
-						queries = [];
-					}
+						// Fill any other default query args.
+						_.defaults( args, Query.defaultArgs );
 
-					// Otherwise, create a new query and add it to the cache.
-					if ( ! query ) {
-						query = new Query( [], _.extend( options || {}, {
-							props: props,
-							args:  args
-						} ) );
-						queries.push( query );
-					}
+						// `props.orderby` does not always map directly to `args.orderby`.
+						// Substitute exceptions specified in orderby.keymap.
+						args.orderby = orderby.valuemap[ props.orderby ] || props.orderby;
 
-					// Fire the grid:query event that Addons can hook into and listen
-					wp.media.events.trigger( 'mlo:grid:query', {
-						query: query
-					} );
+						// Disable query caching.
+						cache = false;
 
-					return query;
-				};
-			}())
+						// Search the query cache for a matching query.
+						if ( cache ) {
+							query = _.find(
+								queries,
+								function( query ) {
+									return _.isEqual( query.args, args );
+								}
+							);
+						} else {
+							queries = [];
+						}
 
-	    } );
+						// Otherwise, create a new query and add it to the cache.
+						if ( ! query ) {
+							query = new Query(
+								[],
+								_.extend(
+									options || {},
+									{
+										props: props,
+										args:  args
+									}
+								)
+							);
+							queries.push( query );
+						}
 
-	} ) ( jQuery, _ );
+						// Fire the grid:query event that Addons can hook into and listen.
+						wp.media.events.trigger(
+							'mlo:grid:query',
+							{
+								query: query
+							}
+						);
+
+						return query;
+					};
+				}())
+
+			}
+		);
+
+	} )( jQuery, _ );
 }
 
 /**
@@ -156,34 +200,37 @@ function mediaLibraryOrganizerUploaderInitializeEvents() {
 
 		if ( typeof wp.Uploader !== 'undefined' ) {
 
-			_.extend( wp.Uploader.prototype, {
-				init: function() {
-					wp.media.events.trigger( 'mlo:grid:attachment:upload:init' );
-				},
-				added: function( file_attachment ) {
-					wp.media.events.trigger( 'mlo:grid:attachment:upload:added', file_attachment );
-				},
-				progress: function( file_attachment ) {
-					wp.media.events.trigger( 'mlo:grid:attachment:upload:progress', file_attachment );
-				},
-				success: function( file_attachment ) {
-					wp.media.events.trigger( 'mlo:grid:attachment:upload:success', file_attachment );
-				},
-				error: function( error_message ) {
-					wp.media.events.trigger( 'mlo:grid:attachment:upload:error', error_message );
-				},
-				complete: function() {
-					wp.media.events.trigger( 'mlo:grid:attachment:upload:complete' );
-				},
-				refresh: function() {
-					wp.media.events.trigger( 'mlo:grid:attachment:upload:refresh' );
+			_.extend(
+				wp.Uploader.prototype,
+				{
+					init: function() {
+						wp.media.events.trigger( 'mlo:grid:attachment:upload:init' );
+					},
+					added: function( file_attachment ) {
+						wp.media.events.trigger( 'mlo:grid:attachment:upload:added', file_attachment );
+					},
+					progress: function( file_attachment ) {
+						wp.media.events.trigger( 'mlo:grid:attachment:upload:progress', file_attachment );
+					},
+					success: function( file_attachment ) {
+						wp.media.events.trigger( 'mlo:grid:attachment:upload:success', file_attachment );
+					},
+					error: function( error_message ) {
+						wp.media.events.trigger( 'mlo:grid:attachment:upload:error', error_message );
+					},
+					complete: function() {
+						wp.media.events.trigger( 'mlo:grid:attachment:upload:complete' );
+					},
+					refresh: function() {
+						wp.media.events.trigger( 'mlo:grid:attachment:upload:refresh' );
+					}
 				}
-			} );
+			);
 
 		}
 
 	} )( jQuery, _ );
-	
+
 }
 
 /**
@@ -199,11 +246,13 @@ function mediaLibraryOrganizerGridViewInitializeTaxonomyFilters() {
 			mediaLibraryOrganizerGridViewInitializeTaxonomyFilter(
 				taxonomy_name,
 				media_library_organizer_media.taxonomies[ taxonomy_name ].terms,
-				media_library_organizer_media.taxonomies[ taxonomy_name ].taxonomy.labels.all_items
+				media_library_organizer_media.taxonomies[ taxonomy_name ].taxonomy.labels.all_items,
+				media_library_organizer_media.labels.unassigned,
+				media_library_organizer_media.show_attachment_count
 			);
 		}
 
-	} ) ( jQuery, _ );
+	} )( jQuery, _ );
 
 }
 
@@ -212,117 +261,139 @@ function mediaLibraryOrganizerGridViewInitializeTaxonomyFilters() {
  *
  * @since 	1.3.3
  *
- * @param 	string 	taxonomy_name 	Taxonomy Name
- * @param 	array 	terms 			Taxonomy Terms
- * @param 	string 	all_items_label All Terms Label e.g. "All Media Categories", translated
+ * @param 	string 	taxonomy_name 			Taxonomy Name.
+ * @param 	array 	terms 					Taxonomy Terms.
+ * @param 	string 	all_items_label 		All Terms Label e.g. "All Media Categories", translated.
+ * @param 	string 	unassigned_items_label 	Unassigned Terms Label e.g. "Unassigned", translated.
+ * @param 	bool 	show_attachment_count 	Show Attachment Counts for each Term.
  */
-function mediaLibraryOrganizerGridViewInitializeTaxonomyFilter( taxonomy_name, terms, all_items_label ) {
+function mediaLibraryOrganizerGridViewInitializeTaxonomyFilter( taxonomy_name, terms, all_items_label, unassigned_items_label, show_attachment_count ) {
 
 	( function() {
 
-		// Skip if this Filter isn't enabled in the Plugin Settings
+		// Skip if this Filter isn't enabled in the Plugin Settings.
 		if ( media_library_organizer_media.settings[ taxonomy_name + '_enabled'] == '0' || ! media_library_organizer_media.settings[ taxonomy_name + '_enabled'] ) {
 			return;
 		}
 
-		// Define Taxonomy Filter
-		MediaLibraryOrganizerTaxonomyFilter[ taxonomy_name ] = wp.media.view.AttachmentFilters.extend( {
-			id: 'media-attachment-taxonomy-filter-' + taxonomy_name,
+		// Define Taxonomy Filter.
+		MediaLibraryOrganizerTaxonomyFilter[ taxonomy_name ] = wp.media.view.AttachmentFilters.extend(
+			{
+				id: 'media-attachment-taxonomy-filter-' + taxonomy_name,
 
-			/**
-			 * Create Filter
-			 *
-			 * @since 	1.0.0
-			 */
-			createFilters: function() {
+				/**
+				 * Create Filter
+				 *
+				 * @since 	1.0.0
+				 */
+				createFilters: function() {
 
-				var filters = {};
+					var filters = {};
 
-				// Build an array of filters based on the Terms supplied in media_library_organizer_media.terms,
-				// set by wp_localize_script()
-				_.each( terms || {}, function( term, index ) {
-					var props = {};
-					props[ taxonomy_name ] = term.slug;
+					// Build an array of filters based on the Terms supplied in media_library_organizer_media.terms,
+					// set by wp_localize_script().
+					_.each(
+						terms || {},
+						function( term, index ) {
+							var props              = {};
+							props[ taxonomy_name ] = term.slug;
 
-					filters[ index ] = {
-						text: term.name + ' (' + term.count + ')',
+							// Build label, depending on whether to include the Attachment count or not.
+							var label = term.name + ( show_attachment_count === '1' ? ' (' + term.count + ')' : '' );
 
-						// Key = WP_Query taxonomy name, which ensures that taxonomy-name=1 is sent
-						// as part of the search query when the filter is used.
-						props: props
+							filters[ index ] = {
+								text: label,
+
+								// Key = WP_Query taxonomy name, which ensures that taxonomy-name=1 is sent
+								// as part of the search query when the filter is used.
+								props: props
+							};
+						}
+					);
+
+					// Define the 'All' filter.
+					var props                  = {};
+						props[ taxonomy_name ] = '';
+					filters.all                = {
+						text: all_items_label, // e.g. All Media Categories.
+						props: props,
+						priority: 10
 					};
-				});
 
-				// Define the 'All' filter
-				var props = {};
-					props[ taxonomy_name ] = '';
-				filters.all = {
-					text: all_items_label, // e.g. All Media Categories
-					props: props,
-					priority: 10
-				};
+					// Define the 'Unassigned' filter.
+					var props                  = {};
+						props[ taxonomy_name ] = '-1';
+					filters.unassigned         = {
+						text:  unassigned_items_label, // e.g. Unassigned.
+						props: props,
+						priority: 10
+					};
 
-				// Define the 'Unassigned' filter
-				var props = {};
-					props[ taxonomy_name ] = '-1';
-				filters.unassigned = {
-					text:  '(Unassigned)', // @TODO i18n
-					props: props,
-					priority: 10
-				};
+					// Set this filter's data to the terms we've just built.
+					this.filters = filters;
 
-				// Set this filter's data to the terms we've just built
-				this.filters = filters;
+				},
 
-			},
+				/**
+				 * When the selected filter changes, update the Attachment Query properties to match.
+				 */
+				change: function() {
+					var filter = this.filters[ this.el.value ];
 
-			/**
-			 * When the selected filter changes, update the Attachment Query properties to match.
-			 */
-			change: function() {
-				var filter = this.filters[ this.el.value ];
-				
-				if ( filter ) {
-					this.model.set( filter.props );
+					if ( filter ) {
+						this.model.set( filter.props );
 
-					// Fire the grid:filter event that Addons can hook into and listen
-					wp.media.events.trigger( 'mlo:grid:filter:change:term', {
-						taxonomy_name: 	taxonomy_name,
-						slug: 			filter.props[ taxonomy_name ]
-					} );
-				}
-			},
-
-			/**
-			 * Required for the Taxonomy selected option to be defined
-			 * when taxonomy-name is in the $_REQUEST via e.g. Tree View
-			 */
-			select: function() {
-				var model = this.model,
-					value = 'all',
-					props = model.toJSON();
-
-				// Fire the grid:select event that Addons can hook into and listen
-				wp.media.events.trigger( 'mlo:grid:filter:select', {
-					props: props
-				} );
-
-				_.find( this.filters, function( filter, id ) {
-					var equal = _.all( filter.props, function( prop, key ) {
-						return prop === ( _.isUndefined( props[ key ] ) ? null : props[ key ] );
-					});
-
-					if ( equal ) {
-						return value = id;
+						// Fire the grid:filter event that Addons can hook into and listen.
+						wp.media.events.trigger(
+							'mlo:grid:filter:change:term',
+							{
+								taxonomy_name: 	taxonomy_name,
+								slug: 			filter.props[ taxonomy_name ]
+								}
+						);
 					}
-				});
+				},
 
-				this.$el.val( value );
+				/**
+				 * Required for the Taxonomy selected option to be defined
+				 * when taxonomy-name is in the $_REQUEST via e.g. Tree View
+				 */
+				select: function() {
+					var model = this.model,
+						value = 'all',
+						props = model.toJSON();
+
+					// Fire the grid:select event that Addons can hook into and listen.
+					wp.media.events.trigger(
+						'mlo:grid:filter:select',
+						{
+							props: props
+						}
+					);
+
+					_.find(
+						this.filters,
+						function( filter, id ) {
+							var equal = _.all(
+								filter.props,
+								function( prop, key ) {
+									return prop === ( _.isUndefined( props[ key ] ) ? null : props[ key ] );
+								}
+							);
+
+							if ( equal ) {
+								return value = id;
+							}
+						}
+					);
+
+					this.$el.val( value );
+				}
+
 			}
+		);
 
-		} );
-
-	} ) ( jQuery, _ );
+	} )( jQuery, _ );
 
 }
 
@@ -336,67 +407,76 @@ function mediaLibraryOrganizerGridViewInitializeOrderByFilter() {
 	( function() {
 
 		if ( media_library_organizer_media.settings.orderby_enabled == 1 ) {
-			MediaLibraryOrganizerTaxonomyOrderBy = wp.media.view.AttachmentFilters.extend( {
-				id: 'media-attachment-orderby',
+			MediaLibraryOrganizerTaxonomyOrderBy = wp.media.view.AttachmentFilters.extend(
+				{
+					id: 'media-attachment-orderby',
 
-				/**
-				 * Create Filters
-				 *
-				 * @since 	1.0.0
-				 */
-				createFilters: function() {
+					/**
+					 * Create Filters
+					 *
+					 * @since 	1.0.0
+					 */
+					createFilters: function() {
 
-					var filters = {};
+						var filters = {};
 
-					// Build an array of filters based on the Sorting options supplied in media_library_organizer_media.sorting,
-					// set by wp_localize_script()
-					_.each( media_library_organizer_media.orderby || {}, function( value, key ) {
-						filters[ key ] = {
-							text: value,
+						// Build an array of filters based on the Sorting options supplied in media_library_organizer_media.sorting,
+						// set by wp_localize_script().
+						_.each(
+							media_library_organizer_media.orderby || {},
+							function( value, key ) {
+								filters[ key ] = {
+									text: value,
 
-							// Key = WP_Query taxonomy name, which ensures that taxonomy-name=1 is sent
-							// as part of the search query when the filter is used.
-							props: {
-								'orderby': key,
+									// Key = WP_Query taxonomy name, which ensures that taxonomy-name=1 is sent
+									// as part of the search query when the filter is used.
+									props: {
+										'orderby': key,
+									}
+								};
 							}
-						};
-					});
+						);
 
-					// Set this filter's data to the terms we've just built
-					this.filters = filters;
+						// Set this filter's data to the terms we've just built.
+						this.filters = filters;
 
-				},
+					},
 
-				/**
-				 * This has to be here for the filter dropdown to select the correct Order By
-				 * and Order User / Default.
-				 *
-				 * wp.media.view.AttachmentFilters calls this.select from initialize, but doesn't
-				 * seem to call its own select() function.
-				 */
-				select: function() {
-					
-					var model = this.model,
-						value = 'all',
-						props = model.toJSON();
+					/**
+					 * This has to be here for the filter dropdown to select the correct Order By
+					 * and Order User / Default. wp.media.view.AttachmentFilters calls this.select
+					 * from initialize, but doesn't seem to call its own select() function.
+					 */
+					select: function() {
 
-					_.find( this.filters, function( filter, id ) {
-						var equal = _.all( filter.props, function( prop, key ) {
-							return prop === ( _.isUndefined( props[ key ] ) ? null : props[ key ] );
-						});
+						var model = this.model,
+							value = 'all',
+							props = model.toJSON();
 
-						if ( equal ) {
-							return value = id;
-						}
-					});
+						_.find(
+							this.filters,
+							function( filter, id ) {
+								var equal = _.all(
+									filter.props,
+									function( prop, key ) {
+										return prop === ( _.isUndefined( props[ key ] ) ? null : props[ key ] );
+									}
+								);
 
-					this.$el.val( value );
+								if ( equal ) {
+									return value = id;
+								}
+							}
+						);
+
+						this.$el.val( value );
+					}
+
 				}
-
-			} );
+			);
 		}
 
-	} ) ( jQuery, _ );
+	} )( jQuery, _ );
 }
 
 /**
@@ -409,70 +489,79 @@ function mediaLibraryOrganizerGridViewInitializeOrderFilter() {
 	( function() {
 
 		if ( media_library_organizer_media.settings.order_enabled == 1 ) {
-			MediaLibraryOrganizerTaxonomyOrder = wp.media.view.AttachmentFilters.extend( {
-				id: 'media-attachment-order',
+			MediaLibraryOrganizerTaxonomyOrder = wp.media.view.AttachmentFilters.extend(
+				{
+					id: 'media-attachment-order',
 
-				/**
-				 * Create Filter
-				 *
-				 * @since 	1.0.0
-				 */
-				createFilters: function() {
+					/**
+					 * Create Filter
+					 *
+					 * @since 	1.0.0
+					 */
+					createFilters: function() {
 
-					var filters = {};
+						var filters = {};
 
-					// Build an array of filters based on the Sorting options supplied in media_library_organizer_media.sorting,
-					// set by wp_localize_script()
-					_.each( media_library_organizer_media.order || {}, function( value, key ) {
-						filters[ key ] = {
-							text: value,
+						// Build an array of filters based on the Sorting options supplied in media_library_organizer_media.sorting,
+						// set by wp_localize_script().
+						_.each(
+							media_library_organizer_media.order || {},
+							function( value, key ) {
+								filters[ key ] = {
+									text: value,
 
-							// Key = asc|desc
-							props: {
-								'order': key,
+									// Key = asc|desc.
+									props: {
+										'order': key,
+									}
+								};
 							}
-						};
-					});
+						);
 
-					// Set this filter's data to the terms we've just built
-					this.filters = filters;
+						// Set this filter's data to the terms we've just built.
+						this.filters = filters;
 
-				},
+					},
 
-				/**
-				 * This has to be here for the filter dropdown to select the correct Order By
-				 * and Order User / Default.
-				 *
-				 * wp.media.view.AttachmentFilters calls this.select from initialize, but doesn't
-				 * seem to call its own select() function.
-				 */
-				select: function() {
-					
-					var model = this.model,
-						value = 'all',
-						props = model.toJSON();
+					/**
+					 * This has to be here for the filter dropdown to select the correct Order By
+					 * and Order User / Default. wp.media.view.AttachmentFilters calls this.select
+					 * from initialize, but doesn't seem to call its own select() function.
+					 */
+					select: function() {
 
-					_.find( this.filters, function( filter, id ) {
-						var equal = _.all( filter.props, function( prop, key ) {
-							return prop === ( _.isUndefined( props[ key ] ) ? null : props[ key ] );
-						});
+						var model = this.model,
+							value = 'all',
+							props = model.toJSON();
 
-						if ( equal ) {
-							return value = id;
-						}
-					});
+						_.find(
+							this.filters,
+							function( filter, id ) {
+								var equal = _.all(
+									filter.props,
+									function( prop, key ) {
+										return prop === ( _.isUndefined( props[ key ] ) ? null : props[ key ] );
+									}
+								);
 
-					this.$el.val( value );
+								if ( equal ) {
+									return value = id;
+								}
+							}
+						);
+
+						this.$el.val( value );
+					}
+
 				}
-
-			} );
+			);
 		}
 
-	} ) ( jQuery, _ );
+	} )( jQuery, _ );
 }
 
 /**
- * Grid View: Adds Taxonomy, Order By and Order Filters to the Toolbar
+ * Grid View: Adds Taxonomy, Order By and Order Filters to the Toolbar.
  *
  * @since 	1.3.3
  */
@@ -480,103 +569,132 @@ function mediaLibraryOrganizerGridViewAddFiltersToToolbar() {
 
 	( function() {
 
-		var AttachmentsBrowser = wp.media.view.AttachmentsBrowser;
-		wp.media.view.AttachmentsBrowser = wp.media.view.AttachmentsBrowser.extend( {
+		var AttachmentsBrowser           = wp.media.view.AttachmentsBrowser;
+		wp.media.view.AttachmentsBrowser = wp.media.view.AttachmentsBrowser.extend(
+			{
 
-			/**
-			 * When the toolbar is created, add our custom filters to it, which
-			 * are rendered as select dropdowns
-			 *
-			 * @since 	1.0.0
-			 */ 
-			createToolbar: function() {
+				/**
+				 * When the toolbar is created, add our custom filters to it, which
+				 * are rendered as select dropdowns.
+				 *
+				 * @since 	1.0.0
+				 */
+				createToolbar: function() {
 
-				// Make sure to load the original toolbar
-				AttachmentsBrowser.prototype.createToolbar.call( this );
+					// Make sure to load the original toolbar.
+					AttachmentsBrowser.prototype.createToolbar.call( this );
 
-				// Define the priority order at which these filters should begin output in the Grid View Toolbar
-				var priority = -75;
+					// Define the priority order at which these filters should begin output in the Grid View Toolbar.
+					var priority = -75;
 
-				// Add the taxonomy filters to the toolbar
-				// MediaLibraryOrganizerTaxonomyFilter is populated with Taxonomy Filters that are enabled in the Plugin Settings,
-				// so no need to check media_library_organizer_media.settings
-				for ( let taxonomy_name in MediaLibraryOrganizerTaxonomyFilter ) {
-					this.toolbar.set( taxonomy_name, new MediaLibraryOrganizerTaxonomyFilter[ taxonomy_name ]( {
-						controller: this.controller,
-						model:      this.collection.props,
-						priority: 	priority
-					} ).render() );
+					// Add the taxonomy filters to the toolbar.
+					// MediaLibraryOrganizerTaxonomyFilter is populated with Taxonomy Filters that are enabled in the Plugin Settings,
+					// so no need to check media_library_organizer_media.settings.
+					for ( let taxonomy_name in MediaLibraryOrganizerTaxonomyFilter ) {
+						this.toolbar.set(
+							taxonomy_name,
+							new MediaLibraryOrganizerTaxonomyFilter[ taxonomy_name ](
+								{
+									controller: this.controller,
+									model:      this.collection.props,
+									priority: 	priority
+									}
+							).render()
+						);
 
-					// Increment priority so the order of filters remains the same
-					// if they're subsequently updated by calling mediaLibraryOrganizerGridViewInitializeTaxonomyFilter()
-					priority++;
+						// Increment priority so the order of filters remains the same
+						// if they're subsequently updated by calling mediaLibraryOrganizerGridViewInitializeTaxonomyFilter().
+						priority++;
+					}
+
+					// Add the orderby filter to the toolbar.
+					if ( media_library_organizer_media.settings.orderby_enabled == 1 ) {
+						this.toolbar.set(
+							'MediaLibraryOrganizerTaxonomyOrderBy',
+							new MediaLibraryOrganizerTaxonomyOrderBy(
+								{
+									controller: this.controller,
+									model:      this.collection.props,
+									priority: 	priority
+								}
+							).render()
+						);
+
+						// Increment priority so the order of filters remains the same
+						// if they're subsequently updated by calling mediaLibraryOrganizerGridViewInitializeTaxonomyFilter().
+						priority++;
+					}
+
+					// Add the order filter to the toolbar.
+					if ( media_library_organizer_media.settings.order_enabled == 1 ) {
+						this.toolbar.set(
+							'MediaLibraryOrganizerTaxonomyOrder',
+							new MediaLibraryOrganizerTaxonomyOrder(
+								{
+									controller: this.controller,
+									model:      this.collection.props,
+									priority: 	priority
+								}
+							).render()
+						);
+
+						// Increment priority so the order of filters remains the same
+						// if they're subsequently updated by calling mediaLibraryOrganizerGridViewInitializeTaxonomyFilter().
+						priority++;
+					}
+
+					// Fire the mlo:grid:filters:add event that Addons can hook into and add their own Filters now.
+					wp.media.events.trigger(
+						'mlo:grid:filters:add',
+						{
+							attachments_browser: this,
+							priority: priority
+						}
+					);
+
+					// Fire the mlo:grid:bulk_select:enabled event that Addons can hook into and listen
+					// when Bulk select is enabled by clicking the Bulk Select button.
+					this.controller.on(
+						'select:activate',
+						function() {
+							wp.media.events.trigger( 'mlo:grid:bulk_select:enabled' );
+						}
+					);
+
+					// Fire the mlo:grid:bulk_select:disabled event that Addons can hook into and listen
+					// when Bulk select is disabled by clicking the Cancel button.
+					this.controller.on(
+						'select:deactivate',
+						function() {
+							wp.media.events.trigger( 'mlo:grid:bulk_select:disabled' );
+						}
+					);
+
+					// Fire the mlo:grid:attachments:bulk_actions:done event that Addons can hook into and listen
+					// when a Bulk select action (e.g. Delete) completes.
+					this.controller.on(
+						'selection:action:done',
+						function() {
+							wp.media.events.trigger( 'mlo:grid:attachments:bulk_actions:done' );
+						}
+					);
+
+					// Store the toolbar in a var so we can interact with it later.
+					MediaLibraryOrganizerAttachmentsBrowser = this;
+
+				},
+
+				createAttachmentsHeading: function() {
+
+					// Make sure to load the original attachments heading.
+					AttachmentsBrowser.prototype.createAttachmentsHeading.call( this );
+
 				}
-				
-				// Add the orderby filter to the toolbar
-				if ( media_library_organizer_media.settings.orderby_enabled == 1 ) {
-					this.toolbar.set( 'MediaLibraryOrganizerTaxonomyOrderBy', new MediaLibraryOrganizerTaxonomyOrderBy( {
-						controller: this.controller,
-						model:      this.collection.props,
-						priority: 	priority
-					} ).render() );
-
-					// Increment priority so the order of filters remains the same
-					// if they're subsequently updated by calling mediaLibraryOrganizerGridViewInitializeTaxonomyFilter()
-					priority++;
-				}
-
-				// Add the order filter to the toolbar
-				if ( media_library_organizer_media.settings.order_enabled == 1 ) {
-					this.toolbar.set( 'MediaLibraryOrganizerTaxonomyOrder', new MediaLibraryOrganizerTaxonomyOrder( {
-						controller: this.controller,
-						model:      this.collection.props,
-						priority: 	priority
-					} ).render() );
-
-					// Increment priority so the order of filters remains the same
-					// if they're subsequently updated by calling mediaLibraryOrganizerGridViewInitializeTaxonomyFilter()
-					priority++;
-				}
-
-				// Fire the mlo:grid:filters:add event that Addons can hook into and add their own Filters now
-				wp.media.events.trigger( 'mlo:grid:filters:add', {
-					attachments_browser: this,
-					priority: priority
-				} );
-
-				// Fire the mlo:grid:bulk_select:enabled event that Addons can hook into and listen
-				// when Bulk select is enabled by clicking the Bulk Select button
-				this.controller.on( 'select:activate', function() {
-					wp.media.events.trigger( 'mlo:grid:bulk_select:enabled' );
-				} );
-
-				// Fire the mlo:grid:bulk_select:disabled event that Addons can hook into and listen
-				// when Bulk select is disabled by clicking the Cancel button
-				this.controller.on( 'select:deactivate', function() {
-					wp.media.events.trigger( 'mlo:grid:bulk_select:disabled' );
-				} );
-
-				// Fire the mlo:grid:attachments:bulk_actions:done event that Addons can hook into and listen
-				// when a Bulk select action (e.g. Delete) completes
-				this.controller.on( 'selection:action:done', function() {
-					wp.media.events.trigger( 'mlo:grid:attachments:bulk_actions:done' );
-				} );
-
-				// Store the toolbar in a var so we can interact with it later
-				MediaLibraryOrganizerAttachmentsBrowser = this;
-
-			},
-
-			createAttachmentsHeading: function() {
-
-				// Make sure to load the original attachments heading
-				AttachmentsBrowser.prototype.createAttachmentsHeading.call( this );
 
 			}
+		);
 
-		} );
-
-	} ) ( jQuery, _ );
+	} )( jQuery, _ );
 
 }
 
@@ -590,70 +708,88 @@ function mediaLibraryOrganizerGridViewInitializeEditAttachmentListeners() {
 	( function( $, _ ) {
 
 		/**
-		 * Grid View: Edit Attachment: Show Add New Taxonomy Form
+		 * Grid View: Edit Attachment: Show Add New Taxonomy Form.
 		 */
-		$( 'body' ).on( 'click', 'table.compat-attachment-fields a.taxonomy-add-new', function( e ) {
+		$( 'body' ).on(
+			'click',
+			'table.compat-attachment-fields a.taxonomy-add-new',
+			function( e ) {
 
-			e.preventDefault();
+				e.preventDefault();
 
-			mediaLibraryOrganizerEditAttachmentToggleTaxonomyTermForm( $( this ).data( 'taxonomy' ) );
+				mediaLibraryOrganizerEditAttachmentToggleTaxonomyTermForm( $( this ).data( 'taxonomy' ) );
 
-		} );
+			}
+		);
 
 		/**
-		 * Grid View: Edit Attachment: Add new Taxonomy Term
+		 * Grid View: Edit Attachment: Add new Taxonomy Term.
 		 */
-		$( 'body' ).on( 'click', 'table.compat-attachment-fields div.mlo-taxonomy-term-add-fields input[type=button]', function( e ) {
+		$( 'body' ).on(
+			'click',
+			'table.compat-attachment-fields div.mlo-taxonomy-term-add-fields input[type=button]',
+			function( e ) {
 
-			e.preventDefault();
+				e.preventDefault();
 
-			mediaLibraryOrganizerEditAttachmentAddTerm(
-				$( this ).data( 'taxonomy' ),
-				$( 'input[type=text]', $( this ).parent() ).val()
-			);
+				mediaLibraryOrganizerEditAttachmentAddTerm(
+					$( this ).data( 'taxonomy' ),
+					$( 'input[type=text]', $( this ).parent() ).val()
+				);
 
-		} );
+			}
+		);
 
 		/**
-		 * Extend wp.media.view.Attachment to add an Event Listener to the save() function
+		 * Extend wp.media.view.Attachment to add an Event Listener to the save() function.
 		 *
 		 * @since 	1.3.3
 		 */
 		var mediaLibraryOrganizerAttachmentStatus;
-		_.extend( wp.media.view.Attachment.prototype, {
-			
-			/**
-			 * @param {string} status
-			 * @return {wp.media.view.Attachment} Returns itself to allow chaining.
-			 */
-			updateSave: function( status ) {
-				var save = this._save = this._save || { status: 'ready' };
+		_.extend(
+			wp.media.view.Attachment.prototype,
+			{
 
-				if ( status && status !== save.status ) {
-					this.$el.removeClass( 'save-' + save.status );
-					save.status = status;
-				}
+				/**
+				 * Fire the mlo:grid:edit-attachment:edited event if the Attachment is saved.
+				 *
+				 * @since 	1.3.3
+				 *
+				 * @param {string} status
+				 * @return {wp.media.view.Attachment} Returns itself to allow chaining.
+				 */
+				updateSave: function( status ) {
+					var save = this._save = this._save || { status: 'ready' };
 
-				this.$el.addClass( 'save-' + save.status );
+					if ( status && status !== save.status ) {
+						this.$el.removeClass( 'save-' + save.status );
+						save.status = status;
+					}
 
-				// If the save status changed from waiting --> ready/complete, fire an event now
-				// We check this because this function will be called a lot with repetitive 'ready'
-				// statuses when an Attachment is first edited
-				if ( mediaLibraryOrganizerAttachmentStatus == 'waiting' && ( save.status == 'ready' || save.status == 'complete' ) ) {
-					// Fire the mlo:grid:edit-attachment:edited event that Addons can hook into and listen
-					wp.media.events.trigger( 'mlo:grid:edit-attachment:edited', {
-						attachment_id: 			this.model.id, 			// Attachment ID
-						attachment: 			this.model.attributes,	// Attachment
-						changed: 				this.model.changed,		// Attachment Attributes Changed
-						taxonomy_term_changed: ( typeof this.model.changed.compat !== 'undefined' ? true : false ), // 'compat' exists when Tax Terms are changed
-					} );
-				}
-				mediaLibraryOrganizerAttachmentStatus = save.status;
+					this.$el.addClass( 'save-' + save.status );
 
-				return this;
-			},
+					// If the save status changed from waiting --> ready/complete, fire an event now
+					// We check this because this function will be called a lot with repetitive 'ready'
+					// statuses when an Attachment is first edited.
+					if ( mediaLibraryOrganizerAttachmentStatus == 'waiting' && ( save.status == 'ready' || save.status == 'complete' ) ) {
+						// Fire the mlo:grid:edit-attachment:edited event that Addons can hook into and listen.
+						wp.media.events.trigger(
+							'mlo:grid:edit-attachment:edited',
+							{
+								attachment_id: 			this.model.id, 			// Attachment ID.
+								attachment: 			this.model.attributes,	// Attachment.
+								changed: 				this.model.changed,		// Attachment Attributes Changed.
+								taxonomy_term_changed: ( typeof this.model.changed.compat !== 'undefined' ? true : false ), // 'compat' exists when Tax Terms are changed.
+							}
+						);
+					}
+					mediaLibraryOrganizerAttachmentStatus = save.status;
 
-		} );
+					return this;
+				},
+
+			}
+		);
 
 		/**
 		 * Extend wp.media.view.Attachment.Details to add an Event Listener to the moveFocus() function,
@@ -661,34 +797,37 @@ function mediaLibraryOrganizerGridViewInitializeEditAttachmentListeners() {
 		 *
 		 * @since 	1.3.3
 		 */
-		_.extend( wp.media.view.Attachment.Details.prototype, {
+		_.extend(
+			wp.media.view.Attachment.Details.prototype,
+			{
 
-			moveFocus: function() {
+				moveFocus: function() {
 
-				// Fire the mlo:grid:edit-attachment:deleted event that Addons can hook into and listen
-				wp.media.events.trigger( 'mlo:grid:edit-attachment:deleted' );
+					// Fire the mlo:grid:edit-attachment:deleted event that Addons can hook into and listen.
+					wp.media.events.trigger( 'mlo:grid:edit-attachment:deleted' );
 
-				if ( this.previousAttachment.length ) {
-					this.previousAttachment.focus();
-					return;
+					if ( this.previousAttachment.length ) {
+						this.previousAttachment.focus();
+						return;
+					}
+
+					if ( this.nextAttachment.length ) {
+						this.nextAttachment.focus();
+						return;
+					}
+
+					// Fallback: move focus to the "Select Files" button in the media modal.
+					if ( this.controller.uploader && this.controller.uploader.$browser ) {
+						this.controller.uploader.$browser.focus();
+						return;
+					}
+
+					// Last fallback.
+					this.moveFocusToLastFallback();
 				}
 
-				if ( this.nextAttachment.length ) {
-					this.nextAttachment.focus();
-					return;
-				}
-
-				// Fallback: move focus to the "Select Files" button in the media modal.
-				if ( this.controller.uploader && this.controller.uploader.$browser ) {
-					this.controller.uploader.$browser.focus();
-					return;
-				}
-
-				// Last fallback.
-				this.moveFocusToLastFallback();
 			}
-
-		} );
+		);
 
 	} )( jQuery, _ );
 
@@ -696,33 +835,39 @@ function mediaLibraryOrganizerGridViewInitializeEditAttachmentListeners() {
 
 
 /**
- * Grid View: Replace the given Taxonomy's Filter, if it exists
+ * Grid View: Replace the given Taxonomy's Filter, if it exists.
  *
  * @since 	1.3.3
  *
- * @param 	string 	taxonomy_name 	Taxonomy Name
- * @param 	array 	terms 			Taxonomy Terms
- * @param 	string 	all_items_label All Terms Label e.g. "All Media Categories", translated
+ * @param 	string 	taxonomy_name 			Taxonomy Name.
+ * @param 	array 	terms 					Taxonomy Terms.
+ * @param 	string 	all_items_label 		All Terms Label e.g. "All Media Categories", translated.
+ * @param 	string 	unassigned_items_label 	Unassigned Terms Label e.g. "Unassigned", translated.
+ * @param 	bool 	show_attachment_count 	Show Attachment Counts for each Term.
  */
-function mediaLibraryOrganizerGridViewReplaceTaxonomyFilter( taxonomy_name, terms, all_items_label ) {
+function mediaLibraryOrganizerGridViewReplaceTaxonomyFilter( taxonomy_name, terms, all_items_label, unassigned_items_label, show_attachment_count ) {
 
 	( function( $ ) {
 
-		// Bail if the Taxonomy isn't enabled as a filter
+		// Bail if the Taxonomy isn't enabled as a filter.
 		if ( ! MediaLibraryOrganizerTaxonomyFilter.hasOwnProperty( taxonomy_name ) ) {
 			return;
 		}
 
-		// Populate MediaLibraryOrganizerTaxonomyFilter[ taxonomy_name ] class with new Terms
-		mediaLibraryOrganizerGridViewInitializeTaxonomyFilter( taxonomy_name, terms, all_items_label );
+		// Populate MediaLibraryOrganizerTaxonomyFilter[ taxonomy_name ] class with new Terms.
+		mediaLibraryOrganizerGridViewInitializeTaxonomyFilter( taxonomy_name, terms, all_items_label, unassigned_items_label, show_attachment_count );
 
-		// Render updated Filter in Toolbar
-		// @TODO Check if we're in Bulk select mode?
-		MediaLibraryOrganizerAttachmentsBrowser.toolbar.set( taxonomy_name, new MediaLibraryOrganizerTaxonomyFilter[ taxonomy_name ]( {
-			controller: MediaLibraryOrganizerAttachmentsBrowser.controller,
-			model:      MediaLibraryOrganizerAttachmentsBrowser.collection.props,
-			priority: 	-75
-		} ).render() );
+		// Render updated Filter in Toolbar.
+		MediaLibraryOrganizerAttachmentsBrowser.toolbar.set(
+			taxonomy_name,
+			new MediaLibraryOrganizerTaxonomyFilter[ taxonomy_name ](
+				{
+					controller: MediaLibraryOrganizerAttachmentsBrowser.controller,
+					model:      MediaLibraryOrganizerAttachmentsBrowser.collection.props,
+					priority: 	-75
+				}
+			).render()
+		);
 
 	} )( jQuery );
 
@@ -735,41 +880,41 @@ function mediaLibraryOrganizerGridViewReplaceTaxonomyFilter( taxonomy_name, term
  *
  * @since 	1.3.3
  *
- * @param 	string 	taxonomy_name 	Taxonomy Name
+ * @param 	string 	taxonomy_name 	Taxonomy Name.
  */
 function mediaLibraryOrganizerGridViewUpdateTaxonomyFilters() {
-	
+
 	( function( $ ) {
 
-		// Send request
-	  	$.post(
-			media_library_organizer_media.ajaxurl, 
+		// Send request.
+		$.post(
+			media_library_organizer_media.ajaxurl,
 			{
-			 	'action':                media_library_organizer_media.get_taxonomies_terms.action,
+				'action':                media_library_organizer_media.get_taxonomies_terms.action,
 				'nonce':                 media_library_organizer_media.get_taxonomies_terms.nonce
 			},
-		 	function( response ) {
-		 		
-				// Bail if an error occured
+			function( response ) {
+
+				// Bail if an error occured.
 				if ( ! response.success ) {
-				   alert( response.data );
-				   return;
+					alert( response.data );
+					return;
 				}
 
-				// Replace all Taxonomy Filters
+				// Replace all Taxonomy Filters.
 				for ( let taxonomy_name in response.data ) {
 					mediaLibraryOrganizerGridViewReplaceTaxonomyFilter(
 						response.data[ taxonomy_name ].taxonomy.name,
 						response.data[ taxonomy_name ].terms,
-						response.data[ taxonomy_name ].taxonomy.labels.all_items
-					);	
+						response.data[ taxonomy_name ].taxonomy.labels.all_items,
+						media_library_organizer_media.labels.unassigned
+					);
 				}
-				
-		 	}
-	  	);
+
+			}
+		);
 
 	} )( jQuery );
-
 
 }
 
@@ -780,37 +925,38 @@ function mediaLibraryOrganizerGridViewUpdateTaxonomyFilters() {
  *
  * @since 	1.3.3
  *
- * @param 	string 	taxonomy_name 	Taxonomy Name
+ * @param 	string 	taxonomy_name 	Taxonomy Name.
  */
 function mediaLibraryOrganizerGridViewUpdateTaxonomyFilter( taxonomy_name ) {
 
 	( function( $ ) {
 
-		// Send request
-	  	$.post(
-			media_library_organizer_media.ajaxurl, 
+		// Send request.
+		$.post(
+			media_library_organizer_media.ajaxurl,
 			{
-			 	'action':                media_library_organizer_media.get_taxonomy_terms.action,
+				'action':                media_library_organizer_media.get_taxonomy_terms.action,
 				'nonce':                 media_library_organizer_media.get_taxonomy_terms.nonce,
 				'taxonomy_name': 		 taxonomy_name
 			},
-		 	function( response ) {
-		 		
-				// Bail if an error occured
+			function( response ) {
+
+				// Bail if an error occured.
 				if ( ! response.success ) {
-				   alert( response.data );
-				   return;
+					alert( response.data );
+					return;
 				}
 
-				// Replace Taxonomy Filter
+				// Replace Taxonomy Filter.
 				mediaLibraryOrganizerGridViewReplaceTaxonomyFilter(
 					response.data.taxonomy.name,
 					response.data.terms,
-					response.data.taxonomy.labels.all_items
+					response.data.taxonomy.labels.all_items,
+					media_library_organizer_media.labels.unassigned
 				);
-				
-		 	}
-	  	);
+
+			}
+		);
 
 	} )( jQuery );
 
@@ -821,15 +967,15 @@ function mediaLibraryOrganizerGridViewUpdateTaxonomyFilter( taxonomy_name ) {
  *
  * @since 	1.3.3
  *
- * @param 	string 	taxonomy_name 	Taxonomy Name
- * @param 	string 	html 			<select> HTML
- * @param 	int 	selected_term 	Currently selected / viewed Taxonomy Term (if any)
+ * @param 	string 	taxonomy_name 	Taxonomy Name.
+ * @param 	string 	html 			<select> HTML.
+ * @param 	int 	selected_term 	Currently selected / viewed Taxonomy Term (if any).
  */
 function mediaLibraryOrganizerListViewReplaceTaxonomyFilter( taxonomy_name, html, selected_term ) {
 
 	( function( $ ) {
 
-		// Replace <select> Taxonomy dropdown to reflect changes
+		// Replace <select> Taxonomy dropdown to reflect changes.
 		$( 'select#' + taxonomy_name ).replaceWith( html );
 		if ( selected_term.length > 0 ) {
 			$( 'select#' + taxonomy_name ).val( selected_term );
@@ -840,35 +986,39 @@ function mediaLibraryOrganizerListViewReplaceTaxonomyFilter( taxonomy_name, html
 }
 
 /**
- * List View: Update Attachment Terms for Attachments in the List
+ * List View: Update Attachment Terms for Attachments in the List.
  *
  * @since 	1.3.3
  *
- * @param 	string 		taxonomy_name 	Taxonomy Name
- * @param 	WP_Term 	old_term 		Old Term (either the Term that was edited or deleted), WP_Term structure
- * @param 	WP_Term 	new_term 		New Term (either the New Term information after editing, or false if deleted
+ * @param 	string 		taxonomy_name 	Taxonomy Name.
+ * @param 	WP_Term 	old_term 		Old Term (either the Term that was edited or deleted), WP_Term structure.
+ * @param 	WP_Term 	new_term 		New Term (either the New Term information after editing, or false if deleted.
  */
 function mediaLibraryOrganizerListViewUpdateAttachmentTerms( taxonomy_name, old_term, new_term ) {
 
 	( function( $ ) {
 
-		$( 'td.taxonomy-' + taxonomy_name + ' a' ).each( function() {
-			// If this Term matches the one just updated, update it in the DOM
-			if ( $( this ).text() == old_term.name ) {
-				// If new_term is false, old_term was deleted, so remove it from this Attachment
-				if ( ! new_term ) {
-					$( this ).remove();
-				} else {
-					$( this ).text( new_term.name );
-					$( this ).attr( 'href', 'upload.php?taxonomy=' + taxonomy_name + '&term=' + new_term.slug );
+		$( 'td.taxonomy-' + taxonomy_name + ' a' ).each(
+			function() {
+				// If this Term matches the one just updated, update it in the DOM.
+				if ( $( this ).text() == old_term.name ) {
+					// If new_term is false, old_term was deleted, so remove it from this Attachment.
+					if ( ! new_term ) {
+						$( this ).remove();
+					} else {
+						$( this ).text( new_term.name );
+						$( this ).attr( 'href', 'upload.php?taxonomy=' + taxonomy_name + '&term=' + new_term.slug );
+					}
 				}
 			}
-		} );
+		);
 
-		// Remove leading and trailing commas which may appear as a result of updating/removing a Term
-		$( 'td.taxonomy-' + taxonomy_name ).each( function() {
-			$( this ).html( $( this ).html().replace( /(^\s*,)|(,\s*$)/g, '' ) );
-		} );
+		// Remove leading and trailing commas which may appear as a result of updating/removing a Term.
+		$( 'td.taxonomy-' + taxonomy_name ).each(
+			function() {
+				$( this ).html( $( this ).html().replace( /(^\s*,)|(,\s*$)/g, '' ) );
+			}
+		);
 
 	} )( jQuery );
 
@@ -892,7 +1042,7 @@ function mediaLibraryOrganizerEditAttachmentToggleTaxonomyTermForm( taxonomy_nam
 }
 
 /**
- * Grid View: Taxonomy Term: Clear the Taxonomy Term Form's value
+ * Grid View: Taxonomy Term: Clear the Taxonomy Term Form's value.
  */
 function mediaLibraryOrganizerEditAttachmentResetTaxonomyTermForm( taxonomy_name ) {
 
@@ -905,13 +1055,13 @@ function mediaLibraryOrganizerEditAttachmentResetTaxonomyTermForm( taxonomy_name
 }
 
 /**
- * Grid View: Edit Attachment: Add Term
+ * Grid View: Edit Attachment: Add Term.
  */
 function mediaLibraryOrganizerEditAttachmentAddTerm( taxonomy_name, term_name, parent_term_id ) {
 
 	( function( $ ) {
 
-		// Build args
+		// Build args.
 		var args = {
 			'action':                media_library_organizer_media.create_term.action,
 			'nonce':                 media_library_organizer_media.create_term.nonce,
@@ -920,59 +1070,78 @@ function mediaLibraryOrganizerEditAttachmentAddTerm( taxonomy_name, term_name, p
 			'term_parent_id':        parent_term_id
 		};
 
-		// Send request
-	  	$.post(
-			media_library_organizer_media.ajaxurl, 
-		 	args,
-		 	function( response ) {
-		 		
-				// Bail if an error occured
+		// Send request.
+		$.post(
+			media_library_organizer_media.ajaxurl,
+			args,
+			function( response ) {
+
+				// Bail if an error occured.
 				if ( ! response.success ) {
-				   alert( response.data );
-				   return;
+					alert( response.data );
+					return;
 				}
 
-				// Fire the mlo:grid:edit-attachmentadded:term event that Addons can hook into and listen
+				// Fire the mlo:grid:edit-attachmentadded:term event that Addons can hook into and listen.
 				wp.media.events.trigger( 'mlo:grid:edit-attachment:added:term', response.data );
 
-				// Add the Term to the list of Terms
+				// Add the Term to the list of Terms.
 				$( 'ul#' + response.data.term.taxonomy + 'checklist' ).prepend( response.data.checkbox );
 
-				// Reset the form
+				// Reset the form.
 				mediaLibraryOrganizerEditAttachmentResetTaxonomyTermForm( taxonomy_name );
 
-				// Trigger a save of the Attachment, so the Attachment is assigned to the newly created Term that's checked
+				// Trigger a save of the Attachment, so the Attachment is assigned to the newly created Term that's checked.
 				$( 'ul#' + response.data.term.taxonomy + 'checklist li:first input[type="checkbox"]' ).trigger( 'change' );
-		 	}
-	  	);
+			}
+		);
 
 	} )( jQuery );
 
 }
 
 /**
- * Update multipart_params when the uploader is first initialized
+ * Refreshes the grid view to show an up to date version, based on
+ * any additions, changes or deletions of Attachments.
+ *
+ * @since 	1.4.0
+ */
+function mediaLibraryOrganizerGridViewRefresh() {
+
+	if ( typeof wp.media.frame.library !== 'undefined' ) {
+		wp.media.frame.library.props.set( {ignore: (+ new Date())} );
+	} else {
+		wp.media.frame.content.get().collection.props.set( {ignore: (+ new Date())} );
+	}
+
+}
+
+/**
+ * Update multipart_params when the uploader is first initialized.
  *
  * @since 	1.2.3
  */
-wp.media.events.on( 'mlo:grid:attachment:upload:init', function() {
+wp.media.events.on(
+	'mlo:grid:attachment:upload:init',
+	function() {
 
-	// Fetch wp.media.frame.uploader, so we persist it when the user switches
-	// between grid view and inline editing in grid view.
-	if ( ! mediaLibraryOrganizerUploader && typeof wp.media.frame.uploader !== 'undefined' ) {
-		mediaLibraryOrganizerUploader = wp.media.frame.uploader;
-	}
-
-	if ( mediaLibraryOrganizerUploader ) {
-		var selected_terms = {};
-		for ( let taxonomy_name in media_library_organizer_media.taxonomies ) {
-			selected_terms[ taxonomy_name ] = media_library_organizer_media.taxonomies[ taxonomy_name ].selected_term;
+		// Fetch wp.media.frame.uploader, so we persist it when the user switches
+		// between grid view and inline editing in grid view.
+		if ( ! mediaLibraryOrganizerUploader && typeof wp.media.frame.uploader !== 'undefined' ) {
+			mediaLibraryOrganizerUploader = wp.media.frame.uploader;
 		}
 
-		mediaLibraryOrganizerUploader.uploader.uploader.settings.multipart_params.media_library_organizer = selected_terms;
-	}
+		if ( mediaLibraryOrganizerUploader ) {
+			var selected_terms = {};
+			for ( let taxonomy_name in media_library_organizer_media.taxonomies ) {
+				selected_terms[ taxonomy_name ] = media_library_organizer_media.taxonomies[ taxonomy_name ].selected_term;
+			}
 
-} );
+			mediaLibraryOrganizerUploader.uploader.uploader.settings.multipart_params.media_library_organizer = selected_terms;
+		}
+
+	}
+);
 
 
 /**
@@ -982,112 +1151,124 @@ wp.media.events.on( 'mlo:grid:attachment:upload:init', function() {
  *
  * @since 	1.2.3
  *
- * @param 	obj 	atts 	Attributes
+ * @param 	obj 	atts 	Attributes.
  */
-wp.media.events.on( 'mlo:grid:filter:change:term', function( atts ) { 
+wp.media.events.on(
+	'mlo:grid:filter:change:term',
+	function( atts ) {
 
-	if ( mediaLibraryOrganizerUploader ) {
-		mediaLibraryOrganizerUploader.uploader.uploader.settings.multipart_params.media_library_organizer[ atts.taxonomy_name ] = atts.slug;
+		if ( mediaLibraryOrganizerUploader ) {
+			mediaLibraryOrganizerUploader.uploader.uploader.settings.multipart_params.media_library_organizer[ atts.taxonomy_name ] = atts.slug;
+		}
+
 	}
-
-} );
+);
 
 /**
- * Grid View: When an attachment completes successful upload to the Grid View, refresh the Grid View
+ * Grid View: When an attachment completes successful upload to the Grid View, refresh the Grid View.
  *
  * @since   1.2.3
  *
- * @param   obj   attachment  Uploaded Attachment
+ * @param   obj   attachment  Uploaded Attachment.
  */
-wp.media.events.on( 'mlo:grid:attachment:upload:success', function( attachment ) { 
+wp.media.events.on(
+	'mlo:grid:attachment:upload:success',
+	function( attachment ) {
 
-	// Reload
-	if ( typeof wp.media.frame.library !== 'undefined' ) {
-		wp.media.frame.library.props.set ({ignore: (+ new Date())});
-	} else {
-		wp.media.frame.content.get().collection.props.set({ignore: (+ new Date())});
+		mediaLibraryOrganizerGridViewRefresh();
+
 	}
-
-} );
+);
 
 /**
  * Grid View: When an attachment is edited in the Grid View, and has a Taxonomy Term added to it using the
- * inline 'Add New' option, reload the Taxonomy Filter
+ * inline 'Add New' option, reload the Taxonomy Filter.
  *
  * @since   1.3.3
  *
- * @param   obj   atts  Attributes
+ * @param   obj   atts  Attributes.
  */
-wp.media.events.on( 'mlo:grid:edit-attachment:added:term', function( atts ) {
+wp.media.events.on(
+	'mlo:grid:edit-attachment:added:term',
+	function( atts ) {
 
-	// Replace Taxonomy Filter to reflect changes
-	mediaLibraryOrganizerGridViewReplaceTaxonomyFilter(
-		atts.taxonomy.name,
-		atts.terms,
-		atts.taxonomy.labels.all_items
-	);
+		// Replace Taxonomy Filter to reflect changes.
+		mediaLibraryOrganizerGridViewReplaceTaxonomyFilter(
+			atts.taxonomy.name,
+			atts.terms,
+			atts.taxonomy.labels.all_items,
+			media_library_organizer_media.labels.unassigned
+		);
 
-} );
+	}
+);
 
 /**
- * Grid View: When Taxonomy Term(s) are assigned or unassigned to an Attachment in the Grid View
- * reload the Taxonomy Filter for the Taxonomy where changes were made.
+ * Grid View: When Taxonomy Term(s) are assigned or unassigned to an Attachment in the Grid View:
+ * - reload the Taxonomy Filter for the Taxonomy where changes were made
+ * - reload the underlying Grid View, so that if viewing by Taxonomy Term and the Attachment
+ * was removed from said Taxonomy Term, this is reflected in the grid
  *
  * @since   1.3.3
  *
- * @TODO Optimize this so it just updates Term Counts, without performing a potentially
- * expensive AJAX query.
- *
- * @param   obj   atts  Attributes
+ * @param   obj   atts  Attributes.
  */
-wp.media.events.on( 'mlo:grid:edit-attachment:edited', function( atts ) {
+wp.media.events.on(
+	'mlo:grid:edit-attachment:edited',
+	function( atts ) {
 
-	( function( $ ) {
+		( function( $ ) {
 
-		// Bail if no Taxonomy Terms were changed in the Attachment
-		if ( ! atts.taxonomy_term_changed ) {
-			return;
-		}
+			// Bail if no Taxonomy Terms were changed in the Attachment.
+			if ( ! atts.taxonomy_term_changed ) {
+				return;
+			}
 
-		// Update Taxonomy Filters
-		mediaLibraryOrganizerGridViewUpdateTaxonomyFilters();
+			// Update Taxonomy Filters.
+			mediaLibraryOrganizerGridViewUpdateTaxonomyFilters();
 
-	} )( jQuery );
+			// Refresh Grid View.
+			mediaLibraryOrganizerGridViewRefresh();
 
-} );
+		} )( jQuery );
+
+	}
+);
 
 /**
  * Grid View: When an attachment is deleted in the Grid View > Edit Attachment modal,
- * reload all Taxonomy Filters so their Term Counts are updated
- *
- * @TODO Optimize this so it just updates Term Counts, without performing a potentially
- * expensive AJAX query.
+ * reload all Taxonomy Filters so their Term Counts are updated.
  *
  * @since   1.3.3
+ *
+ * @param   obj   atts  Attributes.
  */
-wp.media.events.on( 'mlo:grid:edit-attachment:deleted', function( atts ) {
+wp.media.events.on(
+	'mlo:grid:edit-attachment:deleted',
+	function( atts ) {
 
-	mediaLibraryOrganizerGridViewUpdateTaxonomyFilters();
+		mediaLibraryOrganizerGridViewUpdateTaxonomyFilters();
 
-} );
+	}
+);
 
 /**
  * Grid View: When Bulk select is disabled i.e. either Deletion completed or the user clicked Cancel,
  * reload all Taxonomy Filters so their Term Counts are updated.
  *
  * We don't do this on mlo:grid:attachments:bulk_actions:done, as we might still be in Bulk select mode,
- * therefore reloading the Taxonomy Filters isn't necessary as they're not being displayed
+ * therefore reloading the Taxonomy Filters isn't necessary as they're not being displayed.
  *
- * @TODO Optimize this so it just updates Term Counts, without performing a potentially
- * expensive AJAX query.
- *
- * @since   1.3.3
+ * @since   1.3.3.
  */
-wp.media.events.on( 'mlo:grid:bulk_select:disabled', function() {
+wp.media.events.on(
+	'mlo:grid:bulk_select:disabled',
+	function() {
 
-	mediaLibraryOrganizerGridViewUpdateTaxonomyFilters();
+		mediaLibraryOrganizerGridViewUpdateTaxonomyFilters();
 
-} );
+	}
+);
 
 /**
  * Main function to call initialization functions in this
@@ -1099,35 +1280,37 @@ wp.media.events.on( 'mlo:grid:bulk_select:disabled', function() {
  */
 function mediaLibraryOrganizerInitialize() {
 
-	// Initialize Order By and Order Defaults on wp.media.query calls
+	// Initialize Order By and Order Defaults on wp.media.query calls.
 	mediaLibraryOrganizerQueryInitialize();
 
-	// Initialize Uploader Instance Events
+	// Initialize Uploader Instance Events.
 	mediaLibraryOrganizerUploaderInitializeEvents();
 
-	// Initialize Grid View Taxonomy Filters
+	// Initialize Grid View Taxonomy Filters.
 	mediaLibraryOrganizerGridViewInitializeTaxonomyFilters();
 
-	// Initialize Grid View Order By Filter
+	// Initialize Grid View Order By Filter.
 	mediaLibraryOrganizerGridViewInitializeOrderByFilter();
 
-	// Initialize Grid View Order Filter
+	// Initialize Grid View Order Filter.
 	mediaLibraryOrganizerGridViewInitializeOrderFilter();
 
-	// Add Grid View Filters to Toolbar
+	// Add Grid View Filters to Toolbar.
 	mediaLibraryOrganizerGridViewAddFiltersToToolbar();
 
-	// Initialize Grid View Edit Attachment Listeners
+	// Initialize Grid View Edit Attachment Listeners.
 	mediaLibraryOrganizerGridViewInitializeEditAttachmentListeners();
 
-	// Initialize List View Selectize
-	jQuery( document ).ready( function( $ ) {
-		if ( typeof mediaLibraryOrganizerSelectizeInit !== 'undefined' ) {
-			mediaLibraryOrganizerSelectizeInit();
+	// Initialize List View Selectize.
+	jQuery( document ).ready(
+		function( $ ) {
+			if ( typeof mediaLibraryOrganizerSelectizeInit !== 'undefined' ) {
+				mediaLibraryOrganizerSelectizeInit();
+			}
 		}
-	} );
-	
+	);
+
 }
 
-// Finally, initialize Media Library Organizer
+// Finally, initialize Media Library Organizer.
 mediaLibraryOrganizerInitialize();
