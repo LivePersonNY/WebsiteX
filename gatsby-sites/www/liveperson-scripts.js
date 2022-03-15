@@ -10,6 +10,10 @@ window.lp_attr = {};
 
 window.lpCallbacks = window.lpCallbacks || [];
 
+window.testGated = function() {
+	$('.pane.gated').slideDown();
+}
+
 window.documentReadyFn = function() {
 	
 	// window.dataLayer && dataLayer.push({ virtualTitle: this.props.data.articlePage.title });
@@ -93,7 +97,7 @@ window.documentReadyFn = function() {
 		});
 	
 		$(window).off('scroll').on('scroll', function(){
-			$('.pane:not(.hero, .pane-form)').each( function(i){
+			$('.pane:not(.hero, .pane-form, .gated)').each( function(i){
 				var bottom_of_object = $(this).position().top;
 				var bottom_of_window = $(window).scrollTop() + $(window).height();
 				if( bottom_of_window > bottom_of_object ){
