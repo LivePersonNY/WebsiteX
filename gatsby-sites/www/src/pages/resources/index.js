@@ -9,8 +9,9 @@ const ResourceIndex = function( props ) {
 	const successStories = props.data.successStories.nodes;
 	const news = props.data.news.nodes;
 	const reports = props.data.reports.nodes;
+	const webinars = props.data.webinars.nodes;
 	
-	const items = successStories.concat(news).concat(reports);
+	const items = successStories.concat(news).concat(reports).concat(webinars);
 		
 	return (
 		<Resources active="all" items={items} />
@@ -65,6 +66,28 @@ export const itemsQuery = graphql`
 		}
 	  }
 	  reports: allWpSuccess {
+		  nodes {
+			uri
+			slug
+			title
+			nodeType
+			featuredImage {
+			  node {
+				mediaItemUrl
+				srcSet
+			  }
+			}
+			seo {
+			  readingTime
+			  opengraphType
+			  metaRobotsNoindex
+			  schema {
+				articleType
+			  }
+			}
+		  }
+		}
+	  webinars: allWpWebinar {
 		  nodes {
 			uri
 			slug

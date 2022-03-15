@@ -10,11 +10,24 @@ import Post from '../components/Post';
 const Resources = function( props ) {
 	
 	const nodeTypes = {
-		News: "In the news",
-		Success: "Success Story",
-		Report: "Guides & reports",
-		Webinar: "Webinar"
+		News: {
+			kicker: "In the news",
+			slug: "news"
+		},
+		Success: {
+			kicker: "Success Story",
+			slug: "success-stories"
+		},
+		Report: {
+			kicker: "Guides & reports",
+			slug: "reports"
+		},
+		Webinar: {
+			kicker: "Webinar",
+			slug: "webinars"
+		}
 	}
+
 	
 	return (
 		<Layout>
@@ -32,7 +45,7 @@ const Resources = function( props ) {
 					<div class="row">
 						{props.items.map(function(item) {
 							return (
-								<Post post={item} kicker={nodeTypes[item.nodeType]} />
+								<Post post={item} kicker={nodeTypes[item.nodeType].kicker} root={"/resources/" + nodeTypes[item.nodeType].slug} />
 							);
 						})}
 					</div>

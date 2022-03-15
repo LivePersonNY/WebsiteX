@@ -11,7 +11,7 @@ const SuccessIndex = function( props ) {
 	console.log(items);
 	
 	return (
-		<Resources active="success" items={items} kicker="Success Story" />
+		<Resources active="success" items={items} kicker="Success Story" slug="success-stories" />
 	);
 }
 export default SuccessIndex;
@@ -23,6 +23,7 @@ export const itemsQuery = graphql`
 		  uri
 		  title
 		  nodeType
+		  slug
 		  featuredImage {
 			node {
 			  mediaItemUrl

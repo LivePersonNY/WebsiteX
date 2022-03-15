@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 import Parse from 'html-react-parser';
 
-export default function Post({post, kicker}) {
+export default function Post({post, kicker, root}) {
 	
 	const featuredImage = {
 	  data: post?.featuredImage?.node?.mediaItemUrl || ``,
@@ -10,10 +10,11 @@ export default function Post({post, kicker}) {
 	};
 	
 	const author = post?.author?.node;
+	const slugRoot = root ? root + "/" : "";
 	
 	return (
 		<div className={`${post.isSticky ? `col-lg-12 featured` : `col-xl-6`} mb-4`}>
-		  <Link to={post.slug} itemProp="url" className="post-link">
+		  <a href={slugRoot + post.slug} className="post-link">
 			<article
 			  className="post-list-item shadow-none bg-blue-20 card h-100"
 			  itemScope
@@ -32,7 +33,7 @@ export default function Post({post, kicker}) {
 				{author && (<p className="h5">{author.firstName} {author.lastName} &bull; {post.seo.readingTime} minutes</p>)}
 			  </div>
 			</article>
-		  </Link>
+		  </a>
 		</div>
 	);
 }

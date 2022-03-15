@@ -97,7 +97,7 @@ const BlogIndex = ({
                 return isInCategory && post.seo.metaRobotsNoindex == 'index' && (
                   <>
                     {postCounter == 4 && <div className="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
-                    <Post post={post} />
+                    <Post post={post} root="/blog" />
                   </>
                 );
               })}
