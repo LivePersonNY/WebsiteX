@@ -285,6 +285,52 @@
         }
     }
 
+    &.form-vertical {
+        text-align: left;
+
+        .mktoForm {
+            .mktoFormRow {
+                width: 100% !important;
+                margin-right: 0;
+
+                .mktoFormCol .mktoFieldWrap {
+                    margin-bottom: 12px;
+
+                    .mktoHtmlText,
+                    .mktoRadioList,
+                    .mktoCheckboxList,
+                    textarea {
+                        width: 100% !important;
+                    }
+
+                    .mktoRadioList,
+                    .mktoCheckboxList {
+                        input {
+                            width: auto !important;
+                            margin-top: 5px;
+                        }
+
+                        label {
+                            display: block;
+                        }
+                    }
+
+                    textarea {
+                        border-radius: 4px;
+                        border: 0;
+                        background: $neutral99;
+                        font-size: 16px !important;
+                        line-height: 24px !important;
+                        color: $neutral24;
+                        font-family: $familyInter;
+                        padding: 12px 40px 12px 12px !important;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 body.locked {
