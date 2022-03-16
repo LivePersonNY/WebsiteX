@@ -101,6 +101,8 @@ module.exports = {
             /m-*/,
             /ml-*/,
             /mr-*/,
+            /my-*/,
+            /mx-*/,
             /d-*/,
             /nav-*/,
             'solutions',
