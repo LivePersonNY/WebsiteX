@@ -239,6 +239,17 @@ jQuery(document).ready(function() {
         }
     }).scroll();
 
+    var acc = document.getElementsByClassName("faq");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+
+            });
+        }
+
     // sp-tab-switch
     jQuery('.mo-saml-sp-tab-container a').click(function(event) {
         event.preventDefault();
@@ -371,6 +382,9 @@ jQuery(document).ready(function() {
     });
     displayWelcomePage();
     checkUploadMetadataFields();
+
+    
+    
 });
 jQuery(function() {
     jQuery("#call_setup_dets").hide();
@@ -430,6 +444,8 @@ jQuery(function() {
             /[^a-zA-Z?,.\(\)\/@ 0-9]/, '') : null;
     }
 });
+
+
 
 function showTestWindow() {
     var url = jQuery('#mo-saml-test-window-url').val();
@@ -539,3 +555,12 @@ function removeCertificateErrorClass() {
         jQuery("#saml_x509_certificate").removeClass("mo-saml-error-box");
     }
 }
+
+
+function toggleFAQ(index){
+    var tog = jQuery(".faq")[index];
+        tog.classList.toggle("active"); 
+}
+
+
+

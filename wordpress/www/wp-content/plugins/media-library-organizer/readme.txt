@@ -3,7 +3,7 @@ Contributors: wpmedialibrary
 Donate link: https://wpmedialibrary.com
 Tags: media categories, media library, media tags, images, organizer
 Requires at least: 5.0
-Tested up to: 5.8
+Tested up to: 5.9.1
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -171,6 +171,22 @@ To auto categorize attachments, bulk edit other attributes, manage EXIF, GPS and
 4. Plugin-wide Settings
 
 == Changelog ==
+
+= 1.4.1 (2022-03-10) =
+* Fix: Category Dropdown Filter: Don't show Attachment count for Terms when selecting media/files on Pages/Posts, as counts include all file types
+
+= 1.4.0 (2022-02-25) =
+* Added: Tree View: Dragging and dropping Attachment(s) on to (Unassigned) will remove all Categories from Attachment(s)
+* Fix: Tree View: Grid View: Refresh Attachments after drag and drop categorization to reflect changes
+* Fix: Tree View: Grid View: Cancel Bulk Select after multiple Attachments dragged and dropped for categorization
+* Fix: Tree View: Localize 'Categorize items' labels
+* Fix: Tree View: Remove unused version number
+* Fix: Grid and List View: Category Dropdown Filter: Localized 'Unassigned' label
+* Fix: Grid View: Refresh Grid View when an Attachment's Categories are changed, to reflect changes made
+* Fix: Multisite: Ensure installation and uninstallation routines run if a new site is created outside of WordPress Administration
+* Fix: Multisite: Activation: Use wp_insert_site hook when available in WordPress 5.1 and higher
+* Fix: Settings: Documentation Tab's Link was incorrect
+* Fix: Ensure code meets WordPress Coding Standards
 
 = 1.3.9 (2021-09-20) =
 * Fix: Retain image selection when uploading new images via e.g. Featured Image

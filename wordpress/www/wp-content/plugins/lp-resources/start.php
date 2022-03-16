@@ -318,11 +318,12 @@ class LP_Resources
 			],
 			'public' => true,
 			'menu_icon' => 'dashicons-media-document',
+			'capability_type' => 'page',
 			'show_in_rest' => true,
+			'hierarchical' => true,
 			'supports' => [
 				'title',
 				'editor',
-				'excerpt',
 				'thumbnail',
 			],
 			'show_in_graphql' => true,
@@ -388,6 +389,11 @@ class LP_Resources
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'webinar',
 			'graphql_plural_name' => 'webinars',
+			'supports' => [
+				'title',
+				'editor',
+				'thumbnail',
+			],
 		]);
 		
 		register_post_type('staged-post', [
@@ -415,6 +421,26 @@ class LP_Resources
 				'author',
 				'post-formats',
 			],
+		]);
+		
+		register_post_type('policy-page', [
+			'labels' => [
+				'name_admin_bar' => 'Policy Page',
+				'name' => 'Policy Pages',
+				'singular_name' => 'Policy Page',
+			],
+			'public' => true,
+			'menu_icon' => 'dashicons-businesswoman',
+			//'publicly_queryable' => null,
+			'capability_type' => 'page',
+			//'map_meta_cap' => true,
+			//'show_in_ui' => false,
+			'show_in_rest' => true,
+			//'rest_base' => 'pages',
+			'hierarchical' => true,
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'policy_page',
+			'graphql_plural_name' => 'policy_pages',
 		]);
 		
 		/*if (!is_user_logged_in() && $_ENV['NO_LOGIN_SCREEN'] === TRUE) {

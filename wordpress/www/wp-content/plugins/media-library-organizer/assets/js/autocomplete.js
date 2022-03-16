@@ -1,4 +1,13 @@
 /**
+ * JavaScript for interacting with autocomplete instances.
+ *
+ * @since 	1.0.0
+ *
+ * @package Media_Library_Organizer
+ * @author 	Media Library Organizer
+ */
+
+/**
  * Initialize autocomplete instances for Classic Editor
  * and Meta Boxes, based on the globally registered
  * selectors.
@@ -9,16 +18,18 @@ function mediaLibraryOrganizerAutoCompleteInit() {
 
 	( function( $ ) {
 
-		$( media_library_organizer_autocomplete.fields.join( ', ' ) ).each( function( e ) {
-			if ( $( this ).data( 'autocomplete' ) ) {
-				$( this ).autocomplete( 'destroy' );
-				$( this ).removeData( 'autocomplete' );
-			}
+		$( media_library_organizer_autocomplete.fields.join( ', ' ) ).each(
+			function( e ) {
+				if ( $( this ).data( 'autocomplete' ) ) {
+					$( this ).autocomplete( 'destroy' );
+					$( this ).removeData( 'autocomplete' );
+				}
 
-			// Initialize autocomplete
-			mediaLibraryOrganizerAutoCompleteInitInput( this, media_library_organizer_autocomplete.terms, true );
-		} );
-		
+				// Initialize autocomplete.
+				mediaLibraryOrganizerAutoCompleteInitInput( this, media_library_organizer_autocomplete.terms, true );
+			}
+		);
+
 	} )( jQuery );
 
 }
@@ -32,41 +43,46 @@ function mediaLibraryOrganizerAutoCompleteInitInput( input, values, destroy_if_a
 
 	( function( $ ) {
 
-		// Destroy the autocomplete instance if it's already initialized on this element
+		// Destroy the autocomplete instance if it's already initialized on this element.
 		if ( destroy_if_already_initialized && $( input ).data( 'autocomplete' ) ) {
 			$( input ).autocomplete( 'destroy' );
 			$( input ).removeData( 'autocomplete' );
 		}
 
-		// If the input is already initialized, don't do anything
+		// If the input is already initialized, don't do anything.
 		if ( $( input ).data( 'autocomplete' ) ) {
 			return;
 		}
 
-		// Initialize
+		// Initialize.
 		$( input )
-			.on( 'keydown', function( event ) {
-		        if ( event.keyCode === $.ui.keyCode.TAB && $( this ).autocomplete( 'instance' ).menu.active ) {
-		          	event.preventDefault();
-		        }
-		    } )
-			.autocomplete( {
-	    		minLength: 0,
-				source: function( request, response ) {
-					response( $.ui.autocomplete.filter( values, request.term.split( /[ ,]+/ ).pop() ) );
-				},
-	    		focus: function() {
-	      			return false;
-		        },
-		        select: function( event, ui ) {
-		        	var terms = this.value.split( /[ ,]+/ );
-		         	terms.pop();
-		          	terms.push( ui.item.value );
-		          	terms.push( "" );
-		          	this.value = terms.join( " " );
-		          	return false;
-		        }
-		    } );
+			.on(
+				'keydown',
+				function( event ) {
+					if ( event.keyCode === $.ui.keyCode.TAB && $( this ).autocomplete( 'instance' ).menu.active ) {
+						event.preventDefault();
+					}
+				}
+			)
+			.autocomplete(
+				{
+					minLength: 0,
+					source: function( request, response ) {
+						response( $.ui.autocomplete.filter( values, request.term.split( /[ ,]+/ ).pop() ) );
+					},
+					focus: function() {
+						return false;
+					},
+					select: function( event, ui ) {
+						var terms = this.value.split( /[ ,]+/ );
+						terms.pop();
+						terms.push( ui.item.value );
+						terms.push( "" );
+						this.value = terms.join( " " );
+						return false;
+					}
+				}
+			);
 
 	} )( jQuery );
 
@@ -77,8 +93,10 @@ function mediaLibraryOrganizerAutoCompleteInitInput( input, values, destroy_if_a
  *
  * @since 	1.2.0
  */
-jQuery( document ).ready( function( $ ) {
-	
-	mediaLibraryOrganizerAutoCompleteInit();
+jQuery( document ).ready(
+	function( $ ) {
 
-} );
+		mediaLibraryOrganizerAutoCompleteInit();
+
+	}
+);

@@ -2,9 +2,9 @@
 Contributors: kgblocalize, jonathanpeterwu
 Tags: localize, localize.js, localizejs, translate, translations, localise, localization, localisation, l10n, i18n, language, switcher
 Requires at least: 3.0
-Tested up to: 5.8
-Requires PHP: 5.2.4 
-Stable tag: 1.1.5
+Tested up to: 5.9
+Requires PHP: 7.4
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,9 +32,9 @@ Translate your WordPress site into multiple languages in minutes.
 == Installation ==
 
 = Minimum Requirements =
-* WordPress 3.0 or greater
-* PHP version 5.2.4 or greater
-* MySQL version 5.0 or greater
+* WordPress 5.0
+* PHP version 7.4
+* MySQL version 5.7 or MariaDB version 10.2
 
 = Automatic Installation =
 
@@ -74,6 +74,11 @@ Any updates made to the library itself will be automatically reflected in the pl
 ![Localize Dashboard](https://global.localizecdn.com/uploads/1570719230926.png)
 
 == Changelog ==
+
+= 1.2.0 =
+* Added support for language code in custom post types.
+* Fixed subdirectories not loading correct language.
+* Fixed source language only loading the home page on redirect.
 
 = 1.1.5 =
 * Fixed a bug which didn't allow the addition of new languages (after the plugin was already in use), by removing the cookie that saved the list of languages. Cookies are no longer used for anything. 

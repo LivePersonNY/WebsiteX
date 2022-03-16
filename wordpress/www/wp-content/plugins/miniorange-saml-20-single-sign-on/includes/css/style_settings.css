@@ -870,13 +870,16 @@ td.text-left {
     padding: 23px 22px 10px;
     position: relative;
     overflow: hidden;
-    transition: .3s ease
+    transition: .3s ease;
+    cursor: pointer;
 }
 
 .faq.active {
     background-color: #fff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, .1), 0 3px 6px rgba(0, 0, 0, .1)
 }
+
+
 
 .faq-title {
     margin: 1px 35px 0 0;
@@ -913,7 +916,8 @@ td.text-left {
     right: 20px;
     height: 40px;
     width: 30px;
-    border: none
+    border: none;
+    z-index: 1000;
 }
 
 .faq-toggle .fa-times {

@@ -1,5 +1,4 @@
 {
-
 	"redirects": {
 		"/about/blogs/*": "/",
 		"/about/contact/*": "/company",

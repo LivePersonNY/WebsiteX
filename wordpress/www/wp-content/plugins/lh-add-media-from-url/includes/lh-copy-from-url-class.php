@@ -299,7 +299,7 @@ if (isset($parent_post->ID)){
 
 	// create the thumbnails
 	$attach_data = wp_generate_attachment_metadata( $id,  get_attached_file($id));
-	wp_update_attachment_metadata( $id,  $attach_data );
+	//wp_update_attachment_metadata( $id,  $attach_data );
 
 	//save the original url as post meta
 	add_post_meta($id, '_lh_copy_from_url-original_file', $url, true);

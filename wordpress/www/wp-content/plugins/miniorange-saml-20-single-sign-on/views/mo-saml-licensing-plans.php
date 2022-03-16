@@ -532,7 +532,7 @@ function mo_saml_show_licensing_page()
                         <h3 class="faq-title">What is the licensing model?</h3>
                         <p class="faq-text">The plugin licenses are subscription and the Support Plan includes 12 months of maintenance (support and version updates). You can renew maintenance after 12 months at 50% of the current license cost.
                         </p>
-                        <button class="faq-toggle">
+                        <button class="faq-toggle"  onclick="toggleFAQ(0)" >
                             <i class="fas fa-chevron-down"></i>
                             <i class="fas fa-times"></i>
                         </button>
@@ -545,7 +545,7 @@ function mo_saml_show_licensing_page()
                             refund the whole amount within 10 days of the purchase. Please email us at <a href="mailto:samlsupport@xecurify.com" class="text-primary"><b>samlsupport@xecurify.com</b></a> for any queries regarding the return policy or contact us
                             <a href="https://www.miniorange.com/contact" target="_blank"><b>here</b>.</a>
                         </p>
-                        <button class="faq-toggle">
+                        <button class="faq-toggle" onclick="toggleFAQ(1)" >
                             <i class="fas fa-chevron-down"></i>
                             <i class="fas fa-times"></i>
                         </button>
@@ -559,7 +559,7 @@ function mo_saml_show_licensing_page()
                         <p class="faq-text">Yes, we provide 24*7 support for all and any issues you might face while using the plugin, which includes technical support from our developers. You can get prioritized support based on the Support Plan you have opted. You can check out the
                             different Support Plans from <a href="https://www.miniorange.com/support-plans" target="_blank" class="text-primary"><b><u>here</u></b></a>.
                         </p>
-                        <button class="faq-toggle">
+                        <button class="faq-toggle" onclick="toggleFAQ(2)">
                             <i class="fas fa-chevron-down"></i>
                             <i class="fas fa-times"></i>
                         </button>
@@ -571,7 +571,7 @@ function mo_saml_show_licensing_page()
                         <p class="faq-text">Purchasing All-Inclusive plan will give all the features from Standard, Premium and Enterprise plans along with all the add-ons listed <a href="https://plugins.miniorange.com/wordpress-single-sign-on-sso-integrations" target="_blank"><b>here</b></a>.
                             <br> The cost given for All-Inclusive is for 1 license (site) only. If you have multiple sites then you will need to purchase license for each site, however, we do provide discount from 2nd license onwards.
                         </p>
-                        <button class="faq-toggle">
+                        <button class="faq-toggle"  onclick="toggleFAQ(3)">
                             <i class="fas fa-chevron-down"></i>
                             <i class="fas fa-times"></i>
                         </button>
@@ -583,7 +583,7 @@ function mo_saml_show_licensing_page()
                     <div class="faq">
                         <h3 class="faq-title">Does miniOrange store any user data?</h3>
                         <p class="faq-text">miniOrange does not store or transfer any data which is coming from the Identity Provider to the WordPress. All the data remains within your premises / server.</p>
-                        <button class="faq-toggle">
+                        <button class="faq-toggle"  onclick="toggleFAQ(4)">
                             <i class="fas fa-chevron-down"></i>
                             <i class="fas fa-times"></i>
                         </button>
@@ -594,7 +594,7 @@ function mo_saml_show_licensing_page()
                         <h3 class="faq-title">Does miniorange provide developer license for paid plugin?</h3>
                         <p class="faq-text">We do not provide the developer license for our paid plugins and the source code is protected. It is strictly prohibited to make any changes in the code without having written permission from miniOrange. There are hooks provided in the plugin
                             which can be used by the developers to extend the plugin's functionality.</p>
-                        <button class="faq-toggle">
+                        <button class="faq-toggle"  onclick="toggleFAQ(5)">
                             <i class="fas fa-chevron-down"></i>
                             <i class="fas fa-times"></i>
                         </button>
