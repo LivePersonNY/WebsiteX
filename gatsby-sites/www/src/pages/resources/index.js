@@ -65,7 +65,7 @@ export const itemsQuery = graphql`
 		  }
 		}
 	  }
-	  reports: allWpSuccess {
+	  reports: allWpReport {
 		  nodes {
 			uri
 			slug
