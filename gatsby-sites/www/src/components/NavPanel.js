@@ -57,12 +57,11 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                   <div className="col-lg-7 col-lg">
                     <p className="dropdown-section-title h6">Featured Resource</p>
                     <div className="dropdown-featured-container">
-                      <img src="https://static.liveperson.com/static-assets/2022/02/25170441/nav_feature_By-need_Consumer_Pref_report-1.jpg" alt="" />
+                      <img src="https://static.liveperson.com/static-assets/2022/02/15141613/large-1.jpg" alt="" />
                       <div className="dropdown-featured-body">
-                        <p className="subtitle3">Consumer Survey Report</p>
-                        <p className="featured-body">Conversational AI is brilliant for business
-</p>
-                        <a className="dropdown-link-blue" href="/resources-reports/2021-conversational-commerce" target="_blank" rel="noopener noreferrer">Learn more</a>
+                        <p className="subtitle3">Blog</p>
+                        <p className="featured-body">Building a more Curiously Human™ AI</p>
+                        <a className="dropdown-link-blue" href="/blog/curiously-human-conversational-ai/" target="_blank" rel="noopener noreferrer">Learn more</a>
                       </div>
                     </div>
                   </div>
@@ -71,11 +70,11 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                   <div className="col-lg-7 col-lg">
                     <p className="dropdown-section-title h6">Featured News</p>
                     <div className="dropdown-featured-container">
-                      <img src="https://static.liveperson.com/static-assets/2022/02/14154908/nav_feature_gradient_152x120.jpg" alt="" />
+                      <img src="https://static.liveperson.com/static-assets/2022/03/07162148/In-The-News_Fast_Company-LE_03-07_2x-1.jpg" alt="" />
                       <div className="dropdown-featured-body">
-                        <p className="subtitle3">Curiously Human™ Launch</p>
-                        <p className="featured-body">LivePerson announces new AI capabilities and integrations</p>
-                        <a className="dropdown-link-blue" href="/curiously-human-launch" target="_blank" rel="noopener noreferrer">Learn more</a>
+                        <p className="subtitle3">Fast Company Award</p>
+                        <p className="featured-body">LivePerson named the #1 Most Innovative AI Company in the world</p>
+                        <a className="dropdown-link-blue" href="https://pr.liveperson.com/2022-03-08-Fast-Company-names-LivePerson-the-1-Most-Innovative-AI-Company-in-the-World" target="_blank" rel="noopener noreferrer">Learn more</a>
                       </div>
                     </div>
                   </div>
