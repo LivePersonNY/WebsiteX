@@ -423,6 +423,26 @@ class LP_Resources
 			],
 		]);
 		
+		register_post_type('policy-page', [
+			'labels' => [
+				'name_admin_bar' => 'Policy Page',
+				'name' => 'Policy Pages',
+				'singular_name' => 'Policy Page',
+			],
+			'public' => true,
+			'menu_icon' => 'dashicons-businesswoman',
+			//'publicly_queryable' => null,
+			'capability_type' => 'page',
+			//'map_meta_cap' => true,
+			//'show_in_ui' => false,
+			'show_in_rest' => true,
+			//'rest_base' => 'pages',
+			'hierarchical' => true,
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'policy_page',
+			'graphql_plural_name' => 'policy_pages',
+		]);
+		
 		/*if (!is_user_logged_in() && $_ENV['NO_LOGIN_SCREEN'] === TRUE) {
 			if ($_SERVER['REQUEST_METHOD'] != 'GET') return;
 			wp_redirect('https://liveperson.okta.com/home/wordpress_ssoscim/0oaer2x0ifOaljlZF2p7/aln1ivllsm7a1KmQ61d8?fromHome=true', 302);
