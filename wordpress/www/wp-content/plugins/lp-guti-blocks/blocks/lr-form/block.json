@@ -1,0 +1,41 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/lr-form",
+	"version": "0.1.0",
+	"title": "Marketo Form (Vertical)",
+	"category": "liveperson",
+	"icon": "feedback",
+	"description": "",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"mktoFormId": {
+			"default": 2580
+		},
+		"kicker": {},
+		"backgroundColor": {
+			"default": "bg-transparent"
+		},
+		"title": {
+			"default": "Valuable Text"
+		},
+		"text": {
+			"default": "This image is supposed to be of value."
+		},
+		"thankyou": {
+			"type": "string",
+			"default": "Thank you! One of our experts will contact you shortly. <img style=\"display: inline;width: 30px;top: -3px;position: relative;left: 5px;padding:0;\" src=\"https://d1hryyr5hiabsc.cloudfront.net/web2020/img/intents/thumbs-up_1f44d.png\" />"
+		},
+		"flipped": {
+			"type": "boolean",
+			"default": false
+		},
+		"headLevel": {"default": "h2"}
+	}
+}

@@ -4,9 +4,8 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-import MktoForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/MktoForm';
+import LRForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/LRForm';
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
-
 
 import React, { useEffect } from 'react';
 
@@ -22,14 +21,15 @@ import React, { useEffect } from 'react';
 export default function save({attributes}) {
 
 	return (
-		<div className={`pane pane-blocks ${attributes.backgroundColor||"bg-transparent"} ${attributes.gated ? "gated" : ""}`}>
-			<div className="container">
-				<div className="row align-items-center justify-content-center">
-					<div className="col-lg-10">
-						<InnerBlocks.Content />
-					</div>
-				</div>
-			</div>
-		</div>
+		<LRForm
+			cssClasses={attributes.className}
+			thankyou={attributes.thankyou}
+			header={attributes.header}
+			sticky={attributes.sticky}
+			backgroundColor={attributes.backgroundColor}
+			formId={attributes.mktoFormId}
+			flipColumns={attributes.flipped}
+			headLevel={attributes.headLevel}
+		/>
 	);
 }

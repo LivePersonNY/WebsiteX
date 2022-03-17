@@ -78,7 +78,11 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 			{addButton}
 			<div className={`pane pane-blocks ${attributes.backgroundColor||"bg-transparent"}`}>
 				<div className="container">
-					<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+					<div className="row align-items-center justify-content-center">
+						<div className="col-lg-10">
+							<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
