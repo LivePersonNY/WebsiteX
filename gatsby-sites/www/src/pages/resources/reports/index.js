@@ -26,6 +26,8 @@ export const itemsQuery = graphql`
 		  slug
 		  title
 		  nodeType
+		  date
+		  isSticky
 		  featuredImage {
 			node {
 			  mediaItemUrl

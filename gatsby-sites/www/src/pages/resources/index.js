@@ -29,6 +29,8 @@ export const itemsQuery = graphql`
 		  slug
 		  title
 		  nodeType
+		  date
+		  isSticky
 		  featuredImage {
 			node {
 			  mediaItemUrl
@@ -53,6 +55,8 @@ export const itemsQuery = graphql`
 		  slug
 		  title
 		  nodeType
+		  date
+		  isSticky
 		  featuredImage {
 			node {
 			  mediaItemUrl
@@ -76,6 +80,8 @@ export const itemsQuery = graphql`
 			uri
 			slug
 			title
+			date
+			isSticky
 			nodeType
 			featuredImage {
 			  node {
@@ -100,6 +106,8 @@ export const itemsQuery = graphql`
 			uri
 			slug
 			title
+			date
+			isSticky
 			nodeType
 			featuredImage {
 			  node {
