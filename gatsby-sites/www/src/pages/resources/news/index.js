@@ -18,7 +18,9 @@ export default NewsIndex;
 
 export const itemsQuery = graphql`
   query {
-	  items: allWpNews {
+	  items: allWpNews(
+			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+		)  {
 		nodes {
 		  uri
 		  title

@@ -18,7 +18,9 @@ export default WebinarIndex;
 
 export const itemsQuery = graphql`
   query {
-	  items: allWpWebinar {
+	  items: allWpWebinar(
+			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+		)  {
 		nodes {
 		  uri
 		  title

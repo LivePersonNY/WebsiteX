@@ -18,7 +18,9 @@ export default SuccessIndex;
 
 export const itemsQuery = graphql`
   query {
-	  items: allWpSuccess {
+	  items: allWpSuccess(
+			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+		)  {
 		nodes {
 		  uri
 		  title

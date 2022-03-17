@@ -18,7 +18,9 @@ export default ReportsIndex;
 
 export const itemsQuery = graphql`
   query {
-	  items: allWpReport {
+	  items: allWpReport(
+		  sort: { fields: [isSticky, date], order: [DESC, DESC] }
+	  ) {
 		nodes {
 		  uri
 		  slug
