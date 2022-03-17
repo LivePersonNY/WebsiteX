@@ -21,7 +21,9 @@ export default ResourceIndex;
 
 export const itemsQuery = graphql`
     query {
-      news: allWpNews {
+      news: allWpNews(
+			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+		) {
 		nodes {
 		  uri
 		  slug
@@ -43,7 +45,9 @@ export const itemsQuery = graphql`
 		  }
 		}
 	  }
-	  successStories: allWpSuccess {
+	  successStories: allWpSuccess(
+			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+		) {
 		nodes {
 		  uri
 		  slug
@@ -65,7 +69,9 @@ export const itemsQuery = graphql`
 		  }
 		}
 	  }
-	  reports: allWpReport {
+	  reports: allWpReport(
+			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+		) {
 		  nodes {
 			uri
 			slug
@@ -87,7 +93,9 @@ export const itemsQuery = graphql`
 			}
 		  }
 		}
-	  webinars: allWpWebinar {
+	  webinars: allWpWebinar(
+			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+		) {
 		  nodes {
 			uri
 			slug
