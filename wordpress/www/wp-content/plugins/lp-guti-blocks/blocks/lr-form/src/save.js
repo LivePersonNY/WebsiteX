@@ -24,11 +24,12 @@ export default function save({attributes}) {
 		<LRForm
 			cssClasses={attributes.className}
 			thankyou={attributes.thankyou}
-			header={attributes.header}
-			sticky={attributes.sticky}
 			backgroundColor={attributes.backgroundColor}
 			formId={attributes.mktoFormId}
 			flipColumns={attributes.flipped}
+			kicker={attributes.kicker}
+			body={attributes.text}
+			title={attributes.title}
 			headLevel={attributes.headLevel}
 		/>
 	);

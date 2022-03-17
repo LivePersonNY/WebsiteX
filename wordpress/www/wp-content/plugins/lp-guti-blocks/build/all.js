@@ -35412,11 +35412,12 @@ function save(_ref) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_gatsby_sites_www_src_components_blocks_LRForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
     cssClasses: attributes.className,
     thankyou: attributes.thankyou,
-    header: attributes.header,
-    sticky: attributes.sticky,
     backgroundColor: attributes.backgroundColor,
     formId: attributes.mktoFormId,
     flipColumns: attributes.flipped,
+    kicker: attributes.kicker,
+    body: attributes.text,
+    title: attributes.title,
     headLevel: attributes.headLevel
   });
 }
