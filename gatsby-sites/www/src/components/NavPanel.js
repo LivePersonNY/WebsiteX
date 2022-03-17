@@ -57,7 +57,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                   <div className="col-lg-7 col-lg">
                     <p className="dropdown-section-title h6">Featured Resource</p>
                     <div className="dropdown-featured-container">
-                      <img src="https://static.liveperson.com/static-assets/2022/02/15141613/large-1.jpg" alt="" width="152" />
+                      <img src="https://static.liveperson.com/static-assets/2022/03/17143936/Featured_Resource_CH_Blog_1x.jpg" alt="Curiously Human AI" />
                       <div className="dropdown-featured-body">
                         <p className="subtitle3">Blog</p>
                         <p className="featured-body">Building a more Curiously Human™ AI</p>
@@ -70,7 +70,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                   <div className="col-lg-7 col-lg">
                     <p className="dropdown-section-title h6">Featured News</p>
                     <div className="dropdown-featured-container">
-                      <img src="https://static.liveperson.com/static-assets/2022/03/07162148/In-The-News_Fast_Company-LE_03-07_2x-1.jpg" alt="" width="152" />
+                      <img src="https://static.liveperson.com/static-assets/2022/03/17143938/Featured_Resource_Fast_Company_1x.jpg" alt="Fast Company Award" />
                       <div className="dropdown-featured-body">
                         <p className="subtitle3">Fast Company Award</p>
                         <p className="featured-body">LivePerson named the #1 Most Innovative AI Company in the world</p>
