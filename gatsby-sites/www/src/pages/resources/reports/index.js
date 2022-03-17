@@ -19,7 +19,7 @@ export default ReportsIndex;
 export const itemsQuery = graphql`
   query {
 	  items: allWpReport(
-		  sort: { fields: [isSticky, date], order: [DESC, DESC] }
+		  sort: { fields: [date], order: [DESC] }
 	  ) {
 		nodes {
 		  uri
@@ -27,7 +27,6 @@ export const itemsQuery = graphql`
 		  title
 		  nodeType
 		  date
-		  isSticky
 		  featuredImage {
 			node {
 			  mediaItemUrl

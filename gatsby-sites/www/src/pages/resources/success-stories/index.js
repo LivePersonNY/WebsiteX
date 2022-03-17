@@ -19,7 +19,7 @@ export default SuccessIndex;
 export const itemsQuery = graphql`
   query {
 	  items: allWpSuccess(
-			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+			sort: { fields: [date], order: [DESC] }
 		)  {
 		nodes {
 		  uri
@@ -27,7 +27,6 @@ export const itemsQuery = graphql`
 		  nodeType
 		  slug
 		  date
-		  isSticky
 		  featuredImage {
 			node {
 			  mediaItemUrl

@@ -22,7 +22,7 @@ export default ResourceIndex;
 export const itemsQuery = graphql`
     query {
       news: allWpNews(
-			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+			sort: { fields: [date], order: [DESC] }
 		) {
 		nodes {
 		  uri
@@ -30,7 +30,6 @@ export const itemsQuery = graphql`
 		  title
 		  nodeType
 		  date
-		  isSticky
 		  featuredImage {
 			node {
 			  mediaItemUrl
@@ -48,7 +47,7 @@ export const itemsQuery = graphql`
 		}
 	  }
 	  successStories: allWpSuccess(
-			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+			sort: { fields: [date], order: [DESC] }
 		) {
 		nodes {
 		  uri
@@ -56,7 +55,6 @@ export const itemsQuery = graphql`
 		  title
 		  nodeType
 		  date
-		  isSticky
 		  featuredImage {
 			node {
 			  mediaItemUrl
@@ -74,14 +72,13 @@ export const itemsQuery = graphql`
 		}
 	  }
 	  reports: allWpReport(
-			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+			sort: { fields: [date], order: [DESC] }
 		) {
 		  nodes {
 			uri
 			slug
 			title
 			date
-			isSticky
 			nodeType
 			featuredImage {
 			  node {
@@ -100,14 +97,13 @@ export const itemsQuery = graphql`
 		  }
 		}
 	  webinars: allWpWebinar(
-			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+			sort: { fields: [date], order: [DESC] }
 		) {
 		  nodes {
 			uri
 			slug
 			title
 			date
-			isSticky
 			nodeType
 			featuredImage {
 			  node {

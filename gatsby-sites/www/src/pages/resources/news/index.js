@@ -19,7 +19,7 @@ export default NewsIndex;
 export const itemsQuery = graphql`
   query {
 	  items: allWpNews(
-			sort: { fields: [isSticky, date], order: [DESC, DESC] }
+			sort: { fields: [date], order: [DESC] }
 		)  {
 		nodes {
 		  uri
@@ -27,7 +27,6 @@ export const itemsQuery = graphql`
 		  slug
 		  nodeType
 		  date
-		  isSticky
 		  featuredImage {
 			node {
 			  mediaItemUrl
