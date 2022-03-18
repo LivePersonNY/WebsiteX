@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name: Media Library Organizer
  * Plugin URI: https://wpmedialibrary.com
- * Version: 1.4.1
+ * Version: 1.4.2
  * Author: WP Media Library
  * Author URI: https://wpmedialibrary.com
  * Description: Organize and Search your Media Library, quicker and easier.

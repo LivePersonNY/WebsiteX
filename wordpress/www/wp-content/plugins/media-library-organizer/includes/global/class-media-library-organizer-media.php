@@ -1317,8 +1317,8 @@ class Media_Library_Organizer_Media {
 	 */
 	public function show_attachment_count() {
 
-		// By default, show attachment count for each Term.
-		$show_attachment_count = true;
+		// By default, don't show attachment count for each Term.
+		$show_attachment_count = false;
 
 		// Return if we can't determine the current screen.
 		if ( ! function_exists( 'get_current_screen' ) ) {
@@ -1327,6 +1327,11 @@ class Media_Library_Organizer_Media {
 
 		// Get screen.
 		$screen = get_current_screen();
+
+		// Return if we can't determine the current screen.
+		if ( is_null( $screen ) ) {
+			return $show_attachment_count;
+		}
 
 		// Depending on the WordPress Admin screen, show or hide term counts.
 		switch ( $screen->base ) {

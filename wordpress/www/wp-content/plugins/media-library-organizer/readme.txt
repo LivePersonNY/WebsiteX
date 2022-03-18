@@ -172,6 +172,9 @@ To auto categorize attachments, bulk edit other attributes, manage EXIF, GPS and
 
 == Changelog ==
 
+= 1.4.2 (2022-03-16) =
+* Fix: Category Dropdown Filter: Attachment Count: Improved checks to determine current screen and whether to show counts
+
 = 1.4.1 (2022-03-10) =
 * Fix: Category Dropdown Filter: Don't show Attachment count for Terms when selecting media/files on Pages/Posts, as counts include all file types
 

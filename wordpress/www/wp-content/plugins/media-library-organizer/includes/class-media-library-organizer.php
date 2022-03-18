@@ -63,10 +63,10 @@ class Media_Library_Organizer {
 		$this->plugin->name              = 'media-library-organizer';
 		$this->plugin->displayName       = 'Media Library Organizer';
 		$this->plugin->author_name       = 'Media Library Organizer';
-		$this->plugin->version           = '1.4.1';
-		$this->plugin->buildDate         = '2022-03-10 18:00:00';
+		$this->plugin->version           = '1.4.2';
+		$this->plugin->buildDate         = '2022-03-16 18:00:00';
 		$this->plugin->requires          = '5.0';
-		$this->plugin->tested            = '5.9.1';
+		$this->plugin->tested            = '5.9.2';
 		$this->plugin->folder            = MEDIA_LIBRARY_ORGANIZER_PLUGIN_PATH;
 		$this->plugin->url               = MEDIA_LIBRARY_ORGANIZER_PLUGIN_URL;
 		$this->plugin->documentation_url = 'https://wpmedialibrary.com/documentation';
