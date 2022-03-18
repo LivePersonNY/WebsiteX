@@ -308,11 +308,55 @@
                     .mktoCheckboxList {
                         input {
                             width: auto !important;
-                            margin-top: 5px;
+                            margin-top: 3px;
                         }
 
                         label {
                             display: block;
+                        }
+                    }
+
+                    .mktoRadioList {
+                        >input {
+                            outline: none;
+                            border: 1px solid $neutral24;
+                            appearance: none;
+                            display: block;
+                            padding: 0 !important;
+                            width: 14px !important;
+                            height: 14px;
+                            float: left;
+                            border-radius: 100px;
+                            background: $neutral99;
+
+                            &:checked {
+                                background: $neutral24;
+                            }
+                        }
+                    }
+
+                    .mktoCheckboxList {
+                        >input {
+                            outline: none;
+                            border: 1px solid $neutral24;
+                            appearance: none;
+                            display: block;
+                            padding: 0 !important;
+                            width: 14px !important;
+                            height: 14px;
+                            border-radius: 4px;
+                            float: left;
+                            background: $neutral99;
+
+                            &:checked {
+                                &::after {
+                                    content: "✔";
+                                    display: block;
+                                    font-size: 20px;
+                                    margin-top: -9px;
+                                    color: $neutral24;
+                                }
+                            }
                         }
                     }
 
@@ -366,4 +410,5 @@ body.locked {
         }
     }
 }
+
 /*! purgecss end ignore */
