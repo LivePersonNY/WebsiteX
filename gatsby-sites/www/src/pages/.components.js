@@ -36,6 +36,7 @@ import BoardCards from '../components/blocks/BoardCards';
 import ScrollContent from '../components/blocks/ScrollContent';
 import HeroLottie from '../components/blocks/HeroLottie';
 import QuickLinks from '../components/blocks/QuickLinks';
+import LRForm from '../components/blocks/LRForm';
 
 const IndexPage = () => (
   <Layout>
@@ -1568,6 +1569,12 @@ const IndexPage = () => (
           "body":"Si osculantur puer tuus aut uxorem tuam, osculum, non dico quod omnia quae sunt hominis, et sic non tangetur, si aut ex eis moriatur. Quando ambulabat agendis.",
         },
       ]}
+    />
+
+    <LRForm
+      backgroundColor="bg-blue-20"
+      formId="4313"
+      thankyou="test"
     />
 
   </Layout>
