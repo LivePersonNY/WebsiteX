@@ -110,7 +110,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       titleTemplate={`%s`}
     >
       {socialTags}
-      <meta name="description" content={metaDescription} />
       <link rel="canonical" href={canonical} />
       <meta name="robots" content={robots} />
       <meta name="theme-color" content="#FA772E" />

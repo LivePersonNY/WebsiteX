@@ -40,13 +40,18 @@ const PageTemplate = ({ data: { page } }) => {
 		  property: `twitter:image`,
 		  content: (page.seo.twitterImage ? page.seo.twitterImage.mediaItemUrl : ``) || (page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``) || ``,
 		},
-		{
-		  name: `twitter:title`,
-		  content: page.seo.title || ``,
+		/*{
+		  property: `twitter:title`,
+		  content: page.seo.title || ``
 		},
 		{
-		  name: `twitter:description`,
-		  content: page.seo.twitterDescription || page.seo.metaDesc || ``,
+		  property: `twitter:description`,
+		  content: page.seo.twitterDescription || page.seo.metaDesc || ``
+		},*/
+		{
+		  name: `author`,
+		  property: `og:author`,
+		  content: `LivePerson Team`
 		}
 	];
 	
