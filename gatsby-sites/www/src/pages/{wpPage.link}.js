@@ -36,6 +36,7 @@ const PageTemplate = ({ data: { page } }) => {
 		  content: `website`,
 		},
 		{
+	      name: `image`,
 		  property: `twitter:image`,
 		  content: (page.seo.twitterImage ? page.seo.twitterImage.mediaItemUrl : ``) || (page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``) || ``,
 		},
