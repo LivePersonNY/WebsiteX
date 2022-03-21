@@ -58,6 +58,7 @@ const PageTemplate = ({ data: { page } }) => {
 	if (!page) return "The slug does not exist in the CMS";
   return (<Layout>
 	<Seo title={page.seo.title} description={page.seo.metaDesc} meta={meta} canonical={canonical} robots={robots.join(", ")} />
+	<img style={{ display: 'none' }} src={`${page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``}`} />
 	{Parser(page.content)}
   </Layout>)
 };
