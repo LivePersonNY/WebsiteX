@@ -41,7 +41,7 @@ const PageTemplate = ({ data: { page } }) => {
 		},
 		{
 		  property: `og:type`,
-		  content: page.seo.opengraphType || `website`,
+		  content: `website`,
 		},
 		{
 		  property: `og:url`,
