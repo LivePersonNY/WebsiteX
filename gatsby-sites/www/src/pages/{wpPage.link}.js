@@ -16,36 +16,36 @@ const PageTemplate = ({ data: { page } }) => {
 	
 	let meta = [
 		{
-		  name: `twitter:title`,
-		  content: page.seo.title || ``,
-		},
-		{
-		  name: `twitter:description`,
-		  content: page.seo.twitterDescription || page.seo.metaDesc || ``,
-		},
-		{
 		  property: `og:title`,
 		  content: page.seo.title || ``,
-		},
-		{
-		  property: `og:description`,
-		  content: page.seo.opengraphDescription || page.seo.metaDesc || ``,
 		},
 		{
 		  property: `og:image`,
 		  content: page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``,
 		},
 		{
-		  property: `twitter:image`,
-		  content: (page.seo.twitterImage ? page.seo.twitterImage.mediaItemUrl : ``) || (page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``) || ``,
+		  property: `og:description`,
+		  content: page.seo.opengraphDescription || page.seo.metaDesc || ``,
+		},
+		{
+		  property: `og:url`,
+		  content: page.seo.canonical,
 		},
 		{
 		  property: `og:type`,
 		  content: `website`,
 		},
 		{
-		  property: `og:url`,
-		  content: page.seo.canonical,
+		  property: `twitter:image`,
+		  content: (page.seo.twitterImage ? page.seo.twitterImage.mediaItemUrl : ``) || (page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``) || ``,
+		},
+		{
+		  name: `twitter:title`,
+		  content: page.seo.title || ``,
+		},
+		{
+		  name: `twitter:description`,
+		  content: page.seo.twitterDescription || page.seo.metaDesc || ``,
 		}
 	];
 	
@@ -58,7 +58,6 @@ const PageTemplate = ({ data: { page } }) => {
 	if (!page) return "The slug does not exist in the CMS";
   return (<Layout>
 	<Seo title={page.seo.title} description={page.seo.metaDesc} meta={meta} canonical={canonical} robots={robots.join(", ")} />
-	<img style={{ display: 'none' }} src={`${page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``}`} />
 	{Parser(page.content)}
   </Layout>)
 };
