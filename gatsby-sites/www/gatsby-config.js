@@ -25,6 +25,12 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sitemap`,
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        configFile: 'robots-txt.config.js'
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -51,7 +57,7 @@ module.exports = {
         type: {
           MediaItem: {
             localFile: {
-              excludeByMimeTypes: [`image/png`, `image/jpeg`, `application/json`, `image/svg`, `image/jpg`, `application/zip`]
+              excludeByMimeTypes: [`image/png`, `image/jpeg`, `application/json`, `image/svg`, `image/jpg`, `application/zip`, `image/svg+xml`]
             },
           },
         },
@@ -93,6 +99,8 @@ module.exports = {
             /w-*/,
             /p-*/,
             /m-*/,
+            /ml-*/,
+            /mr-*/,
             /d-*/,
             /nav-*/,
             'solutions',
