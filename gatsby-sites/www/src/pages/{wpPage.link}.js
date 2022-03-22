@@ -32,8 +32,9 @@ const PageTemplate = ({ data: { page } }) => {
 		  content: page.seo.canonical,
 		},
 		{
+	      name: `type`,
 		  property: `og:type`,
-		  content: `website`,
+		  content: page.seo.schema.pageType || `website`,
 		},
 		{
 	      name: `image`,
@@ -101,6 +102,10 @@ export const pageQuery = graphql`
 		  twitterTitle
 		  opengraphImage {
 			mediaItemUrl  
+		  }
+		  schema {
+			  articleType
+			  pageType
 		  }
 		}
 	  }
