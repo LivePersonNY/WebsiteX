@@ -12,6 +12,20 @@ class LP_Image_Compression
 	{
 		add_action( 'wp_update_attachment_metadata', [$this, 'trigger_static_bust'], 120, 2);
 		add_filter( 'big_image_size_threshold', '__return_false' );
+		//add_filter( 'get_attached_file', [$this, 'get_webp'], 10, 2);
+	}
+	
+	public function get_webp($file, $id)
+	{
+		$meta = get_post_meta($id);
+		$post = get_post($id);
+		if ($post->post_mime_type != 'image/webp') {
+			var_dump($meta);
+			
+			die();
+		}
+		
+		return $file;
 	}
 	
 	public function trigger_static_bust($data, $id)
