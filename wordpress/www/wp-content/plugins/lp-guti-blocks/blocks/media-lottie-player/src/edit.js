@@ -5,10 +5,8 @@
  */
 import { __ } from '@wordpress/i18n';
 import $ from 'jquery';
-import { __experimentalAlignmentMatrixControl as AlignmentMatrixControl, __experimentalGrid as ToolbarGroup,Grid,Placeholder, ToolbarButton, TextareaControl, TextControl, Button, ResponsiveWrapper, CheckboxControl } from '@wordpress/components';
-const { MediaUpload, MediaUploadCheck, RichText } = wp.blockEditor;
-const { InspectorControls } = wp.blockEditor;
-const { PanelBody } = wp.components;
+import { __experimentalAlignmentMatrixControl as AlignmentMatrixControl, __experimentalGrid as ToolbarGroup,Grid,Placeholder, ToolbarButton, TextareaControl, TextControl, Button, ResponsiveWrapper, CheckboxControl, ToolbarDropdownMenu, PanelBody } from '@wordpress/components';
+const { MediaUpload, MediaUploadCheck, RichText, InspectorControls, BlockControls, useBlockProps } = wp.blockEditor;
 const { Fragment, useState } = wp.element;
 import MediaPicker from '../../MediaPicker';
 import LottieFilePlayer from '../../LottieFilePlayer';
@@ -21,7 +19,6 @@ import LineBreaks from '../../LineBreaks';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 import { useInstanceId } from '@wordpress/compose';
 
 /**
@@ -40,13 +37,80 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({attributes, setAttributes, isSelected}) {
+export default function Edit({attributes, setAttributes, isSelected, clientId}) {
 
-	const [ alignment, setAlignment ] = useState( 'center center' );
+	if (isSelected) {
+		return (
+			<div {...useBlockProps()}>
+				<div className={`${attributes.widthSetting} ${attributes.alignment}`}>
+					<BlockControls>
+						<ToolbarDropdownMenu
+							icon={attributes.alignment}
+							controls={[
+								{
+									title: "Left",
+									icon: "align-left",
+									onClick: () => setAttributes({
+										alignment: "align-left",
+									}),
+									isActive: attributes.alignment == 'align-left'
+								},
+								{
+									title: "Right",
+									icon: "align-right",
+									onClick: () => setAttributes({
+										alignment: "align-right",
+									}),
+									isActive: attributes.alignment == 'align-right'
+								},
+								{
+									title: "Center",
+									icon: "align-center",
+									onClick: () => setAttributes({
+										alignment: "align-center",
+									}),
+									isActive: attributes.alignment == 'align-center'
+								}
+							]}
+						/>
+						<ToolbarDropdownMenu
+							icon="align-wide"
+							controls={[
+								{
+									title: "50%",
+									onClick: () => setAttributes({
+										widthSetting: "w-50"
+									}),
+									isActive: attributes.widthSetting == 'w-50'
+								},
+								{
+									title: "75%",
+									onClick: () => setAttributes({
+										widthSetting: "w-75"
+									}),
+									isActive: attributes.widthSetting == 'w-75'
+								},
+								{
+									title: "100%",
+									onClick: () => setAttributes({
+										widthSetting: "w-100"
+									}),
+									isActive: attributes.widthSetting == 'w-100'
+								}
+							]}
+						/>
+					</BlockControls>
+					<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} cssClass="mx-auto d-block" clientId={clientId} />
+				</div>
+			</div>
+		);
+	}
 
 	return (
-		<div {...useBlockProps()}>
-			<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} cssClass="mx-auto d-block" />
+		<div {...useBlockProps()} data-align="left">
+			<div className={`${attributes.widthSetting} ${attributes.alignment}`}>
+				<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} cssClass="mx-auto d-block" />
+			</div>
 		</div>
 	);
 

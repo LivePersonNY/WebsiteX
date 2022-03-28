@@ -23,6 +23,6 @@ export default function LottieFilePlayer({lottieFile, autoplay, loop, onClick, c
 		  onClick={onClick}
 		  class={className}
 		/>
-	)
+	);
 
 }

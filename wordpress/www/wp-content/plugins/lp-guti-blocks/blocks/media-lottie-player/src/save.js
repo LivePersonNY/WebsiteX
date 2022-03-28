@@ -27,7 +27,11 @@ import LottieFilePlayer from '../../LottieFilePlayer';
 export default function save({attributes}) {
 
 	return (
-		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
+		<div className="wp-lottie-block">
+			<div className={`${attributes.widthSetting} ${attributes.alignment}`}>
+				<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
+			</div>
+		</div>
 	);
 
 }

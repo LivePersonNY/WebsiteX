@@ -4,7 +4,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-div[class*="wp-block-lp-guti-blocks-"] {
+div[class*="wp-block-lp-guti-blocks-"]:not(.wp-block-lp-guti-blocks-media-lottie-player) {
 	max-width: 100%;
 	margin-top: 2px;
 	margin-bottom: 2px;

@@ -15,7 +15,7 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-div[class*=wp-block-lp-guti-blocks-] {
+div[class*=wp-block-lp-guti-blocks-]:not(.wp-block-lp-guti-blocks-media-lottie-player) {
   max-width: 100%;
   margin-top: 2px;
   margin-bottom: 2px;
@@ -11969,22 +11969,24 @@ a > .block-editor-block-list__layout code {
   padding: 1rem;
   font-style: italic;
 }
-.block-editor-block-list__layout .post-container div.wp-block-image img, .block-editor-block-list__layout .post-container figure.wp-block-image img {
+.block-editor-block-list__layout .post-container div.wp-block-image img, .block-editor-block-list__layout .post-container figure.wp-block-image img, .block-editor-block-list__layout .post-container div.wp-lottie-block img, .block-editor-block-list__layout .post-container div.wp-block-lp-guti-blocks-media-lottie-player img {
   max-width: 100%;
   height: auto;
 }
-.block-editor-block-list__layout .post-container div.wp-block-image .aligncenter, .block-editor-block-list__layout .post-container figure.wp-block-image .aligncenter {
+.block-editor-block-list__layout .post-container div.wp-block-image .aligncenter, .block-editor-block-list__layout .post-container div.wp-block-image .align-center, .block-editor-block-list__layout .post-container figure.wp-block-image .aligncenter, .block-editor-block-list__layout .post-container figure.wp-block-image .align-center, .block-editor-block-list__layout .post-container div.wp-lottie-block .aligncenter, .block-editor-block-list__layout .post-container div.wp-lottie-block .align-center, .block-editor-block-list__layout .post-container div.wp-block-lp-guti-blocks-media-lottie-player .aligncenter, .block-editor-block-list__layout .post-container div.wp-block-lp-guti-blocks-media-lottie-player .align-center {
   display: block;
   margin: 18px auto;
 }
 @media (min-width: 768px) {
-  .block-editor-block-list__layout .post-container div.wp-block-image .alignleft, .block-editor-block-list__layout .post-container figure.wp-block-image .alignleft {
+  .block-editor-block-list__layout .post-container div.wp-block-image .alignleft, .block-editor-block-list__layout .post-container div.wp-block-image .align-left, .block-editor-block-list__layout .post-container figure.wp-block-image .alignleft, .block-editor-block-list__layout .post-container figure.wp-block-image .align-left, .block-editor-block-list__layout .post-container div.wp-lottie-block .alignleft, .block-editor-block-list__layout .post-container div.wp-lottie-block .align-left, .block-editor-block-list__layout .post-container div.wp-block-lp-guti-blocks-media-lottie-player .alignleft, .block-editor-block-list__layout .post-container div.wp-block-lp-guti-blocks-media-lottie-player .align-left {
     display: block;
     float: left;
+    margin-right: 15px;
   }
-  .block-editor-block-list__layout .post-container div.wp-block-image .alignright, .block-editor-block-list__layout .post-container figure.wp-block-image .alignright {
+  .block-editor-block-list__layout .post-container div.wp-block-image .alignright, .block-editor-block-list__layout .post-container div.wp-block-image .align-right, .block-editor-block-list__layout .post-container figure.wp-block-image .alignright, .block-editor-block-list__layout .post-container figure.wp-block-image .align-right, .block-editor-block-list__layout .post-container div.wp-lottie-block .alignright, .block-editor-block-list__layout .post-container div.wp-lottie-block .align-right, .block-editor-block-list__layout .post-container div.wp-block-lp-guti-blocks-media-lottie-player .alignright, .block-editor-block-list__layout .post-container div.wp-block-lp-guti-blocks-media-lottie-player .align-right {
     display: block;
     float: right;
+    margin-left: 15px;
   }
 }
 .block-editor-block-list__layout .post-container figure.wp-block-pullquote {
@@ -12524,6 +12526,23 @@ a > .block-editor-block-list__layout code {
 /*!*******************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/media-lottie-player/src/editor.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************************/
-
+div.wp-block-image img, figure.wp-block-image img, div.wp-lottie-block img, div.wp-block-lp-guti-blocks-media-lottie-player img {
+  max-width: 100%;
+  height: auto;
+}
+div.wp-block-image .aligncenter, div.wp-block-image .align-center, figure.wp-block-image .aligncenter, figure.wp-block-image .align-center, div.wp-lottie-block .aligncenter, div.wp-lottie-block .align-center, div.wp-block-lp-guti-blocks-media-lottie-player .aligncenter, div.wp-block-lp-guti-blocks-media-lottie-player .align-center {
+  display: block;
+  margin: 18px auto;
+}
+div.wp-block-image .alignleft, div.wp-block-image .align-left, figure.wp-block-image .alignleft, figure.wp-block-image .align-left, div.wp-lottie-block .alignleft, div.wp-lottie-block .align-left, div.wp-block-lp-guti-blocks-media-lottie-player .alignleft, div.wp-block-lp-guti-blocks-media-lottie-player .align-left {
+  display: block;
+  float: left;
+  margin-right: 15px;
+}
+div.wp-block-image .alignright, div.wp-block-image .align-right, figure.wp-block-image .alignright, figure.wp-block-image .align-right, div.wp-lottie-block .alignright, div.wp-lottie-block .align-right, div.wp-block-lp-guti-blocks-media-lottie-player .alignright, div.wp-block-lp-guti-blocks-media-lottie-player .align-right {
+  display: block;
+  float: right;
+  margin-left: 15px;
+}
 
 /*# sourceMappingURL=all.css.map*/

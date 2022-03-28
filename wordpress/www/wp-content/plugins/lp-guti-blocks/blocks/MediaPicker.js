@@ -2,7 +2,9 @@ import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck, InnerBlock
 import { Button } from '@wordpress/components';
 import LottieFilePlayer from './LottieFilePlayer';
 
-export default function MediaPicker({setAttributes, attributes, allowLottie, cssClass}) {
+export default function MediaPicker({setAttributes, attributes, allowLottie, cssClass, clientId}) {
+
+	const dateNow = Date.now();
 
 	return (
 		<>
@@ -15,15 +17,18 @@ export default function MediaPicker({setAttributes, attributes, allowLottie, css
 								lottieId: media.id,
 								mediaUrl: null,
 								mediaId: null,
-								mediaAlt: null
+								mediaAlt: null,
+								updated: dateNow
 							});
+							document.querySelector(`#block-${clientId}>dotlottie-player`).load(media.url);
 						} else {
 							setAttributes({
 								mediaUrl: media.url,
 								mediaId: media.id,
 								mediaAlt: media.alt || "",
 								lottieFile: null,
-								lottieId: null
+								lottieId: null,
+								updated: dateNow
 							});
 						}
 					}}
@@ -32,7 +37,7 @@ export default function MediaPicker({setAttributes, attributes, allowLottie, css
 					render={({open}) => (
 						<>
 							{!attributes.lottieFile && <img className={`imageSelector ${cssClass}`} src={attributes.mediaUrl || "https://picsum.photos/752/568?random=1"} onClick={open} />}
-							{attributes.lottieFile && <LottieFilePlayer className={`imageSelector ${cssClass}`} onClick={open} lottieFile={attributes.lottieFile} autoplay={true} loop={true} />}
+							{attributes.lottieFile && <LottieFilePlayer className={`imageSelector ${cssClass} ${attributes.lottieId}`} onClick={open} lottieFile={attributes.lottieFile} autoplay={true} loop={true} />}
 						</>
 					)}
 				/>

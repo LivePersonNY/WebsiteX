@@ -1,0 +1,20 @@
+div.wp-block-image, figure.wp-block-image, div.wp-lottie-block, div.wp-block-lp-guti-blocks-media-lottie-player {
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+	.aligncenter, .align-center {
+		display: block;
+		margin: 18px auto;
+	}
+	.alignleft, .align-left {
+		display: block;
+		float: left;
+		margin-right: 15px;
+	}
+	.alignright, .align-right {
+		display: block;
+		float: right;
+		margin-left: 15px;
+	}
+}

@@ -181,23 +181,25 @@ body.blog {
 		border-radius: 5px;
 	}
 	
-	div.wp-block-image, figure.wp-block-image {
+	div.wp-block-image, figure.wp-block-image, div.wp-lottie-block, div.wp-block-lp-guti-blocks-media-lottie-player {
 		img {
 			max-width: 100%;
 			height: auto;
 		}
-		.aligncenter {
+		.aligncenter, .align-center {
 			display: block;
 			margin: 18px auto;
 		}
 		@include media-breakpoint-up(md) {
-			.alignleft {
+			.alignleft, .align-left {
 				display: block;
 				float: left;
+				margin-right: 15px;
 			}
-			.alignright {
+			.alignright, .align-right {
 				display: block;
 				float: right;
+				margin-left: 15px;
 			}
 		}
 	}

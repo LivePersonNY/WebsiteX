@@ -11943,22 +11943,24 @@ a > .site code {
   padding: 1rem;
   font-style: italic;
 }
-.site .post-container div.wp-block-image img, .site .post-container figure.wp-block-image img {
+.site .post-container div.wp-block-image img, .site .post-container figure.wp-block-image img, .site .post-container div.wp-lottie-block img, .site .post-container div.wp-block-lp-guti-blocks-media-lottie-player img {
   max-width: 100%;
   height: auto;
 }
-.site .post-container div.wp-block-image .aligncenter, .site .post-container figure.wp-block-image .aligncenter {
+.site .post-container div.wp-block-image .aligncenter, .site .post-container div.wp-block-image .align-center, .site .post-container figure.wp-block-image .aligncenter, .site .post-container figure.wp-block-image .align-center, .site .post-container div.wp-lottie-block .aligncenter, .site .post-container div.wp-lottie-block .align-center, .site .post-container div.wp-block-lp-guti-blocks-media-lottie-player .aligncenter, .site .post-container div.wp-block-lp-guti-blocks-media-lottie-player .align-center {
   display: block;
   margin: 18px auto;
 }
 @media (min-width: 768px) {
-  .site .post-container div.wp-block-image .alignleft, .site .post-container figure.wp-block-image .alignleft {
+  .site .post-container div.wp-block-image .alignleft, .site .post-container div.wp-block-image .align-left, .site .post-container figure.wp-block-image .alignleft, .site .post-container figure.wp-block-image .align-left, .site .post-container div.wp-lottie-block .alignleft, .site .post-container div.wp-lottie-block .align-left, .site .post-container div.wp-block-lp-guti-blocks-media-lottie-player .alignleft, .site .post-container div.wp-block-lp-guti-blocks-media-lottie-player .align-left {
     display: block;
     float: left;
+    margin-right: 15px;
   }
-  .site .post-container div.wp-block-image .alignright, .site .post-container figure.wp-block-image .alignright {
+  .site .post-container div.wp-block-image .alignright, .site .post-container div.wp-block-image .align-right, .site .post-container figure.wp-block-image .alignright, .site .post-container figure.wp-block-image .align-right, .site .post-container div.wp-lottie-block .alignright, .site .post-container div.wp-lottie-block .align-right, .site .post-container div.wp-block-lp-guti-blocks-media-lottie-player .alignright, .site .post-container div.wp-block-lp-guti-blocks-media-lottie-player .align-right {
     display: block;
     float: right;
+    margin-left: 15px;
   }
 }
 .site .post-container figure.wp-block-pullquote {
