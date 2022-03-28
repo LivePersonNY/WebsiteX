@@ -17,9 +17,11 @@ const TeamCards = (props) => {
             <p className="card-text body2">{item.title}</p>
           </div>
           <div className="card-footer">
-            <a href={item.btnUrl} className="btn btn2 btn-outline-secondary">
-              {item.btnText}
-            </a>
+            {item.btnUrl && (
+              <a href={item.btnUrl} className="btn btn2 btn-outline-secondary">
+                {item.btnText}
+              </a>
+            )}
           </div>
         </div>
       </div>
