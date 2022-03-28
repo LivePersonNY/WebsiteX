@@ -30322,7 +30322,8 @@ function LottieFilePlayer(_ref) {
     lottieFile,
     autoplay,
     loop,
-    onClick
+    onClick,
+    className
   } = _ref;
   let isLottie = lottieFile.indexOf('.lottie') >= 0;
   return isLottie && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("dotlottie-player", {
@@ -30330,13 +30331,15 @@ function LottieFilePlayer(_ref) {
     loop: loop,
     mode: "normal",
     src: lottieFile,
-    onClick: onClick
+    onClick: onClick,
+    class: className
   }) || (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("lottie-player", {
     autoplay: autoplay,
     loop: loop,
     mode: "normal",
     src: lottieFile,
-    onClick: onClick
+    onClick: onClick,
+    class: className
   });
 }
 
@@ -30368,7 +30371,8 @@ function MediaPicker(_ref) {
   let {
     setAttributes,
     attributes,
-    allowLottie
+    allowLottie,
+    cssClass
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
     onSelect: function (media) {
@@ -30397,10 +30401,11 @@ function MediaPicker(_ref) {
         open
       } = _ref2;
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, !attributes.lottieFile && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-        className: "imageSelector",
+        className: `imageSelector ${cssClass}`,
         src: attributes.mediaUrl || "https://picsum.photos/752/568?random=1",
         onClick: open
       }), attributes.lottieFile && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_LottieFilePlayer__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        className: `imageSelector ${cssClass}`,
         onClick: open,
         lottieFile: attributes.lottieFile,
         autoplay: true,
@@ -30447,8 +30452,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _horizontal_text_src_index__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./horizontal-text/src/index */ "./blocks/horizontal-text/src/index.js");
 /* harmony import */ var _block_pane_src_index__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./block-pane/src/index */ "./blocks/block-pane/src/index.js");
 /* harmony import */ var _lr_form_src_index__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./lr-form/src/index */ "./blocks/lr-form/src/index.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var _media_lottie_player_src_index__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./media-lottie-player/src/index */ "./blocks/media-lottie-player/src/index.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_28__);
 
 
 
@@ -30477,7 +30483,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-jquery__WEBPACK_IMPORTED_MODULE_27___default()(document).ready(function () {
+
+jquery__WEBPACK_IMPORTED_MODULE_28___default()(document).ready(function () {
   window.documentReadyFn();
 });
 /*
@@ -35419,6 +35426,221 @@ function save(_ref) {
     body: attributes.text,
     title: attributes.title,
     headLevel: attributes.headLevel
+  });
+}
+
+/***/ }),
+
+/***/ "./blocks/media-lottie-player/src/edit.js":
+/*!************************************************!*\
+  !*** ./blocks/media-lottie-player/src/edit.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Edit; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _MediaPicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../MediaPicker */ "./blocks/MediaPicker.js");
+/* harmony import */ var _LottieFilePlayer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../LottieFilePlayer */ "./blocks/LottieFilePlayer.js");
+/* harmony import */ var _Anchor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Anchor */ "./blocks/Anchor.js");
+/* harmony import */ var _LineBreaks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../LineBreaks */ "./blocks/LineBreaks.js");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./editor.scss */ "./blocks/media-lottie-player/src/editor.scss");
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+
+
+const {
+  MediaUpload,
+  MediaUploadCheck,
+  RichText
+} = wp.blockEditor;
+const {
+  InspectorControls
+} = wp.blockEditor;
+const {
+  PanelBody
+} = wp.components;
+const {
+  Fragment,
+  useState
+} = wp.element;
+
+
+
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ */
+
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * Those files can contain any CSS code that gets applied to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function Edit(_ref) {
+  let {
+    attributes,
+    setAttributes,
+    isSelected
+  } = _ref;
+  const [alignment, setAlignment] = useState('center center');
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_MediaPicker__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    attributes: attributes,
+    setAttributes: setAttributes,
+    allowLottie: true,
+    cssClass: "mx-auto d-block"
+  }));
+}
+
+/***/ }),
+
+/***/ "./blocks/media-lottie-player/src/index.js":
+/*!*************************************************!*\
+  !*** ./blocks/media-lottie-player/src/index.js ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./blocks/media-lottie-player/src/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./blocks/media-lottie-player/src/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./blocks/media-lottie-player/src/save.js");
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)('lp-guti-blocks/media-lottie-player', {
+  /**
+   * @see ./edit.js
+   */
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+
+  /**
+   * @see ./save.js
+   */
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"],
+  example: {}
+});
+
+/***/ }),
+
+/***/ "./blocks/media-lottie-player/src/save.js":
+/*!************************************************!*\
+  !*** ./blocks/media-lottie-player/src/save.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ save; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _LineBreaks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../LineBreaks */ "./blocks/LineBreaks.js");
+/* harmony import */ var _LottieFilePlayer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../LottieFilePlayer */ "./blocks/LottieFilePlayer.js");
+
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ */
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ */
+
+
+
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
+ *
+ * @return {WPElement} Element to render.
+ */
+
+function save(_ref) {
+  let {
+    attributes
+  } = _ref;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_LottieFilePlayer__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    lottieFile: attributes.lottieFile,
+    autoplay: true,
+    loop: true
   });
 }
 
@@ -44854,6 +45076,32 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************!*\
   !*** ./blocks/lr-form/src/style.scss ***!
   \***************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./blocks/media-lottie-player/src/editor.scss":
+/*!****************************************************!*\
+  !*** ./blocks/media-lottie-player/src/editor.scss ***!
+  \****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./blocks/media-lottie-player/src/style.scss":
+/*!***************************************************!*\
+  !*** ./blocks/media-lottie-player/src/style.scss ***!
+  \***************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

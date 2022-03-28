@@ -10294,6 +10294,10 @@ a > .block-editor-block-list__layout code {
 .block-editor-block-list__layout .comp-left-right .btn.btn-link:hover::after {
   background-position: -140px 3px;
 }
+.block-editor-block-list__layout .comp-left-right .rich-container img {
+  max-width: 100%;
+  height: auto;
+}
 .block-editor-block-list__layout .comp-left-right .rich-container a {
   font-family: "Space Grotesk", Roboto;
   font-weight: 700;
@@ -11735,11 +11739,49 @@ a > .block-editor-block-list__layout code {
 .block-editor-block-list__layout .pane-form.form-vertical .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap .mktoRadioList input,
 .block-editor-block-list__layout .pane-form.form-vertical .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap .mktoCheckboxList input {
   width: auto !important;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 .block-editor-block-list__layout .pane-form.form-vertical .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap .mktoRadioList label,
 .block-editor-block-list__layout .pane-form.form-vertical .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap .mktoCheckboxList label {
   display: block;
+}
+.block-editor-block-list__layout .pane-form.form-vertical .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap .mktoRadioList > input {
+  outline: none;
+  border: 1px solid #363944;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: block;
+  padding: 0 !important;
+  width: 14px !important;
+  height: 14px;
+  float: left;
+  border-radius: 100px;
+  background: #fcfcfc;
+}
+.block-editor-block-list__layout .pane-form.form-vertical .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap .mktoRadioList > input:checked {
+  background: #363944;
+}
+.block-editor-block-list__layout .pane-form.form-vertical .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap .mktoCheckboxList > input {
+  outline: none;
+  border: 1px solid #363944;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: block;
+  padding: 0 !important;
+  width: 14px !important;
+  height: 14px;
+  border-radius: 4px;
+  float: left;
+  background: #fcfcfc;
+}
+.block-editor-block-list__layout .pane-form.form-vertical .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap .mktoCheckboxList > input:checked::after {
+  content: "✔";
+  display: block;
+  font-size: 20px;
+  margin-top: -9px;
+  color: #363944;
 }
 .block-editor-block-list__layout .pane-form.form-vertical .mktoForm .mktoFormRow .mktoFormCol .mktoFieldWrap textarea {
   border-radius: 4px;
@@ -12479,5 +12521,9 @@ a > .block-editor-block-list__layout code {
 .pane-form .embedded-input input {
   -webkit-text-fill-color: black !important;
 }
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/media-lottie-player/src/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+
 
 /*# sourceMappingURL=all.css.map*/

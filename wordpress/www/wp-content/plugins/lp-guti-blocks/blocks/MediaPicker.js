@@ -2,7 +2,7 @@ import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck, InnerBlock
 import { Button } from '@wordpress/components';
 import LottieFilePlayer from './LottieFilePlayer';
 
-export default function MediaPicker({setAttributes, attributes, allowLottie}) {
+export default function MediaPicker({setAttributes, attributes, allowLottie, cssClass}) {
 
 	return (
 		<>
@@ -31,8 +31,8 @@ export default function MediaPicker({setAttributes, attributes, allowLottie}) {
 					allowedTypes={ allowLottie ? ['image', 'application/json', 'application/zip'] : ['image'] }
 					render={({open}) => (
 						<>
-							{!attributes.lottieFile && <img className="imageSelector" src={attributes.mediaUrl || "https://picsum.photos/752/568?random=1"} onClick={open} />}
-							{attributes.lottieFile && <LottieFilePlayer onClick={open} lottieFile={attributes.lottieFile} autoplay={true} loop={true} />}
+							{!attributes.lottieFile && <img className={`imageSelector ${cssClass}`} src={attributes.mediaUrl || "https://picsum.photos/752/568?random=1"} onClick={open} />}
+							{attributes.lottieFile && <LottieFilePlayer className={`imageSelector ${cssClass}`} onClick={open} lottieFile={attributes.lottieFile} autoplay={true} loop={true} />}
 						</>
 					)}
 				/>

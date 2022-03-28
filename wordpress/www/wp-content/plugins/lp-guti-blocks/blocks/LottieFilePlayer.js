@@ -1,7 +1,7 @@
 import '@dotlottie/player-component';
 import * as LottiePlayer from "@lottiefiles/lottie-player";
 
-export default function LottieFilePlayer({lottieFile, autoplay, loop, onClick}) {
+export default function LottieFilePlayer({lottieFile, autoplay, loop, onClick, className}) {
 
 	let isLottie = lottieFile.indexOf('.lottie') >= 0;
 
@@ -12,6 +12,7 @@ export default function LottieFilePlayer({lottieFile, autoplay, loop, onClick}) 
 		  mode="normal"
 		  src={lottieFile}
 		  onClick={onClick}
+		  class={className}
 		/>
 	)) || (
 		<lottie-player
@@ -20,6 +21,7 @@ export default function LottieFilePlayer({lottieFile, autoplay, loop, onClick}) 
 		  mode="normal"
 		  src={lottieFile}
 		  onClick={onClick}
+		  class={className}
 		/>
 	)
 

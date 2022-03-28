@@ -18,9 +18,7 @@ class LP_Resources
 		remove_filter( 'the_excerpt', 'wpautop' );
 		
 		add_action('graphql_register_types', [$this, 'graphql_fields']);
-		
-		add_filter( 'block_categories_all', [$this, 'block_categories'], 10, 2 );
-		
+				
 		add_action('admin_init', [$this, 'admin_init'], 100);
 
 		add_filter('get_custom_logo_image_attributes', [$this, 'logo_class']);
@@ -215,19 +213,7 @@ class LP_Resources
 	}
 
 	
-	function block_categories( $block_categories, $editor_context ) {
-		if ( ! empty( $editor_context->post ) ) {
-			array_push(
-				$block_categories,
-				array(
-					'slug'  => 'liveperson',
-					'title' => __( 'LivePerson Modules', 'liveperson' ),
-					'icon'  => 'welcome-widgets-menus',
-				)
-			);
-		}
-		return $block_categories;
-	}
+	
 	
 	public function graphql_fields()
 	{

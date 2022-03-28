@@ -1,0 +1,57 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/media-lottie-player",
+	"version": "0.1.0",
+	"title": "Lottie Player",
+	"category": "media",
+	"icon": "align-pull-right",
+	"description": "Simple module with text and image side by side.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"kicker": {},
+		"backgroundColor": {
+			"default": "bg-transparent"
+		},
+		"title": {
+			"default": "Valuable Text"
+		},
+		"text": {
+			"default": "This image is supposed to be of value."
+		},
+		"mediaId": {
+			"default": 0,
+			"type": "number"
+		},
+		"mediaUrl": {
+			"default": "https://picsum.photos/752/568?random=1"
+		},
+		"mediaAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"flipped": {
+			"type": "boolean",
+			"default": false
+		},
+		"repeat": {
+			"type": "boolean",
+			"default": false
+		},
+		"headLevel": {"default": "h2"},
+		"linkText": {"default": "Here's button link text"},
+		"linkUrl": {"default": "https://www.liveperson.com"},
+		"linkSecondaryText": {"default": "Here's a link text"},
+		"linkSecondaryUrl": {"default": "https://www.liveperson.com"},
+		"lottieFile": {},
+		"lottieId": {},
+		"vimeoUrl": {},
+		"anchor": {}
+	}
+}

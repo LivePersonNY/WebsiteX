@@ -45,6 +45,7 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/horizontal-text/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/block-pane/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/lr-form/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/media-lottie-player/' );
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
 
@@ -88,3 +89,18 @@ function lp_remove_width_attribute( $html ) {
    $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
    return $html;
 }
+
+function lp_block_categories( $block_categories, $editor_context ) {
+   if ( ! empty( $editor_context->post ) ) {
+	   array_push(
+		   $block_categories,
+		   array(
+			   'slug'  => 'liveperson',
+			   'title' => __( 'LivePerson Page Modules', 'liveperson' ),
+			   'icon'  => 'welcome-widgets-menus',
+		   )
+	   );
+   }
+   return $block_categories;
+}
+add_filter( 'block_categories_all', 'lp_block_categories', 10, 2 );
