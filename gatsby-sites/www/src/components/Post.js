@@ -13,7 +13,7 @@ export default function Post({post, kicker, root}) {
 	const slugRoot = root ? root + "/" : "";
 	
 	return (
-		<div className={`${post.isSticky ? `col-lg-12 featured` : `col-xl-6`} mb-4`}>
+		<div className={`${post.isSticky ? `col-lg-12 featured` : `col-xl-6`} mb-5`}>
 		  <a href={slugRoot + post.slug} className="post-link">
 			<article
 			  className="post-list-item card card-resource h-100"
