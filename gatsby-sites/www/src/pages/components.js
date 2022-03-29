@@ -37,6 +37,7 @@ import ScrollContent from '../components/blocks/ScrollContent';
 import HeroLottie from '../components/blocks/HeroLottie';
 import QuickLinks from '../components/blocks/QuickLinks';
 import LRForm from '../components/blocks/LRForm';
+import FeaturedSlider from '../components/blocks/FeaturedSlider';
 
 const IndexPage = () => (
   <Layout>
@@ -1575,6 +1576,33 @@ const IndexPage = () => (
       backgroundColor="bg-blue-20"
       formId="4313"
       thankyou="test"
+    />
+
+    <FeaturedSlider
+      backgroundColor="bg-neutral-96"
+      items={[
+        {
+          "img":"https://picsum.photos/304/360?random=1",
+          "imgAlt":"Alt text",
+          "body":"Fast Company names LivePerson the #1 most innovative AI company in the world",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/304/360?random=2",
+          "imgAlt":"Alt text",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        },
+        {
+          "img":"https://picsum.photos/304/360?random=3",
+          "imgAlt":"Alt text",
+          "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+          "linkText":"Read Customer Story",
+          "linkUrl":"#"
+        }
+      ]}
     />
 
   </Layout>
