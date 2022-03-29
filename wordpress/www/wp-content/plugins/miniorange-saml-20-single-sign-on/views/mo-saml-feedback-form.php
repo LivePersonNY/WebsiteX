@@ -12,9 +12,9 @@ function mo_saml_display_saml_feedback_form() {
     <body>
 
 
-    <div id="feedback_modal" class="mo_modal" style="width:90%; margin-left:12%; margin-top:5%; text-align:center; margin-left">
+    <div id="feedback_modal" class="mo_modal" style="width:90%; margin-left:12%; margin-top:5%; text-align:center;">
 
-        <div class="mo_modal-content" style="width:50%;">
+        <div class="mo_modal-content" style="width:50%">
             <h3 style="margin: 2%; text-align:center;"><b><?php _e('Your feedback','miniorange-saml-20-single-sign-on');?></b><span class="mo_close" style="cursor: pointer">&times;</span>
             </h3>
 			<hr style="width:75%;">
@@ -27,25 +27,25 @@ function mo_saml_display_saml_feedback_form() {
 					<h4 style="margin: 2%; text-align:center;"><?php _e('Please help us to improve our plugin by giving your opinion.','miniorange-saml-20-single-sign-on');?><br></h4>
 					
 					<div id="smi_rate" style="text-align:center">
-					<input type="radio" name="rate" id="angry" value="1"/>
+					<input type="radio" name="rate" class="mo-saml-fb-radio" id="angry" value="1"/>
 						<label for="angry"><img class="sm" src="<?php echo plugin_dir_url( mo_saml_options_plugin_constants::PLUGIN_FILE ) . 'images/angry.png'; ?>" />
 						</label>
 						
-					<input type="radio" name="rate" id="sad" value="2"/>
+					<input type="radio" name="rate" class="mo-saml-fb-radio" id="sad" value="2"/>
 						<label for="sad"><img class="sm" src="<?php echo plugin_dir_url( mo_saml_options_plugin_constants::PLUGIN_FILE ) . 'images/sad.png'; ?>" />
 						</label>
 					
 					
-					<input type="radio" name="rate" id="neutral" value="3"/>
+					<input type="radio" name="rate" class="mo-saml-fb-radio" id="neutral" value="3"/>
 						<label for="neutral"><img class="sm" src="<?php echo plugin_dir_url( mo_saml_options_plugin_constants::PLUGIN_FILE ) . 'images/normal.png'; ?>" />
 						</label>
 						
-					<input type="radio" name="rate" id="smile" value="4"/>
+					<input type="radio" name="rate" class="mo-saml-fb-radio" id="smile" value="4"/>
 						<label for="smile">
 						<img class="sm" src="<?php echo plugin_dir_url( mo_saml_options_plugin_constants::PLUGIN_FILE ) . 'images/smile.png'; ?>" />
 						</label>
 						
-					<input type="radio" name="rate" id="happy" value="5" checked/>
+					<input type="radio" name="rate" class="mo-saml-fb-radio" id="happy" value="5" checked/>
 						<label for="happy"><img class="sm" src="<?php echo plugin_dir_url( mo_saml_options_plugin_constants::PLUGIN_FILE ) . 'images/happy.png'; ?>" />
 						</label>
 						

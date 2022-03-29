@@ -27,13 +27,20 @@
 
 }
 
-.comp-tabs-img, .imageSelector, .lottie-container, lottie-player {
-	opacity: 1;
-	transition: opacity .3s ease;
-	cursor: pointer;
-	position: relative;
-	&:hover {
-		opacity: .4;
+.is-selected {
+	.lottie-container {
+		border: 2px solid rgba(0,0,0,.5);
+		padding: 3px;
+	}
+	.comp-tabs-img, .imageSelector, lottie-player {
+		opacity: 1;
+		transition: opacity .3s ease;
+		cursor: pointer;
+		position: relative;
 
+		&:hover {
+			opacity: .4;
+
+		}
 	}
 }

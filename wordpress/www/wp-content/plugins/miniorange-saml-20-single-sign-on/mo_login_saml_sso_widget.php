@@ -471,13 +471,13 @@ function mo_saml_show_test_result($firstName, $lastName, $user_email, $groupName
 
 
 	echo '<br/><p style="font-weight:bold;font-size:14pt;margin-left:1%;">Attributes Received:</p>
-				<table style="border-collapse:collapse;border-spacing:0; display:table;width:100%; font-size:14pt;">
-				<tr style="text-align:center;background:#d3e1ff;border:2.5px solid #ffffff"><td style="font-weight:bold;padding:2%;border-top-left-radius: 10px;border:2.5px solid #ffffff">ATTRIBUTE NAME</td><td style="font-weight:bold;padding:2%;border:2.5px solid #ffffff; word-wrap:break-word;border-top-right-radius:10px">ATTRIBUTE VALUE</td></tr>';
+				<table style="border-collapse:collapse;border-spacing:0; display:table;width:100%; font-size:14pt;word-break:break-all;">
+				<tr style="text-align:center;background:#d3e1ff;border:2.5px solid #ffffff";word-break:break-all;><td style="font-weight:bold;padding:2%;border-top-left-radius: 10px;border:2.5px solid #ffffff">ATTRIBUTE NAME</td><td style="font-weight:bold;padding:2%;border:2.5px solid #ffffff; word-wrap:break-word;border-top-right-radius:10px">ATTRIBUTE VALUE</td></tr>';
 
 	if (!empty($attrs)) {
 		foreach ($attrs as $key => $value)
 
-			echo "<tr><td style='border:2.5px solid #ffffff;padding:2%;background:#e9f0ff;text-align:center;'>" . $key . "</td><td style='padding:2%;border:2.5px solid #ffffff;background:#e9f0ff;word-wrap:break-word;'>" . implode("<hr/>", $value) . "</td></tr>";
+			echo "<tr><td style='border:2.5px solid #ffffff;padding:2%;background:#e9f0ff;'>" . $key . "</td><td style='padding:2%;border:2.5px solid #ffffff;background:#e9f0ff;word-wrap:break-word;'>" . implode("<hr/>", $value) . "</td></tr>";
 	} else
 		echo "No Attributes Received.";
 	echo '</table></div>';

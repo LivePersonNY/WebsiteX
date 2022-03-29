@@ -5,7 +5,7 @@ Tags: SAML,WordPress SSO, login, Azure AD, Single sign on
 Requires at least: 3.7
 Tested up to: 5.9
 Requires PHP: 5.4
-Stable tag: 4.9.17
+Stable tag: 4.9.18
 License: MIT/Expat
 License URI: https://docs.miniorange.com/mit-license
 
@@ -255,6 +255,9 @@ Visit Help & FAQ section in the plugin OR email us at <a href="mailto:info@xecur
 
 == Changelog ==
 
+= 4.9.18 =
+* Minor UI fixes
+
 = 4.9.17 =
 * Fixed Login button positioning
 
@@ -325,6 +328,9 @@ Visit Help & FAQ section in the plugin OR email us at <a href="mailto:info@xecur
 For older changelog entries, please see the [additional changelog.txt file](https://plugins.svn.wordpress.org/miniorange-saml-20-single-sign-on/trunk/changelog.txt) provided with the plugin.
 
 == Upgrade Notice ==
+
+= 4.9.18 =
+* Minor UI fixes
 
 = 4.9.17 =
 * Fixed Login button positioning

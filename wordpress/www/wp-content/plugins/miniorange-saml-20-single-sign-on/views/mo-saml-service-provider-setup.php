@@ -144,7 +144,7 @@ function mo_saml_display_sp_configuration($saml_identity_name, $saml_login_url, 
                         <input type="hidden" name="mo_saml_identity_provider_identifier_details" id="mo_saml_identity_provider_identifier_details" value='<?php echo (isset($idp_data)) ? json_encode($idp_data) : ""; ?>' />
                         <div class="row align-items-top mt-5">
                             <div class="col-md-3 pr-0">
-                                <h6 class="text-secondary">Identity Provider Name </span>:</h6>
+                                <h6 class="text-secondary">Identity Provider Name :</h6>
                             </div>
                             <div class="col-md-7">
                                 <input type="text" name="saml_identity_name" placeholder="Identity Provider name like ADFS, SimpleSAML, Salesforce" class="w-100" value="<?php echo $saml_identity_name; ?>" required title="Only alphabets, numbers and underscore is allowed" pattern="\w+">
@@ -152,7 +152,7 @@ function mo_saml_display_sp_configuration($saml_identity_name, $saml_login_url, 
                         </div>
                         <div class="row align-items-top mt-5">
                             <div class="col-md-3">
-                                <h6 class="text-secondary">IdP Entity ID or Issuer </span>:</h6>
+                                <h6 class="text-secondary">IdP Entity ID or Issuer :</h6>
                             </div>
                             <div class="col-md-7">
                                 <input type="text" name="saml_issuer" id="saml_issuer" placeholder="Identity Provider Entity ID or Issuer" class="w-100" value="<?php echo $saml_issuer; ?>" required="">
@@ -161,7 +161,7 @@ function mo_saml_display_sp_configuration($saml_identity_name, $saml_login_url, 
                         </div>
                         <div class="row align-items-top mt-5">
                             <div class="col-md-3">
-                                <h6 class="text-secondary">SAML Login URL </span>:</h6>
+                                <h6 class="text-secondary">SAML Login URL :</h6>
                             </div>
                             <div class="col-md-7">
                                 <input type="url" name="saml_login_url" placeholder="Single Sign On Service URL (HTTP-Redirect binding) of your IdP" class="w-100" value="<?php echo $saml_login_url; ?>" required="">
@@ -173,7 +173,7 @@ function mo_saml_display_sp_configuration($saml_identity_name, $saml_login_url, 
                         ?>
                             <div class="row align-items-top mt-5">
                                 <div class="col-md-3">
-                                    <h6 class="text-secondary">X.509 Certificate </span>:</h6>
+                                    <h6 class="text-secondary">X.509 Certificate :</h6>
                                 </div>
                                 <div class="col-md-7">
                                     <textarea rows="4" cols="5" name="saml_x509_certificate[<?php echo $key; ?>]" id="saml_x509_certificate" onkeyup="removeCertificateErrorClass();" placeholder="Copy and Paste the content from the downloaded certificate or copy the content enclosed in X509Certificate tag (has parent tag KeyDescriptor use=signing) in IdP-Metadata XML file" class="w-100" required=""><?php echo $value; ?></textarea>
@@ -236,7 +236,7 @@ function mo_saml_display_sp_configuration($saml_identity_name, $saml_login_url, 
                         <?php wp_nonce_field("saml_upload_metadata"); ?>
                         <div class="row align-items-center mt-5">
                             <div class="col-md-3 pr-0">
-                                <h6 class="text-secondary">Identity Provider Name </span>:</h6>
+                                <h6 class="text-secondary">Identity Provider Name :</h6>
                             </div>
                             <div class="col-md-7">
                                 <input type="text" name="saml_identity_metadata_provider" placeholder="Identity Provider name like ADFS, SimpleSAML, Salesforce" class="w-100" value="" required="" title="Only alphabets, numbers and underscore is allowed" pattern="\w+">

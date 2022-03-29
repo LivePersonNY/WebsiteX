@@ -12233,13 +12233,17 @@ a > .block-editor-block-list__layout code {
   color: red;
 }
 
-.comp-tabs-img, .imageSelector, .lottie-container, lottie-player {
+.is-selected .lottie-container {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  padding: 3px;
+}
+.is-selected .comp-tabs-img, .is-selected .imageSelector, .is-selected lottie-player {
   opacity: 1;
   transition: opacity 0.3s ease;
   cursor: pointer;
   position: relative;
 }
-.comp-tabs-img:hover, .imageSelector:hover, .lottie-container:hover, lottie-player:hover {
+.is-selected .comp-tabs-img:hover, .is-selected .imageSelector:hover, .is-selected lottie-player:hover {
   opacity: 0.4;
 }
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
@@ -12543,6 +12547,14 @@ div.wp-block-image .alignright, div.wp-block-image .align-right, figure.wp-block
   display: block;
   float: right;
   margin-left: 15px;
+}
+div.wp-block-image .lottie-container, figure.wp-block-image .lottie-container, div.wp-lottie-block .lottie-container, div.wp-block-lp-guti-blocks-media-lottie-player .lottie-container {
+  position: relative;
+  z-index: 10;
+}
+
+div.wp-block-lp-guti-blocks-media-lottie-player::after {
+  display: none;
 }
 
 /*# sourceMappingURL=all.css.map*/

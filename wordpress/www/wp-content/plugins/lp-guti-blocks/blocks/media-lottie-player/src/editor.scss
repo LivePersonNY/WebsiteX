@@ -17,4 +17,15 @@ div.wp-block-image, figure.wp-block-image, div.wp-lottie-block, div.wp-block-lp-
 		float: right;
 		margin-left: 15px;
 	}
+	.lottie-container {
+		position: relative;
+		z-index: 10;
+
+	}
+
+}
+div.wp-block-lp-guti-blocks-media-lottie-player {
+	&::after {
+		display: none;
+	}
 }

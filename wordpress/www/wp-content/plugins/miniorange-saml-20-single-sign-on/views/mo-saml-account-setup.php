@@ -27,7 +27,7 @@ function mo_saml_show_customer_details()
                             <form name="f1" method="post" action="" id="mo_saml_goto_login_form">
                                 <?php wp_nonce_field("change_miniorange"); ?>
                                 <input type="hidden" value="change_miniorange" name="option" />
-                                <input type="submit" value="<?php _e('Change Email Address', 'miniorange-saml-20-single-sign-on'); ?>" class="btn btn-cstm" />
+                                <input type="submit" value="<?php _e('Switch Account', 'miniorange-saml-20-single-sign-on'); ?>" class="btn btn-cstm" />
                             </form>
                         </td>
                         <td>

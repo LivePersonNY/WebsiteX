@@ -54,7 +54,7 @@ function mo_saml_display_attribute_mapping()
             </div>
             <div class="row align-items-top mt-4">
                 <div class="col-md-3">
-                    <h6 class="text-secondary">Email (required) </span>:</h6>
+                    <h6 class="text-secondary">Email (required) :</h6>
                 </div>
                 <div class="col-md-6">
                     <p>NameID</p>
@@ -62,7 +62,7 @@ function mo_saml_display_attribute_mapping()
             </div>
             <div class="row align-items-top mt-4">
                 <div class="col-md-3">
-                    <h6 class="text-secondary">First Name </span>:</h6>
+                    <h6 class="text-secondary">First Name :</h6>
                 </div>
                 <div class="col-md-6">
                     <input type="text" name="saml_am_first_name" placeholder="Enter attribute name for First Name" class="w-100 bg-light cursor-disabled" value="" disabled>
@@ -70,7 +70,7 @@ function mo_saml_display_attribute_mapping()
             </div>
             <div class="row align-items-top mt-4">
                 <div class="col-md-3">
-                    <h6 class="text-secondary">Last Name </span>:</h6>
+                    <h6 class="text-secondary">Last Name :</h6>
                 </div>
                 <div class="col-md-6">
                     <input type="text" name="saml_am_last_name" placeholder="Enter attribute name for Last Name" class="w-100 bg-light cursor-disabled" value="" disabled>
@@ -78,7 +78,7 @@ function mo_saml_display_attribute_mapping()
             </div>
             <div class="row align-items-top mt-4">
                 <div class="col-md-3">
-                    <h6 class="text-secondary">Group/Role </span>:</h6>
+                    <h6 class="text-secondary">Group/Role :</h6>
                 </div>
                 <div class="col-md-6">
                     <input type="text" name="" placeholder="Enter attribute name for Group/Role" class="w-100 bg-light cursor-disabled" value="" disabled>
@@ -156,7 +156,7 @@ function mo_saml_display_role_mapping($default_role, $roles)
                 </div>
                 <div class="row align-items-top mt-4 col-md-12">
                     <div class="col-md-7">
-                        <h6 class="text-secondary">Do not auto create users if roles are not mapped here </span>:</h6>
+                        <h6 class="text-secondary">Do not auto create users if roles are not mapped here :</h6>
                     </div>
                     <div class="col-md-5">
                         <input type="checkbox" id="switch" class="mo-saml-switch cursor-disabled" disabled /><label class="mo-saml-switch-label" for="switch">Toggle</label>
@@ -166,11 +166,10 @@ function mo_saml_display_role_mapping($default_role, $roles)
                 </div>
                 <div class="row align-items-top mt-4 col-md-12">
                     <div class="col-md-7">
-                        <h6 class="text-secondary">Do not assign role to unlisted users </span>:</h6>
+                        <h6 class="text-secondary">Do not assign role to unlisted users :</h6>
                     </div>
                     <div class="col-md-5">
                         <input type="checkbox" id="switch" class="mo-saml-switch cursor-disabled" disabled /><label class="mo-saml-switch-label" for="switch">Toggle</label>
-
                         <p class="mt-2">Enable this option if you do not want to assign any roles to unmapped users.</p>
                     </div>
                 </div>
@@ -185,7 +184,7 @@ function mo_saml_display_role_mapping($default_role, $roles)
                 ?>
                     <div class="row align-items-top mt-4">
                         <div class="col-md-3">
-                            <h6 class="text-secondary"><?php echo $role_name; ?> </span>:</h6>
+                            <h6 class="text-secondary"><?php echo $role_name; ?> :</h6>
                         </div>
                         <div class="col-md-7">
                             <input type="text" name="" placeholder="Semi-colon(;) separated Group/Role value for <?php echo $role_name; ?>" class="w-100 bg-light cursor-disabled" value="" disabled>

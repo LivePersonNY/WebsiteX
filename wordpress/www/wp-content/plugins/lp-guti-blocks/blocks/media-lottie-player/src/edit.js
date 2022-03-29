@@ -42,7 +42,7 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 	if (isSelected) {
 		return (
 			<div {...useBlockProps()}>
-				<div className={`${attributes.widthSetting} ${attributes.alignment}`}>
+				<div className={`lottie-container ${attributes.widthSetting} ${attributes.alignment}`}>
 					<BlockControls>
 						<ToolbarDropdownMenu
 							icon={attributes.alignment}
@@ -107,8 +107,8 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 	}
 
 	return (
-		<div {...useBlockProps()} data-align="left">
-			<div className={`${attributes.widthSetting} ${attributes.alignment}`}>
+		<div {...useBlockProps()}>
+			<div className={`lottie-container ${attributes.widthSetting} ${attributes.alignment}`}>
 				<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} cssClass="mx-auto d-block" />
 			</div>
 		</div>
