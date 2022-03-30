@@ -16,7 +16,7 @@ const TeamCards = (props) => {
             <p className="card-title card1">{item.name}</p>
             <p className="card-text body2">{item.title}</p>
           </div>
-          {item.btnUrl && (
+          {item.btnText && (
             <div className="card-footer">
               <a href={item.btnUrl} className="btn btn2 btn-outline-secondary">
                 {item.btnText}
