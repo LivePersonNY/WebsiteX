@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import Paragraph from '../Paragraph';
 
 const TeamCards = (props) => {
 
@@ -14,7 +15,7 @@ const TeamCards = (props) => {
             /> || item.imgCtl}
           <div className="card-body">
             <p className="card-title card1">{item.name}</p>
-            <p className="card-text body2">{item.title}</p>
+            <Paragraph className="card-text body2" text={item.title} />
           </div>
           {item.btnText && (
             <div className="card-footer">
