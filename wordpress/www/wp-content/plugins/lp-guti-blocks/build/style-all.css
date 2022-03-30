@@ -10698,6 +10698,22 @@ a > .site code {
     right: 112px;
   }
 }
+@media (min-width: 992px) {
+  .site .comp-featured-slider .carousel-control-prev,
+.site .comp-featured-slider .carousel-control-next {
+    top: 45%;
+  }
+}
+@media (min-width: 992px) {
+  .site .comp-featured-slider .carousel-control-prev {
+    left: 45px;
+  }
+}
+@media (min-width: 992px) {
+  .site .comp-featured-slider .carousel-control-next {
+    right: 45px;
+  }
+}
 .site .comp-contained-content .comp-contained-content-container {
   padding-top: 72px;
   padding-bottom: 80px;

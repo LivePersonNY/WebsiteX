@@ -28615,9 +28615,9 @@ const Hero = props => {
     className: "h6 text-uppercase"
   }, props.kicker), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, props.header), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_3__["default"], {
     text: props.subHeader
-  }), (props.imgLogoCtl || props.underBodyImg) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h6", {
+  }), props.logoHeader && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h6", {
     className: "mt-4"
-  }, props.logoHeader), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, props.logoHeader), (props.imgLogoCtl || props.underBodyImg) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "body-image"
   }, !props.imgLogoCtl && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: props.underBodyImg,

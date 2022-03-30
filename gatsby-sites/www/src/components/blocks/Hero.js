@@ -25,9 +25,10 @@ const Hero = (props) => {
           {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
           <h1>{props.header}</h1>
           <Paragraph text={props.subHeader} />
+          {props.logoHeader && <h6 className="mt-4">{props.logoHeader}</h6>}
           {(props.imgLogoCtl || props.underBodyImg) && (
             <>
-              <h6 className="mt-4">{props.logoHeader}</h6>
+              
               <div className="body-image">
                 {!props.imgLogoCtl && <img src={props.underBodyImg} alt={props.underBodyImgAlt} /> || props.imgLogoCtl}
               </div>

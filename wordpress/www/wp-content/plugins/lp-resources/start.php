@@ -36,7 +36,20 @@ class LP_Resources
 		add_action( 'load-edit.php', [$this, 'set_to_stage']);
 		
 		add_filter('gatsby_trigger_dispatch_args', [$this, 'filter_gatsby_hooks'], 10, 2);
+		
+		add_filter( 'register_taxonomy_args', [$this, 'filter_graph_authors'], 10, 2);
 				
+	}
+	
+	function filter_graph_authors($args, $taxonomy)
+	{
+		if ($taxonomy == 'author') {
+			$args['show_in_graphql'] = true;
+			$args['graphql_single_name'] = 'postAuthor';
+			$args['graphql_plural_name'] = 'postAuthors';
+		}
+		
+		return $args;
 	}
 	
 	function the_excerpt($value, $post)

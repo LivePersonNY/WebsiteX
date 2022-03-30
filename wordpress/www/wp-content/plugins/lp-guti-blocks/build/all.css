@@ -10724,6 +10724,22 @@ a > .block-editor-block-list__layout code {
     right: 112px;
   }
 }
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-featured-slider .carousel-control-prev,
+.block-editor-block-list__layout .comp-featured-slider .carousel-control-next {
+    top: 45%;
+  }
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-featured-slider .carousel-control-prev {
+    left: 45px;
+  }
+}
+@media (min-width: 992px) {
+  .block-editor-block-list__layout .comp-featured-slider .carousel-control-next {
+    right: 45px;
+  }
+}
 .block-editor-block-list__layout .comp-contained-content .comp-contained-content-container {
   padding-top: 72px;
   padding-bottom: 80px;
