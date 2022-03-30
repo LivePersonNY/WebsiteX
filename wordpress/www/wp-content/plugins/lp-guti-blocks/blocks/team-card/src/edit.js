@@ -68,13 +68,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 				</>
 			),
 			title: (
-				<TextControl
+				<TextareaControl
 					value={itemValues[index].title}
 					onChange={function(value) {
 						itemValues[index].title = value;
 						setAttributes({ quotes: itemValues});
 					}}
 					className="embedded-input"
+					rows="2"
 				/>
 			),
 			btnUrl: null,
