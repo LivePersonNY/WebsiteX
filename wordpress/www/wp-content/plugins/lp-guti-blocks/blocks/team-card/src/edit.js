@@ -75,7 +75,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						setAttributes({ quotes: itemValues});
 					}}
 					className="embedded-input"
-					rows="2"
+					rows="1"
 				/>
 			),
 			btnUrl: null,

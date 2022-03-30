@@ -7,11 +7,10 @@ export default function Paragraph(props) {
 	var fullText;
 	
 	if (typeof props.text === 'string') {
-		fullText = props.text.split('<br>').map(function(str, index) {
+		
+		fullText = props.text.split('<br>').length > 1 ? props.text.split('<br>').map(function(str, index) {
 			if (str.trim()) return (<p className={props.className} data-tag="br split" key={index}>{Parser(str)}</p>);
-		});
-		
-		
+		}) : null;
 		
 		if (fullText) {
 			
