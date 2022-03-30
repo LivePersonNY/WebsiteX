@@ -30,7 +30,7 @@ const FeaturedSlider = (props) => {
       });
     }
 
-    let quoteBlock = props.items.map((item, index)=>{
+    let contentBlock = props.items.map((item, index)=>{
       return (
         <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
           <div className={`col-lg-${props.small?"4":"12"}`}>
@@ -75,7 +75,7 @@ const FeaturedSlider = (props) => {
                     </>
                   )}
                     <div className="carousel-inner">
-                      {quoteBlock}
+                      {contentBlock}
                       
                     </div>
                   </div>

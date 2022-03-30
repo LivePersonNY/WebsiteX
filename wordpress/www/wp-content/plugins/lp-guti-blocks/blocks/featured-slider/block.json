@@ -1,0 +1,32 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/featured-slider",
+	"version": "0.1.0",
+	"title": "Featured Slider",
+	"category": "liveperson",
+	"icon": "megaphone",
+	"description": "Featured",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"header": {},
+		"small": {"default": false},
+		"features": {
+			"type": "array",
+			"default": [
+				{
+					"body": "It's not easy being green",
+					"linkUrl": "https://www.lipsum.com/",
+					"linkText": "Learn More",
+					"img": "https://www.looper.com/img/gallery/kermit-the-frogs-history-explained/intro-1601411424.jpg"
+				}
+			]
+		}
+	}
+}
