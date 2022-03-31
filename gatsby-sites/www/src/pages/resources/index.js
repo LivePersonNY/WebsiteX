@@ -29,7 +29,7 @@ export const itemsQuery = graphql`
 		  slug
 		  title
 		  nodeType
-		  date
+		  date(formatString: "MMMM DD, YYYY")
 		  featuredImage {
 			node {
 			  mediaItemUrl
@@ -54,7 +54,7 @@ export const itemsQuery = graphql`
 		  slug
 		  title
 		  nodeType
-		  date
+		  date(formatString: "MMMM DD, YYYY")
 		  featuredImage {
 			node {
 			  mediaItemUrl
@@ -78,7 +78,7 @@ export const itemsQuery = graphql`
 			uri
 			slug
 			title
-			date
+			date(formatString: "MMMM DD, YYYY")
 			nodeType
 			featuredImage {
 			  node {
@@ -103,7 +103,7 @@ export const itemsQuery = graphql`
 			uri
 			slug
 			title
-			date
+			date(formatString: "MMMM DD, YYYY")
 			nodeType
 			featuredImage {
 			  node {
