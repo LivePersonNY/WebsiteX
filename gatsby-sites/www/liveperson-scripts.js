@@ -154,5 +154,16 @@ window.documentReadyFn = function() {
 			$(".LPMcontainer .LPMimage").attr("onclick", "ga('send', 'event', 'chat', 'click', 'site-wide button')");
 			$(".LPMcontainer").attr("onclick", "ga('send', 'event', 'form', 'submit', 'Chat engagement clicks')");
 		}, 3000);
+
+		$('.comp-policy-content .rich-container h3').each(function(i){
+			var policyHeader = $(this).html();
+			var policyHeaderSlug = policyHeader.toLowerCase()
+			.trim()
+			.replace(/[^\w\s-]/g, '')
+			.replace(/[\s_-]+/g, '-')
+			.replace(/^-+|-+$/g, '');
+			$('.comp-policy-content .policy-toc').append(`<p><a class="link link-no-arrow" href="#${policyHeaderSlug}">${policyHeader}</a></p>`);
+			$(this).prepend(`<span class="policy-number">${i + 1}</span>`).attr('id',policyHeaderSlug);
+		});
 		
 }

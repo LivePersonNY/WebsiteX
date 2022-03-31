@@ -266,6 +266,12 @@ p {
     &.link-mt-small {
         margin-top: 15px;
     }
+
+    &.link-no-arrow{
+        &::after {
+            background: none;
+        }
+    }
 }
 
 .btn {

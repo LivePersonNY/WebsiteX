@@ -1298,3 +1298,23 @@ main:not(.company-careers) {
         }
     }
 }
+
+.comp-policy-content{
+    .policy-toc{
+        background:$neutral96;
+        border-radius:4px;
+        padding:56px;
+    }
+    .policy-number{
+        font-family: $familySpaceGrotesk;
+        font-weight: $fontBold;
+        font-size: 21px;
+        line-height: 28px;
+        margin-right:8px;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 24px;
+            line-height: 32px;
+        }
+    }
+}
