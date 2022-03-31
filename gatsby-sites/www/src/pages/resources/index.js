@@ -12,7 +12,8 @@ const ResourceIndex = function( props ) {
 	const webinars = props.data.webinars.nodes;
 	
 	let items = successStories.concat(news).concat(reports).concat(webinars);
-	items = items.sort(function(a,b) {
+	
+	items.sort(function(a,b) {
 		if ( Date.parse(a.date) < Date.parse(b) ) {
 			return 1;
 		}
@@ -40,7 +41,7 @@ export const itemsQuery = graphql`
 		  slug
 		  title
 		  nodeType
-		  date(formatString: "MMMM DD, YYYY")
+		  date
 		  featuredImage {
 			node {
 			  mediaItemUrl
@@ -65,7 +66,7 @@ export const itemsQuery = graphql`
 		  slug
 		  title
 		  nodeType
-		  date(formatString: "MMMM DD, YYYY")
+		  date
 		  featuredImage {
 			node {
 			  mediaItemUrl
@@ -89,7 +90,7 @@ export const itemsQuery = graphql`
 			uri
 			slug
 			title
-			date(formatString: "MMMM DD, YYYY")
+			date
 			nodeType
 			featuredImage {
 			  node {
@@ -114,7 +115,7 @@ export const itemsQuery = graphql`
 			uri
 			slug
 			title
-			date(formatString: "MMMM DD, YYYY")
+			date
 			nodeType
 			featuredImage {
 			  node {
