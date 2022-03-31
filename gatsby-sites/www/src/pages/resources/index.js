@@ -12,7 +12,7 @@ const ResourceIndex = function( props ) {
 	const webinars = props.data.webinars.nodes;
 	
 	const items = successStories.concat(news).concat(reports).concat(webinars);
-	items.sort(function(a,b) {
+	items = items.sort(function(a,b) {
 		return Date.parse(a.date) > Date.parse(b);
 	});
 		
