@@ -13,17 +13,13 @@ const ResourceIndex = function( props ) {
 	
 	let items = successStories.concat(news).concat(reports).concat(webinars);
 	
+	
+	
 	items.sort(function(a,b) {
-		if ( Date.parse(a.date) < Date.parse(b) ) {
-			return 1;
-		}
-		
-		if ( Date.parse(a.date) > Date.parse(b) ) {
-			return -1;
-		}
-		
-		return 0;
+		return Date.parse(b.date) - Date.parse(a.date);
 	});
+		
+	console.log(items);
 		
 	return (
 		<Resources active="all" items={items} />

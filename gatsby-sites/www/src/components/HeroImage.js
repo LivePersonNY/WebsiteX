@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 
 const HeroImage = ({url}) => {
 	return (
-		<img class="img-fluid" src={url} />
+		<img className="img-fluid" src={url} />
 	);
 	
 };

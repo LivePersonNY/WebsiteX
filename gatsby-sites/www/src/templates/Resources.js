@@ -42,7 +42,7 @@ const Resources = function( props ) {
 			<ResourcesNav active={props.active || `all`} />
 			<div className="index">
 				<div className="container">
-					<div class="row">
+					<div className="row">
 						{props.items.map(function(item) {
 							return (
 								<Post post={item} kicker={nodeTypes[item.nodeType].kicker} root={"/resources/" + nodeTypes[item.nodeType].slug} />

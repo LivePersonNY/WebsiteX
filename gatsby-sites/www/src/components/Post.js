@@ -21,7 +21,7 @@ export default function Post({post, kicker, root}) {
 			  itemType="http://schema.org/Article"
 			>
 			  <img src={featuredImage.data} alt={featuredImage.alt} />
-			  <div class="card-body">
+			  <div className="card-body">
 				
 				
 				<p className="h6 text-uppercase">{kicker || post.seo.opengraphType}</p>

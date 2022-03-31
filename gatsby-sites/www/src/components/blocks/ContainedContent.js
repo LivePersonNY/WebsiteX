@@ -12,7 +12,7 @@ const ContainedContent = (props) => {
               <div className="row">
                 <div className="col-lg-8 offset-lg-2 text-center">
                   {props.kicker && (
-                    <p class="h6 text-uppercase">{props.kicker}</p>
+                    <p className="h6 text-uppercase">{props.kicker}</p>
                   )}
                   <h2>{props.header}</h2>
                   <p>{props.body}</p>
