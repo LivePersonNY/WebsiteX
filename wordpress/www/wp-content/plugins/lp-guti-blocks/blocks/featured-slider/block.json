@@ -17,6 +17,9 @@
 	"attributes": {
 		"header": {},
 		"small": {"default": false},
+		"backgroundColor": {
+			"default": "bg-transparent"
+		},
 		"features": {
 			"type": "array",
 			"default": [

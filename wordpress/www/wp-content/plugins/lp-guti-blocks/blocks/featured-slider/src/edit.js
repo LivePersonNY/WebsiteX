@@ -21,6 +21,8 @@ import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, B
 
 import AddItemButton from '../../AddItemButton';
 import ItemControls from '../../ItemControls';
+import BackgroundSelectorMenu from '../../BackgroundSelector';
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -143,10 +145,15 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		});
 	}
 
+	let changeBackground = function(color) {
+		setAttributes({ backgroundColor: color });
+	}
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
 				<AddItemButton callback={addTabFunc} />
+				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 			</ToolbarGroup>
 		</BlockControls>
 	);
@@ -155,14 +162,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<FeaturedSlider header={headerControl} items={itemControls} runFilters={true} />
+			<FeaturedSlider header={headerControl} items={itemControls} runFilters={true} backgroundColor={attributes.backgroundColor} />
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<FeaturedSlider header={attributes.header} items={attributes.features} runFilters={true} />
+			<FeaturedSlider header={attributes.header} items={attributes.features} runFilters={true} backgroundColor={attributes.backgroundColor} />
 		</div>
 	)
 
