@@ -44,7 +44,7 @@ const Resources = function( props ) {
 				<div className="container">
 					<div className="row">
 						{props.items.map(function(item) {
-							return (
+							return (item.seo.metaRobotsNoindex == 'index' &&
 								<Post post={item} kicker={nodeTypes[item.nodeType].kicker} root={"/resources/" + nodeTypes[item.nodeType].slug} />
 							);
 						})}
