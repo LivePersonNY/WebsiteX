@@ -1,18 +1,18 @@
 import * as React from 'react';
 import Parser from 'html-react-parser';
 
-import Layout from '../components/Layout';
-import Seo from '../components/Seo';
-import Hero from '../components/blocks/Hero';
-import Bio from '../components/Bio';
-import AddThis from '../components/AddThis';
+import Layout from '../../../components/Layout';
+import Seo from '../../../components/Seo';
+import Hero from '../../../components/blocks/Hero';
+import Bio from '../../../components/Bio';
+import AddThis from '../../../components/AddThis';
 import { Helmet } from 'react-helmet';
-import MktoForm from '../components/blocks/MktoForm';
+import MktoForm from '../../../components/blocks/MktoForm';
 
 
 import { Link, graphql } from 'gatsby';
 
-const BlogPost = ({ data: { previous, next, post } }) => {
+const SuccessStory = ({ data: { post } }) => {
 	
 	const featuredImage = {
 		data: post.featuredImage?.node?.mediaItemUrl || ``,
@@ -22,7 +22,7 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 	let canRoot = process.env.CAN_ROOT;
 	let canonical = post.seo.canonical || post.link;
 	if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
-	  	
+		  
 	let meta = [
 		{
 		  name: `twitter:title`,
@@ -66,7 +66,7 @@ const BlogPost = ({ data: { previous, next, post } }) => {
   return (<Layout>
 	<Helmet
 		bodyAttributes={{
-			class: 'blog blog-post'
+			class: 'resources reports item'
 		}}
 	/>
 	<Seo title={post.title} description={post.seo.metaDesc} meta={meta} canonical={canonical} robots={robots.join(", ")} />
@@ -74,12 +74,9 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 		
 		<div className="row justify-content-md-center">
 			<div className="col-xl-10">
-				<a href="javascript:history.back()" className="return-link link link-mt-large">Blog</a>
 				<div className="post-container">
-					<p className="h6 text-uppercase">{post.seo.opengraphType}</p>
+					<p className="h6 text-uppercase">Success Story</p>
 					<h1>{post.title}</h1>
-					<p className="h3 mb-4">{Parser(post.excerpt)}</p>
-					<Bio id={post.author.node.id} date={post.date} readingTime={post.seo.readingTime} />
 					<img className="my-4 rounded-3 w-100" src={featuredImage.data} alt={featuredImage.alt} />
 					<AddThis url={canonical} type="share" />
 					<hr className="mb-4" />
@@ -97,31 +94,18 @@ const BlogPost = ({ data: { previous, next, post } }) => {
   </Layout>)
 	
 };
-export default BlogPost;
+export default SuccessStory;
 
 export const pageQuery = graphql`
-  query BlogPostById(
+  query SuccessById(
 	$id: String!
-	$previousPostId: String
-	$nextPostId: String
   ) {
-	post: wpPost(id: { eq: $id }) {
+	post: wpSuccess(id: { eq: $id }) {
 	  id
 	  excerpt
 	  content
 	  title
 	  link
-	  author {
-		node {
-		  id
-		  firstName
-		  lastName
-		  url
-		  avatar {
-			url
-		  }
-		}
-	  }
 	  seo {
 		readingTime
 		canonical
@@ -151,21 +135,12 @@ export const pageQuery = graphql`
 			articleType
 		}
 	  }
-	  date(formatString: "MMMM DD, YYYY")
 	  featuredImage {
 		node {
 		  altText
 		  mediaItemUrl
 		}
 	  }
-	}
-	previous: wpPost(id: { eq: $previousPostId }) {
-	  uri
-	  title
-	}
-	next: wpPost(id: { eq: $nextPostId }) {
-	  uri
-	  title
 	}
   }
 `;

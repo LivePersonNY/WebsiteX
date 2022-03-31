@@ -68,10 +68,10 @@ const LRForm = (props) => {
   return (
     <>
       <div id={props.anchor} 
-        className={`pane ${props.backgroundColor||"bg-transparent"} comp-left-right ${props.repeat ? 'comp-left-right-repeat' : ''} ${formId ? 'pane-form form-vertical' : ''}`}
+        className={`pane ${props.backgroundColor||"bg-transparent"} comp-left-right ${props.repeat ? 'comp-left-right-repeat' : ''} ${props.form ? 'pane-form form-vertical' : ''}`}
       >
         <div className="container">
-          <div className="row">
+          <div className="row align-items-center">
             <div
               className={`col-lg-6 ${props.flipColumns ? 'order-lg-last' : ''}`}
             >
@@ -80,7 +80,9 @@ const LRForm = (props) => {
                   (props.imgSrc && <img src={props.imgSrc || `https://picsum.photos/752/568?random=${parseInt(Math.random()*100)}`} alt={props.imgAlt || ""} />)) || props.imgCtl || props.lottiePlayer
               }
               {props.vimeoUrl && vFrame}
-              {formId && 
+
+              {props.form && 
+
                 <>
                   <form id={`mktoForm_${formId}`} mkto={formId}></form>      
                   <mkto-after mkto={formId}>{props.thankyouControl || Parser(props.thankyou)}</mkto-after>
