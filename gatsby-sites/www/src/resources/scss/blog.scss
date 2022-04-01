@@ -1,4 +1,11 @@
 /*! purgecss start ignore */
+
+body.blog, body.resources {
+	.comp-4col-grid {
+		background: transparent;
+	}
+}
+
 body.blog {
 	.return-link {
 		padding-left: 20px;
