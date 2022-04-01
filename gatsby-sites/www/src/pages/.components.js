@@ -38,6 +38,7 @@ import HeroLottie from '../components/blocks/HeroLottie';
 import QuickLinks from '../components/blocks/QuickLinks';
 import LRForm from '../components/blocks/LRForm';
 import FeaturedSlider from '../components/blocks/FeaturedSlider';
+import PolicyContent from '../components/blocks/PolicyContent';
 
 const IndexPage = () => (
   <Layout>
@@ -1603,6 +1604,23 @@ const IndexPage = () => (
           "linkUrl":"#"
         }
       ]}
+    />
+
+    <PolicyContent
+      backgroundColor="bg-primary-light"
+      body="<h3>Terms of use</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+      enim ad minim veniam, quis nostrud exercitation ullamco laboris.<h3>title here 2</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+      enim ad minim veniam, quis nostrud exercitation ullamco laboris.<h3>title here 3</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+      enim ad minim veniam, quis nostrud exercitation ullamco laboris.<h3>title here 4</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+      enim ad minim veniam, quis nostrud exercitation ullamco laboris.<h3>title here 5</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+      enim ad minim veniam, quis nostrud exercitation ullamco laboris.<h3>title here 6</h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+      enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     />
 
   </Layout>
