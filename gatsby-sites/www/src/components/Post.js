@@ -13,23 +13,20 @@ export default function Post({post, kicker, root}) {
 	const slugRoot = root ? root + "/" : "";
 	
 	return (
-		<div className={`${post.isSticky ? `col-lg-12 featured` : `col-xl-6`} mb-4`}>
+		<div className={`${post.isSticky ? `col-lg-12 featured` : `col-xl-6`} mb-5`}>
 		  <a href={slugRoot + post.slug} className="post-link">
 			<article
-			  className="post-list-item shadow-none bg-blue-20 card h-100"
+			  className="post-list-item card card-resource h-100"
 			  itemScope
 			  itemType="http://schema.org/Article"
 			>
 			  <img src={featuredImage.data} alt={featuredImage.alt} />
 			  <div className="card-body">
 				
-				
 				<p className="h6 text-uppercase">{kicker || post.seo.opengraphType}</p>
-				<header>
-				  <p className="h3 mb-2" itemProp="headline">
+				<h3 class="card1" itemProp="headline">
 					{Parse(post.title)}
-				  </p>
-				</header>
+				</h3>
 				{author && (<p className="h5">{author.firstName} {author.lastName} &bull; {post.seo.readingTime} minutes</p>)}
 			  </div>
 			</article>
