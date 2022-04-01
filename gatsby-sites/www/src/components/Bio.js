@@ -34,16 +34,16 @@ const Bio = ({ id, date, readingTime }) => {
       
         return (
           <div className="bio">
-            <div class="row">
-              <div class="col-lg-8">
-                <div class="bio-img">
+            <div className="row">
+              <div className="col-lg-8">
+                <div className="bio-img">
                   <a href={author.seo.social.linkedIn}>
                     <img src={avatarUrl} className="rounded-circle" />
                   </a>
                 </div>
-                <div class="bio-body">
-                  <p class="h5">{author.firstName} {author.lastName}</p>
-                  <p class="h6 date">{date} &bull; {readingTime} minutes</p>
+                <div className="bio-body">
+                  <p className="h5">{author.firstName} {author.lastName}</p>
+                  <p className="h6 date">{date} &bull; {readingTime} minutes</p>
                 </div>
               </div>
             </div>

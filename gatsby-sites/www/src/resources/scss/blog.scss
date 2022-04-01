@@ -1,4 +1,14 @@
 /*! purgecss start ignore */
+
+body.blog, div.post-container {
+	.comp-4col-grid {
+		background: transparent;
+	}
+	.pane {
+		padding: 40px 0;
+	}
+}
+
 body.blog {
 	.return-link {
 		padding-left: 20px;

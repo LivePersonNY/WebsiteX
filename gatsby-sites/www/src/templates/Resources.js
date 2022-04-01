@@ -38,13 +38,13 @@ const Resources = function( props ) {
 			/>
 			<Seo title="" description="" meta={[]} canonical="" robots="index, follow" />
 			
-			<PlainContent alignmentClass="text-center" headLevel="h1" header="Everything you need to know to go Conversational" kicker="Resource Library" />
+			<PlainContent alignmentClass="text-center" headLevel="h1" header="Everything you need to know to go Conversational" kicker="Resource Library" colWidth="6" />
 			<ResourcesNav active={props.active || `all`} />
-			<div className="index">
+			<div className="pane index">
 				<div className="container">
-					<div class="row">
+					<div className="row">
 						{props.items.map(function(item) {
-							return (
+							return (item.seo.metaRobotsNoindex == 'index' &&
 								<Post post={item} kicker={nodeTypes[item.nodeType].kicker} root={"/resources/" + nodeTypes[item.nodeType].slug} />
 							);
 						})}
