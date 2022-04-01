@@ -1,6 +1,5 @@
 {
 	"d1aa0hlmdkis5w.cloudfront.net": [
-		"resources/equalai",
 		"on-demand-video/salesforce-integration-na",
 		"intents/insurance",
 		"intents/retail",
@@ -67,7 +66,6 @@
 		"solutions/b2b-marketing-video",
 		"solutions/insurance-marketing",
 		"solutions/insurance-marketing-video",
-		"resources/covid-19",
 		"services/abc-deployment",
 		"services/cso-terms-and-conditions",
 		"services/sms-gateway-pass-through-rate-card",
