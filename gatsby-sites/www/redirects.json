@@ -2026,6 +2026,7 @@
 		"/resources/releases/hawaiian-airlines/screenshot-hawaiian-airlines.png": "/resources-releases/hawaiian-airlines",
 		"/resources/releases/rbs/thumb.jpg": "/resources-releases/rbs",
 		"/resources-reports/*": "/resources/reports/*",
+		"/digital-report/defi-customer-experience": "/resources/reports/defi-customer-experience",
 		"/resources/report/forrester-tlp": "/resources/reports/forrester-tlp",
 		"/resources/report/qr-codes": "/resources/reports/qr-codes",
 		"/resources-reports/2021-conversational-commerce": "/resources/reports/2021-conversational-commerce",
