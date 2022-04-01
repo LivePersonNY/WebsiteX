@@ -1,8 +1,11 @@
 /*! purgecss start ignore */
 
-body.blog, body.resources {
+body.blog, div.post-container {
 	.comp-4col-grid {
 		background: transparent;
+	}
+	.pane {
+		padding: 40px 0;
 	}
 }
 
