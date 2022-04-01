@@ -606,6 +606,7 @@
 		"/industry-solutions/telco": "/solutions/telco",
 		"/industry-solutions/travel-hospitality": "/solutions/travel",
 		"/industry-solutions/travel-hospitality.": "/solutions/travel",
+		"/solutions/travel-hospitality-surge": "/resources/reports/travel-hospitality-surge",
 		"/industry/financial-solutions": "/solutions/finserv",
 		"/industry/government-non-profit": "/solutions/government",
 		"/industry/higher-education": "/solutions/education",

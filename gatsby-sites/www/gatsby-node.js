@@ -44,7 +44,7 @@ exports.createPages = async (props) => {
     }
   `);
   
-  await fs.rmSync(`./static`, {recursive: true, force: true});
+  //await fs.rmSync(`./static`, {recursive: true, force: true});
   fs.mkdir(`./static`, function(){
     Object.keys(oldPages).forEach(function(domain) {
       oldPages[domain].forEach(async function(item) {
