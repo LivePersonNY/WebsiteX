@@ -44,30 +44,28 @@ exports.createPages = async (props) => {
     }
   `);
   
-  await fs.rmSync(`./static`, {recursive: true, force: true}, function() {
-    fs.mkdir(`./static`, function(){
-      Object.keys(oldPages).forEach(function(domain) {
-        oldPages[domain].forEach(async function(item) {
-          try {
-            const pageData = await fetch(`https://${domain}/${item}`);
-            fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
-              if (err) console.log(err);
-              else {
-                fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
-                  if (e) {
-                    console.log("Error writing file", e);
-                  }
-                });
-              }
-            });
-          } catch (error) {
-            console.log("Error generating static page", error);
-          }
-        });
+  //fs.rmSync(`./static`, {recursive: true, force: true});
+  fs.mkdir(`./static`, function(){
+    Object.keys(oldPages).forEach(function(domain) {
+      oldPages[domain].forEach(async function(item) {
+        try {
+          const pageData = await fetch(`https://${domain}/${item}`);
+          fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
+            if (err) console.log(err);
+            else {
+              fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
+                if (e) {
+                  console.log("Error writing file", e);
+                }
+              });
+            }
+          });
+        } catch (error) {
+          console.log("Error generating static page", error);
+        }
       });
     });
   });
-  
   
   const { redirects } = JSON.parse(JSON.stringify(wpSettings.wp.seo));
   if (redirects) {
