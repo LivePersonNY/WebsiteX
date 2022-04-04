@@ -68,7 +68,7 @@
 		"services/sms-gateway-pass-through-rate-card",
 		"services/st-product-packages",
 		"services/starter-packs-product-packages",
-		"solutions/marketplaces",
+		"solutions/marketplaces"
 	],
 	"policies.liveperson.com": [
 		"policies/services-agreement",
