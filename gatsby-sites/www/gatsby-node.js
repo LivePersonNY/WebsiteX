@@ -44,28 +44,30 @@ exports.createPages = async (props) => {
     }
   `);
   
-  await fs.rmSync(`./static`, {recursive: true, force: true});
-  fs.mkdir(`./static`, function(){
-    Object.keys(oldPages).forEach(function(domain) {
-      oldPages[domain].forEach(async function(item) {
-        try {
-          const pageData = await fetch(`https://${domain}/${item}`);
-          fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
-            if (err) console.log(err);
-            else {
-              fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
-                if (e) {
-                  console.log("Error writing file", e);
-                }
-              });
-            }
-          });
-        } catch (error) {
-          console.log("Error generating static page", error);
-        }
+  await fs.rmSync(`./static`, {recursive: true, force: true}, function() {
+    fs.mkdir(`./static`, function(){
+      Object.keys(oldPages).forEach(function(domain) {
+        oldPages[domain].forEach(async function(item) {
+          try {
+            const pageData = await fetch(`https://${domain}/${item}`);
+            fs.mkdir(`./static/${item}`, { recursive: true }, async function(err) {
+              if (err) console.log(err);
+              else {
+                fs.writeFile(`./static/${item}/index.html`, await pageData.text(), function(e) {
+                  if (e) {
+                    console.log("Error writing file", e);
+                  }
+                });
+              }
+            });
+          } catch (error) {
+            console.log("Error generating static page", error);
+          }
+        });
       });
     });
   });
+  
   
   const { redirects } = JSON.parse(JSON.stringify(wpSettings.wp.seo));
   if (redirects) {
@@ -94,7 +96,6 @@ exports.createPages = async (props) => {
   
   const posts = await getPosts(props);
   const categories = await getCategories(props);
-  
   if (!posts.length) {
     return;
   }
@@ -104,6 +105,45 @@ exports.createPages = async (props) => {
   await createBlogPostArchive({ posts, props });
   
   await createBlogPostCategory({ categories, props });
+  
+  //await createPolicyPages(props);
+}
+
+async function createPolicyPages(props) {
+  const graphqlResult = await props.graphql(/* GraphQL */ `
+    query allWpPolicyPage {
+      nodes {
+        slug
+        content
+        link
+        wpChildren {
+          nodes {
+            id
+          }
+        }
+        wpParent {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `);
+  
+  console.log(graphqlResult.data);
+  const policyPages = graphqlResult.data.allWpPolicyPage.nodes;
+  
+  return Promise.all(
+    policyPages.map(async( page, index) => {
+      await props.actions.createPage({
+        path: page.link,
+        component: path.resolve(`./src/templates/Policy.js`),
+        context: {
+          page
+        }
+      });
+    })
+  );
   
 }
 

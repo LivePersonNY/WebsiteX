@@ -440,6 +440,11 @@ class LP_Resources
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'policy_page',
 			'graphql_plural_name' => 'policy_pages',
+			'supports' => [
+				'title',
+				'editor',
+				'page-attributes',
+			]
 		]);
 		
 		/*if (!is_user_logged_in() && $_ENV['NO_LOGIN_SCREEN'] === TRUE) {

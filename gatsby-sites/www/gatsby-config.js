@@ -55,10 +55,10 @@ module.exports = {
         },
         url: `${process.env.WP_HOST || 'https://edit.liveperson.com'}/graphql`,
         debug: {
-          preview: true,
+          preview: false,
         },
         production: {
-          allow404Images: true
+          allow404Images: false
         },
         type: {
           MediaItem: {
