@@ -98,48 +98,99 @@ exports.createPages = async (props) => {
     return;
   }
   
+  const policies = await getPolicyPages(props);
+  
   //await createIndividualBlogPostPages({ posts, props });
   
   await createBlogPostArchive({ posts, props });
   
   await createBlogPostCategory({ categories, props });
   
-  //await createPolicyPages(props);
+  await createPolicyPages(policies, props);
 }
 
-async function createPolicyPages(props) {
+async function getPolicyPages(props) {
   const graphqlResult = await props.graphql(/* GraphQL */ `
-    query allWpPolicyPage {
-      nodes {
-        slug
-        content
-        link
-        wpChildren {
-          nodes {
-            id
+    query PolicyQuery {
+      pages: allWpPolicyPage {
+        nodes {
+          slug
+          content
+          link
+          id
+          seo {
+            canonical
+            cornerstone
+            focuskw
+            fullHead
+            metaDesc
+            metaKeywords
+            metaRobotsNofollow
+            metaRobotsNoindex
+            opengraphAuthor
+            opengraphDescription
+            opengraphModifiedTime
+            opengraphPublishedTime
+            opengraphPublisher
+            opengraphSiteName
+            opengraphTitle
+            opengraphType
+            opengraphUrl
+            readingTime
+            title
           }
-        }
-        wpParent {
-          node {
-            slug
+          wpChildren {
+            nodes {
+              id
+              slug
+              link
+              ... on WpPolicy_page {
+                content
+                seo {
+                  canonical
+                }
+              }
+            }
+          }
+          wpParent {
+            node {
+              slug
+            }
           }
         }
       }
     }
   `);
+    
+  return graphqlResult.data.pages.nodes;
+}
+
+async function createPolicyPages(policyPages, props) {
   
-  console.log(graphqlResult.data);
-  const policyPages = graphqlResult.data.allWpPolicyPage.nodes;
+  root = `policies/`;
   
   return Promise.all(
     policyPages.map(async( page, index) => {
-      await props.actions.createPage({
-        path: page.link,
-        component: path.resolve(`./src/templates/Policy.js`),
-        context: {
-          page
-        }
-      });
+      if (page.wpParent == null) {
+        await props.actions.createPage({
+          path: root + page.slug + `/`,
+          component: path.resolve(`./src/templates/Policy.js`),
+          context: {
+            page
+          }
+        });
+      }
+      if (page.wpChildren) {
+        page.wpChildren.nodes.map(async( child, index) => {
+          await props.actions.createPage({
+            path: root + page.slug + `/` + child.slug + `/`,
+            component: path.resolve(`./src/templates/Policy.js`),
+            context: {
+              page: child
+            }
+          });
+        })
+      }
     })
   );
   

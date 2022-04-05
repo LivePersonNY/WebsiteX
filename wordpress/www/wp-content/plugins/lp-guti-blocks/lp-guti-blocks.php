@@ -45,6 +45,7 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/exec-card/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/horizontal-text/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/block-pane/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/policy-nav/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/lr-form/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/media-lottie-player/' );
 }

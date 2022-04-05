@@ -24,7 +24,7 @@ const PolicyContent = (props) => {
               </div>
             </div>
             <div className={`col-lg-7 offset-lg-1`}>
-              <Paragraph text={props.body} wrapClass="rich-container" />
+              {props.body}
             </div>
           </div>
         </div>

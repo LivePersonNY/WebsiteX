@@ -68,7 +68,7 @@ const LRForm = (props) => {
   return (
     <>
       <div id={props.anchor} 
-        className={`pane ${props.backgroundColor||"bg-transparent"} comp-left-right ${props.repeat ? 'comp-left-right-repeat' : ''} ${props.form ? 'pane-form form-vertical' : ''}`}
+        className={`pane ${props.backgroundColor||"bg-transparent"} comp-left-right ${props.repeat ? 'comp-left-right-repeat' : ''} ${props.formId ? 'pane-form form-vertical' : ''}`}
       >
         <div className="container">
           <div className="row align-items-center">
@@ -81,7 +81,7 @@ const LRForm = (props) => {
               }
               {props.vimeoUrl && vFrame}
 
-              {props.form && 
+              {props.formId && 
 
                 <>
                   <form id={`mktoForm_${formId}`} mkto={formId}></form>      
