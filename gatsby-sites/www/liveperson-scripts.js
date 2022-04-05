@@ -155,7 +155,7 @@ window.documentReadyFn = function() {
 			$(".LPMcontainer").attr("onclick", "ga('send', 'event', 'form', 'submit', 'Chat engagement clicks')");
 		}, 3000);
 
-		$('.comp-policy-content .rich-container h3').each(function(i){
+		$('.comp-policy-content h3').each(function(i){
 			var policyHeader = $(this).html();
 			var policyHeaderSlug = policyHeader.toLowerCase()
 			.trim()
