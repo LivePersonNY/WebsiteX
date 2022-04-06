@@ -16,7 +16,7 @@ const marketoScriptId = 'mktoForms';
 
 const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   
-  const { wp, wpUser } = useStaticQuery(
+  const { wp } = useStaticQuery(
     graphql`
       query {
         wp {
@@ -27,11 +27,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
           allSettings {
             siteIcon
           }
-        }
-
-        # if there's more than one user this would need to be filtered to the main user
-        wpUser {
-          twitter: name
         }
       }
     `
