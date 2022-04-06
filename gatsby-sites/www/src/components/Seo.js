@@ -68,12 +68,16 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
         window.ga && window.ga('set', 'page', pagePath);
         window.ga && window.ga('send', 'pageview');
-
       }
-
-      if (!lzLoaded) {
+      
+      if (!document.getElementById('localize_js')) {
         loadLocalizeScript();
       } else {
+        setLzLoaded(true);
+      }
+
+      if (lzLoaded) {
+        
         !function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
         
         Localize.initialize({
