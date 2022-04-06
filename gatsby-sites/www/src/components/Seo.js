@@ -38,6 +38,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   
   const [isLoaded, setIsLoaded] = useState(false);
   const [isReady, setIsReady] = useState(false);
+  const [lzLoaded, setLzLoaded] = useState(false);
   
   useEffect(() => {
       
@@ -53,7 +54,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       waitForDocumentReadyFn();
       
       if (!document.getElementById(marketoScriptId)) {
-        loadScript();
+        loadFormScript();
       } else {
         setIsLoaded(true);
       }
@@ -70,11 +71,19 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
 
       }
 
-      
+      if (!lzLoaded) {
+        loadLocalizeScript();
+      } else {
+        !function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
+        
+        Localize.initialize({
+          key: `${process.env.LOCALIZE_KEY}`
+        });
+      }
           
   }, [isLoaded]);
   
-  const loadScript = () => {
+  const loadFormScript = () => {
     var s = document.createElement('script');
     s.id = marketoScriptId;
     s.type = 'text/javascript';
@@ -89,23 +98,26 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
     document.getElementsByTagName('head')[0].appendChild(s);
   };
   
+  const loadLocalizeScript = () => {
+    var s = document.createElement('script');
+    s.id = 'localize_js';
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://global.localizecdn.com/localize.js';
+    s.onreadystatechange = function() {
+      if (this.readyState === 'complete' || this.readyState === 'loaded') {
+        setLzLoaded(true);
+      }
+    };
+    s.onload = () => setLzLoaded(true);
+    document.getElementsByTagName('head')[0].appendChild(s);
+  }
+  
   let socialTags = meta.map(function(item) {
     return (
       <meta name={item.name || item.property.substring(3)} property={item.property} content={item.content} />
     );
   });
-  
-  const localizeScript = `
-    <script>!function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);</script>
-  `;
-  
-  const localizeInit = `
-    <script>
-      Localize.initialize({
-        key: '7HwQBs2odam3d'
-      });
-    </script>
-  `;
   
   return (
     <Helmet
@@ -131,13 +143,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       
       <script src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
       <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
-      
-      <script src="https://global.localizecdn.com/localize.js"></script>
-      
-      {localizeScript}
-      {localizeInit}
-      
-      
+            
     </Helmet>
   );
 };

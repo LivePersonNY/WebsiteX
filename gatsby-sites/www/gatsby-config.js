@@ -127,7 +127,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        allowList: ["CAN_ROOT", "NODE_ENV", "BRANCH", "GATSBY_IS_PREVIEW"]
+        allowList: ["CAN_ROOT", "NODE_ENV", "BRANCH", "GATSBY_IS_PREVIEW", "LOCALIZE_KEY"]
       },
     },
     {
