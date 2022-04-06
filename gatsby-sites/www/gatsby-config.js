@@ -74,10 +74,9 @@ module.exports = {
       resolve: 'gatsby-source-wordpress-menus',
       options: {
         wordpressUrl: process.env.WP_HOST || 'https://edit.liveperson.com',
-        languages: ['en'],
         enableWpml: false,
-        allowCache: false,
-        maxCacheDurationSeconds: 120,
+        allowCache: true,
+        maxCacheDurationSeconds: 60 * 60 * 24,
       },
     },
     `gatsby-transformer-sharp`,
