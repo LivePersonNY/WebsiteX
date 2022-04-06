@@ -100,6 +100,18 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
     );
   });
   
+  const localizeScript = `
+    <script>!function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);</script>
+  `;
+  
+  const localizeInit = `
+    <script>
+      Localize.initialize({
+        key: '7HwQBs2odam3d'
+      });
+    </script>
+  `;
+  
   return (
     <Helmet
       defer={false}
@@ -126,13 +138,10 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
       
       <script src="https://global.localizecdn.com/localize.js"></script>
-      <script>!function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);</script>
       
-      <script>
-        Localize.initialize({
-          key: '7HwQBs2odam3d'
-        });
-      </script>
+      {localizeScript}
+      {localizeInit}
+      
       
     </Helmet>
   );
