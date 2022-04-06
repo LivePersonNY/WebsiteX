@@ -61,6 +61,9 @@ module.exports = {
           allow404Images: false
         },
         type: {
+          UserRole: {
+            exclude: true
+          },
           MediaItem: {
             localFile: {
               excludeByMimeTypes: [`image/png`, `image/jpeg`, `application/json`, `image/svg`, `image/jpg`, `application/zip`, `image/svg+xml`, `image/gif`],
