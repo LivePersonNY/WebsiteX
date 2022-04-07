@@ -162,8 +162,9 @@ window.documentReadyFn = function() {
 			.replace(/[^\w\s-]/g, '')
 			.replace(/[\s_-]+/g, '-')
 			.replace(/^-+|-+$/g, '');
-			$('.comp-policy-content .policy-toc').append(`<p><a class="link link-no-arrow" href="#${policyHeaderSlug}">${policyHeader}</a></p>`);
-			$(this).prepend(`<span class="policy-number">${i + 1}</span>`).attr('id',policyHeaderSlug);
+			var policyNumber = `${i + 1}. `;
+			$('.comp-policy-content .policy-toc').append(`<p><a class="link link-no-arrow" href="#${policyHeaderSlug}">${policyNumber}${policyHeader}</a></p>`);
+			$(this).prepend(policyNumber).attr('id',policyHeaderSlug);
 		});
 		
 }
