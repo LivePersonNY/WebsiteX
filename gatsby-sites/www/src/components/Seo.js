@@ -84,6 +84,8 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
           key: `${process.env.LOCALIZE_KEY}`,
           saveNewPhrasesFromSource: true
         });
+        
+        console.log('Initialize localize.');
       }
           
   }, [isLoaded]);
