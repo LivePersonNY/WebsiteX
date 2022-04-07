@@ -73,7 +73,7 @@ export default PageTemplate;
 
 export const pageQuery = graphql`
   query($id: String!) {
-	  page: wpPage(id: {eq: $id}) {
+	  page: wpCampaignPage(id: {eq: $id}) {
 		id
 		content
 		title
