@@ -551,7 +551,7 @@ class LP_Resources
 	
 	public function gatsby_trigger($new_status, $old_status)
 	{
-		if ( $old_status == $new_status ) return;
+		if ( $old_status == $new_status || $old_status != 'publish' && $new_status != 'publish' ) return;
 		
 		$urls = [
 			'https://webhook.gatsbyjs.com/hooks/builds/trigger/b0f54087-1595-4113-96cd-a0dc60c0d196',
