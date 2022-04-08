@@ -82,7 +82,8 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         
         Localize.initialize({
           key: `${process.env.LOCALIZE_KEY}`,
-          saveNewPhrasesFromSource: true
+          saveNewPhrasesFromSource: true,
+          blockedClasses: ['lp-window-root'],
         });
         
         console.log('Initialize localize.');
