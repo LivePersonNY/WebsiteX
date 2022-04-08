@@ -27,8 +27,10 @@ class LP_Resources
 		
 		add_filter('get_avatar_url', [$this, 'filter_avatar'], 10, 2);
 				
-		add_action('admin_bar_menu', [$this, 'add_item'], 100);
-		add_action( 'admin_footer', [$this, 'cache_purge_action_js'] );
+		//add_action('admin_bar_menu', [$this, 'add_item'], 100);
+		//add_action( 'admin_footer', [$this, 'cache_purge_action_js'] );
+		
+		add_action( 'transition_post_status', [$this, 'gatsby_trigger'], 10, 2 );
 		
 		add_filter( 'page_row_actions', [$this, 'add_stage_action' ], 100, 2 );
 		add_filter( 'post_row_actions', [$this, 'add_stage_action' ], 10, 2 );
@@ -546,6 +548,23 @@ class LP_Resources
 		  });
 	  </script> <?php
 	}
+	
+	public function gatsby_trigger($new_status, $old_status)
+	{
+		$urls = [
+			'https://webhook.gatsbyjs.com/hooks/builds/trigger/b0f54087-1595-4113-96cd-a0dc60c0d196',
+			'https://webhook.gatsbyjs.com/hooks/builds/trigger/eff63a12-f9b6-4b1d-a131-e8e16ef6ed51',
+		];
+		
+		foreach($urls as $url) {
+			wp_remote_post($url, [
+				'headers' => [
+					'x-gatsby-cache' => false
+				]
+			]);
+		}
+	}
+	
 }
 new LP_Resources;
 
