@@ -71,7 +71,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       }
       
       if (!document.getElementById('localize_js')) {
-        loadLocalizeScript();
+        //loadLocalizeScript();
       } else {
         setLzLoaded(true);
       }
