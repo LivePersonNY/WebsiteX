@@ -4,7 +4,7 @@
 const { __ } = wp.i18n;
 const { Fragment } = wp.element;
 const { toggleFormat } = wp.richText;
-const { RichTextToolbarButton, RichTextShortcut } = wp.editor;
+import { RichTextToolbarButton, RichTextShortcut } from '@wordpress/block-editor';
 const { registerFormatType } = wp.richText;
 
 /**
