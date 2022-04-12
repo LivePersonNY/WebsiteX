@@ -71,7 +71,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       }
       
       if (!document.getElementById('localize_js')) {
-        //loadLocalizeScript();
+        loadLocalizeScript();
       } else {
         setLzLoaded(true);
       }
@@ -83,7 +83,9 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         Localize.initialize({
           key: `${process.env.LOCALIZE_KEY}`,
           saveNewPhrasesFromSource: true,
-          blockedClasses: ['lp-window-root'],
+          blockedClasses: [
+            'lp-window-root'
+          ],
         });
         
         console.log('Initialize localize.');
