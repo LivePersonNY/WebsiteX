@@ -21,7 +21,7 @@ const PageTemplate = ({ pageContext: {page}}) => {
 	
 	if (!page) return "The slug does not exist in the CMS";
   return (<Layout>
-	<Seo title={page.seo.title} description={page.seo.metaDesc} canonical={canonical} robots="noindex,nofollow" />
+	<Seo title={page.seo.title} description={page.seo.metaDesc} canonical={canonical} robots={robots.join(", ")} />
 	{Parser(page.content)}
   </Layout>)
 };
