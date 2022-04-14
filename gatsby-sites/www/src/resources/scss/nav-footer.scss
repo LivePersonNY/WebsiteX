@@ -19,6 +19,10 @@
 
         .navbar-toggler {
             margin-right: 20px;
+            border:0;
+            .navbar-toggler-icon{
+                background-image:url(https://static.liveperson.com/static-assets/2022/04/14143526/mobile-menu.svg);
+            }
         }
 
         .navbar-collapse {
@@ -34,7 +38,7 @@
 
                     .nav-item:last-child {
                         margin-right: 0;
-                        background-color: pink;
+                        background-color:$neutral96;
                         padding: 16px 20px;
 
                         @include media-breakpoint-up(lg) {
