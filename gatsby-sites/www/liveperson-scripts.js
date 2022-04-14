@@ -72,11 +72,11 @@ window.documentReadyFn = function() {
 		$('body').off('click', '.comp-tabs-a h4.accordion-header button').on('click', '.comp-tabs-a h4.accordion-header button', function(e) {
 			e.preventDefault();
 			const anchor = $(this).parents('.comp-tabs-a').attr('id');
-			$('#' + anchor + '.comp-tabs-a .accordion-item').removeClass('accordion-item-active');
+			$('#' + anchor + ' .comp-tabs-a .accordion-item').removeClass('accordion-item-active');
 			$(this).parents('.accordion-item').addClass('accordion-item-active');
 			let tabIndex = $(this).data('tab');
-			$('#' + anchor + `.comp-tabs-a .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
-			$('#' + anchor + `.comp-tabs-a .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
+			$('#' + anchor + ` .comp-tabs-a .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
+			$('#' + anchor + ` .comp-tabs-a .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
 		});
 		
 		$('body').off('click', '.comp-tabs-b h4.comp-tab').on('click', '.comp-tabs-b h4.comp-tab', function(e) {
