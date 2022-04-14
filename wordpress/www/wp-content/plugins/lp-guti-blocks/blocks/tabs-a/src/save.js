@@ -25,6 +25,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-		<TabsA body={attributes.body} header={attributes.header} items={attributes.tabItems} backgroundColor={attributes.backgroundColor}/>
+		<TabsA anchor={attributes.anchor} body={attributes.body} header={attributes.header} items={attributes.tabItems} backgroundColor={attributes.backgroundColor}/>
 	);
 }

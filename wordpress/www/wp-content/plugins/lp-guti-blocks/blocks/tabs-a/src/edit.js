@@ -157,13 +157,13 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			<Anchor value={attributes.anchor} callback={function(val) {
 				setAttributes({ anchor: val });
 			}} />
-			<TabsA body={bodyControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>
+			<TabsA anchor={attributes.anchor} body={bodyControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
-			<TabsA body={attributes.body} header={attributes.header} items={attributes.tabItems} backgroundColor={attributes.backgroundColor}/>
+			<TabsA anchor={attributes.anchor} body={attributes.body} header={attributes.header} items={attributes.tabItems} backgroundColor={attributes.backgroundColor}/>
 		</div>
 	)
 
