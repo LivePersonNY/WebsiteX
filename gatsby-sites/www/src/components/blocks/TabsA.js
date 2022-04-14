@@ -19,12 +19,12 @@ const TabsA = (props) => {
     let tabContent = props.items.map((item, index)=>{
       return (
           <div className={`accordion-item ${index === 0 ? 'accordion-item-active' : ''}`} key={index}>
-            <h4 className="accordion-header" id={`flush-heading${index}`}>
-              <button className="collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse${index}`} aria-expanded="false" aria-controls={`flush-collapse${index}`} data-tab={index}>
+            <h4 className="accordion-header" id={`${props.anchor}_flush-heading${index}`}>
+              <button className="collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#${props.anchor}_flush-collapse${index}`} aria-expanded="false" aria-controls={`${props.anchor}_flush-collapse${index}`} data-tab={index}>
                 {item.title}
               </button>
             </h4>
-            <div id={`flush-collapse${index}`} className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} aria-labelledby={`flush-heading${index}`} data-bs-parent={`#${props.anchor}_accordion_tabs`}>
+            <div id={`${props.anchor}_flush-collapse${index}`} className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} aria-labelledby={`${props.anchor}_flush-heading${index}`} data-bs-parent={`#${props.anchor}_accordion_tabs`}>
               <div className="subtitle1">{item.body}</div>
             </div>
           </div>
