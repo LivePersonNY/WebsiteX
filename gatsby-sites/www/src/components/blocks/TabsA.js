@@ -6,6 +6,8 @@ import Paragraph from '../Paragraph';
 
 
 const TabsA = (props) => {
+  
+    const accordionId = props.accordionId || `tabsAAccordion`;
 
     let tabImgOutput = props.items.map((item ,index)=>{
       if (item.imgCtl) {
@@ -22,7 +24,7 @@ const TabsA = (props) => {
                 {item.title}
               </button>
             </h4>
-            <div id={`flush-collapse${index}`} className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} aria-labelledby={`flush-heading${index}`} data-bs-parent="#tabsAAccordion">
+            <div id={`flush-collapse${index}`} className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} aria-labelledby={`flush-heading${index}`} data-bs-parent={`#${props.anchor}_accordion_tabs`}>
               <div className="subtitle1">{item.body}</div>
             </div>
           </div>
@@ -43,7 +45,7 @@ const TabsA = (props) => {
         <div className="row align-items-center">
           <div className="col-lg-4">
             <div className="comp-content-container">
-              <div className="accordion accordion-flush" id="tabsAAccordion">
+              <div className="accordion accordion-flush" id={`${props.anchor}_accordion_tabs`}>
                 {tabContent}
               </div>
             </div>
