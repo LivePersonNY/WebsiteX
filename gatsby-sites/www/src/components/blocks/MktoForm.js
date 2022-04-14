@@ -54,8 +54,8 @@ const MktoForm = (props) => {
     
     useEffect(() => {
       if (isLoaded) {
-        if ($('#mktoForm_' + formId).children().length == 0 && MktoForms2) {
-          MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId, function(form) {
+        if ($('#mktoForm_' + formId).children().length == 0 && window.MktoForms2) {
+          window.MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId, function(form) {
             form.onValidate(function() {
               form.submittable(false);
             });
