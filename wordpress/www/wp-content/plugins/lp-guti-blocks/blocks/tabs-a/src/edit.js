@@ -15,11 +15,12 @@ import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor'
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 import TabsA from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA';
+
 import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import AddItemButton from '../../AddItemButton';
-
+import Anchor from '../../Anchor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -153,6 +154,9 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
+			<Anchor value={attributes.anchor} callback={function(val) {
+				setAttributes({ anchor: val });
+			}} />
 			<TabsA body={bodyControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>
 		</div>
 	);
