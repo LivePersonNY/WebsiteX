@@ -18,6 +18,8 @@ const { Fragment, useState, useEffect } = wp.element;
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import { MktoForms } from '../../../../../../../../gatsby-sites/www/liveperson-attribution';
 
+import Anchor from '../../Anchor';
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -140,6 +142,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					title={titleControl}
 					kicker={kickerControl}
 					headLevel={attributes.headLevel}
+					anchor={attributes.anchor}
 				/>
 				<Fragment>
 					<InspectorControls>
@@ -153,6 +156,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 						</PanelBody>
 					</InspectorControls>
 				</Fragment>
+				<Anchor value={attributes.anchor} callback={function(val) {
+					setAttributes({ anchor: val });
+				}} />
 			</div>
 		);
 	}
@@ -172,6 +178,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				body={attributes.text}
 				title={attributes.title}
 				headLevel={attributes.headLevel}
+				anchor={attributes.anchor}
 			/>
 		</div>
 	)

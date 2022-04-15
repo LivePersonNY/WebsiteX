@@ -18,6 +18,7 @@
 		"mktoFormId": {
 			"default": 2580
 		},
+		"anchor": {"default": ""},
 		"kicker": {},
 		"backgroundColor": {
 			"default": "bg-transparent"

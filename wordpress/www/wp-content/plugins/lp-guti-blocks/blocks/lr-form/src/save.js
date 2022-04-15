@@ -31,6 +31,7 @@ export default function save({attributes}) {
 			body={attributes.text}
 			title={attributes.title}
 			headLevel={attributes.headLevel}
+			anchor={attributes.anchor}
 		/>
 	);
 }
