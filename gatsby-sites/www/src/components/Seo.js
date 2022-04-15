@@ -84,7 +84,8 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
           key: `${process.env.LOCALIZE_KEY}`,
           saveNewPhrasesFromSource: true,
           blockedClasses: [
-            'lp-window-root'
+            'lp-window-root',
+            'microMode'
           ],
         });
         
