@@ -115,7 +115,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
     var s = document.createElement('script');
     s.id = 'localize_js';
     s.type = 'text/javascript';
-    s.async = true;
+    //s.async = true;
     s.src = 'https://global.localizecdn.com/localize.js';
     s.onreadystatechange = function() {
       if (this.readyState === 'complete' || this.readyState === 'loaded') {
