@@ -107,6 +107,9 @@ table{
             text-transform: uppercase;
             text-align: left;
             padding-bottom:16px;
+            strong{
+                font-family: $familySpaceGrotesk;
+            }
         }
 
         td{
