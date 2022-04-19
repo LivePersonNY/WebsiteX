@@ -94,8 +94,11 @@
 }
 
 table{
+    border-spacing:0;
     tr{
-        border-bottom:1px solid $neutral88;
+        td, td{
+            border-bottom:1px solid $neutral88;
+        }
         th{
             font-family: $familySpaceGrotesk;
             font-weight: $fontBold;
