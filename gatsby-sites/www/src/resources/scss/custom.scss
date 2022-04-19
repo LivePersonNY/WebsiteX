@@ -95,9 +95,7 @@
 
 table{
     tr{
-        th, td{
-            border-bottom:1px solid $neutral88;
-        }
+        border-bottom:1px solid $neutral88;
         th{
             font-family: $familySpaceGrotesk;
             font-weight: $fontBold;
@@ -111,8 +109,9 @@ table{
         td{
             font-size:16px;
             line-height: 24px;
-            padding:12px 0;
-            ul{
+            padding-top:12px;
+            padding-bottom:12px;
+            ul li{
                 font-size:16px;
                 line-height: 24px;
             }
