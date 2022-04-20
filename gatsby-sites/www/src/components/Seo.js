@@ -40,27 +40,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   const [isReady, setIsReady] = useState(false);
   const [lzLoaded, setLzLoaded] = useState(false);
   
-  const lzScript = `
-
-      !function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
-      
-      (window.lpInitLocalize = function lpInitLocalize() {
-        Localize.initialize({
-          key: '${process.env.LOCALIZE_KEY}',
-          saveNewPhrasesFromSource: true,
-          retranslateOnNewPhrases: true,
-          translateMetaTags: true,
-          blockedClasses: [
-            'lp-window-root',
-            'microMode'
-          ],
-        });
-        
-        console.log('Localize init.');
-      })();
-
-  `;
-  
   useEffect(() => {
       
       function waitForDocumentReadyFn() {
@@ -177,11 +156,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       
       <script src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
       <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
-      
-      <script id="localizeScript" src="https://global.localizecdn.com/localize.js"></script>
-      <script type="text/javascript">
-        {lzScript}
-      </script>
             
     </Helmet>
   );

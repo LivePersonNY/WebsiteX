@@ -6,6 +6,5 @@ import './src/resources/scss/index.scss';
 export const onRouteUpdate = () => {
   console.log("onRouteUpdate") // this works
   
-  window.lpInitLocalize && window.lpInitLocalize();
-  
+  window.lzInit && window.lzInit();
 }
