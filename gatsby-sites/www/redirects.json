@@ -2034,8 +2034,6 @@
 		"/policies/*": "https://policies.liveperson.com/",
 		"/resources-expert-guide/covid-19-library": "/resources/reports/covid-19",
 		"/resources/covid-19": "/resources/reports/covid-19",
-		"/partners/services/foundations-cso": "https://policies.liveperson.com/partners/services/foundations-cso",
-		"/partners/services/offerings-pso": "https://policies.liveperson.com/partners/services/offerings-pso",
 		"/mychatbot": "/",
 		"/landing-pages/company/customers": "/",
 		"/landing-pages/contact/cobrowse_disclaimer": "/",
