@@ -139,6 +139,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         lang,
       }}
       title={title || defaultTitle}
+      description={description || ``}
       titleTemplate={`%s`}
     >
       {socialTags}
