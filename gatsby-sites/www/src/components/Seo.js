@@ -128,7 +128,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   
   let socialTags = meta.map(function(item) {
     return (
-      <meta property={item.property} content={item.content} />
+      <meta name={item.name || item.property.substring(3)} property={item.property} content={item.content} />
     );
   });
   
@@ -139,7 +139,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         lang,
       }}
       title={title || defaultTitle}
-      description={description || ``}
       titleTemplate={`%s`}
     >
       {socialTags}
