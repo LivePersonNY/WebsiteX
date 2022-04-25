@@ -128,7 +128,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
   
   let socialTags = meta.map(function(item) {
     return (
-      <meta name={item.name || item.property.substring(3)} property={item.property} content={item.content} />
+      <meta property={item.property} content={item.content} />
     );
   });
   
