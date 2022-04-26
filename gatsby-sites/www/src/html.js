@@ -18,7 +18,9 @@ export default function HTML(props) {
           ],
         });
         
-        console.log('Localize init.');
+        Localize.on('initialize', function(data) {
+          console.log('Localize Init', data);
+        });
       }
       
       
