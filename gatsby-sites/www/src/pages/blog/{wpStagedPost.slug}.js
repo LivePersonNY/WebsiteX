@@ -84,7 +84,7 @@ const BlogStagedPost = ({ data: { previous, next, post } }) => {
 					<p className="h6 text-uppercase">{post.seo.opengraphType}</p>
 					<h1>{post.title}</h1>
 					<p className="h3 mb-4">{Parser(post.excerpt)}</p>
-					<Bio id={post.author.node.id} date={post.date} readingTime={post.seo.readingTime} />
+					<Bio id={post.author.node.id} date={post.date} readingTime={post.seo.readingTime} multiAuthors={post.postAuthors.nodes} />
 					<img className="my-4 rounded-3 w-100" src={featuredImage.data} alt={featuredImage.alt} />
 					<AddThis url={canonical} type="share" />
 					<hr className="mb-4" />
@@ -116,6 +116,11 @@ export const pageQuery = graphql`
 	  content
 	  title
 	  link
+	  postAuthors {
+		nodes {
+		  uri
+		}
+	  }
 	  author {
 		node {
 		  id

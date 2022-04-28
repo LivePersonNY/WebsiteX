@@ -1,16 +1,21 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-const Bio = ({ id, date, readingTime }) => {
+const Bio = ({ id, date, readingTime, multiAuthors }) => {
+  
+  multiAuthors = multiAuthors || [];
+  
   const { users: {authors} } = useStaticQuery(graphql`
     query BioQuery {
       # if there was more than one user, this would need to be filtered
       users: allWpUser {
         authors: edges {
           info: node {
+            slug
             firstName
             lastName
             id
+            databaseId
             seo {
               social {
                 linkedIn
@@ -27,15 +32,22 @@ const Bio = ({ id, date, readingTime }) => {
   `);
     
   let authorBox = authors.map(function({info}) {
-
-    if (info.id == id) {
-      const author = info;
-      const avatarUrl = author?.avatar?.url;
+    
+    return multiAuthors.map(function(authorId) {
       
+      console.log(info, authorId);
+      
+      if (authorId.uri.indexOf(`/${info.slug}/`) >= 0) {
+        
+        console.log(info);
+        
+        const author = info;
+        const avatarUrl = author?.avatar?.url;
+        
         return (
-          <div className="bio">
+          <div className="bio col-xl-4 col-lg-6 mb-4">
             <div className="row">
-              <div className="col-lg-8">
+              <div className="col-lg-10">
                 <div className="bio-img">
                   <a href={author.seo.social.linkedIn}>
                     <img src={avatarUrl} className="rounded-circle" />
@@ -49,13 +61,17 @@ const Bio = ({ id, date, readingTime }) => {
             </div>
           </div>
         );
-    }
+        
+      }
+      
+    });
+      
   });
 
   return (
-    <>
+    <div className="row">
       {authorBox}
-    </>
+    </div>
   );
   
 };
