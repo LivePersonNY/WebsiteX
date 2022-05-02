@@ -15,6 +15,7 @@ import BackgroundSelectorMenu from '../../BackgroundSelector';
 import MediaPicker from '../../MediaPicker';
 import LottieFilePlayer from '../../LottieFilePlayer';
 import Anchor from '../../Anchor';
+import LinkControl from '../../LinkControl';
 
 import LineBreaks from '../../LineBreaks';
 /**
@@ -105,37 +106,23 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 	);
 
 	let linkTextControl = (
-		<div className="wp-control-wrapper">
-			<TextControl
-				value={ attributes.linkText }
-				onChange={ ( val ) => setAttributes( { linkText: val } ) }
-				className="embedded-input"
-				placeholder="Link Text"
-			/>
-
-			<TextControl
-				value={ attributes.linkUrl }
-				onChange={ ( val ) => setAttributes( { linkUrl: val } ) }
-				placeholder="Link URL"
-			/>
-		</div>
+		<LinkControl text={attributes.linkText} url={attributes.linkUrl} external={attributes.linkExternal} callback={function(text, url, external) {
+			setAttributes({
+				linkText: text,
+				linkUrl: url,
+				linkExternal: external
+			});
+		}} />
 	);
 
 	let linkSecondaryTextControl = (
-		<div className="wp-control-wrapper">
-			<TextControl
-				value={ attributes.linkSecondaryText }
-				onChange={ ( val ) => setAttributes( { linkSecondaryText: val } ) }
-				className="embedded-input"
-				placeholder="Link Text"
-			/>
-
-			<TextControl
-				value={ attributes.linkSecondaryUrl }
-				onChange={ ( val ) => setAttributes( { linkSecondaryUrl: val } ) }
-				placeholder="Link URL"
-			/>
-		</div>
+		<LinkControl text={attributes.linkSecondaryText} url={attributes.linkSecondaryUrl} external={attributes.linkSecondaryExternal} callback={function(text, url, external) {
+			setAttributes({
+				linkSecondaryText: text,
+				linkSecondaryUrl: url,
+				linkSecondaryExternal: external
+			});
+		}} />
 	);
 
 	let changeBackground = function(color) {
@@ -218,8 +205,10 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				repeat={attributes.repeat}
 				linkUrl={attributes.linkUrl}
 				linkText={attributes.linkText}
+				linkExternal={attributes.linkExternal}
 				linkSecondaryUrl={attributes.linkSecondaryUrl}
 				linkSecondaryText={attributes.linkSecondaryText}
+				linkSecondaryExternal={attributes.linkSecondaryExternal}
 				body={attributes.text}
 				title={attributes.title}
 				flipColumns={attributes.flipped}

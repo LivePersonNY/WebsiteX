@@ -47,8 +47,16 @@
 		"headLevel": {"default": "h2"},
 		"linkText": {"default": "Here's button link text"},
 		"linkUrl": {"default": "https://www.liveperson.com"},
+		"linkExternal": {
+			"default": false,
+			"type": "boolean"
+		},
 		"linkSecondaryText": {"default": "Here's a link text"},
 		"linkSecondaryUrl": {"default": "https://www.liveperson.com"},
+		"linkSecondaryExternal": {
+			"default": false,
+			"type": "boolean"
+		},
 		"lottieFile": {},
 		"lottieId": {},
 		"vimeoUrl": {},

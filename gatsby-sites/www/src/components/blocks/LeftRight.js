@@ -40,12 +40,12 @@ const LeftRight = (props) => {
               {props.headLevel == 'h3' && <h3>{props.title}</h3>}
               <Paragraph text={props.body} wrapClass="rich-container" />
               {props.linkText && (
-                <a className="btn btn-outline-secondary" href={props.linkUrl}>
+                <a className="btn btn-outline-secondary" href={props.linkUrl} target={props.linkExternal && `_blank`} rel={props.linkExternal && `noopener noreferrer`}>
                   {props.linkText}
                 </a>
               )}
               {props.linkSecondaryText && (
-                <a className="btn btn-link" href={props.linkSecondaryUrl}>
+                <a className="btn btn-link" href={props.linkSecondaryUrl} target={props.linkSecondaryExternal && `_blank`} rel={props.linkSecondaryExternal && `noopener noreferrer`}>
                   {props.linkSecondaryText}
                 </a>
               )}

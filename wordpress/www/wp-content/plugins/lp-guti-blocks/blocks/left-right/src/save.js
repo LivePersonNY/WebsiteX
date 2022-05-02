@@ -40,8 +40,10 @@ export default function save({attributes}) {
 			repeat={attributes.repeat}
 			linkUrl={attributes.linkUrl}
 			linkText={attributes.linkText}
+			linkExternal={attributes.linkExternal}
 			linkSecondaryUrl={attributes.linkSecondaryUrl}
 			linkSecondaryText={attributes.linkSecondaryText}
+			linkSecondaryExternal={attributes.linkSecondaryExternal}
 			body={attributes.text}
 			title={attributes.title}
 			flipColumns={attributes.flipped}
