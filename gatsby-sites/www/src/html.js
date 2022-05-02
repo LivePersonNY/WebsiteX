@@ -6,27 +6,21 @@ export default function HTML(props) {
   const lzScript = `
       !function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
       
-      window.lzInit = function() {
-        
-        Localize.on('initialize', function(data) {
-          console.log('Localize Init', data);
-        });
-        
-        Localize.initialize({
-          key: '${process.env.LOCALIZE_KEY}',
-          saveNewPhrasesFromSource: true,
-          retranslateOnNewPhrases: true,
-          translateMetaTags: true,
-          blockedClasses: [
-            'lp-window-root',
-            'microMode'
-          ],
-        });
-        
-      }
+      Localize.on('initialize', function(data) {
+        console.log('Localize Init', data);
+      });
       
+      Localize.initialize({
+        key: '${process.env.LOCALIZE_KEY}',
+        saveNewPhrasesFromSource: true,
+        retranslateOnNewPhrases: true,
+        translateMetaTags: true,
+        blockedClasses: [
+          'lp-window-root',
+          'microMode'
+        ],
+      });
       
-  
   `;
   
   return (

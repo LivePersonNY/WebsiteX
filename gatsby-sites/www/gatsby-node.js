@@ -57,7 +57,7 @@ exports.createPages = async (props) => {
       
       pageGetData(domain, item).then(response => response.text()).then(function(pageData) {
         fs.mkdirSync(`./static/${item}`, { recursive: true });
-        //fs.writeFileSync(`./static/${item}/index.html`, pageData);
+        fs.writeFileSync(`./static/${item}/index.html`, pageData);
       });
       
     } catch (error) {
