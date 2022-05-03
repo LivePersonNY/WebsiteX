@@ -113,9 +113,9 @@ export const pageQuery = graphql`
 	  link
 	  postAuthors {
 	  	nodes {
-			uri
+		  uri
 	  	}
-		}
+	  }
 	  author {
 		node {
 		  id
