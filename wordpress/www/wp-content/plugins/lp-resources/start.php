@@ -41,7 +41,7 @@ class LP_Resources
 		
 		add_filter( 'register_taxonomy_args', [$this, 'filter_graph_authors'], 10, 2);
 		
-		add_filter( 'get_usernumposts', [$this, 'filsterUserPosts']);
+		add_filter( 'get_usernumposts', [$this, 'filterUserPosts'], 10);
 				
 	}
 	
