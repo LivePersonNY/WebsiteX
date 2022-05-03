@@ -40,7 +40,14 @@ class LP_Resources
 		add_filter('gatsby_trigger_dispatch_args', [$this, 'filter_gatsby_hooks'], 10, 2);
 		
 		add_filter( 'register_taxonomy_args', [$this, 'filter_graph_authors'], 10, 2);
+		
+		add_filter( 'get_usernumposts', [$this, 'filsterUserPosts']);
 				
+	}
+	
+	public function filterUserPosts($count)
+	{
+		return $count >= 1 ? $count : 1;
 	}
 	
 	function filter_graph_authors($args, $taxonomy)
