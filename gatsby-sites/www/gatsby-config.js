@@ -66,7 +66,7 @@ module.exports = {
               excludeByMimeTypes: [`image/png`, `image/jpeg`, `application/json`, `image/svg`, `image/jpg`, `application/zip`, `image/svg+xml`, `image/gif`],
               maxFileSizeBytes: 1
             },
-          },
+          }
         },
       },
     },
