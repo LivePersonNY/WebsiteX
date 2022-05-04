@@ -2132,6 +2132,8 @@
 		"/partners/digital-agency": "/partners",
 		"/partners/solution-provider": "/partners",
 		"/solutions/enterprise": "/",
-		"/solutions/smb": "/"
+		"/solutions/smb": "/",
+		"/products/whatsapp/care": "/products/whatsapp",
+		"/products/whatsapp/marketing": "/products/whatsapp"
 	}
 }
