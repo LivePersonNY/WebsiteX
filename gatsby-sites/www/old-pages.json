@@ -36,5 +36,12 @@
 		"services/st-product-packages",
 		"services/starter-packs-product-packages",
 		"solutions/marketplaces"
+	],
+	"policies.liveperson.com": [
+		"policies/services-agreement",
+		"policies/conversational-cloud-channels-and-usage-charges-dar",
+		"policies/additional_product_and_third_party_application_terms",
+		"privacy",
+		"terms-of-use"
 	]
 }
