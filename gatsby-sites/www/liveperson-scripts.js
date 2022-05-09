@@ -14,9 +14,20 @@ window.testGated = function() {
 	$('.pane.gated').slideDown();
 }
 
-window.availableLanguages = {
-	code: "ja",
-	name: "日本語"
+window.availableLanguages = [
+	{
+		code: "en-US",
+		name: "English"
+	},
+	{
+		code: "ja",
+		name: "日本語"
+	}
+];
+
+window.setLanguage = function(lang) {
+	Localize.setLanguage(lang);
+	window.Cookie.set("currentLang", lang, 1);
 }
 
 window.Cookie = Cookie;
