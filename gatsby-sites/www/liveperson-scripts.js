@@ -14,6 +14,13 @@ window.testGated = function() {
 	$('.pane.gated').slideDown();
 }
 
+window.availableLanguages = {
+	code: "ja",
+	name: "日本語"
+}
+
+window.Cookie = Cookie;
+
 window.documentReadyFn = function() {
 	
 	// window.dataLayer && dataLayer.push({ virtualTitle: this.props.data.articlePage.title });
