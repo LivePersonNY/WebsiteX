@@ -109,6 +109,8 @@ module.exports = {
             /mr-*/,
             /d-*/,
             /nav-*/,
+            /dropdown-*/,
+            'dropdown',
             'solutions',
             'success-services',
             'about',

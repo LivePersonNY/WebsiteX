@@ -45,18 +45,6 @@ export default function HTML(props) {
         ],
       });
       
-      Localize.detectLanguage(function(err, languages) {
-        if (err) return console.log(err);
-        
-        var currentSetLang = Cookie.get("currentLang");
-        
-        var preferredLang = currentSetLang || languages[0] || null;
-        
-        if (preferredLang) {
-          Localize.setLanguage(preferredLang);
-          Cookie.set("currentLang", preferredLang, 1);
-        }
-      });
       
   `;
   

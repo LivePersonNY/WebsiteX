@@ -28,11 +28,46 @@ window.availableLanguages = [
 window.setLanguage = function(lang) {
 	Localize.setLanguage(lang);
 	window.Cookie.set("currentLang", lang, 1);
+	
+	var currentLanguageCode = Localize.getLanguage();
+}
+
+window.populateLanguageMenu = function(selected) {
+	document.getElementById('languageMenuItems').innerHTML = "";
+	
+	
+	let current = window.availableLanguages.filter(function(item) {
+		return item.code == selected;
+	});
+	document.getElementById('languageMenuCurrent').innerText = current[0].name || 'English';
+	
+	window.availableLanguages.forEach(function(item) {
+		document.getElementById('languageMenuItems').innerHTML += `<li><a class="dropdown-item language-item" data-code="${item.code}">${item.name}</a></li>`;
+	});
 }
 
 window.Cookie = Cookie;
 
 window.documentReadyFn = function() {
+	
+	Localize.detectLanguage(function(err, languages) {
+		if (err) return console.log(err);
+		
+		var currentSetLang = Cookie.get("currentLang");
+		
+		var preferredLang = currentSetLang || languages[0] || null;
+		
+		if (preferredLang) {
+		  window.setLanguage(preferredLang);
+		  window.populateLanguageMenu(preferredLang);
+		}
+	  });
+	  
+	$('body').on('click', 'a.language-item', function(e) {
+		e.preventDefault();
+		console.log($(this).data('code'));
+		window.setLanguage($(this).data('code'));
+	});
 	
 	// window.dataLayer && dataLayer.push({ virtualTitle: this.props.data.articlePage.title });
 	// window.dataLayer && dataLayer.push({ event: 'virtualPageview' });
@@ -78,6 +113,8 @@ window.documentReadyFn = function() {
 	}
 	
 	console.log('Document ready.');
+	
+	
 		
 		$('body').off('click', 'a.mobileForm').on('click', 'a.mobileForm', function(e) {
 			e.preventDefault();
