@@ -65,8 +65,9 @@ window.documentReadyFn = function() {
 	  
 	$('body').on('click', 'a.language-item', function(e) {
 		e.preventDefault();
-		console.log($(this).data('code'));
-		window.setLanguage($(this).data('code'));
+		let preferredLang = $(this).data('code');
+		window.setLanguage(preferredLang);
+		window.populateLanguageMenu(preferredLang);
 	});
 	
 	// window.dataLayer && dataLayer.push({ virtualTitle: this.props.data.articlePage.title });
