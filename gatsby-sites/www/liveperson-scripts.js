@@ -25,20 +25,13 @@ window.availableLanguages = [
 	}
 ];
 
-window.setLanguage = function(lang) {
-	Localize.setLanguage(lang);
-	window.Cookie.set("currentLang", lang, 1);
-	
-	var currentLanguageCode = Localize.getLanguage();
-}
-
 window.populateLanguageMenu = function(selected) {
 	document.getElementById('languageMenuItems').innerHTML = "";
-	
-	
+
 	let current = window.availableLanguages.filter(function(item) {
 		return item.code == selected;
 	});
+
 	document.getElementById('languageMenuCurrent').innerText = current[0].name || 'English';
 	
 	window.availableLanguages.forEach(function(item) {
@@ -46,11 +39,9 @@ window.populateLanguageMenu = function(selected) {
 	});
 }
 
-window.Cookie = Cookie;
-
 window.documentReadyFn = function() {
 	
-	Localize.detectLanguage(function(err, languages) {
+	/*Localize.detectLanguage(function(err, languages) {
 		if (err) return console.log(err);
 		
 		var currentSetLang = Cookie.get("currentLang");
@@ -61,12 +52,12 @@ window.documentReadyFn = function() {
 		  window.setLanguage(preferredLang);
 		  window.populateLanguageMenu(preferredLang);
 		}
-	  });
+	  });*/
 	  
 	$('body').on('click', 'a.language-item', function(e) {
 		e.preventDefault();
 		let preferredLang = $(this).data('code');
-		window.setLanguage(preferredLang);
+		Localize.setLanguage(preferredLang);
 		window.populateLanguageMenu(preferredLang);
 	});
 	
