@@ -16,7 +16,6 @@ export default function HTML(props) {
         retranslateOnNewPhrases: true,
         translateMetaTags: true,
         rememberLanguage: true,
-        autodetectLanguage: false,
         blockedClasses: [
           'lp-window-root',
           'microMode'
