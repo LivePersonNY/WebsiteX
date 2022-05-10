@@ -32,7 +32,7 @@ window.populateLanguageMenu = function(selected) {
 		return item.code == selected;
 	});
 
-	document.getElementById('languageMenuCurrent').innerText = current[0].name || 'English';
+	document.getElementById('languageMenuCurrent').innerText = current[0] ? current[0].name : 'English';
 	
 	window.availableLanguages.forEach(function(item) {
 		document.getElementById('languageMenuItems').innerHTML += `<li><a class="dropdown-item language-item" data-code="${item.code}">${item.name}</a></li>`;
