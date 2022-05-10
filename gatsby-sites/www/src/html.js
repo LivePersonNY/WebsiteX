@@ -7,15 +7,12 @@ export default function HTML(props) {
   
       !function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
       
-      Localize.on('initialize', function(data) {
-        console.log('Localize Init', data);
-      });
-      
       Localize.initialize({
         key: '${process.env.LOCALIZE_KEY}',
         retranslateOnNewPhrases: true,
         translateMetaTags: true,
         rememberLanguage: true,
+        autodetectLanguage: false,
         blockedClasses: [
           'lp-window-root',
           'microMode'
