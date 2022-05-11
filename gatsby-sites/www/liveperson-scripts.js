@@ -26,6 +26,8 @@ window.availableLanguages = [
 ];
 
 window.populateLanguageMenu = function(selected) {
+	
+	if (!document.getElementById('languageMenuItems')) return;
 	document.getElementById('languageMenuItems').innerHTML = "";
 
 	let current = window.availableLanguages.filter(function(item) {
