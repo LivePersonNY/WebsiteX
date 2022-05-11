@@ -58,13 +58,14 @@ module.exports = {
           preview: false,
         },
         production: {
-          allow404Images: false
+          allow404Images: false,
+          hardCacheMediaFiles: false
         },
         type: {
           MediaItem: {
             localFile: {
               excludeByMimeTypes: [`image/png`, `image/jpeg`, `application/json`, `image/svg`, `image/jpg`, `application/zip`, `image/svg+xml`, `image/gif`],
-              maxFileSizeBytes: 1
+              maxFileSizeBytes: 10
             },
           }
         },

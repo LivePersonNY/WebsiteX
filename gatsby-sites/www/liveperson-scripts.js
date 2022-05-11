@@ -17,11 +17,11 @@ window.testGated = function() {
 window.availableLanguages = [
 	{
 		code: "en-US",
-		name: "English"
+		name: "English (United States)"
 	},
 	{
 		code: "ja",
-		name: "日本語"
+		name: "日本語 (Japanese)"
 	}
 ];
 
