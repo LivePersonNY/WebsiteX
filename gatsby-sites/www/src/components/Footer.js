@@ -123,7 +123,7 @@ const Footer = () => {
                   {link.label}
                 </a>)
             })}
-            
+            <LanguageSelector />
           </div>
         </div>
       </div>
