@@ -155,6 +155,11 @@ img {
     opacity: 0;
 }
 
+img[src*="doubleclick"] {
+    height: 0 !important;
+    display: block;
+}
+
 // .desktop-break {
 //     content: ' ';
 
