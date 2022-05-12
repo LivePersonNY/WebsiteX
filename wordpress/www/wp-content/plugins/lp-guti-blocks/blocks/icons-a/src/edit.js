@@ -22,6 +22,8 @@ import IconTextD from '../../../../../../../../gatsby-sites/www/src/components/b
 
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import ItemControls from '../../ItemControls';
+import LinkControl from '../../LinkControl';
+
 
 import { __experimentalGrid as Grid,Placeholder, ToolbarDropdownMenu, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
@@ -114,22 +116,16 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			linkUrl: null,
 			linkText: (
 				<div className="wp-control-wrapper">
-					<TextControl
-						value={itemValues[index].linkText}
-						onChange={function(value) {
-							itemValues[index].linkText = value;
+					<LinkControl
+						text={itemValues[index].linkText}
+						url={itemValues[index].linkUrl}
+						external={itemValues[index].linkExternal || false}
+						callback={function(text,url,external) {
+							itemValues[index].linkText = text;
+							itemValues[index].linkUrl = url;
+							itemValues[index].linkExternal = external;
 							setAttributes({ icons: itemValues});
 						}}
-						className="embedded-input"
-						placeholder="Link Text"
-					/>
-					<TextControl
-						value={itemValues[index].linkUrl}
-						onChange={function(value) {
-							itemValues[index].linkUrl = value;
-							setAttributes({ icons: itemValues});
-						}}
-						placeholder="https://www.example.com"
 					/>
 				</div>
 			),

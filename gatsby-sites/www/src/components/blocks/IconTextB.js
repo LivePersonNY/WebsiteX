@@ -22,7 +22,7 @@ const IconTextB = (props) => {
             <Paragraph className="card-text subtitle1" text={item.body} />
           </div>
           <div className="card-footer">
-            {item.linkText && (<a href={item.linkUrl} className="card-link link">
+            {item.linkText && (<a href={item.linkUrl} className="card-link link" target={item.linkExternal && `_blank`} rel={item.linkExternal && `noopener noreferrer`}>
               {item.linkText}
             </a>)}
           </div>

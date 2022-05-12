@@ -16,6 +16,7 @@ import { useBlockProps } from '@wordpress/block-editor';
 import ContentCTA from '../../../../../../../../gatsby-sites/www/src/components/blocks/ContentCTA';
 import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper } from '@wordpress/components';
 import Anchor from '../../Anchor';
+import LinkControl from '../../LinkControl';
 
 
 /**
@@ -46,18 +47,13 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	);
 
 	let linkTextControl = (
-		<div className="wp-control-wrapper">
-			<TextControl
-				value={ attributes.linkText }
-				onChange={ ( val ) => setAttributes( { linkText: val } ) }
-				className="embedded-input"
-			/>
-
-			<TextControl
-				value={ attributes.linkUrl }
-				onChange={ ( val ) => setAttributes( { linkUrl: val } ) }
-			/>
-		</div>
+		<LinkControl text={attributes.linkText} url={attributes.linkUrl} external={attributes.linkExternal} callback={function(text, url, external) {
+			setAttributes({
+				linkText: text,
+				linkUrl: url,
+				linkExternal: external
+			});
+		}} />
 	);
 
 	if (isSelected)	{

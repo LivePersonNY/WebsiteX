@@ -8,6 +8,7 @@ import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, T
 import CalloutGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/CalloutGrid';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import ItemControls from '../../ItemControls';
+import LinkControl from '../../LinkControl';
 
 import Reorder from 'react-reorder';
 
@@ -88,13 +89,14 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 						className="embedded-input"
 						rows="1"
 					/>
-					<TextControl
-						value={cards[index].linkUrl}
-						onChange={function(value) {
-							cards[index].linkUrl = value;
+					<LinkControl
+						url={cards[index].linkUrl}
+						external={cards[index].linkExternal || false}
+						callback={function(text,url,external) {
+							cards[index].linkUrl = url;
+							cards[index].linkExternal = external;
 							setAttributes({ cards: cards});
 						}}
-						placeholder="Link URL"
 					/>
 					<ItemControls
 						index={index}

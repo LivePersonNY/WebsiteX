@@ -25,15 +25,19 @@ export default function LinkControl({ text, url, external, callback }) {
 		/>
 	)
 
+	const linkTextControl = (
+		<TextControl
+			value={ attributes.text }
+			onChange={ ( val ) => executeCallback(val, attributes.url, attributes.ext) }
+			className="embedded-input"
+			placeholder="Link Text"
+		/>
+	);
+
 	return (
 		<div className="wp-control-wrapper">
 
-			<TextControl
-				value={ attributes.text }
-				onChange={ ( val ) => executeCallback(val, attributes.url, attributes.ext) }
-				className="embedded-input"
-				placeholder="Link Text"
-			/>
+			{text !== undefined && linkTextControl}
 
 			<TextControl
 				value={ attributes.url }

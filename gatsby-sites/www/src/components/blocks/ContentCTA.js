@@ -15,7 +15,7 @@ const ContentCTA = (props) => {
                 </div>
                 <div className="col-lg-3 offset-lg-1 text-end">
                     {props.linkText && (
-                      <a className="btn btn-primary" href={props.linkUrl}>
+                      <a className="btn btn-primary" href={props.linkUrl} target={props.linkExternal && `_blank`} rel={props.linkExternal && `noopener noreferrer`}>
                         {props.linkText}
                       </a>
                     )}

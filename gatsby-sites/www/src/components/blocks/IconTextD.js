@@ -18,7 +18,7 @@ const IconTextD = (props) => {
           <h3>{item.title}</h3>
           <Paragraph text={item.body} />
           {item.linkText && (
-            <a href={item.linkUrl} className="link link-mt-small">
+            <a href={item.linkUrl} className="link link-mt-small" target={item.linkExternal && `_blank`} rel={item.linkExternal && `noopener noreferrer`}>
             {item.linkText}
           </a>
           )}

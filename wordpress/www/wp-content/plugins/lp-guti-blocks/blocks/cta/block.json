@@ -18,6 +18,7 @@
 		"content": {"default": "Provided you're ready and willing, you might want to click that button."},
 		"linkText": {"default": "That Button"},
 		"linkUrl": {"default": "https://www.liveperson.com"},
+		"linkExternal": {"default": false},
 		"anchor": {}
 	}
 }

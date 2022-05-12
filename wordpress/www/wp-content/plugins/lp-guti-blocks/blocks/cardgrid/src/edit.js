@@ -9,6 +9,8 @@ import CardGrid from '../../../../../../../../gatsby-sites/www/src/components/bl
 import CardGridB from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGridB';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import ItemControls from '../../ItemControls';
+import LinkControl from '../../LinkControl';
+
 
 import Reorder from 'react-reorder';
 
@@ -65,22 +67,16 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			linkUrl: null,
 			linkText: (
 				<div className="wp-control-wrapper">
-					<TextControl
-						value={cards[index].linkText}
-						onChange={function(value) {
-							cards[index].linkText = value;
+					<LinkControl
+						text={cards[index].linkText}
+						url={cards[index].linkUrl}
+						external={cards[index].linkExternal || false}
+						callback={function(text,url,external) {
+							cards[index].linkText = text;
+							cards[index].linkUrl = url;
+							cards[index].linkExternal = external;
 							setAttributes({ cards: cards});
 						}}
-						className="embedded-input"
-						placeholder="Link Text"
-					/>
-					<TextControl
-						value={cards[index].linkUrl}
-						onChange={function(value) {
-							cards[index].linkUrl = value;
-							setAttributes({ cards: cards});
-						}}
-						placeholder="Link URL"
 					/>
 				</div>
 			),

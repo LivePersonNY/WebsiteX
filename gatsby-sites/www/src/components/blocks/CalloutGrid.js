@@ -7,7 +7,7 @@ const CalloutGrid = (props) => {
   let gridItem = props.items.map((item, index)=>{
     return(
       <div className="col-lg-4" key={index}>
-        <a className="link" href={item.linkUrl}>
+        <a className="link" href={item.linkUrl} target={item.linkExternal && `_blank`} rel={item.linkExternal && `noopener noreferrer`}>
           {!item.imgCtl && <img
             src={item.imgSrc}
             alt={item.imgAlt}
