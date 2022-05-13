@@ -117,7 +117,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			linkText: (
 				<div className="wp-control-wrapper">
 					<LinkControl
-						text={itemValues[index].linkText}
+						text={itemValues[index].linkText || "Link CTA"}
 						url={itemValues[index].linkUrl}
 						external={itemValues[index].linkExternal || false}
 						callback={function(text,url,external) {
