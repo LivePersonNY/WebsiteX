@@ -41,7 +41,7 @@ const TabsC = (props) => {
               <h3>{item.header}</h3>
               <Paragraph text={item.body} />
               {item.linkText && (
-                <a className="btn btn-outline-secondary" href={item.linkUrl}>
+                <a className="btn btn-outline-secondary" href={item.linkUrl} target={item.linkExternal && `_blank`} rel={item.linkExternal && `noopener noreferrer`}>
                   {item.linkText}
                 </a>
               )}

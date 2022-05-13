@@ -25,7 +25,7 @@ const TabsB = (props) => {
             <h4>{item.header}</h4>
             <Paragraph text={item.body} />
             {item.linkText && (
-              <a className="link link-mt-large" href={item.linkUrl}>
+              <a className="link link-mt-large" href={item.linkUrl} target={item.linkExternal && `_blank`} rel={item.linkExternal && `noopener noreferrer`}>
                 {item.linkText}
               </a>
             )}

@@ -56,7 +56,7 @@ window.documentReadyFn = function() {
 		}
 	  });*/
 	  
-	window.populateLanguageMenu(Localize.getLanguage());
+	window.Localize && window.populateLanguageMenu(Localize.getLanguage());
 	  
 	$('body').on('click', 'a.language-item', function(e) {
 		e.preventDefault();

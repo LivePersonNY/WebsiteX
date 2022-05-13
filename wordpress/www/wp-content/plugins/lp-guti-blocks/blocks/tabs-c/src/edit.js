@@ -22,6 +22,7 @@ import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, B
 import AddItemButton from '../../AddItemButton';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import ItemControls from '../../ItemControls';
+import LinkControl from '../../LinkControl';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -65,23 +66,17 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			),
 			linkUrl: null,
 			linkText: (
-				<div className="wp-control-wrapper">
-					<TextControl
-						value={itemValues[index].linkText}
-						onChange={function(value) {
-							itemValues[index].linkText = value;
-							setAttributes({ tabItems: itemValues});
-						}}
-						className="embedded-input"
-					/>
-					<TextControl
-						value={itemValues[index].linkUrl}
-						onChange={function(value) {
-							itemValues[index].linkUrl = value;
-							setAttributes({ tabItems: itemValues});
-						}}
-					/>
-				</div>
+				<LinkControl
+					text={itemValues[index].linkText}
+					url={itemValues[index].linkUrl}
+					external={itemValues[index].linkExternal || false}
+					callback={function(text,url,external) {
+						itemValues[index].linkText = text;
+						itemValues[index].linkUrl = url;
+						itemValues[index].linkExternal = external;
+						setAttributes({ tabItems: itemValues});
+					}}
+				/>
 			),
 			title: (
 				<div className="wp-control-wrapper">
