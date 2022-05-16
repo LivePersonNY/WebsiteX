@@ -7,7 +7,7 @@ const ExecutiveCard = (props) => {
   let execBlock = props.items.map((item, index)=>{
     return(
       <div className="comp-exec-card-container bg-neutral-96" key={index}>
-        <div className="row align-items-center">
+        <div className="row">
           <div className="col-lg-3 offset-lg-1">
             {!item.imgCtl && <img src={item.imgSrc} alt={item.imgAlt} /> || item.imgCtl}
           </div>
@@ -17,7 +17,7 @@ const ExecutiveCard = (props) => {
             <a href={item.btnUrl} className="btn btn2 btn-outline-secondary">
               {item.btnText}
             </a>
-            <Paragraph className="subtitle1" text={item.bio} />
+            <Paragraph className="subtitle1" text={item.bio} collapsible={`collapseBio${index}`} />
           </div>
         </div>
       </div>
