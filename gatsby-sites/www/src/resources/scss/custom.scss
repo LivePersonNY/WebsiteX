@@ -11,6 +11,26 @@
     }
 }
 
+a[data-bs-toggle="collapse"] {
+    span {
+        color: inherit;
+    }
+    span.expandText {
+        display: none;
+    }
+    span.collapseText {
+        display: inline;
+    }
+    &.collapsed {
+        span.expandText {
+            display: inline;
+        }
+        span.collapseText {
+            display: none;
+        }
+    }
+}
+
 #languageMenu {
     img.globe {
         width: 20px;

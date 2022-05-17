@@ -48,7 +48,7 @@ export default function Paragraph(props) {
 				<>
 				{fullText}
 				{fullTextCollapsed}
-				<a href={`#${props.collapsible}`} className="mt-4 d-inline-block btn-outline-secondary btn btn2" data-bs-toggle="collapse">{props.collapseText || `•••`}</a>
+				<a href={`#${props.collapsible}`} className="mt-4 d-inline-block collapsed" data-bs-toggle="collapse"><span className="expandText">{props.expandText || `Read More`}</span><span className="collapseText">{props.collapseText || `Read Less`}</span></a>
 				</>
 			);
 			
