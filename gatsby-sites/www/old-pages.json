@@ -35,8 +35,8 @@
 		"solutions/marketplaces"
 	],
 	"policies-38cf40.webflow.io": [
-		"policies/services-agreement",
-		"policies/conversational-cloud-channels-and-usage-charges-dar",
+		"services-agreement",
+		"conversational-cloud-channels-and-usage-charges-dar",
 		"privacy",
 		"terms-of-use"
 	]
