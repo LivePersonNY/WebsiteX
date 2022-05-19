@@ -429,6 +429,10 @@ class LP_Resources
 				'author',
 				'post-formats',
 			],
+			'taxonomies' => [
+				'post_tag',
+				'category',
+			],
 		]);
 		
 		register_post_type('policy-page', [
