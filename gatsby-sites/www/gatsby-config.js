@@ -58,7 +58,7 @@ module.exports = {
           preview: false,
         },
         production: {
-          allow404Images: false,
+          allow404Images: true,
           hardCacheMediaFiles: false
         },
         type: {
