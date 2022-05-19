@@ -313,6 +313,10 @@ class LP_Resources
 				'excerpt',
 				'thumbnail',
 			],
+			'taxonomies' => [
+				'post_tag',
+				'category',
+			],
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'news',
 			'graphql_plural_name' => 'news',
@@ -333,6 +337,10 @@ class LP_Resources
 				'title',
 				'editor',
 				'thumbnail',
+			],
+			'taxonomies' => [
+				'post_tag',
+				'category',
 			],
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'report',
@@ -374,6 +382,10 @@ class LP_Resources
 				'excerpt',
 				'thumbnail',
 			],
+			'taxonomies' => [
+				'post_tag',
+				'category',
+			],
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'success',
 			'graphql_plural_name' => 'success',
@@ -401,6 +413,10 @@ class LP_Resources
 				'title',
 				'editor',
 				'thumbnail',
+			],
+			'taxonomies' => [
+				'post_tag',
+				'category',
 			],
 		]);
 		
