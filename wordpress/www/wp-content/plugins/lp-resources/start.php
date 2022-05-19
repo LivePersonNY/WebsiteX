@@ -42,7 +42,33 @@ class LP_Resources
 		add_filter( 'register_taxonomy_args', [$this, 'filter_graph_authors'], 10, 2);
 		
 		add_filter( 'get_usernumposts', [$this, 'filterUserPosts'], 10);
+		
+		add_action( 'admin_menu', [$this, 'menu_separator']);
 				
+	}
+	
+	public function menu_separator()
+	{
+		$this->add_separator(10);
+	}
+	
+	private function add_separator($position)
+	{
+		global $menu;
+		
+		$separator = [
+			0 => '',
+			1 => 'read',
+			2 => 'separator' . $position,
+			3 => '',
+			4 => 'wp-menu-separator'
+		];
+		if (isset($menu[$position])) {
+			array_splice($menu, $position, 0, [$separator]);
+		} else {
+			$menu[$position] = $separator;
+		}
+		
 	}
 	
 	public function filterUserPosts($count)
@@ -296,7 +322,7 @@ class LP_Resources
 			'public' => true,
 			'show_in_rest' => true,
 		]);
-		
+				
 		register_post_type('news', [
 			'labels' => [
 				'name' => 'News',
@@ -320,6 +346,7 @@ class LP_Resources
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'news',
 			'graphql_plural_name' => 'news',
+			'menu_position' => 25,
 		]);
 		
 		register_post_type('reports', [
@@ -345,6 +372,7 @@ class LP_Resources
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'report',
 			'graphql_plural_name' => 'reports',
+			'menu_position' => 25,
 		]);
 		
 		register_post_type('staged-page', [
@@ -365,6 +393,7 @@ class LP_Resources
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'staged_page',
 			'graphql_plural_name' => 'staged_pages',
+			'menu_position' => 10,
 		]);
 		
 		register_post_type('success', [
@@ -389,6 +418,7 @@ class LP_Resources
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'success',
 			'graphql_plural_name' => 'success',
+			'menu_position' => 25,
 		]);
 		
 		register_post_type('webinars', [
@@ -449,6 +479,7 @@ class LP_Resources
 				'post_tag',
 				'category',
 			],
+			'menu_position' => 5,
 		]);
 		
 		register_post_type('policy-page', [
