@@ -38,6 +38,11 @@ export const itemsQuery = graphql`
 		  title
 		  nodeType
 		  date
+		  tags {
+			nodes {
+			  slug
+			} 
+		  }
 		  featuredImage {
 			node {
 			  mediaItemUrl
@@ -63,6 +68,11 @@ export const itemsQuery = graphql`
 		  title
 		  nodeType
 		  date
+		  tags {
+			nodes {
+			  slug
+			} 
+		  }
 		  featuredImage {
 			node {
 			  mediaItemUrl
@@ -87,6 +97,11 @@ export const itemsQuery = graphql`
 			slug
 			title
 			date
+			tags {
+			  nodes {
+				slug
+			  } 
+			}
 			nodeType
 			featuredImage {
 			  node {
@@ -112,6 +127,11 @@ export const itemsQuery = graphql`
 			slug
 			title
 			date
+			tags {
+			  nodes {
+				slug
+			  } 
+			}
 			nodeType
 			featuredImage {
 			  node {

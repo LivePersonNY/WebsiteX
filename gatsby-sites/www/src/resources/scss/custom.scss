@@ -1,4 +1,23 @@
 /*! purgecss start ignore */
+
+/*languages*/
+html[lang="ja"] {
+    .hide-ja {
+        display: none;
+    }
+}
+html[lang*="en"] {
+    div[class*="hide-en"] {
+        display: none;
+    }
+}
+
+html[lang*="es"] {
+    div[class*="hide-es"] {
+        display: none;
+    }
+}
+
 .vimeoContainer, .wp-block-embed__wrapper {
     padding:56.25% 0 0 0;
     position:relative;

@@ -92,12 +92,17 @@ const BlogIndex = ({
                 if (isInCategory && post.seo.metaRobotsNoindex == 'index') {
                   postCounter++;
                 }
+                
+                let tags = [];
+                post.tags.nodes.map(function(tag) {
+                  tags.push(tag.slug);
+                });
+                tags = tags.join(' ');
+                
+                /* {postCounter == 4 && <div className={`col-lg-12 chat-button`}><div id="LP_Embedded_Blog"></div></div>} */
                                 
                 return isInCategory && post.seo.metaRobotsNoindex == 'index' && (
-                  <>
-                    {postCounter == 4 && <div className="col-lg-12 chat-button"><div id="LP_Embedded_Blog"></div></div>}
-                    <Post post={post} root="/blog" />
-                  </>
+                    <Post post={post} root="/blog" classes={tags} />
                 );
               })}
             </div>
@@ -146,6 +151,11 @@ export const pageQuery = graphql`
         slug
         date(formatString: "MMMM DD, YYYY")
         title
+        tags {
+          nodes {
+            slug
+          } 
+        }
         categories {
           nodes {
             name

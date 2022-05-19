@@ -27,6 +27,11 @@ export const itemsQuery = graphql`
 		  nodeType
 		  slug
 		  date(formatString: "MMMM DD, YYYY")
+		  tags {
+			nodes {
+			  slug
+			} 
+		  }
 		  featuredImage {
 			node {
 			  mediaItemUrl

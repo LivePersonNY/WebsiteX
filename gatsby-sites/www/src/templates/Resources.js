@@ -44,8 +44,15 @@ const Resources = function( props ) {
 				<div className="container">
 					<div className="row">
 						{props.items.map(function(item) {
+							
+							let tags = [];
+							item.tags.nodes.map(function(tag) {
+							  tags.push(tag.slug);
+							});
+							tags = tags.join(' ');
+							
 							return (item.seo.metaRobotsNoindex == 'index' &&
-								<Post post={item} kicker={nodeTypes[item.nodeType].kicker} root={"/resources/" + nodeTypes[item.nodeType].slug} />
+								<Post post={item} kicker={nodeTypes[item.nodeType].kicker} root={"/resources/" + nodeTypes[item.nodeType].slug} classes={tags}/>
 							);
 						})}
 					</div>
