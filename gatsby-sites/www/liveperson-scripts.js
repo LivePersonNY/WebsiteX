@@ -22,6 +22,10 @@ window.availableLanguages = [
 	{
 		code: "ja",
 		name: "日本語 (Japanese)"
+	},
+	{
+		code: "pt-BR",
+		name: "Português (Brasil)"
 	}
 ];
 
