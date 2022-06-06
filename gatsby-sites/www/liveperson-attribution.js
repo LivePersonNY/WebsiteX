@@ -85,33 +85,45 @@ const LivePerson = {
 		var _mkto_trk = Cookie.get("_mkto_trk");
 		
 		if (lsTerms === '') {
+			console.log('setting terms...');
 			lsTerms = Query.get('utm_term') || Query.get('keywords') || Query.get('keyword') || Query.get('oquery') || Query.get('query') || Query.get('_bk');
 			Cookie.set('lp-lsTerms', lsTerms, 30);
+			console.log('setting terms... done.', lsTerms);
 		}
 		
 		if (lsCampaign === '') {
+			console.log('setting campaign...');
 			lsCampaign = Query.get('utm_campaign');
 			Cookie.set('lp-lsCampaign', lsCampaign, 30);
+			console.log('setting campaign... done.', lsCampaign);
 		}
 		
 		if (lsSource === '') {
+			console.log('setting source...');
 			lsSource = Query.get('utm_source');
 			Cookie.set('lp-lsSource', lsSource, 30);
+			console.log('setting source... done.', lsSource);
 		}
 		
 		if (lsMedium === '') {
+			console.log('setting medium...');
 			lsMedium = Query.get('utm_medium');
 			Cookie.set('lp-lsMedium', lsMedium, 30);
+			console.log('setting medium... done.', lsMedium);
 		}
 		
 		if (lsContent === '') {
+			console.log('setting content...');
 			lsContent = Query.get('utm_content');
 			Cookie.set('lp-lsContent', lsContent, 30);
+			console.log('setting content... done.', lsContent);
 		}
 		
 		if (queryString === '') {
+			console.log('setting string...');
 			queryString = window.location.search;
 			Cookie.set('lp-queryString', queryString, 30);
+			console.log('setting string... done.', queryString);
 		}
 		
 		if (lsRef === '') {
@@ -121,7 +133,7 @@ const LivePerson = {
 			console.log('setting referrer... done.', lsRef);
 		}
 		
-		var lpindex = lsRef.indexOf('liveperson.com') || lsRef.indexOf('us.platform.sh');
+		var lpindex = lsRef.indexOf('liveperson.com');
 		
 		if (leadSourceCookie === '') {
 		
@@ -157,9 +169,11 @@ const LivePerson = {
 				lsRef = document.location.href;
 				Cookie.set('lp-lsRef', document.location.href, 1);
 			} else {
+				console.log('Checking everything else for lead sources...', Dictionary);
 				// Everything else
 				for (var i = 0; i < Dictionary.organicSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.organicSites[i]) !== -1) {
+						console.log('It is organic!');
 						Cookie.set('lp-leadSource', 'Organic', 1);
 						leadSourceCookie = 'Organic';
 						return false;
@@ -167,6 +181,7 @@ const LivePerson = {
 				}
 				for (var i = 0; i < Dictionary.socialSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.socialSites[i]) !== -1) {
+						console.log('It is social!');
 						Cookie.set('lp-leadSource', 'Social', 30);
 						Cookie.set('lp-lsRef', lsRef, 30);
 						leadSourceCookie = 'Social';
@@ -175,6 +190,7 @@ const LivePerson = {
 				}
 				for (var i = 0; i < Dictionary.reviewSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.reviewSites[i]) !== -1) {
+						console.log('It is review!');
 						Cookie.set('lp-leadSource', 'Review website', 30);
 						Cookie.set('lp-lsRef', lsRef, 30);
 						leadSourceCookie = 'Review website';
@@ -183,6 +199,7 @@ const LivePerson = {
 				}
 				for (var i = 0; i < Dictionary.prSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.prSites[i]) !== -1) {
+						console.log('It is public relations!');
 						Cookie.set('lp-leadSource', 'PR', 1);
 						leadSourceCookie = 'PR';
 						return false;
