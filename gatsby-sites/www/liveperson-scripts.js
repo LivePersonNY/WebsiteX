@@ -106,11 +106,11 @@ window.documentReadyFn = function() {
 		}
 	});
 	
-	if(window.lpTag) {
-		LivePerson.HydrateAttributes(function() {
+	LivePerson.HydrateAttributes(function() {
+		LivePerson.waitForChat(function() {
 			LivePerson.BindToChat();
 		});
-	}
+	});
 	
 	console.log('Document ready.');
 	

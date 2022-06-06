@@ -207,9 +207,20 @@ const LivePerson = {
 			mkto: _mkto_trk
 		});
 		
+		console.log('Hydration complete.', window.lp_attr);
+		
 		if (callback) callback();
 		
-		console.log('Hydration complete.', window.lp_attr);
+		
+	},
+	
+	waitForChat: function(callback) {
+		if (window.lpTag) {
+			console.log('LP Tag present.');
+			if (callback) callback();
+		} else {
+			setTimeout(this.waitForChat, 100);
+		}
 	},
 	
 	decodeHtml: function(html) {
@@ -294,6 +305,8 @@ const LivePerson = {
 				"company": window.location.href // VISITOR COMPANY NAME
 			}
 		});
+		
+		console.log('Bind to chat complete.');
 	},
 	
 	Validate: function(form) {
