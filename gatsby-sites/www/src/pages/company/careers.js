@@ -209,7 +209,7 @@ const CareersPage = () => {
       body="We love our people. And it turns out, they love working here. In fact, we were just added to Newsweek’s Most-Loved Workplaces list — the top 100 companies that get recognized for employee happiness and satisfaction at work. We’ve also been awarded the world’s top honors for innovation, artificial intelligence, and customer service and sales technology."
       items={[
         {
-          "imgSrc":"https://static.liveperson.com/static-assets/2022/02/08142539/616e08946da83d7049029c84_most_innovative.jpg",
+          "imgSrc":"https://static.liveperson.com/static-assets/2022/06/06133936/FC-2022_Careers-2x.png",
           "imgAlt":"Alt text",
           "cardTitle":"Most Innovative Companies",
         },
