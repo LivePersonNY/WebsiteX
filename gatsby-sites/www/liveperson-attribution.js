@@ -169,14 +169,13 @@ const LivePerson = {
 				lsRef = document.location.href;
 				Cookie.set('lp-lsRef', document.location.href, 1);
 			} else {
-				console.log('Checking everything else for lead sources...', Dictionary);
+				console.log('Checking everything else for lead sources...');
 				// Everything else
 				for (var i = 0; i < Dictionary.organicSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.organicSites[i]) !== -1) {
 						console.log('It is organic!');
 						Cookie.set('lp-leadSource', 'Organic', 1);
 						leadSourceCookie = 'Organic';
-						return false;
 					}
 				}
 				for (var i = 0; i < Dictionary.socialSites.length; i++) {
@@ -185,7 +184,6 @@ const LivePerson = {
 						Cookie.set('lp-leadSource', 'Social', 30);
 						Cookie.set('lp-lsRef', lsRef, 30);
 						leadSourceCookie = 'Social';
-						return false;
 					}
 				}
 				for (var i = 0; i < Dictionary.reviewSites.length; i++) {
@@ -194,7 +192,6 @@ const LivePerson = {
 						Cookie.set('lp-leadSource', 'Review website', 30);
 						Cookie.set('lp-lsRef', lsRef, 30);
 						leadSourceCookie = 'Review website';
-						return false;
 					}
 				}
 				for (var i = 0; i < Dictionary.prSites.length; i++) {
@@ -202,12 +199,15 @@ const LivePerson = {
 						console.log('It is public relations!');
 						Cookie.set('lp-leadSource', 'PR', 1);
 						leadSourceCookie = 'PR';
-						return false;
 					}
 				}
 				
-				Cookie.set('lp-leadSource', 'Other referral', 1);
-				leadSourceCookie = 'Other referral';
+				if (leadSourceCookie === '') {
+					Cookie.set('lp-leadSource', 'Other referral', 1);
+					leadSourceCookie = 'Other referral';
+				}
+				
+				
 			}
 		
 		}
