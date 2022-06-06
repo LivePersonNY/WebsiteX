@@ -208,6 +208,8 @@ const LivePerson = {
 		});
 		
 		if (callback) callback();
+		
+		console.log('Hydration complete.', window.lp_attr);
 	},
 	
 	decodeHtml: function(html) {
