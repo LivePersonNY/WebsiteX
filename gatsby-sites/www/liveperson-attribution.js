@@ -115,8 +115,10 @@ const LivePerson = {
 		}
 		
 		if (lsRef === '') {
+			console.log('setting referrer...');
 			Cookie.set('lp-lsRef', document.referrer, 1);
 			lsRef = document.referrer;
+			console.log('setting referrer... done.', lsRef);
 		}
 		
 		var lpindex = lsRef.indexOf('liveperson.com') || lsRef.indexOf('us.platform.sh');
