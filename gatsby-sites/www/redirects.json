@@ -2151,7 +2151,6 @@
 		"/solutions/b2b-marketing-video": "/resources/reports/b2b-conversational-marketing/",
 		"/solutions/insurance-marketing": "/resources/reports/conversational-insurance-marketing/",
 		"/solutions/insurance-marketing-video": "/resources/reports/conversational-insurance-marketing/",
-		"/policies/applications-terms-and-use": "/policies/apitou/",
-		"/policies/services-agreement#apis-api-terms": "/policies/apitou/"
+		"/policies/applications-terms-and-use": "/policies/apitou/"
 	}
 }
