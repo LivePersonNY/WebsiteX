@@ -47,7 +47,7 @@ const CardGrid = (props) => {
           <div className="row">
             <div className="col-lg-10">
               <h2 className="">{props.header}</h2>
-              <p className="">{props.body}</p>
+              <Paragraph text={props.body} />
             </div>
           </div>
         )}

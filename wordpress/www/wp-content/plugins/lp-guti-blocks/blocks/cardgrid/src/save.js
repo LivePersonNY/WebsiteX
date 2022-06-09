@@ -31,13 +31,14 @@ export default function save({ attributes }) {
 		<CardGrid
 			header={attributes.header}
 			items={attributes.cards}
+			body={attributes.content}
 			backgroundColor={attributes.backgroundColor}
 		/>}
 		{attributes.blocktype == "CardGridB" &&
 		<CardGridB
 			header={attributes.header}
 			items={attributes.cards}
-			content={attributes.content}
+			body={attributes.content}
 			backgroundColor={attributes.backgroundColor}
 		/>}
 		</>

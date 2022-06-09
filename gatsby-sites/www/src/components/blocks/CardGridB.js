@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
+import Paragraph from '../Paragraph';
 
 
 const CardGridB = (props) => {
@@ -37,7 +38,7 @@ const CardGridB = (props) => {
           <div className="row text-center">
             <div className="col-lg-8 offset-lg-2">
               <h2 className="">{props.header}</h2>
-              <p className="">{props.body}</p>
+              <Paragraph text={props.body} />
             </div>
           </div>
         )}
