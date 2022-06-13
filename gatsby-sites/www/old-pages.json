@@ -12,11 +12,5 @@
 		"services/abc-deployment",
 		"services/cso-terms-and-conditions",
 		"services/st-product-packages"
-	],
-	"policies-38cf40.webflow.io": [
-		"services-agreement",
-		"conversational-cloud-channels-and-usage-charges-dar",
-		"privacy",
-		"terms-of-use"
 	]
 }
