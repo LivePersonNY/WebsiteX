@@ -21,11 +21,19 @@ window.availableLanguages = [
 	},
 	{
 		code: "ja",
-		name: "日本語 (Japanese)"
+		name: "日本語 (Japan)"
 	},
 	{
 		code: "pt-BR",
 		name: "Português (Brasil)"
+	},
+	{
+		code: "es-MX",
+		name: "Español (Mexico)"
+	},
+	{
+		code: "it",
+		name: "Italiano (Italy)"
 	}
 ];
 
