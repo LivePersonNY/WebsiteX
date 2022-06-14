@@ -374,6 +374,11 @@
                     }
                 }
             }
+            .mktoButtonRow{
+                @include media-breakpoint-up(lg) {
+                    width:auto;
+                }
+            }
         }
     }
 
