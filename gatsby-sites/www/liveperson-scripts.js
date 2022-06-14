@@ -26,7 +26,7 @@ window.availableLanguages = [
 	{
 		code: "pt-BR",
 		name: "Português (Brasil)"
-	},
+	}/*,
 	{
 		code: "es-MX",
 		name: "Español (Mexico)"
@@ -34,7 +34,7 @@ window.availableLanguages = [
 	{
 		code: "it",
 		name: "Italiano (Italy)"
-	}
+	}*/
 ];
 
 window.populateLanguageMenu = function(selected) {
