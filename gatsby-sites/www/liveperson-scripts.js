@@ -26,15 +26,15 @@ window.availableLanguages = [
 	{
 		code: "pt-BR",
 		name: "Português (Brasil)"
-	}/*,
+	},
 	{
-		code: "es-MX",
-		name: "Español (Mexico)"
+		code: "es",
+		name: "Español (Spain)"
 	},
 	{
 		code: "it",
 		name: "Italiano (Italy)"
-	}*/
+	}
 ];
 
 window.populateLanguageMenu = function(selected) {
