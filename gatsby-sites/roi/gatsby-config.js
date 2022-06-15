@@ -47,39 +47,39 @@ module.exports = {
       resolve: 'gatsby-plugin-exclude',
       options: { paths: ['{wpStagedPage.link}.js'] },
     },
-    {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        schema: {
-          timeout: 1200000,
-        },
-        url: `${process.env.WP_HOST || 'https://edit.liveperson.com'}/graphql`,
-        debug: {
-          preview: false,
-        },
-        production: {
-          allow404Images: true,
-          hardCacheMediaFiles: false
-        },
-        type: {
-          MediaItem: {
-            localFile: {
-              excludeByMimeTypes: [`image/png`, `image/jpeg`, `application/json`, `image/svg`, `image/jpg`, `application/zip`, `image/svg+xml`, `image/gif`],
-              maxFileSizeBytes: 10
-            },
-          }
-        },
-      },
-    },
-    {
-      resolve: 'gatsby-source-wordpress-menus',
-      options: {
-        wordpressUrl: process.env.WP_HOST || 'https://edit.liveperson.com',
-        enableWpml: false,
-        allowCache: true,
-        maxCacheDurationSeconds: 60 * 60 * 24,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-wordpress`,
+    //   options: {
+    //     schema: {
+    //       timeout: 1200000,
+    //     },
+    //     url: `${process.env.WP_HOST || 'https://edit.liveperson.com'}/graphql`,
+    //     debug: {
+    //       preview: false,
+    //     },
+    //     production: {
+    //       allow404Images: true,
+    //       hardCacheMediaFiles: false
+    //     },
+    //     type: {
+    //       MediaItem: {
+    //         localFile: {
+    //           excludeByMimeTypes: [`image/png`, `image/jpeg`, `application/json`, `image/svg`, `image/jpg`, `application/zip`, `image/svg+xml`, `image/gif`],
+    //           maxFileSizeBytes: 10
+    //         },
+    //       }
+    //     },
+    //   },
+    // },
+    // {
+    //   resolve: 'gatsby-source-wordpress-menus',
+    //   options: {
+    //     wordpressUrl: process.env.WP_HOST || 'https://edit.liveperson.com',
+    //     enableWpml: false,
+    //     allowCache: true,
+    //     maxCacheDurationSeconds: 60 * 60 * 24,
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-sass',
