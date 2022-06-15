@@ -14,6 +14,9 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
+  "files": [
+    "../../react-components"
+  ],
   "dependencies": {
     "@localize/node": "^1.2.0",
     "@lottiefiles/lottie-player": "^1.5.5",
