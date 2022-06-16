@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 
-import Layout from '../../../www/src/components/Layout';
-import Seo from '../../../www/src/components/Seo';
+import Layout from 'react-lp/Layout';
 
 const Roi = () => {
 
@@ -18,12 +17,7 @@ const Roi = () => {
 
  
   return (
-    <Layout mainClass="roi">
-        <Seo title="Roi" />
-
-        <p>test</p>
-
-    </Layout>
+    <p>Test</p>
   )
 }
 

@@ -71,15 +71,15 @@ module.exports = {
     //     },
     //   },
     // },
-    // {
-    //   resolve: 'gatsby-source-wordpress-menus',
-    //   options: {
-    //     wordpressUrl: process.env.WP_HOST || 'https://edit.liveperson.com',
-    //     enableWpml: false,
-    //     allowCache: true,
-    //     maxCacheDurationSeconds: 60 * 60 * 24,
-    //   },
-    // },
+    {
+      resolve: 'gatsby-source-wordpress-menus',
+      options: {
+        wordpressUrl: process.env.WP_HOST || 'https://edit.liveperson.com',
+        enableWpml: false,
+        allowCache: true,
+        maxCacheDurationSeconds: 60 * 60 * 24,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-sass',

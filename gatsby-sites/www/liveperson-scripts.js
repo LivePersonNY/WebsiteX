@@ -32,6 +32,10 @@ window.availableLanguages = [
 		name: "Español (Spain)"
 	},
 	{
+		code: "es-MX",
+		name: "Español (Mexico)"
+	},
+	{
 		code: "it",
 		name: "Italiano (Italy)"
 	}

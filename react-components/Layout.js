@@ -6,20 +6,8 @@ import Header from './Header';
 import Footer from './Footer';
 
 const Layout = ({ isHomePage, children, mainClass }) => {
-  const {
-    wp: {
-      generalSettings: { title },
-    },
-  } = useStaticQuery(graphql`
-    query LayoutQuery {
-      wp {
-        generalSettings {
-          title
-          description
-        }
-      }
-    }
-  `);
+  
+  
 
   return (
     <>

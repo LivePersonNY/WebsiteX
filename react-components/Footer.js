@@ -17,67 +17,7 @@ const Footer = () => {
   });*/
   
   const { topItems, legalItems } = useStaticQuery(
-    graphql`
-      query topLevelQueryForFooter {
-        legalItems: allWpMenuItem(
-          filter: {
-            menu: { node: { locations: { in: [LEGAL_MENU] } } }
-            parentId: { eq: null }
-          }
-        ) {
-          nodes {
-            id
-            label
-            path
-            order
-          }
-        }
-        topItems: allWpMenuItem(
-          filter: {
-            menu: { node: { locations: { in: [GATSBY_FOOTER_MENU] } } }
-            parentId: { eq: null }
-          }
-        ) {
-          nodes {
-            id
-            label
-            parentId
-            order
-            cssClasses
-            title
-            description
-            childItems {
-              nodes {
-                label
-                url
-                path
-                order
-                target
-                title
-                cssClasses
-                description
-                childItems {
-                  nodes {
-                    label
-                    path
-                    order
-                    target
-                    title
-                    cssClasses
-                    description
-                  }
-                }
-              }
-            }
-            path
-            url
-            locations
-          }
-        }
-      }
-    `
-  );
-  
+    
   
   
   let sortFunc = function(a, b) {

@@ -14,9 +14,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
-  "files": [
-    "../../react-components"
-  ],
   "dependencies": {
     "@localize/node": "^1.2.0",
     "@lottiefiles/lottie-player": "^1.5.5",
@@ -53,7 +50,8 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-load-script": "^0.0.6",
-    "sass": "^1.43.4"
+    "sass": "^1.43.4",
+    "react-lp": "../../react-components"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
