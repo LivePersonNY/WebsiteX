@@ -57,7 +57,7 @@ const MktoForms = {
 					LivePerson.ShowAfterMessage(form);
 					window.dataLayer && dataLayer.push({event: ctaString});
 					$('.pane.gated').slideDown();
-					ga('send', 'event', 'Web 22', 'Form Submit', buttonLabel + ' - ' + window.location.pathname);
+					ga('send', 'event', 'Web 22', 'Form Submit', formId + ' - ' + buttonLabel + ' - ' + window.location.pathname);
 					return false;
 				});
 			});
