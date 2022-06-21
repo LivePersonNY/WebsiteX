@@ -53,7 +53,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<RichText
 			value={ attributes.body }
 			onChange={ (val) => setAttributes( { body: val } ) }
-			allowedFormats={['core/bold', 'core/italic']}
+			allowedFormats={['core/bold', 'core/italic', 'core/link']}
 			placeholder="Tagline copy for this section"
 		/>
 	)
@@ -92,7 +92,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 							setAttributes({ tabItems: itemValues});
 						}}
 						className="embedded-input"
-						allowedFormats={['core/bold', 'core/italic']}
+						allowedFormats={['core/bold', 'core/italic', 'core/link']}
 					/>
 					<button
 						className="v-tab-remove"
