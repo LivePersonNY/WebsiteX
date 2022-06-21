@@ -49,8 +49,12 @@ window.populateLanguageMenu = function(selected) {
 	let current = window.availableLanguages.filter(function(item) {
 		return item.code == selected;
 	});
+	
+	let english = window.availableLanguages.filter(function(item) {
+		return item.code == "en-US";
+	});
 
-	document.getElementById('languageMenuCurrent').innerText = current[0] ? current[0].name : 'English';
+	document.getElementById('languageMenuCurrent').innerText = current[0] ? current[0].name : english[0].name;
 	
 	window.availableLanguages.forEach(function(item) {
 		document.getElementById('languageMenuItems').innerHTML += `<li><a class="dropdown-item language-item" data-code="${item.code}">${item.name}</a></li>`;
