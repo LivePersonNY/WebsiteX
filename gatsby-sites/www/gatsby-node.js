@@ -326,6 +326,12 @@ async function createBlogPostArchive({ posts, props }) {
 
           // We need to tell the template how many posts to display too
           postsPerPage,
+          
+          pageNumber,
+          
+          totalPosts: _posts.length,
+          
+          totalPages,
 
           nextPagePath: getPagePath(pageNumber + 1),
           previousPagePath: getPagePath(pageNumber - 1),

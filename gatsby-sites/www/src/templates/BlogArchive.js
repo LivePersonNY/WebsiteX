@@ -10,7 +10,7 @@ import Post from '../components/Post';
 
 const BlogIndex = ({
   data,
-  pageContext: { nextPagePath, previousPagePath, category },
+  pageContext: { nextPagePath, previousPagePath, category, pageNumber, postsPerPage, totalPosts, totalPages },
 }) => {
   const posts = data.posts.nodes;
   const categories = data.categories.nodes;
@@ -41,6 +41,16 @@ const BlogIndex = ({
   );
   
   let postCounter = 0;
+  
+  let paginationLinks = [];
+  for (let i = 1; i <= totalPages; i++) {
+    let pageNumberPath = i > 1 ? i : '';
+    if (i == pageNumber) {
+      paginationLinks.push(<li class="page-item active"><a class="page-link" href={`/blog/${pageNumberPath}`}>{i}</a></li>);
+    } else {
+      paginationLinks.push(<li class="page-item"><a class="page-link" href={`/blog/${pageNumberPath}`}>{i}</a></li>);
+    }
+  }
 
   return (
     <Layout isHomePage>
@@ -106,16 +116,23 @@ const BlogIndex = ({
                 );
               })}
             </div>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                {previousPagePath && (<li class="page-item"><a class="page-link" href={previousPagePath}>Previous</a></li>)}
+                
+                {paginationLinks.map(function(rawLink) {
+                  return rawLink;
+                })}
+                
+                {nextPagePath && (<li class="page-item"><a class="page-link" href={nextPagePath}>Next</a></li>)}
+              </ul>
+            </nav>
           </div>
         </div>
 
-        {previousPagePath && (
-          <>
-            <Link to={previousPagePath}>Previous page</Link>
-            <br />
-          </>
-        )}
-        {nextPagePath && <Link to={nextPagePath}>Next page</Link>}
+        
+        
+        
       </div>
     </Layout>
   );
