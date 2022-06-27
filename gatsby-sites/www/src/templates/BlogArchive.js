@@ -102,7 +102,6 @@ const BlogIndex = ({
                 if (isInCategory && post.seo.metaRobotsNoindex == 'index') {
                   postCounter++;
                 }
-                
                 let tags = [];
                 post.tags.nodes.map(function(tag) {
                   tags.push(tag.slug);
@@ -160,6 +159,7 @@ export const pageQuery = graphql`
       sort: { fields: [isSticky, date], order: [DESC, DESC] }
       limit: $postsPerPage
       skip: $offset
+      filter: {seo: {metaRobotsNoindex: {eq: "index"}}}
     ) {
       nodes {
         excerpt

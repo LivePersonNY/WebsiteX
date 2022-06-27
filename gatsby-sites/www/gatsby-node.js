@@ -295,6 +295,8 @@ async function createBlogPostArchive({ posts, props }) {
   return Promise.all(
     postsChunkedIntoArchivePages.map(async (_posts, index) => {
       const pageNumber = index + 1;
+      let postsForPage = postsPerPage;
+      let offset = index * postsForPage;
 
       const getPagePath = (page) => {
         if (page > 0 && page <= totalPages) {
@@ -308,8 +310,11 @@ async function createBlogPostArchive({ posts, props }) {
         return null;
       };
       
-      let offset = (index * postsPerPage) - 1;
-      if (offset < 0) offset = 0;
+      if (pageNumber === 1) {
+        postsForPage++;
+      } else {
+        offset++;
+      }
 
       // createPage is an action passed to createPages
       // See https://www.gatsbyjs.com/docs/actions#createPage for more info
@@ -328,7 +333,7 @@ async function createBlogPostArchive({ posts, props }) {
           offset: offset,
 
           // We need to tell the template how many posts to display too
-          postsPerPage,
+          postsPerPage: postsForPage,
           
           pageNumber,
           
@@ -390,7 +395,10 @@ async function getPosts({ graphql, reporter }) {
   const graphqlResult = await graphql(/* GraphQL */ `
     query WpPosts {
       # Query all WordPress blog posts sorted by date
-      allWpPost(sort: { fields: [date], order: DESC }) {
+      allWpPost(
+        sort: { fields: [date], order: DESC }
+        filter: {seo: {metaRobotsNoindex: {eq: "index"}}}
+      ) {
         edges {
           previous {
             id
