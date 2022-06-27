@@ -307,6 +307,9 @@ async function createBlogPostArchive({ posts, props }) {
 
         return null;
       };
+      
+      let offset = (index * postsPerPage) - 1;
+      if (offset < 0) offset = 0;
 
       // createPage is an action passed to createPages
       // See https://www.gatsbyjs.com/docs/actions#createPage for more info
@@ -322,7 +325,7 @@ async function createBlogPostArchive({ posts, props }) {
           // the index of our loop is the offset of which posts we want to display
           // so for page 1, 0 * 10 = 0 offset, for page 2, 1 * 10 = 10 posts offset,
           // etc
-          offset: index * postsPerPage,
+          offset: offset,
 
           // We need to tell the template how many posts to display too
           postsPerPage,
