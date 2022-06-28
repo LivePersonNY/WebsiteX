@@ -158,55 +158,8 @@ export const pageQuery = graphql`
         }
       }
     }
-    sticky: wpPost(
-      isSticky: {eq: true}
-    ) {
-      excerpt
-      isSticky
-      uri
-      slug
-      date(formatString: "MMMM DD, YYYY")
-      title
-      tags {
-        nodes {
-          slug
-        } 
-      }
-      categories {
-        nodes {
-          name
-          id
-        }
-      }
-      excerpt
-      featuredImage {
-        node {
-          altText
-          mediaItemUrl
-        }
-      }
-      author {
-        node {
-          id
-          firstName
-          lastName
-          url
-          avatar {
-            url
-          }
-        }
-      }
-      seo {
-        readingTime
-        opengraphType
-        metaRobotsNoindex
-        schema {
-          articleType
-        }
-      }
-    }
     posts: allWpPost(
-      sort: { fields: [date], order: [DESC] }
+      sort: { fields: date, order: DESC }
       limit: $postsPerPage
       skip: $offset
       filter: {isSticky: {eq: false}, seo: {metaRobotsNoindex: {eq: "index"}}}
@@ -254,6 +207,53 @@ export const pageQuery = graphql`
           schema {
             articleType
           }
+        }
+      }
+    }
+    sticky: wpPost(
+      isSticky: {eq: true}
+    ) {
+      excerpt
+      isSticky
+      uri
+      slug
+      date(formatString: "MMMM DD, YYYY")
+      title
+      tags {
+        nodes {
+          slug
+        } 
+      }
+      categories {
+        nodes {
+          name
+          id
+        }
+      }
+      excerpt
+      featuredImage {
+        node {
+          altText
+          mediaItemUrl
+        }
+      }
+      author {
+        node {
+          id
+          firstName
+          lastName
+          url
+          avatar {
+            url
+          }
+        }
+      }
+      seo {
+        readingTime
+        opengraphType
+        metaRobotsNoindex
+        schema {
+          articleType
         }
       }
     }
