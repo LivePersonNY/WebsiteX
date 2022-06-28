@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import bootstrap from 'bootstrap';
 
-// You can delete this file if you're not using it
+import './liveperson-scripts';
+
+import './src/resources/scss/index.scss';
+
+export const onRouteUpdate = () => {
+  console.log("onRouteUpdate") // this works
+  
+  
+}
