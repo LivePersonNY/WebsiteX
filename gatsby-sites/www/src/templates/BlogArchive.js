@@ -14,6 +14,7 @@ const BlogIndex = ({
 }) => {
   const posts = data.posts.nodes;
   const categories = data.categories.nodes;
+  const sticky = data.sticky;
   
   let robots = [
     category ? category.seo.metaRobotsNoindex : `index`,
@@ -86,6 +87,8 @@ const BlogIndex = ({
           <div className="col-md-8">
             <div className="d-none d-sm-block">{titleElement}</div>
             <div className="row">
+            
+              {pageNumber === 1 && (<Post post={sticky} root="/blog" isFeatured={true} />)}
               
               {posts.map((post, index) => {
                 
@@ -155,11 +158,58 @@ export const pageQuery = graphql`
         }
       }
     }
+    sticky: wpPost(
+      isSticky: {eq: true}
+    ) {
+      excerpt
+      isSticky
+      uri
+      slug
+      date(formatString: "MMMM DD, YYYY")
+      title
+      tags {
+        nodes {
+          slug
+        } 
+      }
+      categories {
+        nodes {
+          name
+          id
+        }
+      }
+      excerpt
+      featuredImage {
+        node {
+          altText
+          mediaItemUrl
+        }
+      }
+      author {
+        node {
+          id
+          firstName
+          lastName
+          url
+          avatar {
+            url
+          }
+        }
+      }
+      seo {
+        readingTime
+        opengraphType
+        metaRobotsNoindex
+        schema {
+          articleType
+        }
+      }
+    }
     posts: allWpPost(
-      sort: { fields: [isSticky, date], order: [DESC, DESC] }
+      sort: { fields: [date], order: [DESC] }
       limit: $postsPerPage
       skip: $offset
-      filter: {seo: {metaRobotsNoindex: {eq: "index"}}}
+      filter: {isSticky: {eq: false}, seo: {metaRobotsNoindex: {eq: "index"}}}
     ) {
       nodes {
         excerpt
@@ -181,29 +231,29 @@ export const pageQuery = graphql`
         }
         excerpt
         featuredImage {
-        node {
-          altText
-          mediaItemUrl
-        }
-        }
-        author {
-        node {
-          id
-          firstName
-          lastName
-          url
-          avatar {
-          url
+          node {
+            altText
+            mediaItemUrl
           }
         }
+        author {
+          node {
+            id
+            firstName
+            lastName
+            url
+            avatar {
+              url
+            }
+          }
         }
         seo {
-        readingTime
-        opengraphType
-        metaRobotsNoindex
-        schema {
-          articleType
-        }
+          readingTime
+          opengraphType
+          metaRobotsNoindex
+          schema {
+            articleType
+          }
         }
       }
     }

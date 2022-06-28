@@ -295,8 +295,6 @@ async function createBlogPostArchive({ posts, props }) {
   return Promise.all(
     postsChunkedIntoArchivePages.map(async (_posts, index) => {
       const pageNumber = index + 1;
-      let postsForPage = postsPerPage;
-      let offset = index * postsForPage;
 
       const getPagePath = (page) => {
         if (page > 0 && page <= totalPages) {
@@ -309,12 +307,6 @@ async function createBlogPostArchive({ posts, props }) {
 
         return null;
       };
-      
-      if (pageNumber === 1) {
-        postsForPage++;
-      } else {
-        offset++;
-      }
 
       // createPage is an action passed to createPages
       // See https://www.gatsbyjs.com/docs/actions#createPage for more info
@@ -330,10 +322,10 @@ async function createBlogPostArchive({ posts, props }) {
           // the index of our loop is the offset of which posts we want to display
           // so for page 1, 0 * 10 = 0 offset, for page 2, 1 * 10 = 10 posts offset,
           // etc
-          offset: offset,
+          offset: index * postsPerPage,
 
           // We need to tell the template how many posts to display too
-          postsPerPage: postsForPage,
+          postsPerPage,
           
           pageNumber,
           
@@ -397,7 +389,7 @@ async function getPosts({ graphql, reporter }) {
       # Query all WordPress blog posts sorted by date
       allWpPost(
         sort: { fields: [date], order: DESC }
-        filter: {seo: {metaRobotsNoindex: {eq: "index"}}}
+        filter: {isSticky: {eq: false}, seo: {metaRobotsNoindex: {eq: "index"}}}
       ) {
         edges {
           previous {
@@ -409,6 +401,9 @@ async function getPosts({ graphql, reporter }) {
           post: node {
             id
             uri
+            seo {
+              metaRobotsNoindex
+            }
           }
 
           next {
