@@ -229,6 +229,7 @@ window.documentReadyFn = function() {
 		setTimeout(function() {
 			$(".LPMcontainer .LPMimage").attr("onclick", "ga('send', 'event', 'chat', 'click', 'site-wide button')");
 			$(".LPMcontainer").attr("onclick", "ga('send', 'event', 'form', 'submit', 'Chat engagement clicks')");
+			$('.vimeoContainer').attr("onclick", "ga('send', 'event', 'Web 22', 'Click', 'Vimeo Container')");
 		}, 3000);
 
 		$('.comp-policy-content h3').each(function(i){
