@@ -2,18 +2,20 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 import Parse from 'html-react-parser';
 
-export default function Post({post, kicker, root, classes}) {
+export default function Post({post, kicker, root, classes, isFeatured}) {
 	
 	const featuredImage = {
 	  data: post?.featuredImage?.node?.mediaItemUrl || ``,
 	  alt: post?.featuredImage?.node?.altText || ``,
 	};
 	
+	const featured = isFeatured;
+	
 	const author = post?.author?.node;
 	const slugRoot = root ? root + "/" : "";
 	
 	return (
-		<div className={`${post.isSticky ? `col-lg-12 featured` : `col-xl-6`} mb-5 ${classes}`}>
+		<div className={`${featured ? `col-lg-12 featured` : `col-xl-6`} mb-5 ${classes}`}>
 		  <a href={slugRoot + post.slug} className="post-link">
 			<article
 			  className="post-list-item card card-resource h-100"
