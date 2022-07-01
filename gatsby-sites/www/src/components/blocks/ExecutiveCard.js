@@ -14,7 +14,7 @@ const ExecutiveCard = (props) => {
           <div className="col-lg-6 offset-lg-1">
             <h2 className="card1">{item.name}</h2>
             <p className="body2">{item.title}</p>
-            <a href={item.btnUrl} className="btn btn2 btn-outline-secondary">
+            <a href={item.btnUrl} className="btn btn2 btn-outline-secondary" target="_blank" rel="noopener noreferrer">
               {item.btnText}
             </a>
             <Paragraph className="subtitle1" text={item.bio} collapsible={`collapseBio${index}`} />
