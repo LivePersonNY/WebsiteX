@@ -72,6 +72,11 @@ a[data-bs-toggle="collapse"] {
 .pane.gated {
     display: none;
 }
+.pane.comp-exec-card {
+    h2.heading {
+        margin-bottom: 8rem;
+    }
+}
 
 .company-careers {
 
