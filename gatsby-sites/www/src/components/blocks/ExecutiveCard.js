@@ -30,7 +30,7 @@ const ExecutiveCard = (props) => {
       {props.header && (
         <div className="row">
           <div className="col-lg-10 offset-lg-1 mb-8">
-            <h2 className="text-center">{props.header}</h2>
+            <h2 className="text-center heading">{props.header}</h2>
           </div>
         </div>
       )}
