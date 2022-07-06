@@ -33,10 +33,6 @@
   }
   
   .value-item.mb-2 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
     min-height: 0px;
     margin-bottom: 5px;
     padding: 20px 40px 20px 20px;
@@ -57,6 +53,7 @@
     color: #1c1d22;
     font-size: 16px;
     font-weight: 400;
+    text-align: left;
   }
   
   .value-text.text-20 {
@@ -626,6 +623,63 @@
         line-height: 28px;
         font-weight: bold;
         margin-bottom: 12px;
+    }
+
+    .progress-ring {
+      text {
+          font-family: 'Space Grotesk', sans-serif;
+  
+          font-weight: 700;
+          font-size: 20px;
+  
+          &[id*="-val"] {
+              font-family: 'Space Grotesk', sans-serif;
+              font-weight: 700;
+              font-size: 66px;
+              letter-spacing: -2px;
+          }
+      }
+  
+      .progress-ring__circle {
+          transition: 0.35s stroke-dashoffset;
+          // axis compensation
+          transform: rotate(-90deg);
+          transform-origin: 50% 50%;
+  
+      }
+  
+      .progress-ring__center {
+          transition: 0.35s stroke-dashoffset;
+          // axis compensation
+          transform: rotate(-90deg);
+          transform-origin: 50% 50%;
+      }
+    }
+  
+    .circle-amount {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        letter-spacing: -2px;
+        background: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 56px;
+        position: absolute;
+        line-height: 84px;
+        transform: translateX(-50%);
+        left: 50%;
+        top: 127px;
+    }
+    
+    .circle-text {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 21px;
+        line-height: 28px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 211px;
     }
 
     @include media-breakpoint-down(lg) {

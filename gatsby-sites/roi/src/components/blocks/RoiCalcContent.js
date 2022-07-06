@@ -50,7 +50,7 @@ const RoiCalcContent = (props) => {
                     <h2 className="text-center">How we drive value</h2>
                 </div>
             </div>
-          <div className="row">
+          <div className="row align-items-center">
             <div className="col-lg-5 offset-lg-1">
                 <h3>01. Double your online sales with messaging</h3>
                 <p>Give consumers on your website the ability to ask product questions or get help completing a purchase through messaging. Then integrate bots in order to offer 24/7 support, reducing cart abandonment and improving sales conversion rates.<br /><br />
@@ -70,11 +70,11 @@ const RoiCalcContent = (props) => {
                         </div>
                     </div>
                     <div className="value-item mb-2">
-                        <div className="columns reverse-margin w-row">
-                            <div className="column w-col w-col-3">
+                        <div className="row align-items-center">
+                            <div className="col-lg-3">
                                 <img src="https://assets-global.website-files.com/60ad0c09266ca44b71ebb223/6230b41cb897e7e82005f775_conversation-builder_circle-orange.svg" loading="lazy" alt="" className="small-image-fixed" />
                             </div>
-                            <div className="column w-col w-col-9">
+                            <div className="col-lg-9">
                                 <div className="value-text">
                                     <span className="text-amounts">10x</span> higher conversion rates vs self-serve
                                 </div>
@@ -82,21 +82,21 @@ const RoiCalcContent = (props) => {
                         </div>
                     </div>
                     <div className="value-item mb-2">
-                        <div className="columns reverse-margin w-row">
-                            <div className="column w-col w-col-3">
+                        <div className="row align-items-center">
+                            <div className="col-lg-3">
                                 <img src="https://assets-global.website-files.com/60ad0c09266ca44b71ebb223/6230b4277d532c7bfc1bf7b7_check-mark_circle-orange.svg" loading="lazy" alt="" className="small-image-fixed" />
                             </div>
-                            <div className="column w-col w-col-9">
+                            <div className="col-lg-9">
                                 <div className="value-text">Improve purchase process in consumer journey</div>
                             </div>
                         </div>
                     </div>
                     <div className="value-item mb-2">
-                        <div className="columns reverse-margin w-row">
-                            <div className="column w-col w-col-3">
+                        <div className="row align-items-center">
+                            <div className="col-lg-3">
                                 <img src="https://assets-global.website-files.com/60ad0c09266ca44b71ebb223/6230b43050b374e1264ff509_retail-shopping-cart-abandonment_circle-orange.svg" loading="lazy" alt="" className="small-image-fixed"/>
                             </div>
-                            <div className="column w-col w-col-9">
+                            <div className="col-lg-9">
                                 <div className="value-text">Lower cart abandonment</div>
                             </div>
                         </div>
@@ -106,6 +106,89 @@ const RoiCalcContent = (props) => {
           </div>
         </div>
       </div>
+
+      <div className="bg-neutral-96">
+        <div className="container">
+            <div className="row align-items-center">
+                <div className="col-lg-5 offset-lg-1 order-lg-last">
+                    <h3>
+                    <span>02.</span> Improve average order value by&nbsp;20%
+                    </h3>
+                    <p>A key metric for most brands is the average order value or average revenue per customer. Getting customers to spend more with you on a per-transaction basis is an important health indicator of a brand’s projected revenue. Even in the early stages of a sales-focused conversational program, average order values have been reported up to <span className="text-amounts">20%</span> higher compared to customers who self-serve. <br />‍ <br />The increase in average order value is primarily driven by the ability of sales agents to show consumers product benefits or features regardless of a product’s price. Sales agents can also recommend popular add-on items to an order, driving up the number of products per order as well as the total revenue per&nbsp;order. </p>
+                </div>
+                <div className="col-lg-4 offset-lg-1 order-lg-first">
+                    <div className="graph-container">
+                        <div className="value-chart">
+                            <div className="w-embed">
+                                <svg className="progress-ring" width="296" height="296">
+                                    <circle className="progress-ring__center" stroke="#EBECEF" stroke-width="18" fill="transparent" r="128" cx="148" cy="148"></circle>
+                                    <circle className="progress-ring__circle" stroke="#3863E5" stroke-width="20" id="circle2" fill="transparent" stroke-linecap="round" r="128" cx="148" cy="148" ></circle>
+                                </svg>
+                                <p className="circle-amount" id="circle2-val" x="50%" y="50%" text-anchor="middle" fill="#1C1D22" stroke-width="2px" dy=".4em">$51K</p>
+                                <p className="circle-text" id="circle2-cap" x="50%" y="75%" text-anchor="middle" fill="#F5A77A">Growth</p>
+                            </div>
+                        </div>
+                        <div className="value-item mb-2">
+                            <div className="row align-items-center">
+                                <div className="col-lg-3">
+                                    <img src="https://assets-global.website-files.com/60ad0c09266ca44b71ebb223/6230b475f93c060a5c3ea90a_message-bubbles-square_circle-orange.svg" loading="lazy" alt="" />
+                                </div>
+                                <div className="col-lg-9">
+                                    <div className="value-text">
+                                        <span className="text-amounts">20%</span> higher average order value vs self-serve
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div className="bg-neutral-96">
+        <div className="container">
+            <div className="row align-items-center">
+                <div className="col-lg-5 offset-lg-1">
+                    <h3>
+                    <span>03.</span> First contact resolution skyrockets
+                    </h3>
+                    <p>Going conversational also presents a significant opportunity to improve the contact-center experience for both consumers and contact-center staff. LivePerson is the leader in operationalizing large scale messaging implementations, and we've built the playbook on how to successfully transform your contact center. One critical metric for measuring the health of your conversational program is first contact resolution. <br />
+                    <br />First contact resolution is the % of inquiries that are resolved for the consumer on their first outreach to your contact center. Even in the early stages of a conversational program, LivePerson customers have seen a reduction in contacts per customer, and increases in first contact resolution rates by as much as <span className="text-amounts">15%</span>. <br />
+                    <br />This improvement in first contact resolution is driven primarily by the asynchronous aspect of messaging. In traditional voice contact-centers, background noise, hang-ups, and long hold times all lead to consumers having to contact your brand again, repeating their same issue to a new agent. Whereas with messaging, the connection is continuous, with history always available in case a connection is lost. This history also provides useful context to agents, enabling them to better resolve consumers' inquiries.
+                    </p>
+                </div>
+                <div className="col-lg-4 offset-lg-1">
+                    <div className="graph-container">
+                        <div className="value-chart">
+                            <div className="w-embed">
+                                <svg className="progress-ring" width="296" height="296">
+                                    <circle className="progress-ring__center" stroke="#EBECEF" stroke-width="18" fill="transparent" r="128" cx="148" cy="148"></circle>
+                                    <circle className="progress-ring__circle" stroke="#3863E5" stroke-width="20" id="circle3" fill="transparent" stroke-linecap="round" r="128" cx="148" cy="148"></circle>
+                                </svg>
+                                <p className="circle-amount" id="circle3-val" x="50%" y="50%" text-anchor="middle" fill="#1C1D22" stroke-width="2px" dy=".4em">$7K</p>
+                                <p className="circle-text" id="circle3-cap" x="50%" y="75%" text-anchor="middle" fill="#F5A77A">Growth</p>
+                            </div>
+                        </div>
+                        <div className="value-item mb-2">
+                            <div className="row align-items-center">
+                                <div className="col-lg-3">
+                                    <img src="https://assets-global.website-files.com/60ad0c09266ca44b71ebb223/6230b4b076438139704af77f_rocket_circle-orange.svg" loading="lazy" alt="" className="small-image-fixed" />
+                                </div>
+                                <div className="col-lg-9">
+                                    <div className="value-text">
+                                        <span className="text-amounts">15%</span> increase in first contact resolutions
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
     </>
   );
 };
