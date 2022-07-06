@@ -38,11 +38,11 @@ window.availableLanguages = [
 	{
 		code: "it",
 		name: "Italiano (Italy)"
-	},
+	}/*,
 	{
 		code: "fr",
 		name: "Français (France)"
-	}
+	}*/
 ];
 
 window.populateLanguageMenu = function(selected) {
