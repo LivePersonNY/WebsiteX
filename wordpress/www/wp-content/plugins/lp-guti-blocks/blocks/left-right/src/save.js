@@ -52,6 +52,7 @@ export default function save({attributes}) {
 			lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 			vimeoUrl={attributes.vimeoUrl}
 			anchor={attributes.anchor}
+			autoApprove={attributes.autoApproveLang}
 		/>
 	);
 }

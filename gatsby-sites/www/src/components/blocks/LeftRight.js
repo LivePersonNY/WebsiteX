@@ -14,7 +14,7 @@ const LeftRight = (props) => {
 
   return (
     <>
-      <div id={props.anchor} 
+      <div id={props.anchor} autoapprove={props.autoApprove && "true"}
         className={`pane ${props.backgroundColor||"bg-transparent"} comp-left-right ${
           props.repeat ? 'comp-left-right-repeat' : ''
         }`}

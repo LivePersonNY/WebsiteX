@@ -16,7 +16,7 @@ import MediaPicker from '../../MediaPicker';
 import LottieFilePlayer from '../../LottieFilePlayer';
 import Anchor from '../../Anchor';
 import LinkControl from '../../LinkControl';
-
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import LineBreaks from '../../LineBreaks';
 /**
  * React hook that is used to mark the block wrapper element.
@@ -144,6 +144,9 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				label="Head Level H2/H3"
 				onClick={ changeHeadLevel }
 			/>
+			<AutoApproveLanguage callback={function() {
+				setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+			}} selected={attributes.autoApproveLang}/>
 			<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 		</BlockControls>
 	);
@@ -169,6 +172,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				lottieFile={attributes.lottieFile}
 				vimeoUrl={attributes.vimeoUrl}
 				anchor={attributes.anchor}
+				autoApprove={attributes.autoApproveLang}
 			/>
 			<Fragment>
 				<InspectorControls>
@@ -217,6 +221,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				vimeoUrl={attributes.vimeoUrl}
 				anchor={attributes.anchor}
+				autoApprove={attributes.autoApproveLang}
 			/>
 		</div>
 	);
