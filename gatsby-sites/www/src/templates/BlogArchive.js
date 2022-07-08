@@ -10,9 +10,9 @@ import Post from '../components/Post';
 
 const BlogIndex = ({
   data,
-  pageContext: { nextPagePath, previousPagePath, category, pageNumber, postsPerPage, totalPosts, totalPages },
+  pageContext: { nextPagePath, previousPagePath, category, pageNumber, postsPerPage, totalPosts, totalPages, categoryLink },
 }) => {
-  const posts = data.posts.nodes;
+  const posts = category ? data.categoryPosts.nodes : data.posts.nodes;
   const categories = data.categories.nodes;
   const sticky = data.sticky;
   
@@ -46,10 +46,11 @@ const BlogIndex = ({
   let paginationLinks = [];
   for (let i = 1; i <= totalPages; i++) {
     let pageNumberPath = i > 1 ? i : '';
+    let catLink = category ? category.link : "blog/";
     if (i == pageNumber) {
-      paginationLinks.push(<li class="page-item active"><a class="page-link" href={`/blog/${pageNumberPath}`}>{i}</a></li>);
+      paginationLinks.push(<li class="page-item active"><a class="page-link" href={`${catLink}${pageNumberPath}`}>{i}</a></li>);
     } else {
-      paginationLinks.push(<li class="page-item"><a class="page-link" href={`/blog/${pageNumberPath}`}>{i}</a></li>);
+      paginationLinks.push(<li class="page-item"><a class="page-link" href={`${catLink}${pageNumberPath}`}>{i}</a></li>);
     }
   }
 
@@ -79,7 +80,7 @@ const BlogIndex = ({
               </button>
               <ul className="dropdown-menu categories px-3" aria-labelledby="dropdownMenuButton1">
                 {categories.map((category, index) => {
-                  return (<li><a className="link link-mt-small" href={category.link}>{category.name}</a></li>)
+                  return (<li><a className="link link-mt-small" href={`${category.link}`}>{category.name}</a></li>)
                 })}
               </ul>
             </div>
@@ -88,23 +89,10 @@ const BlogIndex = ({
             <div className="d-none d-sm-block">{titleElement}</div>
             <div className="row">
             
-              {pageNumber === 1 && (<Post post={sticky} root="/blog" isFeatured={true} />)}
+              {pageNumber === 1 && !category && (<Post post={sticky} root="/blog" isFeatured={true} />)}
               
               {posts.map((post, index) => {
                 
-                
-                let isInCategory = false || !category;
-                
-                if (category) {
-                  post.categories.nodes.map((_category) => {
-                    if (category.id == _category.id) isInCategory = true;
-                    
-                  });
-                }
-                
-                if (isInCategory && post.seo.metaRobotsNoindex == 'index') {
-                  postCounter++;
-                }
                 let tags = [];
                 post.tags.nodes.map(function(tag) {
                   tags.push(tag.slug);
@@ -113,7 +101,7 @@ const BlogIndex = ({
                 
                 /* {postCounter == 4 && <div className={`col-lg-12 chat-button`}><div id="LP_Embedded_Blog"></div></div>} */
                                 
-                return isInCategory && post.seo.metaRobotsNoindex == 'index' && (
+                return (
                     <Post post={post} root="/blog" classes={tags} />
                 );
               })}
@@ -143,7 +131,7 @@ const BlogIndex = ({
 export default BlogIndex;
 
 export const pageQuery = graphql`
-  query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
+  query WordPressPostArchive($offset: Int!, $postsPerPage: Int!, $categoryLink: String) {
     categories: allWpCategory {
       nodes {
         id
@@ -158,11 +146,70 @@ export const pageQuery = graphql`
         }
       }
     }
+    categoryPosts: allWpPost(
+      sort: { fields: date, order: DESC }
+      limit: $postsPerPage
+      skip: $offset
+      filter: {
+        isSticky: {eq: false}, 
+        seo: {metaRobotsNoindex: {eq: "index"}}
+        categories: {nodes: {elemMatch: {link: {in: [$categoryLink]}}}}
+      }
+    ) {
+      nodes {
+        excerpt
+        isSticky
+        uri
+        slug
+        date(formatString: "MMMM DD, YYYY")
+        title
+        tags {
+          nodes {
+            slug
+          } 
+        }
+        categories {
+          nodes {
+            name
+            id
+          }
+        }
+        excerpt
+        featuredImage {
+          node {
+            altText
+            mediaItemUrl
+          }
+        }
+        author {
+          node {
+            id
+            firstName
+            lastName
+            url
+            avatar {
+              url
+            }
+          }
+        }
+        seo {
+          readingTime
+          opengraphType
+          metaRobotsNoindex
+          schema {
+            articleType
+          }
+        }
+      }
+    }
     posts: allWpPost(
       sort: { fields: date, order: DESC }
       limit: $postsPerPage
       skip: $offset
-      filter: {isSticky: {eq: false}, seo: {metaRobotsNoindex: {eq: "index"}}}
+      filter: {
+        isSticky: {eq: false}, 
+        seo: {metaRobotsNoindex: {eq: "index"}}
+      }
     ) {
       nodes {
         excerpt
