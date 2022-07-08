@@ -9,7 +9,7 @@ const PlainContent = function(props) {
   
   return (
     <>
-      <div id={props.anchor} className={`pane comp-plain-content ${props.backgroundColor||"bg-transparent"} ${props.alignmentClass} ${props.header ? 'pane-with-lead-text' : ''}`}>
+      <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-plain-content ${props.backgroundColor||"bg-transparent"} ${props.alignmentClass} ${props.header ? 'pane-with-lead-text' : ''}`}>
         <div className="container">
           <div className="row align-items-center justify-content-center">
             <div className={`col-lg-${props.colWidth||12}`}>

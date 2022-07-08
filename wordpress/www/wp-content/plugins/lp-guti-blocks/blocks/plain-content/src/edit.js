@@ -16,7 +16,7 @@ import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor'
 import PlainContent from '../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent';
 import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 import Anchor from '../../Anchor';
-
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -126,6 +126,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					label="Width"
 					onClick={ changeColumns }
 				/>
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 				<BackgroundSelectorMenu selected={attributes.backgroundColor} callback={function(color) {
 					setAttributes({backgroundColor: color});
 				}} />
@@ -150,6 +153,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					header={headerControl}
 					body={contentControl}
 					backgroundColor={attributes.backgroundColor}
+					autoApprove={attributes.autoApproveLang}
 					linkText={linkTextControl} />
 			</div>
 
@@ -167,6 +171,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				header={attributes.header}body={attributes.content}
 				backgroundColor={attributes.backgroundColor}
 				linkText={attributes.linkText}
+				autoApprove={attributes.autoApproveLang}
 				linkUrl={attributes.linkUrl} />
 		</div>
 	)
