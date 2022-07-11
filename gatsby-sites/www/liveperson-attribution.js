@@ -227,7 +227,9 @@ const LivePerson = {
 			mkto: _mkto_trk
 		});
 
-		ga('send', 'event', 'Web 22', 'Load', 'Lead Source: ' + leadSourceCookie);
+		if (window.ga) {
+			window.ga('send', 'event', 'Web 22', 'Load', 'Lead Source: ' + leadSourceCookie);
+		}
 		
 		console.log('Hydration complete.', window.lp_attr);
 		
