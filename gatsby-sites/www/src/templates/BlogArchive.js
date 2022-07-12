@@ -46,7 +46,7 @@ const BlogIndex = ({
   let paginationLinks = [];
   for (let i = 1; i <= totalPages; i++) {
     let pageNumberPath = i > 1 ? i : '';
-    let catLink = category ? category.link : "blog/";
+    let catLink = category ? category.link : "/blog/";
     if (i == pageNumber) {
       paginationLinks.push(<li class="page-item active"><a class="page-link" href={`${catLink}${pageNumberPath}`}>{i}</a></li>);
     } else {
