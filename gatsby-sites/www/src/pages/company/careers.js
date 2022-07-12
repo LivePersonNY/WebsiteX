@@ -231,6 +231,23 @@ const CareersPage = () => {
       ]}
     />
 
+    <div className="pane comp-contained-content bg-transparent pane-with-lead-text" style="opacity: 1;">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="comp-contained-content-container bg-neutral-92">
+              <div className="row">
+                <div className="col-lg-8 offset-lg-2 text-center">
+                  <h2>Transparency in Coverage</h2>
+                  <p>Please visit <a href="https://transparency-in-coverage.uhc.com/" target="_blank">https://transparency-in-coverage.uhc.com/</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </Layout>
 )
     }
