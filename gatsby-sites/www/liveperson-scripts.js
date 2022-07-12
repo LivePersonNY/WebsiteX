@@ -243,5 +243,21 @@ window.documentReadyFn = function() {
 			$('.comp-policy-content .policy-toc').append(`<p><a class="link link-no-arrow" href="#${policyHeaderSlug}">${policyNumber}${policyHeader}</a></p>`);
 			$(this).prepend(policyNumber).attr('id',policyHeaderSlug);
 		});
+
+		if (document.location.pathname === '/policies/gdpr-data-privacy/'){
+			console.log('gdpr test');
+			var gdprLink = document.querySelector('.comp-card-grid-container .col:nth-child(3) .card-link');
+			var gdprLink2 = document.createElement('a');
+			gdprLink2.setAttribute('href','/policies/lpbvdpa/');
+			gdprLink2.setAttribute('class', 'card-link link gdpr-link2');
+			gdprLink2.innerText = 'All other countries';
+			gdprLink.after(gdprLink2);
+			// var legalLink2 =  setInterval(() => {
+			// 	if(document.readyState === 'complete'){
+			// 	clearInterval(legalLink2);
+			// 	gdprLink.after(gdprLink2);
+			// 	}
+			// }, 1500)
+		}
 		
 }
