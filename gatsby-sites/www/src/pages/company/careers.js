@@ -231,7 +231,7 @@ const CareersPage = () => {
       ]}
     />
 
-    <div className="pane comp-contained-content bg-transparent pane-with-lead-text" style="opacity: 1;">
+    <div className="pane comp-contained-content bg-transparent pane-with-lead-text">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
