@@ -244,7 +244,7 @@ window.documentReadyFn = function() {
 			$(this).prepend(policyNumber).attr('id',policyHeaderSlug);
 		});
 
-		if (document.location.pathname === '/policies/gdpr-data-privacy/'){
+		if (document.location.pathname.includes('policies/gdpr-data-privacy')){
 			console.log('gdpr test');
 			var gdprLink = document.querySelector('.comp-card-grid-container .col:nth-child(3) .card-link');
 			var gdprLink2 = document.createElement('a');
