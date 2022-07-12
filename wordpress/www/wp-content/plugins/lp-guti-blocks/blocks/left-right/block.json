@@ -60,6 +60,7 @@
 		"lottieFile": {},
 		"lottieId": {},
 		"vimeoUrl": {},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"anchor": {}
 	}
 }

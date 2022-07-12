@@ -16,6 +16,9 @@ import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck, RichText }
 import SideBySide from '../../../../../../../../gatsby-sites/www/src/components/blocks/SideBySide';
 import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
+import AutoApproveLanguage from '../../AutoApproveLanguage';
+import Anchor from '../../Anchor';
+
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -138,9 +141,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	let changeHeadLevel = function() {
 		if (attributes.headLevel == "h2") {
-			setAttributes({ headLevel: "h3" });
+			setAttributes({ headerLevel: "h3" });
 		} else {
-			setAttributes({ headLevel: "h2" });
+			setAttributes({ headerLevel: "h2" });
 		}
 	}
 
@@ -152,6 +155,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					label="Head Level H2/H3"
 					onClick={ changeHeadLevel }
 				/>
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 			</ToolbarGroup>
 		</BlockControls>
@@ -162,6 +168,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		return (
 			<div {...useBlockProps()}>
 				{bgMenu}
+				<Anchor value={attributes.anchor} callback={function(val) {
+					setAttributes({ anchor: val });
+				}} />
 				<SideBySide
 					headerLeft={headerLeftControl}
 					headerRight={headerRightControl}
@@ -170,7 +179,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					imgLeftCtl={imageLeftControl}
 					imgRightCtl={imageRightControl}
 					backgroundColor={attributes.backgroundColor}
-					headLevel={attributes.headLevel}
+					headLevel={attributes.headerLevel}
+					autoApprove={attributes.autoApproveLang}
+					anchor={attributes.anchor}
 				/>
 			</div>
 
@@ -180,7 +191,8 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	return (
 		<div {...useBlockProps()}>
 			<SideBySide
-				headLevel={attributes.headLevel}
+				autoApprove={attributes.autoApproveLang}
+				headLevel={attributes.headerLevel}
 				headerLeft={attributes.headerLeft}
 				headerRight={attributes.headerRight}
 				bodyLeft={attributes.bodyLeft}
@@ -190,6 +202,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				imgLeftAlt={attributes.imgLeftAlt}
 				imgRightAlt={attributes.imgRightAlt}
 				backgroundColor={attributes.backgroundColor}
+				anchor={attributes.anchor}
 			/>
 		</div>
 	)

@@ -35,6 +35,10 @@ export default function save({attributes}) {
 			imgLeftAlt={attributes.imgLeftAlt}
 			imgRightAlt={attributes.imgRightAlt}
 			backgroundColor={attributes.backgroundColor}
+			autoApprove={attributes.autoApproveLang}
+			anchor={attributes.anchor}
+			headLevel={attributes.headerLevel}
+
 		/>
 	);
 }

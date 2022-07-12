@@ -2143,6 +2143,7 @@
 		"/on-demand-video/salesforce-integration-apac": "/resources/reports/salesforce-integration-apac",
 		"/on-demand-video/salesforce-integration-emea": "/resources/reports/salesforce-integration-emea",
 		"/on-demand-video/salesforce-integration-na": "/resources/reports/salesforce-integration-na",
+		"/on-demand-video/salesforce-integration": "/resources/reports/salesforce-integration-overview/",
 		"/channels/gbm-registration-form-cs": "/channels/gbm-registration-form",
 		"/channels/line-registration-form-cs": "/channels/line-registration-form",
 		"/channels/rcs-registration-form-cs": "/channels/rcs-registration-form",
