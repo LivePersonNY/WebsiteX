@@ -457,6 +457,10 @@
         flex-wrap: nowrap !important;
     }
 
+    .columns.bc-table-col.bg-blue {
+        background-color: #e7f2f7;
+    }
+
     .bar-chart {
         height: 100%;
     }
@@ -689,7 +693,7 @@
             .bc-table-container {
                 width: 700px;
 
-                .column.w-col.w-col-4 {
+                .column.col-lg-4 {
                     padding-right: 20px;
 
                     .row-heading,

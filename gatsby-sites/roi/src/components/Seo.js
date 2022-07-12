@@ -63,12 +63,12 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
         MktoForms.Bind();
       }
       
-      if (isReady) {
-        window.documentReadyFn();
-        const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
-        window.ga && window.ga('set', 'page', pagePath);
-        window.ga && window.ga('send', 'pageview');
-      }
+      // if (isReady) {
+      //   window.documentReadyFn();
+      //   const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
+      //   window.ga && window.ga('set', 'page', pagePath);
+      //   window.ga && window.ga('send', 'pageview');
+      // }
       
       /*if (!document.getElementById('localize_js')) {
         loadLocalizeScript();
@@ -156,6 +156,11 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       
       <script src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
       <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
+
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+      <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+      {/* <script src="https://heuristic-pare-8a14b1.netlify.app/assets/js/roi-calc.js"></script> */}
+      {/* <script src="https://heuristic-pare-8a14b1.netlify.app/assets/js/roi-implemented.js"></script> */}
             
     </Helmet>
   );
