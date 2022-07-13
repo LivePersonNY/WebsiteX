@@ -262,7 +262,7 @@ const LivePerson = {
 	},
 	
 	SetCompany: function(email, form) {
-		var emailSplit = emailVal.split('@');
+		var emailSplit = email.split('@');
 		emailSplit = emailSplit[1].split('.');
 		
 		form.setValues({
@@ -373,15 +373,17 @@ const LivePerson = {
 		} else { 			
 			//continueDemandbase(formID);
 			form.vals({
-				'GCLID__c': window.lp_attr.gclid,
-				'MSCLIKID__c': window.lp_attr.msclkid,
-				'LeadSource': window.lp_attr.leadSource,
-				'Referring_URL__c': window.lp_attr.referringUrl,
-				'campaignSearchKeywords__c': window.lp_attr.searchTearms,
-				'campaignID__c': window.lp_attr.campaign,
-				'campaignSource__c': window.lp_attr.campaignSource,
-				'campaignMedium__c': window.lp_attr.campaignMedium,
-				'campaignCreative__c': window.lp_attr.campaignContent
+				GCLID__c: window.lp_attr.gclid,
+				MSCLIKID__c: window.lp_attr.msclkid,
+				LeadSource: window.lp_attr.leadSource,
+				Referring_URL__c: window.lp_attr.referringUrl,
+				campaignSearchKeywords__c: window.lp_attr.searchTearms,
+				campaignID__c: window.lp_attr.campaign,
+				campaignSource__c: window.lp_attr.campaignSource,
+				campaignMedium__c: window.lp_attr.campaignMedium,
+				campaignCreative__c: window.lp_attr.campaignContent,
+				cookiesEnabled: window.lp_attr.cookies,
+				oneTrustActiveGroups: window.lp_attr.onetrust
 			});		
 			
 			LivePerson.SetCompany(emailVal);
