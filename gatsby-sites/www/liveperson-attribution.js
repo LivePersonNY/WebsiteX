@@ -261,14 +261,11 @@ const LivePerson = {
 		return txt.value;
 	},
 	
-	SetCompany: function(email, form) {
+	GetCompany: function(email, form) {
 		var emailSplit = email.split('@');
 		emailSplit = emailSplit[1].split('.');
 		
-		form.vals({
-			Company: emailSplit[0]
-		});
-		return;
+		return emailSplit[0] || '';
 	},
 	
 	SetFullName: function(a, b, c, form) {
@@ -296,7 +293,7 @@ const LivePerson = {
 			LastName: last,
 			wholeName: fullName
 		};
-		form.vals(vals);
+		form.setValues(vals);
 		return;
 	},
 	
@@ -383,10 +380,9 @@ const LivePerson = {
 				campaignMedium__c: window.lp_attr.campaignMedium,
 				campaignCreative__c: window.lp_attr.campaignContent,
 				cookiesEnabled: window.lp_attr.cookies,
-				oneTrustActiveGroups: window.lp_attr.onetrust
+				oneTrustActiveGroups: window.lp_attr.onetrust,
+				Company: LivePerson.GetCompany(emailVal)
 			});		
-			
-			LivePerson.SetCompany(emailVal);
 					
 			form.submittable(true);
 			console.log("Submitting values: " + JSON.stringify(form.vals()));
