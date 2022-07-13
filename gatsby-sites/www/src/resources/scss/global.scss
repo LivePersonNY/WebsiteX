@@ -857,6 +857,11 @@ img[src*="doubleclick"] {
 }
 
 .comp-quote-slider {
+    &.bg-neutral-96, &.bg-blue-20, &.bg-lavendar-20, &.bg-rainbow {
+        .comp-slider-container {
+            background: $secondaryLight !important;
+        }
+    }
     .comp-slider-container {
         padding-top: 72px;
         padding-bottom: 80px;
