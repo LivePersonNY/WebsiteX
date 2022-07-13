@@ -22,7 +22,7 @@ const Cookie = {
 				return c.substring(name.length, c.length);
 			}
 		}
-		return "";
+		return '';
 	}
 }
 
@@ -209,6 +209,8 @@ const LivePerson = {
 				}
 				
 				
+				
+				
 			}
 		
 		}
@@ -224,11 +226,17 @@ const LivePerson = {
 			campaignMedium: lsMedium,
 			campaignContent: lsContent,
 			query: queryString,
-			mkto: _mkto_trk
+			mkto: _mkto_trk,
+			cookies: window.navigator ? window.navigator.cookieEnabled : false,
+			onetrust: window.OnetrustActiveGroups
 		});
 
 		if (window.ga) {
 			window.ga('send', 'event', 'Web 22', 'Load', 'Lead Source: ' + leadSourceCookie);
+		}
+		
+		if (window.ga && window.navigator) {
+			window.ga('send', 'event', 'Web 22', 'Cookies', window.navigator.cookieEnabled);
 		}
 		
 		console.log('Hydration complete.', window.lp_attr);
@@ -251,6 +259,16 @@ const LivePerson = {
 		var txt = document.createElement("textarea");
 		txt.innerHTML = html;
 		return txt.value;
+	},
+	
+	SetCompany: function(email, form) {
+		var emailSplit = emailVal.split('@');
+		emailSplit = emailSplit[1].split('.');
+		
+		form.setValues({
+			Company: emailSplit[0]
+		});
+		return;
 	},
 	
 	SetFullName: function(a, b, c, form) {
@@ -342,6 +360,8 @@ const LivePerson = {
 		var formID = form.getId();
 		var emailField = form.getFormElem().find('#Email').first();
 		var emailVal = emailField.val();
+		
+		
 
 		//Hotjar recording tag
 		LivePerson.HotJar('Form fill - Attempt');
@@ -362,7 +382,10 @@ const LivePerson = {
 				'campaignSource__c': window.lp_attr.campaignSource,
 				'campaignMedium__c': window.lp_attr.campaignMedium,
 				'campaignCreative__c': window.lp_attr.campaignContent
-			});				
+			});		
+			
+			LivePerson.SetCompany(emailVal);
+					
 			form.submittable(true);
 			console.log("Submitting values: " + JSON.stringify(form.vals()));
 		}
