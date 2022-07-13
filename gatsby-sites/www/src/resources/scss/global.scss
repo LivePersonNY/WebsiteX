@@ -973,7 +973,7 @@ img[src*="doubleclick"] {
             }
         }
     }
-    &.bg-neutral-96 {
+    &.bg-neutral-96, &.bg-blue-20, &.bg-lavendar-20, &.bg-rainbow {
         .comp-contained-content-container {
             background: $secondaryLight !important;
         }
