@@ -388,7 +388,7 @@ const LivePerson = {
 			form.vals(vals);		
 					
 			form.submittable(true);
-			console.log("Submitting values:", vals);
+			console.log("Submitting values:", form.vals());
 		}
 		
 	},
