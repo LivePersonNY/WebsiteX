@@ -265,7 +265,7 @@ const LivePerson = {
 		var emailSplit = email.split('@');
 		emailSplit = emailSplit[1].split('.');
 		
-		form.setValues({
+		form.vals({
 			Company: emailSplit[0]
 		});
 		return;
@@ -296,7 +296,7 @@ const LivePerson = {
 			LastName: last,
 			wholeName: fullName
 		};
-		form.setValues(vals);
+		form.vals(vals);
 		return;
 	},
 	
