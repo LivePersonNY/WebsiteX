@@ -973,6 +973,11 @@ img[src*="doubleclick"] {
             }
         }
     }
+    &.bg-neutral-96 {
+        .comp-contained-content-container {
+            background: $secondaryLight;
+        }
+    }
 }
 
 .comp-content-cta {
