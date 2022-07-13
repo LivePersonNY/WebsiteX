@@ -369,7 +369,8 @@ const LivePerson = {
 			form.showErrorMessage("Must be Business email.", emailField);
 		} else { 			
 			//continueDemandbase(formID);
-			form.vals({
+			
+			var vals = {
 				GCLID__c: window.lp_attr.gclid,
 				MSCLIKID__c: window.lp_attr.msclkid,
 				LeadSource: window.lp_attr.leadSource,
@@ -382,10 +383,12 @@ const LivePerson = {
 				cookiesEnabled: window.lp_attr.cookies,
 				oneTrustActiveGroups: window.lp_attr.onetrust,
 				Company: LivePerson.GetCompany(emailVal)
-			});		
+			};
+			
+			form.vals(vals);		
 					
 			form.submittable(true);
-			console.log("Submitting values: " + JSON.stringify(form.vals()));
+			console.log("Submitting values: " + JSON.stringify(vals));
 		}
 		
 	},
