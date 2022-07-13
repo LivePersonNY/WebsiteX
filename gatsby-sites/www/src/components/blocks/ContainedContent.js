@@ -8,7 +8,7 @@ const ContainedContent = (props) => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="comp-contained-content-container bg-neutral-92">
+            <div className="comp-contained-content-container bg-neutral-96">
               <div className="row">
                 <div className="col-lg-8 offset-lg-2 text-center">
                   {props.kicker && (
