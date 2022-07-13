@@ -1,8 +1,5 @@
 {
 	"d1aa0hlmdkis5w.cloudfront.net": [
-		"channels/gbm-registration-form",
-		"channels/line-registration-form",
-		"channels/rcs-registration-form",
 		"services/cso-terms-and-conditions"
 	]
 }
