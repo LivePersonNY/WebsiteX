@@ -381,7 +381,7 @@ const LivePerson = {
 				campaignMedium__c: window.lp_attr.campaignMedium,
 				campaignCreative__c: window.lp_attr.campaignContent,
 				cookiesEnabled: window.lp_attr.cookies,
-				oneTrustActiveGroups: window.lp_attr.onetrust,
+				oneTrustActiveGroups: window.OnetrustActiveGroups,
 				Company: LivePerson.GetCompany(emailVal)
 			};
 			
