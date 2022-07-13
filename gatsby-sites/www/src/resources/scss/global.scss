@@ -975,7 +975,7 @@ img[src*="doubleclick"] {
     }
     &.bg-neutral-96 {
         .comp-contained-content-container {
-            background: $secondaryLight;
+            background: $secondaryLight !important;
         }
     }
 }
