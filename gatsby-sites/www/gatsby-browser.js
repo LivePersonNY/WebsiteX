@@ -8,7 +8,5 @@ export const onRouteUpdate = () => {
   console.log("onRouteUpdate") // this works
   
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(function() {
-    this.reset();
-  });
+  window.dataLayer.push({'event': 'optimize.activate'});
 }
