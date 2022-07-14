@@ -259,5 +259,7 @@ window.documentReadyFn = function() {
 			// 	}
 			// }, 1500)
 		}
+
+		window.dataLayer.push({'event': 'optimize.activate'});
 		
 }
