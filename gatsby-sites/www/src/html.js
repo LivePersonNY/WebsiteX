@@ -10,6 +10,7 @@ export default function HTML(props) {
       Localize.initialize({
         key: '${process.env.LOCALIZE_KEY}',
         retranslateOnNewPhrases: true,
+        saveNewPhrasesFromSource: true,
         translateMetaTags: true,
         rememberLanguage: true,
         autodetectLanguage: true,
