@@ -18,6 +18,9 @@ export default function HTML(props) {
           'lp-window-root',
           'microMode'
         ],
+        blockedIds: [
+          'gatsby-announcer'
+        ]
       });
       
   `;
