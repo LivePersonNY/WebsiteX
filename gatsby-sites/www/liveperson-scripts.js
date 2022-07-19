@@ -38,6 +38,10 @@ window.availableLanguages = [
 	{
 		code: "it",
 		name: "Italiano (Italy)"
+	},
+	{
+		code: "de",
+		name: "Deutsch (Germany)"
 	}/*,
 	{
 		code: "fr",
