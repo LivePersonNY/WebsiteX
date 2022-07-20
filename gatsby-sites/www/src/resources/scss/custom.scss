@@ -146,6 +146,62 @@ a[data-bs-toggle="collapse"] {
     }
 }
 
+.pane-careers-cta{
+    #wf-form-Search-Form,
+    .resume-upload {
+        max-width: 612px;
+        float:left;
+        width: 100%;
+        margin: auto;
+        position: relative;
+        background: $neutral99;
+        border-radius:100px;
+        border:0;
+        opacity: 1;
+        * {
+            display: inline-block;
+        }
+
+        .cloud-image-a {
+            margin-right: 18px;
+            margin-top: -4px;
+        }
+
+        .upload-button-text {
+            color:$primaryBlue;
+            font-size:16px;
+            line-height:24px;
+        }
+
+        .form-control{
+            background: none;
+            border: 0;
+            font-size: 16px;
+            line-height: 24px;
+            color:$neutral24;
+            font-family: $familyInter;
+            padding: 12px 24px;
+        }
+
+        .search-button-link-a {
+            position: absolute;
+            top: 9px;
+            right: 15px;
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    .hero-or {
+        margin: 6px 24px;
+        float:left;
+        color:$neutral99;
+        background: $neutral12;
+        border-radius:8px;
+        padding:10px;
+    }
+}
+
 table{
     border-spacing:0;
     tr{
