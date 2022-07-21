@@ -42,11 +42,11 @@ window.availableLanguages = [
 	{
 		code: "de",
 		name: "Deutsch (Germany)"
-	}/*,
+	},
 	{
 		code: "fr",
 		name: "Français (France)"
-	}*/
+	}
 ];
 
 window.populateLanguageMenu = function(selected) {
