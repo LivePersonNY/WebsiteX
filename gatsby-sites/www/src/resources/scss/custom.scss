@@ -149,8 +149,6 @@ a[data-bs-toggle="collapse"] {
 .pane-careers-cta{
     #wf-form-Search-Form,
     .resume-upload {
-        max-width: 612px;
-        float:left;
         width: 100%;
         margin: auto;
         position: relative;
@@ -158,6 +156,11 @@ a[data-bs-toggle="collapse"] {
         border-radius:100px;
         border:0;
         opacity: 1;
+        display: block;
+        @include media-breakpoint-up(xl) {
+            float:left;
+            max-width: 46%;
+        }
         * {
             display: inline-block;
         }
@@ -194,11 +197,14 @@ a[data-bs-toggle="collapse"] {
 
     .hero-or {
         margin: 6px 24px;
-        float:left;
         color:$neutral99;
         background: $neutral12;
         border-radius:8px;
         padding:10px;
+        display: inline-block;
+        @include media-breakpoint-up(xl) {
+            float:left;
+        }
     }
 }
 
