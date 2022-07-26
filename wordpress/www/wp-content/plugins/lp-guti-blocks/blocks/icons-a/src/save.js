@@ -30,18 +30,22 @@ export default function save({attributes}) {
 	return (
 		<>
 		{attributes.blocktype == "IconTextA" && <IconTextA cardCTA={attributes.cta}
+		gated={attributes.gated}
 		cardCTAbody={attributes.ctaBody}
 		btnText={attributes.btnText}
 		btnUrl={attributes.btnUrl} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 		{attributes.blocktype == "IconTextB" && <IconTextB cardCTA={attributes.cta}
+		gated={attributes.gated}
 		cardCTAbody={attributes.ctaBody}
 		btnText={attributes.btnText}
 		btnUrl={attributes.btnUrl} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 		{attributes.blocktype == "IconTextC" && <IconTextC cardCTA={attributes.cta}
+		gated={attributes.gated}
 		cardCTAbody={attributes.ctaBody}
 		btnText={attributes.btnText}
 		btnUrl={attributes.btnUrl} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
 		{attributes.blocktype == "IconTextD" && <IconTextD cardCTA={attributes.cta}
+		gated={attributes.gated}
 		cardCTAbody={attributes.ctaBody}
 		btnText={attributes.btnText}
 		btnUrl={attributes.btnUrl} centerBody={attributes.centerBody} body={attributes.body} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}

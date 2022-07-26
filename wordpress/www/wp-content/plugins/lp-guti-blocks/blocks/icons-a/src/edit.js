@@ -46,6 +46,14 @@ import './editor.scss';
  */
 export default function Edit({attributes, isSelected, setAttributes, onChange}) {
 
+	const toggleGated = function() {
+		if (attributes.gated) {
+			setAttributes({ gated: false });
+		} else {
+			setAttributes({ gated: true });
+		}
+	}
+
 	let headerControl = (
 		<TextareaControl
 			value={ attributes.header }
@@ -248,6 +256,12 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 					] }
 				/>
 				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+				<ToolbarButton
+					icon="admin-network"
+					label="Toggle form gated"
+					isActive={attributes.gated}
+					onClick={toggleGated}
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
