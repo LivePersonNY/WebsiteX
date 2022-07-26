@@ -1,15 +1,5 @@
 {
 	"d1aa0hlmdkis5w.cloudfront.net": [
-		"channels/apple-business-chat-form",
-		"channels/gbm-registration-form",
-		"channels/line-registration-form",
-		"channels/rcs-registration-form",
-		"channels/whatsapp-activation-call",
-		"channels/whatsapp-form",
-		"landing-pages/click-to-talk/calling-units",
-		"landing-pages/voice/units",
-		"services/abc-deployment",
-		"services/cso-terms-and-conditions",
-		"services/st-product-packages"
+		"services/cso-terms-and-conditions"
 	]
 }

@@ -17,6 +17,7 @@
 	"attributes": {
 		"header": {},
 		"small": {"default": false},
+		"backgroundColor": {},
 		"quotes": {
 			"type": "array",
 			"default": [

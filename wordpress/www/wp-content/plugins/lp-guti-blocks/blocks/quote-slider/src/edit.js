@@ -18,6 +18,7 @@ const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 import QuoteSlider from '../../../../../../../../gatsby-sites/www/src/components/blocks/QuoteSlider';
 import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
+import BackgroundSelectorMenu from '../../BackgroundSelector';
 
 import AddItemButton from '../../AddItemButton';
 import ItemControls from '../../ItemControls';
@@ -178,6 +179,9 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<BlockControls>
 			<ToolbarGroup>
 				<AddItemButton callback={addTabFunc} />
+				<BackgroundSelectorMenu selected={attributes.backgroundColor} callback={function(color) {
+					setAttributes({backgroundColor: color});
+				}} />
 			</ToolbarGroup>
 		</BlockControls>
 	);
@@ -186,14 +190,14 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<QuoteSlider header={headerControl} items={itemControls} runFilters={true} />
+			<QuoteSlider header={headerControl} items={itemControls} runFilters={true} backgroundColor={attributes.backgroundColor} />
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<QuoteSlider header={attributes.header} items={attributes.quotes} runFilters={true} />
+			<QuoteSlider header={attributes.header} items={attributes.quotes} runFilters={true} backgroundColor={attributes.backgroundColor} />
 		</div>
 	)
 
