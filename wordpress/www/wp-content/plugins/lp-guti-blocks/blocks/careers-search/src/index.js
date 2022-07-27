@@ -25,7 +25,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('lp-guti-blocks/block-pane', {
+registerBlockType('lp-guti-blocks/careers-search', {
 	/**
 	 * @see ./edit.js
 	 */
