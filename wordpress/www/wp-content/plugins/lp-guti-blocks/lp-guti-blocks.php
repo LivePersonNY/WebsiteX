@@ -48,6 +48,7 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/policy-nav/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/lr-form/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/media-lottie-player/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/careers-search/' );
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
 
