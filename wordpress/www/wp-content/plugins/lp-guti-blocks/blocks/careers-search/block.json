@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Career Search",
 	"category": "liveperson",
-	"icon": "block-default",
+	"icon": "admin-users",
 	"description": "Careers Search",
 	"supports": {
 		"html": false
