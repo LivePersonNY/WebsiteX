@@ -298,6 +298,7 @@ window.documentReadyFn = function() {
 						
 
 				}
+				console.log(`searchurl is ${searchURL}`);
 				location.href = searchURL;
 				}
 			}
