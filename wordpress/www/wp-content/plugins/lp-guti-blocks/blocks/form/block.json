@@ -20,6 +20,7 @@
 		},
 		"header": {"default": "Form Header" },
 		"sticky": {"default": true, "type": "boolean"},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"backgroundColor": {"default": "bg-grad-image"},
 		"thankyou": {
 			"type": "string",

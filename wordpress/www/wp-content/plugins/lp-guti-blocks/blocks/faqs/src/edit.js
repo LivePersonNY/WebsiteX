@@ -8,7 +8,7 @@ import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, T
 import Faq from '../../../../../../../../gatsby-sites/www/src/components/blocks/Faq';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import ItemControls from '../../ItemControls';
-
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import Reorder from 'react-reorder';
 
 /**
@@ -144,6 +144,9 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				/>
 
 				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 			</ToolbarGroup>
 		</BlockControls>
 	);

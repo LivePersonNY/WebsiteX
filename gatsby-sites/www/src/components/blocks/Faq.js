@@ -26,7 +26,7 @@ const Faq = (props) => {
 
   return (
   <>
-    <div id={props.anchor} className={`pane comp-faq ${props.backgroundColor||"bg-transparent"}`}>
+    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-faq ${props.backgroundColor||"bg-transparent"}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-4">

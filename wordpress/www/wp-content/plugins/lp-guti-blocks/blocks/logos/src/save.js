@@ -29,6 +29,7 @@ export default function save({ attributes }) {
 			header={attributes.header}
 			items={attributes.logos}
 			backgroundColor={attributes.backgroundColor}
+			autoApprove={attributes.autoApproveLang}
 		/>
 	)
 }

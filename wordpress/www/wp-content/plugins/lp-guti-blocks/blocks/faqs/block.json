@@ -18,6 +18,7 @@
 		"header": {"default": "Pricing FAQs"},
 		"kicker": {"default": "Conversational Cloud"},
 		"backgroundColor": {"default": "bg-transparent" },
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"btnText": {
 			"default": "Primary CTA"
 		},

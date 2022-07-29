@@ -22,6 +22,8 @@ import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, B
 import AddItemButton from '../../AddItemButton';
 import ItemControls from '../../ItemControls';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
+import AutoApproveLanguage from '../../AutoApproveLanguage';
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -98,6 +100,9 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			<ToolbarGroup>
 				<AddItemButton callback={addTabFunc} />
 				<BackgroundSelectorMenu callback={(color) => setAttributes({backgroundColor: color})} selected={attributes.backgroundColor} />
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
@@ -106,13 +111,13 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 
 		<div {...useBlockProps()}>
 			{addButton}
-			<BoardCards header={headerControl} items={itemControls} runFilters={true} backgroundColor={attributes.backgroundColor}/>
+			<BoardCards autoApprove={attributes.autoApproveLang} header={headerControl} items={itemControls} runFilters={true} backgroundColor={attributes.backgroundColor}/>
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
-			<BoardCards header={attributes.header} items={attributes.quotes} runFilters={true} backgroundColor={attributes.backgroundColor}/>
+			<BoardCards autoApprove={attributes.autoApproveLang} header={attributes.header} items={attributes.quotes} runFilters={true} backgroundColor={attributes.backgroundColor}/>
 		</div>
 	)
 

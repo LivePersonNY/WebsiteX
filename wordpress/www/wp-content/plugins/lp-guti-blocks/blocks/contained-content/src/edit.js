@@ -15,7 +15,7 @@ import $ from 'jquery';
 import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import ContainedContent from '../../../../../../../../gatsby-sites/www/src/components/blocks/ContainedContent';
 import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup, ToolbarDropdownMenu, ToolbarButton } from '@wordpress/components';
-
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 
 
@@ -88,6 +88,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	let addButton = (
 		<BlockControls>
 			<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+			<AutoApproveLanguage callback={function() {
+				setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+			}} selected={attributes.autoApproveLang}/>
 		</BlockControls>
 	);
 

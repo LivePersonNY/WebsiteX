@@ -19,7 +19,7 @@
 			"type": "boolean",
 			"default": false
 		},
-		"backgroundColor": {"default": "bg-transparent"}
-
+		"backgroundColor": {"default": "bg-transparent"},
+		"autoApproveLang": {"default":false, "type": "boolean"}
 	}
 }

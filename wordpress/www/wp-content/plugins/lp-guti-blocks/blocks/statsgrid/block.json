@@ -18,6 +18,7 @@
 		"header": {"default": "Plain Header"},
 		"statItems": {
 			"type": "array",
+			"autoApproveLang": {"default":false, "type": "boolean"},
 			"default": [
 				{
 					"stat": "42",

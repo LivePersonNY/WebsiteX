@@ -17,6 +17,7 @@ import { __experimentalGrid as Panel, PanelBody, Grid,Placeholder, TextareaContr
 const { Fragment, useState, useEffect } = wp.element;
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import { MktoForms } from '../../../../../../../../gatsby-sites/www/liveperson-attribution';
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -68,6 +69,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					isActive={attributes.gated}
 					onClick={toggleGated}
 				/>
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 
 			</ToolbarGroup>
 		</BlockControls>
@@ -76,7 +80,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<div className={`pane pane-blocks ${attributes.backgroundColor||"bg-transparent"}`}>
+			<div autoapprove={attributes.autoApproveLang && "true"} className={`pane pane-blocks ${attributes.backgroundColor||"bg-transparent"}`}>
 				<div className="container">
 					<div className="row align-items-center justify-content-center">
 						<div className="col-lg-10">

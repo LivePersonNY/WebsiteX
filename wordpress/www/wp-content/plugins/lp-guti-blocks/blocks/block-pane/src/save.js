@@ -22,7 +22,7 @@ import React, { useEffect } from 'react';
 export default function save({attributes}) {
 
 	return (
-		<div className={`pane pane-blocks ${attributes.backgroundColor||"bg-transparent"} ${attributes.gated ? "gated" : ""}`}>
+		<div autoapprove={attributes.autoApproveLang && "true"} className={`pane pane-blocks ${attributes.backgroundColor||"bg-transparent"} ${attributes.gated ? "gated" : ""}`}>
 			<div className="container">
 				<div className="row align-items-center justify-content-center">
 					<div className="col-lg-10">

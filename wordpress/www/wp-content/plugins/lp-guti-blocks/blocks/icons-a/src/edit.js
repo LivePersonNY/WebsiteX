@@ -19,7 +19,7 @@ import IconTextA from '../../../../../../../../gatsby-sites/www/src/components/b
 import IconTextB from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextB';
 import IconTextC from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextC';
 import IconTextD from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextD';
-
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import ItemControls from '../../ItemControls';
 import LinkControl from '../../LinkControl';
@@ -262,6 +262,9 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 					isActive={attributes.gated}
 					onClick={toggleGated}
 				/>
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 			</ToolbarGroup>
 		</BlockControls>
 	);

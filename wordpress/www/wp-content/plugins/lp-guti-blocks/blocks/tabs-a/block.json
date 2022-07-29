@@ -17,6 +17,7 @@
 	"attributes": {
 		"anchor": {"default": "tab-a"},
 		"header": {"default": "Header above tabs"},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"body": {},
 		"backgroundColor":{},
 		"tabItems": {

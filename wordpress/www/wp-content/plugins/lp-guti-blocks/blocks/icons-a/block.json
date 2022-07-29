@@ -17,6 +17,7 @@
 	"attributes": {
 		"cta": {"default": false},
 		"ctaBody": {"default": "Call to action goes here"},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"btnText": {"default": "Click me!"},
 		"btnUrl": {},
 		"header": {"default": "Product Features"},

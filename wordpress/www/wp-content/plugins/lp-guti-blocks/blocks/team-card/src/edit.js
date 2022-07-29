@@ -18,7 +18,7 @@ const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
 import TeamCards from '../../../../../../../../gatsby-sites/www/src/components/blocks/TeamCards';
 import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
-
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import AddItemButton from '../../AddItemButton';
 import ItemControls from '../../ItemControls';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
@@ -141,6 +141,9 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			<ToolbarGroup>
 				<AddItemButton callback={addTabFunc} />
 				<BackgroundSelectorMenu callback={(color) => setAttributes({backgroundColor: color})} selected={attributes.backgroundColor} />
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 			</ToolbarGroup>
 		</BlockControls>
 	);

@@ -16,6 +16,7 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"header": {"default": "Related Insights"},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"backgroundColor": {"default": "bg-transparent" },
 		"linkText": {},
 		"linkUrl": {},

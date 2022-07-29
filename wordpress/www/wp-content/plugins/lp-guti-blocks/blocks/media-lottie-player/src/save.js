@@ -29,7 +29,7 @@ export default function save({attributes}) {
 	return (
 		<div className="wp-lottie-block">
 			<div className={`${attributes.widthSetting} ${attributes.alignment}`}>
-				<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
+				<LottieFilePlayer autoApprove={attributes.autoApproveLang} lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
 			</div>
 		</div>
 	);

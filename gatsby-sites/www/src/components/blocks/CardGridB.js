@@ -32,7 +32,7 @@ const CardGridB = (props) => {
   });
 
   return (  
-    <div id={props.anchor}  className={`pane comp-card-grid-b ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
+    <div autoapprove={props.autoApprove && "true"} id={props.anchor}  className={`pane comp-card-grid-b ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         {props.header && (
           <div className="row text-center">

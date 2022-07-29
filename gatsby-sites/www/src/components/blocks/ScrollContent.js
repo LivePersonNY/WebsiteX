@@ -13,7 +13,7 @@ const ScrollContent = (props) => {
   });
 
   return (  
-    <div id={props.anchor} className={`pane comp-scroll-horizontal-text ${props.backgroundColor}`}>
+    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-scroll-horizontal-text ${props.backgroundColor}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-8 offset-lg-2 text-center comp-scroll-horizontal-header">

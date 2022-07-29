@@ -32,6 +32,7 @@ export default function save({ attributes }) {
 			linkText={attributes.linkText}
 			linkUrl={attributes.linkUrl}
 			backgroundColor={attributes.backgroundColor}
+			autoApprove={attributes.autoApproveLang}
 		/>
 	)
 }

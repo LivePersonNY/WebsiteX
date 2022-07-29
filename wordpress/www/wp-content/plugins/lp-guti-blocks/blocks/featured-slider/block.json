@@ -17,6 +17,7 @@
 	"attributes": {
 		"header": {},
 		"small": {"default": false},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"backgroundColor": {
 			"default": "bg-transparent"
 		},

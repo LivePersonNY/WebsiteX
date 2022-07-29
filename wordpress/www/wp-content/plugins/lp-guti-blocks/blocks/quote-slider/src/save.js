@@ -25,6 +25,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-		<QuoteSlider header={attributes.header} items={attributes.quotes} backgroundColor={attributes.backgroundColor} />
+		<QuoteSlider autoApprove={attributes.autoApproveLang} header={attributes.header} items={attributes.quotes} backgroundColor={attributes.backgroundColor} />
 	);
 }

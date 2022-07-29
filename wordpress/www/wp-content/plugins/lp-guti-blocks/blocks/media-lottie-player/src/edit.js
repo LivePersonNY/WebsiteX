@@ -10,6 +10,7 @@ const { MediaUpload, MediaUploadCheck, RichText, InspectorControls, BlockControl
 const { Fragment, useState } = wp.element;
 import MediaPicker from '../../MediaPicker';
 import LottieFilePlayer from '../../LottieFilePlayer';
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import Anchor from '../../Anchor';
 
 import LineBreaks from '../../LineBreaks';
@@ -99,6 +100,9 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 								}
 							]}
 						/>
+						<AutoApproveLanguage callback={function() {
+							setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+						}} selected={attributes.autoApproveLang}/>
 					</BlockControls>
 					<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} cssClass="mx-auto d-block" clientId={clientId} />
 				</div>

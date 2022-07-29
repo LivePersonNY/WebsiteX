@@ -25,7 +25,7 @@ const ExecutiveCard = (props) => {
   });
 
   return (
-    <div id={props.anchor} className={`pane comp-exec-card ${props.backgroundColor}`}>
+    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-exec-card ${props.backgroundColor}`}>
       <div className="container">
       {props.header && (
         <div className="row">
