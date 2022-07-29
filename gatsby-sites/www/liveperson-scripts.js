@@ -298,7 +298,8 @@ window.documentReadyFn = function() {
 						
 
 				}
-				location.href = searchURL
+				console.log(`searchurl is ${searchURL}`);
+				location.href = searchURL;
 				}
 			}
 			function sendGA() {
@@ -329,10 +330,6 @@ window.documentReadyFn = function() {
 				if (window.ga && window.navigator) {
 				window.ga('send', 'event', 'careers', 'click', 'Match resume');
 				}
-			})
-
-			document.querySelector('.hero-or').addEventListener('click',function(){
-				console.log('click test');
 			})
 
 			console.log('Scripts: End Careers Script');
