@@ -176,15 +176,26 @@ window.documentReadyFn = function() {
 			$(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
 		});
 	
-		$(window).off('scroll').on('scroll', function(){
-			$('.pane:not(.hero, .pane-form, .gated)').each( function(i){
-				var bottom_of_object = $(this).position().top;
-				var bottom_of_window = $(window).scrollTop() + $(window).height();
-				if( bottom_of_window > bottom_of_object ){
-					$(this).animate({'opacity':'1'},1000);
-				}
-			}); 
-		});
+		
+
+		
+		setTimeout(function(){
+			console.log('This is load scroll position: ' + window.scrollY);
+			if (window.scrollY > 100){
+				$('.pane').animate({'opacity':'1'},1000);
+			} else{
+				$(window).off('scroll').on('scroll', function(){
+					$('.pane:not(.hero, .pane-form, .gated)').each( function(i){
+						var bottom_of_object = $(this).position().top;
+						var bottom_of_window = $(window).scrollTop() + $(window).height();
+						if( bottom_of_window > bottom_of_object ){
+							$(this).animate({'opacity':'1'},1000);
+						}
+					}); 
+				});
+			}
+		}, 1000);
+		
 		
 		$('body').on('input', 'textarea', function() {
 			this.style.height = "auto";
@@ -209,17 +220,6 @@ window.documentReadyFn = function() {
 		$('.nav-menu + a').click(function(){
 			hj('tagRecording', ['Sign in button clicked']);
 		});
-		
-		
-		// Uncomment below when we have GTM loaded
-		setTimeout(function(){
-			var sixSenseData = JSON.parse(localStorage.getItem('_6senseCompanyDetails'));
-			if (!sixSenseData) return;
-			hj('identify', null, {
-		 		'6S_Company': sixSenseData.company.name,
-		 		'6S_Industry' : sixSenseData.company.industry
-		 	});
-		}, 5000);
  
 		//widowFix
 		!function(t){$.fn.widowFix=function(i){var n=t.extend({letterLimit:null,prevLimit:null,linkFix:!1,dashes:!1},i);if(this.length)return this.each(function(){var i,e=t(this);if(n.linkFix){var r=e.find("a:last");r.wrap("<var>");var l=t("var").html();i=r.contents()[0],r.contents().unwrap()}var a=t(this).html().split(" "),h=a.pop();if(!(a.length<=1)){if(function t(){""===h&&(h=a.pop(),t())}(),n.dashes){t.each(["-","–","—"],function(t,i){if(h.indexOf(i)>0)return h='<span style="white-space:nowrap;">'+h+"</span>",!1})}var s=a[a.length-1];if(n.linkFix){if(null!==n.letterLimit&&i.length>=n.letterLimit)return void e.find("var").each(function(){t(this).contents().replaceWith(l),t(this).contents().unwrap()});if(null!==n.prevLimit&&s.length>=n.prevLimit)return void e.find("var").each(function(){t(this).contents().replaceWith(l),t(this).contents().unwrap()})}else{if(null!==n.letterLimit&&h.length>=n.letterLimit)return;if(null!==n.prevLimit&&s.length>=n.prevLimit)return}var u=a.join(" ")+"&nbsp;"+h;e.html(u),n.linkFix&&e.find("var").each(function(){t(this).contents().replaceWith(l),t(this).contents().unwrap()})}})}}($);
