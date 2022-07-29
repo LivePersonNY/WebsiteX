@@ -175,12 +175,9 @@ window.documentReadyFn = function() {
 			$(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
 			$(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
 		});
-	
-		
-
 		
 		setTimeout(function(){
-			console.log('This is load scroll position: ' + window.scrollY);
+			// console.log('This is load scroll position: ' + window.scrollY);
 			if (window.scrollY > 100){
 				$('.pane').animate({'opacity':'1'},1000);
 			} else{
@@ -195,8 +192,7 @@ window.documentReadyFn = function() {
 				});
 			}
 		}, 1000);
-		
-		
+			
 		$('body').on('input', 'textarea', function() {
 			this.style.height = "auto";
 			  this.style.height = (this.scrollHeight) + "px";
@@ -258,14 +254,89 @@ window.documentReadyFn = function() {
 				gdprLink2.innerText = 'All other countries';
 				gdprLink.after(gdprLink2);
 			}
-			// var legalLink2 =  setInterval(() => {
-			// 	if(document.readyState === 'complete'){
-			// 	clearInterval(legalLink2);
-			// 	gdprLink.after(gdprLink2);
-			// 	}
-			// }, 1500)
 		}
 
 		// window.dataLayer.push({'event': 'optimize.activate'}); doesnt really work
+
+		if(document.querySelectorAll('.resume-upload').length > 0){
+			console.log('Scripts: Start Careers Script');
+
+			let ghsrc = Query.get('gh_src');
+			console.log('ghsrc is: ' + ghsrc);
+
+			document.querySelectorAll('.comp-body-container a').forEach(function(lnk) {
+				var href = lnk.href.concat("&gh_src=").concat(ghsrc ?? "");
+					lnk.href = href;
+			});
+			document.querySelectorAll('.resume-upload').forEach(function(lnk) {
+				var href = lnk.href.concat("&gh_src=").concat(ghsrc ?? "");
+					lnk.href = href;
+			});
+			
+			let searchURL = 'http://careers.liveperson.com?source=campaignA'
+			.concat("&gh_src=").concat(ghsrc ?? "");
+			let keyWordQuery = document.getElementById('Job_Search').value;
+			if (keyWordQuery !== '') {
+				searchURL = searchURL.concat("&q=").concat(encodeURIComponent(keyWordQuery))
+			}
+			let submit = document.getElementById('Search_Submit_Button');
+			submit.href = searchURL;
+			
+
+			function handleKey(e) {
+				e.preventDefault()
+				e.stopPropagation()
+
+				if (e.keyCode === 13) {
+				let searchURL = 'http://careers.liveperson.com?source=campaignA'.concat("&gh_src=")
+					.concat(ghsrc ?? "");
+				let keyWordQuery = document.getElementById('Job_Search').value;
+				if (keyWordQuery !== '') { 
+					sendGA();
+					searchURL = searchURL.concat("&q=")
+						.concat(encodeURIComponent(keyWordQuery))
+						
+
+				}
+				location.href = searchURL
+				}
+			}
+			function sendGA() {
+				if (window.ga && window.navigator) {
+				window.ga('send', 'event', 'careers', 'click', 'Job search');
+				}
+			}
+
+			function setURLParams(e) {
+				let keyWordQuery = document.getElementById('Job_Search').value;
+
+				let searchURLParams = "https://careers.liveperson.com/?source=campaignA&q=";
+				searchURLParams = searchURLParams.concat(encodeURIComponent(keyWordQuery))
+					.concat("&gh_src=").concat(ghsrc ?? "");
+
+				let a = document.getElementById('Search_Submit_Button');
+					let b = document.getElementById('wf-form-Search-Form');
+				
+				a.href = searchURLParams;
+				b.setAttribute('action', searchURLParams);
+			}
+
+			document.getElementById('Job_Search').addEventListener('keyup', handleKey);
+			document.getElementById('wf-form-Search-Form').addEventListener('keyup', handleKey);
+			document.getElementById('Job_Search').addEventListener('input', setURLParams);
+
+			document.querySelector('.resume-upload').addEventListener('click',function(){
+				if (window.ga && window.navigator) {
+				window.ga('send', 'event', 'careers', 'click', 'Match resume');
+				}
+			})
+
+			document.querySelector('.hero-or').addEventListener('click',function(){
+				console.log('click test');
+			})
+
+			console.log('Scripts: End Careers Script');
+		}
+		
 		
 }
