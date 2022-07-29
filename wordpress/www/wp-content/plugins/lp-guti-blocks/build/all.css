@@ -10669,7 +10669,7 @@ a > .block-editor-block-list__layout code {
 .block-editor-block-list__layout .comp-icon-text-d .comp-block-grid-container .col .comp-body-container p {
   margin-top: 0;
 }
-.block-editor-block-list__layout .comp-icon-text-d .comp-block-grid-container .col:nth-child(odd) {
+.block-editor-block-list__layout .comp-icon-text-d .comp-block-grid-container .col:last-child:nth-child(odd) {
   width: 100% !important;
 }
 .block-editor-block-list__layout .card.icon-text-cta {

@@ -10643,7 +10643,7 @@ a > .site code {
 .site .comp-icon-text-d .comp-block-grid-container .col .comp-body-container p {
   margin-top: 0;
 }
-.site .comp-icon-text-d .comp-block-grid-container .col:nth-child(odd) {
+.site .comp-icon-text-d .comp-block-grid-container .col:last-child:nth-child(odd) {
   width: 100% !important;
 }
 .site .card.icon-text-cta {

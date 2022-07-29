@@ -826,7 +826,7 @@ img[src*="doubleclick"] {
                 }
             }
             
-            &:nth-child(odd) {
+            &:last-child:nth-child(odd) {
                 width: 100% !important;
             }
         }
