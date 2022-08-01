@@ -98,7 +98,7 @@ const NavBar = ({ siteTitle }) => {
   );
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container" style={{ position: 'relative' }}>
         <a href="/"><img className="site-logo" src={settings.allSettings.siteLogo} alt="LivePerson Inc." /></a>
         <button
