@@ -34,9 +34,7 @@ export default function HTML(props) {
         <script src="https://global.localizecdn.com/localize.js"></script>
         <script dangerouslySetInnerHTML={{ __html: lzScript }}></script>
 
-        {/* <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
-        <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script> */}
+        
         
         {props.headComponents}
       </head>
@@ -48,6 +46,12 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
+
+        {/* <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossOrigin="anonymous"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+        <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script src="https://heuristic-pare-8a14b1.netlify.app/assets/js/roi-calc.js"></script>
+        <script src="https://heuristic-pare-8a14b1.netlify.app/assets/js/roi-implemented.js"></script> */}
       </body>
     </html>
   )
