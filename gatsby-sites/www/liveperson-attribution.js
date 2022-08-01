@@ -268,7 +268,7 @@ const LivePerson = {
 		var companyField = form.getFormElem().find('#Company').first();
 		var companyValue = companyField.val();
 		
-		if (companyField.attr('type') == 'input') return companyValue;
+		if (companyField.attr('type') == 'text') return companyValue;
 		
 		return emailSplit[0] || '';
 	},
