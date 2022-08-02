@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import ROICalc from './roi-calc';
 
-$(window).on('load', function(){
+
 
     function setProgress(percent, selector, text, caption) {
         var circle = document.querySelector(selector);
@@ -316,4 +316,3 @@ $(window).on('load', function(){
         // Total savings on top orange
         // Total benefit is the sum white number on top
 
-})

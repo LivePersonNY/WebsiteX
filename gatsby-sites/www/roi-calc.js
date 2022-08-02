@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export default ROICalc = {
+const ROICalc = {
 	
 	config: config,
 	init: function(options) {
@@ -12,6 +12,8 @@ export default ROICalc = {
 	controller: controller,
 	
 }
+
+export default ROICalc;
 
 var config = {
 	inputs: {
