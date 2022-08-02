@@ -3,58 +3,69 @@ import 'jquery-ui-bundle';
 import 'jquery-ui-bundle/jquery-ui.css';
 import ROICalc from './roi-calc';
 
-function runRoi(){
+function setProgress(percent, selector, text, caption) {
+    var circle = document.querySelector(selector);
+    var circleText = document.querySelector(selector + "-val");
+    var circleCap = document.querySelector(selector + "-cap");
+    var radius = circle.r.baseVal.value;
+    var circumference = radius * 2 * Math.PI;
+    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+    circle.style.strokeDashoffset = `${circumference}`;
+    
+    const offset = circumference - percent / 100 * circumference;
+    circleText.innerHTML = text || numberShort(percent);
+    circleCap.innerHTML = caption || 'Savings';
+    circle.style.strokeDashoffset = offset;
+}
 
-    function setProgress(percent, selector, text, caption) {
-        var circle = document.querySelector(selector);
-        var circleText = document.querySelector(selector + "-val");
-        var circleCap = document.querySelector(selector + "-cap");
-        var radius = circle.r.baseVal.value;
-        var circumference = radius * 2 * Math.PI;
-        circle.style.strokeDasharray = `${circumference} ${circumference}`;
-        circle.style.strokeDashoffset = `${circumference}`;
-        
-        const offset = circumference - percent / 100 * circumference;
-        circleText.innerHTML = text || numberShort(percent);
-        circleCap.innerHTML = caption || 'Savings';
-        circle.style.strokeDashoffset = offset;
-    }
+
+function numberShort(value, precision) {
+    if (value < 1000) return numberShortFormat(locNumber(value, 'currency', undefined, 0, 0), '');
+    if (value < 1000000) return numberShortFormat(locNumber(value / 1000, 'currency', undefined, precision, precision), 'K');
+    if (value < 10000000) return numberShortFormat(locNumber(value / 1000000, 'currency', undefined, precision, precision), 'M');
+    if (value < 1000000000) return numberShortFormat(locNumber(value / 1000000, 'currency', undefined, precision, precision), 'M');
+    if (value < 10000000000) return numberShortFormat(locNumber(value / 1000000000, 'currency', undefined, precision, precision), 'B');
+    if (value < 1000000000000) return numberShortFormat(locNumber(value / 1000000000, 'currency', undefined, precision, precision), 'B');
+    return numberShortFormat(value, '');
+}
+
+function numberShortFormat(value, appender) {
+    return value.toString().replace(/^0\./, '.') + appender;
+}
+
+function locNumber(value, type, curr, accuracy, accuracyMax, loc) {
+    if (type == 'integer') return value.toLocaleString(loc || window.showLoc || 'en-US');
+    return value.toLocaleString(loc || window.showLoc || 'en-US', {style: type || 'currency', currency: curr || window.showCurrency || 'USD', minimumFractionDigits: (accuracy>=0) ? accuracy : 2, maximumFractionDigits: (accuracyMax>=0) ? accuracyMax : 2});
+}
+
+function updateTableCells(cellName, valueObj, valueStyle, subKey, accuracy, accuracyMax) {
+    const cols = [
+        'baseline', 'year1', 'year2', 'year3'
+    ];
+    cols.forEach(function(item) {
+        var value = valueObj[item];
+        if (subKey) {
+            value = valueObj[item][subKey];
+        }
+        if(accuracy == undefined){
+            accuracy = valueStyle == 'percent' ? 1 : 2;
+        }
+        $(cellName + "-" + item).text(locNumber(value, valueStyle, undefined, accuracy, accuracyMax));
+    });
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+const runRoi = function() {
     
-    
-    function numberShort(value, precision) {
-        if (value < 1000) return numberShortFormat(locNumber(value, 'currency', undefined, 0, 0), '');
-        if (value < 1000000) return numberShortFormat(locNumber(value / 1000, 'currency', undefined, precision, precision), 'K');
-        if (value < 10000000) return numberShortFormat(locNumber(value / 1000000, 'currency', undefined, precision, precision), 'M');
-        if (value < 1000000000) return numberShortFormat(locNumber(value / 1000000, 'currency', undefined, precision, precision), 'M');
-        if (value < 10000000000) return numberShortFormat(locNumber(value / 1000000000, 'currency', undefined, precision, precision), 'B');
-        if (value < 1000000000000) return numberShortFormat(locNumber(value / 1000000000, 'currency', undefined, precision, precision), 'B');
-        return numberShortFormat(value, '');
-    }
-    
-    function numberShortFormat(value, appender) {
-        return value.toString().replace(/^0\./, '.') + appender;
-    }
-    
-    function locNumber(value, type, curr, accuracy, accuracyMax, loc) {
-        if (type == 'integer') return value.toLocaleString(loc || window.showLoc || 'en-US');
-        return value.toLocaleString(loc || window.showLoc || 'en-US', {style: type || 'currency', currency: curr || window.showCurrency || 'USD', minimumFractionDigits: (accuracy>=0) ? accuracy : 2, maximumFractionDigits: (accuracyMax>=0) ? accuracyMax : 2});
-    }
-    
-    function updateTableCells(cellName, valueObj, valueStyle, subKey, accuracy, accuracyMax) {
-        const cols = [
-            'baseline', 'year1', 'year2', 'year3'
-        ];
-        cols.forEach(function(item) {
-            var value = valueObj[item];
-            if (subKey) {
-                value = valueObj[item][subKey];
-            }
-            if(accuracy == undefined){
-                accuracy = valueStyle == 'percent' ? 1 : 2;
-            }
-            $(cellName + "-" + item).text(locNumber(value, valueStyle, undefined, accuracy, accuracyMax));
-        });
-    }
+    ROICalc.init({
+        debug: true,
+        inputs: {
+            event: 'input'
+        }
+    });
 
     $('.jqslider-styles').each(function () {
         var sliderMin = $(this).data('min');
@@ -132,13 +143,9 @@ function runRoi(){
             $(this).val(locNumber(valFloat, type, undefined, minDec, maxDec));
             updateChart();
         })
-    })
+    });
     
-        ROICalc.init({
-            inputs: {
-                event: 'input'
-            }
-        });
+        
     
         var updateChart = async function(){ 
             
@@ -149,12 +156,12 @@ function runRoi(){
             // $('.label.year2').text(thisYear+2);
             // $('.label.year3').text(thisYear+3);
     
-            await Promise.all([
+            /*await Promise.all([
                 ROICalc.model.updateAll(),
                 ROICalc.model.calculate.sales.run(),
                 ROICalc.model.calculate.care.run(),
                 ROICalc.model.calculate.totals.run()
-            ]);
+            ]);*/
     
             var estimatedTotalBenefit = 0;
             //$('#two .bar').find('.tooltip').empty();
@@ -307,9 +314,7 @@ function runRoi(){
     
         updateChart();
     
-        function numberWithCommas(x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
+        
 
 }
 

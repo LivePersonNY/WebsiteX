@@ -4,13 +4,20 @@ const ROICalc = {
 	
 	config: config,
 	init: function(options) {
-		init(options)
+		return init(options);
 	},
 	debug: debug,
 	model: model,
 	results: results,
 	controller: controller,
 	
+};
+
+function updateState() {
+	ROICalc.results = results;
+	ROICalc.model = model;
+	ROICalc.config = config;
+	ROICalc.controller = controller;
 }
 
 export default ROICalc;
@@ -44,8 +51,12 @@ function init(options) {
 	model.calculate.care.run();
 	model.calculate.totals.run();
 	
+	updateState();
+	
 	//Debug info
-	debug.info("Init succeeded.");
+	debug.info("Init succeeded.", ROICalc);
+	
+	
 }
 
 const debug = {
@@ -55,7 +66,7 @@ const debug = {
 	}
 }
 
-const model = {
+var model = {
 	config: function(options) {
 		config = $.extend(true, config, options);
 	},
