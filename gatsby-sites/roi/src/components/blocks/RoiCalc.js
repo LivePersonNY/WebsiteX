@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 const RoiCalc = (props) => {
 
     useEffect(() => {
-        console.log('Roi Loaded');
     
         window.onload = (e) => {
             
