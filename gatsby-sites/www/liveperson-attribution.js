@@ -203,13 +203,10 @@ const LivePerson = {
 					}
 				}
 				
-				if (leadSourceCookie === '') {
+				if (!leadSourceCookie) {
 					Cookie.set('lp-leadSource', 'Other referral', 1);
 					leadSourceCookie = 'Other referral';
 				}
-				
-				
-				
 				
 			}
 		

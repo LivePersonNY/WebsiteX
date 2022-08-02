@@ -69,6 +69,14 @@ window.populateLanguageMenu = function(selected) {
 	});
 }
 
+window.lpHydrateAttributes = function() {
+	LivePerson.HydrateAttributes(function() {
+		LivePerson.waitForChat(function() {
+			LivePerson.BindToChat();
+		});
+	});
+}
+
 window.documentReadyFn = function() {
 	
 	/*Localize.detectLanguage(function(err, languages) {
@@ -130,11 +138,7 @@ window.documentReadyFn = function() {
 		}
 	});
 	
-	LivePerson.HydrateAttributes(function() {
-		LivePerson.waitForChat(function() {
-			LivePerson.BindToChat();
-		});
-	});
+	window.lpHydrateAttributes();
 	
 	console.log('Document ready.');
 	
