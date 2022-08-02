@@ -6,7 +6,7 @@ const RoiCalcContent = (props) => {
   
   return (
     <>
-      <div className={`pane`}>
+      <div className={`pane roi-content`}>
         <div className="container">
             <div className="row">
                 <div className="col-lg-10 offset-lg-1">
@@ -23,13 +23,13 @@ const RoiCalcContent = (props) => {
               <p>{props.execSummaryText}</p>
             </div>
           </div>
-          <div className="row">
-            <div className={`col-lg-7`}>
+          <div className="row roi-special-row">
+            <div className={`col-lg-7 roi-content-img`}>
                 {!props.imgCtl && props.imgSrcLeft && (
-                    <img src={props.imgSrcLeft} alt={props.imgAltLeft} className="d-block mx-auto" />
+                    <img src={props.imgSrcLeft} alt={props.imgAltLeft} className="" />
                 ) || props.imgCtl}
                 {!props.imgCtl && props.imgSrcRight && (
-                    <img src={props.imgSrcRight} alt={props.imgAltRight} className="d-block mx-auto" />
+                    <img src={props.imgSrcRight} alt={props.imgAltRight} className="" />
                 ) || props.imgCtl}
             </div>
             <div className={`col-lg-5 `}>
@@ -43,7 +43,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className={`pane bg-neutral-96`}>
+      <div className={`pane bg-neutral-96 roi-content`}>
         <div className="container">
             <div className="row">
                 <div className="col-lg-10 offset-lg-1">
@@ -107,7 +107,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96">
+      <div className="pane bg-neutral-96 roi-content">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1 order-lg-last">
@@ -146,7 +146,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96">
+      <div className="pane bg-neutral-96 roi-content">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1">
@@ -188,7 +188,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96">
+      <div className="pane bg-neutral-96 roi-content">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1 order-lg-last">
@@ -215,7 +215,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96">
+      <div className="pane bg-neutral-96 roi-content">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1">
@@ -242,7 +242,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane">
+      <div className="pane roi-content">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-12">
