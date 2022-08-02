@@ -19,6 +19,10 @@
 		"linkText": {"default": "That Button"},
 		"linkUrl": {"default": "https://www.liveperson.com"},
 		"linkExternal": {"default": false},
+		"autoApproveLang": {"default":false, "type": "boolean"},
+		"backgroundColor": {
+			"default": "bg-transparent"
+		},
 		"anchor": {}
 	}
 }

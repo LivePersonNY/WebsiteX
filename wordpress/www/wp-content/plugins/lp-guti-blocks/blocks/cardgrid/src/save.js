@@ -33,6 +33,7 @@ export default function save({ attributes }) {
 			items={attributes.cards}
 			body={attributes.content}
 			backgroundColor={attributes.backgroundColor}
+			autoApprove={attributes.autoApproveLang}
 		/>}
 		{attributes.blocktype == "CardGridB" &&
 		<CardGridB
@@ -40,6 +41,7 @@ export default function save({ attributes }) {
 			items={attributes.cards}
 			body={attributes.content}
 			backgroundColor={attributes.backgroundColor}
+			autoApprove={attributes.autoApproveLang}
 		/>}
 		</>
 	)

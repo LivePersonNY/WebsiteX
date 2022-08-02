@@ -25,6 +25,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-		<TabsB header={attributes.header} items={attributes.tabItems} backgroundColor={attributes.backgroundColor} />
+		<TabsB autoApprove={attributes.autoApproveLang} header={attributes.header} items={attributes.tabItems} backgroundColor={attributes.backgroundColor} />
 	);
 }

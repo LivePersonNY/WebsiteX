@@ -18,6 +18,7 @@
 		"header": {"default": "Card Grid"},
 		"blocktype": {"default": "CardGrid"},
 		"backgroundColor": {"default": "bg-transparent" },
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"content": {"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor"},
 		"cards": {
 			"type": "array",

@@ -58,7 +58,7 @@ const QuoteSlider = (props) => {
    
 
   return (
-    <div id={props.anchor} className={`pane comp-quote-slider ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
+    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-quote-slider ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
         <div className="container">
           <div className="row">
             <div className="col-lg-12">

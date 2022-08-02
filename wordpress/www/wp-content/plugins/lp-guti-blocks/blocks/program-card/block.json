@@ -17,6 +17,7 @@
 	"attributes": {
 		"header": {"default": "Header above events"},
 		"backgroundColor": {},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"quotes": {
 			"type": "array",
 			"default": [

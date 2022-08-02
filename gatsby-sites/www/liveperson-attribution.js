@@ -265,6 +265,11 @@ const LivePerson = {
 		var emailSplit = email.split('@');
 		emailSplit = emailSplit[1].split('.');
 		
+		var companyField = form.getFormElem().find('#Company').first();
+		var companyValue = companyField.val();
+		
+		if (companyField.attr('type') == 'text') return companyValue;
+		
 		return emailSplit[0] || '';
 	},
 	
@@ -357,8 +362,6 @@ const LivePerson = {
 		var formID = form.getId();
 		var emailField = form.getFormElem().find('#Email').first();
 		var emailVal = emailField.val();
-		
-		
 
 		//Hotjar recording tag
 		LivePerson.HotJar('Form fill - Attempt');
@@ -382,7 +385,7 @@ const LivePerson = {
 				campaignCreative__c: window.lp_attr.campaignContent,
 				cookiesEnabled: window.lp_attr.cookies,
 				oneTrustActiveGroups: window.OnetrustActiveGroups,
-				Company: LivePerson.GetCompany(emailVal)
+				Company: LivePerson.GetCompany(emailVal, form)
 			};
 			
 			form.vals(vals);		

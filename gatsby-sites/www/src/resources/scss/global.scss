@@ -153,7 +153,7 @@ img {
     }
 }
 
-.pane:nth-child(n+4) {
+.pane:nth-child(n+4):not(.gated) {
     opacity: 0;
 }
 
@@ -797,6 +797,7 @@ img[src*="doubleclick"] {
 .comp-icon-text-d {
 
     .comp-block-grid-container {
+
         .col {
             margin-top: 24px;
 
@@ -823,6 +824,10 @@ img[src*="doubleclick"] {
                 p {
                     margin-top: 0;
                 }
+            }
+            
+            &:last-child:nth-child(odd) {
+                width: 100% !important;
             }
         }
     }

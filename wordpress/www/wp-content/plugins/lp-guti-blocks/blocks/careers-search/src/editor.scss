@@ -1,0 +1,22 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.form-selector {
+	margin: 0 !important;
+	div {
+		margin: 0 !important;
+	}
+	input {
+		width: 55px !important;
+		margin: 8px;
+	}
+
+}
+
+.pane-form .embedded-input input {
+	-webkit-text-fill-color: black !important;
+
+}

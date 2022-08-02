@@ -25,6 +25,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-		<FeaturedSlider header={attributes.header} items={attributes.features} backgroundColor={attributes.backgroundColor} />
+		<FeaturedSlider autoApprove={attributes.autoApproveLang} header={attributes.header} items={attributes.features} backgroundColor={attributes.backgroundColor} />
 	);
 }

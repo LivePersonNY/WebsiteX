@@ -16,6 +16,7 @@ import LRForm from '../../../../../../../../gatsby-sites/www/src/components/bloc
 import { __experimentalGrid as Panel, PanelBody, Grid,Placeholder, TextareaControl, ToolbarButton, TextControl, Button, ResponsiveWrapper, ToolbarGroup, CheckboxControl } from '@wordpress/components';
 const { Fragment, useState, useEffect } = wp.element;
 import BackgroundSelectorMenu from '../../BackgroundSelector';
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import { MktoForms } from '../../../../../../../../gatsby-sites/www/liveperson-attribution';
 
 import Anchor from '../../Anchor';
@@ -101,6 +102,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 						window.jQuery(`#mktoForm_${mktoId}`).next().toggleClass('thank-you-message');
 					}}
 				/>
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 			</ToolbarGroup>
 		</BlockControls>
 	);

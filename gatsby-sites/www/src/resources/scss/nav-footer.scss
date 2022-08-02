@@ -121,9 +121,16 @@
                         margin: 0;
                         border: 0;
                         border-radius: 0;
-
+                        background: $neutral99;
+                        
                         .container {
                             padding: 0;
+                            
+                            & > .row {
+                                box-shadow: -10px 4px 8px $dropShadow,
+                                10px 4px 8px $dropShadow,
+                                inset 0 0 8px $dropShadow;
+                            }
                         }
 
                         @include media-breakpoint-up(lg) {

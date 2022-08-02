@@ -32,6 +32,7 @@ export default function save({ attributes }) {
 			btnText={attributes.btnText}
 			btnUrl={attributes.btnUrl}
 			backgroundColor={attributes.backgroundColor}
+			autoApprove={attributes.autoApproveLang}
 		/>
 	)
 }

@@ -17,6 +17,7 @@
 	"attributes": {
 		"header": {"default": "Header above tabs"},
 		"backgroundColor":{},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"tabItems": {
 			"type": "array",
 			"default": [

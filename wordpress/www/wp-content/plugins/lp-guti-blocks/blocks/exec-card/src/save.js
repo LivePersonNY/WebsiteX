@@ -25,6 +25,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-		<ExecutiveCard header={attributes.header} items={attributes.quotes} backgroundColor={attributes.backgroundColor}/>
+		<ExecutiveCard autoApprove={attributes.autoApproveLang} header={attributes.header} items={attributes.quotes} backgroundColor={attributes.backgroundColor}/>
 	);
 }

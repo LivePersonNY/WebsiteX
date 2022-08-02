@@ -12,11 +12,13 @@ import $ from 'jquery';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 import ContentCTA from '../../../../../../../../gatsby-sites/www/src/components/blocks/ContentCTA';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper } from '@wordpress/components';
+import { __experimentalGrid as Grid, Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup } from '@wordpress/components';
 import Anchor from '../../Anchor';
 import LinkControl from '../../LinkControl';
+import AutoApproveLanguage from '../../AutoApproveLanguage';
+import BackgroundSelectorMenu from '../../BackgroundSelector';
 
 
 /**
@@ -56,10 +58,26 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		}} />
 	);
 
+	let changeBackground = function(color) {
+		setAttributes({ backgroundColor: color });
+	}
+
+	let addButton = (
+		<BlockControls>
+			<ToolbarGroup>
+				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
+			</ToolbarGroup>
+		</BlockControls>
+	);
+
 	if (isSelected)	{
 
 		return (
 			<div {...useBlockProps()}>
+				{addButton}
 				<Anchor value={attributes.anchor} callback={function(val) {
 					setAttributes({ anchor: val });
 				}} />

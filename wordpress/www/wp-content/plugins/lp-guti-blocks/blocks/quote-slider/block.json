@@ -18,6 +18,7 @@
 		"header": {},
 		"small": {"default": false},
 		"backgroundColor": {},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"quotes": {
 			"type": "array",
 			"default": [
