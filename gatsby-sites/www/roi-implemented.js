@@ -156,12 +156,12 @@ const runRoi = function() {
             // $('.label.year2').text(thisYear+2);
             // $('.label.year3').text(thisYear+3);
     
-            /*await Promise.all([
+            await Promise.all([
                 ROICalc.model.updateAll(),
                 ROICalc.model.calculate.sales.run(),
                 ROICalc.model.calculate.care.run(),
                 ROICalc.model.calculate.totals.run()
-            ]);*/
+            ]);
     
             var estimatedTotalBenefit = 0;
             //$('#two .bar').find('.tooltip').empty();
