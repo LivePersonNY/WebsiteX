@@ -1,7 +1,17 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import $ from 'jquery';
+import bootstrap from 'bootstrap';
+import 'jquery-ui-bundle';
+import 'jquery-ui-bundle/jquery-ui.css';
 
-// You can delete this file if you're not using it
+import './liveperson-scripts';
+import './roi-implemented';
+
+import './src/resources/scss/index.scss';
+
+//
+
+export const onRouteUpdate = () => {
+  console.log("onRouteUpdate") // this works
+  
+  
+}

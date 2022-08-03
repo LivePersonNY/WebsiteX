@@ -40,6 +40,7 @@
     "gatsby-transformer-sharp": "^4.2.0",
     "html-react-parser": "^1.4.2",
     "jquery": "^3.6.0",
+    "jquery-ui-bundle": "^1.12.1-migrate",
     "lodash": "^4.17.20",
     "lottie-web": "^5.8.1",
     "multibuttonengagement": "^2.0.1",
@@ -50,8 +51,8 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-load-script": "^0.0.6",
-    "sass": "^1.43.4",
-    "react-lp": "../../react-components"
+    "react-lp": "../../react-components",
+    "sass": "^1.43.4"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

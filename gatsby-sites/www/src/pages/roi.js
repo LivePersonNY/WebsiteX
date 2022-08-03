@@ -5,17 +5,18 @@ import RoiCalc from '../components/blocks/RoiCalc';
 import RoiCalcContent from '../components/blocks/RoiCalcContent';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
-
+import runRoi from '../../roi-implemented';
 
 const Roi = () => {
+  
+  if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== "true") {
+    return (<NotFoundPage />);
+  }
 
 
   useEffect(() => {
-    console.log('Loaded');
-
-    window.onload = (e) => {
-
-    };
+    
+    runRoi();
 
   });
 
