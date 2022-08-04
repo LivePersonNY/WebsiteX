@@ -18,7 +18,7 @@ const Roi = () => {
 
   useEffect(() => {
     
-    runRoi();
+    runRoi($);
 
   });
 

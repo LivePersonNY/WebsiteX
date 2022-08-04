@@ -58,7 +58,7 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const runRoi = function() {
+const runRoi = function($) {
     
     ROICalc.init({
         debug: true,
