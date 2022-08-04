@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import runRoi from '../../roi-implemented';
 import NotFoundPage from './404';
+import $ from 'jquery';
 
 const Roi = () => {
   
