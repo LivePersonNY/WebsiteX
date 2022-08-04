@@ -154,7 +154,9 @@ img {
 }
 
 .pane:nth-child(n+4):not(.gated) {
-    opacity: 0;
+    .container {
+        opacity: 0;
+    }
 }
 
 img[src*="doubleclick"] {

@@ -186,10 +186,10 @@ window.documentReadyFn = function() {
 		setTimeout(function(){
 			// console.log('This is load scroll position: ' + window.scrollY);
 			if (window.scrollY > 100){
-				$('.pane').animate({'opacity':'1'},1000);
+				$('.pane .container').animate({'opacity':'1'},1000);
 			} else{
 				$(window).off('scroll').on('scroll', function(){
-					$('.pane:not(.hero, .pane-form, .gated)').each( function(i){
+					$('.pane:not(.hero, .pane-form, .gated) .container').each( function(i){
 						var bottom_of_object = $(this).position().top;
 						var bottom_of_window = $(window).scrollTop() + $(window).height();
 						if( bottom_of_window > bottom_of_object ){
