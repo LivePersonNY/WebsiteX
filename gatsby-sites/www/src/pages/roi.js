@@ -18,9 +18,7 @@ const Roi = () => {
 
   useEffect(() => {
     
-    window.lpCallbacks.push(function() {
-      window.runRoi();
-    });
+    window.runRoi();
     
   });
 

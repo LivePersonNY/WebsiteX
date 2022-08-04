@@ -314,7 +314,7 @@ const runRoi = function() {
     
         updateChart();
     
-        
+        $('.calc-container').addClass('loaded');
 
 }
 

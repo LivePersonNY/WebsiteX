@@ -324,9 +324,13 @@
     border-radius: 8px;
     display: flex;
     flex-flow: initial;
-
+    opacity: 0;
+    transition: 1s opacity ease;
     @include media-breakpoint-down(lg) {
         flex-flow: column;
+    }
+    &.loaded {
+      opacity: 1;
     }
 }
 
