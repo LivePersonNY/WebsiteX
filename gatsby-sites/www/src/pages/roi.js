@@ -5,9 +5,9 @@ import RoiCalc from '../components/blocks/RoiCalc';
 import RoiCalcContent from '../components/blocks/RoiCalcContent';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
-import runRoi from '../../roi-implemented';
+//import runRoi from '../../roi-implemented';
 import NotFoundPage from './404';
-import $ from 'jquery';
+//import $ from 'jquery';
 
 const Roi = () => {
   
