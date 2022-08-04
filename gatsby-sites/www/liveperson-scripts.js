@@ -1,8 +1,11 @@
 import $ from 'jquery';
 import lottie from "lottie-web";
 import { Cookie, Query, LivePerson } from "./liveperson-attribution";
+import runRoi from './roi-implemented';
 
 window.lottie = lottie;
+
+window.runRoi = runRoi;
 
 window.readyTimeout = null;
 
@@ -126,7 +129,7 @@ window.documentReadyFn = function() {
 				console.log("cb called");
 			}
 		} catch (error) {
-			console.log("callback failed", error);
+			console.error("callback failed", error);
 		}
 		
 	});
