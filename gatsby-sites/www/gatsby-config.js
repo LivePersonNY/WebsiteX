@@ -22,7 +22,7 @@ module.exports = {
       }
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
+    // `gatsby-plugin-image`,
     // `gatsby-plugin-sitemap`,
     // {
     //   resolve: 'gatsby-plugin-robots-txt',
