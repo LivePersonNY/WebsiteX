@@ -80,8 +80,8 @@ module.exports = {
         maxCacheDurationSeconds: 60 * 60 * 24,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    //`gatsby-transformer-sharp`,
+    //`gatsby-plugin-sharp`,
     'gatsby-plugin-sass',
     `gatsby-plugin-sitemap`,
     {
