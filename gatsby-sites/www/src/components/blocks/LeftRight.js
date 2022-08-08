@@ -21,8 +21,8 @@ const LeftRight = (props) => {
       >
         <div className="container">
           {props.header && (
-            <div className="row">
-              <div className="col-lg-10 offset-lg-1">
+            <div className="row justify-content-center">
+              <div className={`col-lg-${props.colWidth||12}`}>
                 <h2 className="text-center">{props.header}</h2>
               </div>
             </div>

@@ -146,12 +146,26 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		}
 	}
 
+	let changeColumns = function() {
+		let width = attributes.colWidth;
+		if (width < 12) {
+			setAttributes({ colWidth: width+1 });
+		} else {
+			setAttributes({ colWidth: 6 });
+		}
+	}
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarButton
 				icon="heading"
 				label="Head Level H2/H3"
 				onClick={ changeHeadLevel }
+			/>
+			<ToolbarButton
+				icon="image-flip-horizontal"
+				label="Width"
+				onClick={ changeColumns }
 			/>
 			<AutoApproveLanguage callback={function() {
 				setAttributes({ autoApproveLang: !attributes.autoApproveLang});
