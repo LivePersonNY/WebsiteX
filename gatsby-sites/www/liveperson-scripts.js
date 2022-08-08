@@ -1,11 +1,11 @@
 import $ from 'jquery';
 import lottie from "lottie-web";
 import { Cookie, Query, LivePerson } from "./liveperson-attribution";
-import runRoi from './roi-implemented';
+
 
 window.lottie = lottie;
 
-window.runRoi = runRoi;
+
 
 window.readyTimeout = null;
 
