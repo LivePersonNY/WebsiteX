@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 import { withPrefix, Link, graphql } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 import queryString from 'query-string';
 import Helmet from "react-helmet"
 import { Query } from "../../../liveperson-attribution";

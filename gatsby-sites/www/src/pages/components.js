@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 import queryString from 'query-string';
 
 import Parser from 'html-react-parser';

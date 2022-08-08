@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
