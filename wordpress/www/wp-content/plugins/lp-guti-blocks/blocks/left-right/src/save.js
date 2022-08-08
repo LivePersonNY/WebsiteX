@@ -35,6 +35,7 @@ export default function save({attributes}) {
 	return (
 		<LeftRight
 			headLevel={attributes.headLevel}
+			colWidth={attributes.colWidth}
 			kicker={attributes.kicker}
 			backgroundColor={attributes.backgroundColor}
 			repeat={attributes.repeat}

@@ -197,6 +197,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				vimeoUrl={attributes.vimeoUrl}
 				anchor={attributes.anchor}
 				autoApprove={attributes.autoApproveLang}
+				colWidth={attributes.colWidth}
 			/>
 			<Fragment>
 				<InspectorControls>
@@ -237,6 +238,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				linkSecondaryUrl={attributes.linkSecondaryUrl}
 				linkSecondaryText={attributes.linkSecondaryText}
 				linkSecondaryExternal={attributes.linkSecondaryExternal}
+				colWidth={attributes.colWidth}
 				body={attributes.text}
 				title={attributes.title}
 				header={attributes.header}
