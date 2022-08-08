@@ -46,6 +46,7 @@ export default function save({attributes}) {
 			linkSecondaryExternal={attributes.linkSecondaryExternal}
 			body={attributes.text}
 			title={attributes.title}
+			header={attributes.header}
 			flipColumns={attributes.flipped}
 			imgSrc={!attributes.vimeoUrl && attributes.mediaUrl}
 			imgAlt={attributes.mediaAlt}

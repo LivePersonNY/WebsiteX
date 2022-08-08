@@ -20,6 +20,13 @@ const LeftRight = (props) => {
         }`}
       >
         <div className="container">
+          {props.header && (
+            <div className="row">
+              <div className="col-lg-10 offset-lg-1">
+                <h2 className="text-center">{props.header}</h2>
+              </div>
+            </div>
+          )}
           <div className="row align-items-center">
             <div
               className={`col-lg-6 ${props.flipColumns ? 'order-lg-last' : ''}`}

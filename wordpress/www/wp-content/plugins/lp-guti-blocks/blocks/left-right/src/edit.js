@@ -85,6 +85,15 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		/>
 	);
 
+	let headerControl = (
+		<TextControl
+			value={ attributes.header }
+			onChange={ ( val ) => setAttributes( { header: val } ) }
+			className="embedded-input"
+			placeholder="Leading Header"
+		/>
+	);
+
 	let imageControl = (
 		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} />
 	);
@@ -167,6 +176,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				linkSecondaryText={linkSecondaryTextControl}
 				body={contentControl}
 				title={titleControl}
+				header={headerControl}
 				flipColumns={attributes.flipped}
 				imgCtl={!attributes.vimeoUrl && imageControl}
 				lottieFile={attributes.lottieFile}
@@ -215,6 +225,7 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				linkSecondaryExternal={attributes.linkSecondaryExternal}
 				body={attributes.text}
 				title={attributes.title}
+				header={attributes.header}
 				flipColumns={attributes.flipped}
 				imgSrc={!attributes.vimeoUrl && attributes.mediaUrl}
 				imgAlt={attributes.mediaAlt}
