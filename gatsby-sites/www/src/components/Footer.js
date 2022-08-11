@@ -123,6 +123,12 @@ const Footer = () => {
                   {link.label}
                 </a>)
             })}
+            <div className="footer-social">
+              <a href="https://twitter.com/LivePerson"><img src="https://static.liveperson.com/static-assets/2022/08/11155745/social-twitter.svg" /></a>
+              <a href="https://www.facebook.com/liveperson/"><img src="https://static.liveperson.com/static-assets/2022/08/11155746/social-facebook.svg" /></a>
+              <a href="https://www.linkedin.com/company/liveperson"><img src="https://static.liveperson.com/static-assets/2022/08/11155744/social-linkedin.svg" /></a>
+              <a href="https://www.instagram.com/livepersoninc/"><img src="https://static.liveperson.com/static-assets/2022/08/11155903/social-instagram-1.svg" /></a>
+            </div>
             <LanguageSelector />
           </div>
         </div>
