@@ -30,7 +30,7 @@ class LP_Resources
 		//add_action('admin_bar_menu', [$this, 'add_item'], 100);
 		//add_action( 'admin_footer', [$this, 'cache_purge_action_js'] );
 		
-		add_action( 'transition_post_status', [$this, 'gatsby_trigger'], 10, 2 );
+		//add_action( 'transition_post_status', [$this, 'gatsby_trigger'], 10, 2 );
 		
 		add_filter( 'page_row_actions', [$this, 'add_stage_action' ], 100, 2 );
 		add_filter( 'post_row_actions', [$this, 'add_stage_action' ], 10, 2 );
