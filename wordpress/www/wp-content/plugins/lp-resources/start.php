@@ -481,7 +481,7 @@ class LP_Resources
 			],
 			'menu_position' => 5,
 			'rewrite' => [
-				'with_front' => false,
+				'slug' => 'blog',
 			],
 		]);
 		
