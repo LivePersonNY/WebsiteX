@@ -44,7 +44,7 @@ exports.createPages = async (props) => {
     }
   `);
   
-  const removeFiles = async function() {
+  /*const removeFiles = async function() {
     fs.rmSync(`./static`, {recursive: true, force: true});
   }
   
@@ -73,7 +73,7 @@ exports.createPages = async (props) => {
         });
       });
     });
-  });
+  });*/
   
   const { redirects } = JSON.parse(JSON.stringify(wpSettings.wp.seo));
   if (redirects) {
@@ -101,6 +101,8 @@ exports.createPages = async (props) => {
   });
   
   const posts = await getPosts(props);
+  const stagedPosts = await getStagedPosts(props);
+  
   const categories = await getCategories(props);
   if (!posts.length) {
     return;
@@ -108,7 +110,9 @@ exports.createPages = async (props) => {
   
   const policies = await getPolicyPages(props);
   
-  //await createIndividualBlogPostPages({ posts, props });
+  await createIndividualBlogPostPages({ posts, props });
+  
+  await createIndividualBlogPostPages({ posts: stagedPosts, props });
   
   await createBlogPostArchive({ posts, props });
   
@@ -238,10 +242,10 @@ const createIndividualBlogPostPages = async ({ posts, props }) =>
       props.actions.createPage({
         // Use the WordPress uri as the Gatsby page path
         // This is a good idea so that internal links and menus work 👍
-        path: post.uri,
+        path: '/blog/' + post.slug,
 
         // use the blog post template as the page component
-        component: path.resolve(`./src/templates/BlogPost.js`),
+        component: path.resolve(`./src/templates/Post.js`),
 
         // `context` is available in the template as a prop and
         // as a variable in GraphQL.
@@ -381,6 +385,51 @@ async function getCategories({ graphql, reporter }) {
  * We're passing in the utilities we got from createPages.
  * So see https://www.gatsbyjs.com/docs/node-apis/#createPages for more info!
  */
+ 
+async function getStagedPosts({ graphql, reporter }) {
+  const graphqlResult = await graphql(`
+    query {
+      allWpStagedPost(
+        sort: { fields: [date], order: DESC }
+        filter: {seo: {metaRobotsNoindex: {eq: "index"}}}
+      ) {
+        edges {
+          previous {
+            id
+          }
+      
+          # note: this is a GraphQL alias. It renames "node" to "post" for this query
+          # We're doing this because this "node" is a post! It makes our code more readable further down the line.
+          post: node {
+            id
+            uri
+            link
+            slug
+            nodeType
+            seo {
+              metaRobotsNoindex
+            }
+          }
+      
+          next {
+            id
+          }
+        }
+      }
+    }
+  `);
+  
+  if (graphqlResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your blog posts`,
+      graphqlResult.errors
+    );
+    return;
+  }
+  
+  return graphqlResult.data.allWpStagedPost.edges;
+}
+
 async function getPosts({ graphql, reporter }) {
   const graphqlResult = await graphql(/* GraphQL */ `
     query WpPosts {
@@ -399,6 +448,8 @@ async function getPosts({ graphql, reporter }) {
           post: node {
             id
             uri
+            link
+            slug
             seo {
               metaRobotsNoindex
             }
@@ -411,6 +462,7 @@ async function getPosts({ graphql, reporter }) {
       }
     }
   `);
+  
 
   if (graphqlResult.errors) {
     reporter.panicOnBuild(

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit36b6f5e40469c15233b7a3c064e28c34
+class ComposerStaticInitcbddaab4c0f40b1346f340a80e4e9db9
 {
     public static $files = array (
         'a3ed03db03d57650e139da3e8903943c' => __DIR__ . '/../..' . '/access-functions.php',
@@ -276,6 +276,8 @@ class ComposerStaticInit36b6f5e40469c15233b7a3c064e28c34
         'WPGraphQL\\Data\\Connection\\ThemeConnectionResolver' => __DIR__ . '/../..' . '/src/Data/Connection/ThemeConnectionResolver.php',
         'WPGraphQL\\Data\\Connection\\UserConnectionResolver' => __DIR__ . '/../..' . '/src/Data/Connection/UserConnectionResolver.php',
         'WPGraphQL\\Data\\Connection\\UserRoleConnectionResolver' => __DIR__ . '/../..' . '/src/Data/Connection/UserRoleConnectionResolver.php',
+        'WPGraphQL\\Data\\Cursor\\AbstractCursor' => __DIR__ . '/../..' . '/src/Data/Cursor/AbstractCursor.php',
+        'WPGraphQL\\Data\\Cursor\\CommentObjectCursor' => __DIR__ . '/../..' . '/src/Data/Cursor/CommentObjectCursor.php',
         'WPGraphQL\\Data\\Cursor\\CursorBuilder' => __DIR__ . '/../..' . '/src/Data/Cursor/CursorBuilder.php',
         'WPGraphQL\\Data\\Cursor\\PostObjectCursor' => __DIR__ . '/../..' . '/src/Data/Cursor/PostObjectCursor.php',
         'WPGraphQL\\Data\\Cursor\\TermObjectCursor' => __DIR__ . '/../..' . '/src/Data/Cursor/TermObjectCursor.php',
@@ -353,6 +355,7 @@ class ComposerStaticInit36b6f5e40469c15233b7a3c064e28c34
         'WPGraphQL\\Type\\Enum\\MenuNodeIdTypeEnum' => __DIR__ . '/../..' . '/src/Type/Enum/MenuNodeIdTypeEnum.php',
         'WPGraphQL\\Type\\Enum\\MimeTypeEnum' => __DIR__ . '/../..' . '/src/Type/Enum/MimeTypeEnum.php',
         'WPGraphQL\\Type\\Enum\\OrderEnum' => __DIR__ . '/../..' . '/src/Type/Enum/OrderEnum.php',
+        'WPGraphQL\\Type\\Enum\\PluginStatusEnum' => __DIR__ . '/../..' . '/src/Type/Enum/PluginStatusEnum.php',
         'WPGraphQL\\Type\\Enum\\PostObjectFieldFormatEnum' => __DIR__ . '/../..' . '/src/Type/Enum/PostObjectFieldFormatEnum.php',
         'WPGraphQL\\Type\\Enum\\PostObjectsConnectionDateColumnEnum' => __DIR__ . '/../..' . '/src/Type/Enum/PostObjectsConnectionDateColumnEnum.php',
         'WPGraphQL\\Type\\Enum\\PostObjectsConnectionOrderbyEnum' => __DIR__ . '/../..' . '/src/Type/Enum/PostObjectsConnectionOrderbyEnum.php',
@@ -441,9 +444,9 @@ class ComposerStaticInit36b6f5e40469c15233b7a3c064e28c34
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit36b6f5e40469c15233b7a3c064e28c34::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit36b6f5e40469c15233b7a3c064e28c34::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit36b6f5e40469c15233b7a3c064e28c34::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitcbddaab4c0f40b1346f340a80e4e9db9::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitcbddaab4c0f40b1346f340a80e4e9db9::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitcbddaab4c0f40b1346f340a80e4e9db9::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1,13 +1,13 @@
 === Co-Authors, Multiple Authors and Guest Authors in an Author Box with PublishPress Authors ===
 
-Contributors: publishpress, kevinB, stevejburge, andergmartins
+Contributors: publishpress, kevinB, stevejburge, andergmartins, ojopaul
 Author: PublishPress
 Author URI: https://publishpress.com
 Tags: multiple authors, authors, guest authors, author fields, author layouts
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 5.9
-Stable tag: 3.16.0
+Tested up to: 6.0
+Stable tag: 3.20.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -223,6 +223,93 @@ There are two ways to install the PublishPress Authors plugin:
 5. Activate the PublishPress Authors plugin.
 
 == Changelog ==
+
+= [3.20.1] - 08 Aug 2022 =
+
+* Feature: Added 'search_box' option to authors shortcode and widget, #780
+* Feature: Added 'search_field' option to authors shortcode and widget, #780
+* Feature: Added pagination and Search to all defaults layout, #819
+* Feature: Added search box and search field option to authors list widget #822
+* Fixed: Conflict with PublishPress Calendar, #818
+* Update: Allow users to edit "Authors Recent", "Authors Index" and default layouts, #801
+* Update: ES-FR-IT translation updates, #804
+
+= [3.20.0] - 28 Jul 2022 =
+
+* Fixed: Bulk edit not working, #741
+* Feature: Added 'authors_recent' layout for Authors List, #124
+* Feature: Added 'authors_index' layout for Authors List, #124
+* Feature: Added 'limit_per_page' option to authors shortcode and widget, #788
+* Feature: Added 'show_empty' option to authors shortcode and widget, #788
+* Feature: Added 'authors' option to authors shortcode and widget, #788
+* Feature: Added 'order' option to authors shortcode and widget, #788
+* Feature: Added 'orderby' option to authors shortcode and widget, #788
+* Feature: Added 'authors_recent_col' to authors shortcode and widget, #788
+* Feature: Add new options to author list widget, #788
+* Update: Italian and spanish translation update, #772
+
+= [3.19.1] - 18 Jul 2022 =
+
+* Feature: Add a setting for selecting Fallback user for Guest Authors, #743
+* Feature: Allow users to limit the length of a bio in a layout using author.get_description(150), #754
+* Fixed: Conflict between All in one SEO and PublishPress Authors Pro, #762
+* Update: Updated Spanish and Italian translation files, #757
+* Fixed: Empty space between categories is missing, #753
+* Update: Change "Display" tab to "Author Boxes" in settings, #755
+* Update: Remain on active tab after updating settings, #746
+
+= [3.19.0] - 27 Jun 2022 =
+
+* Feature: Added new Author Profile Pages, #417
+* Added: Settings tab for "Author Pages", #729
+* Update: Authors taxonomy queries improvement, #527
+* Added: Added filter to authors rest response, #726
+
+= [3.18.0] - 13 Jun 2022 =
+
+* Fixed: Allow authors to have the same name, #682
+* Added: Extend [publishpress_authors_data] shortcode to return authors user object, #697
+* Fixed: Search box doesn't accept ' characters in username, #699
+* Added: Add Authors important menu link to plugin row, #714
+* Fixed: Author menu missing in admin menus, #715
+* Fixed: PHP 7.2 compability, #711
+* Added: Add [publishpress_authors_list] shortcode to the Free version, #706
+* Fixed: Most important buttons should be yellow only, #704
+* Fixed: Author Box shortcode is in the wrong place, #695
+* Fixed: Small typo in shortcode, #693
+
+= [3.17.0] - 30 May 2022 =
+
+* Added: Option to enable/disable loading font awesome assets in frontend, #625
+* Added: Support for user fields WPML translations, #642
+* Added: Add new shortcode [publishpress_authors_data] which can be used to display the author names or any profile field, #673
+* Fixed: Multiple Authors Compability with Yoast SEO authors's title, #672
+* Update: Change [author_box] to [publishpress_authors_box] in shortcode tab, #670
+
+= [3.16.3] - 18 May 2022 =
+
+* Added: Add an Author Filter for Posts, #90
+* Update: Enable Author Profile for Administator and other roles with 'ppma_manage_authors', #649
+* Added: Add a shortcodes tab to settings, #641
+* Update: Run the WordPress VIP scans on Authors, #639
+* Fixed: Authors menu links can be split up by PODS content types, #684
+
+= [3.16.2] - 09 May 2022 =
+
+* Fixed: Fix incorrect "Mine" counter in admin posts list, #591
+* Fixed: Fix error with subscribers/non admin inability to see see Author page posts, #584
+* Added: Add metabox to control author display on pages #60
+* Added: Added Author Profile URL #616
+* Update: Use built-in capability check when searching users via ajax, #645
+* Added: Disable Free version with Pro is active #615
+
+= [3.16.1] - 13 Apr 2022 =
+
+* Fixed: Fix author mapped to user error when adding new author, #626;
+* Fixed: Fix test for checking the author link in the frontend;
+* Fixed: Fix Undefined array key "tag-name" when bulk delete all authors, #628;
+* Fixed: Fix Fatal error when "Create missed post authors" button is clicked, #623;
+* Fixed: Fix author profile allowing to add html tags in the bio text, #619;
 
 = [3.16.0] - 23 Mar 2022 =
 

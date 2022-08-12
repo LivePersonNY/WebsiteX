@@ -572,17 +572,22 @@ function mediaLibraryOrganizerGridViewAddFiltersToToolbar() {
 		var AttachmentsBrowser           = wp.media.view.AttachmentsBrowser;
 		wp.media.view.AttachmentsBrowser = wp.media.view.AttachmentsBrowser.extend(
 			{
-
-				/**
-				 * When the toolbar is created, add our custom filters to it, which
-				 * are rendered as select dropdowns.
-				 *
-				 * @since 	1.0.0
-				 */
+					/**
+					 * When the toolbar is created, add our custom filters to it, which
+					 * are rendered as select dropdowns.
+					 *
+					 * @since 	1.0.0
+					 */
 				createToolbar: function() {
 
 					// Make sure to load the original toolbar.
 					AttachmentsBrowser.prototype.createToolbar.call( this );
+
+					// Bail if search is not included in the toolbar, as this means we're on a grid view
+					// that doesn't display filters, such as Edit Gallery.
+					if ( ! this.options.search ) {
+						return;
+					}
 
 					// Define the priority order at which these filters should begin output in the Grid View Toolbar.
 					var priority = -75;
@@ -602,12 +607,12 @@ function mediaLibraryOrganizerGridViewAddFiltersToToolbar() {
 							).render()
 						);
 
-						// Increment priority so the order of filters remains the same
-						// if they're subsequently updated by calling mediaLibraryOrganizerGridViewInitializeTaxonomyFilter().
-						priority++;
+							// Increment priority so the order of filters remains the same
+							// if they're subsequently updated by calling mediaLibraryOrganizerGridViewInitializeTaxonomyFilter().
+							priority++;
 					}
 
-					// Add the orderby filter to the toolbar.
+						// Add the orderby filter to the toolbar.
 					if ( media_library_organizer_media.settings.orderby_enabled == 1 ) {
 						this.toolbar.set(
 							'MediaLibraryOrganizerTaxonomyOrderBy',
@@ -625,7 +630,7 @@ function mediaLibraryOrganizerGridViewAddFiltersToToolbar() {
 						priority++;
 					}
 
-					// Add the order filter to the toolbar.
+						// Add the order filter to the toolbar.
 					if ( media_library_organizer_media.settings.order_enabled == 1 ) {
 						this.toolbar.set(
 							'MediaLibraryOrganizerTaxonomyOrder',
@@ -643,53 +648,77 @@ function mediaLibraryOrganizerGridViewAddFiltersToToolbar() {
 						priority++;
 					}
 
-					// Fire the mlo:grid:filters:add event that Addons can hook into and add their own Filters now.
-					wp.media.events.trigger(
-						'mlo:grid:filters:add',
-						{
-							attachments_browser: this,
-							priority: priority
-						}
-					);
+						// Fire the mlo:grid:filters:add event that Addons can hook into and add their own Filters now.
+						wp.media.events.trigger(
+							'mlo:grid:filters:add',
+							{
+								attachments_browser: this,
+								priority: priority
+							}
+						);
 
-					// Fire the mlo:grid:bulk_select:enabled event that Addons can hook into and listen
-					// when Bulk select is enabled by clicking the Bulk Select button.
-					this.controller.on(
-						'select:activate',
-						function() {
-							wp.media.events.trigger( 'mlo:grid:bulk_select:enabled' );
-						}
-					);
+						// Fire the mlo:grid:bulk_select:enabled event that Addons can hook into and listen
+						// when Bulk select is enabled by clicking the Bulk Select button.
+						this.controller.on(
+							'select:activate',
+							function() {
+								wp.media.events.trigger( 'mlo:grid:bulk_select:enabled' );
+							}
+						);
 
-					// Fire the mlo:grid:bulk_select:disabled event that Addons can hook into and listen
-					// when Bulk select is disabled by clicking the Cancel button.
-					this.controller.on(
-						'select:deactivate',
-						function() {
-							wp.media.events.trigger( 'mlo:grid:bulk_select:disabled' );
-						}
-					);
+						// Fire the mlo:grid:bulk_select:disabled event that Addons can hook into and listen
+						// when Bulk select is disabled by clicking the Cancel button.
+						this.controller.on(
+							'select:deactivate',
+							function() {
+								wp.media.events.trigger( 'mlo:grid:bulk_select:disabled' );
+							}
+						);
 
-					// Fire the mlo:grid:attachments:bulk_actions:done event that Addons can hook into and listen
-					// when a Bulk select action (e.g. Delete) completes.
-					this.controller.on(
-						'selection:action:done',
-						function() {
-							wp.media.events.trigger( 'mlo:grid:attachments:bulk_actions:done' );
-						}
-					);
+						// Fire the mlo:grid:attachments:bulk_actions:done event that Addons can hook into and listen
+						// when a Bulk select action (e.g. Delete) completes.
+						this.controller.on(
+							'selection:action:done',
+							function() {
+								wp.media.events.trigger( 'mlo:grid:attachments:bulk_actions:done' );
+							}
+						);
 
-					// Store the toolbar in a var so we can interact with it later.
-					MediaLibraryOrganizerAttachmentsBrowser = this;
+						// Store the toolbar in a var so we can interact with it later.
+						MediaLibraryOrganizerAttachmentsBrowser = this;
 
 				},
 
 				createAttachmentsHeading: function() {
 
-					// Make sure to load the original attachments heading.
+					// Make sure to load the original attachments heading. Check if we still need this function.
 					AttachmentsBrowser.prototype.createAttachmentsHeading.call( this );
 
-				}
+				},
+
+					/**
+					 * Set attachment wrapper view top to match the height of the toolbar, so attachments
+					 * are not cut off.
+					 */
+				createAttachmentsWrapperView: function() {
+
+					// Make sure to load the original attachments wrapper view.
+					AttachmentsBrowser.prototype.createAttachmentsWrapperView.call( this );
+
+					// Set wrapper offset on load.
+					setTimeout(
+						function() {
+							MediaLibraryOrganizerAttachmentsBrowser.attachmentsWrapper.el.style.top = ( MediaLibraryOrganizerAttachmentsBrowser.toolbar.el.clientHeight + 10 ) + 'px';
+						},
+						500
+					);
+
+					// Update wrapper offset on window resize.
+					window.onresize = function() {
+						MediaLibraryOrganizerAttachmentsBrowser.attachmentsWrapper.el.style.top = ( MediaLibraryOrganizerAttachmentsBrowser.toolbar.el.clientHeight + 10 ) + 'px';
+					}
+
+				},
 
 			}
 		);
@@ -1131,7 +1160,7 @@ wp.media.events.on(
 			mediaLibraryOrganizerUploader = wp.media.frame.uploader;
 		}
 
-		if ( mediaLibraryOrganizerUploader ) {
+		if ( mediaLibraryOrganizerUploader && typeof mediaLibraryOrganizerUploader.uploader !== 'undefined' ) {
 			var selected_terms = {};
 			for ( let taxonomy_name in media_library_organizer_media.taxonomies ) {
 				selected_terms[ taxonomy_name ] = media_library_organizer_media.taxonomies[ taxonomy_name ].selected_term;
@@ -1157,7 +1186,7 @@ wp.media.events.on(
 	'mlo:grid:filter:change:term',
 	function( atts ) {
 
-		if ( mediaLibraryOrganizerUploader ) {
+		if ( mediaLibraryOrganizerUploader && typeof mediaLibraryOrganizerUploader.uploader !== 'undefined' ) {
 			mediaLibraryOrganizerUploader.uploader.uploader.settings.multipart_params.media_library_organizer[ atts.taxonomy_name ] = atts.slug;
 		}
 

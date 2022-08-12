@@ -162,6 +162,14 @@ table.media {
 }
 
 /**
+ * Grid View: Add padding below filters
+ */
+.media-frame-content .attachments-browser .media-toolbar-secondary,
+.media-modal-content .attachments-browser .media-toolbar-secondary {
+	padding-bottom: 10px;
+}
+
+/**
  * Grid View: Modal
  * - Adjust widths of items so that all filters display
  * - Increase the height of the Media Toolbar, to accommodate additional filters
@@ -203,13 +211,9 @@ table.media {
 	 */
 	.attachments-browser {
 		.media-toolbar {
-			height: 50px;
+			height: auto;
 			background-color: #f3f3f3;
 			border-bottom: 1px solid #ddd;
-		}
-
-		.attachments {
-			top: 50px;
 		}
 
 		/**
@@ -271,74 +275,6 @@ table.media {
 			}
 		}
 	} 
-}
-@media only screen and (max-width: 1840px) {
-	.media-modal-content {
-		.attachments-browser {
-			.media-toolbar {
-				height: 90px;
-			}
-
-			.attachments {
-				top: 90px;
-			}
-		}
-	}
-}
-@media only screen and (max-width: 1330px) {
-	.media-modal-content {
-		.attachments-browser {
-			.media-toolbar {
-				height: 130px;
-			}
-
-			.attachments {
-				top: 130px;
-			}
-		}
-	}
-}
-@media only screen and (max-width: 1000px) {
-	.media-modal-content {
-		.attachments-browser {
-			.media-toolbar {
-				height: 170px;
-
-			}
-
-			.attachments {
-				top: 170px;
-			}
-		}
-	}
-}
-@media only screen and (max-width: 900px) {
-	.media-modal-content {
-		.attachments-browser {
-			.media-toolbar {
-				height: 210px;
-
-			}
-
-			.attachments {
-				top: 210px;
-			}
-		}
-	}
-}
-@media only screen and (max-width: 640px) {
-	.media-modal-content {
-		.attachments-browser {
-			.media-toolbar {
-				height: 160px;
-
-			}
-
-			.attachments {
-				top: 160px;
-			}
-		}
-	}
 }
 
 /**

@@ -54,7 +54,7 @@ class Plugin
     {
         // Register our models
         add_action('init', [$this, 'action_init']);
-        add_action('init', [$this, 'action_init_late'], 15);
+        add_action('init', [$this, 'action_init_late'], 1001);
 
         // Installation hooks
         add_action(
@@ -109,6 +109,8 @@ class Plugin
         }
 
         add_shortcode('publishpress_authors_box', [$this, 'shortcodeAuthorsBox']);
+        add_shortcode('publishpress_authors_data', [$this, 'shortcodeAuthorsData']);
+        add_shortcode('publishpress_authors_list', [$this, 'shortcodeAuthorsList']);
 
         // Action to display the author box
         add_action('pp_multiple_authors_show_author_box', [$this, 'action_echo_author_box'], 10, 5);
@@ -269,6 +271,10 @@ class Plugin
                 'wp_ajax_mapped_author_validation',
                 ['MultipleAuthors\\Classes\\Admin_Ajax', 'handle_mapped_author_validation']
             );
+            add_action(
+                'wp_ajax_handle_author_slug_generation',
+                ['MultipleAuthors\\Classes\\Admin_Ajax', 'handle_author_slug_generation']
+            );
 
             add_filter('admin_footer_text', [$this, 'update_footer_admin']);
         }
@@ -277,6 +283,10 @@ class Plugin
         add_action(
             'pre_get_posts',
             ['MultipleAuthors\\Classes\\Query', 'fix_query_pre_get_posts']
+        );
+        add_action(
+            'pre_get_posts',
+            ['MultipleAuthors\\Classes\\Query', 'fix_frontend_query_pre_get_posts']
         );
         add_filter(
             'posts_where',
@@ -338,6 +348,10 @@ class Plugin
             ['MultipleAuthors\\Classes\\Admin_Ajax', 'handle_users_search']
         );
         add_action(
+            'wp_ajax_authors_filter_authors_search',
+            ['MultipleAuthors\\Classes\\Admin_Ajax', 'handle_filter_authors_search']
+        );
+        add_action(
             'wp_ajax_author_create_from_user',
             ['MultipleAuthors\\Classes\\Admin_Ajax', 'handle_author_create_from_user']
         );
@@ -366,6 +380,10 @@ class Plugin
             ],
             10,
             3
+        );
+        add_action(
+            'restrict_manage_posts',
+            ['MultipleAuthors\\Classes\\Post_Editor', 'post_author_filter_field']
         );
 
         // Notification Workflow support
@@ -500,6 +518,16 @@ class Plugin
      */
     public function action_init_late()
     {
+        $legacyPlugin          = Factory::getLegacyPlugin();
+        if (!empty($legacyPlugin) && isset($legacyPlugin->multiple_authors)
+            && isset($legacyPlugin->modules->multiple_authors->options->enable_plugin_author_pages)
+            && $legacyPlugin->modules->multiple_authors->options->enable_plugin_author_pages === 'yes'
+        ) {
+            $enable_authors_profile = true;
+        } else {
+            $enable_authors_profile = false;
+        }
+
         // Register new taxonomy so that we can store all the relationships
         $args = [
             'labels'             => [
@@ -536,7 +564,7 @@ class Plugin
                 'menu_name'                  => __('Author', 'publishpress-authors'),
                 'back_to_items'              => __('Back to Authors', 'publishpress-authors'),
             ],
-            'public'             => false,
+            'public'             => $enable_authors_profile ? true : false,
             'hierarchical'       => false,
             'sort'               => true,
             'args'               => [
@@ -553,7 +581,9 @@ class Plugin
             'show_in_quick_edit' => false,
             'meta_box_cb'        => false,
             'query_var'          => 'ppma_author',
-            'rewrite'            => false,
+            'show_in_rest'       => $enable_authors_profile ? true : false,
+            'rest_base'          => $enable_authors_profile ? 'ppma_author' : '',
+            'rewrite'            => $enable_authors_profile ? ['slug' => 'author', 'with_front' => true] : false,
         ];
 
         // If we use the nasty SQL query, we need our custom callback. Otherwise, we still need to flush cache.
@@ -563,6 +593,10 @@ class Plugin
 
         $supported_post_types = Utils::get_post_types_that_support_authors();
         register_taxonomy($this->coauthor_taxonomy, $supported_post_types, $args);
+
+        if (delete_transient('ppma_flush_rewrite_rules')) {
+            flush_rewrite_rules(true);
+        }
     }
 
     /**
@@ -1041,9 +1075,10 @@ class Plugin
         $orderby       = 'ORDER BY tr.term_order';
         $order         = 'ASC';
         $object_ids    = (int)$object_ids;
+        // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
         $raw_coauthors = $wpdb->get_results(
-            $wpdb->prepare( // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-                "SELECT t.name, t.term_id, tt.term_taxonomy_id FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id INNER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id WHERE tt.taxonomy IN (%s) AND tr.object_id IN (%s) $orderby $order",
+            $wpdb->prepare(
+                "SELECT t.name, t.term_id, tt.term_taxonomy_id FROM $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON tt.term_id = t.term_id INNER JOIN $wpdb->term_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id WHERE tt.taxonomy IN (%s) AND tr.object_id IN (%s) $orderby $order", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 $this->coauthor_taxonomy,
                 $object_ids
             )
@@ -1321,6 +1356,8 @@ class Plugin
      */
     public function enqueue_scripts($hook_suffix)
     {
+        global $pagenow;
+
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery-ui-sortable');
 
@@ -1382,6 +1419,21 @@ class Plugin
 
         $legacyPlugin = Factory::getLegacyPlugin();
 
+        $term_author_link = '';
+
+        if (
+            is_admin()
+            && $pagenow === 'term.php'
+            && isset($_GET['taxonomy']) && $_GET['taxonomy'] === 'author'
+            && isset($_GET['tag_ID'])
+        ) {
+            $author = Author::get_by_term_id((int)$_GET['tag_ID']);
+
+            if (is_object($author) && !is_wp_error($author) && isset($author->link)) {
+                $term_author_link = $author->link;
+            }
+        }
+
         $js_strings = [
             'edit_label'                    => __('Edit', 'publishpress-authors'),
             'confirm_delete'                => __(
@@ -1429,6 +1481,9 @@ class Plugin
                 'publishpress-authors'
             ),
             'mapped_author_nonce'           => wp_create_nonce("mapped_author_nonce"),
+            'generate_author_slug_nonce'    => wp_create_nonce("generate_author_slug_nonce"),
+            'term_author_link'              => esc_url_raw($term_author_link),
+            'view_text'                     => esc_html__('View', 'publishpress-authors'),
         ];
 
         wp_localize_script(
@@ -1465,12 +1520,8 @@ class Plugin
      */
     public function filter_views($views)
     {
-        if (! is_array($views)) {
+        if (!is_array($views)) {
             $views = [];
-        }
-
-        if (array_key_exists('mine', $views)) {
-            return $views;
         }
 
         $views     = array_reverse($views);
@@ -1486,7 +1537,11 @@ class Plugin
         } else {
             $class = '';
         }
-        $views['mine'] = $view_mine = '<a' . $class . ' href="' . esc_url(
+
+        $author     = Author::get_by_user_id(get_current_user_id());
+        $mine_count = Author::get_author_posts_count($author->term_id, Util::get_current_post_type());
+
+        $views['mine'] = '<a' . $class . ' href="' . esc_url(
             add_query_arg(
                 array_map(
                     'rawurlencode',
@@ -1497,7 +1552,7 @@ class Plugin
         ) . '">' . __(
             'Mine',
             'publishpress-authors'
-        ) . '</a>';
+        ) . ' <span class="count">(' . number_format_i18n($mine_count) . ')</span></a>';
 
         $views['all'] = str_replace($class, '', $all_view);
         $views        = array_reverse($views);
@@ -1713,6 +1768,61 @@ class Plugin
         }
 
         return $this->get_author_box_markup('shortcode', $show_title, $layout, $archive, $post_id);
+    }
+
+    public function shortcodeAuthorsList($attributes)
+    {
+        $widget = new Authors_Widget('authors_list_shortcode', 'authors_list_shortcode');
+
+        $defaults = [
+            'show_title' => true
+        ];
+
+        if (isset($attributes['layout']) && in_array($attributes['layout'], ['authors_index', 'authors_recent'])) {
+            $attributes['show_title'] = false;
+        }
+
+        $attributes = wp_parse_args($attributes, $defaults);
+
+        ob_start();
+        $widget->widget([], $attributes);
+        return ob_get_clean();
+    }
+
+    /**
+     * Shortcode to get the authors data
+     *
+     * @param array $attributes
+     *
+     * @return string
+     */
+    public function shortcodeAuthorsData($attributes)
+    {
+        $field         = 'display_name';
+        $post_id      = false;
+        $separator    = ',';
+        $user_objects = false;
+
+
+        if (isset($attributes['post_id'])) {
+            $post_id = $attributes['post_id'];
+        }
+
+        if (isset($attributes['separator'])) {
+            $separator = $attributes['separator'];
+        } elseif (isset($attributes['seperator'])) {
+            $separator = $attributes['seperator'];
+        }
+
+        if (isset($attributes['field'])) {
+            $field = $attributes['field'];
+        }
+
+        if (isset($attributes['user_objects'])) {
+            $user_objects = $attributes['user_objects'] === 'true' || (int)$attributes['user_objects'] === 1;
+        }
+
+        return $this->get_authors_data($post_id, $field, $separator, $user_objects);
     }
 
     /**

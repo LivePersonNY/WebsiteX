@@ -132,7 +132,7 @@ class Permalink_Manager_URI_Functions_Post extends Permalink_Manager_Class {
 	/**
 	* Get the active URI
 	*/
-	public static function get_post_uri($post_id, $native_uri = false, $is_draft = false) {
+	public static function get_post_uri($post_id, $native_uri = false, $no_fallback = false) {
 		global $permalink_manager_uris;
 
 		// Check if input is post object
@@ -140,7 +140,7 @@ class Permalink_Manager_URI_Functions_Post extends Permalink_Manager_Class {
 
 		if(!empty($permalink_manager_uris[$post_id])) {
 			$final_uri = $permalink_manager_uris[$post_id];
-		} else if(!$is_draft) {
+		} else if(!$no_fallback) {
 			$final_uri = self::get_default_post_uri($post_id, $native_uri);
 		} else {
 			$final_uri = '';
@@ -187,10 +187,11 @@ class Permalink_Manager_URI_Functions_Post extends Permalink_Manager_Class {
 		}
 
 		// 1B. Get the permastructure
-		if($native_uri || empty($permalink_manager_permastructs['post_types'][$post_type])) {
+		if($native_uri) {
 			$permastructure = $native_permastructure;
 		} else {
-			$permastructure = apply_filters('permalink_manager_filter_permastructure', $permalink_manager_permastructs['post_types'][$post_type], $post);
+			$permastructure = (!empty($permalink_manager_permastructs['post_types'][$post_type])) ? $permalink_manager_permastructs['post_types'][$post_type] : $native_permastructure;
+			$permastructure = apply_filters('permalink_manager_filter_permastructure', $permastructure, $post);
 		}
 
 		// 1C. Set the permastructure
@@ -835,7 +836,7 @@ class Permalink_Manager_URI_Functions_Post extends Permalink_Manager_Class {
 		if(isset($_POST['permalink-manager-edit-uri-element-slug']) && isset($_POST['native_slug']) && ($_POST['native_slug'] !== $_POST['permalink-manager-edit-uri-element-slug'])) {
 
 			// Make sure that '_wp_old_slug' is saved
-			if(!empty($_POST['post_name'])) {
+			if(!empty($_POST['post_name']) || (isset($_POST['action']) && $_POST['action'] == 'pm_save_permalink')) {
 				$post_before = $post;
 
 				 // Clone the instance of WP_Post object

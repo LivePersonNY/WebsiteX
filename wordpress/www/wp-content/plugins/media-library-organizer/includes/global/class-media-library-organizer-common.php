@@ -417,10 +417,10 @@ class Media_Library_Organizer_Common {
 		$options = apply_filters(
 			'image_size_names_choose',
 			array(
-				'thumbnail' => __( 'Thumbnail' ), /* phpcs:ignore */
-				'medium'    => __( 'Medium' ), /* phpcs:ignore */
-				'large'     => __( 'Large' ), /* phpcs:ignore */
-				'full'      => __( 'Full Size' ), /* phpcs:ignore */
+				'thumbnail' => __( 'Thumbnail', 'media-library-organizer' ),
+				'medium'    => __( 'Medium', 'media-library-organizer' ),
+				'large'     => __( 'Large', 'media-library-organizer' ),
+				'full'      => __( 'Full Size', 'media-library-organizer' ),
 			)
 		);
 
@@ -468,7 +468,8 @@ class Media_Library_Organizer_Common {
 		}
 
 		// Get hierarchy of Terms.
-		$hierarchy = _get_term_hierarchy( $taxonomy );
+		// We don't use _get_term_hierarchy(), as this is a private WordPress function that returns child term IDs ordered by ID, not name.
+		$hierarchy = $this->get_term_hierarchy( $taxonomy );
 
 		// Build final term array, comprising of top level terms and all children.
 		$hierarchical_terms = array();
@@ -488,6 +489,41 @@ class Media_Library_Organizer_Common {
 
 		// Return filtered results.
 		return $hierarchical_terms;
+
+	}
+
+	/**
+	 * Modified version of _get_term_hierarchy(), which returns Term IDs ordered by Term Name.
+	 *
+	 * @since   1.4.5
+	 *
+	 * @param   string $taxonomy   Taxonomy.
+	 * @return  array               Child Terms
+	 */
+	private function get_term_hierarchy( $taxonomy ) {
+
+		// Bail if the taxonomy is not hierarchical.
+		if ( ! is_taxonomy_hierarchical( $taxonomy ) ) {
+			return array();
+		}
+
+		$children = array();
+		$terms    = get_terms(
+			array(
+				'taxonomy'               => $taxonomy,
+				'get'                    => 'all',
+				'orderby'                => 'name',
+				'fields'                 => 'id=>parent',
+				'update_term_meta_cache' => false,
+			)
+		);
+		foreach ( $terms as $term_id => $parent ) {
+			if ( $parent > 0 ) {
+				$children[ $parent ][] = $term_id;
+			}
+		}
+
+		return $children;
 
 	}
 
@@ -568,8 +604,8 @@ class Media_Library_Organizer_Common {
 	public function array_insert_after( array $array, $key, array $new ) {
 
 		$keys  = array_keys( $array );
-		$index = array_search( $key, $keys ); /* phpcs:ignore */
-		$pos   = false === $index ? count( $array ) : $index + 1; /* phpcs:ignore */
+		$index = array_search( $key, $keys, true );
+		$pos   = false === $index ? count( $array ) : $index + 1;
 		return array_merge( array_slice( $array, 0, $pos ), $new, array_slice( $array, $pos ) );
 
 	}

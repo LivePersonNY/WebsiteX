@@ -63,10 +63,10 @@ class Media_Library_Organizer {
 		$this->plugin->name              = 'media-library-organizer';
 		$this->plugin->displayName       = 'Media Library Organizer';
 		$this->plugin->author_name       = 'Media Library Organizer';
-		$this->plugin->version           = '1.4.2';
-		$this->plugin->buildDate         = '2022-03-16 18:00:00';
+		$this->plugin->version           = MEDIA_LIBRARY_ORGANIZER_PLUGIN_VERSION;
+		$this->plugin->buildDate         = MEDIA_LIBRARY_ORGANIZER_PLUGIN_BUILD_DATE;
 		$this->plugin->requires          = '5.0';
-		$this->plugin->tested            = '5.9.2';
+		$this->plugin->tested            = '5.9.3';
 		$this->plugin->folder            = MEDIA_LIBRARY_ORGANIZER_PLUGIN_PATH;
 		$this->plugin->url               = MEDIA_LIBRARY_ORGANIZER_PLUGIN_URL;
 		$this->plugin->documentation_url = 'https://wpmedialibrary.com/documentation';
@@ -280,9 +280,9 @@ class Media_Library_Organizer {
 
 		// If the request global exists, check for specific request keys which tell us
 		// that we're using a frontend editor.
-		if ( isset( $_REQUEST ) && ! empty( $_REQUEST ) ) { /* phpcs:ignore */
+		if ( isset( $_REQUEST ) && ! empty( $_REQUEST ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 			// Sanitize request.
-			$request = array_map( 'sanitize_text_field', $_REQUEST ); /* phpcs:ignore */
+			$request = array_map( 'sanitize_text_field', $_REQUEST ); // phpcs:ignore WordPress.Security.NonceVerification
 
 			// Beaver Builder.
 			if ( array_key_exists( 'fl_builder', $request ) ) {
@@ -404,7 +404,7 @@ class Media_Library_Organizer {
 				sprintf(
 					/* translators: %1$s: Plugin Name, %2$s: PHP class name */
 					__( '%1$s: Error: Could not load Plugin class %2$s', 'media-library-organizer' ),
-					$this->plugin->displayName, /* phpcs:ignore */
+					$this->plugin->displayName,
 					$name
 				)
 			);
@@ -413,11 +413,11 @@ class Media_Library_Organizer {
 			// Admin UI.
 			if ( is_admin() ) {
 				wp_die(
-					$error, /* phpcs:ignore */
+					esc_html( $error->get_error_message() ),
 					sprintf(
 						/* translators: Plugin Name */
 						esc_html__( '%s: Error', 'media-library-organizer' ),
-						$this->plugin->displayName /* phpcs:ignore */
+						esc_html( $this->plugin->displayName )
 					),
 					array(
 						'back_link' => true,

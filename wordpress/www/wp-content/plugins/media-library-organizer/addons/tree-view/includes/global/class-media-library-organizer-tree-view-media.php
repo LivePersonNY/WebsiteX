@@ -57,7 +57,7 @@ class Media_Library_Organizer_Tree_View_Media {
 	 * @param   string    $mode       View Mode (list|grid).
 	 * @param   string    $ext        If defined, loads minified JS.
 	 */
-	public function enqueue_js( $screen, $screens, $mode, $ext ) { /* phpcs:ignore */
+	public function enqueue_js( $screen, $screens, $mode, $ext ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
 
 		// Bail if Tree View isn't enabled.
 		if ( ! Media_Library_Organizer()->get_class( 'settings' )->get_setting( 'tree-view', 'enabled' ) ) {
@@ -419,15 +419,15 @@ class Media_Library_Organizer_Tree_View_Media {
 			'paged',
 		);
 		foreach ( $conditions as $condition ) {
-			if ( ! isset( $_REQUEST[ $condition ] ) ) { /* phpcs:ignore */
+			if ( ! isset( $_REQUEST[ $condition ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 				continue;
 			}
 
-			if ( empty( $_REQUEST[ $condition ] ) ) { /* phpcs:ignore */
+			if ( empty( $_REQUEST[ $condition ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 				continue;
 			}
 
-			$args[ $condition ] = sanitize_text_field( $_REQUEST[ $condition ] ); /* phpcs:ignore */
+			$args[ $condition ] = sanitize_text_field( $_REQUEST[ $condition ] ); // phpcs:ignore WordPress.Security.NonceVerification
 		}
 
 		return $args;

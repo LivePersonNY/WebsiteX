@@ -21,7 +21,7 @@
 
 	<?php
 	// Output notices.
-	echo $this->base->get_class( 'notices' )->output_notices(); /* phpcs:ignore */
+	echo $this->base->get_class( 'notices' )->output_notices(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	?>
 
 	<div class="wrap-inner">

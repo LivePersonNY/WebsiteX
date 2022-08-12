@@ -143,7 +143,7 @@ class Media_Library_Organizer_Import {
 	 * @param   array $import     Array.
 	 * @return  mixed               WP_Error | bool
 	 */
-	public function import( $success, $import ) { /* phpcs:ignore */
+	public function import( $success, $import ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
 
 		// Bail if no data.
 		if ( ! is_array( $import['data'] ) ) {
@@ -170,7 +170,7 @@ class Media_Library_Organizer_Import {
 	 * @param   array $import     Import Parameters.
 	 * @return  mixed               WP_Error | bool
 	 */
-	public function import_third_party( $success, $import ) { /* phpcs:ignore */
+	public function import_third_party( $success, $import ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
 
 		// Check which importer we need to run.
 		if ( isset( $import['import_enhanced_media_library'] ) ) {
@@ -445,14 +445,14 @@ class Media_Library_Organizer_Import {
 		// Get Term data for the given Taxonomy.
 		$terms = $wpdb->get_results(
 			$wpdb->prepare(
-				'SELECT  ' . $wpdb->term_taxonomy . '.term_taxonomy_id,
-                                ' . $wpdb->term_taxonomy . '.description,
-                                ' . $wpdb->term_taxonomy . '.parent,
-                                ' . $wpdb->terms . '.name 
-                                FROM ' . $wpdb->term_taxonomy . '
-                                LEFT JOIN  ' . $wpdb->terms . '
-                                ON  ' . $wpdb->term_taxonomy . '.term_id =  ' . $wpdb->terms . '.term_id
-                                WHERE ' . $wpdb->term_taxonomy . ".taxonomy = '%s'", /* phpcs:ignore */
+				"SELECT  {$wpdb->term_taxonomy}.term_taxonomy_id,
+                {$wpdb->term_taxonomy}.description,
+                {$wpdb->term_taxonomy}.parent,
+                {$wpdb->terms}.name 
+                FROM {$wpdb->term_taxonomy}
+                LEFT JOIN {$wpdb->terms}
+                ON {$wpdb->term_taxonomy}.term_id = {$wpdb->terms}.term_id
+                WHERE {$wpdb->term_taxonomy}.taxonomy = %s",
 				$taxonomy
 			)
 		);
@@ -490,10 +490,9 @@ class Media_Library_Organizer_Import {
 
 		// Get Attachment IDs that have any of the given Term IDs assigned to them.
 		$attachments = $wpdb->get_results(
-			'SELECT  ' . $wpdb->term_relationships . '.object_id,
-            ' . $wpdb->term_relationships . '.term_taxonomy_id
-            FROM ' . $wpdb->term_relationships . '
-            WHERE ' . $wpdb->term_relationships . '.term_taxonomy_id IN (' . implode( ',', $term_ids ) . ')' /* phpcs:ignore */
+			"SELECT  {$wpdb->term_relationships}.object_id, {$wpdb->term_relationships}.term_taxonomy_id
+        	FROM {$wpdb->term_relationships}
+        	WHERE {$wpdb->term_relationships}.term_taxonomy_id IN (" . implode( ',', $term_ids ) . ')' // phpcs:ignore WordPress.DB.PreparedSQL
 		);
 
 		// If no Attachments, bail.

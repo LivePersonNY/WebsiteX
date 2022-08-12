@@ -176,7 +176,7 @@ class Media_Library_Organizer_Tree_View {
 			// Admin UI.
 			if ( is_admin() ) {
 				wp_die(
-					$error, /* phpcs:ignore */
+					esc_html( $error->get_error_message() ),
 					esc_html__( 'Media Library Organizer: Tree View: Error', 'media-library-organizer' ),
 					array(
 						'back_link' => true,
@@ -272,7 +272,7 @@ spl_autoload_register( 'media_library_organizer_tree_view_autoloader' );
  *
  * @since   1.1.1
  */
-function Media_Library_Organizer_Tree_View() { /* phpcs:ignore */
+function Media_Library_Organizer_Tree_View() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName
 
 	return Media_Library_Organizer_Tree_View::get_instance();
 

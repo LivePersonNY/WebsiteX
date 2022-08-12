@@ -259,8 +259,11 @@ class Media_Library_Organizer_AJAX {
 	 */
 	public function search_authors() {
 
+		// Check nonce.
+		check_ajax_referer( 'media_library_organizer_search_authors', 'nonce' );
+
 		// Get vars.
-		$query = sanitize_text_field( $_REQUEST['query'] ); /* phpcs:ignore */
+		$query = sanitize_text_field( $_REQUEST['query'] );
 
 		// Get results.
 		$users = new WP_User_Query(
@@ -298,14 +301,17 @@ class Media_Library_Organizer_AJAX {
 	 */
 	public function search_taxonomy_terms() {
 
+		// Check nonce.
+		check_ajax_referer( 'media_library_organizer_search_taxonomy_terms', 'nonce' );
+
 		// Get vars.
 		$taxonomy_name = false;
-		if ( isset( $_REQUEST['taxonomy_name'] ) ) { /* phpcs:ignore */
-			$taxonomy_name = sanitize_text_field( $_REQUEST['taxonomy_name'] ); /* phpcs:ignore */
-		} elseif ( isset( $_REQUEST['args'] ) && isset( $_REQUEST['args']['taxonomy_name'] ) ) { /* phpcs:ignore */
-			$taxonomy_name = sanitize_text_field( $_REQUEST['args']['taxonomy_name'] ); /* phpcs:ignore */
+		if ( isset( $_REQUEST['taxonomy_name'] ) ) {
+			$taxonomy_name = sanitize_text_field( $_REQUEST['taxonomy_name'] );
+		} elseif ( isset( $_REQUEST['args'] ) && isset( $_REQUEST['args']['taxonomy_name'] ) ) {
+			$taxonomy_name = sanitize_text_field( $_REQUEST['args']['taxonomy_name'] );
 		}
-		$query = sanitize_text_field( $_REQUEST['query'] ); /* phpcs:ignore */
+		$query = sanitize_text_field( $_REQUEST['query'] );
 
 		// Bail if no Taxonomy Name specified.
 		if ( ! $taxonomy_name ) {

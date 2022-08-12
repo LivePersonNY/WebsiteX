@@ -63,11 +63,11 @@
 				</header>
 
 				<?php
-				foreach ( $taxonomies as $taxonomy_name => $taxonomy ) { /* phpcs:ignore */
+				foreach ( $taxonomies as $taxonomy_name => $mlo_taxonomy ) {
 					?>
 					<div class="wpzinc-option">
 						<div class="left">
-							<label for="general_<?php echo esc_attr( $taxonomy_name ); ?>_enabled"><?php echo esc_html( $taxonomy['plural_name'] ); ?></label>
+							<label for="general_<?php echo esc_attr( $taxonomy_name ); ?>_enabled"><?php echo esc_html( $mlo_taxonomy['plural_name'] ); ?></label>
 						</div>
 						<div class="right">
 							<select name="general[<?php echo esc_attr( $taxonomy_name ); ?>_enabled]" id="general_<?php echo esc_attr( $taxonomy_name ); ?>_enabled" size="1">
@@ -81,7 +81,7 @@
 									sprintf(
 									/* translators: Taxonomy Label, Singular */
 										__( 'If enabled, displays a dropdown option to filter Media Library items by %s', 'media-library-organizer' ),
-										$taxonomy['singular_name']
+										$mlo_taxonomy['singular_name']
 									)
 								);
 								?>

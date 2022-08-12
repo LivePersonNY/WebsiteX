@@ -258,7 +258,7 @@ class Media_Library_Organizer_Admin {
 	 * @param   string $mode       Media View Mode (list|grid).
 	 * @param   string $ext        If defined, loads minified JS.
 	 */
-	public function enqueue_js_settings( $screen, $screens, $mode, $ext ) { /* phpcs:ignore */
+	public function enqueue_js_settings( $screen, $screens, $mode, $ext ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
 
 		// JS.
 		wp_enqueue_script( 'wpzinc-admin-modal' );
@@ -408,12 +408,12 @@ class Media_Library_Organizer_Admin {
 	public function get_current_screen() {
 
 		// Bail if no page given.
-		if ( ! isset( $_GET['page'] ) ) { /* phpcs:ignore */
+		if ( ! isset( $_GET['page'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 			return;
 		}
 
 		// Get current screen name.
-		$screen = sanitize_text_field( $_GET['page'] ); /* phpcs:ignore */
+		$screen = sanitize_text_field( $_GET['page'] ); // phpcs:ignore WordPress.Security.NonceVerification
 
 		// Get registered screens.
 		$screens = $this->get_screens();
@@ -456,12 +456,12 @@ class Media_Library_Organizer_Admin {
 	private function get_current_screen_name() {
 
 		// If no page name was given, we're not on a plugin screen.
-		if ( ! isset( $_GET['page'] ) ) { /* phpcs:ignore */
+		if ( ! isset( $_GET['page'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 			return false;
 		}
 
 		// Get screen name.
-		$screen = sanitize_text_field( $_GET['page'] ); /* phpcs:ignore */
+		$screen = sanitize_text_field( $_GET['page'] ); // phpcs:ignore WordPress.Security.NonceVerification
 
 		// Return.
 		return $screen;
@@ -484,15 +484,15 @@ class Media_Library_Organizer_Admin {
 		}
 
 		// If no tab defined, get the first tab name from the tabs array.
-		if ( ! isset( $_REQUEST['tab'] ) ) { /* phpcs:ignore */
+		if ( ! isset( $_REQUEST['tab'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 			foreach ( $tabs as $tab ) {
 				return $tab;
 			}
 		}
 
 		// Return the requested tab, if it exists.
-		if ( isset( $tabs[ $_REQUEST['tab'] ] ) ) { /* phpcs:ignore */
-			$tab = $tabs[ sanitize_text_field( $_REQUEST['tab'] ) ]; /* phpcs:ignore */
+		if ( isset( $tabs[ $_REQUEST['tab'] ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+			$tab = $tabs[ sanitize_text_field( $_REQUEST['tab'] ) ]; // phpcs:ignore WordPress.Security.NonceVerification
 			return $tab;
 		} else {
 			foreach ( $tabs as $tab ) {
@@ -861,7 +861,7 @@ class Media_Library_Organizer_Admin {
 				 * @param   array   $_POST     Unfiltered $_POST data
 				 */
 				$result = apply_filters( 'media_library_organizer_admin_save_settings', true, $_POST );
-				break; /* phpcs:ignore */
+				break;
 
 			/**
 			 * Other Screens

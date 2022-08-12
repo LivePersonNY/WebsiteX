@@ -8,7 +8,7 @@
  * @wordpress-plugin
  * Plugin Name: Media Library Organizer
  * Plugin URI: https://wpmedialibrary.com
- * Version: 1.4.2
+ * Version: 1.4.6
  * Author: WP Media Library
  * Author URI: https://wpmedialibrary.com
  * Description: Organize and Search your Media Library, quicker and easier.
@@ -19,6 +19,10 @@
 if ( class_exists( 'Media_Library_Organizer' ) ) {
 	return;
 }
+
+// Define Plugin version and build date.
+define( 'MEDIA_LIBRARY_ORGANIZER_PLUGIN_VERSION', '1.4.6' );
+define( 'MEDIA_LIBRARY_ORGANIZER_PLUGIN_BUILD_DATE', '2022-07-18 18:00:00' );
 
 // Define Plugin paths.
 define( 'MEDIA_LIBRARY_ORGANIZER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -83,8 +87,11 @@ spl_autoload_register( 'media_library_organizer_autoloader' );
 require_once MEDIA_LIBRARY_ORGANIZER_PLUGIN_PATH . 'includes/global/activation.php';
 require_once MEDIA_LIBRARY_ORGANIZER_PLUGIN_PATH . 'includes/global/deactivation.php';
 register_activation_hook( __FILE__, 'media_library_organizer_activate' );
-add_action( 'wp_insert_site', 'media_library_organizer_activate_new_site' );
-add_action( 'wpmu_new_blog', 'media_library_organizer_activate_new_site' );
+if ( version_compare( get_bloginfo( 'version' ), '5.1', '>=' ) ) {
+	add_action( 'wp_insert_site', 'media_library_organizer_activate_new_site' );
+} else {
+	add_action( 'wpmu_new_blog', 'media_library_organizer_activate_new_site' );
+}
 add_action( 'activate_blog', 'media_library_organizer_activate_new_site' );
 register_deactivation_hook( __FILE__, 'media_library_organizer_deactivate' );
 
@@ -93,7 +100,7 @@ register_deactivation_hook( __FILE__, 'media_library_organizer_deactivate' );
  *
  * @since   1.0.5
  */
-function Media_Library_Organizer() { /* phpcs:ignore */
+function Media_Library_Organizer() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 
 	return Media_Library_Organizer::get_instance();
 

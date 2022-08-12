@@ -26,7 +26,7 @@
 		</div>
 
 		<div id="media-library-organizer-tree-view-list"<?php echo ( $jstree_enabled ? ' class="media-library-organizer-tree-view-enabled"' : '' ); ?>>
-			<?php echo $output; /* phpcs:ignore */ ?>
+			<?php echo $output; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		</div>
 	</form>
 </div>

@@ -163,12 +163,12 @@ class Media_Library_Organizer_Upload {
 		// Iterate through Registered Taxonomies.
 		foreach ( $this->base->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
 			// Conditionally set Media Categories, as they won't be included in the request if no checkboxes were selected.
-			if ( ! isset( $_REQUEST['media_library_organizer'] ) ) { /* phpcs:ignore */
+			if ( ! isset( $_REQUEST['media_library_organizer'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 				continue;
 			}
 
 			// Fetch request.
-			$request = $_REQUEST['media_library_organizer']; /* phpcs:ignore */
+			$request = stripslashes_deep( $_REQUEST['media_library_organizer'] ); // phpcs:ignore WordPress.Security.NonceVerification
 
 			// Skip if the Taxonomy isn't specified.
 			if ( ! isset( $request[ $taxonomy_name ] ) ) {

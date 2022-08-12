@@ -60,7 +60,7 @@ class Post_Editor
                         <span class="title">Authors</span>
                     </label>
                     <?php
-                    echo self::get_rendered_authors_selection([], false); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                    echo self::get_rendered_authors_selection([], false, true); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                     ?>
                 </div>
             </fieldset>
@@ -166,7 +166,7 @@ class Post_Editor
                     $user = get_user_by('ID', $post->post_author);
 
                     if (is_a($user, 'WP_User')) {
-                        echo sprintf('<span class="current-post-author-off">[%s]</span>', esc_html($user->display_name));
+                        echo sprintf('<span style="display:none;" class="current-post-author-off">[%s]</span>', esc_html($user->display_name));
                     }
                 }
             }
@@ -215,7 +215,7 @@ class Post_Editor
     /**
      * Get rendered authors selection.
      */
-    public static function get_rendered_authors_selection($authors, $showAvatars = true)
+    public static function get_rendered_authors_selection($authors, $showAvatars = true, $bulkEdit = false)
     {
         $classes = [
             'authors-list',
@@ -280,27 +280,98 @@ class Post_Editor
                 ?>
             </script>
             <?php
-            $post       = get_post();
-            $userAuthor = get_user_by('ID', $post->post_author);
+            $post         = get_post();
+            $userAuthor   = get_user_by('ID', $post->post_author);
+            $postAuthorId = $post->post_author;
+
+            $legacyPlugin           = Factory::getLegacyPlugin();
+            $fallbackAuthor         = isset($legacyPlugin->modules->multiple_authors->options->fallback_user_for_guest_post) ?
+                (int)$legacyPlugin->modules->multiple_authors->options->fallback_user_for_guest_post : 0;
+    
+            if ($fallbackAuthor > 0) {
+                $postAuthorId = $fallbackAuthor;
+                $userAuthor   = Author::get_by_user_id($postAuthorId);
+
+            }
             ?>
-            <div id="publishpress-authors-user-author-wrapper">
-                <hr>
-                <label for="publishpress-authors-user-author-select"><?php
-                    echo esc_html__(
-                        'This option is showing because you do not have a WordPress user selected as an author. For some tasks, it can be helpful to have a user selected here. This user will not be visible on the front of your site.',
-                        'publishpress-authors'
-                    ); ?></label>
-                <select id="publishpress-authors-user-author-select" data-nonce="<?php
-                echo esc_attr(wp_create_nonce('authors-user-search')); ?>"
-                        class="authors-select2 authors-user-search"
-                        data-placeholder="<?php
-                        esc_attr_e('Search for an user', 'publishpress-authors'); ?>" style="width: 100%"
-                        name="fallback_author_user">
-                    <option value="<?php echo (int)$post->post_author; ?>">
-                        <?php echo is_object($userAuthor) ? esc_html($userAuthor->display_name) : ''; ?>
-                    </option>
-                </select>
+            <?php if (!$bulkEdit) : ?>
+                <div class="ppma-authors-display-option-wrapper">
+                    <input name="ppma_save_disable_author_box" type="hidden" value="1" />
+                    <input name="ppma_disable_author_box" 
+                            id="ppma_disable_author_box" 
+                            value="1" 
+                            type="checkbox"
+                            <?php checked((int)get_post_meta($post->ID, 'ppma_disable_author_box', true), 1); ?>
+                        />
+                    <label for="ppma_disable_author_box">
+                        <?php echo esc_html_e('Disable post author box display?', 'publishpress-authors'); ?>
+                    </label>
+                </div>
+            <?php endif; ?>
+            <div style="display: none">
+                <div id="publishpress-authors-user-author-wrapper">
+                    <hr>
+                    <label for="publishpress-authors-user-author-select"><?php
+                        echo esc_html__(
+                            'This option is showing because you do not have a WordPress user selected as an author. For some tasks, it can be helpful to have a user selected here. This user will not be visible on the front of your site.',
+                            'publishpress-authors'
+                        ); ?></label>
+                    <select id="publishpress-authors-user-author-select" data-nonce="<?php
+                    echo esc_attr(wp_create_nonce('authors-user-search')); ?>"
+                            class="authors-select2 authors-user-search"
+                            data-placeholder="<?php
+                            esc_attr_e('Search for an user', 'publishpress-authors'); ?>" style="width: 100%"
+                            name="fallback_author_user">
+                        <option value="<?php echo (int)$postAuthorId; ?>">
+                            <?php echo is_object($userAuthor) ? esc_html($userAuthor->display_name) : ''; ?>
+                        </option>
+                    </select>
+                </div>
             </div>
+            <?php
+        }
+    }
+
+    /**
+     * Add author filter to admin post filter
+     *
+     * @return void
+     */
+    public static function post_author_filter_field()
+    {
+        $post_type = isset($_GET['post_type']) ? sanitize_key($_GET['post_type']) : 'post';
+        
+        if (Utils::is_post_type_enabled($post_type)) {
+
+            $userAuthor = false;
+            $authorSlug = false;
+            if (isset($_GET['author_name'])) {
+                $authorSlug = sanitize_key($_GET['author_name']);
+            } elseif (isset($_GET['ppma_author'])) {
+                $authorSlug = sanitize_key($_GET['ppma_author']);
+            }
+
+            if ($authorSlug) {
+                $userAuthor = Author::get_by_term_slug($authorSlug);
+                if (!$userAuthor) {
+                    $userAuthor = get_user_by('slug', $authorSlug);
+                }
+            }
+            ?>
+            <select data-nonce="<?php
+                echo esc_attr(wp_create_nonce('authors-user-search')); ?>"
+                    class="authors-select2 authors-user-slug-search"
+                    data-placeholder="<?php
+                    esc_attr_e('All Authors', 'publishpress-authors'); ?>" style="width: 150px"
+                    name="author_name">
+                    <?php if ($userAuthor && is_object($userAuthor)) : ?>
+                        <option value="<?php echo esc_attr($userAuthor->user_nicename); ?>">
+                            <?php echo esc_html($userAuthor->display_name); ?>
+                        </option>
+                <?php else : ?>
+                    <option></option>
+                <?php endif; ?>
+            </select>
             <?php
         }
     }
@@ -408,8 +479,12 @@ class Post_Editor
         $authors = self::remove_dirty_authors_from_authors_arr($authors);
 
         $fallbackUserId = isset($_POST['fallback_author_user']) ? (int)$_POST['fallback_author_user'] : null;
+        $disableAuthorBox = isset($_POST['ppma_disable_author_box']) ? (int)$_POST['ppma_disable_author_box'] : 0;
 
         Utils::set_post_authors($post_id, $authors, true, $fallbackUserId);
+        if (isset($_POST['ppma_save_disable_author_box']) && (int)$_POST['ppma_save_disable_author_box'] > 0) {
+            update_post_meta($post_id, 'ppma_disable_author_box', $disableAuthorBox);
+        }
 
         do_action('publishpress_authors_flush_cache');
     }

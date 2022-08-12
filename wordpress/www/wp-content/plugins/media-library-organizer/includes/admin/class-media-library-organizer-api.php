@@ -237,11 +237,10 @@ class Media_Library_Organizer_API {
 						$http_response_code
 					)
 				);
-				break; /* phpcs:ignore */
 		}
 
 		// Decode JSON.
-		$body = json_decode( $body ); /* phpcs:ignore */
+		$body = json_decode( $body );
 
 		// Bail if an error occured.
 		if ( isset( $body->error ) ) {

@@ -101,7 +101,7 @@ class Media_Library_Organizer_Tree_View_Taxonomy_Walker extends Walker_Category 
 		);
 
 		// Sanitize request.
-		$request = array_map( 'sanitize_text_field', $_REQUEST ); /* phpcs:ignore */
+		$request = array_map( 'sanitize_text_field', $_REQUEST ); // phpcs:ignore WordPress.Security.NonceVerification
 
 		foreach ( $conditions as $condition ) {
 			if ( isset( $request[ $condition ] ) ) {

@@ -10,6 +10,7 @@
 namespace MultipleAuthors\Traits;
 
 use MultipleAuthors\Classes\Authors_Iterator;
+use MultipleAuthors\Classes\Objects\Author;
 use MultipleAuthors\Classes\Legacy\Util;
 use MultipleAuthors\Classes\Objects\Post;
 use MultipleAuthors\Classes\Utils;
@@ -34,12 +35,32 @@ trait Author_box
      */
     protected function should_display_author_box()
     {
-        $display = $this->is_valid_page_to_display_author_box() && $this->is_valid_post_type_to_display_author_box();
+        $display = !$this->is_post_author_box_disabled() 
+            && $this->is_valid_page_to_display_author_box() 
+            && $this->is_valid_post_type_to_display_author_box();
 
         // Apply a filter
         $display = apply_filters('pp_multiple_authors_filter_should_display_author_box', $display);
 
         return $display;
+    }
+
+    /**
+     * Return true if author box display is disabled 
+     * for current global $post.
+     * 
+     * @return bool
+     */
+    protected function is_post_author_box_disabled()
+    {
+        global $post;
+
+        $disabled = (is_object($post)
+            && isset($post->ID)
+            && (int) get_post_meta($post->ID, 'ppma_disable_author_box', true) > 0
+        ) ? true : false;
+
+        return $disabled;
     }
 
     /**
@@ -99,6 +120,27 @@ trait Author_box
                 PP_AUTHORS_VERSION,
                 'all'
             );
+
+            //load font awesome assets if enable
+            $load_font_awesome = isset($legacyPlugin->modules->multiple_authors->options->load_font_awesome)
+            ? 'yes' === $legacyPlugin->modules->multiple_authors->options->load_font_awesome : true;
+
+            if ($load_font_awesome) {
+                wp_enqueue_style(
+                    'multiple-authors-fontawesome',
+                    PP_AUTHORS_ASSETS_URL . 'lib/fontawesome/css/fontawesome.min.css',
+                    false,
+                    PP_AUTHORS_VERSION,
+                    'all'
+                );
+    
+                wp_enqueue_script(
+                    'multiple-authors-fontawesome',
+                    PP_AUTHORS_ASSETS_URL . 'lib/fontawesome/js/fontawesome.min.js',
+                    ['jquery'],
+                    PP_AUTHORS_VERSION
+                );
+            }
         }
 
         if (!function_exists('multiple_authors')) {
@@ -220,5 +262,50 @@ trait Author_box
         );
 
         return $html;
+    }
+
+    /**
+     * Returns the authors data.
+     *
+     * @param int $post_id
+     * @param string $field
+     * @param mixed $separator
+     * @param mixed $user_objects
+     *
+     * @return string
+     */
+    protected function get_authors_data(
+        $post_id = false,
+        $field = 'display_name',
+        $separator = ',',
+        $user_objects = false
+    ) {
+        global $post;
+
+        $output = [];
+
+        if (!function_exists('multiple_authors')) {
+            require_once PP_AUTHORS_BASE_PATH . 'src/functions/template-tags.php';
+        }
+
+        if (!$post_id && is_object($post) && isset($post->ID)) {
+            $post_id = $post->ID;
+        } else {
+            $post_id = (int) $post_id;
+        }
+
+        $authors = get_post_authors($post_id, true, false);
+
+        if (!$user_objects) {
+            if (!empty($authors)) {
+                foreach ($authors as $author) {
+                    $output[] = isset($author->$field) ? $author->$field : $author->display_name;
+                }
+            }
+            $output  = array_filter($output);
+            $authors = join($separator, $output);
+        }
+        
+        return $authors;
     }
 }

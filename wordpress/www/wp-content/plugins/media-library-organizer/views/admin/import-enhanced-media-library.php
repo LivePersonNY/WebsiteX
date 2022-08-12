@@ -23,15 +23,15 @@
 			</div>
 			<div class="right">
 				<?php
-				foreach ( $import_source['data']['taxonomies'] as $taxonomy_name => $taxonomy ) { /* phpcs:ignore */
+				foreach ( $import_source['data']['taxonomies'] as $taxonomy_name => $eml_taxonomy ) {
 					// Skip non-EML categories.
-					if ( ! $taxonomy['eml_media'] ) {
+					if ( ! $eml_taxonomy['eml_media'] ) {
 						continue;
 					}
 					?>
 					<label for="taxonomies_<?php echo esc_attr( $taxonomy_name ); ?>">
 						<input type="checkbox" name="taxonomies[]" id="taxonomies_<?php echo esc_attr( $taxonomy_name ); ?>" value="<?php echo esc_attr( $taxonomy_name ); ?>" />
-						<?php echo esc_html( $taxonomy['labels']['name'] ); ?>
+						<?php echo esc_html( $eml_taxonomy['labels']['name'] ); ?>
 					</label><br />
 					<?php
 				}

@@ -161,11 +161,37 @@ jQuery(document).ready(function ($) {
         });
     }
 
+    function authorsUserSlugSelect2(selector) {
+        selector.each(function () {
+            var authorsSearch = $(this).ppma_select2({
+                placeholder: $(this).data("placeholder"),
+                allowClear: true,
+                ajax: {
+                    url:
+                        window.ajaxurl +
+                        "?action=authors_filter_authors_search&field=slug&nonce=" +
+                        $(this).data("nonce"),
+                    dataType: "json",
+                    data: function (params) {
+                        return {
+                            q: params.term,
+                            ignored: []
+                        };
+                    }
+                }
+            });
+        });
+    }
+    
     if ($("body").hasClass("post-php") || $("body").hasClass("post-new-php")) {
         authorsSelect2($(".authors-select2.authors-search"));
         authorsUserSelect2($('.authors-user-search'));
         sortedAuthorsList($(".authors-current-user-can-assign"));
         handleUsersAuthorField();
+    }
+
+    if ($("body").hasClass("edit-php")) {
+        authorsUserSlugSelect2($('.authors-user-slug-search'));
     }
 
     /****************
@@ -243,12 +269,26 @@ jQuery(document).ready(function ($) {
             .find("#bulk-titles")
             .children()
             .each(function () {
-                $post_ids.push(
-                    $(this)
-                        .attr("id")
-                        .replace(/^(ttle)/i, "")
-                );
+                var new_id = Number($(this)
+                    .attr("id")
+                    .replace(/^(ttle)/i, ""));
+                if (new_id > 0) {
+                    $post_ids.push(new_id);
+                }
             });
+        
+        if (!$post_ids.length) {
+            $bulk_row
+                .find("#bulk-titles .ntdelitem .button-link")
+                .each(function () {
+                    var new_id = Number($(this)
+                        .attr("id")
+                        .replace(/\D/g,''));
+                    if (new_id > 0) {
+                        $post_ids.push(new_id);
+                    }
+                });
+        }
 
         // get the data
         var selectedAuthors = [];
@@ -486,17 +526,22 @@ jQuery(document).ready(function ($) {
         });
     });
 
-    /**
-     * Add tab class to author editor's tr without tab
-     *
-     * This will add general tab class to 'Name' and Author URL
-     * or any tab that's rendered by default or third party
-     *  without tab attribute
-     */
     if ($('body').hasClass('taxonomy-author')) {
+        /**
+         * Add tab class to author editor's tr without tab
+         *
+         * This will add general tab class to 'Name' and Author URL
+         * or any tab that's rendered by default or third party
+         *  without tab attribute
+         */
         $('form#edittag tr.form-field:not(.ppma-tab-content)')
             .addClass('ppma-tab-content ppma-general-tab')
             .attr('data-tab', 'general');
+        
+        /**
+         * Add view link to author url field
+         */
+        $('form#edittag tr.form-field #slug').after('<a href="' + MultipleAuthorsStrings.term_author_link + '" class="button-secondary" target="_blank">' + MultipleAuthorsStrings.view_text + '</a>');
     }
 
     /**
@@ -586,6 +631,105 @@ jQuery(document).ready(function ($) {
         });
 
     });
+
+    //change submit button to enable slug generation on custom button click
+    if ($('body.taxonomy-author form#addtag #submit').length > 0) {
+        $('body.taxonomy-author form#addtag #submit').hide();
+        $('body.taxonomy-author form#addtag #submit').after('<input type="button" id="author-submit" class="button button-primary" value="' + $('body.taxonomy-author form#addtag #submit').val() + '">');
+    }
+
+    //generate author slug when adding author.
+    $(document).on('click', 'body.taxonomy-author form#addtag #author-submit', function (event) {
+
+        var $authorName = $('input[name="tag-name"]').val();
+        var $form = $(this).closest('form#addtag');
+
+        event.preventDefault();
+
+        //prepare ajax data
+        var data = {
+            action: "handle_author_slug_generation",
+            author_name: $authorName,
+            nonce: MultipleAuthorsStrings.generate_author_slug_nonce,
+        };
+
+        $form.find('.spinner').addClass('is-active');
+
+        $.post(ajaxurl, data, function (response) {
+            $form.find('.spinner').removeClass('is-active');
+            if (response.author_slug) {
+                $('input[name="slug"]').val(response.author_slug);
+                $('body.taxonomy-author form#addtag #submit').trigger('click');
+            } else {
+                $('body.taxonomy-author form#addtag #submit').trigger('click');
+            }
+        });
+
+    });
+
+    /**
+     * Settings shortcode copy to clipboard
+     */
+    $(document).on('click', '.ppma-copy-clipboard', function (event) {
+        //get the text field
+        var shortcode_input = event.target.closest('.ppma-settings-shortcodes-shortcode').querySelector('.shortcode-field');
+        //select the text field
+        shortcode_input.select();
+        shortcode_input.setSelectionRange(0, 99999); /* For mobile devices */
+        //copy the text inside the text field
+        navigator.clipboard.writeText(shortcode_input.value);
+        //update tooltip notification
+        event.target.closest('.ppma-settings-shortcodes-shortcode')
+            .querySelector('.ppma-copy-clipboard span')
+            .innerHTML = event.target.closest('.ppma-settings-shortcodes-shortcode').querySelector('.ppma-copy-clipboard span')
+                .getAttribute('data-copied');
+    });
+
+    /**
+     * Copy to clipboard copied text change
+     */
+    $(document).on('mouseleave', '.ppma-copy-clipboard', function (event) {
+        //update tooltip text
+        event.target.closest('.ppma-settings-shortcodes-shortcode')
+            .querySelector('.ppma-copy-clipboard span')
+            .innerHTML = event.target.closest('.ppma-settings-shortcodes-shortcode').querySelector('.ppma-copy-clipboard span')
+                .getAttribute('data-copy');
+    });
+
+    /**
+     * Author profile edit active class for when 
+     * user is editing own profile.
+     * 
+     * i.) Remove active class from main author 
+     * profile if it has one .
+     * 
+     * ii.) Add active class to new author profile
+     * link
+     */
+    if ($('body').hasClass('own-profile-edit')) {
+        var main_menu   = $("#toplevel_page_ppma-authors");
+        var profile_menu = $("li[class*=' toplevel_page_term?taxonomy=author&tag_ID']");
+
+        //remove active from main author menu
+        main_menu
+            .addClass('wp-not-current-submenu')
+            .removeClass('wp-has-current-submenu')
+            .removeClass('wp-menu-open')
+            .removeClass('current')
+            .find('ul li.current')
+            .removeClass('current');
+        
+        //add class to user author menu
+        profile_menu
+            .removeClass('wp-not-current-submenu')
+            .addClass('current');
+        
+        profile_menu
+            .find('a')
+            .removeClass('wp-not-current-submenu')
+            .addClass('current');
+             
+    }
 
 });
 

@@ -3,7 +3,7 @@ Contributors: wpmedialibrary
 Donate link: https://wpmedialibrary.com
 Tags: media categories, media library, media tags, images, organizer
 Requires at least: 5.0
-Tested up to: 5.9.1
+Tested up to: 6.0.1
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -171,6 +171,24 @@ To auto categorize attachments, bulk edit other attributes, manage EXIF, GPS and
 4. Plugin-wide Settings
 
 == Changelog ==
+
+= 1.4.6 (2022-07-18) =
+* Added: Grid View: Modal: Better method for defining toolbar height and attachments grid
+* Updated: French translations
+* Fix: Grid View: Modal: Edit Gallery: Don't display Dropdown Filters, as they have no effect on the selected images
+* Fix: Code improvements for WordPress Coding Standards
+
+= 1.4.5 (2022-06-23) =
+* Added: French translations
+* Fix: Grid View: Category Dropdown Filter: Order child terms by name, not ID
+* Fix: User Options: Fallback to order by default when User Options > Sort Order is enabled and either the user has no sort order preference defined, or a non-valid sort order was specified
+
+= 1.4.4 (2022-06-09) =
+* Added: Support for WordPress 6.0
+
+= 1.4.3 (2022-05-12) =
+* Fix: Grid View: Edit Attachment: Corrected sanitization on inputs which would prevent Pro version EXIF/IPTC data from saving
+* Fix: Multisite: Activation: Conditionally load required hook depending on WordPress version
 
 = 1.4.2 (2022-03-16) =
 * Fix: Category Dropdown Filter: Attachment Count: Improved checks to determine current screen and whether to show counts

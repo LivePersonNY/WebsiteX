@@ -10,9 +10,10 @@ class Permalink_Manager_Actions extends Permalink_Manager_Class {
 
 		// Ajax-based functions
 		if(is_admin()) {
-			add_action('wp_ajax_pm_bulk_tools', array($this, 'pm_bulk_tools'));
-			add_action('wp_ajax_pm_save_permalink', array($this, 'pm_save_permalink'));
-			add_action('wp_ajax_pm_detect_duplicates',  array($this, 'ajax_detect_duplicates') );
+			add_action('wp_ajax_pm_bulk_tools', array($this, 'ajax_bulk_tools'));
+			add_action('wp_ajax_pm_save_permalink', array($this, 'ajax_save_permalink'));
+			add_action('wp_ajax_pm_detect_duplicates',  array($this, 'ajax_detect_duplicates'));
+			add_action('wp_ajax_pm_dismissed_notice_handler', array($this, 'ajax_hide_global_notice'));
 		}
 
 		add_action('clean_permalinks_event', array($this, 'clean_permalinks_hook'));
@@ -108,7 +109,7 @@ class Permalink_Manager_Actions extends Permalink_Manager_Class {
 	/**
 	 * Trigger bulk tools via AJAX
 	 */
-	function pm_bulk_tools() {
+	function ajax_bulk_tools() {
 		global $sitepress, $wp_filter, $wpdb;
 
 		// Define variables
@@ -153,8 +154,8 @@ class Permalink_Manager_Actions extends Permalink_Manager_Class {
 			// Hotfix for WPML (start)
 			if($sitepress) {
 				remove_filter('get_terms_args', array($sitepress, 'get_terms_args_filter'), 10);
-	    	remove_filter('get_term', array($sitepress, 'get_term_adjust_id'), 1);
-	    	remove_filter('terms_clauses', array($sitepress, 'terms_clauses'), 10);
+				remove_filter('get_term', array($sitepress, 'get_term_adjust_id'), 1);
+				remove_filter('terms_clauses', array($sitepress, 'terms_clauses'), 10);
 				remove_filter('get_pages', array($sitepress, 'get_pages_adjust_ids'), 1);
 			}
 
@@ -243,8 +244,8 @@ class Permalink_Manager_Actions extends Permalink_Manager_Class {
 			// Hotfix for WPML (end)
 			if($sitepress) {
 				add_filter('terms_clauses', array($sitepress, 'terms_clauses'), 10, 4);
-	    	add_filter('get_term', array($sitepress, 'get_term_adjust_id'), 1, 1);
-	    	add_filter('get_terms_args', array($sitepress, 'get_terms_args_filter'), 10, 2);
+				add_filter('get_term', array($sitepress, 'get_term_adjust_id'), 1, 1);
+				add_filter('get_terms_args', array($sitepress, 'get_terms_args_filter'), 10, 2);
 				add_filter('get_pages', array($sitepress, 'get_pages_adjust_ids'), 1, 2);
 			}
 		}
@@ -256,7 +257,7 @@ class Permalink_Manager_Actions extends Permalink_Manager_Class {
 	/**
 	 * Save permalink via AJAX
 	 */
-	public function pm_save_permalink() {
+	public function ajax_save_permalink() {
 		$element_id = (!empty($_POST['permalink-manager-edit-uri-element-id'])) ? sanitize_text_field($_POST['permalink-manager-edit-uri-element-id']) : '';
 
 		if(!empty($element_id) && is_numeric($element_id)) {
@@ -410,6 +411,13 @@ class Permalink_Manager_Actions extends Permalink_Manager_Class {
 		// Make sure that the user is allowed to remove the plugin data
 		if(!current_user_can('manage_options')) {
 			$permalink_manager_before_sections_html .= Permalink_Manager_Admin_Functions::get_alert_message(__( 'You are not allowed to remove Permalink Manager data!', 'permalink-manager' ), 'error updated_slugs');
+		}
+
+		// Check if the nonce field is correct
+		$nonce = sanitize_key($_GET['_wpnonce']);
+		if(!wp_verify_nonce($nonce, 'permalink-manager')) {
+			$permalink_manager_before_sections_html .= Permalink_Manager_Admin_Functions::get_alert_message(__( 'You are not allowed to remove Permalink Manager data!', 'permalink-manager' ), 'error updated_slugs');
+			return;
 		}
 
 		switch($field_name) {
@@ -673,6 +681,22 @@ class Permalink_Manager_Actions extends Permalink_Manager_Class {
 		}
 
 		die();
+	}
+
+	/**
+	 * Hide global notices (AJAX)
+	 */
+	function ajax_hide_global_notice() {
+		global $permalink_manager_alerts;
+
+		// Get the ID of the alert
+		$alert_id = (!empty($_REQUEST['alert_id'])) ? sanitize_title($_REQUEST['alert_id']) : "";
+		if(!empty($permalink_manager_alerts[$alert_id])) {
+			$dismissed_transient_name = sprintf('permalink-manager-notice_%s', $alert_id);
+			$dismissed_time = (!empty($permalink_manager_alerts[$alert_id]['dismissed_time'])) ? (int) $permalink_manager_alerts[$alert_id]['dismissed_time'] : DAY_IN_SECONDS;
+
+			set_transient($dismissed_transient_name, 1, $dismissed_time);
+		}
 	}
 
 	/**

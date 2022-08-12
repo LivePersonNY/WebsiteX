@@ -47,7 +47,7 @@ class Media_Library_Organizer_Taxonomy_Walker extends Walker {
 	 * @param int    $depth  Depth of category. Used for tab indentation.
 	 * @param array  $args   An array of arguments. @see wp_terms_checklist().
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) { /* phpcs:ignore */
+	public function start_lvl( &$output, $depth = 0, $args = array() ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
 
 		$indent  = str_repeat( "\t", $depth );
 		$output .= "$indent<ul class='children'>\n";
@@ -65,7 +65,7 @@ class Media_Library_Organizer_Taxonomy_Walker extends Walker {
 	 * @param int    $depth  Depth of category. Used for tab indentation.
 	 * @param array  $args   An array of arguments. @see wp_terms_checklist().
 	 */
-	public function end_lvl( &$output, $depth = 0, $args = array() ) { /* phpcs:ignore */
+	public function end_lvl( &$output, $depth = 0, $args = array() ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
 
 		$indent  = str_repeat( "\t", $depth );
 		$output .= "$indent</ul>\n";
@@ -89,7 +89,7 @@ class Media_Library_Organizer_Taxonomy_Walker extends Walker {
 	 * @param   array  $args       An array of arguments. @see wp_terms_checklist().
 	 * @param   int    $id         ID of the current term.
 	 */
-	public function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) { /* phpcs:ignore */
+	public function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
 
 		$taxonomy = $args['taxonomy'];
 
@@ -136,7 +136,7 @@ class Media_Library_Organizer_Taxonomy_Walker extends Walker {
 	 * @param int    $depth    Depth of the term in reference to parents. Default 0.
 	 * @param array  $args     An array of arguments. @see wp_terms_checklist().
 	 */
-	public function end_el( &$output, $category, $depth = 0, $args = array() ) { /* phpcs:ignore */
+	public function end_el( &$output, $category, $depth = 0, $args = array() ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
 
 		$output .= "</li>\n";
 

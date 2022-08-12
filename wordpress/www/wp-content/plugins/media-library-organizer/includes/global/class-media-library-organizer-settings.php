@@ -301,8 +301,8 @@ class Media_Library_Organizer_Settings {
 
 			// User Options.
 			'user-options' => array(
-				'orderby_enabled' => 1,
-				'order_enabled'   => 1,
+				'orderby_enabled' => 0,
+				'order_enabled'   => 0,
 			),
 		);
 

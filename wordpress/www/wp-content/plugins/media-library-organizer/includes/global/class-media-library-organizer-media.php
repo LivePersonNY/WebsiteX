@@ -125,13 +125,13 @@ class Media_Library_Organizer_Media {
 		}
 
 		// Determine the current orderby.
-		if ( isset( $_REQUEST['orderby'] ) ) { /* phpcs:ignore */
+		if ( isset( $_REQUEST['orderby'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 			// Get from the <select> dropdown.
-			$current_orderby = sanitize_text_field( $_REQUEST['orderby'] ); /* phpcs:ignore */
+			$current_orderby = sanitize_text_field( $_REQUEST['orderby'] ); // phpcs:ignore WordPress.Security.NonceVerification
 		} else {
 			// Get orderby default from the User's Options, if set to persist.
 			if ( $this->base->get_class( 'settings' )->get_setting( 'user-options', 'orderby_enabled' ) ) {
-				$current_orderby = $this->base->get_class( 'user_option' )->get_option( get_current_user_id(), 'orderby' );
+				$current_orderby = $this->base->get_class( 'user_option' )->get_orderby( get_current_user_id() );
 			} else {
 				// Get from Plugin Defaults.
 				$current_orderby = $this->base->get_class( 'common' )->get_orderby_default();
@@ -139,13 +139,13 @@ class Media_Library_Organizer_Media {
 		}
 
 		// Determine the current order.
-		if ( isset( $_REQUEST['order'] ) ) { /* phpcs:ignore */
+		if ( isset( $_REQUEST['order'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 			// Get from the <select> dropdown.
-			$current_order = sanitize_text_field( $_REQUEST['order'] ); /* phpcs:ignore */
+			$current_order = sanitize_text_field( $_REQUEST['order'] ); // phpcs:ignore WordPress.Security.NonceVerification
 		} else {
 			// Get orderby default from the User's Options, if set to persist.
 			if ( $this->base->get_class( 'settings' )->get_setting( 'user-options', 'order_enabled' ) ) {
-				$current_order = $this->base->get_class( 'user_option' )->get_option( get_current_user_id(), 'order' );
+				$current_order = $this->base->get_class( 'user_option' )->get_order( get_current_user_id() );
 			} else {
 				// Get from Plugin Defaults.
 				$current_order = $this->base->get_class( 'common' )->get_order_default();
@@ -159,7 +159,7 @@ class Media_Library_Organizer_Media {
 				continue;
 			}
 
-			echo $this->get_list_table_category_filter( $taxonomy_name, sanitize_text_field( $taxonomy['plural_name'] ) ); /* phpcs:ignore */
+			echo $this->get_list_table_category_filter( $taxonomy_name, sanitize_text_field( $taxonomy['plural_name'] ) ); // phpcs:ignore WordPress.Security.EscapeOutput
 		}
 
 		/**
@@ -306,12 +306,12 @@ class Media_Library_Organizer_Media {
 				'defaults'              => array(
 					'orderby' => (
 						$this->base->get_class( 'settings' )->get_setting( 'user-options', 'orderby_enabled' ) ?
-						$this->base->get_class( 'user_option' )->get_option( get_current_user_id(), 'orderby' ) :
+						$this->base->get_class( 'user_option' )->get_orderby( get_current_user_id() ) :
 						$this->base->get_class( 'common' )->get_orderby_default()
 					),
 					'order'   => (
 						$this->base->get_class( 'settings' )->get_setting( 'user-options', 'order_enabled' ) ?
-						$this->base->get_class( 'user_option' )->get_option( get_current_user_id(), 'order' ) :
+						$this->base->get_class( 'user_option' )->get_order( get_current_user_id() ) :
 						$this->base->get_class( 'common' )->get_order_default()
 					),
 				),
@@ -488,7 +488,7 @@ class Media_Library_Organizer_Media {
 		$output = apply_filters( 'media_library_organizer_media_define_list_view_columns_output_' . $column_name, $output, $id );
 
 		// Output.
-		echo $output; /* phpcs:ignore */
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput
 
 	}
 
@@ -544,7 +544,7 @@ class Media_Library_Organizer_Media {
 
 		// wp_ajax_query_attachments() doesn't attribute $_REQUEST['query'] attributes to $args that aren't Post or Taxonomy Related.
 		// Include these in the below filter so they're accessible to Addons which might need to read the request input to modify $args.
-		$query = array_map( 'sanitize_text_field', $_REQUEST['query'] ); /* phpcs:ignore */
+		$query = array_map( 'sanitize_text_field', $_REQUEST['query'] ); // phpcs:ignore WordPress.Security.NonceVerification
 
 		/**
 		 * Defines the arguments used when querying for Media in the Media Grid View.
@@ -619,7 +619,7 @@ class Media_Library_Organizer_Media {
 		}
 
 		// Sanitize request.
-		$request = array_map( 'sanitize_text_field', $_REQUEST ); /* phpcs:ignore */
+		$request = array_map( 'sanitize_text_field', $_REQUEST ); // phpcs:ignore WordPress.Security.NonceVerification
 
 		// File Type.
 		if ( isset( $request['mlo-file-type'] ) ) {
@@ -670,10 +670,10 @@ class Media_Library_Organizer_Media {
 		} else {
 			// Get orderby default from the User's Options, if set to persist.
 			if ( $this->base->get_class( 'settings' )->get_setting( 'user-options', 'orderby_enabled' ) ) {
-				$orderby = $this->base->get_class( 'user_option' )->get_option( get_current_user_id(), 'orderby' );
+				$orderby = $this->base->get_class( 'user_option' )->get_orderby( get_current_user_id() );
 			} else {
 				// Get from Plugin Defaults.
-				$orderby = $this->base->get_class( 'common' )->get_order_default();
+				$orderby = $this->base->get_class( 'common' )->get_orderby_default();
 			}
 
 			// Update WP_Query with the orderby parameter.
@@ -690,7 +690,7 @@ class Media_Library_Organizer_Media {
 		} else {
 			// Get orderby default from the User's Options, if set to persist.
 			if ( $this->base->get_class( 'settings' )->get_setting( 'user-options', 'order_enabled' ) ) {
-				$order = $this->base->get_class( 'user_option' )->get_option( get_current_user_id(), 'order' );
+				$order = $this->base->get_class( 'user_option' )->get_order( get_current_user_id() );
 			} else {
 				// Get from Plugin Defaults.
 				$order = $this->base->get_class( 'common' )->get_order_default();
@@ -931,7 +931,7 @@ class Media_Library_Organizer_Media {
             <div id="mlo-taxonomy-term-add">
                 <a href="#" class="taxonomy-add-new" data-taxonomy="' . $taxonomy_name . '">' .
 					/* translators: %s: Add New taxonomy label. */
-					sprintf( __( '+ %s' ), $taxonomy->labels->add_new_item ) /* phpcs:ignore */ . '
+					sprintf( __( '+ %s', 'media-library-organizer' ), $taxonomy->labels->add_new_item ) . '
                 </a>
                 <div class="mlo-taxonomy-term-add-fields hidden ' . $taxonomy_name . '">
                     <input type="text" name="' . $taxonomy_name . '-add" placeholder="' . esc_attr( $taxonomy->labels->new_item_name ) . '" value="" />
@@ -965,7 +965,7 @@ class Media_Library_Organizer_Media {
 		// Get Taxonomy.
 		$taxonomy              = $this->base->get_class( 'taxonomies' )->get_taxonomy( $taxonomy_name );
 		$user_can_assign_terms = current_user_can( $taxonomy->cap->assign_terms );
-		$comma                 = _x( ',', 'tag delimiter' ); /* phpcs:ignore */
+		$comma                 = _x( ',', 'tag delimiter', 'media-library-organizer' );
 		$terms                 = get_the_terms( $post_id, $taxonomy_name );
 
 		// Define HTML.
@@ -1021,7 +1021,7 @@ class Media_Library_Organizer_Media {
 	 * @param   array  $selected_term_ids              Selected Term IDs.
 	 * @return  string                                      Taxonomy HTML Checkboxes
 	 */
-	public function terms_checkbox( $taxonomy_name, $field_name, $selected_term_ids = array() ) { /* phpcs:ignore */
+	public function terms_checkbox( $taxonomy_name, $field_name, $selected_term_ids = array() ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter
 
 		// Get Taxonomy Terms.
 		$terms = get_terms(
@@ -1080,7 +1080,7 @@ class Media_Library_Organizer_Media {
 		}
 
 		// Sanitize request.
-		$request = array_map( 'sanitize_text_field', $_REQUEST ); /* phpcs:ignore */
+		$request = array_map( 'sanitize_text_field', $_REQUEST ); // phpcs:ignore WordPress.Security.NonceVerification
 
 		// Iterate through Registered Taxonomies.
 		foreach ( $this->base->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
@@ -1256,7 +1256,7 @@ class Media_Library_Organizer_Media {
 		$selected_terms = false;
 
 		// Sanitize request.
-		$request = array_map( 'sanitize_text_field', $_REQUEST ); /* phpcs:ignore */
+		$request = array_map( 'sanitize_text_field', $_REQUEST ); // phpcs:ignore WordPress.Security.NonceVerification
 
 		// Check some request variables.
 		if ( isset( $request[ $taxonomy_name ] ) ) {

@@ -46,6 +46,52 @@ class Media_Library_Organizer_User_Option {
 	}
 
 	/**
+	 * Returns a User's order by option.
+	 *
+	 * @since   1.4.5
+	 *
+	 * @param   int $user_id        User ID.
+	 * @return  string                 Value
+	 */
+	public function get_orderby( $user_id ) {
+
+		// Get user option.
+		$value = $this->get_option( $user_id, 'orderby' );
+
+		// If the value isn't a permitted order by option, return the default.
+		if ( ! in_array( $value, array_keys( $this->base->get_class( 'common' )->get_orderby_options() ), true ) ) {
+			return $this->get_default_option( 'orderby' );
+		}
+
+		// Return user's order by option.
+		return $value;
+
+	}
+
+	/**
+	 * Returns a User's order option.
+	 *
+	 * @since   1.4.5
+	 *
+	 * @param   int $user_id        User ID.
+	 * @return  string                 Value
+	 */
+	public function get_order( $user_id ) {
+
+		// Get user option.
+		$value = $this->get_option( $user_id, 'order' );
+
+		// If the value isn't a permitted order by option, return the default.
+		if ( ! in_array( $value, array_keys( $this->base->get_class( 'common' )->get_order_options() ), true ) ) {
+			return $this->get_default_option( 'order' );
+		}
+
+		// Return user's order by option.
+		return $value;
+
+	}
+
+	/**
 	 * Returns a User option.
 	 *
 	 * @since   1.0.0

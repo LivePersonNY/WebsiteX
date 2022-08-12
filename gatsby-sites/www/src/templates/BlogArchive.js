@@ -89,7 +89,7 @@ const BlogIndex = ({
             <div className="d-none d-sm-block">{titleElement}</div>
             <div className="row">
             
-              {pageNumber === 1 && !category && (<Post post={sticky} root="/blog" isFeatured={true} />)}
+              {pageNumber === 1 && !category && sticky && (<Post post={sticky} root="/blog" isFeatured={true} />)}
               
               {posts.map((post, index) => {
                 

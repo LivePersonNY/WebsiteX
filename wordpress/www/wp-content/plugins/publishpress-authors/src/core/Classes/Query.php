@@ -85,6 +85,23 @@ class Query
     }
 
     /**
+     * Fix for publishpress author pages post type.
+     *
+     * @param WP_Query $wp_query Query object.
+     */
+    public static function fix_frontend_query_pre_get_posts($wp_query)
+    {
+        if (is_string($wp_query) || empty($wp_query)) {
+            global $wp_query; // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.VariableRedeclaration
+        }
+
+        if (!is_admin() && $wp_query->is_main_query() && $wp_query->is_tax('author')) {
+            $selectedPostTypesForAuthorsPage = static::getSelectedPostTypesForAuthorsPage();
+            $wp_query->set('post_type', $selectedPostTypesForAuthorsPage);
+        }
+    }
+
+    /**
      * Modify the WHERE clause on author queries.
      *
      * @param string $where Existing WHERE clause.
@@ -96,7 +113,7 @@ class Query
     {
         global $wpdb;
 
-        if (!$query->is_author()) {
+        if (!$query->is_author() && empty($query->query_vars['ppma_author'])) {
             return $where;
         }
 
@@ -107,11 +124,11 @@ class Query
             return $where;
         }
 
-        $author_name = sanitize_title($query->get('author_name'));
+        $author_name = !empty($query->query_vars['ppma_author']) 
+            ? sanitize_title($query->get('ppma_author')) : sanitize_title($query->get('author_name'));
 
         if (empty($author_name)) {
             $author_id = (int)$query->get('author');
-
             $author = Author::get_by_id($author_id);
 
             if (!$author) {
@@ -143,9 +160,33 @@ class Query
 
         $query->authors_having_terms = ' ' . $wpdb->term_taxonomy . '.term_id = \'' . (int)$term->term_id . '\' ';
 
+        /**
+         * Private post author regex
+         */
+        $current_user_id   = get_current_user_id();
+        $current_author    = Author::get_by_user_id($current_user_id);
+        if ($current_author
+            && is_object($current_author)
+            && isset($current_author->term_id)
+            && (int)$current_author->term_id > 0
+        ) {
+            $current_user_term_id = $current_author->term_id;
+        } else {
+            $current_user_term_id = 0;
+        }
+        $where = preg_replace(
+            '/\(?\b(?:' . $wpdb->posts . '\.)?post_author\s*(?:=|IN)\s*\(?(\d+)\)? AND (?:' . $wpdb->posts . '\.)?post_status = \'private\'/',
+            '(' . $maybe_both_query . ' ' . ' ' . $wpdb->term_taxonomy . '.term_id = \'' . (int)$current_user_term_id . '\' ' . ' AND ' . $wpdb->posts . '.post_status = \'private\'',
+            $where,
+            -1
+        );
+
+        /**
+         * Post author replace
+         */
         $where = preg_replace(
             '/\(?\b(?:' . $wpdb->posts . '\.)?post_author\s*(?:=|IN)\s*\(?(\d+)\)?/',
-            '(' . $maybe_both_query . ' ' . '(' . $wpdb->term_taxonomy . '.taxonomy = "author" AND ' . $wpdb->term_taxonomy . '.term_id = \'' . (int)$term->term_id . '\') ' . ')',
+            '(' . $maybe_both_query . ' ' . '(' . $wpdb->term_taxonomy . '.term_id = \'' . (int)$term->term_id . '\') ' . ')',
             $where,
             -1
         );
@@ -167,7 +208,7 @@ class Query
     {
         global $wpdb;
 
-        if (!$query->is_author() || empty($query->authors_having_terms)) {
+        if ((!$query->is_author() && empty($query->query_vars['ppma_author'])) || empty($query->authors_having_terms)) {
             return $join;
         }
 
@@ -201,7 +242,7 @@ class Query
     {
         global $wpdb;
 
-        if (!$query->is_author() || empty($query->authors_having_terms)) {
+        if ((!$query->is_author() && empty($query->query_vars['ppma_author']))|| empty($query->authors_having_terms)) {
             return $groupby;
         }
 
@@ -223,7 +264,7 @@ class Query
     {
         global $wpdb;
 
-        if (!isset($query->query_vars['author'])) {
+        if (!isset($query->query_vars['author']) && !isset($query->query_vars['ppma_author'])) {
             return $where;
         }
 
@@ -234,7 +275,7 @@ class Query
             return $where;
         }
 
-        $author_id = (int)$query->get('author');
+        $author_id = !empty($query->query_vars['ppma_author']) ? (int)$query->queried_object_id : (int)$query->get('author');
 
         if (empty($author_id)) {
             return $where;
@@ -244,8 +285,7 @@ class Query
         if (is_a($query->queried_object, 'WP_User')) {
             $author = Author::get_by_user_id($query->queried_object_id);
         } else {
-            $author = $query->queried_object;
-
+            $author = !empty($query->query_vars['ppma_author']) ? Author::get_by_term_id($author_id) : $query->queried_object;
             if (!is_a($author, Author::class)) {
                 return $where;
             }
@@ -255,7 +295,28 @@ class Query
             return $where;
         }
 
-        $terms_implode = '(' . $wpdb->term_taxonomy . '.taxonomy = "author" AND ' . $wpdb->term_taxonomy . '.term_id = \'' . (int)$author->getTerm()->term_id . '\') ';
+        $terms_implode = '(' . $wpdb->term_taxonomy . '.term_id = \'' . (int)$author->getTerm()->term_id . '\') ';
+
+        /**
+         * Private post author regex
+         */
+        $current_user_id   = get_current_user_id();
+        $current_author    = Author::get_by_user_id($current_user_id);
+        if ($current_author
+            && is_object($current_author)
+            && isset($current_author->term_id)
+            && (int)$current_author->term_id > 0
+        ) {
+            $current_user_term_id = $current_author->term_id;
+        } else {
+            $current_user_term_id = 0;
+        }
+        $where = preg_replace(
+            '/\(?\b(?:' . $wpdb->posts . '\.)?post_author\s*(?:=|IN)\s*\(?(\d+)\)? AND (?:' . $wpdb->posts . '\.)?post_status = \'private\'/',
+            '(' . '' . $wpdb->term_taxonomy . '.term_id = \'' . (int)$current_user_term_id . '\' ' . ' AND ' . $wpdb->posts . '.post_status = \'private\'',
+            $where,
+            -1
+        );
 
         $where = preg_replace(
             '/\(?\b(?:' . $wpdb->posts . '\.)?post_author\s*(?:=|IN|NOT IN)\s*\(?(\d+)\)?/',
@@ -324,7 +385,7 @@ class Query
     {
         global $wpdb;
 
-        if (!isset($query->query_vars['author'])) {
+        if (!isset($query->query_vars['author']) && !isset($query->query_vars['ppma_author'])) {
             return $join;
         }
 
@@ -335,7 +396,7 @@ class Query
             return $join;
         }
 
-        $author_id = (int)$query->get('author');
+        $author_id = !empty($query->query_vars['ppma_author']) ? (int)$query->queried_object_id : (int)$query->get('author');
 
         if (empty($author_id)) {
             return $join;
@@ -344,7 +405,7 @@ class Query
         if (is_a($query->queried_object, 'WP_User')) {
             $author = Author::get_by_user_id($query->queried_object_id);
         } else {
-            $author = $query->queried_object;
+            $author = !empty($query->query_vars['ppma_author']) ? Author::get_by_term_id($author_id) : $query->queried_object;
         }
 
         if (!is_object($author) || is_wp_error($author)) {
@@ -382,7 +443,7 @@ class Query
     {
         global $wpdb;
 
-        if (!isset($query->query_vars['author'])) {
+        if (!isset($query->query_vars['author']) && !isset($query->query_vars['ppma_author'])) {
             return $groupby;
         }
 
@@ -393,7 +454,7 @@ class Query
             return $groupby;
         }
 
-        $author_id = (int)$query->get('author');
+        $author_id = !empty($query->query_vars['ppma_author']) ? (int)$query->queried_object_id : (int)$query->get('author');
 
         if (empty($author_id)) {
             return $groupby;
@@ -402,7 +463,7 @@ class Query
         if (is_a($query->queried_object, 'WP_User')) {
             $author = Author::get_by_user_id($query->queried_object_id);
         } else {
-            $author = $query->queried_object;
+            $author = !empty($query->query_vars['ppma_author']) ? Author::get_by_term_id($author_id) : $query->queried_object;
         }
 
         if (!is_object($author) || is_wp_error($author)) {

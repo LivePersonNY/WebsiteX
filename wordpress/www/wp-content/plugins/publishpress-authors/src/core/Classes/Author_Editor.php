@@ -383,7 +383,7 @@ class Author_Editor
             'description' => [
                 'label'    => esc_html__('Biographical Info', 'publishpress-authors'),
                 'type'     => 'textarea',
-                'sanitize' => 'sanitize_textarea_field',
+                'sanitize' => 'wp_kses_post',
                 'tab'      => 'general',
             ],
         ];
@@ -478,7 +478,7 @@ class Author_Editor
                             <label for="<?php echo esc_attr($avatar_option_key.'-'.$key.'-options'); ?>">
                                 <?php echo esc_html($avatar_option_data['label']); ?>
                                 <?php if (isset($avatar_option_data['description'])) : ?>
-                                    <span class="description"><?php echo $avatar_option_data['description']; ?></span>
+                                    <span class="description"><?php echo $avatar_option_data['description']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
                                 <?php endif; ?>
                             </label>
                         </p>
@@ -553,9 +553,16 @@ class Author_Editor
             }
             $sanitize = isset($args['sanitize']) ? $args['sanitize'] : 'sanitize_text_field';
             update_term_meta($term_id, $key, $sanitize($_POST['authors-' . $key])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+
+            if (in_array($args['type'], ['text', 'textarea'])) {
+                /**
+                 * Register strings for wpml translation
+                 */
+                do_action('wpml_register_single_string', 'PublishPress Authors', '#'.$term_id.' '.$args['label'], $sanitize($_POST['authors-' . $key]));
+            }
         }
 
-        // If there is a mapper user, make sure the author url (slug) is the same of the user.
+        // If there is a mapped user, make sure the author url (slug) is the same of the user.
         if (isset($_POST['authors-user_id']) && !empty($_POST['authors-user_id'])) {
             $user_id = (int)$_POST['authors-user_id'];
 
@@ -785,15 +792,16 @@ class Author_Editor
      */
     public static function filter_pre_insert_term($term, $taxonomy)
     {
-        if ($taxonomy === 'author') {
+        if ($taxonomy === 'author' && !empty($_POST)) {
             /**
              * Check if term with this user exist
              */
             if (
                 isset($_POST['authors-new'])
-                && $author_id = (int)$_POST['authors-new'] > 0
+                && (int)$_POST['authors-new'] > 0
             ) {
-                $author = Author::get_by_user_id($author_id);
+                $author_id = (int)$_POST['authors-new'];
+                $author    = Author::get_by_user_id($author_id);
 
                 if (
                     $author
@@ -821,13 +829,11 @@ class Author_Editor
             }
 
             $author_slug_user = get_user_by('slug', $slug);
-            if (
-                $author_slug_user
+            if ($author_slug_user
                 && is_object($author_slug_user)
                 && isset($author_slug_user->ID)
             ) {
-                if (
-                    (! isset($_POST['authors-new']))
+                if ((! isset($_POST['authors-new']))
                     || ((int)$author_slug_user->ID != (int)$_POST['authors-new'])
                 ) {
                     return new WP_Error(

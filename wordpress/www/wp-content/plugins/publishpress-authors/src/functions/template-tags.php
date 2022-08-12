@@ -22,11 +22,12 @@ if (!function_exists('get_archive_author')) {
      */
     function get_archive_author()
     {
-        if (!is_author()) {
+        if (!is_author() && !is_tax('author')) {
             return false;
         }
 
-        $authorName = get_query_var('author_name');
+        $authorName = is_tax('author') ? get_query_var('ppma_author') : get_query_var('author_name');
+
         if (empty($authorName)) {
             $authorId = get_query_var('author');
             $user = get_user_by('ID', $authorId);
@@ -52,10 +53,11 @@ if (!function_exists('get_post_authors')) {
      *                                            in quick edit after saving.
      *                                            That's why in Post_Editor we called this function with overriding
      *                                            ignoreCache value to be equal true.
+     * @param bool $updateAuthors Updating authors early causes issue with some plugins that get post earlier
      *
      * @return array Array of Author objects, a single WP_User object, or empty.
      */
-    function get_post_authors($post = 0, $ignoreCache = false)
+    function get_post_authors($post = 0, $ignoreCache = false, $updateAuthors = true)
     {
         if (is_object($post)) {
             $post = $post->ID;
@@ -140,7 +142,7 @@ if (!function_exists('get_post_authors')) {
                 $authorsInstances = [$author];
             }
 
-            if (!empty($authorsInstances)) {
+            if (!empty($authorsInstances) && $updateAuthors) {
                 Utils::set_post_authors($postId, $authorsInstances);
             }
         }
@@ -182,11 +184,63 @@ if (!function_exists('get_multiple_authors')) {
 if (!function_exists('multiple_authors_get_all_authors')) {
     /**
      * @param array $args
+     * @param array $instance The widget  call object instance.
      *
      * @return array|int|WP_Error
      */
-    function multiple_authors_get_all_authors($args = [])
+    function multiple_authors_get_all_authors($args = [], $instance = [])
     {
+
+        //determine result type
+        if (isset($instance['layout']) && $instance['layout'] === 'authors_index') {
+            $result_type = 'grouped';
+        } elseif (isset($instance['layout']) && $instance['layout'] === 'authors_recent') {
+            $result_type = 'recent';
+        } else {
+            $result_type = 'default';
+        }
+
+        //instantiate default values
+        $paged       = false;
+        $offset      = false;
+        $guests_only = false;
+        $users_only  = false;
+        $per_page    = 0;
+        $term_counts = 0;
+
+        //check if result is set to be guest only or user only
+        if (isset($instance['authors']) && $instance['authors'] === 'users') {
+            $users_only  = true;
+        } elseif (isset($instance['authors']) && $instance['authors'] === 'guests') {
+            $guests_only = true;
+        }
+
+        //add sort option
+        if (!isset($args['order']) && isset($instance['order'])) {
+            $args['order'] = $instance['order'];
+        }
+        if (!isset($args['orderby']) && isset($instance['orderby'])) {
+            $args['orderby'] = $instance['orderby'];
+        }
+
+        //check if result limit is set (only work when request is not guest or user only)
+        if (isset($instance['limit_per_page']) && (int)$instance['limit_per_page'] > 0 && !$users_only && !$guests_only) {
+            $paged          = (int)$instance['page'];
+            $per_page       = (int)$instance['limit_per_page'];
+            $offset         = ($paged-1) * $per_page;
+            $args['number'] = $per_page;
+            $args['offset'] = $offset;
+        }
+
+        $search_instance = (isset($instance['search_box']) && ($instance['search_box'] === true || $instance['search_box'] === 'true')) ? true : false;
+
+        $search_text = false;
+        $search_field = false;
+        if ($search_instance && !empty($_GET['seach_query'])) {
+            $search_text = !empty($_GET['seach_query']) ? sanitize_text_field($_GET['seach_query']) : '';
+            $search_field = !empty($_GET['search_field']) ? sanitize_text_field($_GET['search_field']) : false;
+        }
+
         $defaults = [
             'hide_empty' => false,
             'orderby'    => 'name',
@@ -195,8 +249,7 @@ if (!function_exists('multiple_authors_get_all_authors')) {
 
         $args = wp_parse_args($args, $defaults);
 
-
-        if (true === $args['hide_empty']) {
+        if (true === $args['hide_empty'] || $search_text) {
             global $wpdb;
 
             $postTypes = Utils::get_enabled_post_types();
@@ -205,29 +258,147 @@ if (!function_exists('multiple_authors_get_all_authors')) {
             }, $postTypes);
             $postTypes = implode(', ', $postTypes);
 
-            $terms = $wpdb->get_results( // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-                "SELECT
-                    t.term_id as `term_id`
-                FROM
-                    {$wpdb->terms} AS t
-                    INNER JOIN {$wpdb->term_taxonomy} AS tt ON (tt.term_id = t.term_id)
-                    INNER JOIN {$wpdb->term_relationships} AS tr ON (tt.term_taxonomy_id = tr.term_taxonomy_id)
-                    INNER JOIN {$wpdb->posts} AS p ON (tr.object_id = p.ID)
-                WHERE
-                    tt.taxonomy = 'author'
-                    AND p.post_status IN ('publish')
-                    AND p.post_type IN ({$postTypes})
-                GROUP BY
-                    t.term_id
-                ORDER BY t.name ASC"
-            );
+            $term_query = "";
+            $term_query .= "SELECT t.term_id as `term_id` ";
+            $term_query .= "FROM {$wpdb->terms} AS t ";
+            $term_query .= "INNER JOIN {$wpdb->term_taxonomy} AS tt ON (tt.term_id = t.term_id) ";
+            if (true === $args['hide_empty']) {
+                $term_query .= "INNER JOIN {$wpdb->term_relationships} AS tr ON (tt.term_taxonomy_id = tr.term_taxonomy_id) ";
+                $term_query .= "INNER JOIN {$wpdb->posts} AS p ON (tr.object_id = p.ID) ";
+            }
+            if ($search_text && $search_field) {
+                $term_query .= "INNER JOIN {$wpdb->termmeta} AS tm ON (tm.term_id = t.term_id) ";
+            }
+            $term_query .= "WHERE tt.taxonomy = 'author' ";
+            if (true === $args['hide_empty']) {
+                $term_query .= "AND p.post_status IN ('publish') ";
+                $term_query .= "AND p.post_type IN ({$postTypes}) ";
+            }
+            if ($search_text && !$search_field) {
+                $term_query .= "AND (t.name LIKE '%" . $wpdb->esc_like($search_text) . "%' OR t.slug LIKE '%" . $wpdb->esc_like($search_text) . "%') ";
+            } elseif ($search_text && $search_field) {
+                $term_query .= "AND (tm.meta_key = '{$search_field}'
+                AND tm.meta_value LIKE '%" . $wpdb->esc_like($search_text) . "%') ";
+            }
+
+            //get term count before before limit and group by incase it's paginated query
+            if ($paged) {
+                $term_count_query = str_replace("SELECT t.term_id as `term_id`", "SELECT COUNT(DISTINCT t.term_id)", $term_query);
+                $term_counts = $wpdb->get_var($term_count_query);
+            }
+
+            $term_query .= "GROUP BY t.term_id ";
+
+            if ($args['orderby'] === 'count') {
+                $sql_order_by = 'tt.' . $args['orderby'];
+            } else {
+                $sql_order_by = 't.' . $args['orderby'];
+            }
+            $term_query .= "ORDER BY {$sql_order_by} {$args['order']}";
+            //add limit if it's a paginated request
+            if ($paged) {
+                $term_query .= " LIMIT {$offset}, {$per_page}";
+            }
+
+            $terms = $wpdb->get_results($term_query);// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
         } else {
             $terms   = get_terms('author', $args);
+            if ($paged) {
+                $count_args = $args;
+                if (isset($count_args['number'])) {
+                    unset($count_args['number']);
+                }
+                if (isset($count_args['offset'])) {
+                    unset($count_args['offset']);
+                }
+                $term_counts = wp_count_terms('author', $count_args);
+            }
         }
 
-        $authors = [];
+        $authors      = [];
         foreach ($terms as $term) {
-            $authors[] = Author::get_by_term_id($term->term_id);
+            $author    = Author::get_by_term_id($term->term_id);
+            if ($users_only && $author->is_guest()) {
+                continue;
+            } elseif ($guests_only && !$author->is_guest()) {
+                continue;
+            }
+
+            if ($result_type === 'grouped') {
+                //group authors by first letter of their name
+                $authors[strtolower($author->display_name[0])][]  = $author;
+            } elseif ($result_type === 'recent') {
+                //query recent post by authors
+                $author_recent_args = [
+                    'orderby'        => 'post_date',
+                    'order'          => 'DESC',
+                    'fields'          => 'ids',
+                    'posts_per_page' => 5,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'author',
+                            'terms'    => $author->term_id,
+                            'field'     => 'term_id'
+                        )
+                    )
+                ];
+                $author_recent_posts = get_posts($author_recent_args);
+
+                //add recent posts
+                $author_recent    = '';
+                $author_view_text = '';
+                if (!empty($author_recent_posts)) {
+                    $author_recent = [];
+                    $post_index    = 0;
+                    foreach ($author_recent_posts as $author_recent_post) {
+                        $post_index++;
+                        if ($post_index === 1) {
+                            $featured_image = PP_AUTHORS_ASSETS_URL . 'img/no-image.jpeg';
+                            if (has_post_thumbnail($author_recent_post)) {
+                                $featured_image_data = wp_get_attachment_image_src(get_post_thumbnail_id($author_recent_post));
+                                if ($featured_image_data && is_array($featured_image_data)) {
+                                    $featured_image = $featured_image_data[0];
+                                }
+                            }
+                            
+                        } else {
+                            $featured_image = false;
+                        }
+                        $author_recent[$author_recent_post] = [
+                            'ID'              => $author_recent_post,
+                            'post_title'      => get_the_title($author_recent_post),
+                            'permalink'       => get_the_permalink($author_recent_post),
+                            'featuired_image' => $featured_image
+
+                        ];
+                    }
+                    //only add show more link if author has more than limit posts
+                    if ($post_index > 4) {
+                        $author_view_text = sprintf(
+                            esc_html__('%1sView all posts%2s by %3s', 'publishpress-authors'),
+                            '<span>',
+                            '</span>',
+                            $author->display_name
+                        );
+                    }
+                }
+
+                $authors[] = ['author'=> $author, 'recent_posts'=> $author_recent, 'view_link' => $author_view_text];
+            } else {
+                //simply add author data directly
+                $authors[] = $author;
+            }
+        }
+
+        //Return more data for paginated result to enable pagination handler
+        if ($paged) {
+            return [
+                'authors'  => $authors,
+                'page'     => $paged,
+                'offset'   => $offset,
+                'per_page' => $per_page,
+                'total'    => $term_counts
+            ];
         }
 
         return $authors;
@@ -261,9 +432,24 @@ if (!function_exists('is_multiple_author_for_post')) {
         if (!$user) {
             return false;
         }
+        $currentPostType = get_post_type($post_id);
+        $enabledPostTypes  = Utils::get_enabled_post_types();
+
+        if (!in_array($currentPostType, $enabledPostTypes)) {
+            $postAuthorId = get_the_author_meta('ID');
+
+            if (is_numeric($user)) {
+                $userId = $user;
+            } else {
+                $userId = $user->ID;
+            }
+
+            return (int)$postAuthorId === (int)$userId;
+        }
 
         if (!isset($postAuthorsCache[$post_id])) {
-            $coauthors = get_post_authors($post_id);
+
+            $coauthors = get_post_authors($post_id, false, false);
 
             $postAuthorsCache[$post_id] = $coauthors;
         }
@@ -294,8 +480,7 @@ if (!function_exists('is_multiple_author_for_post')) {
         }
 
         foreach ($coauthors as $coauthor) {
-            if (
-                is_object($user_term) && 
+            if (is_object($user_term) && 
                 is_object($coauthor) && 
                 isset($user_term->term_id) && 
                 isset($coauthor->term_id) && 
