@@ -8,6 +8,7 @@ import Bio from '../components/Bio';
 import AddThis from '../components/AddThis';
 import { Helmet } from 'react-helmet';
 import MktoForm from '../components/blocks/MktoForm';
+import NotFoundPage from '../pages/404';
 
 
 import { Link, graphql } from 'gatsby';
