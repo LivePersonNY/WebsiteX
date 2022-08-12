@@ -480,6 +480,9 @@ class LP_Resources
 				'category',
 			],
 			'menu_position' => 5,
+			'rewrite' => [
+				'with_front' => false,
+			],
 		]);
 		
 		register_post_type('policy-page', [
