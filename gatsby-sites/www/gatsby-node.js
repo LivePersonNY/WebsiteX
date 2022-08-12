@@ -101,6 +101,8 @@ exports.createPages = async (props) => {
   });
   
   const posts = await getPosts(props);
+  const pages = await getPages(props);
+  
   const stagedPosts = await getStagedPosts(props);
   
   const categories = await getCategories(props);
@@ -111,6 +113,8 @@ exports.createPages = async (props) => {
   const policies = await getPolicyPages(props);
   
   await createIndividualBlogPostPages({ posts, props });
+  
+  await createStandardPage({ pages, props });
   
   await createIndividualBlogPostPages({ posts: stagedPosts, props });
   
@@ -208,6 +212,8 @@ async function createPolicyPages(policyPages, props) {
   
 }
 
+
+
 async function createBlogPostCategory({ categories, props }) {
   const graphqlResult = await props.graphql(/* GraphQL */ `
     {
@@ -231,6 +237,36 @@ async function createBlogPostCategory({ categories, props }) {
 /**
  * This function creates all the individual blog pages in this site
  */
+ 
+async function createStandardPage({ pages, props }) {
+  return Promise.all(
+    
+    
+    
+    pages.map(function(page) {
+      return props.actions.createPage({
+        // Use the WordPress uri as the Gatsby page path
+        // This is a good idea so that internal links and menus work 👍
+        path: page.nodeType == 'Page' ? page.link : '/staged' + page.link,
+      
+        // use the blog post template as the page component
+        component: path.resolve(`./src/templates/Page.js`),
+      
+        // `context` is available in the template as a prop and
+        // as a variable in GraphQL.
+        context: {
+          // we need to add the post id here
+          // so our blog post template knows which blog post
+          // the current page is (when you open it in a browser)
+          id: page.id,
+      
+          // We also use the next and previous id's to query them and add links!
+        }
+      });
+    })
+  );
+}
+ 
 const createIndividualBlogPostPages = async ({ posts, props }) =>
   Promise.all(
     
@@ -242,7 +278,7 @@ const createIndividualBlogPostPages = async ({ posts, props }) =>
       props.actions.createPage({
         // Use the WordPress uri as the Gatsby page path
         // This is a good idea so that internal links and menus work 👍
-        path: '/blog/' + post.slug,
+        path: post.uri,
 
         // use the blog post template as the page component
         component: path.resolve(`./src/templates/Post.js`),
@@ -385,6 +421,37 @@ async function getCategories({ graphql, reporter }) {
  * We're passing in the utilities we got from createPages.
  * So see https://www.gatsbyjs.com/docs/node-apis/#createPages for more info!
  */
+ 
+async function getPages({ graphql, reporter }) {
+  const graphqlResult = await graphql(`
+    query {
+      allWpPage {
+        nodes {
+          link
+          id
+          nodeType
+        }
+      }
+      allWpStagedPage {
+        nodes {
+          link
+          id
+          nodeType
+        }
+      }
+    }
+  `);
+  
+  if (graphqlResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your blog posts`,
+      graphqlResult.errors
+    );
+    return;
+  }
+  
+  return [...graphqlResult.data.allWpPage.nodes, ...graphqlResult.data.allWpStagedPage.nodes];
+}
  
 async function getStagedPosts({ graphql, reporter }) {
   const graphqlResult = await graphql(`
