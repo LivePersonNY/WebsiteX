@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import TempIcon from './TempIcon';
+import AddThis from './AddThis';
 
 import LanguageSelector from './LanguageSelector';
 
@@ -124,10 +125,7 @@ const Footer = () => {
                 </a>)
             })}
             <div className="footer-social">
-              <a target="_blank" href="https://twitter.com/LivePerson"><img src="https://static.liveperson.com/static-assets/2022/08/11155745/social-twitter.svg" /></a>
-              <a target="_blank" href="https://www.facebook.com/liveperson/"><img src="https://static.liveperson.com/static-assets/2022/08/11155746/social-facebook.svg" /></a>
-              <a target="_blank" href="https://www.linkedin.com/company/liveperson"><img src="https://static.liveperson.com/static-assets/2022/08/11155744/social-linkedin.svg" /></a>
-              <a target="_blank" href="https://www.instagram.com/livepersoninc/"><img src="https://static.liveperson.com/static-assets/2022/08/11155903/social-instagram-1.svg" /></a>
+              <AddThis type=follow" />
             </div>
             <LanguageSelector />
           </div>
