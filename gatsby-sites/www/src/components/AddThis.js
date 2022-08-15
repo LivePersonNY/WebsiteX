@@ -24,9 +24,12 @@ export default function AddThis(props) {
 		<>
 			{props.type == "share" && <div className="addthis_inline_share_toolbox"></div>}
 			{props.type == "related" && <div className="addthis_relatedposts_inline"></div>}
+			{props.type == "follow" && <div className="addthis_inline_follow_toolbox"></div>}
 			<Script
 				url="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-621685298b452c11"
 				onLoad={handleAddthisLoaded} />
+				
+			
 		</>
 	);
 	

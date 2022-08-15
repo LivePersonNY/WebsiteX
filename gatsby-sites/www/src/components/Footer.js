@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import TempIcon from './TempIcon';
+import AddThis from './AddThis';
 
 import LanguageSelector from './LanguageSelector';
 
@@ -123,6 +124,9 @@ const Footer = () => {
                   {link.label}
                 </a>)
             })}
+            <div className="footer-social">
+              <AddThis type="follow" />
+            </div>
             <LanguageSelector />
           </div>
         </div>

@@ -518,6 +518,27 @@ footer {
             margin-top: 80px;
         }
 
+        .footer-social{
+            display:block;
+            margin:26px 0;
+            
+            @include media-breakpoint-up(lg) {
+                float:left;
+                display:inline;
+                margin:0;
+                margin-top: -1px;
+                padding-right: 10px;
+                
+            }
+            a{
+                margin-right:10px;
+                svg {
+                    width: 28px !important;
+                    height: 28px !important;
+                }
+            }
+        }
+
         .footer-legal {
             color: $neutral99;
             font-size: 12px;
@@ -526,7 +547,14 @@ footer {
             text-decoration: none;
             margin-right: 15px;
 
-            &.footer-legal-link {}
+            &.footer-legal-link {
+                display: block;
+                margin-top:8px;
+                @include media-breakpoint-up(lg) {
+                    display: inline;
+                    margin-top:0;
+                }
+            }
         }
     }
 
