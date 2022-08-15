@@ -14,6 +14,7 @@ import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import * as LottiePlayer from "@lottiefiles/lottie-player";
 import MediaPicker from '../../MediaPicker';
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import LottieFilePlayer from '../../LottieFilePlayer';
 
 import LineBreaks from '../../LineBreaks';
@@ -153,6 +154,9 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 				}}
 				label="Toggle Padding"
 			/>
+			<AutoApproveLanguage callback={function() {
+				setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+			}} selected={attributes.autoApproveLang}/>
 			<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 		</BlockControls>
 	);
@@ -249,6 +253,7 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 				removePB={attributes.togglePadding}
 				logoHeader={logoHeaderControl}
 				vimeoUrl={attributes.vimeoUrl}
+				autoApprove={attributes.autoApproveLang}
 				/*vimeoVideoOption={<InnerBlocks allowedBlocks={['vimeo/create']} renderAppender={ () => appenderToUse() } />}*/
 			 />
 		</div>
@@ -275,6 +280,7 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 				removePB={attributes.togglePadding}
 				logoHeader={attributes.logoHeader}
 				vimeoUrl={attributes.vimeoUrl}
+				autoApprove={attributes.autoApproveLang}
 				/*vimeoVideoOption={<InnerBlocks
 						allowedBlocks={['vimeo/create']} renderAppender={ () => appenderToUse() }
 					/>}*/

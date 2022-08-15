@@ -37,6 +37,7 @@
 			"type": "boolean",
 			"default": false
 		},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"headLevel": {"default": "h2"}
 	}
 }

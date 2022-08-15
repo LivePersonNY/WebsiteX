@@ -7,6 +7,7 @@ import { __ } from '@wordpress/i18n';
 import { __experimentalGrid as Grid,Placeholder, TextControl, ToolbarGroup, ToolbarButton, Dashicon, Button } from '@wordpress/components';
 import StatsGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/StatsGrid';
 import ItemControls from '../../ItemControls';
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -100,6 +101,9 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 					label="Add Stat"
 					onClick={ addTabFunc }
 				/>
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
@@ -110,6 +114,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			<StatsGrid
 				header={headerControl}
 				items={controls}
+				autoApprove={attributes.autoApproveLang}
 			/>
 		</div>
 	);
@@ -119,6 +124,7 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			<StatsGrid
 				header={attributes.header}
 				items={attributes.statItems}
+				autoApprove={attributes.autoApproveLang}
 			/>
 		</div>
 	)

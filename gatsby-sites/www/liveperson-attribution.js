@@ -22,7 +22,7 @@ const Cookie = {
 				return c.substring(name.length, c.length);
 			}
 		}
-		return "";
+		return '';
 	}
 }
 
@@ -57,6 +57,7 @@ const MktoForms = {
 					LivePerson.ShowAfterMessage(form);
 					window.dataLayer && dataLayer.push({event: ctaString});
 					$('.pane.gated').slideDown();
+					ga('send', 'event', 'Web 22', 'Form Submit', formId + ' - ' + buttonLabel + ' - ' + window.location.pathname);
 					return false;
 				});
 			});
@@ -84,42 +85,56 @@ const LivePerson = {
 		var queryString = Cookie.get("lp-queryString");
 		var _mkto_trk = Cookie.get("_mkto_trk");
 		
-		if (lsTerms === '') {
+		if (!lsTerms) {
+			console.log('setting terms...');
 			lsTerms = Query.get('utm_term') || Query.get('keywords') || Query.get('keyword') || Query.get('oquery') || Query.get('query') || Query.get('_bk');
 			Cookie.set('lp-lsTerms', lsTerms, 30);
+			console.log('setting terms... done.', lsTerms);
 		}
 		
-		if (lsCampaign === '') {
+		if (!lsCampaign) {
+			console.log('setting campaign...');
 			lsCampaign = Query.get('utm_campaign');
 			Cookie.set('lp-lsCampaign', lsCampaign, 30);
+			console.log('setting campaign... done.', lsCampaign);
 		}
 		
-		if (lsSource === '') {
+		if (!lsSource) {
+			console.log('setting source...');
 			lsSource = Query.get('utm_source');
 			Cookie.set('lp-lsSource', lsSource, 30);
+			console.log('setting source... done.', lsSource);
 		}
 		
-		if (lsMedium === '') {
+		if (!lsMedium) {
+			console.log('setting medium...');
 			lsMedium = Query.get('utm_medium');
 			Cookie.set('lp-lsMedium', lsMedium, 30);
+			console.log('setting medium... done.', lsMedium);
 		}
 		
-		if (lsContent === '') {
+		if (!lsContent) {
+			console.log('setting content...');
 			lsContent = Query.get('utm_content');
 			Cookie.set('lp-lsContent', lsContent, 30);
+			console.log('setting content... done.', lsContent);
 		}
 		
-		if (queryString === '') {
+		if (!queryString) {
+			console.log('setting string...');
 			queryString = window.location.search;
 			Cookie.set('lp-queryString', queryString, 30);
+			console.log('setting string... done.', queryString);
 		}
 		
-		if (lsRef === '') {
+		if (!lsRef) {
+			console.log('setting referrer...');
 			Cookie.set('lp-lsRef', document.referrer, 1);
 			lsRef = document.referrer;
+			console.log('setting referrer... done.', lsRef);
 		}
 		
-		var lpindex = lsRef.indexOf('liveperson.com') || lsRef.indexOf('us.platform.sh');
+		var lpindex = lsRef.indexOf('liveperson.com');
 		
 		if (leadSourceCookie === '') {
 		
@@ -155,40 +170,44 @@ const LivePerson = {
 				lsRef = document.location.href;
 				Cookie.set('lp-lsRef', document.location.href, 1);
 			} else {
+				console.log('Checking everything else for lead sources...');
 				// Everything else
 				for (var i = 0; i < Dictionary.organicSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.organicSites[i]) !== -1) {
+						console.log('It is organic!');
 						Cookie.set('lp-leadSource', 'Organic', 1);
 						leadSourceCookie = 'Organic';
-						return false;
 					}
 				}
 				for (var i = 0; i < Dictionary.socialSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.socialSites[i]) !== -1) {
+						console.log('It is social!');
 						Cookie.set('lp-leadSource', 'Social', 30);
 						Cookie.set('lp-lsRef', lsRef, 30);
 						leadSourceCookie = 'Social';
-						return false;
 					}
 				}
 				for (var i = 0; i < Dictionary.reviewSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.reviewSites[i]) !== -1) {
+						console.log('It is review!');
 						Cookie.set('lp-leadSource', 'Review website', 30);
 						Cookie.set('lp-lsRef', lsRef, 30);
 						leadSourceCookie = 'Review website';
-						return false;
 					}
 				}
 				for (var i = 0; i < Dictionary.prSites.length; i++) {
 					if (lsRef.indexOf(Dictionary.prSites[i]) !== -1) {
+						console.log('It is public relations!');
 						Cookie.set('lp-leadSource', 'PR', 1);
 						leadSourceCookie = 'PR';
-						return false;
 					}
 				}
 				
-				Cookie.set('lp-leadSource', 'Other referral', 1);
-				leadSourceCookie = 'Other referral';
+				if (!leadSourceCookie) {
+					Cookie.set('lp-leadSource', 'Other referral', 1);
+					leadSourceCookie = 'Other referral';
+				}
+				
 			}
 		
 		}
@@ -204,16 +223,51 @@ const LivePerson = {
 			campaignMedium: lsMedium,
 			campaignContent: lsContent,
 			query: queryString,
-			mkto: _mkto_trk
+			mkto: _mkto_trk,
+			cookies: window.navigator ? window.navigator.cookieEnabled : false,
+			onetrust: window.OnetrustActiveGroups
 		});
+
+		if (window.ga) {
+			window.ga('send', 'event', 'Web 22', 'Load', 'Lead Source: ' + leadSourceCookie);
+		}
+		
+		if (window.ga && window.navigator) {
+			window.ga('send', 'event', 'Web 22', 'Cookies', window.navigator.cookieEnabled);
+		}
+		
+		console.log('Hydration complete.', window.lp_attr);
 		
 		if (callback) callback();
+		
+		
+	},
+	
+	waitForChat: function(callback) {
+		if (window.lpTag) {
+			console.log('LP Tag present.');
+			if (callback) callback();
+		} else {
+			setTimeout(this.waitForChat, 100);
+		}
 	},
 	
 	decodeHtml: function(html) {
 		var txt = document.createElement("textarea");
 		txt.innerHTML = html;
 		return txt.value;
+	},
+	
+	GetCompany: function(email, form) {
+		var emailSplit = email.split('@');
+		emailSplit = emailSplit[1].split('.');
+		
+		var companyField = form.getFormElem().find('#Company').first();
+		var companyValue = companyField.val();
+		
+		if (companyField.attr('type') == 'text') return companyValue;
+		
+		return emailSplit[0] || '';
 	},
 	
 	SetFullName: function(a, b, c, form) {
@@ -292,6 +346,8 @@ const LivePerson = {
 				"company": window.location.href // VISITOR COMPANY NAME
 			}
 		});
+		
+		console.log('Bind to chat complete.');
 	},
 	
 	Validate: function(form) {
@@ -313,19 +369,26 @@ const LivePerson = {
 			form.showErrorMessage("Must be Business email.", emailField);
 		} else { 			
 			//continueDemandbase(formID);
-			form.vals({
-				'GCLID__c': window.lp_attr.gclid,
-				'MSCLIKID__c': window.lp_attr.msclkid,
-				'LeadSource': window.lp_attr.leadSource,
-				'Referring_URL__c': window.lp_attr.referringUrl,
-				'campaignSearchKeywords__c': window.lp_attr.searchTearms,
-				'campaignID__c': window.lp_attr.campaign,
-				'campaignSource__c': window.lp_attr.campaignSource,
-				'campaignMedium__c': window.lp_attr.campaignMedium,
-				'campaignCreative__c': window.lp_attr.campaignContent
-			});				
+			
+			var vals = {
+				GCLID__c: window.lp_attr.gclid,
+				MSCLIKID__c: window.lp_attr.msclkid,
+				LeadSource: window.lp_attr.leadSource,
+				Referring_URL__c: window.lp_attr.referringUrl,
+				campaignSearchKeywords__c: window.lp_attr.searchTearms,
+				campaignID__c: window.lp_attr.campaign,
+				campaignSource__c: window.lp_attr.campaignSource,
+				campaignMedium__c: window.lp_attr.campaignMedium,
+				campaignCreative__c: window.lp_attr.campaignContent,
+				cookiesEnabled: window.lp_attr.cookies,
+				oneTrustActiveGroups: window.OnetrustActiveGroups,
+				Company: LivePerson.GetCompany(emailVal, form)
+			};
+			
+			form.vals(vals);		
+					
 			form.submittable(true);
-			console.log("Submitting values: " + JSON.stringify(form.vals()));
+			console.log("Submitting values:", form.vals());
 		}
 		
 	},

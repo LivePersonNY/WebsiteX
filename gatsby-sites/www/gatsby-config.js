@@ -22,7 +22,7 @@ module.exports = {
       }
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
+    // `gatsby-plugin-image`,
     // `gatsby-plugin-sitemap`,
     // {
     //   resolve: 'gatsby-plugin-robots-txt',
@@ -36,13 +36,13 @@ module.exports = {
         configFile: 'robots-txt.config.js'
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/resources/images`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/src/resources/images`,
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-exclude',
       options: { paths: ['{wpStagedPage.link}.js'] },
@@ -58,17 +58,20 @@ module.exports = {
           preview: false,
         },
         production: {
-          allow404Images: true,
+          allow404Images: false,
           hardCacheMediaFiles: false
         },
         type: {
           MediaItem: {
             localFile: {
-              excludeByMimeTypes: [`image/png`, `image/jpeg`, `application/json`, `image/svg`, `image/jpg`, `application/zip`, `image/svg+xml`, `image/gif`],
-              maxFileSizeBytes: 10
+              excludeByMimeTypes: [`image/png`, `image/jpeg`, `application/json`, `application/zip`, `image/svg+xml`, `image/gif`, `application/pdf`],
+              maxFileSizeBytes: 0
             },
           }
         },
+        html: {
+          useGatsbyImage: false
+        }
       },
     },
     {
@@ -80,8 +83,8 @@ module.exports = {
         maxCacheDurationSeconds: 60 * 60 * 24,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    //`gatsby-transformer-sharp`,
+    //`gatsby-plugin-sharp`,
     'gatsby-plugin-sass',
     `gatsby-plugin-sitemap`,
     {

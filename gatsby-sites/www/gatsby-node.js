@@ -220,21 +220,7 @@ async function createBlogPostCategory({ categories, props }) {
   return Promise.all(
     categories.map(async (category, index) => {
       //if (category.name == 'Uncategorized') return;
-      await props.actions.createPage({
-        path: category.link,
-
-        // use the blog post archive template as the page component
-        component: path.resolve(`./src/templates/BlogArchive.js`),
-        
-        context: {
-          nextPagePath: ``,
-          previousPagePath: ``,
-          postsPerPage,
-          category,
-          offset: 0
-        }
-
-      });
+      await createBlogPostArchive({ posts: category.posts.nodes, props, category});
     })
   );
 }
@@ -276,7 +262,7 @@ const createIndividualBlogPostPages = async ({ posts, props }) =>
 /**
  * This function creates all the individual blog pages in this site
  */
-async function createBlogPostArchive({ posts, props }) {
+async function createBlogPostArchive({ posts, props, category }) {
   const graphqlResult = await props.graphql(/* GraphQL */ `
     {
       wp {
@@ -286,7 +272,7 @@ async function createBlogPostArchive({ posts, props }) {
       }
     }
   `);
-
+  
   const { postsPerPage } = graphqlResult.data.wp.readingSettings;
 
   const postsChunkedIntoArchivePages = chunk(posts, postsPerPage);
@@ -302,7 +288,7 @@ async function createBlogPostArchive({ posts, props }) {
           // we want the first page to be "/" and any additional pages
           // to be numbered.
           // "/blog/2" for example
-          return page === 1 ? `/blog/` : `/blog/${page}`;
+          return page === 1 ? `` : `${page}`;
         }
 
         return null;
@@ -311,7 +297,7 @@ async function createBlogPostArchive({ posts, props }) {
       // createPage is an action passed to createPages
       // See https://www.gatsbyjs.com/docs/actions#createPage for more info
       await props.actions.createPage({
-        path: getPagePath(pageNumber),
+        path: category ? category.link + getPagePath(pageNumber) : "blog/" + getPagePath(pageNumber),
 
         // use the blog post archive template as the page component
         component: path.resolve(`./src/templates/BlogArchive.js`),
@@ -326,11 +312,19 @@ async function createBlogPostArchive({ posts, props }) {
 
           // We need to tell the template how many posts to display too
           postsPerPage,
-
-          nextPagePath: getPagePath(pageNumber + 1),
-          previousPagePath: getPagePath(pageNumber - 1),
           
-          category: false
+          pageNumber,
+          
+          totalPosts: _posts.length,
+          
+          totalPages,
+
+          nextPagePath: getPagePath(pageNumber + 1) !== null && (category ? category.link + getPagePath(pageNumber + 1) : "/blog/" + getPagePath(pageNumber + 1)),
+          previousPagePath: getPagePath(pageNumber - 1) !== null && (category ? category.link + getPagePath(pageNumber - 1) : "/blog/" + getPagePath(pageNumber - 1)),
+          
+          category: category,
+          
+          categoryLink: category ? category.link : null
         },
       });
     })
@@ -345,7 +339,17 @@ async function getCategories({ graphql, reporter }) {
           id
           name
           link
+          slug
           description
+          posts {
+            nodes {
+              id
+              uri
+              seo {
+                metaRobotsNoindex
+              }
+            }
+          }
           seo {
             metaDesc
             metaRobotsNofollow
@@ -381,7 +385,10 @@ async function getPosts({ graphql, reporter }) {
   const graphqlResult = await graphql(/* GraphQL */ `
     query WpPosts {
       # Query all WordPress blog posts sorted by date
-      allWpPost(sort: { fields: [date], order: DESC }) {
+      allWpPost(
+        sort: { fields: [date], order: DESC }
+        filter: {isSticky: {eq: false}, seo: {metaRobotsNoindex: {eq: "index"}}}
+      ) {
         edges {
           previous {
             id
@@ -392,6 +399,9 @@ async function getPosts({ graphql, reporter }) {
           post: node {
             id
             uri
+            seo {
+              metaRobotsNoindex
+            }
           }
 
           next {

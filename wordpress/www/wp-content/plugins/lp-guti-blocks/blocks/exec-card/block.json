@@ -17,6 +17,7 @@
 	"attributes": {
 		"header": {"default": "Meet the Scarers"},
 		"backgroundColor": {},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"quotes": {
 			"type": "array",
 			"default": [

@@ -35,6 +35,7 @@ export default function save({attributes}) {
 	return (
 		<LeftRight
 			headLevel={attributes.headLevel}
+			colWidth={attributes.colWidth}
 			kicker={attributes.kicker}
 			backgroundColor={attributes.backgroundColor}
 			repeat={attributes.repeat}
@@ -46,12 +47,14 @@ export default function save({attributes}) {
 			linkSecondaryExternal={attributes.linkSecondaryExternal}
 			body={attributes.text}
 			title={attributes.title}
+			header={attributes.header}
 			flipColumns={attributes.flipped}
 			imgSrc={!attributes.vimeoUrl && attributes.mediaUrl}
 			imgAlt={attributes.mediaAlt}
 			lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 			vimeoUrl={attributes.vimeoUrl}
 			anchor={attributes.anchor}
+			autoApprove={attributes.autoApproveLang}
 		/>
 	);
 }

@@ -121,9 +121,16 @@
                         margin: 0;
                         border: 0;
                         border-radius: 0;
-
+                        background: $neutral99;
+                        
                         .container {
                             padding: 0;
+                            
+                            & > .row {
+                                box-shadow: -10px 4px 8px $dropShadow,
+                                10px 4px 8px $dropShadow,
+                                inset 0 0 8px $dropShadow;
+                            }
                         }
 
                         @include media-breakpoint-up(lg) {
@@ -511,6 +518,19 @@ footer {
             margin-top: 80px;
         }
 
+        .footer-social{
+            display:block;
+            margin:26px 0;
+            @include media-breakpoint-up(lg) {
+                float:left;
+                display:inline;
+                margin:0;
+            }
+            a{
+                margin-right:18px;
+            }
+        }
+
         .footer-legal {
             color: $neutral99;
             font-size: 12px;
@@ -519,7 +539,14 @@ footer {
             text-decoration: none;
             margin-right: 15px;
 
-            &.footer-legal-link {}
+            &.footer-legal-link {
+                display: block;
+                margin-top:8px;
+                @include media-breakpoint-up(lg) {
+                    display: inline;
+                    margin-top:0;
+                }
+            }
         }
     }
 

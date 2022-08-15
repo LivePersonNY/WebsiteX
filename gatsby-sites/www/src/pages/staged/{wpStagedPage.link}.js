@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 import NotFoundPage from './../404';
 
 import Layout from '../../components/Layout';
@@ -62,7 +61,7 @@ const PageTemplate = ({ data: { page } }) => {
 	if (!page) return "The slug does not exist in the CMS";
   return (<Layout>
 	<Seo title={page.seo.title} description={page.seo.metaDesc} meta={meta} canonical={canonical} robots={robots.join(", ")} />
-	{Parser(page.content)}
+	{page.content && Parser(page.content)}
   </Layout>)
 };
 

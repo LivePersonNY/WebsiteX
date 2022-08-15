@@ -16,6 +16,7 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"header": {"default": "Meet the Scarers"},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"backgroundColor": {},
 		"quotes": {
 			"type": "array",

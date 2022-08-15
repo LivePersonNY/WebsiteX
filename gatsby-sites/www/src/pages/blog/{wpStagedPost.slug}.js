@@ -88,7 +88,7 @@ const BlogStagedPost = ({ data: { previous, next, post } }) => {
 					<img className="my-4 rounded-3 w-100" src={featuredImage.data} alt={featuredImage.alt} />
 					<AddThis url={canonical} type="share" />
 					<hr className="mb-4" />
-					{Parser(post.content)}
+					{post.content && Parser(post.content)}
 					<hr className="mb-4" />
 					<AddThis url={canonical} type="related" />
 				</div>

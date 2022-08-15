@@ -74,7 +74,7 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 		
 		<div className="row justify-content-md-center">
 			<div className="col-xl-10">
-				<a href="javascript:history.back()" className="return-link link link-mt-large">Blog</a>
+				<a href="/blog/" className="return-link link link-mt-large">Blog</a>
 				<div className="post-container">
 					<p className="h6 text-uppercase">{post.seo.opengraphType}</p>
 					<h1>{post.title}</h1>
@@ -83,7 +83,7 @@ const BlogPost = ({ data: { previous, next, post } }) => {
 					<img className="my-4 rounded-3 w-100" src={featuredImage.data} alt={featuredImage.alt} />
 					<AddThis url={canonical} type="share" />
 					<hr className="mb-4" />
-					{Parser(post.content)}
+					{post.content && Parser(post.content)}
 					<hr className="mb-4" />
 					<AddThis url={canonical} type="related" />
 				</div>

@@ -17,6 +17,7 @@
 	"attributes": {
 		"header": {"default": "Logos of all the things"},
 		"backgroundColor": {"default": "bg-neutral-96"},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"logos": {
 			"type": "array",
 			"default":

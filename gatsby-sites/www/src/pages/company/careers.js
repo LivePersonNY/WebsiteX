@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 import { withPrefix, Link, graphql } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 import queryString from 'query-string';
 import Helmet from "react-helmet"
 import { Query } from "../../../liveperson-attribution";
@@ -209,7 +208,7 @@ const CareersPage = () => {
       body="We love our people. And it turns out, they love working here. In fact, we were just added to Newsweek’s Most-Loved Workplaces list — the top 100 companies that get recognized for employee happiness and satisfaction at work. We’ve also been awarded the world’s top honors for innovation, artificial intelligence, and customer service and sales technology."
       items={[
         {
-          "imgSrc":"https://static.liveperson.com/static-assets/2022/02/08142539/616e08946da83d7049029c84_most_innovative.jpg",
+          "imgSrc":"https://static.liveperson.com/static-assets/2022/06/06133936/FC-2022_Careers-2x.png",
           "imgAlt":"Alt text",
           "cardTitle":"Most Innovative Companies",
         },
@@ -230,6 +229,23 @@ const CareersPage = () => {
         },
       ]}
     />
+
+    <div className="pane comp-contained-content bg-transparent pane-with-lead-text">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="comp-contained-content-container bg-neutral-92">
+              <div className="row">
+                <div className="col-lg-8 offset-lg-2 text-center">
+                  <h2>Transparency in Coverage</h2>
+                  <p>Please visit <a href="https://transparency-in-coverage.uhc.com/" target="_blank">https://transparency-in-coverage.uhc.com/</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </Layout>
 )

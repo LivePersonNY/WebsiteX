@@ -16,7 +16,7 @@ import MediaPicker from '../../MediaPicker';
 import LottieFilePlayer from '../../LottieFilePlayer';
 import Anchor from '../../Anchor';
 import LinkControl from '../../LinkControl';
-
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import LineBreaks from '../../LineBreaks';
 /**
  * React hook that is used to mark the block wrapper element.
@@ -85,6 +85,15 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		/>
 	);
 
+	let headerControl = (
+		<TextControl
+			value={ attributes.header }
+			onChange={ ( val ) => setAttributes( { header: val } ) }
+			className="embedded-input"
+			placeholder="Leading Header"
+		/>
+	);
+
 	let imageControl = (
 		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} />
 	);
@@ -137,6 +146,15 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 		}
 	}
 
+	let changeColumns = function() {
+		let width = attributes.colWidth;
+		if (width < 12) {
+			setAttributes({ colWidth: width+1 });
+		} else {
+			setAttributes({ colWidth: 6 });
+		}
+	}
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarButton
@@ -144,6 +162,14 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				label="Head Level H2/H3"
 				onClick={ changeHeadLevel }
 			/>
+			<ToolbarButton
+				icon="image-flip-horizontal"
+				label="Width"
+				onClick={ changeColumns }
+			/>
+			<AutoApproveLanguage callback={function() {
+				setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+			}} selected={attributes.autoApproveLang}/>
 			<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
 		</BlockControls>
 	);
@@ -164,11 +190,14 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				linkSecondaryText={linkSecondaryTextControl}
 				body={contentControl}
 				title={titleControl}
+				header={headerControl}
 				flipColumns={attributes.flipped}
 				imgCtl={!attributes.vimeoUrl && imageControl}
 				lottieFile={attributes.lottieFile}
 				vimeoUrl={attributes.vimeoUrl}
 				anchor={attributes.anchor}
+				autoApprove={attributes.autoApproveLang}
+				colWidth={attributes.colWidth}
 			/>
 			<Fragment>
 				<InspectorControls>
@@ -209,14 +238,17 @@ export default function Edit({attributes, setAttributes, isSelected}) {
 				linkSecondaryUrl={attributes.linkSecondaryUrl}
 				linkSecondaryText={attributes.linkSecondaryText}
 				linkSecondaryExternal={attributes.linkSecondaryExternal}
+				colWidth={attributes.colWidth}
 				body={attributes.text}
 				title={attributes.title}
+				header={attributes.header}
 				flipColumns={attributes.flipped}
 				imgSrc={!attributes.vimeoUrl && attributes.mediaUrl}
 				imgAlt={attributes.mediaAlt}
 				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				vimeoUrl={attributes.vimeoUrl}
 				anchor={attributes.anchor}
+				autoApprove={attributes.autoApproveLang}
 			/>
 		</div>
 	);

@@ -1,43 +1,5 @@
 {
 	"d1aa0hlmdkis5w.cloudfront.net": [
-		"on-demand-video/salesforce-integration-na",
-		"on-demand-video/salesforce-integration",
-		"on-demand-video/salesforce-integration-apac",
-		"on-demand-video/salesforce-integration-emea",
-		"on-demand-video/b2b-marketing-video-on-demand",
-		"on-demand-video/conversational-banking-video-on-demand",
-		"on-demand-video/insurance-marketing-video-on-demand",
-		"upgrade",
-		"company/careers/sales",
-		"openwestand",
-		"solutions/ngo",
-		"channels/apple-business-chat-form",
-		"channels/gbm-registration-form",
-		"channels/gbm-registration-form-cs",
-		"channels/line-registration-form",
-		"channels/line-registration-form-cs",
-		"channels/rcs-registration-form",
-		"channels/rcs-registration-form-cs",
-		"channels/whatsapp-activation-call",
-		"channels/whatsapp-form",
-		"channels/whatsapp-form-cs",
-		"landing-pages/click-to-talk/calling-units",
-		"landing-pages/voice/units",
-		"solutions/b2b-marketing",
-		"solutions/b2b-marketing-video",
-		"solutions/insurance-marketing",
-		"solutions/insurance-marketing-video",
-		"services/abc-deployment",
-		"services/cso-terms-and-conditions",
-		"services/sms-gateway-pass-through-rate-card",
-		"services/st-product-packages",
-		"services/starter-packs-product-packages",
-		"solutions/marketplaces"
-	],
-	"policies-38cf40.webflow.io": [
-		"services-agreement",
-		"conversational-cloud-channels-and-usage-charges-dar",
-		"privacy",
-		"terms-of-use"
+		"services/cso-terms-and-conditions"
 	]
 }

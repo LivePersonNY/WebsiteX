@@ -14,12 +14,19 @@ const LeftRight = (props) => {
 
   return (
     <>
-      <div id={props.anchor} 
+      <div id={props.anchor} autoapprove={props.autoApprove && "true"}
         className={`pane ${props.backgroundColor||"bg-transparent"} comp-left-right ${
           props.repeat ? 'comp-left-right-repeat' : ''
         }`}
       >
         <div className="container">
+          {props.header && (
+            <div className="row justify-content-center">
+              <div className={`col-lg-${props.colWidth||12}`}>
+                <h2 className="text-center">{props.header}</h2>
+              </div>
+            </div>
+          )}
           <div className="row align-items-center">
             <div
               className={`col-lg-6 ${props.flipColumns ? 'order-lg-last' : ''}`}

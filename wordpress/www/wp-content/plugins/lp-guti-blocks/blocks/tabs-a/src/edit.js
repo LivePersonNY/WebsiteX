@@ -17,7 +17,7 @@ const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 import TabsA from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA';
 
 import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
-
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import AddItemButton from '../../AddItemButton';
 import Anchor from '../../Anchor';
@@ -53,7 +53,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<RichText
 			value={ attributes.body }
 			onChange={ (val) => setAttributes( { body: val } ) }
-			allowedFormats={['core/bold', 'core/italic']}
+			allowedFormats={['core/bold', 'core/italic', 'core/link']}
 			placeholder="Tagline copy for this section"
 		/>
 	)
@@ -92,7 +92,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 							setAttributes({ tabItems: itemValues});
 						}}
 						className="embedded-input"
-						allowedFormats={['core/bold', 'core/italic']}
+						allowedFormats={['core/bold', 'core/italic', 'core/link']}
 					/>
 					<button
 						className="v-tab-remove"
@@ -146,6 +146,9 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			<ToolbarGroup>
 				<AddItemButton callback={addTabFunc} />
 				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 			</ToolbarGroup>
 		</BlockControls>
 	);

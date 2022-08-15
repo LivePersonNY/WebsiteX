@@ -16,6 +16,7 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"kicker": {},
+		"header": {},
 		"backgroundColor": {
 			"default": "bg-transparent"
 		},
@@ -60,6 +61,8 @@
 		"lottieFile": {},
 		"lottieId": {},
 		"vimeoUrl": {},
-		"anchor": {}
+		"autoApproveLang": {"default":false, "type": "boolean"},
+		"anchor": {},
+		"colWidth": {}
 	}
 }

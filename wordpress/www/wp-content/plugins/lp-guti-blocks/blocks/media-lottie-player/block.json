@@ -17,6 +17,7 @@
 	"attributes": {
 		"lottieFile": {},
 		"lottieId": {},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"anchor": {},
 		"alignment": {
 			"default": "align-center"

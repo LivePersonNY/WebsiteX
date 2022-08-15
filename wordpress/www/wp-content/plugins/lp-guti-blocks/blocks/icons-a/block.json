@@ -17,12 +17,17 @@
 	"attributes": {
 		"cta": {"default": false},
 		"ctaBody": {"default": "Call to action goes here"},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"btnText": {"default": "Click me!"},
 		"btnUrl": {},
 		"header": {"default": "Product Features"},
 		"blocktype": {"default": "IconTextA" },
 		"backgroundColor": {"default": "bg-transparent"},
 		"body": {"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."},
+		"gated": {
+			"type": "boolean",
+			"default": false
+		},
 		"icons": {
 			"type": "array",
 			"default": [

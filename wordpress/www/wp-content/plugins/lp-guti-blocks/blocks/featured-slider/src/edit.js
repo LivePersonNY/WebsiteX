@@ -22,6 +22,7 @@ import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, B
 import AddItemButton from '../../AddItemButton';
 import ItemControls from '../../ItemControls';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -154,6 +155,9 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			<ToolbarGroup>
 				<AddItemButton callback={addTabFunc} />
 				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 			</ToolbarGroup>
 		</BlockControls>
 	);

@@ -25,6 +25,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-		<ProgramCard items={attributes.quotes} backgroundColor={attributes.backgroundColor}/>
+		<ProgramCard autoApprove={attributes.autoApproveLang} items={attributes.quotes} backgroundColor={attributes.backgroundColor}/>
 	);
 }

@@ -24,6 +24,7 @@
 		"linkText": {"default": "Here's a link text"},
 		"linkUrl": {"default": "https://www.liveperson.com"},
 		"backgroundColor": {},
+		"autoApproveLang": {"default":false, "type": "boolean"},
 		"anchor": {}
 	}
 }

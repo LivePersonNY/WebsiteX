@@ -27,6 +27,7 @@ export default function save({attributes}) {
 	return (
 			<ContainedContent
 				kicker={attributes.kicker}
+				autoApprove={attributes.autoApproveLang}
 				header={attributes.header}
 				body={attributes.content}
 				linkText={attributes.linkText}

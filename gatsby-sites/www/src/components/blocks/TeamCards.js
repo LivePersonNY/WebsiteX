@@ -19,7 +19,7 @@ const TeamCards = (props) => {
           </div>
           {item.btnText && (
             <div className="card-footer">
-              <a href={item.btnUrl} className="btn btn2 btn-outline-secondary">
+              <a href={item.btnUrl} className="btn btn2 btn-outline-secondary" target="_blank" rel="noopener noreferrer">
                 {item.btnText}
               </a>
             </div>
@@ -30,7 +30,7 @@ const TeamCards = (props) => {
   });
 
   return (  
-    <div id={props.anchor} className={`pane comp-team-cards ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
+    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-team-cards ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         {props.header && (
           <div className="row text-center">

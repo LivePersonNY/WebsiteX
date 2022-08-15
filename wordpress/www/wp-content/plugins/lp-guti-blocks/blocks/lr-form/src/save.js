@@ -32,6 +32,7 @@ export default function save({attributes}) {
 			title={attributes.title}
 			headLevel={attributes.headLevel}
 			anchor={attributes.anchor}
+			autoApprove={attributes.autoApproveLang}
 		/>
 	);
 }

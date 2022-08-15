@@ -26,6 +26,8 @@
 		"bodyLeft":{},
 		"bodyRight":{},
 		"backgroundColor":{},
-		"headerLevel": {}
+		"headerLevel": {},
+		"autoApproveLang": {"default":false, "type": "boolean"},
+		"anchor": {}
 	}
 }

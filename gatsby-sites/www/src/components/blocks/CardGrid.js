@@ -41,13 +41,13 @@ const CardGrid = (props) => {
   );
 
   return (  
-    <div id={props.anchor} className={`pane comp-card-grid ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
+    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-card-grid ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         {props.header && (
           <div className="row">
             <div className="col-lg-10">
               <h2 className="">{props.header}</h2>
-              <p className="">{props.body}</p>
+              <Paragraph text={props.body} />
             </div>
           </div>
         )}

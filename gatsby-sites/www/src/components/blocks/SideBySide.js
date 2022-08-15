@@ -8,7 +8,7 @@ const SideBySide = (props) => {
   
   return (
     <>
-      <div id={props.anchor} className={`pane comp-side-side ${props.backgroundColor||"bg-transparent"}`}>
+      <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-side-side ${props.backgroundColor||"bg-transparent"}`} autoapprove={props.autoApprove && "true"}>
         <div className="container">
           <div className="row">
             <div className={`col-lg-6 `}>

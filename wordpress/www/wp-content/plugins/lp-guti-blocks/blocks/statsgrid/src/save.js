@@ -27,6 +27,7 @@ export default function save({ attributes }) {
 	return (<StatsGrid
 			header={attributes.header}
 			items={attributes.statItems}
+			autoApprove={attributes.autoApproveLang}
 		/>
 	)
 }

@@ -8,7 +8,7 @@ import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, T
 import LogosUniversal from '../../../../../../../../gatsby-sites/www/src/components/blocks/LogosUniversal';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import ItemControls from '../../ItemControls';
-
+import AutoApproveLanguage from '../../AutoApproveLanguage';
 import Reorder from 'react-reorder';
 
 /**
@@ -103,6 +103,9 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 					onClick={ addTabFunc }
 				/>
 				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+				<AutoApproveLanguage callback={function() {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
+				}} selected={attributes.autoApproveLang}/>
 			</ToolbarGroup>
 		</BlockControls>
 	);

@@ -25,7 +25,7 @@ const TabsA = (props) => {
               </button>
             </h4>
             <div id={`${props.anchor}_flush-collapse${index}`} className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} aria-labelledby={`${props.anchor}_flush-heading${index}`} data-bs-parent={`#${props.anchor}_accordion_tabs`}>
-              <div className="subtitle1">{item.body}</div>
+              <Paragraph className="subtitle1" text={item.body} />
             </div>
           </div>
       )
@@ -34,7 +34,7 @@ const TabsA = (props) => {
 
   return (
   <>
-    <div id={props.anchor} className={`pane comp-tabs-a ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
+    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-tabs-a ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
