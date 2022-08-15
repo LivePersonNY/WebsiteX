@@ -125,7 +125,7 @@ const Footer = () => {
                 </a>)
             })}
             <div className="footer-social">
-              <AddThis type=follow" />
+              <AddThis type="follow" />
             </div>
             <LanguageSelector />
           </div>
