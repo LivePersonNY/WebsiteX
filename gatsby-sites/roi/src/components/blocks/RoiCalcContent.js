@@ -6,7 +6,7 @@ const RoiCalcContent = (props) => {
   
   return (
     <>
-      <div className={`pane`}>
+      <div className={`pane roi-content`}>
         <div className="container">
             <div className="row">
                 <div className="col-lg-10 offset-lg-1">
@@ -23,13 +23,13 @@ const RoiCalcContent = (props) => {
               <p>{props.execSummaryText}</p>
             </div>
           </div>
-          <div className="row">
-            <div className={`col-lg-7`}>
+          <div className="row roi-special-row">
+            <div className={`col-lg-7 roi-content-img`}>
                 {!props.imgCtl && props.imgSrcLeft && (
-                    <img src={props.imgSrcLeft} alt={props.imgAltLeft} className="d-block mx-auto" />
+                    <img src={props.imgSrcLeft} alt={props.imgAltLeft} className="" />
                 ) || props.imgCtl}
                 {!props.imgCtl && props.imgSrcRight && (
-                    <img src={props.imgSrcRight} alt={props.imgAltRight} className="d-block mx-auto" />
+                    <img src={props.imgSrcRight} alt={props.imgAltRight} className="" />
                 ) || props.imgCtl}
             </div>
             <div className={`col-lg-5 `}>
@@ -43,7 +43,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className={`pane bg-neutral-96`}>
+      <div className={`pane bg-neutral-96 roi-content`}>
         <div className="container">
             <div className="row">
                 <div className="col-lg-10 offset-lg-1">
@@ -62,8 +62,8 @@ const RoiCalcContent = (props) => {
                     <div className="value-chart">
                         <div className="w-embed">
                             <svg className="progress-ring" width="296" height="296">
-                                <circle className="progress-ring__center" stroke="#EBECEF" stroke-width="18" fill="transparent" r="128" cx="148" cy="148"></circle>
-                                <circle className="progress-ring__circle" stroke="#3863E5" stroke-width="20" id="circle1" fill="transparent" stroke-linecap="round" r="128" cx="148" cy="148" ></circle>
+                                <circle className="progress-ring__center" stroke="#EBECEF" strokeWidth="18" fill="transparent" r="128" cx="148" cy="148"></circle>
+                                <circle className="progress-ring__circle" stroke="#3863E5" strokeWidth="20" id="circle1" fill="transparent" strokeLinecap="round" r="128" cx="148" cy="148" ></circle>
                             </svg>
                             <p className="circle-amount" id="circle1-val">$136M</p>
                             <p className="circle-text" id="circle1-cap">Growth</p>
@@ -107,7 +107,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96">
+      <div className="pane bg-neutral-96 roi-content">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1 order-lg-last">
@@ -121,11 +121,11 @@ const RoiCalcContent = (props) => {
                         <div className="value-chart">
                             <div className="w-embed">
                                 <svg className="progress-ring" width="296" height="296">
-                                    <circle className="progress-ring__center" stroke="#EBECEF" stroke-width="18" fill="transparent" r="128" cx="148" cy="148"></circle>
-                                    <circle className="progress-ring__circle" stroke="#3863E5" stroke-width="20" id="circle2" fill="transparent" stroke-linecap="round" r="128" cx="148" cy="148" ></circle>
+                                    <circle className="progress-ring__center" stroke="#EBECEF" strokeWidth="18" fill="transparent" r="128" cx="148" cy="148"></circle>
+                                    <circle className="progress-ring__circle" stroke="#3863E5" strokeWidth="20" id="circle2" fill="transparent" strokeLinecap="round" r="128" cx="148" cy="148" ></circle>
                                 </svg>
-                                <p className="circle-amount" id="circle2-val" x="50%" y="50%" text-anchor="middle" fill="#1C1D22" stroke-width="2px" dy=".4em">$51K</p>
-                                <p className="circle-text" id="circle2-cap" x="50%" y="75%" text-anchor="middle" fill="#F5A77A">Growth</p>
+                                <p className="circle-amount" id="circle2-val" x="50%" y="50%" textAnchor="middle" fill="#1C1D22" strokeWidth="2px" dy=".4em">$51K</p>
+                                <p className="circle-text" id="circle2-cap" x="50%" y="75%" textAnchor="middle" fill="#F5A77A">Growth</p>
                             </div>
                         </div>
                         <div className="value-item mb-2">
@@ -146,7 +146,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96">
+      <div className="pane bg-neutral-96 roi-content">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1">
@@ -163,11 +163,11 @@ const RoiCalcContent = (props) => {
                         <div className="value-chart">
                             <div className="w-embed">
                                 <svg className="progress-ring" width="296" height="296">
-                                    <circle className="progress-ring__center" stroke="#EBECEF" stroke-width="18" fill="transparent" r="128" cx="148" cy="148"></circle>
-                                    <circle className="progress-ring__circle" stroke="#3863E5" stroke-width="20" id="circle3" fill="transparent" stroke-linecap="round" r="128" cx="148" cy="148"></circle>
+                                    <circle className="progress-ring__center" stroke="#EBECEF" strokeWidth="18" fill="transparent" r="128" cx="148" cy="148"></circle>
+                                    <circle className="progress-ring__circle" stroke="#3863E5" strokeWidth="20" id="circle3" fill="transparent" strokeLinecap="round" r="128" cx="148" cy="148"></circle>
                                 </svg>
-                                <p className="circle-amount" id="circle3-val" x="50%" y="50%" text-anchor="middle" fill="#1C1D22" stroke-width="2px" dy=".4em">$7K</p>
-                                <p className="circle-text" id="circle3-cap" x="50%" y="75%" text-anchor="middle" fill="#F5A77A">Growth</p>
+                                <p className="circle-amount" id="circle3-val" x="50%" y="50%" textAnchor="middle" fill="#1C1D22" strokeWidth="2px" dy=".4em">$7K</p>
+                                <p className="circle-text" id="circle3-cap" x="50%" y="75%" textAnchor="middle" fill="#F5A77A">Growth</p>
                             </div>
                         </div>
                         <div className="value-item mb-2">
@@ -188,7 +188,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96">
+      <div className="pane bg-neutral-96 roi-content">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1 order-lg-last">
@@ -202,11 +202,11 @@ const RoiCalcContent = (props) => {
                         <div className="value-chart">
                             <div className="w-embed">
                             <svg className="progress-ring" width="296" height="296">
-                                <circle className="progress-ring__center" stroke="#EBECEF" stroke-width="18" fill="transparent" r="128" cx="148" cy="148"></circle>
-                                <circle className="progress-ring__circle" stroke="#3863E5" stroke-width="20" id="circle4" fill="transparent" stroke-linecap="round" r="128" cx="148" cy="148"></circle>
+                                <circle className="progress-ring__center" stroke="#EBECEF" strokeWidth="18" fill="transparent" r="128" cx="148" cy="148"></circle>
+                                <circle className="progress-ring__circle" stroke="#3863E5" strokeWidth="20" id="circle4" fill="transparent" strokeLinecap="round" r="128" cx="148" cy="148"></circle>
                             </svg>
-                            <p className="circle-amount" id="circle4-val" x="50%" y="50%" text-anchor="middle" fill="#1C1D22" stroke-width="2px" dy=".4em">$29K</p>
-                            <p className="circle-text" id="circle4-cap" x="50%" y="75%" text-anchor="middle" fill="#F5A77A">Savings</p>
+                            <p className="circle-amount" id="circle4-val" x="50%" y="50%" textAnchor="middle" fill="#1C1D22" strokeWidth="2px" dy=".4em">$29K</p>
+                            <p className="circle-text" id="circle4-cap" x="50%" y="75%" textAnchor="middle" fill="#F5A77A">Savings</p>
                             </div>
                         </div>
                     </div>
@@ -215,7 +215,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96">
+      <div className="pane bg-neutral-96 roi-content">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1">
@@ -229,11 +229,11 @@ const RoiCalcContent = (props) => {
                         <div className="value-chart">
                             <div className="w-embed">
                                 <svg className="progress-ring" width="296" height="296">
-                                    <circle className="progress-ring__center" stroke="#EBECEF" stroke-width="18" fill="transparent" r="128" cx="148" cy="148"></circle>
-                                    <circle className="progress-ring__circle" stroke="#3863E5" stroke-width="20" id="circle5" fill="transparent" stroke-linecap="round" r="128" cx="148" cy="148" ></circle>
+                                    <circle className="progress-ring__center" stroke="#EBECEF" strokeWidth="18" fill="transparent" r="128" cx="148" cy="148"></circle>
+                                    <circle className="progress-ring__circle" stroke="#3863E5" strokeWidth="20" id="circle5" fill="transparent" strokeLinecap="round" r="128" cx="148" cy="148" ></circle>
                                 </svg>
-                                <p className="circle-amount" id="circle5-val" x="50%" y="50%" text-anchor="middle" fill="#1C1D22" stroke-width="2px" dy=".4em">$20K</p>
-                                <p className="circle-text" id="circle5-cap" x="50%" y="75%" text-anchor="middle" fill="#F5A77A">Savings</p>
+                                <p className="circle-amount" id="circle5-val" x="50%" y="50%" textAnchor="middle" fill="#1C1D22" strokeWidth="2px" dy=".4em">$20K</p>
+                                <p className="circle-text" id="circle5-cap" x="50%" y="75%" textAnchor="middle" fill="#F5A77A">Savings</p>
                             </div>
                         </div>
                     </div>
@@ -242,7 +242,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane">
+      <div className="pane roi-content">
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-12">

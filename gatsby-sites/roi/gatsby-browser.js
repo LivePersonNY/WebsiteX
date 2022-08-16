@@ -1,17 +1,14 @@
-import $ from 'jquery';
 import bootstrap from 'bootstrap';
-import 'jquery-ui-bundle';
-import 'jquery-ui-bundle/jquery-ui.css';
+import runRoi from './roi-implemented';
 
 import './liveperson-scripts';
-import './roi-implemented';
 
 import './src/resources/scss/index.scss';
-
-//
 
 export const onRouteUpdate = () => {
   console.log("onRouteUpdate") // this works
   
+  window.dataLayer = window.dataLayer || [];
+  window.runRoi = runRoi;
   
 }

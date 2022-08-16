@@ -3,10 +3,11 @@ import Link from 'gatsby-link';
 import Paragraph from '../Paragraph';
 import { useEffect } from 'react';
 
+
 const RoiCalc = (props) => {
 
     useEffect(() => {
-    
+        
         window.onload = (e) => {
             
         };
@@ -26,7 +27,7 @@ return(
                     <div className="calc-container">
                         <div className="calc-left">
                             <div className="slide-container">
-                                <p>Annual website traffic</p>Annual website traffic
+                                <p>Annual website traffic</p>
                                 <input className="slider-value" id="slider1-value" data-symbol="" data-slider-ref="slider1" data-roi="sales-traffic" />
                                 <div id="slider1" className="jqslider-styles" data-min="0" data-max="5000000000" data-value={props.annualWebsiteTraffic} data-step="1000"></div>
 
