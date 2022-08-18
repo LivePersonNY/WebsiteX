@@ -162,7 +162,7 @@ module.exports = {
         // Defaults to gatsby-route-change
         routeChangeEventName: "pageview",
         // Defaults to false
-        enableWebVitalsTracking: true,
+        enableWebVitalsTracking: false,
         // Defaults to https://www.googletagmanager.com
         // selfHostedOrigin: "YOUR_SELF_HOSTED_ORIGIN",
       },
