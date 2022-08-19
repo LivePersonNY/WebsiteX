@@ -43,7 +43,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className={`pane bg-neutral-96 roi-content`}>
+      <div className={`pane bg-neutral-96 roi-content ${props.template === 'care' ? 'display-none' : ''}`}>
         <div className="container">
             <div className="row">
                 <div className="col-lg-10 offset-lg-1">
@@ -107,7 +107,7 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96 roi-content">
+      <div className={`pane bg-neutral-96 roi-content ${props.template === 'care' ? 'display-none' : ''}`}>
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1 order-lg-last">
@@ -146,12 +146,12 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96 roi-content">
+      <div className={`pane bg-neutral-96 roi-content ${props.template === 'sales' ? 'display-none' : ''}`}>
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1">
                     <h3>
-                    03. First contact resolution skyrockets
+                    {`${props.template === 'care' ? '01.' : '03.'}`} First contact resolution skyrockets
                     </h3>
                     <p>Going conversational also presents a significant opportunity to improve the contact-center experience for both consumers and contact-center staff. LivePerson is the leader in operationalizing large scale messaging implementations, and we've built the playbook on how to successfully transform your contact center. One critical metric for measuring the health of your conversational program is first contact resolution. <br />
                     <br />First contact resolution is the % of inquiries that are resolved for the consumer on their first outreach to your contact center. Even in the early stages of a conversational program, LivePerson customers have seen a reduction in contacts per customer, and increases in first contact resolution rates by as much as <span className="text-amounts">15%</span>. <br />
@@ -188,12 +188,12 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96 roi-content">
+      <div className={`pane bg-neutral-96 roi-content ${props.template === 'sales' ? 'display-none' : ''}`}>
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1 order-lg-last">
                     <h3>
-                    04. Conversational AI enables&nbsp;scale
+                    {`${props.template === 'care' ? '02.' : '04.'}`} Conversational AI enables&nbsp;scale
                     </h3>
                     <p>Integrate conversational AI into your messaging conversations to automatically detect consumer intent, and begin automating an increasingly larger share of these conversations over time. LivePerson's AI toolset makes it easy, with a simple point-and-click bot building interface, as well as robust analytics that make tuning your bots a breeze. <br /><br />On average, LivePerson customers have automated 50% of their inbound conversations. Applying a similar automation rate at your brand would yield <span id="text-ai-savings" className="text-amounts">$28.73K</span> in&nbsp;savings. </p>
                 </div>
@@ -215,12 +215,12 @@ const RoiCalcContent = (props) => {
         </div>
       </div>
 
-      <div className="pane bg-neutral-96 roi-content">
+      <div className={`pane bg-neutral-96 roi-content ${props.template === 'sales' ? 'display-none' : ''}`}>
         <div className="container">
             <div className="row align-items-center">
                 <div className="col-lg-5 offset-lg-1">
                     <h3>
-                    05. Agents become twice as efficient
+                    {`${props.template === 'care' ? '03.' : '05.'}`} Agents become twice as efficient
                     </h3>
                     <p>Not only will Conversational AI help reduce overall volume to your contact center, but messaging is also a more efficient channel than voice, which will further reduce your cost per conversation by as much as 50%. This would bring your current cost per conversation of <span id="cost-per-convo-phone" className="text-amounts">$4.55</span> with voice calls down to about <span id="cost-per-convo-mess" className="text-amounts">$2.28</span> per messaging engagement — representing <span id="text-efficiency" className="text-amounts">$19.66K</span> in operating savings. <br /><br />There are multiple factors that LivePerson customers report as causes for these efficiency gains. Routing bots that can better direct consumers to the right agent or department best suited to handle specific questions, the ability for agents to handle multiple conversations concurrently, and other bots that may be helpful in partially resolving a consumer’s inquiry, but requires a human to fully resolve, all play a role in enabling your agents to handle more conversations in a given time&nbsp;period. </p>
                 </div>
@@ -248,7 +248,7 @@ const RoiCalcContent = (props) => {
                 <div className="col-lg-12">
             <h2 className="text-center">ROI Analysis</h2>
             <div className="bc-table-wrapper">
-            <div className="bc-table-container">
+            <div className={`bc-table-container ${props.template === 'care' ? 'display-none' : ''}`}>
                 <div className="columns bc-table-col row">
                 <div className="column col-lg-4">
                     <h4 className="row-heading">Conversational sales</h4>
@@ -477,7 +477,7 @@ const RoiCalcContent = (props) => {
                 </div>
                 </div>
             </div>
-            <div className="bc-table-container">
+            <div className={`bc-table-container ${props.template === 'sales' ? 'display-none' : ''}`}>
                 <div className="columns bc-table-col row">
                 <div className="column col-lg-4">
                     <h4 className="row-heading">Conversational care</h4>
@@ -593,7 +593,7 @@ const RoiCalcContent = (props) => {
                 <div className="columns bc-table-col row">
                     <div className="column col-lg-4">
                     <p className="bc-table-title font-pri-blue">
-                        03 Savings via first contact resolution improvement
+                    {`${props.template === 'care' ? '01' : '03'}`} Savings via first contact resolution improvement
                     </p>
                     </div>
                     <div className="column col-lg-2">
@@ -611,7 +611,7 @@ const RoiCalcContent = (props) => {
                 </div>
                 </div>
             </div>
-            <div className="bc-table-container">
+            <div className={`bc-table-container ${props.template === 'sales' ? 'display-none' : ''} `}>
                 <div className="columns bc-table-col row">
                 <div className="column col-lg-4">
                     <h4 className="row-heading">Resolution bots (full containment)</h4>
@@ -684,7 +684,7 @@ const RoiCalcContent = (props) => {
                 <div className="columns bc-table-col row">
                     <div className="column col-lg-4">
                     <p className="bc-table-title font-pri-blue">
-                        04 Savings via Conversational AI
+                    {`${props.template === 'care' ? '02' : '04'}`} Savings via Conversational AI
                     </p>
                     </div>
                     <div className="column col-lg-2">
@@ -702,7 +702,7 @@ const RoiCalcContent = (props) => {
                 </div>
                 </div>
             </div>
-            <div className="bc-table-container">
+            <div className={`bc-table-container ${props.template === 'sales' ? 'display-none' : ''} `}>
                 <div className="columns bc-table-col row">
                 <div className="column col-lg-4">
                     <h4 className="row-heading">Labor efficiency (partial containment/agent-assist)</h4>
@@ -792,7 +792,7 @@ const RoiCalcContent = (props) => {
                 <div className="columns bc-table-col row">
                     <div className="column col-lg-4">
                     <p className="bc-table-title font-pri-blue">
-                        05 Savings via improved agent efficiency
+                    {`${props.template === 'care' ? '03' : '05'}`} Savings via improved agent efficiency
                     </p>
                     </div>
                     <div className="column col-lg-2">

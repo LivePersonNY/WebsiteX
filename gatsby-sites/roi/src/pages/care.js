@@ -9,23 +9,19 @@ import Seo from '../components/Seo';
 import NotFoundPage from './404';
 //import $ from 'jquery';
 
-const Roi = () => {
+const Care = () => {
   
   if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== "true") {
     return (<NotFoundPage />);
   }
 
 
-  useEffect(() => {
-    
-    window.runRoi();
-    
-  });
+  
 
  
   return (
     <Layout mainClass="biz-case">
-      <Seo title="ROI - LP" description="Give you numbers" />
+      <Seo title="ROI Care - LP" description="Give you numbers" />
       <Hero
         backgroundColor="bg-neutral-96"
         header="The business case for going conversational"
@@ -33,16 +29,19 @@ const Roi = () => {
         vimeoUrl="//player.vimeo.com/video/530992337"
       />
       <RoiCalc
-        annualWebsiteTraffic="1562400000"
-        convRateToSale="0.05"
-        avgOrderValue="250"
-        avgCallVolume="33000000"
-        avgCostPerCall="4.50"
-        firstContactResolution="70.00"
+        template="care"
+        header="How much could you reduce operating costs with Conversational AI and messaging?"
+        annualWebsiteTraffic="156000000"
+        convRateToSale="0.01"
+        avgOrderValue="28000"
+        avgCallVolume="1500000"
+        avgCostPerCall="4.5"
+        firstContactResolution="70"
         locale="en-us"
         currency="USD"
       />
       <RoiCalcContent
+        template="care"
         execSummaryTitle="Enormous opportunities for both cost savings and revenue growth"
         execSummaryText="LivePerson experts across the globe have led some of the world’s largest enterprise brands through the transformation to becoming an intent-driven business, leveraging our industry-recognized conversational AI product suite."
         imgSrcLeft="https://assets-global.website-files.com/60ad0c09266ca4208cebb222/61f0301dae93b757991c75d6_IVR%20Deflection%20-%20Yorokobi.png"
@@ -52,4 +51,4 @@ const Roi = () => {
   )
 }
 
-export default Roi;
+export default Care;

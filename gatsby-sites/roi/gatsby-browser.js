@@ -10,5 +10,6 @@ export const onRouteUpdate = () => {
   
   window.dataLayer = window.dataLayer || [];
   window.runRoi = runRoi;
+  runRoi();
   
 }
