@@ -132,7 +132,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        allowList: ["CAN_ROOT", "NODE_ENV", "BRANCH", "GATSBY_IS_PREVIEW", "LOCALIZE_KEY", "GA_ID"]
+        allowList: ["CAN_ROOT", "NODE_ENV", "BRANCH", "GATSBY_IS_PREVIEW", "LOCALIZE_KEY", "GA_ID", "GTM_ID"]
       },
     },
     {
@@ -149,7 +149,7 @@ module.exports = {
         // should be an object or a function that is executed in the browser
         //
         // Defaults to null
-        defaultDataLayer: { platform: "gatsby" },
+        // defaultDataLayer: { platform: "gatsby" },
     
         // Specify optional GTM environment details.
         gtmAuth: process.env.GTM_AUTH || "",
@@ -160,7 +160,7 @@ module.exports = {
         // on every Gatsby route change.
         //
         // Defaults to gatsby-route-change
-        // routeChangeEventName: "pageview",
+        routeChangeEventName: "pageview",
         // Defaults to false
         enableWebVitalsTracking: true,
         // Defaults to https://www.googletagmanager.com
