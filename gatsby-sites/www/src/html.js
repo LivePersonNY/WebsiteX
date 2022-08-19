@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 export default function HTML(props) {
   
+  const gtm_id = process.env.GTM_ID;
   const lzScript = `
   
       !function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
@@ -25,9 +26,23 @@ export default function HTML(props) {
       
   `;
   
+  const gtmScript = `
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','${gtm_id}');
+  `;
+  
+  const frameStyle = {
+    display: 'none',
+    visibility: 'hidden'
+  };
+  
   return (
     <html {...props.htmlAttributes}>
-      <head>
+      <head>        
+        
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
@@ -41,6 +56,8 @@ export default function HTML(props) {
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
+      
+        
         {props.preBodyComponents}
         <div
           key={`body`}

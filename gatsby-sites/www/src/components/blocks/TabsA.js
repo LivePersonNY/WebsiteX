@@ -34,7 +34,7 @@ const TabsA = (props) => {
 
   return (
   <>
-    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-tabs-a ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
+    <div data-localize={props.autoApprove && `auto-approve`} autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-tabs-a ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">

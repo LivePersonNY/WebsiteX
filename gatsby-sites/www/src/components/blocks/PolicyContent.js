@@ -13,7 +13,7 @@ const PolicyContent = (props) => {
 
   return (
     <>
-      <div autoapprove={props.autoApprove && "true"} id={props.anchor} 
+      <div data-localize={props.autoApprove && `auto-approve`} autoapprove={props.autoApprove && "true"} id={props.anchor} 
         className={`pane ${props.backgroundColor||"bg-transparent"} comp-policy-content`}
       >
         <div className="container">

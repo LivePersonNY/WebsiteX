@@ -11,7 +11,7 @@ const QuickLinks = function(props) {
   
   return (
     <>
-      <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-quick-links ${props.backgroundColor||"bg-transparent"}`}>
+      <div data-localize={props.autoApprove && `auto-approve`} autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-quick-links ${props.backgroundColor||"bg-transparent"}`}>
         <div className="container">
           <div className="row">
             <div className={`col-lg-${props.colWidth||12} d-lg-flex justify-content-evenly text-center`}>

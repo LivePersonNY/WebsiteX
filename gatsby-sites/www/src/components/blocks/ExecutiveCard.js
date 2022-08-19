@@ -25,7 +25,7 @@ const ExecutiveCard = (props) => {
   });
 
   return (
-    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-exec-card ${props.backgroundColor}`}>
+    <div data-localize={props.autoApprove && `auto-approve`} autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-exec-card ${props.backgroundColor}`}>
       <div className="container">
       {props.header && (
         <div className="row">

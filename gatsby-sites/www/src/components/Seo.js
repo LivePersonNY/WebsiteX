@@ -65,9 +65,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       
       if (isReady) {
         window.documentReadyFn();
-        const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
-        window.ga && window.ga('set', 'page', pagePath);
-        window.ga && window.ga('send', 'pageview');
+        
       }
       
       /*if (!document.getElementById('localize_js')) {
