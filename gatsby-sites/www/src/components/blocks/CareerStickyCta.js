@@ -115,7 +115,7 @@ const CareerStickyCta = (props) => {
         <div className="row">
           <div className="col-lg-12">
 
-              <a href="https://careers.liveperson.com/upload/?source=CampaignA&amp;gh_src=" className="btn resume-upload">
+              <a href="https://careers.liveperson.com/upload/?source=CampaignA" className="btn resume-upload">
                 <img src="https://static.liveperson.com/static-assets/2022/07/20171713/Upload-Blue-Vector.svg" alt="Upload icon" className="cloud-image-a" />
                 <div className="upload-button-text text-block-20-a">Match your resume to a role</div>
               </a>
@@ -123,7 +123,7 @@ const CareerStickyCta = (props) => {
               <form id="wf-form-Search-Form" name="wf-form-Search-Form">
                 <input id="Job_Search" className="form-control" type="text" placeholder="Search by role or keyword" aria-label="Search by role or keyword">
                 </input>
-                <a id="Search_Submit_Button" href="http://careers.liveperson.com?source=campaignA&amp;gh_src=" target="_blank" className="search-button-link-a w-inline-block"><img src="https://static.liveperson.com/static-assets/2022/02/08142542/search_Vector.svg" loading="lazy" alt="Search icon" className="search-image-a" /></a>
+                <a id="Search_Submit_Button" href="http://careers.liveperson.com?source=campaignA" target="_blank" className="search-button-link-a w-inline-block"><img src="https://static.liveperson.com/static-assets/2022/02/08142542/search_Vector.svg" loading="lazy" alt="Search icon" className="search-image-a" /></a>
               </form>
               
           </div>
