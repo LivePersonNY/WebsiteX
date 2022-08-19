@@ -30,7 +30,7 @@ const TeamCards = (props) => {
   });
 
   return (  
-    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-team-cards ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
+    <div data-localize={props.autoApprove && `auto-approve`} autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-team-cards ${props.backgroundColor||"bg-transparent"} ${props.header ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         {props.header && (
           <div className="row text-center">

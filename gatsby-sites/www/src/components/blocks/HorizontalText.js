@@ -18,7 +18,7 @@ const HorizontalText = (props) => {
   });
 
   return (  
-    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-horizontal-text ${props.backgroundColor}`}>
+    <div data-localize={props.autoApprove && `auto-approve`} autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-horizontal-text ${props.backgroundColor}`}>
       <div className="container">
         {textBlock}
       </div>

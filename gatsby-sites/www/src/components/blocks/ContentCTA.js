@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 
 const ContentCTA = (props) => {
   return (  
-    <div autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-content-cta ${props.backgroundColor||"bg-transparent"} ${props.body ? 'pane-with-lead-text' : ''}`}>
+    <div data-localize={props.autoApprove && `auto-approve`} autoapprove={props.autoApprove && "true"} id={props.anchor} className={`pane comp-content-cta ${props.backgroundColor||"bg-transparent"} ${props.body ? 'pane-with-lead-text' : ''}`}>
       <div className="container">
         <div className="row">
           <div className="col-lg-12">

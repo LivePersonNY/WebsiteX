@@ -67,7 +67,7 @@ const LRForm = (props) => {
 
   return (
     <>
-      <div autoapprove={props.autoApprove && "true"} id={props.anchor} 
+      <div data-localize={props.autoApprove && `auto-approve`} autoapprove={props.autoApprove && "true"} id={props.anchor} 
         className={`pane ${props.backgroundColor||"bg-transparent"} comp-left-right ${props.repeat ? 'comp-left-right-repeat' : ''} ${props.formId ? 'pane-form form-vertical' : ''}`}
       >
         <div className="container">
