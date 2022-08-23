@@ -308,6 +308,11 @@ const LivePerson = {
 			$(this).attr('aria-label', $(this).attr('for'));
 		});
 		
+		form.getFormElem().find('.mktoFieldWrap').each(function() {
+			var labelText = $(this).children('label').first().text();
+			$(this).children('.mktoCheckboxList').find('label').text(labelText);
+		});
+		
 	},
 	
 	ShowAfterMessage: function(form) {

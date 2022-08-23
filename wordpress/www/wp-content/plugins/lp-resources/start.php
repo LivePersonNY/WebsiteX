@@ -419,6 +419,7 @@ class LP_Resources
 				'thumbnail',
 			],
 			'capability_type' => 'resource',
+			'map_meta_cap' => true,
 			'taxonomies' => [
 				'post_tag',
 				'category',
