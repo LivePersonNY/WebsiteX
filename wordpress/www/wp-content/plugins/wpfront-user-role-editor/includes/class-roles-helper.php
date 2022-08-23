@@ -566,7 +566,7 @@ if (!class_exists('\WPFront\URE\WPFront_User_Role_Editor_Roles_Helper')) {
                     $post_type_object = get_post_type_object($group_key);
 
                     if ($post_type_object->capability_type === 'post' || $post_type_object->capability_type === 'page' || $post_type_object->capability_type === 'attachment') {
-                        return 'defaulted';
+                        //return 'defaulted';
                     }
 
                     $group_caps = self::get_post_type_caps($post_type_object);
