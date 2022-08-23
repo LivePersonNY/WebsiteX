@@ -520,7 +520,7 @@ class LP_Resources
 			'public' => true,
 			'menu_icon' => 'dashicons-money-alt',
 			//'publicly_queryable' => null,
-			'capability_type' => 'page',
+			'capability_type' => 'campaign-page',
 			//'map_meta_cap' => true,
 			//'show_in_ui' => false,
 			'show_in_rest' => true,
