@@ -8,6 +8,10 @@
  
 class LP_Resources
 {
+	private static $customCaps = array(
+		[ 'singular' => 'campaign-page', 'plural' => 'campaign-pages' ],
+	);
+	
 	public function __construct()
 	{
 		add_action('init', [$this, 'register_type']);
@@ -651,9 +655,36 @@ class LP_Resources
 		}
 	}
 	
+	public static function add_admin_capabilities() {
+	
+		$role = get_role( 'administrator' );
+	
+		foreach( self::$customCaps as $cap ){
+			
+			$singular = $cap['singular'];
+			$plural = $cap['plural'];
+	
+			$role->add_cap( "edit_{$singular}" ); 
+			$role->add_cap( "edit_{$plural}" ); 
+			$role->add_cap( "edit_others_{$plural}" ); 
+			$role->add_cap( "publish_{$plural}" ); 
+			$role->add_cap( "read_{$singular}" ); 
+			$role->add_cap( "read_private_{$plural}" ); 
+			$role->add_cap( "delete_{$singular}" ); 
+			$role->add_cap( "delete_{$plural}" );
+			$role->add_cap( "delete_private_{$plural}" );
+			$role->add_cap( "delete_others_{$plural}" );
+			$role->add_cap( "edit_published_{$plural}" );
+			$role->add_cap( "edit_private_{$plural}" );
+			$role->add_cap( "delete_published_{$plural}" );
+			
+		}
+	
+	}
+	
 }
 new LP_Resources;
 
-register_activation_hook( __FILE__, array( 'Admin_Roles', 'add_admin_capabilities' ) );
+register_activation_hook( __FILE__, array( LP_Resources, 'add_admin_capabilities' ) );
 
 //require_once('parser.php');
