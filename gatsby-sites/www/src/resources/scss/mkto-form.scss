@@ -134,7 +134,7 @@
                 .mktoFieldWrap {
                     width: 100%;
 
-                    input {
+                    input, textarea {
 
                         border-radius: 4px;
                         border: 0;
@@ -371,6 +371,7 @@
                         font-family: $familyInter;
                         padding: 12px 40px 12px 12px !important;
                         margin-bottom: 0;
+                        height: auto;
                     }
 
                     select {

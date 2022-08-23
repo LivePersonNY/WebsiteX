@@ -44,37 +44,6 @@ exports.createPages = async (props) => {
     }
   `);
   
-  /*const removeFiles = async function() {
-    fs.rmSync(`./static`, {recursive: true, force: true});
-  }
-  
-  const pageGetData = async function(domain, item) {
-    return fetch(`https://${domain}/${item}`);
-  }
-  
-  const processPage = function(item, domain) {
-    try {
-      
-      pageGetData(domain, item).then(response => response.text()).then(function(pageData) {
-        fs.mkdirSync(`./static/${item}`, { recursive: true });
-        fs.writeFileSync(`./static/${item}/index.html`, pageData);
-      });
-      
-    } catch (error) {
-      console.log("Error generating static page", error);
-    }
-  }
-  
-  removeFiles().then(function() {
-    fs.mkdir(`./static`, function() {
-      Object.keys(oldPages).forEach(function(domain) {
-        oldPages[domain].forEach(function(item) {
-          processPage(item, domain);
-        });
-      });
-    });
-  });*/
-  
   const { redirects } = JSON.parse(JSON.stringify(wpSettings.wp.seo));
   if (redirects) {
       redirects.forEach((redirect) => {
