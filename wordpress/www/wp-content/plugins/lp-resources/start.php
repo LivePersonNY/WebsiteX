@@ -521,9 +521,6 @@ class LP_Resources
 			'menu_icon' => 'dashicons-money-alt',
 			//'publicly_queryable' => null,
 			'capability_type' => 'campaign-page',
-			'capabilities' => get_post_type_capabilities((object)[
-				'capability_type' => 'page'
-			]),
 			//'map_meta_cap' => true,
 			//'show_in_ui' => false,
 			'show_in_rest' => true,
@@ -540,6 +537,24 @@ class LP_Resources
 		}*/
 		
 	}
+	
+	/*public function add_caps_to_admin()
+	{
+		$role = get_role( 'administrator' );
+		$capabilities = compile_post_type_capabilities('campaign-page');
+		foreach ($capabilities as $capability) {
+			$role->add_cap( $capability );
+		}
+	}
+	
+	public function remove_caps_to_admin()
+	{
+		$role = get_role( 'administrator' );
+		$capabilities = compile_post_type_capabilities('campaign-page');
+		foreach ($capabilities as $capability) {
+			$role->remove_cap( $capability );
+		}
+	}*/
 		
 	public function render_block_data($parsed_block, $source_block)
 	{		
