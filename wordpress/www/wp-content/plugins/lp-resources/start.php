@@ -685,6 +685,6 @@ class LP_Resources
 }
 new LP_Resources;
 
-register_activation_hook( __FILE__, array( LP_Resources, 'add_admin_capabilities' ) );
+register_activation_hook( __FILE__, array( LP_Resources::class, 'add_admin_capabilities' ) );
 
 //require_once('parser.php');
