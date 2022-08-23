@@ -73,7 +73,7 @@ const LRForm = (props) => {
         <div className="container">
           <div className="row align-items-center">
             <div
-              className={`col-lg-6 ${props.flipColumns ? 'order-lg-last' : 'order-last'}`}
+              className={`col-lg-6 ${props.flipColumns ? 'order-last' : 'order-lg-last'}`}
             >
               {
                 !props.imgCtl && (
@@ -91,7 +91,7 @@ const LRForm = (props) => {
             </div>
             <div
               className={`col-lg-6 ${
-                props.flipColumns ? 'order-lg-first' : 'order-first'
+                props.flipColumns ? 'order-first' : 'order-lg-first'
               }`}
             >
               {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
