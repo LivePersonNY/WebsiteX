@@ -471,7 +471,7 @@ if (!class_exists('\WPFront\URE\WPFront_User_Role_Editor_Roles_Helper')) {
                 self::$capability_group_names["cpt_$name"] = (object) array(
                             'key' => $name,
                             'label' => $data->label . ' (' . __('Post Type', 'wpfront-user-role-editor') . ')',
-                            'type' => 'default',
+                            'type' => 'other',
                             'data' => $data
                 );
             }
