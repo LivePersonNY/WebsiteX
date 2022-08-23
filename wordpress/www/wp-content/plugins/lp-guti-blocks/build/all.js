@@ -29942,7 +29942,7 @@ const LRForm = props => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "row align-items-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `col-lg-6 ${props.flipColumns ? 'order-lg-last' : 'order-lg-first order-last'}`
+    className: `col-lg-6 ${props.flipColumns ? 'order-last' : 'order-lg-first order-last'}`
   }, !props.imgCtl && props.imgSrc && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: props.imgSrc || `https://picsum.photos/752/568?random=${parseInt(Math.random() * 100)}`,
     alt: props.imgAlt || ""
@@ -29952,7 +29952,7 @@ const LRForm = props => {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("mkto-after", {
     mkto: formId
   }, props.thankyouControl || (0,html_react_parser__WEBPACK_IMPORTED_MODULE_4__["default"])(props.thankyou)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: `col-lg-6 ${props.flipColumns ? 'order-lg-first' : 'order-lg-last order-first'}`
+    className: `col-lg-6 ${props.flipColumns ? 'order-first' : 'order-lg-last order-first'}`
   }, props.kicker && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "h6 text-uppercase"
   }, props.kicker), props.headLevel == 'h2' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, props.title), props.headLevel == 'h3' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, props.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Paragraph__WEBPACK_IMPORTED_MODULE_2__["default"], {
