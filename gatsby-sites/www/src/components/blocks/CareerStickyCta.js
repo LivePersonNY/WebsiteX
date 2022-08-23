@@ -103,7 +103,7 @@ const CareerStickyCta = (props) => {
   
 
   return (
-    <div className={`${props.cssClasses} pane pane-form form--sticky pane-careers-cta bg-grad-image`} style={{display:'none'}}>
+    <div className={`${props.cssClasses} pane pane-form form--sticky pane-careers-cta bg-grad-image gctestclass`} style={{display:'none'}}>
       <div className="container">
         {props.header && !props.sticky &&(
           <div className="row">
