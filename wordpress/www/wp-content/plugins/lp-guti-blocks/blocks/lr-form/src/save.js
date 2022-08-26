@@ -25,7 +25,7 @@ export default function save({attributes}) {
 
 	let lottiePlayerElement = attributes.lottieFile && (
 		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
-	);
+	) || "";
 
 	return (
 		<LRForm
