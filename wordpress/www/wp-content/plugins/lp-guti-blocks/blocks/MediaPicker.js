@@ -38,9 +38,10 @@ export default function MediaPicker({setAttributes, attributes, allowLottie, css
 						<>
 							{!attributes.lottieFile && <img className={`imageSelector ${cssClass}`} src={attributes.mediaUrl} onClick={open} /> ||
 								<Button variant="link" onClick={open}>Select Image</Button>}
+
 							{attributes.lottieFile && <LottieFilePlayer className={`imageSelector ${cssClass} ${attributes.lottieId}`} onClick={open} lottieFile={attributes.lottieFile} autoplay={true} loop={true} />}
 
-								<Button variant="link" isDestructive={true} onClick={() => setAttributes({mediaUrl: null, mediaId: null})}>Remove Image</Button>
+							<Button variant="link" isDestructive={true} onClick={() => setAttributes({mediaUrl: null, mediaId: null})}>Remove Image</Button>
 						</>
 					)}
 				/>

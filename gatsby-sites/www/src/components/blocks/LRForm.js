@@ -95,7 +95,7 @@ const LRForm = (props) => {
               <Paragraph text={props.body} wrapClass="rich-container" />
               {
                 !props.imgCtl && (
-                  (props.imgSrc && <img src={props.imgSrc || `https://picsum.photos/752/568?random=${parseInt(Math.random()*100)}`} alt={props.imgAlt || ""} />)) || props.imgCtl || props.lottiePlayer
+                  (props.imgSrc && <img src={props.imgSrc} alt={props.imgAlt || ""} />)) || props.imgCtl || props.lottiePlayer
               }
               {props.vimeoUrl && vFrame}
 
