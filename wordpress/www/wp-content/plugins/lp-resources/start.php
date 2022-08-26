@@ -10,6 +10,7 @@ class LP_Resources
 {
 	private static $customCaps = array(
 		[ 'singular' => 'campaign-page', 'plural' => 'campaign-pages' ],
+		[ 'singular' => 'resource', 'plural' => 'resources' ],
 	);
 	
 	public function __construct()
