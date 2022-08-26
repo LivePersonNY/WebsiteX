@@ -43,7 +43,9 @@
 			"default": 0,
 			"type": "number"
 		},
-		"mediaUrl": {},
+		"mediaUrl": {
+			"default": ""
+		},
 		"mediaAlt": {
 			"type": "string",
 			"default": ""
