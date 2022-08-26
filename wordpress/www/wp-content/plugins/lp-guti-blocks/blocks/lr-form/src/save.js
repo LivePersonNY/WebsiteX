@@ -4,6 +4,8 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import $ from 'jquery';
+
 import LRForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/LRForm';
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 import LottieFilePlayer from '../../LottieFilePlayer';
@@ -21,9 +23,9 @@ import React, { useEffect } from 'react';
  */
 export default function save({attributes}) {
 
-	let lottiePlayerElement = (
+	let lottiePlayerElement = attributes.lottieFile && (
 		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
-	)
+	);
 
 	return (
 		<LRForm
