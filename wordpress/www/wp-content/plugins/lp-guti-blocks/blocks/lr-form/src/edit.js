@@ -88,7 +88,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} />
 	);
 
-	let lottiePlayerElement = (
+	let lottiePlayerElement = attributes.lottieFile && (
 		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
 	)
 
