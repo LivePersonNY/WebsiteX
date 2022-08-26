@@ -18,6 +18,8 @@ const { Fragment, useState, useEffect } = wp.element;
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import AutoApproveLanguage from '../../AutoApproveLanguage';
 import { MktoForms } from '../../../../../../../../gatsby-sites/www/liveperson-attribution';
+import MediaPicker from '../../MediaPicker';
+import LottieFilePlayer from '../../LottieFilePlayer';
 
 import Anchor from '../../Anchor';
 
@@ -80,6 +82,26 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 			className="embedded-input"
 			placeholder="Section H2 Header"
 		/>
+	);
+
+	let imageControl = (
+		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} />
+	);
+
+	let lottiePlayerElement = (
+		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
+	)
+
+	let vimeoUrlControls = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Vimeo URL" initialOpen={ false }>
+					<TextControl value={attributes.vimeoUrl} onChange={function(value) {
+						setAttributes({vimeoUrl: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
 	);
 
 	let addButton = (
@@ -147,6 +169,9 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					kicker={kickerControl}
 					headLevel={attributes.headLevel}
 					anchor={attributes.anchor}
+					imgCtl={!attributes.vimeoUrl && imageControl}
+					lottieFile={attributes.lottieFile}
+					vimeoUrl={attributes.vimeoUrl}
 				/>
 				<Fragment>
 					<InspectorControls>
@@ -183,6 +208,10 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				title={attributes.title}
 				headLevel={attributes.headLevel}
 				anchor={attributes.anchor}
+				imgSrc={!attributes.vimeoUrl && attributes.mediaUrl}
+				imgAlt={attributes.mediaAlt}
+				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
+				vimeoUrl={attributes.vimeoUrl}
 			/>
 		</div>
 	)

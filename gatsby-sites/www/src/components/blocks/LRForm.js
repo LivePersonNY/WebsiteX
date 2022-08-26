@@ -75,12 +75,7 @@ const LRForm = (props) => {
             <div
               className={`col-lg-6 ${props.flipColumns ? 'order-last' : 'order-lg-first order-last'}`}
             >
-              {
-                !props.imgCtl && (
-                  (props.imgSrc && <img src={props.imgSrc || `https://picsum.photos/752/568?random=${parseInt(Math.random()*100)}`} alt={props.imgAlt || ""} />)) || props.imgCtl || props.lottiePlayer
-              }
-              {props.vimeoUrl && vFrame}
-
+              
               {props.formId && 
 
                 <>
@@ -98,6 +93,12 @@ const LRForm = (props) => {
               {props.headLevel == 'h2' && <h2>{props.title}</h2>}
               {props.headLevel == 'h3' && <h3>{props.title}</h3>}
               <Paragraph text={props.body} wrapClass="rich-container" />
+              {
+                !props.imgCtl && (
+                  (props.imgSrc && <img src={props.imgSrc || `https://picsum.photos/752/568?random=${parseInt(Math.random()*100)}`} alt={props.imgAlt || ""} />)) || props.imgCtl || props.lottiePlayer
+              }
+              {props.vimeoUrl && vFrame}
+
               {props.linkText && (
                 <a className="btn btn-outline-secondary" href={props.linkUrl}>
                   {props.linkText}
