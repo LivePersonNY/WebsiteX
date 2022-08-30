@@ -31,7 +31,7 @@ const Roi = () => {
       <Hero
         backgroundColor="bg-neutral-96"
         header="The business case for going conversational"
-        subHeader="Conversational AI increases revenue growth, improves customers satisfaction, and reduces operating costs. Use our custom ROI calculator to see the potential impact to your business, detailed below."
+        subHeader="Conversational AI increases revenue growth, improves customer satisfaction, and reduces operating costs. Use our custom ROI calculator to see the potential impact to your business, detailed below."
         vimeoUrl="//player.vimeo.com/video/530992337"
       />
       <RoiCalc
@@ -48,12 +48,13 @@ const Roi = () => {
         execSummaryTitle="Enormous opportunities for both cost savings and revenue growth"
         execSummaryText="LivePerson experts across the globe have led some of the world's largest enterprise brands through this transformation, leveraging our industry-recognized Conversational AI product suite to create customer engagement that runs on AI, but feels Curiously Human™."
       />
+      <RoiCalcTable />
       <MktoForm
+        backgroundColor="bg-blue-20"
         header="Ready to turn these estimations into reality? Schedule a demo to see our Conversational solutions in action"
         formId="2580"
-        thankyou="Thank you message"
+        thankyou="Thank you! One of our experts will contact you shortly"
       />
-      <RoiCalcTable />
     </Layout>
   )
 }
