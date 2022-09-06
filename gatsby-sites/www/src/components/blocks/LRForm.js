@@ -92,8 +92,8 @@ const LRForm = (props) => {
               {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
               {props.headLevel == 'h2' && <h2>{props.title}</h2>}
               {props.headLevel == 'h3' && <h3>{props.title}</h3>}
-              <Paragraph text={props.body} wrapClass="rich-container" />
-              {props.mediaKicker && <h6 className="mt-4 text-uppercase">{props.mediaKicker}</h6>}
+              <Paragraph text={props.body} wrapClass="rich-container mb-4" />
+              {props.mediaKicker && <h6 className="text-uppercase">{props.mediaKicker}</h6>}
               {
                 !props.imgCtl && (
                   (props.imgSrc && <img src={props.imgSrc} alt={props.imgAlt || ""} />)) || props.imgCtl || props.lottiePlayer
