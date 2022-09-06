@@ -50,6 +50,7 @@
 			"type": "string",
 			"default": ""
 		},
+		"mediaKicker": {},
 		"lottieFile": {},
 		"lottieId": {},
 		"vimeoUrl": {}

@@ -44,6 +44,7 @@ export default function save({attributes}) {
 			imgAlt={attributes.mediaAlt}
 			lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 			vimeoUrl={attributes.vimeoUrl}
+			mediaKicker={attributes.mediaKicker}
 		/>
 	);
 }

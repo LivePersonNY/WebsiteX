@@ -104,6 +104,15 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		</Fragment>
 	);
 
+	let mediaKickerControl = (
+		<TextControl
+			value={ attributes.mediaKicker }
+			onChange={ ( val ) => setAttributes( { mediaKicker: val } ) }
+			className="embedded-input"
+			placeholder="Media Kicker"
+		/>
+	);
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
@@ -172,6 +181,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					imgCtl={!attributes.vimeoUrl && imageControl}
 					lottieFile={attributes.lottieFile}
 					vimeoUrl={attributes.vimeoUrl}
+					mediaKicker={mediaKickerControl}
 				/>
 				<Fragment>
 					<InspectorControls>
@@ -212,6 +222,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				imgAlt={attributes.mediaAlt}
 				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				vimeoUrl={attributes.vimeoUrl}
+				mediaKicker={attributes.mediaKicker}
 			/>
 		</div>
 	)
