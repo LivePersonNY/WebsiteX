@@ -17,6 +17,13 @@ export const onRouteUpdate = () => {
   window.ga && window.ga('set', 'page', pagePath);
   window.ga && window.ga('send', 'pageview');
   
+  if (location && window.Munchkin) {
+    window.Munchkin.munchkinFunction('visitWebPage', {
+        'url': location.pathname,
+        'params': location.search
+    });
+  }
+  
   console.log("onRouteUpdate", pagePath) // this works
   
 }

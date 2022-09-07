@@ -38,6 +38,21 @@
 			"default": false
 		},
 		"autoApproveLang": {"default":false, "type": "boolean"},
-		"headLevel": {"default": "h2"}
+		"headLevel": {"default": "h2"},
+		"mediaId": {
+			"default": 0,
+			"type": "number"
+		},
+		"mediaUrl": {
+			"default": "https://picsum.photos/752/568?random=1"
+		},
+		"mediaAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaKicker": {},
+		"lottieFile": {},
+		"lottieId": {},
+		"vimeoUrl": {}
 	}
 }

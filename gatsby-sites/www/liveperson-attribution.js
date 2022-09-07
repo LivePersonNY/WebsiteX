@@ -304,9 +304,14 @@ const LivePerson = {
 		var _this = this;
 		// TODO Address form directly, not all labels.
 		
-		form.getFormElem().find('label').each(function() {
-			$(this).attr('aria-label', $(this).attr('for'));
-		});
+		// form.getFormElem().find('label').each(function() {
+		// 	$(this).attr('aria-label', $(this).attr('for'));
+		// });
+		
+		// form.getFormElem().find('.mktoFieldWrap').each(function() {
+		// 	var labelText = $(this).children('label').first().text();
+		// 	$(this).children('.mktoCheckboxList').find('label').text(labelText);
+		// });
 		
 	},
 	

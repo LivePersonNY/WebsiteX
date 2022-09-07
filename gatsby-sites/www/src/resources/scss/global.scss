@@ -1152,8 +1152,7 @@ img[src*="doubleclick"] {
 
         .event-date {
             margin-top: 16px;
-            margin-bottom: 4px;
-            margin-bottom: 4px;
+            margin-bottom: 1rem;
 
             @include media-breakpoint-up(lg) {
                 margin-top: 24px;

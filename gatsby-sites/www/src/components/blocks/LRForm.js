@@ -73,14 +73,9 @@ const LRForm = (props) => {
         <div className="container">
           <div className="row align-items-center">
             <div
-              className={`col-lg-6 ${props.flipColumns ? 'order-lg-last' : ''}`}
+              className={`col-lg-6 ${props.flipColumns ? 'order-last' : 'order-lg-first order-last'}`}
             >
-              {
-                !props.imgCtl && (
-                  (props.imgSrc && <img src={props.imgSrc || `https://picsum.photos/752/568?random=${parseInt(Math.random()*100)}`} alt={props.imgAlt || ""} />)) || props.imgCtl || props.lottiePlayer
-              }
-              {props.vimeoUrl && vFrame}
-
+              
               {props.formId && 
 
                 <>
@@ -91,13 +86,20 @@ const LRForm = (props) => {
             </div>
             <div
               className={`col-lg-6 ${
-                props.flipColumns ? 'order-lg-first' : ''
+                props.flipColumns ? 'order-first' : 'order-lg-last order-first'
               }`}
             >
               {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
               {props.headLevel == 'h2' && <h2>{props.title}</h2>}
               {props.headLevel == 'h3' && <h3>{props.title}</h3>}
-              <Paragraph text={props.body} wrapClass="rich-container" />
+              <Paragraph text={props.body} wrapClass="rich-container mb-4" />
+              {props.mediaKicker && <h6 className="text-uppercase">{props.mediaKicker}</h6>}
+              {
+                !props.imgCtl && (
+                  (props.imgSrc && <img src={props.imgSrc} alt={props.imgAlt || ""} />)) || props.imgCtl || props.lottiePlayer
+              }
+              {props.vimeoUrl && vFrame}
+
               {props.linkText && (
                 <a className="btn btn-outline-secondary" href={props.linkUrl}>
                   {props.linkText}

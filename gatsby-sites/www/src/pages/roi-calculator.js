@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { useEffect } from 'react';
 import Hero from '../components/blocks/Hero';
+import MktoForm from '../components/blocks/MktoForm';
 import RoiCalc from '../components/blocks/RoiCalc';
 import RoiCalcContent from '../components/blocks/RoiCalcContent';
+import RoiCalcTable from '../components/blocks/RoiCalcTable';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 //import runRoi from '../../roi-implemented';
@@ -29,7 +31,7 @@ const Roi = () => {
       <Hero
         backgroundColor="bg-neutral-96"
         header="The business case for going conversational"
-        subHeader="Conversational AI increases revenue growth, improves customers satisfaction, and reduces operating costs. Use our ROI calculator to see the potential impact to your business."
+        subHeader="Conversational AI increases revenue growth, improves customer satisfaction, and reduces operating costs. Use our custom ROI calculator to see the potential impact to your business, detailed below."
         vimeoUrl="//player.vimeo.com/video/530992337"
       />
       <RoiCalc
@@ -44,9 +46,14 @@ const Roi = () => {
       />
       <RoiCalcContent
         execSummaryTitle="Enormous opportunities for both cost savings and revenue growth"
-        execSummaryText="LivePerson experts across the globe have led some of the world’s largest enterprise brands through the transformation to becoming an intent-driven business, leveraging our industry-recognized conversational AI product suite."
-        imgSrcLeft="https://assets-global.website-files.com/60ad0c09266ca4208cebb222/61f0301dae93b757991c75d6_IVR%20Deflection%20-%20Yorokobi.png"
-        imgSrcRight="https://assets-global.website-files.com/60ad0c09266ca4208cebb222/61f030259e1249babbeed9fd_Apple%20Business%20Chat%20-%20Yorokobi.png"
+        execSummaryText="LivePerson experts across the globe have led some of the world's largest enterprise brands through this transformation, leveraging our industry-recognized Conversational AI product suite to create customer engagement that runs on AI, but feels Curiously Human™."
+      />
+      <RoiCalcTable />
+      <MktoForm
+        backgroundColor="bg-blue-20"
+        header="Ready to turn these estimations into reality? Schedule a demo to see our Conversational solutions in action"
+        formId="2580"
+        thankyou="Thank you! One of our experts will contact you shortly"
       />
     </Layout>
   )

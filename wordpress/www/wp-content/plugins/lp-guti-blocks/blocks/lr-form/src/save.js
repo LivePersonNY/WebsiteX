@@ -4,8 +4,11 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import $ from 'jquery';
+
 import LRForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/LRForm';
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import LottieFilePlayer from '../../LottieFilePlayer';
 
 import React, { useEffect } from 'react';
 
@@ -20,6 +23,10 @@ import React, { useEffect } from 'react';
  */
 export default function save({attributes}) {
 
+	let lottiePlayerElement = attributes.lottieFile && (
+		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
+	) || "";
+
 	return (
 		<LRForm
 			cssClasses={attributes.className}
@@ -33,6 +40,11 @@ export default function save({attributes}) {
 			headLevel={attributes.headLevel}
 			anchor={attributes.anchor}
 			autoApprove={attributes.autoApproveLang}
+			imgSrc={!attributes.vimeoUrl && attributes.mediaUrl}
+			imgAlt={attributes.mediaAlt}
+			lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
+			vimeoUrl={attributes.vimeoUrl}
+			mediaKicker={attributes.mediaKicker}
 		/>
 	);
 }

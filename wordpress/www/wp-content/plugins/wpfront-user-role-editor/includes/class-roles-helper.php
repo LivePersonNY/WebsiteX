@@ -73,6 +73,19 @@ if (!class_exists('\WPFront\URE\WPFront_User_Role_Editor_Roles_Helper')) {
                 'delete_private_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
                 'manage_categories' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY)
             ),
+            'staged_posts' => array(
+                'publish_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY),
+                'edit_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY, self::CONTRIBUTOR_ROLE_KEY),
+                'delete_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY, self::CONTRIBUTOR_ROLE_KEY),
+                'edit_published_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY),
+                'delete_published_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY),
+                'edit_others_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'delete_others_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'read_private_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'edit_private_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'delete_private_posts' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY),
+                'manage_categories' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY)
+            ),
             'media' => array(
                 'upload_files' => array(self::ADMINISTRATOR_ROLE_KEY, self::EDITOR_ROLE_KEY, self::AUTHOR_ROLE_KEY),
                 'unfiltered_upload' => array(self::ADMINISTRATOR_ROLE_KEY)
@@ -553,7 +566,7 @@ if (!class_exists('\WPFront\URE\WPFront_User_Role_Editor_Roles_Helper')) {
                     $post_type_object = get_post_type_object($group_key);
 
                     if ($post_type_object->capability_type === 'post' || $post_type_object->capability_type === 'page' || $post_type_object->capability_type === 'attachment') {
-                        return 'defaulted';
+                        //return 'defaulted';
                     }
 
                     $group_caps = self::get_post_type_caps($post_type_object);

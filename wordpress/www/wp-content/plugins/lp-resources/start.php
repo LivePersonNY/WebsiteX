@@ -8,6 +8,11 @@
  
 class LP_Resources
 {
+	private static $customCaps = array(
+		[ 'singular' => 'campaign-page', 'plural' => 'campaign-pages' ],
+		[ 'singular' => 'resource', 'plural' => 'resources' ],
+	);
+	
 	public function __construct()
 	{
 		add_action('init', [$this, 'register_type']);
@@ -331,6 +336,8 @@ class LP_Resources
 				'edit_item' => 'Edit News Item',
 			],
 			'public' => true,
+			'capability_type' => 'resource',
+			'map_meta_cap' => true,
 			'menu_icon' => 'dashicons-rss',
 			'show_in_rest' => true,
 			'supports' => [
@@ -357,7 +364,8 @@ class LP_Resources
 			],
 			'public' => true,
 			'menu_icon' => 'dashicons-media-document',
-			'capability_type' => 'page',
+			'capability_type' => 'resource',
+			'map_meta_cap' => true,
 			'show_in_rest' => true,
 			'hierarchical' => true,
 			'supports' => [
@@ -385,7 +393,7 @@ class LP_Resources
 			'menu_icon' => 'dashicons-hidden',
 			//'publicly_queryable' => null,
 			'capability_type' => 'page',
-			//'map_meta_cap' => true,
+			'map_meta_cap' => true,
 			//'show_in_ui' => false,
 			'show_in_rest' => true,
 			//'rest_base' => 'pages',
@@ -411,6 +419,8 @@ class LP_Resources
 				'excerpt',
 				'thumbnail',
 			],
+			'capability_type' => 'resource',
+			'map_meta_cap' => true,
 			'taxonomies' => [
 				'post_tag',
 				'category',
@@ -430,8 +440,8 @@ class LP_Resources
 			'public' => true,
 			'menu_icon' => 'dashicons-video-alt3',
 			//'publicly_queryable' => null,
-			'capability_type' => 'page',
-			//'map_meta_cap' => true,
+			'capability_type' => 'resource',
+			'map_meta_cap' => true,
 			//'show_in_ui' => false,
 			'show_in_rest' => true,
 			//'rest_base' => 'pages',
@@ -520,8 +530,8 @@ class LP_Resources
 			'public' => true,
 			'menu_icon' => 'dashicons-money-alt',
 			//'publicly_queryable' => null,
-			'capability_type' => 'page',
-			//'map_meta_cap' => true,
+			'capability_type' => 'campaign-page',
+			'map_meta_cap' => true,
 			//'show_in_ui' => false,
 			'show_in_rest' => true,
 			//'rest_base' => 'pages',
@@ -537,6 +547,24 @@ class LP_Resources
 		}*/
 		
 	}
+	
+	/*public function add_caps_to_admin()
+	{
+		$role = get_role( 'administrator' );
+		$capabilities = compile_post_type_capabilities('campaign-page');
+		foreach ($capabilities as $capability) {
+			$role->add_cap( $capability );
+		}
+	}
+	
+	public function remove_caps_to_admin()
+	{
+		$role = get_role( 'administrator' );
+		$capabilities = compile_post_type_capabilities('campaign-page');
+		foreach ($capabilities as $capability) {
+			$role->remove_cap( $capability );
+		}
+	}*/
 		
 	public function render_block_data($parsed_block, $source_block)
 	{		
@@ -629,7 +657,36 @@ class LP_Resources
 		}
 	}
 	
+	public static function add_admin_capabilities() {
+	
+		$role = get_role( 'administrator' );
+	
+		foreach( self::$customCaps as $cap ){
+			
+			$singular = $cap['singular'];
+			$plural = $cap['plural'];
+	
+			$role->add_cap( "edit_{$singular}" ); 
+			$role->add_cap( "edit_{$plural}" ); 
+			$role->add_cap( "edit_others_{$plural}" ); 
+			$role->add_cap( "publish_{$plural}" ); 
+			$role->add_cap( "read_{$singular}" ); 
+			$role->add_cap( "read_private_{$plural}" ); 
+			$role->add_cap( "delete_{$singular}" ); 
+			$role->add_cap( "delete_{$plural}" );
+			$role->add_cap( "delete_private_{$plural}" );
+			$role->add_cap( "delete_others_{$plural}" );
+			$role->add_cap( "edit_published_{$plural}" );
+			$role->add_cap( "edit_private_{$plural}" );
+			$role->add_cap( "delete_published_{$plural}" );
+			
+		}
+	
+	}
+	
 }
 new LP_Resources;
+
+register_activation_hook( __FILE__, array( LP_Resources::class, 'add_admin_capabilities' ) );
 
 //require_once('parser.php');

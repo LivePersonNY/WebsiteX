@@ -2155,6 +2155,7 @@
 		"/policies/applications-terms-and-use": "/policies/apitou/",
 		"/policies/services-agreement/#apis-api-terms": "/policies/apitou/",
 		"/channels/whatsapp-form": "https://knowledge.liveperson.com/getting-started-quick-start-guides-whatsapp-quick-start.html",
-		"/channels/apple-business-chat-form": "https://static-assets.fs.liveperson.com/ABC/Apple_Implementation_Guide.pdf"
+		"/channels/apple-business-chat-form": "https://static-assets.fs.liveperson.com/ABC/Apple_Implementation_Guide.pdf",
+		"/products/apple-business-chat": "/products/apple-messages-for-business/"
 	}
 }
