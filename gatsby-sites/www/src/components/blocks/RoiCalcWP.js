@@ -4,7 +4,7 @@ import Paragraph from '../Paragraph';
 import { useEffect } from 'react';
 
 
-const RoiCalc = (props) => {
+const RoiCalcWP = (props) => {
 
 
 
@@ -137,4 +137,4 @@ return(
     );
 }
 
-export default RoiCalc;
+export default RoiCalcWP;

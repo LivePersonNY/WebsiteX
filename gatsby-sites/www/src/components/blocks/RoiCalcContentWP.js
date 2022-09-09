@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
-const RoiCalcContent = (props) => {
+const RoiCalcContentWP = (props) => {
   
   return (
     <>
@@ -857,4 +857,4 @@ const RoiCalcContent = (props) => {
   );
 };
 
-export default RoiCalcContent;
+export default RoiCalcContentWP;
