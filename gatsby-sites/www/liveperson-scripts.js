@@ -263,6 +263,13 @@ window.documentReadyFn = function() {
 			}
 		}
 
+		if (document.location.pathname.includes('policies/subprocessors')){
+			$.getScript( "https://visualping.io/externalfiles/widget/vp.min.js" )
+			.done(function() {
+				console.log( 'Visualping done' );
+			});
+		}
+
 		// window.dataLayer.push({'event': 'optimize.activate'}); doesnt really work
 
 		if(document.querySelectorAll('.resume-upload').length > 0){
