@@ -23,7 +23,7 @@ const Roi = () => {
  
   return (
     <Layout mainClass="biz-case">
-      <Seo title="ROI - LP" description="Give you numbers" robots="noindex, nofollow" />
+      <Seo title="ROI Calculator & Analysis | LivePerson" description="Use LivePerson's custom ROI calculator to estimate the potential impact of Conversational AI on your business." robots="noindex, nofollow" />
       <Hero
         backgroundColor="bg-neutral-96"
         header="The business case for going conversational"
