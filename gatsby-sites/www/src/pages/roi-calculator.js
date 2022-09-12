@@ -12,10 +12,6 @@ import NotFoundPage from './404';
 //import $ from 'jquery';
 
 const Roi = () => {
-  
-  if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== "true") {
-    return (<NotFoundPage />);
-  }
 
 
   useEffect(() => {
@@ -27,7 +23,7 @@ const Roi = () => {
  
   return (
     <Layout mainClass="biz-case">
-      <Seo title="ROI - LP" description="Give you numbers" />
+      <Seo title="ROI - LP" description="Give you numbers" robots="noindex, nofollow" />
       <Hero
         backgroundColor="bg-neutral-96"
         header="The business case for going conversational"
