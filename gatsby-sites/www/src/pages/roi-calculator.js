@@ -35,12 +35,12 @@ const Roi = () => {
         vimeoUrl="//player.vimeo.com/video/530992337"
       />
       <RoiCalc
-        annualWebsiteTraffic="1562400000"
-        convRateToSale="0.05"
-        avgOrderValue="250"
-        avgCallVolume="33000000"
-        avgCostPerCall="4.50"
-        firstContactResolution="70.00"
+        annualWebsiteTraffic="0"
+        convRateToSale="0"
+        avgOrderValue="0"
+        avgCallVolume="0"
+        avgCostPerCall="0"
+        firstContactResolution="0"
         locale="en-us"
         currency="USD"
       />
