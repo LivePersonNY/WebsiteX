@@ -14,6 +14,10 @@ const RoiCalc = (props) => {
     
       });
 
+    var roiAnalysisTable = function(){
+        document.querySelector('#roi-analysis-table').scrollIntoView();
+    };
+
 return(
     <div className="pane bg-transparent">
         <div className="container">
@@ -138,7 +142,7 @@ return(
                     <br />
                     <p><i>Please note: These ROI estimations are used to dynamically customize numbers and graphics throughout the rest of this page.</i></p>
                     <br />
-                    <a className="btn btn-outline-secondary" href="#roi-analysis-table">View the detailed results below</a>
+                    <a className="btn btn-outline-secondary" onClick={roiAnalysisTable}>View the detailed results below</a>
                 </div>
             </div>
         </div>
