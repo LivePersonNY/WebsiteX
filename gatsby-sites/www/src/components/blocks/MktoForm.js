@@ -68,7 +68,7 @@ const MktoForm = (props) => {
   
 
   return (
-    <div data-localize={props.autoApprove && `auto-approve`} autoapprove={props.autoApprove && "true"} className={`${props.cssClasses} pane pane-form ${props.sticky ? 'form--sticky' : ''} ${props.backgroundColor||"bg-rainbow"} ${props.header ? 'pane-with-lead-text' : ''}`} style={{display:'none'}}>
+    <div data-localize={props.autoApprove && `auto-approve`} autoapprove={props.autoApprove && "true"} className={`${props.cssClasses} pane pane-form ${props.sticky ? 'form--sticky' : ''} ${props.backgroundColor||"bg-rainbow"} ${props.header ? 'pane-with-lead-text' : ''} ${props.fourFields ? 'mktoForm-four-fields' : ''}`} style={{display:'none'}}>
       <div className="container">
         {props.header && !props.sticky &&(
           <div className="row">
