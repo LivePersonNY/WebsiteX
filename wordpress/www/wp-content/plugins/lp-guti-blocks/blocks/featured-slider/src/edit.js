@@ -21,6 +21,7 @@ import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, B
 
 import AddItemButton from '../../AddItemButton';
 import ItemControls from '../../ItemControls';
+import LinkControl from '../../LinkControl';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import AutoApproveLanguage from '../../AutoApproveLanguage';
 
@@ -67,7 +68,18 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			linkUrl: null,
 			linkText: (
 				<div className="wp-control-wrapper">
-					<TextControl
+					<LinkControl
+						text={itemValues[index].linkText}
+						url={itemValues[index].linkUrl}
+						external={itemValues[index].linkExternal || false}
+						callback={function(text,url,external) {
+							itemValues[index].linkText = text;
+							itemValues[index].linkUrl = url;
+							itemValues[index].linkExternal = external;
+							setAttributes({ features: itemValues});
+						}}
+					/>
+					{/* <TextControl
 						value={itemValues[index].linkText}
 						onChange={function(value) {
 							itemValues[index].linkText = value;
@@ -83,7 +95,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 							setAttributes({ features: itemValues});
 						}}
 						placeholder="Link URL"
-					/>
+					/> */}
 				</div>
 			),
 			body: (
