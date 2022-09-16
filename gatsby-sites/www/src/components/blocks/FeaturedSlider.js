@@ -43,7 +43,7 @@ const FeaturedSlider = (props) => {
               <div className={`${item.img || item.imgCtl ? 'col-lg-5' : 'col-lg-10 offset-lg-1'}`}>
                 <Paragraph className="h3" text={item.body} />
                 {item.linkText && (
-                  <a className="link link-mt-large" href={item.linkUrl}>
+                  <a className="link link-mt-large" href={item.linkUrl} target={item.linkExternal && `_blank`} rel={item.linkExternal && `noopener noreferrer`}>
                     {item.linkText}
                   </a>
                 )}
