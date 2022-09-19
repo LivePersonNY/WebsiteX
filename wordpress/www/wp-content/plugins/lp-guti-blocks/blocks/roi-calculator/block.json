@@ -1,0 +1,28 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/roi-calculator",
+	"version": "0.1.0",
+	"title": "ROI Calculator",
+	"category": "liveperson",
+	"icon": "megaphone",
+	"description": "Featured",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"header": {"default": "How much could you improve revenue growth or reduce operating costs with Conversational AI and messaging?"},
+        "annualWebsiteTraffic": {"default": "1562400000"},
+        "convRateToSale": {"default": "0.05"},
+        "avgOrderValue": {"default": "250"},
+        "avgCallVolume": {"default": "33000000"},
+        "avgCostPerCall": {"default": "4.50"},
+        "firstContactResolution": {"default": "70.00"},
+        "locale": {"default": "en-us"},
+        "currency": {"default": "USD"}
+	}
+}

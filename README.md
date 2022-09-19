@@ -7,3 +7,7 @@
 ## Website X 2022
 
 The official repo of the LivePerson Marketing Website X 2022 project. Full documentation can be [found here](https://livepersonny.github.io/WebsiteX/#/).
+
+GC Notes:
+- New blocks
+-- Lp-guti-blocks.php, blocks/all.js, (You have to register the block the same way the others are registered.)
