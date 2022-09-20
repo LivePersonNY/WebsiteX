@@ -138,6 +138,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	if (isSelected)	return (
 
 		<div {...useBlockProps()}>
+			{annualWebsiteTrafficControl}
 			<RoiCalcWP header={headerControl} annualWebsiteTraffic={annualWebsiteTrafficControl} convRateToSale={convRateToSaleControl} avgOrderValue={avgOrderValueControl} avgCallVolume={avgCallVolumeControl} avgCostPerCall={avgCostPerCallControl} firstContactResolution={firstContactResolutionControl} locale={localeControl} currency={currencyControl} />
 		</div>
 	);
