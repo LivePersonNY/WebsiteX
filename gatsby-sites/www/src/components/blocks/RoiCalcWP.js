@@ -6,10 +6,12 @@ import { useEffect } from 'react';
 
 const RoiCalcWP = (props) => {
 
-    let localeInfo = <script>                   
-    window.showLoc = {`"${props.locale}"`};
-    window.showCurrency = {`"${props.currency}"`};
-    </script>;
+    let localeInfo = 
+    props.currency.toString();
+    // <script>                   
+    // window.showLoc = {`${props.locale.toString()}`};
+    // window.showCurrency = {`"${props.currency}"`};
+    // </script>;
 
 return(
     <div className="pane bg-transparent">
@@ -130,6 +132,14 @@ return(
                         </div>
                     </div>
                     {localeInfo}
+                    <script
+  dangerouslySetInnerHTML={{
+    __html: `
+     window.showLoc = "${props.locale}";
+     window.showCurrency = "${props.currency}";
+        `,
+  }}
+/>
                 </div>
             </div>
         </div>
