@@ -15,7 +15,9 @@ import '../../../../../../../../gatsby-sites/www/liveperson-scripts';
  */
 import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor';
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
-
+const { InspectorControls } = wp.blockEditor;
+const { PanelBody } = wp.components;
+const { Fragment, useState } = wp.element;
 import RoiCalcWP from '../../../../../../../../gatsby-sites/www/src/components/blocks/RoiCalcWP';
 import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
 
