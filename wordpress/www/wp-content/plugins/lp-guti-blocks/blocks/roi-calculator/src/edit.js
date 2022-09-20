@@ -64,81 +64,103 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 				</PanelBody>
 			</InspectorControls>
 		</Fragment>
-		// <TextControl
-		// 	value={ attributes.annualWebsiteTraffic }
-		// 	onChange={ ( val ) => setAttributes( { annualWebsiteTraffic: val } ) }
-		// 	className="embedded-input"
-		// 	placeholder="1562400000"
-		// />
 	);
 
 	let convRateToSaleControl = (
-		<TextControl
-			value={ attributes.convRateToSale }
-			onChange={ ( val ) => setAttributes( { convRateToSale: val } ) }
-			className="embedded-input"
-			placeholder="0.05"
-		/>
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Conv Rate To Sale" initialOpen={ true }>
+					<TextControl value={attributes.convRateToSale} onChange={function(value) {
+						setAttributes({convRateToSale: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
 	);
 
 	let avgOrderValueControl = (
-		<TextControl
-			value={ attributes.avgOrderValue }
-			onChange={ ( val ) => setAttributes( { avgOrderValue: val } ) }
-			className="embedded-input"
-			placeholder="250"
-		/>
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Avg Order Value" initialOpen={ true }>
+					<TextControl value={attributes.avgOrderValue} onChange={function(value) {
+						setAttributes({avgOrderValue: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
 	);
 
 	let avgCallVolumeControl = (
-		<TextControl
-			value={ attributes.avgCallVolume }
-			onChange={ ( val ) => setAttributes( { avgCallVolume: val } ) }
-			className="embedded-input"
-			placeholder="33000000"
-		/>
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Avg Call Volume" initialOpen={ true }>
+					<TextControl value={attributes.avgCallVolume} onChange={function(value) {
+						setAttributes({avgCallVolume: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
 	);
 
 	let avgCostPerCallControl = (
-		<TextControl
-			value={ attributes.avgCostPerCall }
-			onChange={ ( val ) => setAttributes( { avgCostPerCall: val } ) }
-			className="embedded-input"
-			placeholder="4.50"
-		/>
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Avg Cost Per Call" initialOpen={ true }>
+					<TextControl value={attributes.avgCostPerCall} onChange={function(value) {
+						setAttributes({avgCostPerCall: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
 	);
 
 	let firstContactResolutionControl = (
-		<TextControl
-			value={ attributes.firstContactResolution }
-			onChange={ ( val ) => setAttributes( { firstContactResolution: val } ) }
-			className="embedded-input"
-			placeholder="70.00"
-		/>
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="First Contact Resolution" initialOpen={ true }>
+					<TextControl value={attributes.firstContactResolution} onChange={function(value) {
+						setAttributes({firstContactResolution: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
 	);
 
 	let localeControl = (
-		<TextControl
-			value={ attributes.locale }
-			onChange={ ( val ) => setAttributes( { locale: val } ) }
-			className="embedded-input"
-			placeholder="en-us"
-		/>
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Locale" initialOpen={ true }>
+					<TextControl value={attributes.locale} onChange={function(value) {
+						setAttributes({locale: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
 	);
 
 	let currencyControl = (
-		<TextControl
-			value={ attributes.currency }
-			onChange={ ( val ) => setAttributes( { currency: val } ) }
-			className="embedded-input"
-			placeholder="USD"
-		/>
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Currency" initialOpen={ true }>
+					<TextControl value={attributes.currency} onChange={function(value) {
+						setAttributes({currency: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
 	);
 
 	if (isSelected)	return (
 
 		<div {...useBlockProps()}>
 			{annualWebsiteTrafficControl}
+			{convRateToSaleControl}
+			{avgOrderValueControl}
+			{avgCallVolumeControl}
+			{avgCostPerCallControl}
+			{firstContactResolutionControl}
+			{localeControl}
+			{currencyControl}
 			<RoiCalcWP header={headerControl} annualWebsiteTraffic={annualWebsiteTrafficControl} convRateToSale={convRateToSaleControl} avgOrderValue={avgOrderValueControl} avgCallVolume={avgCallVolumeControl} avgCostPerCall={avgCostPerCallControl} firstContactResolution={firstContactResolutionControl} locale={localeControl} currency={currencyControl} />
 		</div>
 	);
