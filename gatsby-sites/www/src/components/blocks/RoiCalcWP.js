@@ -127,8 +127,10 @@ return(
                         </div>
                     </div>
                     <script>
-                    window.showLoc = "{props.locale}";
-                    window.showCurrency = "{props.currency}";
+                    {`
+                    window.showLoc = "${props.locale}";
+                    window.showCurrency = "${props.currency}";
+                    `}
                     </script>
                 </div>
             </div>
