@@ -53,12 +53,21 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	);
 
 	let annualWebsiteTrafficControl = (
-		<TextControl
-			value={ attributes.annualWebsiteTraffic }
-			onChange={ ( val ) => setAttributes( { annualWebsiteTraffic: val } ) }
-			className="embedded-input"
-			placeholder="1562400000"
-		/>
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Annual Website Traffic" initialOpen={ true }>
+					<TextControl value={attributes.annualWebsiteTraffic} onChange={function(value) {
+						setAttributes({annualWebsiteTraffic: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+		// <TextControl
+		// 	value={ attributes.annualWebsiteTraffic }
+		// 	onChange={ ( val ) => setAttributes( { annualWebsiteTraffic: val } ) }
+		// 	className="embedded-input"
+		// 	placeholder="1562400000"
+		// />
 	);
 
 	let convRateToSaleControl = (
