@@ -163,7 +163,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			{firstContactResolutionControl}
 			{localeControl}
 			{currencyControl}
-			<RoiCalcWP header={headerControl} annualWebsiteTraffic={annualWebsiteTrafficControl} convRateToSale={convRateToSaleControl} avgOrderValue={avgOrderValueControl} avgCallVolume={avgCallVolumeControl} avgCostPerCall={avgCostPerCallControl} firstContactResolution={firstContactResolutionControl} locale={localeControl} currency={currencyControl} />
+			<RoiCalcWP header={headerControl} annualWebsiteTraffic={annualWebsiteTrafficControl} convRateToSale={convRateToSaleControl} avgOrderValue={avgOrderValueControl} avgCallVolume={avgCallVolumeControl} avgCostPerCall={avgCostPerCallControl} firstContactResolution={firstContactResolutionControl} locale={attributes.localeControl} currency={attributes.currencyControl} />
 		</div>
 	);
 
