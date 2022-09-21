@@ -66,58 +66,34 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	);
 
 	let imgSrcLeftControl = (
-		<MediaUploadCheck>
-			<MediaUpload
-				onSelect={function(media) {
-					setAttributes({
-						imgSrcLeft: media.url,
-						imgSrcLeftId: media.id,
-						imgSrcLeftAlt: media.alt || ""
-					});
-				}}
-				value={attributes.imgSrcLeftId}
-				allowedTypes={ ['image'] }
-				render={({open}) => (
-					<>
-						{attributes.imgSrcLeft && <img className="imageSelector" src={attributes.imgSrcLeft} onClick={open} /> ||
-						<Button variant="link" onClick={open}>Select Image</Button>
-					}
-						<Button variant="link" isDestructive={true} onClick={() => setAttributes({imgSrcLeft: null, imgSrcLeftId: null})}>Remove Image</Button>
-					</>
-
-				)}
-			/>
-		</MediaUploadCheck>
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Left Image Src" initialOpen={ true }>
+					<TextControl value={attributes.imgSrcLeft} onChange={function(value) {
+						setAttributes({imgSrcLeft: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
 	);
 
 	let imgSrcRightControl = (
-		<MediaUploadCheck>
-			<MediaUpload
-				onSelect={function(media) {
-					setAttributes({
-						imgSrcRight: media.url,
-						imgSrcRightId: media.id,
-						imgSrcRightAlt: media.alt || ""
-					});
-				}}
-				value={attributes.imgSrcRightId}
-				allowedTypes={ ['image'] }
-				render={({open}) => (
-					<>
-						{attributes.imgSrcRight && <img className="imageSelector" src={attributes.imgSrcRight} onClick={open} /> ||
-						<Button variant="link" onClick={open}>Select Image</Button>
-					}
-						<Button variant="link" isDestructive={true} onClick={() => setAttributes({imgSrcRight: null, imgSrcRightId: null})}>Remove Image</Button>
-					</>
-
-				)}
-			/>
-		</MediaUploadCheck>
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Right Image Src" initialOpen={ true }>
+					<TextControl value={attributes.imgSrcRight} onChange={function(value) {
+						setAttributes({imgSrcRight: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
 	);
 
 	if (isSelected)	return (
 
 		<div {...useBlockProps()}>
+			{imgSrcLeftControl}
+			{imgSrcRightControl} 
 			<RoiCalcContentWP 
 				execSummaryTitle={execSummaryTitleControl}
 				execSummaryText={execSummaryTextControl}
