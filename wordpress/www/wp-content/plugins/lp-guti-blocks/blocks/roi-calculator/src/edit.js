@@ -34,6 +34,7 @@ import AutoApproveLanguage from '../../AutoApproveLanguage';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import RoiLocaleSelector from '../../RoiLocaleSelector';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -129,11 +130,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	let localeControl = (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title="Locale" initialOpen={ true }>
-					<TextControl value={attributes.locale} onChange={function(value) {
-						setAttributes({locale: value});
-					}} />
-				</PanelBody>
+				<RoiLocaleSelector selected={attributes.locale} />
 			</InspectorControls>
 		</Fragment>
 	);
