@@ -14,3 +14,5 @@ New blocks:
 
 WP build:
 - in root: composer guti-build
+
+https://developer.wordpress.org/resource/dashicons/

@@ -130,7 +130,9 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	let localeControl = (
 		<Fragment>
 			<InspectorControls>
-				<RoiLocaleSelector selected={attributes.locale} />
+				<PanelBody title="Locale" initialOpen={ true }>
+					<RoiLocaleSelector selected={attributes.locale} />
+				</PanelBody>
 			</InspectorControls>
 		</Fragment>
 	);
