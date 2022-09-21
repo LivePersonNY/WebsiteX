@@ -35,6 +35,7 @@ import AutoApproveLanguage from '../../AutoApproveLanguage';
  */
 import './editor.scss';
 import RoiLocaleSelector from '../../RoiLocaleSelector';
+import RoiCurrencySelector from '../../RoiCurrencySelector';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -141,9 +142,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title="Currency" initialOpen={ true }>
-					<TextControl value={attributes.currency} onChange={function(value) {
-						setAttributes({currency: value});
-					}} />
+					<RoiLocaleSelector selected={attributes.currency} />
 				</PanelBody>
 			</InspectorControls>
 		</Fragment>
