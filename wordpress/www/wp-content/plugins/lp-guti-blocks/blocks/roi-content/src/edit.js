@@ -13,8 +13,7 @@ import '../../../../../../../../gatsby-sites/www/liveperson-scripts';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor';
-const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
+import { useBlockProps, MediaUpload, MediaUploadCheck, BlockControls, InnerBlocks, ButtonBlockerAppender  } from '@wordpress/block-editor';
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
 const { Fragment, useState } = wp.element;
@@ -67,11 +66,53 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	);
 
 	let imgSrcLeftControl = (
-		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={false} />
+		<MediaUploadCheck>
+			<MediaUpload
+				onSelect={function(media) {
+					setAttributes({
+						imgSrcLeft: media.url,
+						imgSrcLeftId: media.id,
+						imgSrcLeftAlt: media.alt || ""
+					});
+				}}
+				value={attributes.imgSrcLeftId}
+				allowedTypes={ ['image'] }
+				render={({open}) => (
+					<>
+						{attributes.imgSrcLeft && <img className="imageSelector" src={attributes.imgSrcLeft} onClick={open} /> ||
+						<Button variant="link" onClick={open}>Select Image</Button>
+					}
+						<Button variant="link" isDestructive={true} onClick={() => setAttributes({imgSrcLeft: null, imgSrcLeftId: null})}>Remove Image</Button>
+					</>
+
+				)}
+			/>
+		</MediaUploadCheck>
 	);
 
 	let imgSrcRightControl = (
-		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={false} />
+		<MediaUploadCheck>
+			<MediaUpload
+				onSelect={function(media) {
+					setAttributes({
+						imgSrcRight: media.url,
+						imgSrcRightId: media.id,
+						imgSrcRightAlt: media.alt || ""
+					});
+				}}
+				value={attributes.imgSrcRightId}
+				allowedTypes={ ['image'] }
+				render={({open}) => (
+					<>
+						{attributes.imgSrcRight && <img className="imageSelector" src={attributes.imgSrcRight} onClick={open} /> ||
+						<Button variant="link" onClick={open}>Select Image</Button>
+					}
+						<Button variant="link" isDestructive={true} onClick={() => setAttributes({imgSrcRight: null, imgSrcRightId: null})}>Remove Image</Button>
+					</>
+
+				)}
+			/>
+		</MediaUploadCheck>
 	);
 
 	if (isSelected)	return (
