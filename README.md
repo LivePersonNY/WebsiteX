@@ -15,4 +15,5 @@ New blocks:
 WP build:
 - in root: composer guti-build
 
+https://developer.wordpress.org/resource/dashicons/
 https://github.com/showdownjs/showdown/wiki/Emojis
