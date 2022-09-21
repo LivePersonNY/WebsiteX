@@ -142,7 +142,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title="Currency" initialOpen={ true }>
-					<RoiLocaleSelector selected={attributes.currency} />
+					<RoiCurrencySelector selected={attributes.currency} />
 				</PanelBody>
 			</InspectorControls>
 		</Fragment>

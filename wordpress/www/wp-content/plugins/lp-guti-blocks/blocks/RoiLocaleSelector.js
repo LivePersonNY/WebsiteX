@@ -3,18 +3,18 @@ import { ToolbarDropdownMenu } from '@wordpress/components';
 export default function RoiLocaleSelector({ callback, selected }) {
 
 	return (<ToolbarDropdownMenu
-		icon="dashicons-admin-site"
+		icon="globe_with_meridians"
 		label="Locale"
 		controls={ [
 			{
 				title: 'en-us (Default)',
 				isActive: selected == 'en-us',
-				icon: 'dashicons-admin-site',
+				icon: 'globe_with_meridians',
 				onClick: () => callback('en-us')
 			},
 			{
 				title: 'en-gb',
-				icon: 'dashicons-admin-site',
+				icon: 'globe_with_meridians',
 				isActive: selected == 'en-gb',
 				onClick: () => callback('en-gb')
 			}
