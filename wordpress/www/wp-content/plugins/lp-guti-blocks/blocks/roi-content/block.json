@@ -1,0 +1,23 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/roi-content",
+	"version": "0.1.0",
+	"title": "ROI Content",
+	"category": "liveperson",
+	"icon": "megaphone",
+	"description": "Featured",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"execSummaryTitle": {"default": "Enormous opportunities for both cost savings and revenue growth"},
+        "execSummaryText": {"default": "LivePerson experts across the globe have led some of the world's largest enterprise brands through the transformation to becoming an intent-driven business, leveraging our industry-recognized conversational AI product suite."},
+        "imgSrcLeft": {"default": "https://assets-global.website-files.com/60ad0c09266ca4208cebb222/61f0301dae93b757991c75d6_IVR%20Deflection%20-%20Yorokobi.png"},
+        "imgSrcRight": {"default": "https://assets-global.website-files.com/60ad0c09266ca4208cebb222/61f030259e1249babbeed9fd_Apple%20Business%20Chat%20-%20Yorokobi.png"}
+	}
+}

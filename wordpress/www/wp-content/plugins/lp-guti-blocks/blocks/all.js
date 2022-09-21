@@ -30,6 +30,7 @@ import './lr-form/src/index';
 import './media-lottie-player/src/index';
 import './careers-search/src/index';
 import './roi-calculator/src/index';
+import './roi-content/src/index';
 
 import $ from 'jquery';
 
