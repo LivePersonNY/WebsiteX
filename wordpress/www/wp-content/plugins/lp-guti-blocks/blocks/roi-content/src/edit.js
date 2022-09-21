@@ -26,6 +26,7 @@ import ItemControls from '../../ItemControls';
 import LinkControl from '../../LinkControl';
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import AutoApproveLanguage from '../../AutoApproveLanguage';
+import MediaPicker from '../../MediaPicker';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -66,11 +67,11 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	);
 
 	let imgSrcLeftControl = (
-		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} />
+		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={false} />
 	);
 
 	let imgSrcRightControl = (
-		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} />
+		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={false} />
 	);
 
 	if (isSelected)	return (
