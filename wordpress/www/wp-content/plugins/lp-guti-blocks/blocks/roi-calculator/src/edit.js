@@ -132,7 +132,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title="Locale" initialOpen={ true }>
-					<RoiLocaleSelector selected={attributes.locale} value={attributes.locale} onChange={function(value) {
+					<RoiLocaleSelector selected={attributes.locale} callback={function(value) {
 						setAttributes({locale: value});
 					}} />
 				</PanelBody>
@@ -144,7 +144,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		<Fragment>
 			<InspectorControls>
 				<PanelBody title="Currency" initialOpen={ true }>
-					<RoiCurrencySelector selected={attributes.currency} value={attributes.currency} onChange={function(value) {
+					<RoiCurrencySelector selected={attributes.currency} callback={function(value) {
 						setAttributes({currency: value});
 					}} />
 				</PanelBody>
