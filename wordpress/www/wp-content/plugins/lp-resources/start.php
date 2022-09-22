@@ -541,17 +541,17 @@ class LP_Resources
 			'graphql_plural_name' => 'campaign_pages',
 		]);
 
-		register_post_type('roi', [
+		register_post_type('roi-page', [
 			'labels' => [
 				'name_admin_bar' => 'ROI Page',
-				'name' => 'ROI Page',
+				'name' => 'ROI Pages',
 				'singular_name' => 'ROI Page',
 			],
 			'public' => true,
 			'menu_icon' => 'dashicons-money-alt',
 			//'publicly_queryable' => null,
 			'capability_type' => 'page',
-			'map_meta_cap' => true,
+			// 'map_meta_cap' => true,
 			//'show_in_ui' => false,
 			'show_in_rest' => true,
 			//'rest_base' => 'pages',
@@ -559,6 +559,11 @@ class LP_Resources
 			'show_in_graphql' => true,
 			'graphql_single_name' => 'roi_page',
 			'graphql_plural_name' => 'roi_pages',
+			'supports' => [
+				'title',
+				'editor',
+				'page-attributes',
+			]
 		]);
 		
 		/*if (!is_user_logged_in() && $_ENV['NO_LOGIN_SCREEN'] === TRUE) {
