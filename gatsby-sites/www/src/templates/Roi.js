@@ -14,11 +14,11 @@ const PageTemplate = ({ pageContext: {page}}) => {
 		return (<NotFoundPage />);
 	}
 
-	useEffect(() => {
+	// useEffect(() => {
     
-		// window.runRoi();
+	// 	window.runRoi();
 		
-	});
+	// });
 	
 	let canRoot = process.env.CAN_ROOT;
 	let canonical = page.seo.canonical || page.link;
@@ -28,7 +28,7 @@ const PageTemplate = ({ pageContext: {page}}) => {
   return (
   <Layout>
 	<Seo title={page.seo.title} description={page.seo.metaDesc} canonical={canonical} robots="noindex, nofollow" />
-	{/* {Parser(page.content)} */}
+	{Parser(page.content)}
   </Layout>)
 };
 
