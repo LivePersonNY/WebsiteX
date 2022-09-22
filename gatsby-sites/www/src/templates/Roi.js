@@ -8,7 +8,7 @@ import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
 import Parser from 'html-react-parser';
 
-const Roi = ({ pageContext: {page}}) => {
+const PageTemplate = ({ pageContext: {page}}) => {
 
 	if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== "true") {
 		return (<NotFoundPage />);
@@ -32,4 +32,4 @@ const Roi = ({ pageContext: {page}}) => {
   </Layout>)
 };
 
-export default Roi;
+export default PageTemplate;
