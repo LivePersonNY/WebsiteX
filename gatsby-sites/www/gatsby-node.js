@@ -213,24 +213,7 @@ async function getRoiPages(props) {
             readingTime
             title
           }
-          wpChildren {
-            nodes {
-              id
-              slug
-              link
-              ... on WpRoi_page {
-                content
-                seo {
-                  canonical
-                }
-              }
-            }
-          }
-          wpParent {
-            node {
-              slug
-            }
-          }
+
         }
       }
     }
