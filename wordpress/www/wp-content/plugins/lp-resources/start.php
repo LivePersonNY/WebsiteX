@@ -543,9 +543,9 @@ class LP_Resources
 
 		register_post_type('roi-page', [
 			'labels' => [
-				'name_admin_bar' => 'ROI Page',
-				'name' => 'ROI Pages',
-				'singular_name' => 'ROI Page',
+				'name_admin_bar' => 'Roi Page',
+				'name' => 'Roi Pages',
+				'singular_name' => 'Roi Page',
 			],
 			'public' => true,
 			'menu_icon' => 'dashicons-money-alt',
