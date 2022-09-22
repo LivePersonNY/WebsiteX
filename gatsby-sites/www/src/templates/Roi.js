@@ -16,7 +16,7 @@ const Roi = ({ pageContext: {page}}) => {
 
 	useEffect(() => {
     
-		window.runRoi();
+		// window.runRoi();
 		
 	});
 	

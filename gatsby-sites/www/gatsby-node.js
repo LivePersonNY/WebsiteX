@@ -80,6 +80,7 @@ exports.createPages = async (props) => {
   }
   
   const policies = await getPolicyPages(props);
+  const roi = await getRoiPages(props);
   
   await createIndividualBlogPostPages({ posts, props });
   
@@ -92,6 +93,7 @@ exports.createPages = async (props) => {
   await createBlogPostCategory({ categories, props });
   
   await createPolicyPages(policies, props);
+  await createRoiPages(roi, props);
 }
 
 async function getPolicyPages(props) {
@@ -170,6 +172,93 @@ async function createPolicyPages(policyPages, props) {
           await props.actions.createPage({
             path: root + page.slug + `/` + child.slug + `/`,
             component: path.resolve(`./src/templates/Policy.js`),
+            context: {
+              page: child
+            }
+          });
+        })
+      }
+    })
+  );
+  
+}
+
+async function getRoiPages(props) {
+  const graphqlResult = await props.graphql(/* GraphQL */ `
+    query RoiQuery {
+      pages: allWpRoiPage {
+        nodes {
+          slug
+          content
+          link
+          id
+          seo {
+            canonical
+            cornerstone
+            focuskw
+            fullHead
+            metaDesc
+            metaKeywords
+            metaRobotsNofollow
+            metaRobotsNoindex
+            opengraphAuthor
+            opengraphDescription
+            opengraphModifiedTime
+            opengraphPublishedTime
+            opengraphPublisher
+            opengraphSiteName
+            opengraphTitle
+            opengraphType
+            opengraphUrl
+            readingTime
+            title
+          }
+          wpChildren {
+            nodes {
+              id
+              slug
+              link
+              ... on WpRoi_page {
+                content
+                seo {
+                  canonical
+                }
+              }
+            }
+          }
+          wpParent {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+    
+  return graphqlResult.data.pages.nodes;
+}
+
+async function createRoiPages(roiPages, props) {
+  
+  root = `roi-cms/`;
+  
+  return Promise.all(
+    roiPages.map(async( page, index) => {
+      if (page.wpParent == null) {
+        await props.actions.createPage({
+          path: root + page.slug + `/`,
+          component: path.resolve(`./src/templates/Roi.js`),
+          context: {
+            page
+          }
+        });
+      }
+      if (page.wpChildren) {
+        page.wpChildren.nodes.map(async( child, index) => {
+          await props.actions.createPage({
+            path: root + page.slug + `/` + child.slug + `/`,
+            component: path.resolve(`./src/templates/Roi.js`),
             context: {
               page: child
             }
