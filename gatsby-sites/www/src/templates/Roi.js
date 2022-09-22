@@ -28,7 +28,7 @@ const Roi = ({ pageContext: {page}}) => {
   return (
   <Layout>
 	<Seo title={page.seo.title} description={page.seo.metaDesc} canonical={canonical} robots="noindex, nofollow" />
-	{Parser(page.content)}
+	{/* {Parser(page.content)} */}
   </Layout>)
 };
 
