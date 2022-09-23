@@ -4,7 +4,7 @@ import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import NotFoundPage from '../pages/404';
 
-import Layout from '../components/Layout';
+import LayoutRoi from '../components/LayoutRoi';
 import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
 import Parser from 'html-react-parser';
@@ -27,10 +27,10 @@ const PageTemplate = ({ pageContext: {page}}) => {
 	
 	if (!page) return "The slug does not exist in the CMS";
   return (
-  <Layout>
+  <LayoutRoi mainClass="biz-case">
 	<Seo title={page.seo.title} description={page.seo.metaDesc} canonical={canonical} robots="noindex, nofollow" />
 	{Parser(page.content)}
-  </Layout>)
+  </LayoutRoi>)
 };
 
 export default PageTemplate;
