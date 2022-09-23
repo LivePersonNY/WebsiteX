@@ -80,7 +80,7 @@ exports.createPages = async (props) => {
   }
   
   const policies = await getPolicyPages(props);
-  const roi = await getRoiPages(props);
+  const roi = await getPolicyPages(props);
   
   await createIndividualBlogPostPages({ posts, props });
   
@@ -185,55 +185,55 @@ async function createPolicyPages(policyPages, props) {
 
 async function getRoiPages(props) {
   const graphqlResult = await props.graphql(/* GraphQL */ `
-  query PolicyQuery {
-    pages: allWpPolicyPage {
-      nodes {
-        slug
-        content
-        link
-        id
-        seo {
-          canonical
-          cornerstone
-          focuskw
-          fullHead
-          metaDesc
-          metaKeywords
-          metaRobotsNofollow
-          metaRobotsNoindex
-          opengraphAuthor
-          opengraphDescription
-          opengraphModifiedTime
-          opengraphPublishedTime
-          opengraphPublisher
-          opengraphSiteName
-          opengraphTitle
-          opengraphType
-          opengraphUrl
-          readingTime
-          title
-        }
-        wpChildren {
-          nodes {
-            id
-            slug
-            link
-            ... on WpPolicy_page {
-              content
-              seo {
-                canonical
+    query RoiQuery {
+      pages: allWpRoiPage {
+        nodes {
+          slug
+          content
+          link
+          id
+          seo {
+            canonical
+            cornerstone
+            focuskw
+            fullHead
+            metaDesc
+            metaKeywords
+            metaRobotsNofollow
+            metaRobotsNoindex
+            opengraphAuthor
+            opengraphDescription
+            opengraphModifiedTime
+            opengraphPublishedTime
+            opengraphPublisher
+            opengraphSiteName
+            opengraphTitle
+            opengraphType
+            opengraphUrl
+            readingTime
+            title
+          }
+          wpChildren {
+            nodes {
+              id
+              slug
+              link
+              ... on WpRoi_page {
+                content
+                seo {
+                  canonical
+                }
               }
             }
           }
-        }
-        wpParent {
-          node {
-            slug
+          wpParent {
+            node {
+              slug
+            }
           }
         }
       }
     }
-  }
   `);
     
   return graphqlResult.data.pages.nodes;
