@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import NotFoundPage from '../pages/404';
 
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
@@ -10,7 +11,15 @@ import Parser from 'html-react-parser';
 
 const PageTemplate = ({ pageContext: {page}}) => {
 
-	
+	if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== "true") {
+		return (<NotFoundPage />);
+	}
+
+	// useEffect(() => {
+    
+	// 	window.runRoi();
+		
+	// });
 	
 	let canRoot = process.env.CAN_ROOT;
 	let canonical = page.seo.canonical || page.link;
