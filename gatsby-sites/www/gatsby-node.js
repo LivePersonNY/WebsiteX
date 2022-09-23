@@ -80,7 +80,7 @@ exports.createPages = async (props) => {
   }
   
   const policies = await getPolicyPages(props);
-  const roi = await getPolicyPages(props);
+  const roi = await getRoiPages(props);
   
   await createIndividualBlogPostPages({ posts, props });
   
