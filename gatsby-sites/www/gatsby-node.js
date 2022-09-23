@@ -248,7 +248,7 @@ async function createRoiPages(roiPages, props) {
       if (page.wpParent == null) {
         await props.actions.createPage({
           path: root + page.slug + `/`,
-          component: path.resolve(`./src/templates/Roi.js`),
+          component: path.resolve(`./src/templates/Policy.js`),
           context: {
             page
           }
@@ -258,7 +258,7 @@ async function createRoiPages(roiPages, props) {
         page.wpChildren.nodes.map(async( child, index) => {
           await props.actions.createPage({
             path: root + page.slug + `/` + child.slug + `/`,
-            component: path.resolve(`./src/templates/Roi.js`),
+            component: path.resolve(`./src/templates/Policy.js`),
             context: {
               page: child
             }
