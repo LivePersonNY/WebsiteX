@@ -10,9 +10,7 @@ import Parser from 'html-react-parser';
 
 const PageTemplate = ({ pageContext: {page}}) => {
 
-	if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== "true") {
-		return (<NotFoundPage />);
-	}
+	
 	
 	let canRoot = process.env.CAN_ROOT;
 	let canonical = page.seo.canonical || page.link;
