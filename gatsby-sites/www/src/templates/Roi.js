@@ -28,7 +28,7 @@ const PageTemplate = ({ pageContext: {page}}) => {
 	if (!page) return "The slug does not exist in the CMS";
   return (
   <LayoutRoi mainClass="biz-case">
-	<Seo title={page.seo.title} description={page.seo.metaDesc} canonical={canonical} robots="noindex, nofollow" />
+	<Seo title={`Business case for ${page.seo.title}`} description="The business case for going Conversational" canonical={canonical} robots="noindex, nofollow" />
 	{Parser(page.content)}
   </LayoutRoi>)
 };

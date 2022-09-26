@@ -1,5 +1,23 @@
-/* Cheating, need to clean this up */
-  
+.biz-case{
+  .navbar{
+    > .container{
+      justify-content: normal;
+      @include media-breakpoint-down(lg) {
+        display: block;
+        text-align: center;
+      }
+      .plus-symbol{
+        width:15px;
+        margin:11px 40px;
+        @include media-breakpoint-down(lg) {
+          margin:10px auto;
+        }
+      }
+    }
+  }
+}
+
+/* Cheating, need to clean this up */  
   .brand {
     position: relative;
     left: 0%;

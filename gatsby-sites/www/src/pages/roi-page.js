@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 //import runRoi from '../../roi-implemented';
 import NotFoundPage from './404';
+import RoiHeaderWP from '../components/blocks/RoiHeaderWP';
 //import $ from 'jquery';
 
 const Roi = () => {
@@ -24,6 +25,9 @@ const Roi = () => {
   return (
     <Layout mainClass="biz-case">
       <Seo title="ROI - LP" description="Give you numbers" />
+      <RoiHeaderWP
+        brandLogo="https://uploads-ssl.webflow.com/60ad0c09266ca4208cebb222/6230dbe546070e2bbb370465_adidas.svg"
+      />
       <Hero
         backgroundColor="bg-neutral-96"
         header="The business case for going conversational"
