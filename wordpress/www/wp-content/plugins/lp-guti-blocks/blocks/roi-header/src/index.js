@@ -25,7 +25,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('lp-guti-blocks/roi-content', {
+registerBlockType('lp-guti-blocks/roi-header', {
 	/**
 	 * @see ./edit.js
 	 */
