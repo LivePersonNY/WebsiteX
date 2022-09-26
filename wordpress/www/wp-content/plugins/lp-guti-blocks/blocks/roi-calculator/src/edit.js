@@ -36,6 +36,7 @@ import AutoApproveLanguage from '../../AutoApproveLanguage';
 import './editor.scss';
 import RoiLocaleSelector from '../../RoiLocaleSelector';
 import RoiCurrencySelector from '../../RoiCurrencySelector';
+import RoiTemplateSelector from '../../RoiTemplateSelector';
 
 /**
  * The edit function describes the structure of your block in the context of the
