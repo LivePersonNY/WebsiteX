@@ -25,6 +25,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save({attributes}) {
 	return (
-		<RoiCalcWP header={attributes.header} annualWebsiteTraffic={attributes.annualWebsiteTraffic} convRateToSale={attributes.convRateToSale} avgOrderValue={attributes.avgOrderValue} avgCallVolume={attributes.avgCallVolume} avgCostPerCall={attributes.avgCostPerCall} firstContactResolution={attributes.firstContactResolution} locale={attributes.locale} currency={attributes.currency} />
+		<RoiCalcWP template={attributes.template} header={attributes.header} annualWebsiteTraffic={attributes.annualWebsiteTraffic} convRateToSale={attributes.convRateToSale} avgOrderValue={attributes.avgOrderValue} avgCallVolume={attributes.avgCallVolume} avgCostPerCall={attributes.avgCostPerCall} firstContactResolution={attributes.firstContactResolution} locale={attributes.locale} currency={attributes.currency} />
 	);
 }

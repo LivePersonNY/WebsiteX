@@ -26,6 +26,7 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function save({attributes}) {
 	return (
 		<RoiCalcContentWP 
+			template={attributes.template}
 			execSummaryTitle={attributes.execSummaryTitle}
 			execSummaryText={attributes.execSummaryText}
 			imgSrcLeft={attributes.imgSrcLeft}
