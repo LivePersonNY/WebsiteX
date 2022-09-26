@@ -15,11 +15,11 @@ const PageTemplate = ({ pageContext: {page}}) => {
 		return (<NotFoundPage />);
 	}
 
-	// useEffect(() => {
+	useEffect(() => {
     
-	// 	window.runRoi();
+		window.runRoi();
 		
-	// });
+	});
 	
 	let canRoot = process.env.CAN_ROOT;
 	let canonical = page.seo.canonical || page.link;

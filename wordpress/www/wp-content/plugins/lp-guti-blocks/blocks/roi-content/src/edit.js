@@ -89,12 +89,26 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		</Fragment>
 	);
 
+	let templateControl = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Template" initialOpen={ true }>
+					<RoiTemplateSelector selected={attributes.template} callback={function(value) {
+						setAttributes({template: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+	);
+
 	if (isSelected)	return (
 
 		<div {...useBlockProps()}>
+			{templateControl}
 			{imgSrcLeftControl}
 			{imgSrcRightControl} 
 			<RoiCalcContentWP 
+				template={templateControl}
 				execSummaryTitle={execSummaryTitleControl}
 				execSummaryText={execSummaryTextControl}
 				imgSrcLeft={imgSrcLeftControl}
@@ -106,6 +120,7 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 	return (
 		<div {...useBlockProps()}>
 			<RoiCalcContentWP 
+				template={attributes.template}
 				execSummaryTitle={attributes.execSummaryTitle}
 				execSummaryText={attributes.execSummaryText}
 				imgSrcLeft={attributes.imgSrcLeft}

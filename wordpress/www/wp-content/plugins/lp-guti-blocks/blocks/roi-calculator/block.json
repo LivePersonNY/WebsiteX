@@ -15,6 +15,7 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
+		"template": {},
 		"header": {"default": "How much could you improve revenue growth or reduce operating costs with Conversational AI and messaging?"},
         "annualWebsiteTraffic": {"default": "1562400000"},
         "convRateToSale": {"default": "0.05"},

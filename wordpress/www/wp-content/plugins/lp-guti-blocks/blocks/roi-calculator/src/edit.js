@@ -152,9 +152,22 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 		</Fragment>
 	);
 
+	let templateControl = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Template" initialOpen={ true }>
+					<RoiTemplateSelector selected={attributes.template} callback={function(value) {
+						setAttributes({template: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+	);
+
 	if (isSelected)	return (
 
 		<div {...useBlockProps()}>
+			{templateControl}
 			{annualWebsiteTrafficControl}
 			{convRateToSaleControl}
 			{avgOrderValueControl}
@@ -163,13 +176,13 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			{firstContactResolutionControl}
 			{localeControl}
 			{currencyControl}
-			<RoiCalcWP header={headerControl} annualWebsiteTraffic={annualWebsiteTrafficControl} convRateToSale={convRateToSaleControl} avgOrderValue={avgOrderValueControl} avgCallVolume={avgCallVolumeControl} avgCostPerCall={avgCostPerCallControl} firstContactResolution={firstContactResolutionControl} locale={attributes.localeControl} currency={attributes.currencyControl} />
+			<RoiCalcWP template={templateControl} header={headerControl} annualWebsiteTraffic={annualWebsiteTrafficControl} convRateToSale={convRateToSaleControl} avgOrderValue={avgOrderValueControl} avgCallVolume={avgCallVolumeControl} avgCostPerCall={avgCostPerCallControl} firstContactResolution={firstContactResolutionControl} locale={attributes.localeControl} currency={attributes.currencyControl} />
 		</div>
 	);
 
 	return (
 		<div {...useBlockProps()}>
-			<RoiCalcWP header={attributes.header} annualWebsiteTraffic={attributes.annualWebsiteTraffic} convRateToSale={attributes.convRateToSale} avgOrderValue={attributes.avgOrderValue} avgCallVolume={attributes.avgCallVolume} avgCostPerCall={attributes.avgCostPerCall} firstContactResolution={attributes.firstContactResolution} locale={attributes.locale} currency={attributes.currency} />
+			<RoiCalcWP template={attributes.template} header={attributes.header} annualWebsiteTraffic={attributes.annualWebsiteTraffic} convRateToSale={attributes.convRateToSale} avgOrderValue={attributes.avgOrderValue} avgCallVolume={attributes.avgCallVolume} avgCostPerCall={attributes.avgCostPerCall} firstContactResolution={attributes.firstContactResolution} locale={attributes.locale} currency={attributes.currency} />
 		</div>
 	)
 

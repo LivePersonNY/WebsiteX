@@ -15,4 +15,8 @@ const LayoutRoi = ({ children, mainClass }) => {
   );
 };
 
+LayoutRoi.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export default LayoutRoi;
