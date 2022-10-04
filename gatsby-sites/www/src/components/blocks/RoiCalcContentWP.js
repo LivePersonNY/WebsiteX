@@ -154,6 +154,10 @@ const RoiCalcContentWP = (props) => {
         </div>
       </div>
 
+      {props.template === 'care' && (
+        <div></div>
+      )}
+
       <div className={`pane bg-neutral-96 roi-content ${props.template === 'sales' ? 'display-none' : ''}`}>
         <div className="container">
             <div className="row align-items-center">
