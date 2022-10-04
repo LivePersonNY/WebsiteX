@@ -213,19 +213,6 @@ async function getRoiPages(props) {
             readingTime
             title
           }
-          wpChildren {
-            nodes {
-              id
-              slug
-              link
-              ... on WpRoi_page {
-                content
-                seo {
-                  canonical
-                }
-              }
-            }
-          }
           wpParent {
             node {
               slug
@@ -253,17 +240,6 @@ async function createRoiPages(roiPages, props) {
             page
           }
         });
-      }
-      if (page.wpChildren) {
-        page.wpChildren.nodes.map(async( child, index) => {
-          await props.actions.createPage({
-            path: page.link + `/` + child.slug + `/`,
-            component: path.resolve(`./src/templates/Roi.js`),
-            context: {
-              page: child
-            }
-          });
-        })
       }
     })
   );
