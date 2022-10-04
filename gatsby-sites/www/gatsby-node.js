@@ -213,11 +213,6 @@ async function getRoiPages(props) {
             readingTime
             title
           }
-          wpParent {
-            node {
-              slug
-            }
-          }
         }
       }
     }
