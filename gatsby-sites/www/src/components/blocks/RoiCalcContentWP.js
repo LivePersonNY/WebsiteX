@@ -16,6 +16,16 @@ const RoiCalcContentWP = (props) => {
             </div>
           <div className="row">
             <div className={`col-lg-6 `}>
+            {props.template === 'care' && (
+                <p>just a test for care</p>
+            )}
+            sales
+            {props.template === 'generic' && (
+                <p>just a test for generic</p>
+            )}
+            {props.template === 'sales' && (
+                <p>just a test for sales</p>
+            )}
               <p>Based on the inputs provided, LivePerson projects an opportunity for your brand to bank about <span id="text_total_benefit" className="text-amounts"></span> in benefit over three years, driven by a lift in sales and average order values as well as a reduction in contact center operating expenses. This benefit will be delivered via a conversational program that allows your customers to simply state what they need from your brand in the same messaging channels they already use to communicate with friends and family, and get answers from a conversational AI that is available to help them 24/7. LivePerson can help build, deliver, and optimize a purely digital and remote contact center model that focuses on automation, all managed on LivePerson’s enterprise-grade Conversational Cloud.</p>
             </div>
             <div className={`col-lg-6 `}>
