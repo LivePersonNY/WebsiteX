@@ -247,7 +247,7 @@ async function createRoiPages(roiPages, props) {
     roiPages.map(async( page, index) => {
       if (page.wpParent == null) {
         await props.actions.createPage({
-          path: root + page.link + `/`,
+          path: page.link + `/`,
           component: path.resolve(`./src/templates/Roi.js`),
           context: {
             page
@@ -257,7 +257,7 @@ async function createRoiPages(roiPages, props) {
       if (page.wpChildren) {
         page.wpChildren.nodes.map(async( child, index) => {
           await props.actions.createPage({
-            path: root + page.link + `/` + child.slug + `/`,
+            path: page.link + `/` + child.slug + `/`,
             component: path.resolve(`./src/templates/Roi.js`),
             context: {
               page: child
