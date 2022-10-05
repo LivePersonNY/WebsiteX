@@ -9,6 +9,7 @@ import './src/resources/scss/index.scss';
 
 export const onRouteUpdate = () => {
   
+  window.MktoForms2 = undefined;
   
   window.dataLayer = window.dataLayer || [];
   window.runRoi = runRoi;

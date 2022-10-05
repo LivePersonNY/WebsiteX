@@ -387,8 +387,7 @@ const LivePerson = {
 				campaignCreative__c: window.lp_attr.campaignContent,
 				cookiesEnabled: window.lp_attr.cookies,
 				oneTrustActiveGroups: window.OnetrustActiveGroups,
-				Company: LivePerson.GetCompany(emailVal, form),
-				_mktoReferrer: document.location.href
+				Company: LivePerson.GetCompany(emailVal, form)
 			};
 			
 			form.vals(vals);		
