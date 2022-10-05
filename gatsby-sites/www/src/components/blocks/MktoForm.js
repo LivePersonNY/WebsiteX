@@ -107,17 +107,9 @@ const MktoForm = (props) => {
             __html: `           
               document.cookie = 'resourceasset=${props.resourceasset ? props.resourceasset : ''}';
               document.cookie = 'resourceAssetURL=${props.resourceAssetURL ? props.resourceAssetURL : ''}';
-              console.log('mkto testing gc2');
             `,
         }}
       />
-      <script
-  dangerouslySetInnerHTML={{
-    __html: `
-    console.log('Plain JavaScript inside Gatsby!');
-`
-  }}
-/>
     </div>
   )
 };

@@ -75,7 +75,6 @@ const IndexPage = () => {
         formId="2581"
         thankyou="Thank you! One of our experts will contact you shortly"
         resourceasset="testassetname"
-        resourceAssetURL="testasseturl"
       />
 
       <CareerStickyCta

@@ -107,13 +107,39 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		</>
 	);
 
+	let resourceassetControl = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Resource Asset Name" initialOpen={ true }>
+					<TextControl value={attributes.resourceasset} onChange={function(value) {
+						setAttributes({resourceasset: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+	);
+
+	let resourceAssetURLControl = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Resource Asset Url" initialOpen={ true }>
+					<TextControl value={attributes.resourceAssetURL} onChange={function(value) {
+						setAttributes({resourceAssetURL: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+	);
+
 	if (isSelected)	{
 
 
 		return (
 			<div {...useBlockProps()}>
 				{addButton}
-				<MktoForm cssClasses={attributes.className} thankyouControl={thankyouControl} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
+				{resourceassetControl}
+				{resourceAssetURLControl}
+				<MktoForm cssClasses={attributes.className} thankyouControl={thankyouControl} header={titleControl} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} resourceassetControl={resourceassetControl} resourceAssetURLControl={resourceAssetURLControl} />
 
 			</div>
 		);
@@ -121,7 +147,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	return (
 		<div {...useBlockProps()}>
-			<MktoForm cssClasses={attributes.className} thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} />
+			<MktoForm cssClasses={attributes.className} thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} runFilters={true} resourceasset={attributes.resourceasset} resourceAssetURL={attributes.resourceAssetURL} />
 		</div>
 	)
 
