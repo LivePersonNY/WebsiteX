@@ -49,6 +49,7 @@ const MktoForm = (props) => {
       } else {
         setIsLoaded(true);
       }
+      console.log('gc test form');
   
     }, []);
     
