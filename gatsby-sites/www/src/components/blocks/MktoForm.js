@@ -40,7 +40,7 @@ const MktoForm = (props) => {
   
       }
       document.getElementsByTagName('head')[0].appendChild(s);
-      };
+    };
   
     useEffect(() => {
   
@@ -102,6 +102,22 @@ const MktoForm = (props) => {
           </div>
         </div>
       </div>
+      <script
+        dangerouslySetInnerHTML={{
+            __html: `           
+              document.cookie = 'resourceasset=${props.resourceasset ? props.resourceasset : ''}';
+              document.cookie = 'resourceAssetURL=${props.resourceAssetURL ? props.resourceAssetURL : ''}';
+              console.log('mkto testing gc2');
+            `,
+        }}
+      />
+      <script
+  dangerouslySetInnerHTML={{
+    __html: `
+    console.log('Plain JavaScript inside Gatsby!');
+`
+  }}
+/>
     </div>
   )
 };
