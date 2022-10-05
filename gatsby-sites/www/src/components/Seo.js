@@ -60,6 +60,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       }
       
       if (isLoaded) {
+        console.log('gc test form3');
         MktoForms.Bind();
       }
       

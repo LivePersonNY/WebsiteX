@@ -54,6 +54,7 @@ const MktoForm = (props) => {
     }, []);
     
     useEffect(() => {
+      console.log('gc test form2');
       if (isLoaded) {
         if ($('#mktoForm_' + formId).children().length == 0 && window.MktoForms2) {
           window.MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId, function(form) {
