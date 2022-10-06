@@ -54,8 +54,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       waitForDocumentReadyFn();
       
       if (!document.getElementById(marketoScriptId)) {
-        console.log('form test1');
-        window.MktoForms2 = '';
         loadFormScript();
       } else {
         setIsLoaded(true);
