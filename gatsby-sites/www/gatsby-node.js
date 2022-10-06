@@ -532,7 +532,7 @@ async function getPosts({ graphql, reporter }) {
       # Query all WordPress blog posts sorted by date
       allWpPost(
         sort: { fields: [date], order: DESC }
-        filter: {isSticky: {eq: false}, seo: {metaRobotsNoindex: {eq: "index"}}}
+        filter: { seo: {metaRobotsNoindex: {eq: "index"}}}
       ) {
         edges {
           previous {
