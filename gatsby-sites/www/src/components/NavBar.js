@@ -138,7 +138,7 @@ const NavBar = ({ siteTitle }) => {
                 )
               } else {
                 return (
-                  <li className="nav-item">
+                  <li className="nav-item" key={index}>
                     <a
                       title={item.title}
                       target={item.target}

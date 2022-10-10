@@ -32,8 +32,8 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
             {children.map(function(item, index) {
               var cssClasses = item.cssClasses.join(" ");
               return (
-              <>
-                <div className={`${cssClasses} col-lg`} key={index}>
+              <React.Fragment key={index}>
+                <div className={`${cssClasses} col-lg`}>
                   <p className="dropdown-section-title h6">{item.label}</p>
                   {item.childItems.nodes.map(function(item, index) {
                     let cssLinkClass = item.cssClasses.join(" ");
@@ -45,8 +45,8 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                     if (item.description) {
                       descr = <span className="dropdown-item-content subtitle3">{item.description}</span>
                     }
-                    return (<li>
-                        <a title={item.title} className={`dropdown-item ${cssLinkClass}`} href={item.path} target={item.target} rel={item.target && `noopener noreferrer`} key={index}>
+                    return (<li key={index}>
+                        <a title={item.title} className={`dropdown-item ${cssLinkClass}`} href={item.path} target={item.target} rel={item.target && `noopener noreferrer`}>
                           <span className={`dropdown-item-span ${extIcon}`}>{item.label}</span>
                           {descr}
                         </a>
@@ -79,7 +79,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                     </div>
                   </div>
                 )}
-              </>
+              </React.Fragment>
               )
             })}
             </div>

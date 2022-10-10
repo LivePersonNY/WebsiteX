@@ -91,17 +91,17 @@ const Footer = () => {
     <footer>
       <div className="container">
         <div className="row">
-          {topItems.nodes.map(function(item) {
+          {topItems.nodes.map(function(item, index) {
             item.childItems.nodes.sort(sortFunc);
             return (
-              <div className="col-lg-2 col-6">
-                {item.childItems.nodes.map(function(section) {
+              <div className="col-lg-2 col-6" key={index}>
+                {item.childItems.nodes.map(function(section, index) {
                   section.childItems.nodes.sort(sortFunc);
                   return (
-                    <div className="footer-section">
+                    <div className="footer-section" key={index}>
                       <p className="footer-section-title">{section.label}</p>
-                      {section.childItems.nodes.map(function(link) {
-                        return (<a href={link.path} className="footer-section-link" target={link.target} rel={item.target && `noopener noreferrer`}>
+                      {section.childItems.nodes.map(function(link, index) {
+                        return (<a href={link.path} className="footer-section-link" target={link.target} rel={item.target && `noopener noreferrer`} key={index}>
                             {link.label}
                           </a>)
                       })}
@@ -119,8 +119,8 @@ const Footer = () => {
             <p className="footer-legal">
               © {new Date().getFullYear()} LivePerson. All rights reserved.
             </p>
-            {legalItems.nodes.map(function(link) {
-              return (<a href={link.path} className="footer-legal footer-legal-link">
+            {legalItems.nodes.map(function(link, index) {
+              return (<a href={link.path} className="footer-legal footer-legal-link" key={index}>
                   {link.label}
                 </a>)
             })}
