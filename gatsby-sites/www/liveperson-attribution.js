@@ -387,7 +387,9 @@ const LivePerson = {
 				campaignCreative__c: window.lp_attr.campaignContent,
 				cookiesEnabled: window.lp_attr.cookies,
 				oneTrustActiveGroups: window.OnetrustActiveGroups,
-				Company: LivePerson.GetCompany(emailVal, form)
+				Company: LivePerson.GetCompany(emailVal, form),
+				resourceasset: document.querySelector('.mkto-resource-asset') ? document.querySelector('.mkto-resource-asset').dataset.resourceasset : '',
+				resourceAssetURL: document.querySelector('.mkto-resource-asset') ? document.querySelector('.mkto-resource-asset').dataset.resourceasseturl : '',
 			};
 			
 			form.vals(vals);		
