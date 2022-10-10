@@ -53,12 +53,11 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
       }
       waitForDocumentReadyFn();
       
-      // if (!document.getElementById(marketoScriptId)) {
-        console.log('formtest 1');
+      if (!document.getElementById(marketoScriptId)) {
         loadFormScript();
-      // } else {
-      //   setIsLoaded(true);
-      // }
+      } else {
+        setIsLoaded(true);
+      }
       
       if (isLoaded) {
         MktoForms.Bind();
