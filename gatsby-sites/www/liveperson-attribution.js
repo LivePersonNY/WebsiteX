@@ -391,6 +391,8 @@ const LivePerson = {
 			};
 			
 			form.vals(vals);		
+
+			form.addHiddenFields({ gcurltest: window.location.href	});
 					
 			form.submittable(true);
 			console.log("Submitting values:", form.vals());

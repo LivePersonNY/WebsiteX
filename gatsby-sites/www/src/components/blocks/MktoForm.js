@@ -102,14 +102,10 @@ const MktoForm = (props) => {
           </div>
         </div>
       </div>
-      <script
-        dangerouslySetInnerHTML={{
-            __html: `           
-              document.cookie = 'resourceasset=${props.resourceasset ? props.resourceasset : ''}';
-              document.cookie = 'resourceAssetURL=${props.resourceAssetURL ? props.resourceAssetURL : ''}';
-            `,
-        }}
-      />
+      {props.resourceasset && (
+        <div data-resourceasset={props.resourceasset} data-resourceAssetURL={props.resourceAssetURL} className="display-none">        
+        </div>
+      )}
     </div>
   )
 };
