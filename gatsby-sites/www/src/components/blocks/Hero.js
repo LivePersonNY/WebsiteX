@@ -25,7 +25,7 @@ const Hero = (props) => {
           {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
           <h1>{props.header}</h1>
           <Paragraph text={props.subHeader} />
-          {props.logoHeader && <h6 className="mt-4">{props.logoHeader}</h6>}
+          {props.logoHeader && <h6 className="mt-4 white-space-break-spaces">{props.logoHeader}</h6>}
           {(props.imgLogoCtl || props.underBodyImg) && (
             <>
               
