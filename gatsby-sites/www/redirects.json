@@ -269,6 +269,7 @@
 		"/whatsapp-activation-call": "/channels/whatsapp-activation-call",
 		"/whatsapp-form": "/channels/whatsapp-form",
 		"/whatsapp-form/cs": "/channels/whatsapp-form-cs",
-		"/whatsapp/*": "/products/whatsapp"
+		"/whatsapp/*": "/products/whatsapp",
+		"/experts/spirituality-religion/tarot-reading/": "https://www.kasamba.com/tarot-reading/"
 	}
 }
