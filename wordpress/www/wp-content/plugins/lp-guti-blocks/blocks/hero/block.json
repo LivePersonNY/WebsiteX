@@ -29,8 +29,16 @@
 		"logoWallAlt": {},
 		"primaryBtnText": {},
 		"primaryBtnLink": {},
+		"linkExternal": {
+			"default": false,
+			"type": "boolean"
+		},
 		"secondaryBtnText": {},
 		"secondaryBtnLink": {},
+		"linkSecondaryExternal": {
+			"default": false,
+			"type": "boolean"
+		},
 		"kicker": {
 			"default": "LIVEPERSON KICKER"
 		},

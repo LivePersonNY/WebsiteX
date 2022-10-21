@@ -35,10 +35,14 @@ const Hero = (props) => {
             </>
           )}
           {props.primaryBtnText && (
-            <a href={props.primaryBtnLink} className={`btn btn-primary`}>{props.primaryBtnText}</a>
+            <a className="btn btn-primary" href={props.primaryBtnLink} target={props.linkExternal && `_blank`} rel={props.linkExternal && `noopener noreferrer`}>
+              {props.primaryBtnText}
+            </a>
           )}
           {props.secondaryBtnText && (
-            <a href={props.secondaryBtnLink} className={`btn btn-outline-secondary`}>{props.secondaryBtnText}</a>
+            <a className="btn btn-outline-secondary" href={props.secondaryBtnLink} target={props.linkSecondaryExternal && `_blank`} rel={props.linkSecondaryExternal && `noopener noreferrer`}>
+              {props.secondaryBtnText}
+            </a>
           )}
         </div>
         <div className={`col-lg-6 offset-lg-1`}>

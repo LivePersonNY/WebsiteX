@@ -162,37 +162,23 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 	);
 
 	let linkTextControl = (
-		<div className="wp-control-wrapper">
-			<TextControl
-				value={ attributes.primaryBtnText }
-				onChange={ ( val ) => setAttributes( { primaryBtnText: val } ) }
-				className="embedded-input"
-				placeholder="Link Text"
-			/>
-
-			<TextControl
-				value={ attributes.primaryBtnLink }
-				onChange={ ( val ) => setAttributes( { primaryBtnLink: val } ) }
-				placeholder="Link URL"
-			/>
-		</div>
+		<LinkControl text={attributes.primaryBtnText} url={attributes.primaryBtnLink} external={attributes.linkExternal} callback={function(text, url, external) {
+			setAttributes({
+				primaryBtnText: text,
+				primaryBtnLink: url,
+				linkExternal: external
+			});
+		}} />
 	);
 
 	let linkSecondaryTextControl = (
-		<div className="wp-control-wrapper">
-			<TextControl
-				value={ attributes.secondaryBtnText }
-				onChange={ ( val ) => setAttributes( { secondaryBtnText: val } ) }
-				className="embedded-input"
-				placeholder="Link Text"
-			/>
-
-			<TextControl
-				value={ attributes.secondaryBtnLink }
-				onChange={ ( val ) => setAttributes( { secondaryBtnLink: val } ) }
-				placeholder="Link URL"
-			/>
-		</div>
+		<LinkControl text={attributes.secondaryBtnText} url={attributes.secondaryBtnLink} external={attributes.linkSecondaryExternal} callback={function(text, url, external) {
+			setAttributes({
+				secondaryBtnText: text,
+				secondaryBtnLink: url,
+				linkSecondaryExternal: external
+			});
+		}} />
 	);
 
 	const innerBlockCount = useSelect( ( select ) => select( 'core/block-editor' ).getBlock( clientId ).innerBlocks );
@@ -276,6 +262,8 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
+				linkExternal={attributes.linkExternal}
+				linkSecondaryExternal={attributes.linkSecondaryExternal}
 				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				removePB={attributes.togglePadding}
 				logoHeader={attributes.logoHeader}

@@ -47,6 +47,8 @@ export default function save({attributes, clientId}) {
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
+				linkExternal={attributes.linkExternal}
+				linkSecondaryExternal={attributes.linkSecondaryExternal}
 				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				removePB={attributes.togglePadding}
 				logoHeader={attributes.logoHeader}
