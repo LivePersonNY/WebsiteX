@@ -27,14 +27,14 @@
 		"logoWall": {},
 		"logoWallId": {},
 		"logoWallAlt": {},
-		"primaryBtnText": {},
-		"primaryBtnLink": {},
+		"primaryBtnText": {"default": "Here's button link text"},
+		"primaryBtnLink": {"default": "https://www.liveperson.com"},
 		"linkExternal": {
 			"default": false,
 			"type": "boolean"
 		},
-		"secondaryBtnText": {},
-		"secondaryBtnLink": {},
+		"secondaryBtnText": {"default": "Here's button link text"},
+		"secondaryBtnLink": {"default": "https://www.liveperson.com"},
 		"linkSecondaryExternal": {
 			"default": false,
 			"type": "boolean"
