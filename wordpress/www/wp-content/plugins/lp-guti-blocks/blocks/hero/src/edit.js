@@ -14,6 +14,7 @@ import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks
 import BackgroundSelectorMenu from '../../BackgroundSelector';
 import * as LottiePlayer from "@lottiefiles/lottie-player";
 import MediaPicker from '../../MediaPicker';
+import LinkControl from '../../LinkControl';
 import AutoApproveLanguage from '../../AutoApproveLanguage';
 import LottieFilePlayer from '../../LottieFilePlayer';
 
