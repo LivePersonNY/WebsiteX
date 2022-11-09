@@ -158,12 +158,38 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		});
 	}
 
+	let resourceassetControl = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Resource Asset Name" initialOpen={ true }>
+					<TextControl value={attributes.resourceasset} onChange={function(value) {
+						setAttributes({resourceasset: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+	);
+
+	let resourceAssetURLControl = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Resource Asset Url" initialOpen={ true }>
+					<TextControl value={attributes.resourceAssetURL} onChange={function(value) {
+						setAttributes({resourceAssetURL: value});
+					}} />
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+	);
+
 	if (isSelected)	{
 
 
 		return (
 			<div {...useBlockProps()}>
 				{addButton}
+				{resourceassetControl}
+				{resourceAssetURLControl}
 				<LRForm
 					cssClasses={attributes.className}
 					thankyouControl={thankyouControl}
@@ -182,6 +208,8 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					lottieFile={attributes.lottieFile}
 					vimeoUrl={attributes.vimeoUrl}
 					mediaKicker={mediaKickerControl}
+					resourceassetControl={resourceassetControl} 
+					resourceAssetURLControl={resourceAssetURLControl}
 				/>
 				<Fragment>
 					<InspectorControls>
@@ -223,6 +251,8 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				vimeoUrl={attributes.vimeoUrl}
 				mediaKicker={attributes.mediaKicker}
+				resourceasset={attributes.resourceasset} 
+				resourceAssetURL={attributes.resourceAssetURL}
 			/>
 		</div>
 	)

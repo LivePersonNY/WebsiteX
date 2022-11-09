@@ -45,6 +45,8 @@ export default function save({attributes}) {
 			lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 			vimeoUrl={attributes.vimeoUrl}
 			mediaKicker={attributes.mediaKicker}
+			resourceasset={attributes.resourceasset} 
+			resourceAssetURL={attributes.resourceAssetURL}
 		/>
 	);
 }

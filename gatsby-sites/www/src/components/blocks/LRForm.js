@@ -113,6 +113,10 @@ const LRForm = (props) => {
             </div>
           </div>
         </div>
+        {props.resourceasset && (
+          <div data-resourceasset={props.resourceasset} data-resourceAssetURL={props.resourceAssetURL} className="display-none mkto-resource-asset">        
+          </div>
+        )}
       </div>
     </>
   );

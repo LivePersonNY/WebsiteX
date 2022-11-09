@@ -53,6 +53,8 @@
 		"mediaKicker": {},
 		"lottieFile": {},
 		"lottieId": {},
-		"vimeoUrl": {}
+		"vimeoUrl": {},
+		"resourceasset": {"default": "" },
+		"resourceAssetURL": {"default": "" }
 	}
 }
