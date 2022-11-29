@@ -9,7 +9,7 @@ import { Link, graphql } from 'gatsby';
 export default function AddThis(props) {
 		
 	useEffect(() => {
-		if (window.addthis) {
+		if (window.addthis && typeof(window.addthis.layers.refresh) === 'function') {
 			window.addthis.layers.refresh();
 			window.addthis.update('share', 'url', props.url);
 		}
