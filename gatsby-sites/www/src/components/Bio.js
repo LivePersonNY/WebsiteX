@@ -59,7 +59,7 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
                   <p className="h5">{author.firstName} {author.lastName}
                     {author.seo.social.mySpace &&
                       <>
-                        <br /><span className="h5 font-italic">{author.seo.social.mySpace}, {author.seo.social.soundCloud}</span>
+                        <br /><span className="h5 bio-company">{author.seo.social.mySpace}, {author.seo.social.soundCloud}</span>
                       </>
                     }
                   </p>

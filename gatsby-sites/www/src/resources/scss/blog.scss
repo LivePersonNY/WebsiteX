@@ -249,6 +249,12 @@ body.blog {
 			float: left;
 			margin-top: 4px;
 
+			.bio-company{
+				font-style: italic;
+				position: relative;
+				top:-5px;
+			}
+
 			.date {
 				margin-top: 0;
 			}
