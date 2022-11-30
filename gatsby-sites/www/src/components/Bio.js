@@ -55,6 +55,9 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
                 </div>
                 <div className="bio-body">
                   <p className="h5">{author.firstName} {author.lastName}</p>
+                  {author.mySpace &&
+                    <p className="h5">{author.mySpace} {author.soundCloud}</p>
+                  }
                   <p className="h6 date">{date} &bull; {readingTime} minutes</p>
                 </div>
               </div>
