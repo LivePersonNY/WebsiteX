@@ -19,6 +19,8 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
             seo {
               social {
                 linkedIn
+                mySpace
+                soundCloud
               }
             }
             description
@@ -54,10 +56,13 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
                   </a>
                 </div>
                 <div className="bio-body">
-                  <p className="h5">{author.firstName} {author.lastName}</p>
-                  {author.mySpace &&
-                    <p className="h5">{author.mySpace} {author.soundCloud}</p>
-                  }
+                  <p className="h5">{author.firstName} {author.lastName}
+                    {author.seo.social.mySpace &&
+                      <>
+                        <br /><span className="h5 font-italic">{author.seo.social.mySpace}, {author.seo.social.soundCloud}</span>
+                      </>
+                    }
+                  </p>
                   <p className="h6 date">{date} &bull; {readingTime} minutes</p>
                 </div>
               </div>
