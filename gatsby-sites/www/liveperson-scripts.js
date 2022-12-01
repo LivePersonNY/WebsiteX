@@ -247,7 +247,7 @@ window.documentReadyFn = function() {
 			.replace(/[\s_-]+/g, '-')
 			.replace(/^-+|-+$/g, '');
 			var policyNumber = `${i + 1}. `;
-			$('.comp-policy-content .policy-toc').append(`<p><a class="link link-no-arrow" href="#${policyHeaderSlug}">${policyNumber}${policyHeader}</a></p>`);
+			$(this).parents('.comp-policy-content').find('.policy-toc').append(`<p><a class="link link-no-arrow" href="#${policyHeaderSlug}">${policyNumber}${policyHeader}</a></p>`);
 			$(this).prepend(policyNumber).attr('id',policyHeaderSlug);
 		});
 
