@@ -239,16 +239,18 @@ window.documentReadyFn = function() {
 			$('.vimeoContainer iframe').attr("onclick", "ga('send', 'event', 'Web 22', 'Click', 'Vimeo Container')");
 		}, 3000);
 
-		$('.comp-policy-content h3').each(function(i){
-			var policyHeader = $(this).html();
-			var policyHeaderSlug = policyHeader.toLowerCase()
-			.trim()
-			.replace(/[^\w\s-]/g, '')
-			.replace(/[\s_-]+/g, '-')
-			.replace(/^-+|-+$/g, '');
-			var policyNumber = `${i + 1}. `;
-			$(this).parents('.comp-policy-content').find('.policy-toc').append(`<p><a class="link link-no-arrow" href="#${policyHeaderSlug}">${policyNumber}${policyHeader}</a></p>`);
-			$(this).prepend(policyNumber).attr('id',policyHeaderSlug);
+		$('.comp-policy-content').each(function(){
+			$(this).find('h3').each(function(i){
+				var policyHeader = $(this).html();
+				var policyHeaderSlug = policyHeader.toLowerCase()
+				.trim()
+				.replace(/[^\w\s-]/g, '')
+				.replace(/[\s_-]+/g, '-')
+				.replace(/^-+|-+$/g, '');
+				var policyNumber = `${i + 1}. `;
+				$(this).parents('.comp-policy-content').find('.policy-toc').append(`<p><a class="link link-no-arrow" href="#${policyHeaderSlug}">${policyNumber}${policyHeader}</a></p>`);
+				$(this).prepend(policyNumber).attr('id',policyHeaderSlug);
+			});
 		});
 
 		if (document.location.pathname.includes('policies/gdpr-data-privacy')){
