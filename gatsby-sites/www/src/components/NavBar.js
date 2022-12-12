@@ -17,6 +17,7 @@ const NavBar = ({ siteTitle }) => {
           filter: {
             menu: { node: { locations: { in: [LOGIN_MENU] } } }
             parentId: { eq: null }
+            cssClasses: {ne: "news-ticker"}
           }
         ) {
           nodes {
