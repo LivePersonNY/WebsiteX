@@ -7,7 +7,7 @@ import NewsTicker from './NewsTicker';
 
 const Header = ({ siteTitle }) => (
   <header>
-    <NewsTicker />
+    {/* <NewsTicker /> */}
     <NavBar siteTitle={siteTitle} />
   </header>
 );
