@@ -44,6 +44,9 @@ const NewsTicker = ({ siteTitle }) => {
 
   return (
     <div className="news-ticker-container">
+      {newsTickerItems.nodes &&
+        <p>test if there</p>
+      }
       {newsTickerItems.nodes.map((item, index) => {
         const cssClasses = item.cssClasses.length
           ? item.cssClasses.join(' ')
