@@ -43,30 +43,31 @@ const NewsTicker = ({ siteTitle }) => {
   );
 
   return (
-    <div className="news-ticker-container">
-      {newsTickerItems.nodes &&
-        <p>test if there</p>
+    <>
+      {newsTickerItems.nodes.length > 0 &&
+        <div className="news-ticker-container">
+          {newsTickerItems.nodes.map((item, index) => {
+            const cssClasses = item.cssClasses.length
+              ? item.cssClasses.join(' ')
+              : 'nav-link';
+            return (
+              <>
+                <p className={cssClasses}>{item.description}</p>
+                <a
+                  target={item.target}
+                  rel={item.target && `noopener noreferrer`}
+                  title={item.title}
+                  className='link'
+                  href={item.path}
+                >
+                  {item.label}
+                </a>
+              </>
+            );
+          })}
+        </div>
       }
-      {newsTickerItems.nodes.map((item, index) => {
-        const cssClasses = item.cssClasses.length
-          ? item.cssClasses.join(' ')
-          : 'nav-link';
-        return (
-          <>
-            <p className={cssClasses}>{item.description}</p>
-            <a
-              target={item.target}
-              rel={item.target && `noopener noreferrer`}
-              title={item.title}
-              className='link'
-              href={item.path}
-            >
-              {item.label}
-            </a>
-          </>
-        );
-      })}
-    </div>
+    </>
   );
 };
 
