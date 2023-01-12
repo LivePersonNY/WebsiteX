@@ -57,7 +57,7 @@ const Hero6 = () => {
                 </div>
                 <div className="col-lg-6 offset-lg-1">
 
-                    <div id="hp-hero-img-carousel" className="carousel slide vertical" data-bs-ride="carousel" data-bs-pause="false">
+                    <div id="hp-hero-img-carousel" className="carousel slide vertical vertical-double" data-bs-ride="carousel" data-bs-pause="false">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
                                 <img src="https://lp-site.s3.amazonaws.com/web2023/img/1-Retail-avatar.png" />
@@ -80,7 +80,7 @@ const Hero6 = () => {
                         </div>
                     </div>
 
-                    <div id="hp-hero-img-carousel-reverse" className="carousel slide vertical vertical-reverse" data-bs-ride="carousel" data-bs-pause="false">
+                    <div id="hp-hero-img-carousel-reverse" className="carousel slide vertical vertical-reverse vertical-double" data-bs-ride="carousel" data-bs-pause="false">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
                                 <img src="https://lp-site.s3.amazonaws.com/web2023/img/1-Retail-ui.png" />

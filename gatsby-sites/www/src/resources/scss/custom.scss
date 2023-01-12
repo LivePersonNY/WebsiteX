@@ -248,8 +248,6 @@ table{
 
 // Start vertical carousel
 .vertical.carousel {
-    display:inline-block;
-    max-width: 304px;
 	.carousel-item {
 		overflow: hidden;
 	}
@@ -317,6 +315,10 @@ table{
 	.active.carousel-item-start {
 		transform: translateY(100%);
 	}
+}
+.vertical.carousel.vertical-double {
+    display:inline-block;
+    max-width: 304px;
 }
 // End vertical carousel
 
