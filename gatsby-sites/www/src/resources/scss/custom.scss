@@ -318,7 +318,7 @@ table{
 }
 .vertical.carousel.vertical-double {
     display:inline-block;
-    max-width: 304px;
+    max-width: 50%;
 }
 // End vertical carousel
 
@@ -387,6 +387,7 @@ $animationSpeed: 30s;
 	margin: auto;
 	overflow:hidden;
 	position: relative;
+    width:50%;
 	
 	&::before,
 	&::after {
