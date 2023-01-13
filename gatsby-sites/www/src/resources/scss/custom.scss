@@ -352,22 +352,22 @@ table{
 
 #hp-hero-text-carousel{
     display:inline-block;
-    max-width:250px;
-    top:13px;
-    left:5px;
+    max-width:330px;
+    top:19px;
+    left:7px;
     &.carousel{
         span{
             background: $h1Gradient;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-family: $familySpaceGrotesk;
+            font-family: $familyKalam;
             font-weight: $fontBold;
             font-size: 32px;
             line-height: 36px;
 
             @include media-breakpoint-up(lg) {
-                font-size: 48px;
-                line-height: 52px;
+                font-size: 72px;
+                line-height: 72px;
             }
         }
         .carousel-item{
@@ -386,6 +386,8 @@ table{
             background:0;
             -webkit-text-fill-color: initial;
             -webkit-background-clip: initial;
+            font-size:72px;
+            line-height:72px;
         }
         .col-lg-6{
             position: relative;

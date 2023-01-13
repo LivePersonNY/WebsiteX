@@ -86,7 +86,7 @@ const Hero6 = () => {
                             </div>
                         </div>    
                     <br />feel human.</h1>
-                    <p data-tag="new line split">Our AI-powered Conversational Cloud makes every user feel seen, heard, and valued</p>
+                    <p data-tag="new line split">Our AI-powered Conversational Cloud© makes every user feel seen, heard, and valued.</p>
                 </div>
                 <div className="col-lg-6 offset-lg-1">
 
