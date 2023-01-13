@@ -17,6 +17,39 @@ const Hero6 = () => {
 
   useEffect(() => {
     
+    var slides = document.querySelectorAll('#hp-hero-img-carousel.carousel .carousel-item, #hp-hero-img-carousel-reverse.carousel .carousel-item')
+    
+    slides.forEach((el) => {
+        // number of slides per carousel-item
+        const minPerSlide = slides.length
+        let next = el.nextElementSibling
+        // for (var i=1; i<minPerSlide; i++) {
+        //     if (!next) {
+        //         // wrap carousel by using first child
+        //         next = slides[0]
+        //     }
+        //     let cloneChild = next.cloneNode(true)
+        //     el.appendChild(cloneChild.children[0])
+        //     next = next.nextElementSibling
+        // }
+        if (!next) {
+            // wrap carousel by using first child
+            next = slides[0]
+        }
+        let cloneChild = next.cloneNode(true)
+        el.appendChild(cloneChild.children[0])
+        next = next.nextElementSibling
+
+        let prev = el.previousElementSibling
+        if (!prev) {
+            // wrap carousel by using first child
+            prev = slides[0]
+        }
+        let cloneChild2 = prev.cloneNode(true)
+        el.prepend(cloneChild2.children[1])
+        prev = prev.previousElementSibling
+        
+    })
     
   });
 
@@ -60,22 +93,22 @@ const Hero6 = () => {
                     <div id="hp-hero-img-carousel" className="carousel slide vertical vertical-double" data-bs-ride="carousel" data-bs-pause="false">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/1-Retail-avatar.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/1-Retail_1x-avatar.png" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/2-Airlines-avatar.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/2-Airlines_1x-avatar.png" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/3-Hospitality-avatar.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/3-Hospitality_1x-avatar.png" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/4-FinServ-avatar.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/4-FinServ_1x-avatar.png" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/5-Telco-avatar.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/5-Telco_1x-avatar.png" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/6-Insurance-avatar.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/6-Insurance_1x-avatar.png" />
                             </div>
                         </div>
                     </div>
@@ -83,22 +116,22 @@ const Hero6 = () => {
                     <div id="hp-hero-img-carousel-reverse" className="carousel slide vertical vertical-reverse vertical-double" data-bs-ride="carousel" data-bs-pause="false">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/1-Retail-ui.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/1-Retail_1x-ui.png" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/2-Airlines-ui.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/2-Airlines_1x-ui.png" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/3-Hospitality-ui.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/3-Hospitality_1x-ui.png" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/4-FinServ-ui.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/4-FinServ_1x-ui.png" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/5-Telco-ui.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/5-Telco_1x-ui.png" />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/6-Insurance-ui.png" />
+                                <img src="https://lp-site.s3.amazonaws.com/web2023/img/6-Insurance_1x-ui.png" />
                             </div>
                         </div>
                     </div>
