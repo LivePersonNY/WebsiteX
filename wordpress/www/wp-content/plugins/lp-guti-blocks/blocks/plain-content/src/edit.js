@@ -50,7 +50,7 @@ import "./editor.scss";
  */
 export default function Edit({ attributes, isSelected, setAttributes }) {
 	let headerControl = (
-		<TextareaControl
+		<RichText
 			value={attributes.header}
 			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
