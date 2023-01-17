@@ -34,7 +34,12 @@ const StatsGrid = (props) => {
                                     headerLevel="nothing"
                                 />
                             </h2>
-                            {props.body && <Paragraph text={props.body} />}
+                            {props.body && (
+                                <Paragraph
+                                    className="text-center"
+                                    text={props.body}
+                                />
+                            )}
                         </div>
                     </div>
                 )}

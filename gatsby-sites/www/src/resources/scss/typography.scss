@@ -121,6 +121,9 @@ h3,
         font-size: inherit;
         line-height: inherit;
         text-decoration: none;
+        background: $h1Gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }
 
