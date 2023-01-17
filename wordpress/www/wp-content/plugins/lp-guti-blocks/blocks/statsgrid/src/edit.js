@@ -23,7 +23,11 @@ import AutoApproveLanguage from "../../AutoApproveLanguage";
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls } from "@wordpress/block-editor";
+import {
+	useBlockProps,
+	BlockControls,
+	RichText,
+} from "@wordpress/block-editor";
 import { useInstanceId } from "@wordpress/compose";
 
 /**
