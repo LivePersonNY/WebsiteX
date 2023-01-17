@@ -827,7 +827,7 @@ img[src*="doubleclick"] {
                     margin-top: 0;
                 }
             }
-            
+
             &:last-child:nth-child(odd) {
                 width: 100% !important;
             }
@@ -1196,7 +1196,7 @@ img[src*="doubleclick"] {
 .pane.comp-team-cards {
     .comp-team-cards-container {
         justify-content:space-evenly;
-        
+
         .col-12 {
             margin-top: 32px;
 
@@ -1261,6 +1261,9 @@ img[src*="doubleclick"] {
 .comp-plain-content {
     .h6 {
         margin-bottom: 8px;
+    }
+    .btn{
+        margin:32px 16px 0 16px;
     }
 }
 
