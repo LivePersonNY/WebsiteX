@@ -229,6 +229,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
 				secondaryBtnLink={attributes.secondaryBtnLink}
+				linkExternal={attributes.linkExternal}
+				linkSecondaryExternal={attributes.linkSecondaryExternal}
 				linkUrl={attributes.linkUrl}
 			/>
 		</div>

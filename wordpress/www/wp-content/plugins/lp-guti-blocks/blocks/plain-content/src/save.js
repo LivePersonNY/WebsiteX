@@ -41,6 +41,8 @@ export default function save({ attributes }) {
 			secondaryBtnText={attributes.secondaryBtnText}
 			primaryBtnLink={attributes.primaryBtnLink}
 			secondaryBtnLink={attributes.secondaryBtnLink}
+			linkExternal={attributes.linkExternal}
+			linkSecondaryExternal={attributes.linkSecondaryExternal}
 		/>
 	);
 }
