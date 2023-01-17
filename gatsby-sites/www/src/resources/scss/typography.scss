@@ -42,6 +42,17 @@ h1,
         font-size: 48px;
         line-height: 52px;
     }
+    s{
+        font-family: $familyKalam;
+        font-weight: $fontBold;
+        font-size: 32px;
+        line-height: 36px;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 72px;
+            line-height: 72px;
+        }
+    }
 }
 
 h2,
