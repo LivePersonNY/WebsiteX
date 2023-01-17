@@ -3,8 +3,8 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import PlainContent from '../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent';
+import { __ } from "@wordpress/i18n";
+import PlainContent from "../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -12,7 +12,7 @@ import PlainContent from '../../../../../../../../gatsby-sites/www/src/component
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -23,20 +23,24 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save({attributes}) {
+export default function save({ attributes }) {
 	return (
-			<PlainContent
-				kicker={attributes.kicker}
-				anchor={attributes.anchor}
-				colWidth={attributes.colWidth}
-				headLevel={attributes.headLevel}
-				alignmentClass={`text-${attributes.alignment}`}
-				header={attributes.header}
-				body={attributes.content}
-				linkText={attributes.linkText}
-				linkUrl={attributes.linkUrl}
-				backgroundColor={attributes.backgroundColor}
-				autoApprove={attributes.autoApproveLang}
-			/>
+		<PlainContent
+			kicker={attributes.kicker}
+			anchor={attributes.anchor}
+			colWidth={attributes.colWidth}
+			headLevel={attributes.headLevel}
+			alignmentClass={`text-${attributes.alignment}`}
+			header={attributes.header}
+			body={attributes.content}
+			linkText={attributes.linkText}
+			linkUrl={attributes.linkUrl}
+			backgroundColor={attributes.backgroundColor}
+			autoApprove={attributes.autoApproveLang}
+			primaryBtnText={attributes.primaryBtnText}
+			secondaryBtnText={attributes.secondaryBtnText}
+			primaryBtnLink={attributes.primaryBtnLink}
+			secondaryBtnLink={attributes.secondaryBtnLink}
+		/>
 	);
 }
