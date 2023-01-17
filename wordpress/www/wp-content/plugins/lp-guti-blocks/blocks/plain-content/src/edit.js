@@ -55,14 +55,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
 			placeholder="Header Text"
-			allowedFormats={[
-				"core/bold",
-				"core/italic",
-				"core/underline",
-				"core/strikethrough",
-				"core/subscript",
-				"core/superscript",
-			]}
+			allowedFormats={["core/bold", "core/italic", "core/strikethrough"]}
 		/>
 	);
 
