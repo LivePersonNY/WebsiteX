@@ -2,6 +2,7 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import Paragraph from "../Paragraph";
+import Parser from "html-react-parser";
 
 const PlainContent = function (props) {
     let headerLevel = props.headLevel || "h2";
@@ -27,7 +28,9 @@ const PlainContent = function (props) {
                                 </p>
                             )}
                             {headerLevel == "h2" && <h2>{props.header}</h2>}
-                            {headerLevel == "h1" && <h1>{props.header}</h1>}
+                            {headerLevel == "h1" && (
+                                <h1>{Parser(props.header)}</h1>
+                            )}
                             {props.body && <Paragraph text={props.body} />}
                             {props.linkText && (
                                 <a
