@@ -6,6 +6,7 @@ import Parser from "html-react-parser";
 
 const PlainContent = function (props) {
     let headerLevel = props.headLevel || "h2";
+    let headerText = Parser(props.header);
 
     return (
         <>
@@ -28,11 +29,7 @@ const PlainContent = function (props) {
                                 </p>
                             )}
                             {headerLevel == "h2" && <h2>{props.header}</h2>}
-                            {headerLevel == "h1" && (
-                                <h1>
-                                    <Paragraph text={props.header} />
-                                </h1>
-                            )}
+                            {headerLevel == "h1" && <h1>{headerText}</h1>}
                             {props.body && <Paragraph text={props.body} />}
                             {props.linkText && (
                                 <a
