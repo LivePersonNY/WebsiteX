@@ -31,7 +31,7 @@ const StatsGrid = (props) => {
                             <h2 className="text-center">
                                 <Paragraph
                                     text={props.header}
-                                    headerLevel={headerLevel}
+                                    headerLevel="nothing"
                                 />
                             </h2>
                             {props.body && <Paragraph text={props.body} />}
