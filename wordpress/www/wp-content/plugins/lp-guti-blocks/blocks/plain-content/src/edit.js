@@ -29,6 +29,7 @@ import {
 	ToolbarButton,
 } from "@wordpress/components";
 import Anchor from "../../Anchor";
+import LinkControl from "../../LinkControl";
 import AutoApproveLanguage from "../../AutoApproveLanguage";
 import BackgroundSelectorMenu from "../../BackgroundSelector";
 /**

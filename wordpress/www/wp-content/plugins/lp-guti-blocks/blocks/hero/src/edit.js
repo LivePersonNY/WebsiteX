@@ -3,30 +3,45 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import $ from 'jquery';
-import { useSelect } from '@wordpress/data';
-import { __experimentalGrid as Grid,Placeholder, ToolbarButton, TextControl, TextareaControl, Button, ResponsiveWrapper } from '@wordpress/components';
+import { __ } from "@wordpress/i18n";
+import $ from "jquery";
+import { useSelect } from "@wordpress/data";
+import {
+	__experimentalGrid as Grid,
+	Placeholder,
+	ToolbarButton,
+	TextControl,
+	TextareaControl,
+	Button,
+	ResponsiveWrapper,
+} from "@wordpress/components";
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
 const { Fragment } = wp.element;
-import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks/Hero';
-import BackgroundSelectorMenu from '../../BackgroundSelector';
+import Hero from "../../../../../../../../gatsby-sites/www/src/components/blocks/Hero";
+import BackgroundSelectorMenu from "../../BackgroundSelector";
 import * as LottiePlayer from "@lottiefiles/lottie-player";
-import MediaPicker from '../../MediaPicker';
-import LinkControl from '../../LinkControl';
-import AutoApproveLanguage from '../../AutoApproveLanguage';
-import LottieFilePlayer from '../../LottieFilePlayer';
+import MediaPicker from "../../MediaPicker";
+import LinkControl from "../../LinkControl";
+import AutoApproveLanguage from "../../AutoApproveLanguage";
+import LottieFilePlayer from "../../LottieFilePlayer";
 
-import LineBreaks from '../../LineBreaks';
+import LineBreaks from "../../LineBreaks";
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, MediaUpload, MediaUploadCheck, BlockControls, InnerBlocks, ButtonBlockerAppender  } from '@wordpress/block-editor';
-import { useInstanceId } from '@wordpress/compose';
+import {
+	useBlockProps,
+	MediaUpload,
+	MediaUploadCheck,
+	BlockControls,
+	InnerBlocks,
+	ButtonBlockerAppender,
+} from "@wordpress/block-editor";
+import { useInstanceId } from "@wordpress/compose";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -34,7 +49,7 @@ import { useInstanceId } from '@wordpress/compose';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -44,16 +59,18 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({attributes, setAttributes, isSelected, clientId}) {
-
-	const instanceId = useInstanceId( TextControl );
-
-
+export default function Edit({
+	attributes,
+	setAttributes,
+	isSelected,
+	clientId,
+}) {
+	const instanceId = useInstanceId(TextControl);
 
 	let logoHeaderControl = (
 		<TextareaControl
-			value={ attributes.logoHeader }
-			onChange={ ( val ) => setAttributes( { logoHeader: val } ) }
+			value={attributes.logoHeader}
+			onChange={(val) => setAttributes({ logoHeader: val })}
 			className="embedded-input"
 			rows="1"
 			placeholder="Logo Header"
@@ -62,8 +79,8 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 
 	let headerControl = (
 		<TextareaControl
-			value={ attributes.header }
-			onChange={ ( val ) => setAttributes( { header: val } ) }
+			value={attributes.header}
+			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
 			rows="1"
 			placeholder="Hero Header"
@@ -72,8 +89,8 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 
 	let kickerControl = (
 		<TextControl
-			value={ attributes.kicker }
-			onChange={ ( val ) => setAttributes( { kicker: val } ) }
+			value={attributes.kicker}
+			onChange={(val) => setAttributes({ kicker: val })}
 			className="embedded-input"
 			placeholder="Kicker"
 		/>
@@ -81,28 +98,39 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 
 	let subHeaderControl = (
 		<TextareaControl
-			value={ attributes.subHeader }
-			onChange={ ( val ) => setAttributes( { subHeader: val } ) }
+			value={attributes.subHeader}
+			onChange={(val) => setAttributes({ subHeader: val })}
 			className="embedded-input"
 			rows="1"
 		/>
 	);
 
 	let imageControl = (
-		<MediaPicker attributes={attributes} setAttributes={setAttributes} allowLottie={true} />
+		<MediaPicker
+			attributes={attributes}
+			setAttributes={setAttributes}
+			allowLottie={true}
+		/>
 	);
 
 	let lottiePlayerElement = (
-		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
-	)
+		<LottieFilePlayer
+			lottieFile={attributes.lottieFile}
+			autoplay={true}
+			loop={true}
+		/>
+	);
 
 	let vimeoUrlControls = (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody title="Vimeo URL" initialOpen={ false }>
-					<TextControl value={attributes.vimeoUrl} onChange={function(value) {
-						setAttributes({vimeoUrl: value});
-					}} />
+				<PanelBody title="Vimeo URL" initialOpen={false}>
+					<TextControl
+						value={attributes.vimeoUrl}
+						onChange={function (value) {
+							setAttributes({ vimeoUrl: value });
+						}}
+					/>
 				</PanelBody>
 			</InspectorControls>
 		</Fragment>
@@ -111,141 +139,174 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 	let logoControl = (
 		<MediaUploadCheck>
 			<MediaUpload
-				onSelect={function(media) {
+				onSelect={function (media) {
 					setAttributes({
 						logoWall: media.url,
 						logoWallId: media.id,
-						logoWallAlt: media.alt || ""
+						logoWallAlt: media.alt || "",
 					});
 				}}
 				value={attributes.logoWallId}
-				allowedTypes={ ['image'] }
-				render={({open}) => (
+				allowedTypes={["image"]}
+				render={({ open }) => (
 					<>
-						{attributes.logoWall && <img className="imageSelector" src={attributes.logoWall} onClick={open} /> ||
-						<Button variant="link" onClick={open}>Select Image</Button>
-					}
-						<Button variant="link" isDestructive={true} onClick={() => setAttributes({logoWall: null, logoWallId: null})}>Remove Image</Button>
+						{(attributes.logoWall && (
+							<img
+								className="imageSelector"
+								src={attributes.logoWall}
+								onClick={open}
+							/>
+						)) || (
+							<Button variant="link" onClick={open}>
+								Select Image
+							</Button>
+						)}
+						<Button
+							variant="link"
+							isDestructive={true}
+							onClick={() =>
+								setAttributes({ logoWall: null, logoWallId: null })
+							}
+						>
+							Remove Image
+						</Button>
 					</>
-
 				)}
 			/>
 		</MediaUploadCheck>
 	);
 
-	let changeHeroBGimage = function(media) {
+	let changeHeroBGimage = function (media) {
 		setAttributes({
 			backgroundImage: media.url,
 			backgroundImageID: media.id,
 		});
-	}
+	};
 
-	let changeBackground = function(color) {
+	let changeBackground = function (color) {
 		setAttributes({ backgroundColor: color });
-	}
+	};
 
 	let addButton = (
 		<BlockControls>
 			<ToolbarButton
 				icon="image-flip-vertical"
 				isActive={attributes.togglePadding}
-				onClick={function() {
-					window.jQuery('.lottie-container').html("");
+				onClick={function () {
+					window.jQuery(".lottie-container").html("");
 					setAttributes({ togglePadding: !attributes.togglePadding });
 				}}
 				label="Toggle Padding"
 			/>
-			<AutoApproveLanguage callback={function() {
-				setAttributes({ autoApproveLang: !attributes.autoApproveLang});
-			}} selected={attributes.autoApproveLang}/>
-			<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+			<AutoApproveLanguage
+				callback={function () {
+					setAttributes({ autoApproveLang: !attributes.autoApproveLang });
+				}}
+				selected={attributes.autoApproveLang}
+			/>
+			<BackgroundSelectorMenu
+				callback={changeBackground}
+				selected={attributes.backgroundColor}
+			/>
 		</BlockControls>
 	);
 
 	let linkTextControl = (
-		<LinkControl text={attributes.primaryBtnText} url={attributes.primaryBtnLink} external={attributes.linkExternal} callback={function(text, url, external) {
-			setAttributes({
-				primaryBtnText: text,
-				primaryBtnLink: url,
-				linkExternal: external
-			});
-		}} />
+		<LinkControl
+			text={attributes.primaryBtnText}
+			url={attributes.primaryBtnLink}
+			external={attributes.linkExternal}
+			callback={function (text, url, external) {
+				setAttributes({
+					primaryBtnText: text,
+					primaryBtnLink: url,
+					linkExternal: external,
+				});
+			}}
+		/>
 	);
 
 	let linkSecondaryTextControl = (
-		<LinkControl text={attributes.secondaryBtnText} url={attributes.secondaryBtnLink} external={attributes.linkSecondaryExternal} callback={function(text, url, external) {
-			setAttributes({
-				secondaryBtnText: text,
-				secondaryBtnLink: url,
-				linkSecondaryExternal: external
-			});
-		}} />
+		<LinkControl
+			text={attributes.secondaryBtnText}
+			url={attributes.secondaryBtnLink}
+			external={attributes.linkSecondaryExternal}
+			callback={function (text, url, external) {
+				setAttributes({
+					secondaryBtnText: text,
+					secondaryBtnLink: url,
+					linkSecondaryExternal: external,
+				});
+			}}
+		/>
 	);
 
-	const innerBlockCount = useSelect( ( select ) => select( 'core/block-editor' ).getBlock( clientId ).innerBlocks );
-	setAttributes({innerBlockCount: innerBlockCount.length});
+	const innerBlockCount = useSelect(
+		(select) => select("core/block-editor").getBlock(clientId).innerBlocks
+	);
+	setAttributes({ innerBlockCount: innerBlockCount.length });
 
 	const appenderToUse = () => {
-		if ( innerBlockCount.length < 1 ) {
-			return (
-				<InnerBlocks.ButtonBlockAppender className="robsclass" />
-			);
+		if (innerBlockCount.length < 1) {
+			return <InnerBlocks.ButtonBlockAppender className="robsclass" />;
 		} else {
 			return false;
 		}
-	}
+	};
 
-	if (isSelected)	return (
-		<div {...useBlockProps()}>
-			{addButton}
-			{vimeoUrlControls}
-			<MediaUploadCheck>
-				<MediaUpload
-					onSelect={changeHeroBGimage}
-					value={attributes.backgroundImageID}
-					allowedTypes={ ['image'] }
-					render={({open}) => (
-						<BlockControls>
-							<ToolbarButton
-								icon="format-image"
-								onClick={open}
-								label="Background Image"
-							/>
-							{attributes.backgroundImageID &&
+	if (isSelected)
+		return (
+			<div {...useBlockProps()}>
+				{addButton}
+				{vimeoUrlControls}
+				<MediaUploadCheck>
+					<MediaUpload
+						onSelect={changeHeroBGimage}
+						value={attributes.backgroundImageID}
+						allowedTypes={["image"]}
+						render={({ open }) => (
+							<BlockControls>
 								<ToolbarButton
-									icon="remove"
-									onClick={() => setAttributes({
-										backgroundImage: '',
-										backgroundImageID: null
-									})}
-									label="Remove Background"
+									icon="format-image"
+									onClick={open}
+									label="Background Image"
 								/>
-							}
-						</BlockControls>
-					)}
+								{attributes.backgroundImageID && (
+									<ToolbarButton
+										icon="remove"
+										onClick={() =>
+											setAttributes({
+												backgroundImage: "",
+												backgroundImageID: null,
+											})
+										}
+										label="Remove Background"
+									/>
+								)}
+							</BlockControls>
+						)}
+					/>
+				</MediaUploadCheck>
+				<Hero
+					lottieFile={attributes.lottieFile}
+					imgLogoCtl={logoControl}
+					backgroundImage={attributes.backgroundImage}
+					backgroundColor={attributes.backgroundColor}
+					header={headerControl}
+					subHeader={subHeaderControl}
+					kicker={kickerControl}
+					imgCtl={!attributes.vimeoUrl && imageControl}
+					primaryBtnText={linkTextControl}
+					secondaryBtnText={linkSecondaryTextControl}
+					runFilters={true}
+					removePB={attributes.togglePadding}
+					logoHeader={logoHeaderControl}
+					vimeoUrl={attributes.vimeoUrl}
+					autoApprove={attributes.autoApproveLang}
+					/*vimeoVideoOption={<InnerBlocks allowedBlocks={['vimeo/create']} renderAppender={ () => appenderToUse() } />}*/
 				/>
-			</MediaUploadCheck>
-			<Hero
-				lottieFile={attributes.lottieFile}
-				imgLogoCtl={logoControl}
-				backgroundImage={attributes.backgroundImage}
-				backgroundColor={attributes.backgroundColor}
-				header={headerControl}
-				subHeader={subHeaderControl}
-				kicker={kickerControl}
-				imgCtl={!attributes.vimeoUrl && imageControl}
-				primaryBtnText={linkTextControl}
-				secondaryBtnText={linkSecondaryTextControl}
-				runFilters={true}
-				removePB={attributes.togglePadding}
-				logoHeader={logoHeaderControl}
-				vimeoUrl={attributes.vimeoUrl}
-				autoApprove={attributes.autoApproveLang}
-				/*vimeoVideoOption={<InnerBlocks allowedBlocks={['vimeo/create']} renderAppender={ () => appenderToUse() } />}*/
-			 />
-		</div>
-
-	);
+			</div>
+		);
 
 	return (
 		<div {...useBlockProps()}>
@@ -276,5 +337,4 @@ export default function Edit({attributes, setAttributes, isSelected, clientId}) 
 			/>
 		</div>
 	);
-
 }
