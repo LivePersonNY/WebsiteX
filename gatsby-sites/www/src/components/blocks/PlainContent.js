@@ -26,7 +26,14 @@ const PlainContent = function (props) {
                                     {props.kicker}
                                 </p>
                             )}
-                            {headerLevel == "h2" && <h2>{props.header}</h2>}
+                            {headerLevel == "h2" && (
+                                <h2>
+                                    <Paragraph
+                                        text={props.header}
+                                        headerLevel={headerLevel}
+                                    />
+                                </h2>
+                            )}
                             {headerLevel == "h1" && (
                                 <h1>
                                     <Paragraph
