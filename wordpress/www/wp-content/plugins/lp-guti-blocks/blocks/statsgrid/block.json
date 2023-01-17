@@ -16,6 +16,7 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"header": {"default": "Plain Header"},
+		"content": {"default": "This should be compelling content. But it isn't."},
 		"statItems": {
 			"type": "array",
 			"autoApproveLang": {"default":false, "type": "boolean"},

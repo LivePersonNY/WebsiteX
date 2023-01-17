@@ -42,17 +42,6 @@ h1,
         font-size: 48px;
         line-height: 52px;
     }
-    s{
-        font-family: $familyKalam;
-        font-weight: $fontBold;
-        font-size: 32px;
-        line-height: 36px;
-
-        @include media-breakpoint-up(lg) {
-            font-size: 72px;
-            line-height: 72px;
-        }
-    }
 }
 
 h2,
@@ -117,6 +106,21 @@ h6,
     @include media-breakpoint-up(lg) {
         font-size: 12px;
         line-height: 16px;
+    }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+    s {
+        font-family: $familyKalam;
+        font-weight: $fontBold;
+        font-size: inherit;
+        line-height: inherit;
+        text-decoration: none;
     }
 }
 
@@ -209,8 +213,6 @@ h6,
     line-height: 16px;
 }
 
-
-
 h1,
 h2,
 h3,
@@ -219,8 +221,8 @@ h5,
 h6 {
     margin: 0;
 
-    +p,
-    +.rich-container {
+    + p,
+    + .rich-container {
         margin-top: 16px;
 
         @include media-breakpoint-up(lg) {
@@ -278,7 +280,7 @@ p {
         margin-top: 15px;
     }
 
-    &.link-no-arrow{
+    &.link-no-arrow {
         &::after {
             background: none;
         }
@@ -324,7 +326,6 @@ p {
         color: $primaryBlue;
         text-decoration: none;
     }
-
 }
 
 .pill {
@@ -337,6 +338,6 @@ p {
     }
 }
 
-.white-space-break-spaces{
+.white-space-break-spaces {
     white-space: break-spaces;
 }

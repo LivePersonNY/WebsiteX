@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,8 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
-import StatsGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/StatsGrid';
+import { useBlockProps } from "@wordpress/block-editor";
+import StatsGrid from "../../../../../../../../gatsby-sites/www/src/components/blocks/StatsGrid";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -24,10 +24,12 @@ import StatsGrid from '../../../../../../../../gatsby-sites/www/src/components/b
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
-	return (<StatsGrid
+	return (
+		<StatsGrid
 			header={attributes.header}
+			body={attributes.content}
 			items={attributes.statItems}
 			autoApprove={attributes.autoApproveLang}
 		/>
-	)
+	);
 }
