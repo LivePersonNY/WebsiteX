@@ -29,7 +29,9 @@ const PlainContent = function (props) {
                             )}
                             {headerLevel == "h2" && <h2>{props.header}</h2>}
                             {headerLevel == "h1" && (
-                                <h1>{Parser(props.header)}</h1>
+                                <h1>
+                                    <Paragraph text={props.header} />
+                                </h1>
                             )}
                             {props.body && <Paragraph text={props.body} />}
                             {props.linkText && (
