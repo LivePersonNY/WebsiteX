@@ -25,6 +25,18 @@
 		"linkUrl": {"default": "https://www.liveperson.com"},
 		"backgroundColor": {},
 		"autoApproveLang": {"default":false, "type": "boolean"},
-		"anchor": {}
+		"anchor": {},
+		"primaryBtnText": {"default": "Here's button link text"},
+		"primaryBtnLink": {"default": "https://www.liveperson.com"},
+		"linkExternal": {
+			"default": false,
+			"type": "boolean"
+		},
+		"secondaryBtnText": {"default": "Here's button link text"},
+		"secondaryBtnLink": {"default": "https://www.liveperson.com"},
+		"linkSecondaryExternal": {
+			"default": false,
+			"type": "boolean"
+		}
 	}
 }
