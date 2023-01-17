@@ -7,7 +7,7 @@ export default function Paragraph(props) {
 
     if (typeof props.text === "string") {
         if (props.headerLevel) {
-            return <p>this is a test</p>;
+            return <p> {Parser(props.text)}</p>;
         }
 
         if (props.collapsible) {
