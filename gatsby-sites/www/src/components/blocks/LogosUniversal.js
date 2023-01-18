@@ -47,9 +47,9 @@ const LogosUniversal = (props) => {
                         {logoImg}
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-lg-10 offset-lg-1 text-center">
-                        {props.linkText && (
+                {props.linkText && (
+                    <div className="row">
+                        <div className="col-lg-10 offset-lg-1 text-center">
                             <a
                                 className="link"
                                 href={props.linkUrl}
@@ -60,9 +60,9 @@ const LogosUniversal = (props) => {
                             >
                                 {props.linkText}
                             </a>
-                        )}
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </div>
     );
