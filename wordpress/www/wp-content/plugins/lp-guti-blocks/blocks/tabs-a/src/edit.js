@@ -3,24 +3,38 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import bootstrap from 'bootstrap';
+import { __ } from "@wordpress/i18n";
+import bootstrap from "bootstrap";
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	BlockControls,
+	RichText,
+} from "@wordpress/block-editor";
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
-import TabsA from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA';
+import TabsA from "../../../../../../../../gatsby-sites/www/src/components/blocks/TabsA";
 
-import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
-import AutoApproveLanguage from '../../AutoApproveLanguage';
-import BackgroundSelectorMenu from '../../BackgroundSelector';
-import AddItemButton from '../../AddItemButton';
-import Anchor from '../../Anchor';
+import {
+	__experimentalGrid as Grid,
+	Placeholder,
+	TextControl,
+	TextareaControl,
+	Button,
+	ResponsiveWrapper,
+	ToolbarGroup,
+	ToolbarButton,
+	Dashicon,
+} from "@wordpress/components";
+import AutoApproveLanguage from "../../AutoApproveLanguage";
+import BackgroundSelectorMenu from "../../BackgroundSelector";
+import AddItemButton from "../../AddItemButton";
+import Anchor from "../../Anchor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -28,7 +42,7 @@ import Anchor from '../../Anchor';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -38,25 +52,30 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({attributes, isSelected, setAttributes, onChange}) {
-
+export default function Edit({
+	attributes,
+	isSelected,
+	setAttributes,
+	onChange,
+}) {
 	let headerControl = (
-		<TextControl
-			value={ attributes.header }
-			onChange={ ( val ) => setAttributes( { header: val } ) }
+		<RichText
+			value={attributes.header}
+			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
 			placeholder="Section Header"
+			allowedFormats={["core/bold", "core/italic", "core/strikethrough"]}
 		/>
 	);
 
 	let bodyControl = (
 		<RichText
-			value={ attributes.body }
-			onChange={ (val) => setAttributes( { body: val } ) }
-			allowedFormats={['core/bold', 'core/italic', 'core/link']}
+			value={attributes.body}
+			onChange={(val) => setAttributes({ body: val })}
+			allowedFormats={["core/bold", "core/italic", "core/link"]}
 			placeholder="Tagline copy for this section"
 		/>
-	)
+	);
 
 	const onSelectMedia = (media) => {
 		/*setAttributes({
@@ -64,21 +83,21 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			mediaUrl: media.url,
 			mediaAlt: media.alt || '',
 		});*/
-	}
+	};
 
-	let changeBackground = function(color) {
+	let changeBackground = function (color) {
 		setAttributes({ backgroundColor: color });
-	}
+	};
 
 	let itemValues = [...attributes.tabItems];
-	let itemControls = attributes.tabItems.map((item ,index)=>{
+	let itemControls = attributes.tabItems.map((item, index) => {
 		return {
 			title: (
 				<TextControl
 					value={itemValues[index].title}
-					onChange={function(value) {
+					onChange={function (value) {
 						itemValues[index].title = value;
-						setAttributes({ tabItems: itemValues});
+						setAttributes({ tabItems: itemValues });
 					}}
 					className="embedded-input"
 				/>
@@ -87,21 +106,20 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 				<div>
 					<RichText
 						value={itemValues[index].body}
-						onChange={function(value) {
+						onChange={function (value) {
 							itemValues[index].body = value;
-							setAttributes({ tabItems: itemValues});
+							setAttributes({ tabItems: itemValues });
 						}}
 						className="embedded-input"
-						allowedFormats={['core/bold', 'core/italic', 'core/link']}
+						allowedFormats={["core/bold", "core/italic", "core/link"]}
 					/>
 					<button
 						className="v-tab-remove"
-						onClick={
-						function(e) {
+						onClick={function (e) {
 							itemValues.splice(index, 1);
-							setAttributes({ tabItems: itemValues});
-						}
-					}>
+							setAttributes({ tabItems: itemValues });
+						}}
+					>
 						<span className="dashicons-before dashicons-remove"></span>
 					</button>
 				</div>
@@ -109,65 +127,93 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			imgCtl: (
 				<MediaUploadCheck>
 					<MediaUpload
-						onSelect={function(media) {
+						onSelect={function (media) {
 							itemValues[index].img = media.url;
 							itemValues[index].mediaId = media.id;
-							itemValues[index].imgAlt = media.alt || '';
-							setAttributes({ tabItems: itemValues});
+							itemValues[index].imgAlt = media.alt || "";
+							setAttributes({ tabItems: itemValues });
 						}}
 						value={itemValues[index].mediaId}
-						allowedTypes={ ['image'] }
-						render={({open}) => (
-							<img className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`} src={itemValues[index].img || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
+						allowedTypes={["image"]}
+						render={({ open }) => (
+							<img
+								className={`comp-tabs-img ${index !== 0 ? "display-none" : ""}`}
+								src={
+									itemValues[index].img ||
+									`https://picsum.photos/752/568?random=${index}`
+								}
+								data-tab-content={index}
+								key={index}
+								onClick={open}
+							/>
 						)}
 					/>
 				</MediaUploadCheck>
-			)
-		}
+			),
+		};
 	});
 
-	let addTabFunc = function() {
-
+	let addTabFunc = function () {
 		let thisIndex = itemValues.length;
 
 		itemValues.push({
 			title: `1914 translation by H. Rackham`,
 			body: `But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.`,
 			img: `https://picsum.photos/752/568?random=${thisIndex}`,
-			imgAlt: 'An image placeholder'
+			imgAlt: "An image placeholder",
 		});
 		setAttributes({
-			tabItems: itemValues
+			tabItems: itemValues,
 		});
-	}
+	};
 
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
 				<AddItemButton callback={addTabFunc} />
-				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
-				<AutoApproveLanguage callback={function() {
-					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
-				}} selected={attributes.autoApproveLang}/>
+				<BackgroundSelectorMenu
+					callback={changeBackground}
+					selected={attributes.backgroundColor}
+				/>
+				<AutoApproveLanguage
+					callback={function () {
+						setAttributes({ autoApproveLang: !attributes.autoApproveLang });
+					}}
+					selected={attributes.autoApproveLang}
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
 
-	if (isSelected)	return (
-
-		<div {...useBlockProps()}>
-			{addButton}
-			<Anchor value={attributes.anchor} callback={function(val) {
-				setAttributes({ anchor: val });
-			}} />
-			<TabsA anchor={attributes.anchor} body={bodyControl} header={headerControl} items={itemControls} backgroundColor={attributes.backgroundColor}/>
-		</div>
-	);
+	if (isSelected)
+		return (
+			<div {...useBlockProps()}>
+				{addButton}
+				<Anchor
+					value={attributes.anchor}
+					callback={function (val) {
+						setAttributes({ anchor: val });
+					}}
+				/>
+				<TabsA
+					anchor={attributes.anchor}
+					body={bodyControl}
+					header={headerControl}
+					items={itemControls}
+					backgroundColor={attributes.backgroundColor}
+				/>
+			</div>
+		);
 
 	return (
 		<div {...useBlockProps()}>
-			<TabsA anchor={attributes.anchor} body={attributes.body} header={attributes.header} items={attributes.tabItems} backgroundColor={attributes.backgroundColor}/>
+			<TabsA
+				anchor={attributes.anchor}
+				body={attributes.body}
+				header={attributes.header}
+				items={attributes.tabItems}
+				backgroundColor={attributes.backgroundColor}
+			/>
 		</div>
-	)
-
+	);
 }
