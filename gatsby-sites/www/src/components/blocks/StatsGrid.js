@@ -54,6 +54,16 @@ const StatsGrid = (props) => {
                         </div>
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col-lg-12">
+                        {props.endBody && (
+                            <Paragraph
+                                className="text-center"
+                                text={props.endBody}
+                            />
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
     );

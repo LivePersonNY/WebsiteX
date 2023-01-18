@@ -30,6 +30,7 @@ export default function save({ attributes }) {
 			body={attributes.content}
 			items={attributes.statItems}
 			autoApprove={attributes.autoApproveLang}
+			endBody={attributes.endBody}
 		/>
 	);
 }

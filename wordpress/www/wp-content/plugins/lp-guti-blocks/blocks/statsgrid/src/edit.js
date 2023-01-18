@@ -72,6 +72,16 @@ export default function Edit({
 		/>
 	);
 
+	let endBodyControl = (
+		<RichText
+			tagName="p"
+			value={attributes.endBody}
+			onChange={(val) => setAttributes({ endBody: val })}
+			className="embedded-input"
+			allowedFormats={["core/bold", "core/italic", "core/link", "core/list"]}
+		/>
+	);
+
 	let stack = [...attributes.statItems];
 	let controls = attributes.statItems.map((item, index) => {
 		return {
@@ -139,6 +149,7 @@ export default function Edit({
 				<StatsGrid
 					header={headerControl}
 					body={contentControl}
+					endBody={endBodyControl}
 					items={controls}
 					autoApprove={attributes.autoApproveLang}
 				/>
@@ -150,6 +161,7 @@ export default function Edit({
 			<StatsGrid
 				header={attributes.header}
 				body={attributes.content}
+				endBody={attributes.endBody}
 				items={attributes.statItems}
 				autoApprove={attributes.autoApproveLang}
 			/>
