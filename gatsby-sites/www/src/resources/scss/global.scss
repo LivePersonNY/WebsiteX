@@ -1,5 +1,3 @@
-
-
 .site-logo {
     max-height: 24px;
 }
@@ -26,7 +24,6 @@
 
 .bg-rainbow {
     background: $rainbow;
-
 }
 
 .bg-grad-image {
@@ -49,7 +46,7 @@
 }
 
 .bg-blue-20 {
-    background: $blue20
+    background: $blue20;
 }
 
 .pb-0 {
@@ -88,47 +85,46 @@
     }
 
     &.bg-primary-light {
-        +.bg-primary-light {
+        + .bg-primary-light {
             @include remTopSameColor;
         }
     }
 
     &.bg-neutral-84 {
-        +.bg-neutral-84 {
+        + .bg-neutral-84 {
             @include remTopSameColor;
         }
     }
 
     &.bg-neutral-92 {
-        +.bg-neutral-92 {
+        + .bg-neutral-92 {
             @include remTopSameColor;
         }
     }
 
     &.bg-neutral-96 {
-        +.bg-neutral-96 {
+        + .bg-neutral-96 {
             @include remTopSameColor;
         }
     }
 
     &.bg-blue-20 {
-        +.bg-blue-20 {
+        + .bg-blue-20 {
             @include remTopSameColor;
         }
     }
 
     &.bg-transparent {
-        +.bg-transparent {
+        + .bg-transparent {
             @include remTopSameColor;
         }
     }
 
     .container {
-        .row>div+div {
+        .row > div + div {
             @include media-breakpoint-down(lg) {
                 margin-top: 24px;
             }
-
         }
     }
 }
@@ -153,7 +149,7 @@ img {
     }
 }
 
-.pane:nth-child(n+4):not(.gated) {
+.pane:nth-child(n + 4):not(.gated) {
     .container {
         opacity: 0;
     }
@@ -350,14 +346,12 @@ img[src*="doubleclick"] {
         &.btn-outline-secondary {
             margin-right: 20px;
 
-            +.btn-link {
+            + .btn-link {
                 padding: 12px 32px;
-
 
                 @include media-breakpoint-up(lg) {
                     margin-top: 40px;
                 }
-
             }
         }
 
@@ -432,10 +426,7 @@ img[src*="doubleclick"] {
             }
         }
     }
-
 }
-
-
 
 .comp-card-grid {
     h2 {
@@ -482,11 +473,11 @@ img[src*="doubleclick"] {
         }
 
         @include media-breakpoint-down(lg) {
-            .carousel-inner .carousel-item>div {
+            .carousel-inner .carousel-item > div {
                 display: none;
             }
 
-            .carousel-inner .carousel-item>div:first-child {
+            .carousel-inner .carousel-item > div:first-child {
                 display: block;
             }
         }
@@ -499,7 +490,6 @@ img[src*="doubleclick"] {
 
         /* medium and up screens */
         @include media-breakpoint-up(lg) {
-
             .carousel-inner .carousel-item-end.active,
             .carousel-inner .carousel-item-next {
                 transform: translateX(33.33%);
@@ -515,7 +505,6 @@ img[src*="doubleclick"] {
         .carousel-inner .carousel-item-start {
             transform: translateX(0);
         }
-
     }
 }
 
@@ -551,7 +540,11 @@ img[src*="doubleclick"] {
             }
 
             .h1 {
-                background: -webkit-linear-gradient(90deg, #3863E5 0%, #8D46EB 86.36%);
+                background: -webkit-linear-gradient(
+                    90deg,
+                    #3863e5 0%,
+                    #8d46eb 86.36%
+                );
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
@@ -560,6 +553,13 @@ img[src*="doubleclick"] {
 
     .subtitle2 {
         margin-top: 8px;
+    }
+
+    .end-body-content {
+        margin-top: 32px;
+        @include media-breakpoint-up(lg) {
+            margin-top: 48px;
+        }
     }
 }
 
@@ -583,7 +583,6 @@ img[src*="doubleclick"] {
 }
 
 .comp-tabs-c {
-
     .pills-container {
         margin: 32px 0;
 
@@ -638,7 +637,6 @@ img[src*="doubleclick"] {
             overflow: auto;
         }
     }
-
 }
 
 .comp-tabs-b {
@@ -708,7 +706,6 @@ img[src*="doubleclick"] {
             }
         }
     }
-
 }
 
 .comp-tabs-a {
@@ -727,7 +724,6 @@ img[src*="doubleclick"] {
             padding-left: 20px;
             border-left: 2px solid $neutral88;
 
-
             &.accordion-item-active {
                 border-left-color: $primaryBlue;
 
@@ -739,7 +735,6 @@ img[src*="doubleclick"] {
                 .subtitle1 {
                     padding-bottom: 20px;
                 }
-
             }
 
             button {
@@ -756,7 +751,6 @@ img[src*="doubleclick"] {
 }
 
 .comp-icon-text-a {
-
     .comp-block-grid-container {
         .col {
             margin-top: 48px;
@@ -797,9 +791,7 @@ img[src*="doubleclick"] {
 }
 
 .comp-icon-text-d {
-
     .comp-block-grid-container {
-
         .col {
             margin-top: 24px;
 
@@ -864,7 +856,10 @@ img[src*="doubleclick"] {
 }
 
 .comp-quote-slider {
-    &.bg-neutral-96, &.bg-blue-20, &.bg-lavendar-20, &.bg-rainbow {
+    &.bg-neutral-96,
+    &.bg-blue-20,
+    &.bg-lavendar-20,
+    &.bg-rainbow {
         .comp-slider-container {
             background: $secondaryLight !important;
         }
@@ -930,7 +925,6 @@ img[src*="doubleclick"] {
 }
 
 .comp-featured-slider {
-
     .carousel-control-prev,
     .carousel-control-next {
         @include media-breakpoint-up(lg) {
@@ -985,7 +979,10 @@ img[src*="doubleclick"] {
             }
         }
     }
-    &.bg-neutral-96, &.bg-blue-20, &.bg-lavendar-20, &.bg-rainbow {
+    &.bg-neutral-96,
+    &.bg-blue-20,
+    &.bg-lavendar-20,
+    &.bg-rainbow {
         .comp-contained-content-container {
             background: $secondaryLight !important;
         }
@@ -1094,14 +1091,12 @@ img[src*="doubleclick"] {
             padding-bottom: 24px;
             border-bottom: 1px solid $neutral84;
 
-
             &.accordion-item-active {
                 border-left-color: $primaryBlue;
 
                 button {
                     margin-bottom: 8px;
                 }
-
             }
 
             button {
@@ -1195,7 +1190,7 @@ img[src*="doubleclick"] {
 
 .pane.comp-team-cards {
     .comp-team-cards-container {
-        justify-content:space-evenly;
+        justify-content: space-evenly;
 
         .col-12 {
             margin-top: 32px;
@@ -1262,14 +1257,13 @@ img[src*="doubleclick"] {
     .h6 {
         margin-bottom: 8px;
     }
-    .btn{
-        margin:32px 16px 0 16px;
+    .btn {
+        margin: 32px 16px 0 16px;
     }
 }
 
 main:not(.company-careers) {
     .carousel.slide {
-
         .carousel-control-prev,
         .carousel-control-next {
             background-image: url("https://static.liveperson.com/static-assets/2022/02/09152152/chevron-icon-sprite-20px%402x.png");
@@ -1348,13 +1342,13 @@ main:not(.company-careers) {
     }
 }
 
-.comp-policy-content{
-    .policy-toc{
-        background:$neutral96;
-        border-radius:4px;
-        padding:56px;
+.comp-policy-content {
+    .policy-toc {
+        background: $neutral96;
+        border-radius: 4px;
+        padding: 56px;
     }
-    .policy-number{
+    .policy-number {
         font-family: $familySpaceGrotesk;
         font-weight: $fontBold;
         font-size: 21px;
@@ -1365,21 +1359,22 @@ main:not(.company-careers) {
             line-height: 32px;
         }
     }
-    h3 + p{
-        margin-top:8px;
+    h3 + p {
+        margin-top: 8px;
     }
 
-    p + h3, ul + h3{
-        padding-top:6px;
+    p + h3,
+    ul + h3 {
+        padding-top: 6px;
         @include media-breakpoint-up(lg) {
-            padding-top:14px;
+            padding-top: 14px;
         }
     }
 
-    li{
-        padding-bottom:16px;
-        &:last-child{
-            padding-bottom:0;
+    li {
+        padding-bottom: 16px;
+        &:last-child {
+            padding-bottom: 0;
         }
     }
 }
