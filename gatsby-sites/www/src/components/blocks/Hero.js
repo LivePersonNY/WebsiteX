@@ -11,20 +11,21 @@ const Hero = (props) => {
         </div>
     );
 
-    let headerText = props.header;
-    headerText = headerText.split('animatedText');
+    let fullAnimation = () => {
+        let headerText = props.header;
+        headerText = headerText.split('animatedText');
 
-    let headerAnimateText = props.animatedText;
-    headerAnimateText = headerAnimateText.split(',');
-    let animatedLoop = headerAnimateText.map((item, index) => {
-        let isActive = '';
-        index == 0 ? (isActive = 'active') : isActive;
-        return `
+        let headerAnimateText = props.animatedText;
+        headerAnimateText = headerAnimateText.split(',');
+        let animatedLoop = headerAnimateText.map((item, index) => {
+            let isActive = '';
+            index == 0 ? (isActive = 'active') : isActive;
+            return `
             <div className="carousel-item ${isActive}" key=${index}>
                 <span> ${item} </span>
             </div>`;
-    });
-    animatedLoop = `<div
+        });
+        animatedLoop = `<div
                         id="hp-hero-text-carousel"
                         className="carousel slide carousel-fade vertical"
                         data-bs-ride="carousel"
@@ -34,7 +35,8 @@ const Hero = (props) => {
                             ''
                         )} </div>
                     </div>`;
-    let fullAnimation = headerText[0] + animatedLoop + headerText[1];
+        return headerText[0] + animatedLoop + headerText[1];
+    };
 
     return (
         <div
@@ -67,7 +69,7 @@ const Hero = (props) => {
                             )}
                             {props.animatedText && (
                                 <Paragraph
-                                    text={fullAnimation}
+                                    text={fullAnimation()}
                                     headerLevel="nothing"
                                 />
                             )}
