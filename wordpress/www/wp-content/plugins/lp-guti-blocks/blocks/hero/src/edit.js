@@ -40,6 +40,7 @@ import {
 	BlockControls,
 	InnerBlocks,
 	ButtonBlockerAppender,
+	RichText,
 } from "@wordpress/block-editor";
 import { useInstanceId } from "@wordpress/compose";
 
