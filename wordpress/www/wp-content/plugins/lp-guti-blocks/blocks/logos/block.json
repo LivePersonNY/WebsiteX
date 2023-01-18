@@ -40,6 +40,12 @@
 					}
 				]
 
+		},
+		"linkText": {"default": "Here's button link text"},
+		"linkUrl": {"default": "https://www.liveperson.com"},
+		"linkExternal": {
+			"default": false,
+			"type": "boolean"
 		}
 	}
 }

@@ -3,13 +3,24 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, ToolbarGroup, ToolbarDropdownMenu, ToolbarButton, Dashicon, Button } from '@wordpress/components';
-import LogosUniversal from '../../../../../../../../gatsby-sites/www/src/components/blocks/LogosUniversal';
-import BackgroundSelectorMenu from '../../BackgroundSelector';
-import ItemControls from '../../ItemControls';
-import AutoApproveLanguage from '../../AutoApproveLanguage';
-import Reorder from 'react-reorder';
+import { __ } from "@wordpress/i18n";
+import {
+	__experimentalGrid as Grid,
+	Placeholder,
+	TextControl,
+	TextareaControl,
+	ToolbarGroup,
+	ToolbarDropdownMenu,
+	ToolbarButton,
+	Dashicon,
+	Button,
+} from "@wordpress/components";
+import LogosUniversal from "../../../../../../../../gatsby-sites/www/src/components/blocks/LogosUniversal";
+import BackgroundSelectorMenu from "../../BackgroundSelector";
+import ItemControls from "../../ItemControls";
+import AutoApproveLanguage from "../../AutoApproveLanguage";
+import LinkControl from "../../LinkControl";
+import Reorder from "react-reorder";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -17,9 +28,14 @@ import Reorder from 'react-reorder';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { useInstanceId } from '@wordpress/compose';
-
+import {
+	useBlockProps,
+	BlockControls,
+	MediaUpload,
+	MediaUploadCheck,
+	RichText,
+} from "@wordpress/block-editor";
+import { useInstanceId } from "@wordpress/compose";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -27,7 +43,7 @@ import { useInstanceId } from '@wordpress/compose';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -37,98 +53,131 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, className, setAttributes, isSelected }) {
-
+export default function Edit({
+	attributes,
+	className,
+	setAttributes,
+	isSelected,
+}) {
 	let headerControl = (
-		<TextControl
-			value={ attributes.header }
-			onChange={ ( val ) => setAttributes( { header: val } ) }
+		<RichText
+			value={attributes.header}
+			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
+			allowedFormats={["core/bold", "core/italic", "core/strikethrough"]}
 		/>
 	);
 
 	let logos = [...attributes.logos];
-	let controls = attributes.logos.map((item ,index)=>{
+	let controls = attributes.logos.map((item, index) => {
 		return {
 			imgCtl: (
 				<div class="logo-control-wrap">
-				<MediaUploadCheck>
-					<MediaUpload
-						onSelect={function(media) {
-							logos[index].img = media.url;
-							logos[index].mediaId = media.id;
-							logos[index].imgAlt = media.alt || '';
-							setAttributes({ logos: logos});
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={function (media) {
+								logos[index].img = media.url;
+								logos[index].mediaId = media.id;
+								logos[index].imgAlt = media.alt || "";
+								setAttributes({ logos: logos });
+							}}
+							value={logos[index].mediaId}
+							allowedTypes={["image"]}
+							render={({ open }) => (
+								<img
+									src={
+										logos[index].img ||
+										`https://picsum.photos/752/568?random=${index}`
+									}
+									data-tab-content={index}
+									key={index}
+									onClick={open}
+								/>
+							)}
+						/>
+					</MediaUploadCheck>
+					<ItemControls
+						index={index}
+						itemArray={logos}
+						callback={function (items) {
+							setAttributes({ logos: logos });
 						}}
-						value={logos[index].mediaId}
-						allowedTypes={ ['image'] }
-						render={({open}) => (
-							<img src={logos[index].img || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
-						)}
 					/>
-				</MediaUploadCheck>
-				<ItemControls
-					index={index}
-					itemArray={logos}
-					callback={function(items) {
-						setAttributes({ logos: logos});
-					}}
-				/>
 				</div>
-			)
-		}
+			),
+		};
 	});
 
-	let addTabFunc = function() {
-
+	let addTabFunc = function () {
 		logos.push({
-			"img": "https://picsum.photos/224/30?random=3",
-			"imgAlt": "Placeholder image"
+			img: "https://picsum.photos/224/30?random=3",
+			imgAlt: "Placeholder image",
 		});
 		setAttributes({
-			logos: logos
+			logos: logos,
 		});
-	}
+	};
 
-	let changeBackground = function(color) {
+	let changeBackground = function (color) {
 		setAttributes({ backgroundColor: color });
-	}
+	};
+
+	let linkTextControl = (
+		<LinkControl
+			text={attributes.linkText}
+			url={attributes.linkUrl}
+			external={attributes.linkExternal}
+			callback={function (text, url, external) {
+				setAttributes({
+					linkText: text,
+					linkUrl: url,
+					linkExternal: external,
+				});
+			}}
+		/>
+	);
 
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
-				<ToolbarButton
-					icon="plus-alt2"
-					label="Add"
-					onClick={ addTabFunc }
+				<ToolbarButton icon="plus-alt2" label="Add" onClick={addTabFunc} />
+				<BackgroundSelectorMenu
+					callback={changeBackground}
+					selected={attributes.backgroundColor}
 				/>
-				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
-				<AutoApproveLanguage callback={function() {
-					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
-				}} selected={attributes.autoApproveLang}/>
+				<AutoApproveLanguage
+					callback={function () {
+						setAttributes({ autoApproveLang: !attributes.autoApproveLang });
+					}}
+					selected={attributes.autoApproveLang}
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
 
-
-	if (isSelected) return (
-		<div { ...useBlockProps() }>
-			{addButton}
-			<LogosUniversal
-				header={headerControl}
-				items={controls}
-				backgroundColor={attributes.backgroundColor}
-			/>
-		</div>
-	);
+	if (isSelected)
+		return (
+			<div {...useBlockProps()}>
+				{addButton}
+				<LogosUniversal
+					header={headerControl}
+					items={controls}
+					backgroundColor={attributes.backgroundColor}
+					linkText={linkTextControl}
+				/>
+			</div>
+		);
 
 	return (
-		<div { ...useBlockProps() }>
+		<div {...useBlockProps()}>
 			<LogosUniversal
 				header={attributes.header}
 				items={attributes.logos}
 				backgroundColor={attributes.backgroundColor}
+				linkUrl={attributes.linkUrl}
+				linkText={attributes.linkText}
+				linkExternal={attributes.linkExternal}
 			/>
 		</div>
-	)
+	);
 }

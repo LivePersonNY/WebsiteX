@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,8 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
-import LogosUniversal from '../../../../../../../../gatsby-sites/www/src/components/blocks/LogosUniversal';
+import { useBlockProps } from "@wordpress/block-editor";
+import LogosUniversal from "../../../../../../../../gatsby-sites/www/src/components/blocks/LogosUniversal";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -30,6 +30,9 @@ export default function save({ attributes }) {
 			items={attributes.logos}
 			backgroundColor={attributes.backgroundColor}
 			autoApprove={attributes.autoApproveLang}
+			linkUrl={attributes.linkUrl}
+			linkText={attributes.linkText}
+			linkExternal={attributes.linkExternal}
 		/>
-	)
+	);
 }
