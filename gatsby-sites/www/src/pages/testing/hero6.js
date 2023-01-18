@@ -1,24 +1,25 @@
-import * as React from "react";
-import { useEffect } from "react";
-import CardGridB from "../../components/blocks/CardGridB";
-import Layout from "../../components/Layout";
-import Seo from "../../components/Seo";
-import NotFoundPage from "../404";
+import * as React from 'react';
+import { useEffect } from 'react';
+import CardGridB from '../../components/blocks/CardGridB';
+import Hero from '../../components/blocks/Hero';
+import Layout from '../../components/Layout';
+import Seo from '../../components/Seo';
+import NotFoundPage from '../404';
 //import $ from 'jquery';
 
 // Bootstrap carousel, separate images, opposite directions
 
 const Hero6 = () => {
     if (
-        process.env.BRANCH != "develop" &&
-        process.env.GATSBY_IS_PREVIEW !== "true"
+        process.env.BRANCH != 'develop' &&
+        process.env.GATSBY_IS_PREVIEW !== 'true'
     ) {
         return <NotFoundPage />;
     }
 
     useEffect(() => {
         var slides = document.querySelectorAll(
-            "#hp-hero-img-carousel.carousel .carousel-item, #hp-hero-img-carousel-reverse.carousel .carousel-item"
+            '#hp-hero-img-carousel.carousel .carousel-item, #hp-hero-img-carousel-reverse.carousel .carousel-item'
         );
 
         slides.forEach((el) => {
@@ -61,6 +62,13 @@ const Hero6 = () => {
                 robots="noindex, nofollow"
             />
 
+            <Hero
+                kicker="This is kicker"
+                header="here is the header adding more content <s>here to</s> test animatedText out and see what happens"
+                subHeader="here is the sub header content"
+                animatedText="one, two, three"
+            />
+
             <div className="pane hero bg-neutral-96 ">
                 <div className="container">
                     <div className="row align-items-center">
@@ -68,7 +76,7 @@ const Hero6 = () => {
                             <h1>
                                 Make
                                 <div
-                                    id="hp-hero-text-carousel"
+                                    id="hp-hero-text-carousel-testtest"
                                     className="carousel slide carousel-fade vertical"
                                     data-bs-ride="carousel"
                                     data-bs-pause="false"
@@ -169,24 +177,24 @@ const Hero6 = () => {
                 body="We love our people. And it turns out, they love working here. In fact, we were just added to Newsweek’s Most-Loved Workplaces list — the top 100 companies that get recognized for employee happiness and satisfaction at work. We’ve also been awarded the world’s top honors for innovation, artificial intelligence, and customer service and sales technology."
                 items={[
                     {
-                        imgSrc: "https://static.liveperson.com/static-assets/2022/06/06133936/FC-2022_Careers-2x.png",
-                        imgAlt: "Alt text",
-                        cardTitle: "Most Innovative Companies",
+                        imgSrc: 'https://static.liveperson.com/static-assets/2022/06/06133936/FC-2022_Careers-2x.png',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Most Innovative Companies',
                     },
                     {
-                        imgSrc: "https://static.liveperson.com/static-assets/2022/02/08142540/61708951d071150efe0af3f0_AmericaLPWork.png",
-                        imgAlt: "Alt text",
+                        imgSrc: 'https://static.liveperson.com/static-assets/2022/02/08142540/61708951d071150efe0af3f0_AmericaLPWork.png',
+                        imgAlt: 'Alt text',
                         cardTitle: "America's Most Loved Workplaces",
                     },
                     {
-                        imgSrc: "https://static.liveperson.com/static-assets/2022/02/08142541/61708911126dfaf6f0b16d2c_IsraelBestPlacesToWork.png",
-                        imgAlt: "Alt text",
-                        cardTitle: "Israel: Best Places to Work",
+                        imgSrc: 'https://static.liveperson.com/static-assets/2022/02/08142541/61708911126dfaf6f0b16d2c_IsraelBestPlacesToWork.png',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Israel: Best Places to Work',
                     },
                     {
-                        imgSrc: "https://static.liveperson.com/static-assets/2022/02/08142542/616e08d83f886e243d3c7caa_germany_great_place.jpg",
-                        imgAlt: "Alt text",
-                        cardTitle: "Germany: Great Place to Work",
+                        imgSrc: 'https://static.liveperson.com/static-assets/2022/02/08142542/616e08d83f886e243d3c7caa_germany_great_place.jpg',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Germany: Great Place to Work',
                     },
                 ]}
             />

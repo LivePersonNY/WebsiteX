@@ -1,7 +1,8 @@
-import * as React from "react";
-import Link from "gatsby-link";
-import Paragraph from "../Paragraph";
-import { useEffect } from "react";
+import * as React from 'react';
+import Link from 'gatsby-link';
+import Paragraph from '../Paragraph';
+import { useEffect } from 'react';
+import Parser from 'html-react-parser';
 
 const Hero = (props) => {
     let vFrame = (
@@ -10,14 +11,39 @@ const Hero = (props) => {
         </div>
     );
 
+    let headerText = props.header;
+    headerText = headerText.split('animatedText');
+
+    let headerAnimateText = props.animatedText;
+    headerAnimateText = headerAnimateText.split(',');
+    let animatedLoop = headerAnimateText.map((item, index) => {
+        let isActive = '';
+        index == 0 ? (isActive = 'active') : isActive;
+        return `
+            <div className="carousel-item ${isActive}" key=${index}>
+                <span> ${item} </span>
+            </div>`;
+    });
+    animatedLoop = `<div
+                        id="hp-hero-text-carousel"
+                        className="carousel slide carousel-fade vertical"
+                        data-bs-ride="carousel"
+                        data-bs-pause="false"
+                    >
+                        <div className="carousel-inner"> ${animatedLoop.join(
+                            ''
+                        )} </div>
+                    </div>`;
+    let fullAnimation = headerText[0] + animatedLoop + headerText[1];
+
     return (
         <div
             id={props.anchor}
             data-localize={props.autoApprove && `auto-approve`}
-            autoapprove={props.autoApprove && "true"}
+            autoapprove={props.autoApprove && 'true'}
             className={`pane hero ${
-                props.backgroundColor || "bg-transparent"
-            } ${props.removePB ? "rem-padding" : ""}`}
+                props.backgroundColor || 'bg-transparent'
+            } ${props.removePB ? 'rem-padding' : ''}`}
         >
             {props.backgroundImage && (
                 <style>
@@ -33,10 +59,18 @@ const Hero = (props) => {
                             <p className="h6 text-uppercase">{props.kicker}</p>
                         )}
                         <h1>
-                            <Paragraph
-                                text={props.header}
-                                headerLevel="nothing"
-                            />
+                            {!props.animatedText && (
+                                <Paragraph
+                                    text={props.header}
+                                    headerLevel="nothing"
+                                />
+                            )}
+                            {props.animatedText && (
+                                <Paragraph
+                                    text={fullAnimation}
+                                    headerLevel="nothing"
+                                />
+                            )}
                         </h1>
                         <Paragraph text={props.subHeader} />
                         {props.logoHeader && (
@@ -92,7 +126,7 @@ const Hero = (props) => {
                                         Math.random() * 100
                                     )}`
                                 }
-                                alt={props.heroImageAlt || ""}
+                                alt={props.heroImageAlt || ''}
                             />
                         )) ||
                             props.imgCtl ||
