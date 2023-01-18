@@ -336,6 +336,13 @@ img[src*="doubleclick"] {
         margin-bottom: 8px;
     }
 
+    .left-right-main-header {
+        margin-bottom: 42px;
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 72px;
+        }
+    }
+
     .btn {
         margin-top: 20px;
 
