@@ -899,6 +899,12 @@ img[src*="doubleclick"] {
             padding: 20px;
         }
     }
+    .link {
+        margin-top: 24px;
+        @include media-breakpoint-up(lg) {
+            margin-top: 46px;
+        }
+    }
 }
 
 .comp-quote-slider {

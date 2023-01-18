@@ -78,12 +78,17 @@ export default function Edit({
 	);
 
 	let headerControl = (
-		<TextareaControl
+		<RichText
 			value={attributes.header}
 			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
-			rows="1"
 			placeholder="Hero Header"
+			allowedFormats={[
+				"core/bold",
+				"core/italic",
+				"core/strikethrough",
+				"core/code",
+			]}
 		/>
 	);
 
