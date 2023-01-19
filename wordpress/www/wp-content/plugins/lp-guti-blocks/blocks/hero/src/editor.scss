@@ -111,17 +111,12 @@ div[class*="wp-block-lp-guti-blocks-"]:not(
 }
 
 .animatedText-carousel {
-	display: inline-block;
-	max-width: 330px;
-	top: 19px;
-	left: 7px;
 	font-size: inherit;
 	line-height: inherit;
 	.carousel-inner {
 		font-size: inherit;
 		line-height: inherit;
 		.carousel-item {
-			width: auto;
 			font-size: inherit;
 			line-height: inherit;
 			span {
