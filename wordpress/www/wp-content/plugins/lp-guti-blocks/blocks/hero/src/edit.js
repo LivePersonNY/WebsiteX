@@ -319,7 +319,6 @@ export default function Edit({
 					removePB={attributes.togglePadding}
 					logoHeader={logoHeaderControl}
 					vimeoUrl={attributes.vimeoUrl}
-					animatedText={attributes.animatedText}
 					autoApprove={attributes.autoApproveLang}
 					/*vimeoVideoOption={<InnerBlocks allowedBlocks={['vimeo/create']} renderAppender={ () => appenderToUse() } />}*/
 				/>
