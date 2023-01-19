@@ -4,7 +4,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-div[class*="wp-block-lp-guti-blocks-"]:not(.wp-block-lp-guti-blocks-media-lottie-player) {
+div[class*="wp-block-lp-guti-blocks-"]:not(
+		.wp-block-lp-guti-blocks-media-lottie-player
+	) {
 	max-width: 100%;
 	margin-top: 2px;
 	margin-bottom: 2px;
@@ -14,8 +16,11 @@ div[class*="wp-block-lp-guti-blocks-"]:not(.wp-block-lp-guti-blocks-media-lottie
 	//height: 0 !important;
 }
 
-
-.embedded-input, .embedded-input div, .embedded-input input, .embedded-input textarea, .wp-control-wrapper {
+.embedded-input,
+.embedded-input div,
+.embedded-input input,
+.embedded-input textarea,
+.wp-control-wrapper {
 	font-size: inherit !important;
 	border: none !important;
 	&:focus {
@@ -38,10 +43,8 @@ div[class*="wp-block-lp-guti-blocks-"]:not(.wp-block-lp-guti-blocks-media-lottie
 
 @import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap);
 
-
 .block-editor-block-list__layout {
 	@import "../../../../../../../../gatsby-sites/www/src/resources/scss/index.scss";
-
 }
 
 @import url(https://info.liveperson.com/js/forms2/css/forms2.css);
@@ -94,12 +97,36 @@ div[class*="wp-block-lp-guti-blocks-"]:not(.wp-block-lp-guti-blocks-media-lottie
 	}
 }
 
-.post-type-post, .post-type-staged-post, .post-type-news, .post-type-success {
+.post-type-post,
+.post-type-staged-post,
+.post-type-news,
+.post-type-success {
 	.editor-styles-wrapper {
 		background: $neutral96;
 		width: 1000px;
 		margin: 40px auto;
 		padding: 0 0 60px;
 		border-radius: 30px;
+	}
+}
+
+.animatedText-carousel {
+	display: inline-block;
+	max-width: 330px;
+	top: 19px;
+	left: 7px;
+	span {
+		background: $h1Gradient;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-family: $familyKalam;
+		font-weight: $fontBold;
+		font-size: 72px;
+		line-height: 72px;
+	}
+	.carousel-item {
+		border-bottom: 3px solid;
+		border-image: $borderGradient 1;
+		width: auto;
 	}
 }

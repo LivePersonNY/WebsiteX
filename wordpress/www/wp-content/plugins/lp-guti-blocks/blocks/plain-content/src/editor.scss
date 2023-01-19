@@ -3,3 +3,34 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap);
+
+.block-editor-block-list__layout {
+	@import "../../../../../../../../gatsby-sites/www/src/resources/scss/index.scss";
+}
+
+@import url(https://info.liveperson.com/js/forms2/css/forms2.css);
+
+@import "../../../../../../../../gatsby-sites/www/src/resources/scss/variables.scss";
+
+.animatedText-carousel {
+	display: inline-block;
+	max-width: 330px;
+	top: 19px;
+	left: 7px;
+	span {
+		background: $h1Gradient;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-family: $familyKalam;
+		font-weight: $fontBold;
+		font-size: 72px;
+		line-height: 72px;
+	}
+	.carousel-item {
+		border-bottom: 3px solid;
+		border-image: $borderGradient 1;
+		width: auto;
+	}
+}
