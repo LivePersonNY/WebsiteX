@@ -26,8 +26,8 @@ const Hero = (props) => {
             </div>`;
         });
         animatedLoop = `<div
-                        id="hp-hero-text-carousel"
-                        className="carousel slide carousel-fade vertical"
+                        id="hero-text-carousel"
+                        className="carousel slide carousel-fade vertical animatedText-carousel"
                         data-bs-ride="carousel"
                         data-bs-pause="false"
                     >

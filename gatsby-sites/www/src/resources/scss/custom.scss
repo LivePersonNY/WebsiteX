@@ -1,36 +1,38 @@
 /*! purgecss start ignore */
 
 /*languages*/
-html[lang="ja"] {
+html[lang='ja'] {
     .hide-ja {
         display: none;
     }
 }
-html[lang*="en"] {
-    div[class*="hide-en"] {
+html[lang*='en'] {
+    div[class*='hide-en'] {
         display: none;
     }
 }
 
-html[lang*="es"] {
-    div[class*="hide-es"] {
+html[lang*='es'] {
+    div[class*='hide-es'] {
         display: none;
     }
 }
 
-.vimeoContainer, .wp-block-embed__wrapper {
-    padding:56.25% 0 0 0;
-    position:relative;
-    .vimeoFrame, iframe {
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
+.vimeoContainer,
+.wp-block-embed__wrapper {
+    padding: 56.25% 0 0 0;
+    position: relative;
+    .vimeoFrame,
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 }
 
-a[data-bs-toggle="collapse"] {
+a[data-bs-toggle='collapse'] {
     span {
         color: inherit;
     }
@@ -79,7 +81,6 @@ a[data-bs-toggle="collapse"] {
 }
 
 .company-careers {
-
     #wf-form-Search-Form,
     .resume-upload {
         max-width: 400px;
@@ -146,19 +147,19 @@ a[data-bs-toggle="collapse"] {
     }
 }
 
-.pane-careers-cta{
+.pane-careers-cta {
     #wf-form-Search-Form,
     .resume-upload {
         width: 100%;
         margin: auto;
         position: relative;
         background: $neutral99;
-        border-radius:100px;
-        border:0;
+        border-radius: 100px;
+        border: 0;
         opacity: 1;
         display: block;
         @include media-breakpoint-up(xl) {
-            float:left;
+            float: left;
             max-width: 46%;
         }
         * {
@@ -171,17 +172,17 @@ a[data-bs-toggle="collapse"] {
         }
 
         .upload-button-text {
-            color:$primaryBlue;
-            font-size:16px;
-            line-height:24px;
+            color: $primaryBlue;
+            font-size: 16px;
+            line-height: 24px;
         }
 
-        .form-control{
+        .form-control {
             background: none;
             border: 0;
             font-size: 16px;
             line-height: 24px;
-            color:$neutral24;
+            color: $neutral24;
             font-family: $familyInter;
             padding: 12px 24px;
         }
@@ -197,210 +198,212 @@ a[data-bs-toggle="collapse"] {
 
     .hero-or {
         margin: 6px 24px;
-        color:$neutral99;
+        color: $neutral99;
         background: $neutral12;
-        border-radius:8px;
-        padding:10px;
+        border-radius: 8px;
+        padding: 10px;
         display: inline-block;
         @include media-breakpoint-up(xl) {
-            float:left;
+            float: left;
         }
     }
 }
 
-table{
-    border-spacing:0;
-    tr{
-        th, td{
-            border-bottom:1px solid $neutral88;
+table {
+    border-spacing: 0;
+    tr {
+        th,
+        td {
+            border-bottom: 1px solid $neutral88;
         }
-        th{
+        th {
             font-family: $familySpaceGrotesk;
             font-weight: $fontBold;
-            font-size:16px;
+            font-size: 16px;
             line-height: 24px;
             text-transform: uppercase;
             text-align: left;
-            padding-bottom:16px;
-            padding-left:16px;
-            padding-right:16px;
-            strong{
+            padding-bottom: 16px;
+            padding-left: 16px;
+            padding-right: 16px;
+            strong {
                 font-family: $familySpaceGrotesk;
             }
         }
 
-        td{
-            font-size:16px;
+        td {
+            font-size: 16px;
             line-height: 24px;
-            padding-top:12px;
-            padding-bottom:12px;
-            padding-left:16px;
-            padding-right:16px;
-            ul li{
-                font-size:16px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-left: 16px;
+            padding-right: 16px;
+            ul li {
+                font-size: 16px;
                 line-height: 24px;
             }
         }
     }
 }
 
-.gctest{border:1px solid red}
+.gctest {
+    border: 1px solid red;
+}
 
 // Start vertical carousel
 .vertical.carousel {
-
-    
-    &#hp-hero-img-carousel, 
+    &#hp-hero-img-carousel,
     &#hp-hero-img-carousel-reverse {
         overflow: hidden;
         height: 640px;
         display: inline-flex;
         align-items: center;
 
-        .carousl, 
-        .carousel-innr, 
-        .carousel-inner > .carousel-item { 
+        .carousl,
+        .carousel-innr,
+        .carousel-inner > .carousel-item {
             overflow: hidden;
         }
 
         .carousel-inner {
-            >.carousel-item.active {
+            > .carousel-item.active {
                 display: flex;
                 flex-wrap: wrap;
             }
-            >.carousel-item-next {
+            > .carousel-item-next {
                 display: flex;
                 flex-wrap: wrap;
             }
         }
     }
 
-
-	.carousel-item {
-		overflow: hidden;
-	}
-	.carousel-item-next {
-		&:not(.carousel-item-start) {
-			transform: translateY(100%);
-		}
-	}
-	.active.carousel-item-end {
-		transform: translateY(100%);
-	}
-	.carousel-item-prev {
-		&:not(.carousel-item-end) {
-			transform: translateY(-100%);
-		}
-	}
-	.active.carousel-item-start {
-		transform: translateY(-100%);
-	}
-	.carousel-indicators {
-		top: 0;
-		left: unset;
-		margin-left: unset !important;
-		margin-right: 1rem;
-		flex-direction: column;
-		[data-bs-target] {
-			height: 30px;
-			width: 3px;
-		}
-	}
-	.carousel-control-prev {
-		width: 100%;
-		height: 60px;
-	}
-	.carousel-control-next {
-		width: 100%;
-		height: 60px;
-		top: unset;
-		bottom: 0;
-	}
-	.carousel-control-prev-icon {
-		transform: rotateZ(90deg);
-	}
-	.carousel-control-next-icon {
-		transform: rotateZ(90deg);
-	}
+    .carousel-item {
+        overflow: hidden;
+    }
+    .carousel-item-next {
+        &:not(.carousel-item-start) {
+            transform: translateY(100%);
+        }
+    }
+    .active.carousel-item-end {
+        transform: translateY(100%);
+    }
+    .carousel-item-prev {
+        &:not(.carousel-item-end) {
+            transform: translateY(-100%);
+        }
+    }
+    .active.carousel-item-start {
+        transform: translateY(-100%);
+    }
+    .carousel-indicators {
+        top: 0;
+        left: unset;
+        margin-left: unset !important;
+        margin-right: 1rem;
+        flex-direction: column;
+        [data-bs-target] {
+            height: 30px;
+            width: 3px;
+        }
+    }
+    .carousel-control-prev {
+        width: 100%;
+        height: 60px;
+    }
+    .carousel-control-next {
+        width: 100%;
+        height: 60px;
+        top: unset;
+        bottom: 0;
+    }
+    .carousel-control-prev-icon {
+        transform: rotateZ(90deg);
+    }
+    .carousel-control-next-icon {
+        transform: rotateZ(90deg);
+    }
 }
 .vertical.carousel.vertical-reverse {
-	.carousel-item {
-		overflow: hidden;
-	}
-	.carousel-item-next {
-		&:not(.carousel-item-start) {
-			transform: translateY(-100%);
-		}
-	}
-	.active.carousel-item-end {
-		transform: translateY(-100%);
-	}
-	.carousel-item-prev {
-		&:not(.carousel-item-end) {
-			transform: translateY(100%);
-		}
-	}
-	.active.carousel-item-start {
-		transform: translateY(100%);
-	}
+    .carousel-item {
+        overflow: hidden;
+    }
+    .carousel-item-next {
+        &:not(.carousel-item-start) {
+            transform: translateY(-100%);
+        }
+    }
+    .active.carousel-item-end {
+        transform: translateY(-100%);
+    }
+    .carousel-item-prev {
+        &:not(.carousel-item-end) {
+            transform: translateY(100%);
+        }
+    }
+    .active.carousel-item-start {
+        transform: translateY(100%);
+    }
 }
 .vertical.carousel.vertical-double {
-    display:inline-block;
+    display: inline-block;
     max-width: 50%;
 }
 // End vertical carousel
 
-#hp-hero-text-carousel{
-    display:inline-block;
-    max-width:330px;
-    top:19px;
-    left:7px;
-    &.carousel{
-        span{
-            background: $h1Gradient;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: $familyKalam;
-            font-weight: $fontBold;
-            font-size: 32px;
-            line-height: 36px;
+.animatedText-carousel {
+    display: inline-block;
+    max-width: 330px;
+    top: 19px;
+    left: 7px;
+    span {
+        background: $h1Gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: $familyKalam;
+        font-weight: $fontBold;
+        font-size: 32px;
+        line-height: 36px;
 
-            @include media-breakpoint-up(lg) {
-                font-size: 72px;
-                line-height: 72px;
-            }
+        @include media-breakpoint-up(lg) {
+            font-size: 72px;
+            line-height: 72px;
         }
-        .carousel-item{
-            border-bottom: 3px solid;
-            border-image: $borderGradient 1;
-            width:auto;
-        }
+    }
+    .carousel-item {
+        border-bottom: 3px solid;
+        border-image: $borderGradient 1;
+        width: auto;
     }
 }
 
-.hp-2023{
-    .hero{
-        padding:0;
-        h1{
-            color:$neutral12;
-            background:0;
+.hp-2023 {
+    .hero {
+        padding: 0;
+        h1 {
+            color: $neutral12;
+            background: 0;
             -webkit-text-fill-color: initial;
             -webkit-background-clip: initial;
-            font-size:72px;
-            line-height:72px;
+            font-size: 72px;
+            line-height: 72px;
         }
-        .col-lg-6{
+        .col-lg-6 {
             position: relative;
             &::before,
             &::after {
-                background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
-                content: "";
+                background: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(255, 255, 255, 0) 100%
+                );
+                content: '';
                 height: 100px;
                 position: absolute;
                 width: 94%;
                 z-index: 2;
             }
-            
+
             &::after {
                 left: 0;
                 bottom: 0;
@@ -418,66 +421,78 @@ table{
 // Start css animation1 https://codepen.io/studiojvla/pen/qVbQqW
 // if another needed could try https://codepen.io/chriscoyier/pen/EyxPPm
 @mixin white-gradient {
-	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
 }
 
 $animationSpeed: 30s;
 
 // Animation
 @keyframes scroll {
-	0% { transform: translateY(0); }
-	100% { transform: translateY(calc(-551px * 6))}
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(calc(-551px * 6));
+    }
 }
 @keyframes scroll-reverse {
-	0% { transform: translateY(calc(-551px * 6)); }
-	100% { transform: translateY(0)}
+    0% {
+        transform: translateY(calc(-551px * 6));
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 // Styling
 .infinite-slider {
-    float:left;
-	height: 550px;
-	margin: auto;
-	overflow:hidden;
-	position: relative;
-    width:50%;
-	
-	&::before,
-	&::after {
-		@include white-gradient;
-		content: "";
-		height: 100px;
-		position: absolute;
-		width: 99%;
-		z-index: 2;
-	}
-	
-	&::after {
-		left: 0;
-		bottom: 0;
-		transform: rotateZ(180deg);
-	}
+    float: left;
+    height: 550px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
 
-	&::before {
-		left: 0;
-		top: 0;
-	}
-	
-	.slide-track {
-		animation: scroll $animationSpeed linear infinite;
-		// display: flex;
-		// width: calc(250px * 14);
-	}
-	
-	.slide {
-		// height: 100px;
-		// width: 250px;
-	}
+    &::before,
+    &::after {
+        @include white-gradient;
+        content: '';
+        height: 100px;
+        position: absolute;
+        width: 99%;
+        z-index: 2;
+    }
+
+    &::after {
+        left: 0;
+        bottom: 0;
+        transform: rotateZ(180deg);
+    }
+
+    &::before {
+        left: 0;
+        top: 0;
+    }
+
+    .slide-track {
+        animation: scroll $animationSpeed linear infinite;
+        // display: flex;
+        // width: calc(250px * 14);
+    }
+
+    .slide {
+        // height: 100px;
+        // width: 250px;
+    }
 }
 
 .infinite-slider-reverse {
     .slide-track {
-		animation: scroll-reverse $animationSpeed linear infinite;
+        animation: scroll-reverse $animationSpeed linear infinite;
     }
 }
 // End css animation1

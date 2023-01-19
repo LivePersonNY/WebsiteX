@@ -21,8 +21,8 @@ const PlainContent = function (props) {
             </div>`;
         });
         animatedLoop = `<div
-                        id="hp-hero-text-carousel"
-                        className="carousel slide carousel-fade vertical"
+                        id="plain-content-text-carousel"
+                        className="carousel slide carousel-fade vertical animatedText-carousel"
                         data-bs-ride="carousel"
                         data-bs-pause="false"
                     >
