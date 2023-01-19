@@ -37,6 +37,7 @@
 		"linkSecondaryExternal": {
 			"default": false,
 			"type": "boolean"
-		}
+		},
+		"animatedText":{}
 	}
 }

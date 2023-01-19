@@ -43,6 +43,7 @@ export default function save({ attributes }) {
 			secondaryBtnLink={attributes.secondaryBtnLink}
 			linkExternal={attributes.linkExternal}
 			linkSecondaryExternal={attributes.linkSecondaryExternal}
+			animatedText={attributes.animatedText}
 		/>
 	);
 }

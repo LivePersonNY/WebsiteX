@@ -185,10 +185,26 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 		</BlockControls>
 	);
 
+	let animatedTextControls = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Animated Text" initialOpen={false}>
+					<TextControl
+						value={attributes.animatedText}
+						onChange={function (value) {
+							setAttributes({ animatedText: value });
+						}}
+					/>
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+	);
+
 	if (isSelected) {
 		return (
 			<div {...useBlockProps()}>
 				{alignButton}
+				{animatedTextControls}
 				<Anchor
 					value={attributes.anchor}
 					callback={function (val) {
@@ -208,6 +224,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					primaryBtnText={linkPrimaryTextControl}
 					secondaryBtnText={linkSecondaryTextControl}
 					linkText={linkTextControl}
+					animatedText={attributes.animatedText}
 				/>
 			</div>
 		);
@@ -233,6 +250,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				linkExternal={attributes.linkExternal}
 				linkSecondaryExternal={attributes.linkSecondaryExternal}
 				linkUrl={attributes.linkUrl}
+				animatedText={attributes.animatedText}
 			/>
 		</div>
 	);
