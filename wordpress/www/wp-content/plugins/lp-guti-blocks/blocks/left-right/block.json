@@ -63,6 +63,7 @@
 		"vimeoUrl": {},
 		"autoApproveLang": {"default":false, "type": "boolean"},
 		"anchor": {},
-		"colWidth": {}
+		"colWidth": {},
+		"alignment": {"default": "left" }
 	}
 }

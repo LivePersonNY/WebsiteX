@@ -1,7 +1,7 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import Link from "gatsby-link";
-import Paragraph from "../Paragraph";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
+import Paragraph from '../Paragraph';
 
 const LeftRight = (props) => {
     let repeat;
@@ -17,18 +17,22 @@ const LeftRight = (props) => {
             <div
                 id={props.anchor}
                 data-localize={props.autoApprove && `auto-approve`}
-                autoapprove={props.autoApprove && "true"}
+                autoapprove={props.autoApprove && 'true'}
                 className={`pane ${
-                    props.backgroundColor || "bg-transparent"
+                    props.backgroundColor || 'bg-transparent'
                 } comp-left-right ${
-                    props.repeat ? "comp-left-right-repeat" : ""
+                    props.repeat ? 'comp-left-right-repeat' : ''
                 }`}
             >
                 <div className="container">
                     {props.header && (
                         <div className="row justify-content-center">
                             <div className={`col-lg-${props.colWidth || 12}`}>
-                                <h2 className="text-center left-right-main-header">
+                                <h2
+                                    className={`${
+                                        props.alignmentClass || 'text-center'
+                                    } left-right-main-header`}
+                                >
                                     <Paragraph
                                         text={props.header}
                                         headerLevel="nothing"
@@ -40,7 +44,7 @@ const LeftRight = (props) => {
                     <div className="row align-items-center">
                         <div
                             className={`col-lg-6 ${
-                                props.flipColumns ? "order-lg-last" : ""
+                                props.flipColumns ? 'order-lg-last' : ''
                             }`}
                         >
                             {(!props.imgCtl && props.imgSrc && (
@@ -51,7 +55,7 @@ const LeftRight = (props) => {
                                             Math.random() * 100
                                         )}`
                                     }
-                                    alt={props.imgAlt || ""}
+                                    alt={props.imgAlt || ''}
                                 />
                             )) ||
                                 props.imgCtl ||
@@ -60,7 +64,7 @@ const LeftRight = (props) => {
                         </div>
                         <div
                             className={`col-lg-6 ${
-                                props.flipColumns ? "order-lg-first" : ""
+                                props.flipColumns ? 'order-lg-first' : ''
                             }`}
                         >
                             {props.kicker && (
@@ -68,8 +72,8 @@ const LeftRight = (props) => {
                                     {props.kicker}
                                 </p>
                             )}
-                            {props.headLevel == "h2" && <h2>{props.title}</h2>}
-                            {props.headLevel == "h3" && <h3>{props.title}</h3>}
+                            {props.headLevel == 'h2' && <h2>{props.title}</h2>}
+                            {props.headLevel == 'h3' && <h3>{props.title}</h3>}
                             <Paragraph
                                 text={props.body}
                                 wrapClass="rich-container"

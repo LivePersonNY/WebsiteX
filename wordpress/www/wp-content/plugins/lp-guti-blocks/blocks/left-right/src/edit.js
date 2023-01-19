@@ -175,6 +175,14 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 		setAttributes({ backgroundColor: color });
 	};
 
+	let changeAlignment = function () {
+		if (attributes.alignment == "left") {
+			setAttributes({ alignment: "center" });
+		} else {
+			setAttributes({ alignment: "left" });
+		}
+	};
+
 	let changeHeadLevel = function () {
 		if (attributes.headLevel == "h2") {
 			setAttributes({ headLevel: "h3" });
@@ -194,6 +202,11 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 
 	let addButton = (
 		<BlockControls>
+			<ToolbarButton
+				icon={`editor-align${attributes.alignment}`}
+				label="Alignment"
+				onClick={changeAlignment}
+			/>
 			<ToolbarButton
 				icon="heading"
 				label="Head Level H2/H3"
@@ -245,6 +258,7 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 					anchor={attributes.anchor}
 					autoApprove={attributes.autoApproveLang}
 					colWidth={attributes.colWidth}
+					alignmentClass={`text-${attributes.alignment}`}
 				/>
 				<Fragment>
 					<InspectorControls>
@@ -295,6 +309,7 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 				vimeoUrl={attributes.vimeoUrl}
 				anchor={attributes.anchor}
 				autoApprove={attributes.autoApproveLang}
+				alignmentClass={`text-${attributes.alignment}`}
 			/>
 		</div>
 	);
