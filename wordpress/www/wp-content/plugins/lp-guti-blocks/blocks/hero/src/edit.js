@@ -84,12 +84,7 @@ export default function Edit({
 			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
 			placeholder="Hero Header"
-			allowedFormats={[
-				"core/bold",
-				"core/italic",
-				"core/strikethrough",
-				"core/code",
-			]}
+			allowedFormats={["core/bold", "core/italic", "core/strikethrough"]}
 		/>
 	);
 
