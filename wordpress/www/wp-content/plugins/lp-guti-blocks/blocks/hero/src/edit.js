@@ -137,6 +137,21 @@ export default function Edit({
 		</Fragment>
 	);
 
+	let animatedTextControls = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Animated Text" initialOpen={false}>
+					<TextControl
+						value={attributes.animatedText}
+						onChange={function (value) {
+							setAttributes({ animatedText: value });
+						}}
+					/>
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+	);
+
 	let logoControl = (
 		<MediaUploadCheck>
 			<MediaUpload
@@ -260,6 +275,7 @@ export default function Edit({
 			<div {...useBlockProps()}>
 				{addButton}
 				{vimeoUrlControls}
+				{animatedTextControls}
 				<MediaUploadCheck>
 					<MediaUpload
 						onSelect={changeHeroBGimage}
@@ -331,6 +347,7 @@ export default function Edit({
 				removePB={attributes.togglePadding}
 				logoHeader={attributes.logoHeader}
 				vimeoUrl={attributes.vimeoUrl}
+				animatedText={attributes.animatedText}
 				autoApprove={attributes.autoApproveLang}
 				/*vimeoVideoOption={<InnerBlocks
 						allowedBlocks={['vimeo/create']} renderAppender={ () => appenderToUse() }

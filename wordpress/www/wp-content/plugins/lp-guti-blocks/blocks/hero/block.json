@@ -65,6 +65,7 @@
 			"default": 0
 		},
 		"autoApproveLang": {"default":false, "type": "boolean"},
-		"vimeoUrl": {}
+		"vimeoUrl": {},
+		"animatedText": {}
 	}
 }

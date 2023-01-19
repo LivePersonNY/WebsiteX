@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,10 +11,10 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
-import Hero from '../../../../../../../../gatsby-sites/www/src/components/blocks/Hero';
-import LineBreaks from '../../LineBreaks';
-import LottieFilePlayer from '../../LottieFilePlayer';
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
+import Hero from "../../../../../../../../gatsby-sites/www/src/components/blocks/Hero";
+import LineBreaks from "../../LineBreaks";
+import LottieFilePlayer from "../../LottieFilePlayer";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -25,10 +25,13 @@ import LottieFilePlayer from '../../LottieFilePlayer';
  *
  * @return {WPElement} Element to render.
  */
-export default function save({attributes, clientId}) {
-
+export default function save({ attributes, clientId }) {
 	let lottiePlayerElement = attributes.lottieFile && (
-		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
+		<LottieFilePlayer
+			lottieFile={attributes.lottieFile}
+			autoplay={true}
+			loop={true}
+		/>
 	);
 
 	return (
@@ -54,6 +57,7 @@ export default function save({attributes, clientId}) {
 				logoHeader={attributes.logoHeader}
 				/*vimeoVideoOption={attributes.innerBlockCount == 1 && <InnerBlocks.Content />}*/
 				vimeoUrl={attributes.vimeoUrl}
+				animatedText={attributes.animatedText}
 			/>
 		</>
 	);
