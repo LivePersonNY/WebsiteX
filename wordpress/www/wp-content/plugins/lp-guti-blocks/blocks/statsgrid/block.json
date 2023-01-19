@@ -15,6 +15,7 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
+		"backgroundColor": {},
 		"header": {"default": "Plain Header"},
 		"content": {"default": "This should be compelling content. But it isn't."},
 		"endBody": {"default": "This body text is at the bottom of the block."},

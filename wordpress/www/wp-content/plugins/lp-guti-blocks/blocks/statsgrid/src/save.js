@@ -31,6 +31,7 @@ export default function save({ attributes }) {
 			items={attributes.statItems}
 			autoApprove={attributes.autoApproveLang}
 			endBody={attributes.endBody}
+			backgroundColor={attributes.backgroundColor}
 		/>
 	);
 }

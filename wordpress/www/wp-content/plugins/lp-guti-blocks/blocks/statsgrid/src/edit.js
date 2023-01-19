@@ -16,6 +16,7 @@ import {
 import StatsGrid from "../../../../../../../../gatsby-sites/www/src/components/blocks/StatsGrid";
 import ItemControls from "../../ItemControls";
 import AutoApproveLanguage from "../../AutoApproveLanguage";
+import BackgroundSelectorMenu from "../../BackgroundSelector";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -128,6 +129,10 @@ export default function Edit({
 		});
 	};
 
+	let changeBackground = function (color) {
+		setAttributes({ backgroundColor: color });
+	};
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
@@ -139,6 +144,10 @@ export default function Edit({
 					selected={attributes.autoApproveLang}
 				/>
 			</ToolbarGroup>
+			<BackgroundSelectorMenu
+				callback={changeBackground}
+				selected={attributes.backgroundColor}
+			/>
 		</BlockControls>
 	);
 
@@ -152,6 +161,7 @@ export default function Edit({
 					endBody={endBodyControl}
 					items={controls}
 					autoApprove={attributes.autoApproveLang}
+					backgroundColor={attributes.backgroundColor}
 				/>
 			</div>
 		);
@@ -164,6 +174,7 @@ export default function Edit({
 				endBody={attributes.endBody}
 				items={attributes.statItems}
 				autoApprove={attributes.autoApproveLang}
+				backgroundColor={attributes.backgroundColor}
 			/>
 		</div>
 	);
