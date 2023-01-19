@@ -27,15 +27,15 @@
 }
 
 .bg-grad-image {
-    background-image: url("https://static.liveperson.com/static-assets/2022/02/08121310/lp-gradient-10p-1-1.jpg");
+    background-image: url('https://static.liveperson.com/static-assets/2022/02/08121310/lp-gradient-10p-1-1.jpg');
     background-size: cover;
 
     @media screen and (max-width: 991px) {
-        background-image: url("https://static.liveperson.com/static-assets/2022/02/09120243/Nav-CTA-Collapsed%402x-1.jpg");
+        background-image: url('https://static.liveperson.com/static-assets/2022/02/09120243/Nav-CTA-Collapsed%402x-1.jpg');
         background-size: cover;
 
         &.expanded {
-            background-image: url("https://static.liveperson.com/static-assets/2022/02/09122528/Nav-CTA-Expanded%402x.jpg");
+            background-image: url('https://static.liveperson.com/static-assets/2022/02/09122528/Nav-CTA-Expanded%402x.jpg');
             background-size: cover;
         }
     }
@@ -155,7 +155,7 @@ img {
     }
 }
 
-img[src*="doubleclick"] {
+img[src*='doubleclick'] {
     height: 0 !important;
     display: block;
 }
@@ -370,7 +370,7 @@ img[src*="doubleclick"] {
             }
 
             &::after {
-                content: "";
+                content: '';
                 background-image: url(https://static.liveperson.com/static-assets/2022/02/09152151/arrow-icon-sprite-20px%402x.png);
                 background-repeat: no-repeat;
                 background-size: 300px 20px;
@@ -405,7 +405,7 @@ img[src*="doubleclick"] {
             display: inline-block;
 
             &::after {
-                content: "";
+                content: '';
                 background-image: url(https://static.liveperson.com/static-assets/2022/02/09152151/arrow-icon-sprite-20px%402x.png);
                 background-repeat: no-repeat;
                 background-size: 300px 20px;
@@ -566,6 +566,15 @@ img[src*="doubleclick"] {
         margin-top: 32px;
         @include media-breakpoint-up(lg) {
             margin-top: 48px;
+        }
+    }
+
+    &.bg-neutral-96,
+    &.bg-blue-20,
+    &.bg-lavendar-20,
+    &.bg-rainbow {
+        .comp-4col-grid {
+            background: $secondaryLight !important;
         }
     }
 }
@@ -753,7 +762,7 @@ img[src*="doubleclick"] {
                         line-height: inherit;
 
                         &::after {
-                            content: "";
+                            content: '';
                             background-image: url(https://static.liveperson.com/static-assets/2022/02/09152151/arrow-icon-sprite-20px%402x.png);
                             background-repeat: no-repeat;
                             background-size: 300px 20px;
@@ -1318,7 +1327,7 @@ main:not(.company-careers) {
     .carousel.slide {
         .carousel-control-prev,
         .carousel-control-next {
-            background-image: url("https://static.liveperson.com/static-assets/2022/02/09152152/chevron-icon-sprite-20px%402x.png");
+            background-image: url('https://static.liveperson.com/static-assets/2022/02/09152152/chevron-icon-sprite-20px%402x.png');
             background-repeat: no-repeat;
             width: 40px;
             height: 40px;
