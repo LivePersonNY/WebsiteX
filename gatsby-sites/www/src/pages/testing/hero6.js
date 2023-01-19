@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import CardGridB from '../../components/blocks/CardGridB';
 import Hero from '../../components/blocks/Hero';
+import PlainContent from '../../components/blocks/PlainContent';
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 import NotFoundPage from '../404';
@@ -66,6 +67,12 @@ const Hero6 = () => {
                 kicker="This is kicker"
                 header="here is the header adding more content <s>here to</s> test animatedText out and see what happens"
                 subHeader="here is the sub header content"
+                // animatedText="one, two, three"
+            />
+
+            <PlainContent
+                kicker="This is kicker"
+                header="here is the header adding more content <s>here to</s> test animatedText out and see what happens"
                 animatedText="one, two, three"
             />
 

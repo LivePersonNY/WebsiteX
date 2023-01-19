@@ -28,6 +28,9 @@ import {
 	ToolbarGroup,
 	ToolbarButton,
 } from "@wordpress/components";
+const { InspectorControls } = wp.blockEditor;
+const { PanelBody } = wp.components;
+const { Fragment } = wp.element;
 import Anchor from "../../Anchor";
 import LinkControl from "../../LinkControl";
 import AutoApproveLanguage from "../../AutoApproveLanguage";
