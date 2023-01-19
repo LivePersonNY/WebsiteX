@@ -115,18 +115,24 @@ div[class*="wp-block-lp-guti-blocks-"]:not(
 	max-width: 330px;
 	top: 19px;
 	left: 7px;
-	span {
-		background: $h1Gradient;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		font-family: $familyKalam;
-		font-weight: $fontBold;
-		font-size: 72px;
-		line-height: 72px;
-	}
-	.carousel-item {
-		border-bottom: 3px solid;
-		border-image: $borderGradient 1;
-		width: auto;
+	font-size: inherit;
+	line-height: inherit;
+	.carousel-inner {
+		font-size: inherit;
+		line-height: inherit;
+		.carousel-item {
+			width: auto;
+			font-size: inherit;
+			line-height: inherit;
+			span {
+				background: $h1Gradient;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				font-family: $familyKalam;
+				font-weight: $fontBold;
+				font-size: inherit;
+				line-height: inherit;
+			}
+		}
 	}
 }
