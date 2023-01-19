@@ -6,6 +6,33 @@ import Paragraph from '../Paragraph';
 const PlainContent = function (props) {
     let headerLevel = props.headLevel || 'h2';
 
+    let fullAnimation = () => {
+        let headerText = props.header;
+        headerText = headerText.split('animatedText');
+
+        let headerAnimateText = props.animatedText;
+        headerAnimateText = headerAnimateText.split(',');
+        let animatedLoop = headerAnimateText.map((item, index) => {
+            let isActive = '';
+            index == 0 ? (isActive = 'active') : isActive;
+            return `
+            <div className="carousel-item ${isActive}" key=${index}>
+                <span> ${item} </span>
+            </div>`;
+        });
+        animatedLoop = `<div
+                        id="hp-hero-text-carousel"
+                        className="carousel slide carousel-fade vertical"
+                        data-bs-ride="carousel"
+                        data-bs-pause="false"
+                    >
+                        <div className="carousel-inner"> ${animatedLoop.join(
+                            ''
+                        )} </div>
+                    </div>`;
+        return headerText[0] + animatedLoop + headerText[1];
+    };
+
     return (
         <>
             <div
@@ -28,18 +55,34 @@ const PlainContent = function (props) {
                             )}
                             {headerLevel == 'h2' && (
                                 <h2>
-                                    <Paragraph
-                                        text={props.header}
-                                        headerLevel={headerLevel}
-                                    />
+                                    {!props.animatedText && (
+                                        <Paragraph
+                                            text={props.header}
+                                            headerLevel={headerLevel}
+                                        />
+                                    )}
+                                    {props.animatedText && (
+                                        <Paragraph
+                                            text={fullAnimation()}
+                                            headerLevel={headerLevel}
+                                        />
+                                    )}
                                 </h2>
                             )}
                             {headerLevel == 'h1' && (
                                 <h1>
-                                    <Paragraph
-                                        text={props.header}
-                                        headerLevel={headerLevel}
-                                    />
+                                    {!props.animatedText && (
+                                        <Paragraph
+                                            text={props.header}
+                                            headerLevel={headerLevel}
+                                        />
+                                    )}
+                                    {props.animatedText && (
+                                        <Paragraph
+                                            text={fullAnimation()}
+                                            headerLevel={headerLevel}
+                                        />
+                                    )}
                                 </h1>
                             )}
                             {props.body && <Paragraph text={props.body} />}

@@ -224,7 +224,6 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					primaryBtnText={linkPrimaryTextControl}
 					secondaryBtnText={linkSecondaryTextControl}
 					linkText={linkTextControl}
-					animatedText={attributes.animatedText}
 				/>
 			</div>
 		);
