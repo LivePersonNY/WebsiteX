@@ -64,9 +64,9 @@ const QuoteSlider = (props) => {
                                 <a
                                     className="link link-mt-large"
                                     href={item.linkUrl}
-                                    target={props.linkExternal && `_blank`}
+                                    target={item.linkExternal && `_blank`}
                                     rel={
-                                        props.linkExternal &&
+                                        item.linkExternal &&
                                         `noopener noreferrer`
                                     }
                                 >
