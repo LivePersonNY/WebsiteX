@@ -44,7 +44,7 @@ export default function ScrollFeatures({ items = [], minBreakpoint = '1200px', s
     })
     
     // Add ready class to fade in component
-    checkReady(3500)
+    checkReady(1500)
     
     return () => {
       targets.forEach(target => {
