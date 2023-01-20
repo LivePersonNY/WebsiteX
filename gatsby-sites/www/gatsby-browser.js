@@ -28,7 +28,7 @@ export const onRouteUpdate = () => {
     setTimeout(function () {
         const myCarouselElements = document.querySelectorAll('.carousel');
         myCarouselElements.forEach(function (myCarouselElement) {
-            myCarouselElement.classList.add('testing-here2');
+            myCarouselElement.classList.add('testing-here4');
             new Carousel(myCarouselElement, {
                 ride: 'carousel',
             });

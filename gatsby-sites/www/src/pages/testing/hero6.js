@@ -19,7 +19,7 @@ const htmlHack1 = `
                         <div class="col-lg-5">
                             <h1>
                                 AI that makes
-                                <div id="hp-hero-text-carousel-testtest" class="carousel slide carousel-fade vertical animatedText-carousel" data-bs-ride="carousel" data-bs-pause="false">
+                                <div id="hp-hero-text-carousel-testtest" class="carousel slide carousel-fade vertical animatedText-carousel" data-bs-ride="false" data-bs-pause="false">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active" data-bs-interval="8000">
                                             <span> shoppers </span>
@@ -48,7 +48,7 @@ const htmlHack1 = `
 </p>
                         </div>
                         <div class="col-lg-6 offset-lg-1">
-                            <div id="hp-hero-img-carousel" class="carousel slide vertical vertical-double" data-bs-ride="carousel" data-bs-pause="false">
+                            <div id="hp-hero-img-carousel" class="carousel slide vertical vertical-double" data-bs-ride="false" data-bs-pause="false">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active" data-bs-interval="8000">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/6-Insurance_1x-avatar.png">
@@ -83,7 +83,7 @@ const htmlHack1 = `
                                 </div>
                             </div>
 
-                            <div id="hp-hero-img-carousel-reverse" class="carousel slide vertical vertical-reverse vertical-double" data-bs-ride="carousel" data-bs-pause="false">
+                            <div id="hp-hero-img-carousel-reverse" class="carousel slide vertical vertical-reverse vertical-double" data-bs-ride="false" data-bs-pause="false">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active" data-bs-interval="8000">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/6-Insurance_1x-ui.png">
