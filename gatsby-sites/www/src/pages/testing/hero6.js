@@ -17,6 +17,7 @@ const htmlHack1 = `
                 <div class="container" style="opacity: 1;">
                     <div class="row align-items-center">
                         <div class="col-lg-5">
+                        <p class="h6 text-uppercase">LIVEPERSON CUSTOMER ENGAGEMENT PLATFORM</p>
                             <h1>
                                 AI that makes
                                 <div id="hp-hero-text-carousel-testtest" class="carousel slide carousel-fade vertical animatedText-carousel" data-bs-ride="false" data-bs-pause="false">
@@ -46,6 +47,7 @@ const htmlHack1 = `
                             <p data-tag="new line split">
                                 Drive business outcomes while making every user feel seen, heard, and&nbsp;valued.
 </p>
+<a class="btn btn-primary" href="/request-demo/">Let’s talk</a>
                         </div>
                         <div class="col-lg-6 offset-lg-1">
                             <div id="hp-hero-img-carousel" class="carousel slide vertical vertical-double" data-bs-ride="false" data-bs-pause="false">
