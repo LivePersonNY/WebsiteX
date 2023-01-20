@@ -33,5 +33,5 @@ export const onRouteUpdate = () => {
                 ride: 'carousel',
             });
         });
-    }, 5000);
+    }, 2000);
 };
