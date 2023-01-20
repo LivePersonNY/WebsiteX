@@ -234,52 +234,52 @@ const Hero6 = () => {
                     backgroundColor="bg-neutral-96"
                     items={[
                         {
-                            imgSrc: 'https://via.placeholder.com/640/84ffcd/808080',
+                            imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161906/Homepage_Pillar-1_Automate_JV_0117_1x.png',
+                            imgAlt: 'Alt text',
+                            cardTitle: 'Conversational AI + AUTOMATION',
+                            cardHeading: 'Automate',
+                            cardContent:
+                                'Automate conversations with Conversational AI built on the world’s largest data set of customer interactions.',
+                            linkHref: '#',
+                            linkText: 'Learn more',
+                        },
+                        {
+                            imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161909/Homepage_Pillar-2_Understand_JV_0117_1x.png',
                             imgAlt: 'Alt text',
                             cardTitle: 'Conversational Intelligence',
                             cardHeading: 'Understand',
                             cardContent:
-                                'Know exactly what your users want and how they feel to meet their needs better.',
+                                'Analyze all your customer data to understand what your customers want and feel to increase sales, fix inefficient processes, and improve the customer experience.',
                             linkHref: '#',
                             linkText: 'Learn more',
                         },
                         {
-                            imgSrc: 'https://via.placeholder.com/640/84e8ff/808080',
-                            imgAlt: 'Alt text',
-                            cardTitle: 'Conversational AI + Automation',
-                            cardHeading: 'Automate',
-                            cardContent:
-                                'Create hyper-personal automation that exceeds consumer expectations.',
-                            linkHref: '#',
-                            linkText: 'Learn more',
-                        },
-                        {
-                            imgSrc: 'https://via.placeholder.com/640/ffc2e4/808080',
+                            imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161912/Homepage_Pillar-3_Manage_JV_0117_1x.png',
                             imgAlt: 'Alt text',
                             cardTitle: 'Agent + Manager Experience',
                             cardHeading: 'Manage',
                             cardContent:
-                                'Empower your agents with an AI-augmented workspace that boosts productivity.',
+                                'Team up customer service teams and AI to transform the productivity of your contact center and customer relationship management.',
                             linkHref: '#',
                             linkText: 'Learn more',
                         },
                         {
-                            imgSrc: 'https://via.placeholder.com/640/fff7af/808080',
+                            imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161948/Homepage_Pillar-4_Configure_JV_0117_1x.png',
                             imgAlt: 'Alt text',
                             cardTitle: 'Platform + Integrations',
                             cardHeading: 'Configure',
                             cardContent:
-                                'Integrate with the external systems to support unique business workflows.',
+                                'Bring LivePerson’s AI-powered customer engagement tools and your existing systems together to bring their full power across the customer journey.',
                             linkHref: '#',
                             linkText: 'Learn more',
                         },
                         {
-                            imgSrc: 'https://via.placeholder.com/640/f7c077/808080',
+                            imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161951/Homepage_Pillar-5_Reach_JV_0117_1x.png',
                             imgAlt: 'Alt text',
                             cardTitle: 'Communication Channels',
                             cardHeading: 'Reach',
                             cardContent:
-                                'Meet every user where they are, 24 hours a day, asynchronously.',
+                                'Increase customer satisfactions by making it easy for them to engage with your brand in the communication channels they use every day.',
                             linkHref: '#',
                             linkText: 'Learn more',
                         },
