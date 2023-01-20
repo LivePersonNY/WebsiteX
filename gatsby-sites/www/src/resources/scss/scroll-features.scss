@@ -36,8 +36,21 @@
 				position: relative;
 			}
 		}
+		&.done {
+			.sticky-box:not(:last-child){
+				visibility: hidden;
+			}
+			.sticky-box:last-child{
+				.content-box {
+					position: absolute !important;
+					top: auto !important;
+					bottom: 0;
+				}
+			}
+		}
 		[data-sticky-boxes] {
 			position: relative;
+			padding: 0;
 			.sticky-box {
 				top: 0;
 				width: 100%;
