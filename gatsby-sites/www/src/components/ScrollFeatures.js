@@ -1,8 +1,4 @@
 import React, { useRef, forwardRef, useEffect } from 'react';
-import { gsap } from 'gsap/dist/gsap';
-import { Controls, PlayState, Timeline, Tween } from 'react-gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollFeatures({ items = [], minBreakpoint = '1200px', scrollHeight = '350vh' }) {
 
