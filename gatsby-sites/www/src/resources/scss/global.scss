@@ -547,11 +547,8 @@ img[src*='doubleclick'] {
             }
 
             .h1 {
-                background: -webkit-linear-gradient(
-                    90deg,
-                    #3863e5 0%,
-                    #8d46eb 86.36%
-                );
+                font-family: $familyKalam;
+                background: $h1Gradient;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
@@ -1062,6 +1059,12 @@ img[src*='doubleclick'] {
             padding-bottom: 76px;
             padding-left: 0px;
             padding-right: 0px;
+        }
+        h2 {
+            font-family: $familyKalam;
+            background: $h1Gradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     }
 }

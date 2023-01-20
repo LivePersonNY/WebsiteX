@@ -347,7 +347,7 @@ table {
 }
 .vertical.carousel.vertical-double {
     display: inline-block;
-    max-width: 50%;
+    max-width: 49%;
 }
 // End vertical carousel
 
@@ -368,13 +368,17 @@ table {
                 font-weight: $fontBold;
                 font-size: inherit;
                 line-height: inherit;
+                display: inline-block;
+                padding-left: 2px;
+                padding-bottom: 2px;
             }
         }
     }
 }
 
-.hp-2023 {
-    .hero {
+main {
+    .hero:first-child,
+    .comp-plain-content:first-child {
         padding: 0;
         h1 {
             color: $neutral12;
@@ -390,8 +394,8 @@ table {
             &::after {
                 background: linear-gradient(
                     to bottom,
-                    rgba(255, 255, 255, 1) 0%,
-                    rgba(255, 255, 255, 0) 100%
+                    rgba(244, 244, 246, 1) 0%,
+                    rgba(244, 244, 246, 0) 100%
                 );
                 content: '';
                 height: 100px;
