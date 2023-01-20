@@ -369,8 +369,7 @@ table {
                 font-size: inherit;
                 line-height: inherit;
                 display: inline-block;
-                padding-left: 2px;
-                padding-bottom: 2px;
+                padding: 2px;
             }
         }
     }
@@ -379,7 +378,6 @@ table {
 main {
     .hero:first-child,
     .comp-plain-content:first-child {
-        padding: 0;
         h1 {
             color: $neutral12;
             background: 0;
@@ -388,32 +386,38 @@ main {
             font-size: 72px;
             line-height: 72px;
         }
-        .col-lg-6 {
-            position: relative;
-            &::before,
-            &::after {
-                background: linear-gradient(
-                    to bottom,
-                    rgba(244, 244, 246, 1) 0%,
-                    rgba(244, 244, 246, 0) 100%
-                );
-                content: '';
-                height: 100px;
-                position: absolute;
-                width: 94%;
-                z-index: 2;
-            }
+    }
+}
 
-            &::after {
-                left: 0;
-                bottom: 0;
-                transform: rotateZ(180deg);
-            }
+.hp-2023 {
+    padding: 0;
 
-            &::before {
-                left: 0;
-                top: 0;
-            }
+    .col-lg-6 {
+        position: relative;
+        margin-bottom: -7px;
+        &::before,
+        &::after {
+            background: linear-gradient(
+                to bottom,
+                rgba(244, 244, 246, 1) 0%,
+                rgba(244, 244, 246, 0) 100%
+            );
+            content: '';
+            height: 100px;
+            position: absolute;
+            width: 94%;
+            z-index: 2;
+        }
+
+        &::after {
+            left: 0;
+            bottom: 7px;
+            transform: rotateZ(180deg);
+        }
+
+        &::before {
+            left: 0;
+            top: 0;
         }
     }
 }
