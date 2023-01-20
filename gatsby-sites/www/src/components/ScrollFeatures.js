@@ -1,6 +1,17 @@
-import React, { useRef, forwardRef, useEffect } from 'react';
+import React, { useRef, forwardRef, useEffect, useState } from 'react';
 
 export default function ScrollFeatures({ items = [], minBreakpoint = '1200px', scrollHeight = '120vh', backgroundColor='bg-neutral-96' }) {
+
+  const [isReady, setIsReady] = useState(false);
+
+  const _Timeout = (delay) => {
+    return new Promise( res => setTimeout(res, delay) );
+  }
+
+  const checkReady = async (duration) => {
+    await _Timeout(duration)
+    setIsReady(true)
+  }
 
   useEffect(() => {
 
@@ -32,6 +43,9 @@ export default function ScrollFeatures({ items = [], minBreakpoint = '1200px', s
       observer.observe(target)
     })
     
+    // Add ready class to fade in component
+    checkReady(3500)
+    
     return () => {
       targets.forEach(target => {
         observer.unobserve(target)
@@ -43,26 +57,28 @@ export default function ScrollFeatures({ items = [], minBreakpoint = '1200px', s
 
   return (
     <>     
-        <div className="sticky-boxes-wrapper container">
-            <div className="row py-5">
-                <div className="col-12-lg" data-sticky-boxes="1">
-                    {items.map((item, i) => (
-                        <div key={i} className="sticky-box" style={{ height: scrollHeight }}>
-                            <div className="content-box">
-                                <div className="content">
-                                    <div>
-                                        <h2 className="fs-6 text-uppercase">{item.cardTitle}</h2>
-                                        <h3 className="display-4">
-                                            <span>{item.cardHeading}</span>
-                                        </h3>
-                                        <p>{item.cardContent}</p>
-                                        <p><a className="link" href={item.linkHref}>{item.linkText}</a></p>
+        <div className={`${isReady ? 'ready' : ''} sticky-boxes-wrapper bg-neutral-96`}>
+            <div className="container">
+                <div className="row py-5">
+                    <div className="col-12-lg" data-sticky-boxes="1">
+                        {items.map((item, i) => (
+                            <div key={i} className="sticky-box" style={{ height: scrollHeight }}>
+                                <div className="content-box bg-neutral-96">
+                                    <div className="content">
+                                        <div>
+                                            <h2 className="fs-6 text-uppercase">{item.cardTitle}</h2>
+                                            <h3 className="display-4">
+                                                <span>{item.cardHeading}</span>
+                                            </h3>
+                                            <p>{item.cardContent}</p>
+                                            <p><a className="link" href={item.linkHref}>{item.linkText}</a></p>
+                                        </div>
                                     </div>
+                                    <img className="img-fluid" src={item.imgSrc} alt={item.imgAlt} />
                                 </div>
-                                <img className="img-fluid" src={item.imgSrc} alt={item.imgAlt} />
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

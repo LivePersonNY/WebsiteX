@@ -12,7 +12,7 @@ import Parser from 'html-react-parser';
 
 // Bootstrap carousel, separate images, opposite directions
 
-const htmlHack = `
+const htmlHack1 = `
 <div class="pane hero bg-neutral-96 hp-2023 ">
                 <div class="container" style="opacity: 1;">
                     <div class="row align-items-center">
@@ -140,9 +140,12 @@ const htmlHack = `
 
 <div data-localize="false" class="pane comp-plain-content bg-neutral-96 text-left pane-with-lead-text"><div class="container" style="opacity: 0;"><div class="row align-items-center justify-content-center"><div class="col-lg-12"><h2>Explore our <s>AI-powered</s><br>customer engagement platform</h2></div></div></div></div>
 
-<div class="sticky-boxes-wrapper container"><div class="row py-5"><div class="col-12-lg" data-sticky-boxes="1"><div class="sticky-box active"><div class="content-box"><div class="content"><div><h2 class="fs-6 text-uppercase">Conversational Intelligence</h2><h3 class="display-4"><span>Understand</span></h3><p>Know exactly what your users want and how they feel to meet their needs&nbsp;better.</p><p><a class="link" href="#">Learn more</a></p></div></div><img class="img-fluid" src="https://via.placeholder.com/640/84ffcd/808080" alt="Alt text"></div></div><div class="sticky-box active"><div class="content-box"><div class="content"><div><h2 class="fs-6 text-uppercase">Conversational AI +&nbsp;Automation</h2><h3 class="display-4"><span>Automate</span></h3><p>Create hyper-personal automation that exceeds consumer expectations.</p><p><a class="link" href="#">Learn more</a></p></div></div><img class="img-fluid" src="https://via.placeholder.com/640/84e8ff/808080" alt="Alt text"></div></div><div class="sticky-box active"><div class="content-box"><div class="content"><div><h2 class="fs-6 text-uppercase">Agent + Manager&nbsp;Experience</h2><h3 class="display-4"><span>Manage</span></h3><p>Empower your agents with an AI-augmented workspace that boosts productivity.</p><p><a class="link" href="#">Learn more</a></p></div></div><img class="img-fluid" src="https://via.placeholder.com/640/ffc2e4/808080" alt="Alt text"></div></div><div class="sticky-box active"><div class="content-box"><div class="content"><div><h2 class="fs-6 text-uppercase">Platform + Integrations</h2><h3 class="display-4"><span>Configure</span></h3><p>Integrate with the external systems to support unique business workflows.</p><p><a class="link" href="#">Learn more</a></p></div></div><img class="img-fluid" src="https://via.placeholder.com/640/fff7af/808080" alt="Alt text"></div></div><div class="sticky-box active"><div class="content-box"><div class="content"><div><h2 class="fs-6 text-uppercase">Communication Channels</h2><h3 class="display-4"><span>Reach</span></h3><p>Meet every user where they are, 24 hours a day, asynchronously.</p><p><a class="link" href="#">Learn more</a></p></div></div><img class="img-fluid" src="https://via.placeholder.com/640/f7c077/808080" alt="Alt text"></div></div></div></div></div>
 
 
+`
+
+
+const htmlHack2 = `
 
 <div data-localize="false"  class="pane comp-plain-content bg-neutral-96 text-center pane-with-lead-text"><div class="container" style="opacity: 0;"><div class="row align-items-center justify-content-center"><div class="col-lg-10"><h2>Put <s>humans first</s> with the right&nbsp;AI</h2></div></div></div></div>
 
@@ -268,7 +271,64 @@ const Hero6 = () => {
                 description=""
                 robots="noindex, nofollow"
             />
-            {Parser(htmlHack)}
+            
+            {Parser(htmlHack1)}
+            
+            <div className="bg-neutral-96">
+                <ScrollFeatures
+                    scrollHeight="135vh"
+                    items={[
+                        {
+                            imgSrc: 'https://via.placeholder.com/640/84ffcd/808080',
+                            imgAlt: 'Alt text',
+                            cardTitle: 'Conversational Intelligence',
+                            cardHeading: 'Understand',
+                            cardContent: 'Know exactly what your users want and how they feel to meet their needs better.',
+                            linkHref: '#',
+                            linkText: 'Learn more'
+                        },
+                        {
+                            imgSrc: 'https://via.placeholder.com/640/84e8ff/808080',
+                            imgAlt: 'Alt text',
+                            cardTitle: 'Conversational AI + Automation',
+                            cardHeading: 'Automate',
+                            cardContent: 'Create hyper-personal automation that exceeds consumer expectations.',
+                            linkHref: '#',
+                            linkText: 'Learn more'
+                        },
+                        {
+                            imgSrc: 'https://via.placeholder.com/640/ffc2e4/808080',
+                            imgAlt: 'Alt text',
+                            cardTitle: 'Agent + Manager Experience',
+                            cardHeading: 'Manage',
+                            cardContent: 'Empower your agents with an AI-augmented workspace that boosts productivity.',
+                            linkHref: '#',
+                            linkText: 'Learn more'
+                        },
+                        {
+                            imgSrc: 'https://via.placeholder.com/640/fff7af/808080',
+                            imgAlt: 'Alt text',
+                            cardTitle: 'Platform + Integrations',
+                            cardHeading: 'Configure',
+                            cardContent: 'Integrate with the external systems to support unique business workflows.',
+                            linkHref: '#',
+                            linkText: 'Learn more'
+                        },
+                        {
+                            imgSrc: 'https://via.placeholder.com/640/f7c077/808080',
+                            imgAlt: 'Alt text',
+                            cardTitle: 'Communication Channels',
+                            cardHeading: 'Reach',
+                            cardContent: 'Meet every user where they are, 24 hours a day, asynchronously.',
+                            linkHref: '#',
+                            linkText: 'Learn more'
+                        },
+                    ]}
+                />
+            </div>
+            
+            {Parser(htmlHack2)}
+
         </Layout>
     );
 };
