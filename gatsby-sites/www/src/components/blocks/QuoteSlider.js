@@ -95,7 +95,12 @@ const QuoteSlider = (props) => {
                         <div className="comp-slider-container bg-neutral-96">
                             <div className="row">
                                 <div className="col-lg-6 offset-lg-1">
-                                    <h2>{props.header}</h2>
+                                    <h2>
+                                        <Paragraph
+                                            text={props.header}
+                                            headerLevel="nothing"
+                                        />
+                                    </h2>
                                 </div>
                             </div>
 

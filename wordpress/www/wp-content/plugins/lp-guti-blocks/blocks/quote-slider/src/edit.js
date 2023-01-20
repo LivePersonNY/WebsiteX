@@ -60,11 +60,12 @@ export default function Edit({
 	onChange,
 }) {
 	let headerControl = (
-		<TextControl
+		<RichText
 			value={attributes.header}
 			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
 			placeholder="Section Header"
+			allowedFormats={["core/bold", "core/italic", "core/strikethrough"]}
 		/>
 	);
 
