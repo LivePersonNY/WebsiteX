@@ -124,6 +124,7 @@ h3,
         background: $h1Gradient;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        padding: 1px;
     }
 }
 
@@ -248,7 +249,7 @@ p {
     display: inline-block;
 
     &::after {
-        content: "";
+        content: '';
         background-image: url(https://static.liveperson.com/static-assets/2022/02/09152151/arrow-icon-sprite-20px%402x.png);
         background-repeat: no-repeat;
         background-size: 300px 20px;
