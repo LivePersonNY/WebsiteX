@@ -23,7 +23,7 @@ const PlainContent = function (props) {
         animatedLoop = `<div
                         id="plain-content-text-carousel"
                         className="carousel slide carousel-fade vertical animatedText-carousel"
-                        data-bs-ride="carousel"
+                        data-bs-ride="false"
                         data-bs-pause="false"
                     >
                         <div className="carousel-inner"> ${animatedLoop.join(
