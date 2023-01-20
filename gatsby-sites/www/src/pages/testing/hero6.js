@@ -5,6 +5,7 @@ import Hero from '../../components/blocks/Hero';
 import PlainContent from '../../components/blocks/PlainContent';
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
+import ScrollFeatures from '../../components/ScrollFeatures';
 import NotFoundPage from '../404';
 //import $ from 'jquery';
 
@@ -74,6 +75,57 @@ const Hero6 = () => {
                 kicker="This is kicker"
                 header="here is the header adding more content <s>here to</s> test animatedText out and see what happens"
                 animatedText="one, two, three"
+            />
+
+            <ScrollFeatures
+                scrollHeight="135vh"
+                items={[
+                    {
+                        imgSrc: 'https://via.placeholder.com/640/84ffcd/808080',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Conversational Intelligence',
+                        cardHeading: 'Understand',
+                        cardContent: 'Know exactly what your users want and how they feel to meet their needs better.',
+                        linkHref: '#',
+                        linkText: 'Learn more'
+                    },
+                    {
+                        imgSrc: 'https://via.placeholder.com/640/84e8ff/808080',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Conversational AI + Automation',
+                        cardHeading: 'Automate',
+                        cardContent: 'Create hyper-personal automation that exceeds consumer expectations.',
+                        linkHref: '#',
+                        linkText: 'Learn more'
+                    },
+                    {
+                        imgSrc: 'https://via.placeholder.com/640/ffc2e4/808080',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Agent + Manager Experience',
+                        cardHeading: 'Manage',
+                        cardContent: 'Empower your agents with an AI-augmented workspace that boosts productivity.',
+                        linkHref: '#',
+                        linkText: 'Learn more'
+                    },
+                    {
+                        imgSrc: 'https://via.placeholder.com/640/fff7af/808080',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Platform + Integrations',
+                        cardHeading: 'Configure',
+                        cardContent: 'Integrate with the external systems to support unique business workflows.',
+                        linkHref: '#',
+                        linkText: 'Learn more'
+                    },
+                    {
+                        imgSrc: 'https://via.placeholder.com/640/f7c077/808080',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Communication Channels',
+                        cardHeading: 'Reach',
+                        cardContent: 'Meet every user where they are, 24 hours a day, asynchronously.',
+                        linkHref: '#',
+                        linkText: 'Learn more'
+                    },
+                ]}
             />
 
             <div className="pane hero bg-neutral-96 ">
