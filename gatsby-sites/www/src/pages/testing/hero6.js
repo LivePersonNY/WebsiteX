@@ -44,7 +44,7 @@ const htmlHack1 = `
                                 </div>
                                 feel&nbsp;human.
 </h1>
-                            <p data-tag="new line split">
+                            <p data-tag="new line split" class="lead">
                                 Drive business outcomes while making every user feel seen, heard, and&nbsp;valued.
 </p>
 <a class="btn btn-primary" href="/request-demo/">Let’s talk</a>
