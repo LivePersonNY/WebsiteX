@@ -3,16 +3,26 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, ToolbarGroup, ToolbarDropdownMenu, ToolbarButton, Dashicon, Button } from '@wordpress/components';
-import CardGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGrid';
-import CardGridB from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGridB';
-import BackgroundSelectorMenu from '../../BackgroundSelector';
-import ItemControls from '../../ItemControls';
-import LinkControl from '../../LinkControl';
-import AutoApproveLanguage from '../../AutoApproveLanguage';
+import { __ } from "@wordpress/i18n";
+import {
+	__experimentalGrid as Grid,
+	Placeholder,
+	TextControl,
+	TextareaControl,
+	ToolbarGroup,
+	ToolbarDropdownMenu,
+	ToolbarButton,
+	Dashicon,
+	Button,
+} from "@wordpress/components";
+import CardGrid from "../../../../../../../../gatsby-sites/www/src/components/blocks/CardGrid";
+import CardGridB from "../../../../../../../../gatsby-sites/www/src/components/blocks/CardGridB";
+import BackgroundSelectorMenu from "../../BackgroundSelector";
+import ItemControls from "../../ItemControls";
+import LinkControl from "../../LinkControl";
+import AutoApproveLanguage from "../../AutoApproveLanguage";
 
-import Reorder from 'react-reorder';
+import Reorder from "react-reorder";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -20,9 +30,14 @@ import Reorder from 'react-reorder';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck, RichText } from '@wordpress/block-editor';
-import { useInstanceId } from '@wordpress/compose';
-
+import {
+	useBlockProps,
+	BlockControls,
+	MediaUpload,
+	MediaUploadCheck,
+	RichText,
+} from "@wordpress/block-editor";
+import { useInstanceId } from "@wordpress/compose";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,7 +45,7 @@ import { useInstanceId } from '@wordpress/compose';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -40,29 +55,34 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, className, setAttributes, isSelected }) {
-
+export default function Edit({
+	attributes,
+	className,
+	setAttributes,
+	isSelected,
+}) {
 	let headerControl = (
-		<TextControl
-			value={ attributes.header }
-			onChange={ ( val ) => setAttributes( { header: val } ) }
+		<RichText
+			value={attributes.header}
+			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
 			placeholder="Section Header"
+			allowedFormats={["core/bold", "core/italic", "core/strikethrough"]}
 		/>
 	);
 
 	let contentControl = (
 		<RichText
-			value={ attributes.content }
-			onChange={ ( val ) => setAttributes( { content: val } ) }
+			value={attributes.content}
+			onChange={(val) => setAttributes({ content: val })}
 			className="embedded-input"
-			allowedFormats={['core/bold', 'core/italic']}
+			allowedFormats={["core/bold", "core/italic"]}
 			placeholder="Body copy for this section"
 		/>
 	);
 
 	let cards = [...attributes.cards];
-	let controls = attributes.cards.map((item ,index)=>{
+	let controls = attributes.cards.map((item, index) => {
 		return {
 			linkUrl: null,
 			linkText: (
@@ -71,11 +91,11 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 						text={cards[index].linkText}
 						url={cards[index].linkUrl}
 						external={cards[index].linkExternal || false}
-						callback={function(text,url,external) {
+						callback={function (text, url, external) {
 							cards[index].linkText = text;
 							cards[index].linkUrl = url;
 							cards[index].linkExternal = external;
-							setAttributes({ cards: cards});
+							setAttributes({ cards: cards });
 						}}
 					/>
 				</div>
@@ -83,24 +103,39 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			imgCtl: (
 				<MediaUploadCheck>
 					<MediaUpload
-						onSelect={function(media) {
+						onSelect={function (media) {
 							cards[index].imgSrc = media.url;
 							cards[index].mediaId = media.id;
-							cards[index].imgAlt = media.alt || '';
-							setAttributes({ cards: cards});
+							cards[index].imgAlt = media.alt || "";
+							setAttributes({ cards: cards });
 						}}
 						value={cards[index].mediaId}
-						allowedTypes={ ['image'] }
-						render={({open}) => (
+						allowedTypes={["image"]}
+						render={({ open }) => (
 							<>
-								{cards[index].imgSrc && <img className="imageSelector" src={cards[index].imgSrc} onClick={open} /> ||
-								<Button className="mt-2" variant="link" onClick={open}>Select Image</Button>
-							}
-								<Button className="mt-2" variant="link" isDestructive={true} onClick={() => {
-									cards[index].imgSrc = null;
-									cards[index].mediaId = null;
-									setAttributes({cards: cards});
-								}}>Remove Image</Button>
+								{(cards[index].imgSrc && (
+									<img
+										className="imageSelector"
+										src={cards[index].imgSrc}
+										onClick={open}
+									/>
+								)) || (
+									<Button className="mt-2" variant="link" onClick={open}>
+										Select Image
+									</Button>
+								)}
+								<Button
+									className="mt-2"
+									variant="link"
+									isDestructive={true}
+									onClick={() => {
+										cards[index].imgSrc = null;
+										cards[index].mediaId = null;
+										setAttributes({ cards: cards });
+									}}
+								>
+									Remove Image
+								</Button>
 							</>
 						)}
 					/>
@@ -109,9 +144,9 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			cardTitle: (
 				<TextControl
 					value={cards[index].cardTitle}
-					onChange={function(value) {
+					onChange={function (value) {
 						cards[index].cardTitle = value;
-						setAttributes({ cards: cards});
+						setAttributes({ cards: cards });
 					}}
 					className="embedded-input"
 					placeholder="Header"
@@ -121,119 +156,124 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				<div className="wp-control-wrapper">
 					<RichText
 						value={cards[index].body}
-						onChange={function(value) {
+						onChange={function (value) {
 							cards[index].body = value;
-							setAttributes({ cards: cards});
+							setAttributes({ cards: cards });
 						}}
-						allowedFormats={['core/bold', 'core/italic']}
+						allowedFormats={["core/bold", "core/italic"]}
 						placeholder="Card copy"
 					/>
 					<ItemControls
 						index={index}
 						itemArray={cards}
-						callback={function(items) {
-							setAttributes({ cards: items});
+						callback={function (items) {
+							setAttributes({ cards: items });
 						}}
 					/>
 				</div>
-			)
-		}
+			),
+		};
 	});
 
-	let addTabFunc = function() {
-
+	let addTabFunc = function () {
 		cards.push({
-			"imgSrc": "https://picsum.photos/224/30?random=3",
-			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
-			"linkText": "More about Lorem",
-			"cardTitle": "Title",
-			"linkUrl": "#"
+			imgSrc: "https://picsum.photos/224/30?random=3",
+			body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+			linkText: "More about Lorem",
+			cardTitle: "Title",
+			linkUrl: "#",
 		});
 		setAttributes({
-			cards: cards
+			cards: cards,
 		});
-	}
+	};
 
-	let changeBackground = function(color) {
+	let changeBackground = function (color) {
 		setAttributes({ backgroundColor: color });
-	}
+	};
 
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
-				<ToolbarButton
-					icon="plus-alt2"
-					label="Add Stat"
-					onClick={ addTabFunc }
-				/>
+				<ToolbarButton icon="plus-alt2" label="Add Stat" onClick={addTabFunc} />
 				<ToolbarDropdownMenu
 					icon="admin-settings"
 					label="Select a version"
-					controls={ [
+					controls={[
 						{
-							title: 'Version 1',
-							isActive: attributes.blocktype == 'CardGrid',
+							title: "Version 1",
+							isActive: attributes.blocktype == "CardGrid",
 							onClick: () => {
-								setAttributes({blocktype: "CardGrid"});
+								setAttributes({ blocktype: "CardGrid" });
 							},
 						},
 						{
-							title: 'Version 2',
-							isActive: attributes.blocktype == 'CardGridB',
+							title: "Version 2",
+							isActive: attributes.blocktype == "CardGridB",
 							onClick: () => {
-								setAttributes({blocktype: "CardGridB"});
+								setAttributes({ blocktype: "CardGridB" });
 							},
-						}
-					] }
+						},
+					]}
 				/>
-				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
-				<AutoApproveLanguage callback={function() {
-					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
-				}} selected={attributes.autoApproveLang}/>
+				<BackgroundSelectorMenu
+					callback={changeBackground}
+					selected={attributes.backgroundColor}
+				/>
+				<AutoApproveLanguage
+					callback={function () {
+						setAttributes({ autoApproveLang: !attributes.autoApproveLang });
+					}}
+					selected={attributes.autoApproveLang}
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
 
-
-	if (isSelected) return (
-		<div { ...useBlockProps() }>
-			{addButton}
-			{attributes.blocktype == "CardGrid" &&
-			<CardGrid
-				header={headerControl}
-				items={controls}
-				body={contentControl}
-				runFilters={true}
-				backgroundColor={attributes.backgroundColor}
-			/>}
-			{attributes.blocktype == "CardGridB" &&
-			<CardGridB
-				header={headerControl}
-				items={controls}
-				body={contentControl}
-				backgroundColor={attributes.backgroundColor}
-			/>}
-		</div>
-	);
+	if (isSelected)
+		return (
+			<div {...useBlockProps()}>
+				{addButton}
+				{attributes.blocktype == "CardGrid" && (
+					<CardGrid
+						header={headerControl}
+						items={controls}
+						body={contentControl}
+						runFilters={true}
+						backgroundColor={attributes.backgroundColor}
+					/>
+				)}
+				{attributes.blocktype == "CardGridB" && (
+					<CardGridB
+						header={headerControl}
+						items={controls}
+						body={contentControl}
+						backgroundColor={attributes.backgroundColor}
+					/>
+				)}
+			</div>
+		);
 
 	return (
-		<div { ...useBlockProps() }>
+		<div {...useBlockProps()}>
 			{addButton}
-			{attributes.blocktype == "CardGrid" &&
-			<CardGrid
-				header={attributes.header}
-				body={attributes.content}
-				items={attributes.cards}
-				runFilters={true}
-				backgroundColor={attributes.backgroundColor}
-			/>}
-			{attributes.blocktype == "CardGridB" &&
-			<CardGridB
-				header={attributes.header}
-				items={attributes.cards}
-				body={attributes.content}
-				backgroundColor={attributes.backgroundColor}
-			/>}
+			{attributes.blocktype == "CardGrid" && (
+				<CardGrid
+					header={attributes.header}
+					body={attributes.content}
+					items={attributes.cards}
+					runFilters={true}
+					backgroundColor={attributes.backgroundColor}
+				/>
+			)}
+			{attributes.blocktype == "CardGridB" && (
+				<CardGridB
+					header={attributes.header}
+					items={attributes.cards}
+					body={attributes.content}
+					backgroundColor={attributes.backgroundColor}
+				/>
+			)}
 		</div>
-	)
+	);
 }
