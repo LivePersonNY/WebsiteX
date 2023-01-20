@@ -383,8 +383,12 @@ main {
             background: 0;
             -webkit-text-fill-color: initial;
             -webkit-background-clip: initial;
-            font-size: 72px;
-            line-height: 72px;
+            font-size: 48px;
+            line-height: 48px;
+            @include media-breakpoint-up(lg) {
+                font-size: 72px;
+                line-height: 72px;
+            }
         }
     }
 }
