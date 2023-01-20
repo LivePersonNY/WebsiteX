@@ -1,6 +1,6 @@
 import React, { useRef, forwardRef, useEffect } from 'react';
 
-export default function ScrollFeatures({ items = [], minBreakpoint = '1200px', scrollHeight = '350vh' }) {
+export default function ScrollFeatures({ items = [], minBreakpoint = '1200px', scrollHeight = '120vh', backgroundColor='bg-neutral-96' }) {
 
   useEffect(() => {
 
@@ -47,7 +47,7 @@ export default function ScrollFeatures({ items = [], minBreakpoint = '1200px', s
             <div className="row py-5">
                 <div className="col-12-lg" data-sticky-boxes="1">
                     {items.map((item, i) => (
-                        <div key={i} className={`${scrollHeight} sticky-box`}>
+                        <div key={i} className="sticky-box" style={{ height: scrollHeight }}>
                             <div className="content-box">
                                 <div className="content">
                                     <div>

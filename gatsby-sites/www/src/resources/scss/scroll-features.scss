@@ -27,7 +27,7 @@
 @media screen and (min-width: 1200px) {
 	.sticky-boxes-wrapper {
 		position: relative;
-		+ {
+		~ {
 			* {
 				position: relative;
 			}
@@ -37,7 +37,7 @@
 			.sticky-box {
 				top: 0;
 				width: 100%;
-				height: 350vh;
+				height: 120vh;
 				position: sticky;
 				.content-box {
 					display: flex;
