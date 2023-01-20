@@ -399,7 +399,7 @@ main {
     .col-lg-6 {
         position: relative;
         margin-bottom: -7px;
-        &::before,
+        // &::before,
         &::after {
             background: linear-gradient(
                 to bottom,
@@ -420,8 +420,8 @@ main {
         }
 
         &::before {
-            left: 0;
-            top: 0;
+            // left: 0;
+            // top: 0;
         }
     }
 }
