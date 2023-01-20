@@ -277,6 +277,7 @@ const Hero6 = () => {
             <div className="bg-neutral-96">
                 <ScrollFeatures
                     scrollHeight="135vh"
+                    backgroundColor="bg-neutral-96"
                     items={[
                         {
                             imgSrc: 'https://via.placeholder.com/640/84ffcd/808080',

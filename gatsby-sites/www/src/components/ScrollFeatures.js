@@ -57,13 +57,13 @@ export default function ScrollFeatures({ items = [], minBreakpoint = '1200px', s
 
   return (
     <>     
-        <div className={`${isReady ? 'ready' : ''} sticky-boxes-wrapper bg-neutral-96`}>
+        <div className={`${isReady ? 'ready' : ''} ${backgroundColor ? backgroundColor : 'bg-neutral-96'} sticky-boxes-wrapper`}>
             <div className="container">
                 <div className="row py-5">
                     <div className="col-12-lg" data-sticky-boxes="1">
                         {items.map((item, i) => (
                             <div key={i} className="sticky-box" style={{ height: scrollHeight }}>
-                                <div className="content-box bg-neutral-96">
+                                <div className={`${backgroundColor ? backgroundColor : 'bg-neutral-96'} content-box`}>
                                     <div className="content">
                                         <div>
                                             <h2 className="fs-6 text-uppercase">{item.cardTitle}</h2>
