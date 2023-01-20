@@ -20,9 +20,9 @@ const htmlHack1 = `
                         <p class="h6 text-uppercase">LIVEPERSON CUSTOMER ENGAGEMENT PLATFORM</p>
                             <h1>
                                 AI that makes
-                                <div id="hp-hero-text-carousel-testtest" class="carousel slide carousel-fade vertical animatedText-carousel" data-bs-ride="carousel" data-bs-pause="false">
+                                <div id="hp-hero-text-carousel-testtest" class="carousel slide carousel-fade vertical animatedText-carousel" data-bs-ride="false" data-bs-pause="false">
                                     <div class="carousel-inner">
-                                        <div class="carousel-item" data-bs-interval="8000">
+                                        <div class="carousel-item active" data-bs-interval="8000">
                                             <span> shoppers </span>
                                         </div>
                                         <div class="carousel-item" data-bs-interval="8000">
@@ -31,7 +31,7 @@ const htmlHack1 = `
                                         <div class="carousel-item" data-bs-interval="8000">
                                             <span> guests </span>
                                         </div>
-                                        <div class="carousel-item active" data-bs-interval="8000">
+                                        <div class="carousel-item" data-bs-interval="8000">
                                             <span> clients </span>
                                         </div>
                                         <div class="carousel-item" data-bs-interval="8000">
@@ -39,12 +39,6 @@ const htmlHack1 = `
                                         </div>
                                         <div class="carousel-item" data-bs-interval="8000">
                                             <span> members </span>
-                                        </div>
-                                        <div class="carousel-item" data-bs-interval="8000">
-                                            <span> users </span>
-                                        </div>
-                                        <div class="carousel-item" data-bs-interval="8000">
-                                            <span> agents </span>
                                         </div>
                                     </div>
                                 </div>
@@ -56,9 +50,9 @@ const htmlHack1 = `
 <a class="btn btn-primary" href="/request-demo/">Let’s talk</a>
                         </div>
                         <div class="col-lg-6 offset-lg-1">
-                            <div id="hp-hero-img-carousel" class="carousel slide vertical vertical-double" data-bs-ride="carousel" data-bs-pause="false">
+                            <div id="hp-hero-img-carousel" class="carousel slide vertical vertical-double" data-bs-ride="false" data-bs-pause="false">
                                 <div class="carousel-inner">
-                                    <div class="carousel-item" data-bs-interval="8000">
+                                    <div class="carousel-item active" data-bs-interval="8000">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/6-Insurance_1x-avatar.png">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/1-Retail_1x-avatar.png">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/2-Airlines_1x-avatar.png">
@@ -73,7 +67,7 @@ const htmlHack1 = `
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/3-Hospitality_1x-avatar.png">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/4-FinServ_1x-avatar.png">
                                     </div>
-                                    <div class="carousel-item active" data-bs-interval="8000">
+                                    <div class="carousel-item" data-bs-interval="8000">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/3-Hospitality_1x-avatar.png">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/4-FinServ_1x-avatar.png">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/5-Telco_1x-avatar.png">
@@ -91,9 +85,9 @@ const htmlHack1 = `
                                 </div>
                             </div>
 
-                            <div id="hp-hero-img-carousel-reverse" class="carousel slide vertical vertical-reverse vertical-double" data-bs-ride="carousel" data-bs-pause="false">
+                            <div id="hp-hero-img-carousel-reverse" class="carousel slide vertical vertical-reverse vertical-double" data-bs-ride="false" data-bs-pause="false">
                                 <div class="carousel-inner">
-                                    <div class="carousel-item" data-bs-interval="8000">
+                                    <div class="carousel-item active" data-bs-interval="8000">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/6-Insurance_1x-ui.png">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/1-Retail_1x-ui.png">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/2-Airlines_1x-ui.png">
@@ -108,7 +102,7 @@ const htmlHack1 = `
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/3-Hospitality_1x-ui.png">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/4-FinServ_1x-ui.png">
                                     </div>
-                                    <div class="carousel-item active" data-bs-interval="8000">
+                                    <div class="carousel-item" data-bs-interval="8000">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/3-Hospitality_1x-ui.png">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/4-FinServ_1x-ui.png">
                                         <img src="https://lp-site.s3.amazonaws.com/web2023/img/5-Telco_1x-ui.png">
@@ -136,7 +130,7 @@ const htmlHack1 = `
 
 
 
-<div class="pane comp-stat-grid bg-lavendar-20 pane-with-lead-text"><div class="container" style="opacity: 1;"><div class="row"><div class="col-lg-12"><h2 class="text-center">Leaders <s>like you</s> see results&nbsp;like:</h2></div></div><div class="row"><div class="col-lg-12"><div class="comp-4col-grid text-center"><div class="row align-items-center row-cols-lg-5 row-cols-2"><div class="col"><p class="h1">34 billion</p><p class="subtitle2">API calls /&nbsp;month</p></div><div class="col"><p class="h1">~1 billion</p><p class="subtitle2">conversational interactions /&nbsp;month</p></div><div class="col"><p class="h1">25%+</p><p class="subtitle2">customer satisfaction boost</p></div><div class="col"><p class="h1">10x</p><p class="subtitle2">conversion vs. traditional digital</p></div><div class="col"><p class="h1">50%+</p><p class="subtitle2">decrease in agent&nbsp;attrition</p></div></div></div></div></div><div class="row"><div class="col-lg-12"></div></div></div></div>
+<div class="pane comp-stat-grid bg-lavendar-20 pane-with-lead-text"><div class="container" style="opacity: 1;"><div class="row"><div class="col-lg-12"><h2 class="text-center">Leaders <s>like you</s> see results&nbsp;like:</h2></div></div><div class="row"><div class="col-lg-12"><div class="comp-4col-grid text-center"><div class="row align-items-center row-cols-lg-5 row-cols-2"><div class="col"><p class="h1">30%+</p><p class="subtitle2">reduction in operating costs</p></div><div class="col"><p class="h1">90%+</p><p class="subtitle2">automation containment rate</p></div><div class="col"><p class="h1">25%+</p><p class="subtitle2">customer satisfaction boost</p></div><div class="col"><p class="h1">10x</p><p class="subtitle2">conversion vs. traditional digital</p></div><div class="col"><p class="h1">50%+</p><p class="subtitle2">decrease in agent&nbsp;attrition</p></div></div></div></div></div><div class="row"><div class="col-lg-12"></div></div></div></div>
 
 
 
@@ -144,8 +138,7 @@ const htmlHack1 = `
 
 
 
-`
-
+`;
 
 const htmlHack2 = `
 
@@ -159,7 +152,7 @@ const htmlHack2 = `
 
 
 
-<div class="pane comp-stat-grid bg-transparent pane-with-lead-text"><div class="container" style="opacity: 0;"><div class="row"><div class="col-lg-12"><h2 class="text-center"><s>Trust and scale</s> your automation while delivering <br>the most accurate bot&nbsp;experience</h2></div></div><div class="row"><div class="col-lg-12"><div class="comp-4col-grid text-center"><div class="row align-items-center row-cols-lg-4 row-cols-2"><div class="col"><p class="h1">34 billion</p><p class="subtitle2">API calls /&nbsp;month</p></div><div class="col"><p class="h1">~1 billion</p><p class="subtitle2">conversational interactions /&nbsp;month</p></div><div class="col"><p class="h1">100k+</p><p class="subtitle2">human experts on&nbsp;platform</p></div><div class="col"><p class="h1">70%+</p><p class="subtitle2">include automation vs. 46% industry avg</p></div></div></div></div></div><div class="row"><div class="col-lg-12"></div></div></div></div>
+<div class="pane comp-stat-grid bg-transparent pane-with-lead-text"><div class="container" style="opacity: 0;"><div class="row"><div class="col-lg-12"><h2 class="text-center"><s>Trust and scale</s> your automation while delivering <br>the most accurate bot&nbsp;experience</h2></div></div><div class="row"><div class="col-lg-12"><div class="comp-4col-grid text-center"><div class="row align-items-center row-cols-lg-4 row-cols-2"><div class="col"><p class="h1">34 billion+</p><p class="subtitle2">API calls /&nbsp;month</p></div><div class="col"><p class="h1">~1 billion</p><p class="subtitle2">conversational interactions /&nbsp;month</p></div><div class="col"><p class="h1">100k+</p><p class="subtitle2">human experts on&nbsp;platform</p></div><div class="col"><p class="h1">70%+</p><p class="subtitle2">include automation vs. 46% industry avg</p></div></div></div></div></div><div class="row"><div class="col-lg-12"></div></div></div></div>
 
 
 
@@ -232,9 +225,9 @@ const Hero6 = () => {
                 description=""
                 robots="noindex, nofollow"
             />
-            
+
             {Parser(htmlHack1)}
-            
+
             <div className="bg-neutral-96">
                 <ScrollFeatures
                     scrollHeight="135vh"
@@ -245,52 +238,56 @@ const Hero6 = () => {
                             imgAlt: 'Alt text',
                             cardTitle: 'Conversational Intelligence',
                             cardHeading: 'Understand',
-                            cardContent: 'Know exactly what your users want and how they feel to meet their needs better.',
+                            cardContent:
+                                'Know exactly what your users want and how they feel to meet their needs better.',
                             linkHref: '#',
-                            linkText: 'Learn more'
+                            linkText: 'Learn more',
                         },
                         {
                             imgSrc: 'https://via.placeholder.com/640/84e8ff/808080',
                             imgAlt: 'Alt text',
                             cardTitle: 'Conversational AI + Automation',
                             cardHeading: 'Automate',
-                            cardContent: 'Create hyper-personal automation that exceeds consumer expectations.',
+                            cardContent:
+                                'Create hyper-personal automation that exceeds consumer expectations.',
                             linkHref: '#',
-                            linkText: 'Learn more'
+                            linkText: 'Learn more',
                         },
                         {
                             imgSrc: 'https://via.placeholder.com/640/ffc2e4/808080',
                             imgAlt: 'Alt text',
                             cardTitle: 'Agent + Manager Experience',
                             cardHeading: 'Manage',
-                            cardContent: 'Empower your agents with an AI-augmented workspace that boosts productivity.',
+                            cardContent:
+                                'Empower your agents with an AI-augmented workspace that boosts productivity.',
                             linkHref: '#',
-                            linkText: 'Learn more'
+                            linkText: 'Learn more',
                         },
                         {
                             imgSrc: 'https://via.placeholder.com/640/fff7af/808080',
                             imgAlt: 'Alt text',
                             cardTitle: 'Platform + Integrations',
                             cardHeading: 'Configure',
-                            cardContent: 'Integrate with the external systems to support unique business workflows.',
+                            cardContent:
+                                'Integrate with the external systems to support unique business workflows.',
                             linkHref: '#',
-                            linkText: 'Learn more'
+                            linkText: 'Learn more',
                         },
                         {
                             imgSrc: 'https://via.placeholder.com/640/f7c077/808080',
                             imgAlt: 'Alt text',
                             cardTitle: 'Communication Channels',
                             cardHeading: 'Reach',
-                            cardContent: 'Meet every user where they are, 24 hours a day, asynchronously.',
+                            cardContent:
+                                'Meet every user where they are, 24 hours a day, asynchronously.',
                             linkHref: '#',
-                            linkText: 'Learn more'
+                            linkText: 'Learn more',
                         },
                     ]}
                 />
             </div>
-            
-            {Parser(htmlHack2)}
 
+            {Parser(htmlHack2)}
         </Layout>
     );
 };
