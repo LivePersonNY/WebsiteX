@@ -305,6 +305,7 @@ export default function Edit({
 					/>
 				</MediaUploadCheck>
 				<Hero
+					cssClasses={attributes.className}
 					lottieFile={attributes.lottieFile}
 					imgLogoCtl={logoControl}
 					backgroundImage={attributes.backgroundImage}
@@ -328,6 +329,7 @@ export default function Edit({
 	return (
 		<div {...useBlockProps()}>
 			<Hero
+				cssClasses={attributes.className}
 				underBodyImg={attributes.logoWall}
 				underBodyImgAlt={attributes.logoWallAlt}
 				backgroundImage={attributes.backgroundImage}
