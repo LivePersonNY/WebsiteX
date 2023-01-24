@@ -375,9 +375,9 @@ table {
     }
 }
 
-main {
-    .hero:first-child,
-    .comp-plain-content:first-child {
+.styles-2023 {
+    &.hero:first-child,
+    &.comp-plain-content:first-child {
         h1 {
             color: $neutral12;
             background: 0;

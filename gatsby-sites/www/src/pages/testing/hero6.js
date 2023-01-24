@@ -13,7 +13,7 @@ import Parser from 'html-react-parser';
 // Bootstrap carousel, separate images, opposite directions
 
 const htmlHack1 = `
-<div class="pane hero bg-neutral-96 hp-2023 ">
+<div class="pane hero bg-neutral-96 hp-2023 styles-2023 ">
                 <div class="container" style="opacity: 1;">
                     <div class="row align-items-center">
                         <div class="col-lg-5">
