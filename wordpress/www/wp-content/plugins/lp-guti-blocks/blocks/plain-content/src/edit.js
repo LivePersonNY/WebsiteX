@@ -215,6 +215,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					}}
 				/>
 				<PlainContent
+					cssClasses={attributes.className}
 					anchor={attributes.anchor}
 					kicker={kickerControl}
 					colWidth={attributes.colWidth}
@@ -235,6 +236,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 	return (
 		<div {...useBlockProps()}>
 			<PlainContent
+				cssClasses={attributes.className}
 				anchor={attributes.anchor}
 				kicker={attributes.kicker}
 				colWidth={attributes.colWidth}

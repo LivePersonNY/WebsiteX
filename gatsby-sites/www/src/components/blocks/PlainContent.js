@@ -42,7 +42,7 @@ const PlainContent = function (props) {
                 props.backgroundColor || 'bg-transparent'
             } ${props.alignmentClass} ${
                 props.header ? 'pane-with-lead-text' : ''
-            }`}
+            } ${props.cssClasses}`}
         >
             <div className="container">
                 <div className="row align-items-center justify-content-center">

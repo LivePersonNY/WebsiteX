@@ -26,6 +26,7 @@ import { useBlockProps } from "@wordpress/block-editor";
 export default function save({ attributes }) {
 	return (
 		<PlainContent
+			cssClasses={attributes.className}
 			kicker={attributes.kicker}
 			anchor={attributes.anchor}
 			colWidth={attributes.colWidth}

@@ -37,6 +37,7 @@ export default function save({ attributes, clientId }) {
 	return (
 		<>
 			<Hero
+				cssClasses={attributes.className}
 				underBodyImg={attributes.logoWall}
 				underBodyImgAlt={attributes.logoWallAlt}
 				backgroundImage={attributes.backgroundImage}

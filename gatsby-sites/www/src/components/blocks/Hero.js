@@ -45,7 +45,7 @@ const Hero = (props) => {
             autoapprove={props.autoApprove && 'true'}
             className={`pane hero ${
                 props.backgroundColor || 'bg-transparent'
-            } ${props.removePB ? 'rem-padding' : ''}`}
+            } ${props.removePB ? 'rem-padding' : ''} ${props.cssClasses}`}
         >
             {props.backgroundImage && (
                 <style>
