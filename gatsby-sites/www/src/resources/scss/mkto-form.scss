@@ -5,7 +5,7 @@
     }
 
     text-align: center;
-    z-index: 100;
+    // z-index: 100;
     display: block !important;
     opacity: 1 !important;
 
@@ -44,7 +44,7 @@
     }
 
     &.form--sticky {
-        position: sticky;
+        position: relative;
         top: 0;
         display: none;
         padding: 16px 0;

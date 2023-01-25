@@ -1,3 +1,9 @@
+header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
 .navbar {
     background: $neutral99;
     padding: 15px 0px;
@@ -6,12 +12,12 @@
         padding: 13px 0;
     }
 
-    >.container {
+    > .container {
         @include media-breakpoint-down(lg) {
             padding: 0;
         }
 
-        >a img {
+        > a img {
             @include media-breakpoint-down(lg) {
                 padding-left: 20px;
             }
@@ -19,10 +25,10 @@
 
         .navbar-toggler {
             margin-right: 20px;
-            border:0;
+            border: 0;
             box-shadow: none;
-            .navbar-toggler-icon{
-                background-image:url(https://static.liveperson.com/static-assets/2022/04/14143526/mobile-menu.svg);
+            .navbar-toggler-icon {
+                background-image: url(https://static.liveperson.com/static-assets/2022/04/14143526/mobile-menu.svg);
             }
         }
 
@@ -39,7 +45,7 @@
 
                     .nav-item:last-child {
                         margin-right: 0;
-                        background-color:$neutral96;
+                        background-color: $neutral96;
                         padding: 16px 20px;
 
                         @include media-breakpoint-up(lg) {
@@ -88,7 +94,7 @@
 
                         &.dropdown-toggle::after {
                             border: 0;
-                            content: "";
+                            content: '';
                             background-image: url(https://static.liveperson.com/static-assets/2022/02/09152152/chevron-icon-sprite-20px%402x.png);
                             background-repeat: no-repeat;
                             background-size: 360px 20px;
@@ -122,14 +128,14 @@
                         border: 0;
                         border-radius: 0;
                         background: $neutral99;
-                        
+
                         .container {
                             padding: 0;
-                            
+
                             & > .row {
                                 box-shadow: -10px 4px 8px $dropShadow,
-                                10px 4px 8px $dropShadow,
-                                inset 0 0 8px $dropShadow;
+                                    10px 4px 8px $dropShadow,
+                                    inset 0 0 8px $dropShadow;
                             }
                         }
 
@@ -221,7 +227,7 @@
                                     display: block;
 
                                     &.link-external::after {
-                                        content: "";
+                                        content: '';
                                         background-image: url(https://static.liveperson.com/static-assets/2022/02/09152151/arrow-icon-sprite-20px%402x.png);
                                         background-repeat: no-repeat;
                                         background-size: 300px 20px;
@@ -242,7 +248,7 @@
                                     }
 
                                     &::before {
-                                        content: "";
+                                        content: '';
                                         background-image: url(https://static.liveperson.com/static-assets/2022/02/09135755/nav-icon-sprite-18px%402x.png);
                                         background-repeat: no-repeat;
                                         background-size: 162px 18px;
@@ -310,8 +316,6 @@
                                     height: 10px;
                                     width: 10px;
                                 }
-
-
                             }
                         }
                     }
@@ -468,10 +472,8 @@
                     }
                 }
             }
-
         }
     }
-
 }
 
 footer {
@@ -484,7 +486,7 @@ footer {
             margin-bottom: 40px;
         }
 
-        +.footer-section {
+        + .footer-section {
             @include media-breakpoint-up(lg) {
                 margin-top: 40px;
             }
@@ -518,20 +520,19 @@ footer {
             margin-top: 80px;
         }
 
-        .footer-social{
-            display:block;
-            margin:26px 0;
-            
+        .footer-social {
+            display: block;
+            margin: 26px 0;
+
             @include media-breakpoint-up(lg) {
-                float:left;
-                display:inline;
-                margin:0;
+                float: left;
+                display: inline;
+                margin: 0;
                 margin-top: -1px;
                 padding-right: 10px;
-                
             }
-            a{
-                margin-right:10px;
+            a {
+                margin-right: 10px;
                 svg {
                     width: 28px !important;
                     height: 28px !important;
@@ -549,31 +550,30 @@ footer {
 
             &.footer-legal-link {
                 display: block;
-                margin-top:8px;
+                margin-top: 8px;
                 @include media-breakpoint-up(lg) {
                     display: inline;
-                    margin-top:0;
+                    margin-top: 0;
                 }
             }
         }
     }
-
 }
 
-.news-ticker-container{
+.news-ticker-container {
     border-bottom: 3px solid;
     border-image: $borderGradient 1;
-    text-align:center;
-    padding:7px 0;
-    .news-ticker{
-        display:inline;
-        font-size:13px;
-        line-height:24px;
-        margin-right:16px;
+    text-align: center;
+    padding: 7px 0;
+    .news-ticker {
+        display: inline;
+        font-size: 13px;
+        line-height: 24px;
+        margin-right: 16px;
     }
-    .link{
-        font-size:14px;
-        line-height:16px;
+    .link {
+        font-size: 14px;
+        line-height: 16px;
         &::after {
             background-position: -122px -1px;
         }
