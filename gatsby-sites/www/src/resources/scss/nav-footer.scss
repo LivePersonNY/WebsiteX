@@ -157,6 +157,10 @@ header {
                             &.container-60 {
                                 width: 60%;
                             }
+
+                            &.container-80 {
+                                width: 80%;
+                            }
                         }
 
                         .dropdown-section-gray {
@@ -345,8 +349,8 @@ header {
                     }
 
                     &.resources,
-                    &.about,
-                    &.solutions {
+                    // &.solutions,
+                    &.about {
                         .col-lg:last-child {
                             background: $neutral92;
                             border-bottom: 0;
@@ -407,7 +411,6 @@ header {
                     }
 
                     &.products,
-                    &.resources,
                     &.about,
                     &.success-services {
                         .col-lg:first-child {
@@ -421,7 +424,12 @@ header {
                             margin-bottom: 16px;
                             margin-top: 10px;
                         }
+                    }
 
+                    &.products,
+                    &.resources,
+                    &.about,
+                    &.success-services {
                         .dropdown-featured-container {
                             img {
                                 margin-bottom: 16px;
