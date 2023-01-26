@@ -5,7 +5,7 @@
     }
 
     text-align: center;
-    z-index: 100;
+    // z-index: 100;
     display: block !important;
     opacity: 1 !important;
 
@@ -20,7 +20,13 @@
     }
 
     &.bg-rainbow {
-        background: linear-gradient(90deg, #AAD5EA 0%, #C1C1F3 33.3%, #F7B1B1 66.6%, #F7B995 100%);
+        background: linear-gradient(
+            90deg,
+            #aad5ea 0%,
+            #c1c1f3 33.3%,
+            #f7b1b1 66.6%,
+            #f7b995 100%
+        );
     }
 
     .container {
@@ -38,7 +44,7 @@
     }
 
     &.form--sticky {
-        position: sticky;
+        position: relative;
         top: 0;
         display: none;
         padding: 16px 0;
@@ -89,7 +95,7 @@
                 @include media-breakpoint-up(lg) {
                     min-height: 48px;
                     height: auto;
-                    transition: .5s opacity ease;
+                    transition: 0.5s opacity ease;
                     opacity: 0;
                 }
             }
@@ -98,19 +104,14 @@
                 display: none;
                 opacity: 1;
 
-
                 @include media-breakpoint-up(lg) {
                     display: block;
                 }
             }
-
-
         }
-
     }
 
     .mktoForm {
-
         width: 100% !important;
         margin: 0 auto;
         text-align: center !important;
@@ -134,8 +135,8 @@
                 .mktoFieldWrap {
                     width: 100%;
 
-                    input, textarea {
-
+                    input,
+                    textarea {
                         border-radius: 4px;
                         border: 0;
                         background: $neutral99;
@@ -178,11 +179,7 @@
                         }
                     }
                 }
-
-
             }
-
-
         }
 
         .mktoButtonRow {
@@ -219,7 +216,6 @@
                         background: $primaryBlueVariant !important;
                     }
                 }
-
             }
         }
 
@@ -255,7 +251,7 @@
             float: left;
         }
 
-        &>.thank-you-message {
+        & > .thank-you-message {
             font-size: 20px;
             line-height: 28px;
             max-width: 600px;
@@ -318,7 +314,7 @@
                     }
 
                     .mktoRadioList {
-                        >input {
+                        > input {
                             outline: none;
                             border: 1px solid $neutral24;
                             appearance: none;
@@ -337,7 +333,7 @@
                     }
 
                     .mktoCheckboxList {
-                        >input {
+                        > input {
                             outline: none;
                             border: 1px solid $neutral24;
                             appearance: none;
@@ -351,7 +347,7 @@
 
                             &:checked {
                                 &::after {
-                                    content: "✔";
+                                    content: '✔';
                                     display: block;
                                     font-size: 20px;
                                     margin-top: -9px;
@@ -394,26 +390,26 @@
                             color: $neutral24;
                         }
                         &:after {
-                            content: "";
+                            content: '';
                             width: 16px;
                             height: 10px;
                             position: absolute;
                             top: 17px;
                             right: 16px;
                             pointer-events: none;
-                            background: url(https://lp-site.s3.amazonaws.com/web2020/img/mkto-template/select-down-arrow.svg) no-repeat;
+                            background: url(https://lp-site.s3.amazonaws.com/web2020/img/mkto-template/select-down-arrow.svg)
+                                no-repeat;
                         }
                     }
                 }
             }
-            .mktoButtonRow{
+            .mktoButtonRow {
                 @include media-breakpoint-up(lg) {
-                    width:auto;
+                    width: auto;
                 }
             }
         }
     }
-
 }
 
 body.locked {
@@ -425,7 +421,7 @@ body.locked {
     margin: 2rem auto;
 
     .wp-block-button__link {
-        font-family: "Space Grotesk", Roboto;
+        font-family: 'Space Grotesk', Roboto;
         font-weight: 700;
         font-size: 16px;
         line-height: 24px;
