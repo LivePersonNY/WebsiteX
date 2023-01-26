@@ -249,9 +249,9 @@ header {
 
                                     &::before {
                                         content: '';
-                                        background-image: url(https://static.liveperson.com/static-assets/2022/02/09135755/nav-icon-sprite-18px%402x.png);
+                                        background-image: url(https://static.liveperson.com/static-assets/2023/01/26142105/nav-icon-sprite-18px%402x.png);
                                         background-repeat: no-repeat;
-                                        background-size: 162px 18px;
+                                        background-size: 234px 18px;
                                         position: absolute;
                                         width: 18px;
                                         height: 18px;
@@ -259,11 +259,11 @@ header {
                                 }
 
                                 &.nav-commerce::before {
-                                    background-position: 0px 0px;
+                                    background-position: -108px 0px;
                                 }
 
                                 &.nav-customer-care::before {
-                                    background-position: -18px 0px;
+                                    background-position: -89px 0px;
                                 }
 
                                 &.nav-telco::before {
@@ -275,23 +275,47 @@ header {
                                 }
 
                                 &.nav-finserv::before {
-                                    background-position: -72px 0px;
+                                    background-position: 0px 0px;
                                 }
 
                                 &.nav-retail::before {
-                                    background-position: -89px 0px;
+                                    background-position: -18px 0px;
                                 }
 
                                 &.nav-travel::before {
-                                    background-position: -108px 0px;
+                                    background-position: -53px 0px;
                                 }
 
                                 &.nav-automotive::before {
-                                    background-position: -126px 0px;
+                                    background-position: -72px 0px;
                                 }
 
                                 &.nav-defi::before {
                                     background-position: -144px 0px;
+                                }
+
+                                &.nav-conv-ai::before {
+                                    background-position: -144px 0px;
+                                }
+
+                                &.nav-conv-intel::before {
+                                    background-position: -162px 0px;
+                                }
+
+                                &.nav-conv-cloud::before {
+                                    background-position: -180px 0px;
+                                }
+
+                                &.nav-integrations::before {
+                                    background-position: -198px 0px;
+                                }
+
+                                &.nav-conv-channels::before {
+                                    background-position: -216px 0px;
+                                }
+
+                                &.nav-call-reduction::before {
+                                    background-position: -126px 0px;
                                 }
 
                                 .dropdown-item-content {
@@ -382,6 +406,7 @@ header {
                         }
                     }
 
+                    &.products,
                     &.resources,
                     &.about,
                     &.success-services {
