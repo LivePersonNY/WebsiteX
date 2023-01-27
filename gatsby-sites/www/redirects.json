@@ -270,6 +270,7 @@
 		"/whatsapp-form": "/channels/whatsapp-form",
 		"/whatsapp-form/cs": "/channels/whatsapp-form-cs",
 		"/whatsapp/*": "/products/whatsapp",
-		"/experts/spirituality-religion/tarot-reading/": "https://www.kasamba.com/tarot-reading/"
+		"/experts/spirituality-religion/tarot-reading/": "https://www.kasamba.com/tarot-reading/",
+		"/products/conversational-analytics/": "/products/conversational-intelligence/"
 	}
 }
