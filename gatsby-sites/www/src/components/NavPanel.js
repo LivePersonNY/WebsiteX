@@ -4,6 +4,7 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import TempIcon from './TempIcon';
 
 import { BsArrowUpRight } from 'react-icons/bs';
+import Parser from 'html-react-parser';
 
 const NavPanel = ({
     label,
@@ -64,9 +65,9 @@ const NavPanel = ({
                                                     if (item.description) {
                                                         descr = (
                                                             <span className="dropdown-item-content subtitle3">
-                                                                {
+                                                                {Parser(
                                                                     item.description
-                                                                }
+                                                                )}
                                                             </span>
                                                         );
                                                     }
