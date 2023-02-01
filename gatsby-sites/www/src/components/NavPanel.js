@@ -109,22 +109,25 @@ const NavPanel = ({
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2022/03/17143936/Featured_Resource_CH_Blog_1x.jpg"
-                                            alt="Curiously Human AI"
+                                            src="https://static.liveperson.com/static-assets/2023/02/01144833/Generative-AI-Webinar_FR.png"
+                                            alt="Generative AI Webinar"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">Blog</p>
+                                            <p className="subtitle3">
+                                                Generative AI Webinar
+                                            </p>
                                             <p className="featured-body">
-                                                Building a more Curiously Human™
-                                                AI
+                                                Not just another ChatGPT
+                                                webinar: What enterprises need
+                                                to know
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/blog/curiously-human-conversational-ai/"
+                                                href="/resources/webinars/generative-ai/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                Learn more
+                                                Register now
                                             </a>
                                         </div>
                                     </div>
