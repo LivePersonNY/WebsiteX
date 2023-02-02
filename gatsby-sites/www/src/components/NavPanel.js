@@ -124,7 +124,7 @@ const NavPanel = ({
                                             <a
                                                 className="dropdown-link-blue"
                                                 href="/resources/webinars/generative-ai/"
-                                                target="_blank"
+                                                target=""
                                                 rel="noopener noreferrer"
                                             >
                                                 Register now
