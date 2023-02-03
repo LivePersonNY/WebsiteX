@@ -110,16 +110,13 @@ const NavPanel = ({
                                     <div className="dropdown-featured-container">
                                         <img
                                             src="https://static.liveperson.com/static-assets/2023/02/01144833/Generative-AI-Webinar_FR.png"
-                                            alt="Generative AI Webinar"
+                                            alt="Webinar"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">
-                                                Generative AI Webinar
-                                            </p>
+                                            <p className="subtitle3">Webinar</p>
                                             <p className="featured-body">
-                                                Not just another ChatGPT
-                                                webinar: What enterprises need
-                                                to know
+                                                What enterprises need to know
+                                                about Generative AI
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
