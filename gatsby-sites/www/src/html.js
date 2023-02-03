@@ -38,6 +38,17 @@ export default function HTML(props) {
         visibility: 'hidden',
     };
 
+    let windowCssFile =
+        'https://lp-site.s3.amazonaws.com/web2020/css/window.css';
+
+    if (
+        process.env.BRANCH != 'develop' &&
+        process.env.GATSBY_IS_PREVIEW !== 'true'
+    ) {
+        windowCssFile =
+            'https://lp-site.s3.amazonaws.com/web2020/css/window.min.css';
+    }
+
     return (
         <html {...props.htmlAttributes}>
             <head>
@@ -50,6 +61,7 @@ export default function HTML(props) {
 
                 <script src="https://global.localizecdn.com/localize.js"></script>
                 <script dangerouslySetInnerHTML={{ __html: lzScript }}></script>
+                <link href={windowCssFile} />
 
                 {props.headComponents}
             </head>
