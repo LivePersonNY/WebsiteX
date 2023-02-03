@@ -61,7 +61,7 @@ export default function HTML(props) {
 
                 <script src="https://global.localizecdn.com/localize.js"></script>
                 <script dangerouslySetInnerHTML={{ __html: lzScript }}></script>
-                <link href={windowCssFile} />
+                <link href={windowCssFile} rel="stylesheet" />
 
                 {props.headComponents}
             </head>
