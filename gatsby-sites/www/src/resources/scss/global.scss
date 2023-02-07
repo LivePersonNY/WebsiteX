@@ -6,6 +6,10 @@
     background: $primaryLight;
 }
 
+.bg-neutral-12 {
+    background: $neutral12;
+}
+
 .bg-neutral-84 {
     background: $neutral84;
 }
@@ -1320,6 +1324,11 @@ img[src*='doubleclick'] {
     }
     .btn {
         margin: 32px 16px 0 16px;
+    }
+    &.bg-neutral-12 {
+        * {
+            color: $neutral99;
+        }
     }
 }
 
