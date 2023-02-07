@@ -37,7 +37,6 @@ import Anchor from "../../Anchor";
 import LinkControl from "../../LinkControl";
 import AutoApproveLanguage from "../../AutoApproveLanguage";
 import BackgroundSelectorMenu from "../../BackgroundSelector";
-import LottieFilePlayer from "../../LottieFilePlayer";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -254,62 +253,6 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 		</MediaUploadCheck>
 	);
 
-	let assetBottomControl = (
-		<MediaUploadCheck>
-			<MediaUpload
-				onSelect={function (media) {
-					setAttributes({
-						assetBottomSrc: media.url,
-						assetBottomId: media.id,
-						assetBottomAlt: media.alt || "",
-					});
-				}}
-				value={attributes.assetBottomId}
-				allowedTypes={["image"]}
-				render={({ open }) => (
-					<img
-						className="imageSelector"
-						src={attributes.assetBottomSrc}
-						onClick={open}
-					/>
-				)}
-				render={({ open }) => (
-					<>
-						{(attributes.assetBottomSrc && (
-							<img
-								className="imageSelector"
-								src={attributes.assetBottomSrc}
-								onClick={open}
-							/>
-						)) || (
-							<Button className="mt-2" variant="link" onClick={open}>
-								Select Image
-							</Button>
-						)}
-						<Button
-							className="mt-2"
-							variant="link"
-							isDestructive={true}
-							onClick={() => {
-								setAttributes({ assetBottomSrc: null });
-							}}
-						>
-							Remove Image
-						</Button>
-					</>
-				)}
-			/>
-		</MediaUploadCheck>
-	);
-
-	// let lottiePlayerElement = (
-	// 	<LottieFilePlayer
-	// 		lottieFile={attributes.lottieFile}
-	// 		autoplay={true}
-	// 		loop={true}
-	// 	/>
-	// );
-
 	let vimeoUrlControls = (
 		<Fragment>
 			<InspectorControls>
@@ -352,8 +295,6 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					secondaryBtnText={linkSecondaryTextControl}
 					linkText={linkTextControl}
 					assetTopCtl={assetTopControl}
-					// assetBottomCtl={assetBottomControl}
-					// lottieFile={attributes.lottieFile}
 					vimeoUrl={attributes.vimeoUrl}
 				/>
 			</div>
@@ -384,9 +325,6 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				animatedText={attributes.animatedText}
 				assetTopSrc={attributes.assetTopSrc}
 				assetTopAlt={attributes.assetTopAlt}
-				// assetBottomSrc={attributes.assetBottomSrc}
-				// assetBottomAlt={attributes.assetBottomAlt}
-				// lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				vimeoUrl={attributes.vimeoUrl}
 			/>
 		</div>
