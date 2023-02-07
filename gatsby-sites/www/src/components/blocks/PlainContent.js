@@ -129,13 +129,13 @@ const PlainContent = function (props) {
                                 {props.secondaryBtnText}
                             </a>
                         )}
-                        {(!props.assetBottomCtl && props.assetBottomSrc && (
+                        {/* {(!props.assetBottomCtl && props.assetBottomSrc && (
                             <img
                                 src={props.assetBottomSrc}
                                 alt={props.assetBottomAlt || ''}
                             />
                         )) ||
-                            props.assetBottomCtl}
+                            props.assetBottomCtl} */}
                         {props.vimeoUrl && vFrame}
                     </div>
                 </div>
