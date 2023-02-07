@@ -47,6 +47,10 @@ export default function save({ attributes }) {
 			animatedText={attributes.animatedText}
 			assetTopSrc={attributes.assetTopSrc}
 			assetTopAlt={attributes.assetTopAlt}
+			assetBottomSrc={attributes.assetBottomSrc}
+			assetBottomAlt={attributes.assetBottomAlt}
+			lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
+			vimeoUrl={attributes.vimeoUrl}
 		/>
 	);
 }

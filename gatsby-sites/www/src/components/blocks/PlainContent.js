@@ -33,6 +33,12 @@ const PlainContent = function (props) {
         return headerText[0] + animatedLoop + headerText[1];
     };
 
+    let vFrame = (
+        <div className="vimeoContainer">
+            <iframe src={props.vimeoUrl} className="vimeoFrame"></iframe>
+        </div>
+    );
+
     return (
         <div
             data-localize={props.autoApprove && `auto-approve`}
@@ -123,6 +129,15 @@ const PlainContent = function (props) {
                                 {props.secondaryBtnText}
                             </a>
                         )}
+                        {(!props.assetBottomCtl && props.assetBottomSrc && (
+                            <img
+                                src={props.assetBottomSrc}
+                                alt={props.assetBottomAlt || ''}
+                            />
+                        )) ||
+                            props.assetBottomCtl ||
+                            props.lottiePlayer}
+                        {props.vimeoUrl && vFrame}
                     </div>
                 </div>
             </div>
