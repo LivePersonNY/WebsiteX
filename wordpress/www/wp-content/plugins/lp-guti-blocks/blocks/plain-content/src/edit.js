@@ -37,6 +37,7 @@ import Anchor from "../../Anchor";
 import LinkControl from "../../LinkControl";
 import AutoApproveLanguage from "../../AutoApproveLanguage";
 import BackgroundSelectorMenu from "../../BackgroundSelector";
+import LottieFilePlayer from "../../LottieFilePlayer";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
