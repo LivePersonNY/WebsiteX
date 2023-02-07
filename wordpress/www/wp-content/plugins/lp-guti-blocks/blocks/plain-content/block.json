@@ -38,6 +38,9 @@
 			"default": false,
 			"type": "boolean"
 		},
-		"animatedText":{}
+		"animatedText":{},
+		"assetTopSrc":{"default":"https://picsum.photos/900/568"},
+		"assetTopId":{},
+		"assetTopAlt":{}
 	}
 }

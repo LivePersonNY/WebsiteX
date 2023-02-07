@@ -47,6 +47,13 @@ const PlainContent = function (props) {
             <div className="container">
                 <div className="row align-items-center justify-content-center">
                     <div className={`col-lg-${props.colWidth || 12}`}>
+                        {(!props.assetTopCtl && props.assetTopSrc && (
+                            <img
+                                src={props.assetTopSrc}
+                                alt={props.assetTopAlt}
+                            />
+                        )) ||
+                            props.assetTopCtl}
                         {props.kicker && (
                             <p className="h6 text-uppercase">{props.kicker}</p>
                         )}

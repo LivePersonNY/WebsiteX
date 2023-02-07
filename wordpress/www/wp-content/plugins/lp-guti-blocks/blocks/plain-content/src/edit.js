@@ -16,6 +16,8 @@ import {
 	useBlockProps,
 	BlockControls,
 	RichText,
+	MediaUpload,
+	MediaUploadCheck,
 } from "@wordpress/block-editor";
 import PlainContent from "../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent";
 import {
@@ -203,6 +205,54 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 		</Fragment>
 	);
 
+	let assetTopControl = (
+		<MediaUploadCheck>
+			<MediaUpload
+				onSelect={function (media) {
+					setAttributes({
+						assetTopSrc: media.url,
+						assetTopId: media.id,
+						assetTopAlt: media.alt || "",
+					});
+				}}
+				value={attributes.assetTopId}
+				allowedTypes={["image"]}
+				render={({ open }) => (
+					<img
+						className="imageSelector"
+						src={attributes.assetTopSrc}
+						onClick={open}
+					/>
+				)}
+				render={({ open }) => (
+					<>
+						{(attributes.assetTopSrc && (
+							<img
+								className="imageSelector"
+								src={attributes.assetTopSrc}
+								onClick={open}
+							/>
+						)) || (
+							<Button className="mt-2" variant="link" onClick={open}>
+								Select Image
+							</Button>
+						)}
+						<Button
+							className="mt-2"
+							variant="link"
+							isDestructive={true}
+							onClick={() => {
+								setAttributes({ assetTopSrc: null });
+							}}
+						>
+							Remove Image
+						</Button>
+					</>
+				)}
+			/>
+		</MediaUploadCheck>
+	);
+
 	if (isSelected) {
 		return (
 			<div {...useBlockProps()}>
@@ -228,6 +278,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					primaryBtnText={linkPrimaryTextControl}
 					secondaryBtnText={linkSecondaryTextControl}
 					linkText={linkTextControl}
+					assetTopCtl={assetTopControl}
 				/>
 			</div>
 		);
@@ -255,6 +306,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				linkSecondaryExternal={attributes.linkSecondaryExternal}
 				linkUrl={attributes.linkUrl}
 				animatedText={attributes.animatedText}
+				assetTopSrc={attributes.assetTopSrc}
+				assetTopAlt={attributes.assetTopAlt}
 			/>
 		</div>
 	);
