@@ -352,7 +352,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					secondaryBtnText={linkSecondaryTextControl}
 					linkText={linkTextControl}
 					assetTopCtl={assetTopControl}
-					assetBottomCtl={assetBottomControl}
+					// assetBottomCtl={assetBottomControl}
 					// lottieFile={attributes.lottieFile}
 					vimeoUrl={attributes.vimeoUrl}
 				/>
@@ -384,8 +384,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				animatedText={attributes.animatedText}
 				assetTopSrc={attributes.assetTopSrc}
 				assetTopAlt={attributes.assetTopAlt}
-				assetBottomSrc={attributes.assetBottomSrc}
-				assetBottomAlt={attributes.assetBottomAlt}
+				// assetBottomSrc={attributes.assetBottomSrc}
+				// assetBottomAlt={attributes.assetBottomAlt}
 				// lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				vimeoUrl={attributes.vimeoUrl}
 			/>
