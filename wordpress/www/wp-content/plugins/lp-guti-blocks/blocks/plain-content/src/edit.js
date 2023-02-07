@@ -302,13 +302,13 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 		</MediaUploadCheck>
 	);
 
-	let lottiePlayerElement = (
-		<LottieFilePlayer
-			lottieFile={attributes.lottieFile}
-			autoplay={true}
-			loop={true}
-		/>
-	);
+	// let lottiePlayerElement = (
+	// 	<LottieFilePlayer
+	// 		lottieFile={attributes.lottieFile}
+	// 		autoplay={true}
+	// 		loop={true}
+	// 	/>
+	// );
 
 	let vimeoUrlControls = (
 		<Fragment>
@@ -353,7 +353,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					linkText={linkTextControl}
 					assetTopCtl={assetTopControl}
 					assetBottomCtl={assetBottomControl}
-					lottieFile={attributes.lottieFile}
+					// lottieFile={attributes.lottieFile}
 					vimeoUrl={attributes.vimeoUrl}
 				/>
 			</div>
@@ -386,7 +386,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				assetTopAlt={attributes.assetTopAlt}
 				assetBottomSrc={attributes.assetBottomSrc}
 				assetBottomAlt={attributes.assetBottomAlt}
-				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
+				// lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				vimeoUrl={attributes.vimeoUrl}
 			/>
 		</div>

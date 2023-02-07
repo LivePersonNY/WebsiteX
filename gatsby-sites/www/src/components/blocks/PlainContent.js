@@ -135,8 +135,7 @@ const PlainContent = function (props) {
                                 alt={props.assetBottomAlt || ''}
                             />
                         )) ||
-                            props.assetBottomCtl ||
-                            props.lottiePlayer}
+                            props.assetBottomCtl}
                         {props.vimeoUrl && vFrame}
                     </div>
                 </div>
