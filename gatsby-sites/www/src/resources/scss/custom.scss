@@ -373,24 +373,6 @@ table {
     }
 }
 
-.styles-2023 {
-    &.hero:first-child,
-    &.comp-plain-content:first-child {
-        h1 {
-            color: $neutral12;
-            background: 0;
-            -webkit-text-fill-color: initial;
-            -webkit-background-clip: initial;
-            font-size: 48px;
-            line-height: 48px;
-            @include media-breakpoint-up(lg) {
-                font-size: 72px;
-                line-height: 72px;
-            }
-        }
-    }
-}
-
 .hp-2023 {
     .hero {
         padding: 0;
