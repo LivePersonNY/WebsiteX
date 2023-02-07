@@ -13,6 +13,7 @@ import PlainContent from "../../../../../../../../gatsby-sites/www/src/component
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps } from "@wordpress/block-editor";
+import LottieFilePlayer from "../../LottieFilePlayer";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -24,6 +25,14 @@ import { useBlockProps } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
+	let lottiePlayerElement = attributes.lottieFile && (
+		<LottieFilePlayer
+			lottieFile={attributes.lottieFile}
+			autoplay={true}
+			loop={true}
+		/>
+	);
+
 	return (
 		<PlainContent
 			cssClasses={attributes.className}
