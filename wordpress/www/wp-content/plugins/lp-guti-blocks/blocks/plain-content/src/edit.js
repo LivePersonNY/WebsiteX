@@ -253,6 +253,47 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 		</MediaUploadCheck>
 	);
 
+	let assetBottomControl = (
+		<MediaUploadCheck>
+			<MediaUpload
+				onSelect={function (media) {
+					setAttributes({
+						assetBottomSrc: media.url,
+						assetBottomId: media.id,
+						assetBottomAlt: media.alt || "",
+					});
+				}}
+				value={attributes.assetBottomId}
+				allowedTypes={["image"]}
+				render={({ open }) => (
+					<>
+						{(attributes.assetBottomSrc && (
+							<img
+								className="imageSelector"
+								src={attributes.assetBottomSrc}
+								onClick={open}
+							/>
+						)) || (
+							<Button className="mt-2" variant="link" onClick={open}>
+								Select Image
+							</Button>
+						)}
+						<Button
+							className="mt-2"
+							variant="link"
+							isDestructive={true}
+							onClick={() => {
+								setAttributes({ assetBottomSrc: null });
+							}}
+						>
+							Remove Image
+						</Button>
+					</>
+				)}
+			/>
+		</MediaUploadCheck>
+	);
+
 	let vimeoUrlControls = (
 		<Fragment>
 			<InspectorControls>
@@ -295,6 +336,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					secondaryBtnText={linkSecondaryTextControl}
 					linkText={linkTextControl}
 					assetTopCtl={assetTopControl}
+					assetBottomCtl={assetBottomControl}
 					vimeoUrl={attributes.vimeoUrl}
 				/>
 			</div>
@@ -325,6 +367,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				animatedText={attributes.animatedText}
 				assetTopSrc={attributes.assetTopSrc}
 				assetTopAlt={attributes.assetTopAlt}
+				assetBottomSrc={attributes.assetBottomSrc}
+				assetBottomAlt={attributes.assetBottomAlt}
 				vimeoUrl={attributes.vimeoUrl}
 			/>
 		</div>

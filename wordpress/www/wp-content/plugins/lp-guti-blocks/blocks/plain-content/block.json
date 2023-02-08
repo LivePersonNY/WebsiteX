@@ -42,6 +42,9 @@
 		"assetTopSrc":{"default":"https://picsum.photos/900/568"},
 		"assetTopId":{},
 		"assetTopAlt":{},
+		"assetBottomSrc":{"default":"https://picsum.photos/900/568"},
+		"assetBottomId":{},
+		"assetBottomAlt":{},
 		"vimeoUrl": {}
 	}
 }
