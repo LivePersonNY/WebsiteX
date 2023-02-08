@@ -1327,7 +1327,7 @@ img[src*='doubleclick'] {
     }
     &.bg-neutral-12 {
         * {
-            color: $neutral99;
+            color: $neutral99 !important;
         }
     }
 }
