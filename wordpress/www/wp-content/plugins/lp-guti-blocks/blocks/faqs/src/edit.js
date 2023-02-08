@@ -3,13 +3,24 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, ToolbarGroup, ToolbarDropdownMenu, ToolbarButton, Dashicon, Button } from '@wordpress/components';
-import Faq from '../../../../../../../../gatsby-sites/www/src/components/blocks/Faq';
-import BackgroundSelectorMenu from '../../BackgroundSelector';
-import ItemControls from '../../ItemControls';
-import AutoApproveLanguage from '../../AutoApproveLanguage';
-import Reorder from 'react-reorder';
+import { __ } from "@wordpress/i18n";
+import {
+	__experimentalGrid as Grid,
+	Placeholder,
+	TextControl,
+	TextareaControl,
+	ToolbarGroup,
+	ToolbarDropdownMenu,
+	ToolbarButton,
+	Dashicon,
+	Button,
+} from "@wordpress/components";
+import Faq from "../../../../../../../../gatsby-sites/www/src/components/blocks/Faq";
+import BackgroundSelectorMenu from "../../BackgroundSelector";
+import ItemControls from "../../ItemControls";
+import AutoApproveLanguage from "../../AutoApproveLanguage";
+import Anchor from "../../Anchor";
+import Reorder from "react-reorder";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -17,9 +28,13 @@ import Reorder from 'react-reorder';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { useInstanceId } from '@wordpress/compose';
-
+import {
+	useBlockProps,
+	BlockControls,
+	MediaUpload,
+	MediaUploadCheck,
+} from "@wordpress/block-editor";
+import { useInstanceId } from "@wordpress/compose";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -27,7 +42,7 @@ import { useInstanceId } from '@wordpress/compose';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -37,12 +52,16 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, className, setAttributes, isSelected }) {
-
+export default function Edit({
+	attributes,
+	className,
+	setAttributes,
+	isSelected,
+}) {
 	let headerControl = (
 		<TextControl
-			value={ attributes.header }
-			onChange={ ( val ) => setAttributes( { header: val } ) }
+			value={attributes.header}
+			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
 			placeholder="Header Text"
 		/>
@@ -50,8 +69,8 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 
 	let contentControl = (
 		<TextareaControl
-			value={ attributes.content }
-			onChange={ ( val ) => setAttributes( { content: val } ) }
+			value={attributes.content}
+			onChange={(val) => setAttributes({ content: val })}
 			className="embedded-input"
 			rows="1"
 		/>
@@ -59,22 +78,22 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 
 	let kickerControl = (
 		<TextControl
-			value={ attributes.kicker }
-			onChange={ ( val ) => setAttributes( { kicker: val } ) }
+			value={attributes.kicker}
+			onChange={(val) => setAttributes({ kicker: val })}
 			className="embedded-input"
 			placeholder="Kicker Text"
 		/>
 	);
 
 	let faqs = [...attributes.faqs];
-	let controls = attributes.faqs.map((item ,index)=>{
+	let controls = attributes.faqs.map((item, index) => {
 		return {
 			title: (
 				<TextControl
 					value={faqs[index].title}
-					onChange={function(value) {
+					onChange={function (value) {
 						faqs[index].title = value;
-						setAttributes({ faqs: faqs});
+						setAttributes({ faqs: faqs });
 					}}
 					className="embedded-input"
 				/>
@@ -83,9 +102,9 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				<div className="wp-control-wrapper">
 					<TextareaControl
 						value={faqs[index].body}
-						onChange={function(value) {
+						onChange={function (value) {
 							faqs[index].body = value;
-							setAttributes({ faqs: faqs});
+							setAttributes({ faqs: faqs });
 						}}
 						className="embedded-input"
 						rows="1"
@@ -93,80 +112,88 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 					<ItemControls
 						index={index}
 						itemArray={faqs}
-						callback={function(items) {
-							setAttributes({ faqs: items});
+						callback={function (items) {
+							setAttributes({ faqs: items });
 						}}
 					/>
 				</div>
-			)
-		}
+			),
+		};
 	});
 
 	let linkTextControl = (
 		<div className="wp-control-wrapper">
 			<TextControl
-				value={ attributes.btnText }
-				onChange={ ( val ) => setAttributes( { btnText: val } ) }
+				value={attributes.btnText}
+				onChange={(val) => setAttributes({ btnText: val })}
 				className="embedded-input"
 				placeholder="Link Text"
 			/>
 
 			<TextControl
-				value={ attributes.btnUrl }
-				onChange={ ( val ) => setAttributes( { btnUrl: val } ) }
+				value={attributes.btnUrl}
+				onChange={(val) => setAttributes({ btnUrl: val })}
 				placeholder="Link URL"
 			/>
 		</div>
 	);
 
-	let addTabFunc = function() {
-
+	let addTabFunc = function () {
 		faqs.push({
-			"title": "Dude, where's my car?",
-			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+			title: "Dude, where's my car?",
+			body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
 		});
 		setAttributes({
-			faqs: faqs
+			faqs: faqs,
 		});
-	}
+	};
 
-	let changeBackground = function(color) {
+	let changeBackground = function (color) {
 		setAttributes({ backgroundColor: color });
-	}
+	};
 
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
-				<ToolbarButton
-					icon="plus-alt2"
-					label="Add FAQ"
-					onClick={ addTabFunc }
-				/>
+				<ToolbarButton icon="plus-alt2" label="Add FAQ" onClick={addTabFunc} />
 
-				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
-				<AutoApproveLanguage callback={function() {
-					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
-				}} selected={attributes.autoApproveLang}/>
+				<BackgroundSelectorMenu
+					callback={changeBackground}
+					selected={attributes.backgroundColor}
+				/>
+				<AutoApproveLanguage
+					callback={function () {
+						setAttributes({ autoApproveLang: !attributes.autoApproveLang });
+					}}
+					selected={attributes.autoApproveLang}
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
 
-
-	if (isSelected) return (
-		<div { ...useBlockProps() }>
-			{addButton}
-			<Faq
-				header={headerControl}
-				kicker={kickerControl}
-				items={controls}
-				btnText={linkTextControl}
-				backgroundColor={attributes.backgroundColor}
-			/>
-		</div>
-	);
+	if (isSelected)
+		return (
+			<div {...useBlockProps()}>
+				{addButton}
+				<Anchor
+					value={attributes.anchor}
+					callback={function (val) {
+						setAttributes({ anchor: val });
+					}}
+				/>
+				<Faq
+					header={headerControl}
+					kicker={kickerControl}
+					items={controls}
+					btnText={linkTextControl}
+					backgroundColor={attributes.backgroundColor}
+					anchor={attributes.anchor}
+				/>
+			</div>
+		);
 
 	return (
-		<div { ...useBlockProps() }>
+		<div {...useBlockProps()}>
 			{addButton}
 			<Faq
 				header={attributes.header}
@@ -175,7 +202,8 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				btnText={attributes.btnText}
 				btnUrl={attributes.btnUrl}
 				backgroundColor={attributes.backgroundColor}
+				anchor={attributes.anchor}
 			/>
 		</div>
-	)
+	);
 }
