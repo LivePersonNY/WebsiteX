@@ -75,6 +75,7 @@
 
 .pane {
     padding: 80px 0;
+    scroll-margin-top: 110px;
 
     @include media-breakpoint-up(lg) {
         padding: 120px 0;
