@@ -250,6 +250,74 @@ table {
     border: 1px solid red;
 }
 
+.hero-carousel {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    &::before,
+    &::after {
+        background: linear-gradient(
+            to right,
+            rgba(244, 244, 246, 1) 0%,
+            rgba(244, 244, 246, 0) 100%
+        );
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+    }
+    &:before {
+        right: 80%;
+        left: 0;
+        display: block;
+    }
+    &:after {
+        right: -1px;
+        left: 80%;
+        display: block;
+        transform: rotateZ(180deg);
+    }
+}
+
+#hp-hero-img-carousel {
+    &.carousel {
+        overflow: hidden;
+    }
+    .carousel-inner {
+        > .carousel-item {
+            overflow: hidden;
+
+            .carousel-content {
+                margin: 0 32px;
+                img {
+                    max-width: inherit;
+                }
+                .carousel-caption {
+                    position: static;
+                }
+            }
+        }
+        > .carousel-item.active {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        > .carousel-item-next {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+    }
+    // .carousel-control-prev {
+    //     z-index: 2000;
+    //     left: 22%;
+    // }
+    // .carousel-control-next {
+    //     z-index: 2000;
+    //     right: 22%;
+    // }
+}
+
 // Start vertical carousel
 .vertical.carousel {
     &#hp-hero-img-carousel,
