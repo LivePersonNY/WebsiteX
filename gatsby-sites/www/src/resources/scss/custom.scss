@@ -297,6 +297,12 @@ table {
                 .carousel-caption {
                     position: static;
                 }
+                &:first-child,
+                &:last-child {
+                    img {
+                        transform: scaleY(0.8);
+                    }
+                }
             }
         }
         > .carousel-item.active {
