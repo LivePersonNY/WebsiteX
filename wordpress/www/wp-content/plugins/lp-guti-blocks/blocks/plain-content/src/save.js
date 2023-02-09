@@ -45,6 +45,11 @@ export default function save({ attributes }) {
 			linkExternal={attributes.linkExternal}
 			linkSecondaryExternal={attributes.linkSecondaryExternal}
 			animatedText={attributes.animatedText}
+			assetTopSrc={attributes.assetTopSrc}
+			assetTopAlt={attributes.assetTopAlt}
+			assetBottomSrc={attributes.assetBottomSrc}
+			assetBottomAlt={attributes.assetBottomAlt}
+			vimeoUrl={attributes.vimeoUrl}
 		/>
 	);
 }

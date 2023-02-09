@@ -42,75 +42,197 @@ import CareerStickyCta from '../components/blocks/CareerStickyCta';
 import NotFoundPage from './404';
 
 const IndexPage = () => {
+    if (
+        process.env.BRANCH != 'develop' &&
+        process.env.GATSBY_IS_PREVIEW !== 'true'
+    ) {
+        return <NotFoundPage />;
+    }
 
-  if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== "true") {
-		return (<NotFoundPage />);
-	}
+    return (
+        <Layout>
+            <Seo title="Home" robots="noindex, nofollow" />
+            {/* {Parser(page.content)} */}
 
-  return (
-    <Layout>
-      <Seo title="Home" robots="noindex, nofollow" />
-      {/* {Parser(page.content)} */}
-
-      <Hero
-        backgroundColor="bg-neutral-96"
-        header="LivePerson's unique value proposition"
-        subHeader="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus
+            <Hero
+                backgroundColor="bg-neutral-96"
+                header="LivePerson's unique value proposition"
+                subHeader="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus
                 elementum sollicitudin magna bibendum sit ultricies arcu. Nullam
                 tincidunt varius."
-        heroImage="https://picsum.photos/640/480?random=1"
-        heroImageAlt="test"
-        heroVariant="buttons"
-        logoHeader="TRUSTED BY 100K LEADING BRANDSsssss"
-        underBodyImg="https://picsum.photos/360/40?random=1"
-        underBodyImgAlt="test"
-        primaryBtnText="Get Demo"
-        primaryBtnLink="#"
-        secondaryBtnText="Get Moar Demos"
-        secondaryBtnLink="#"
-      />
+                heroImage="https://picsum.photos/640/480?random=1"
+                heroImageAlt="test"
+                heroVariant="buttons"
+                logoHeader="TRUSTED BY 100K LEADING BRANDSsssss"
+                underBodyImg="https://picsum.photos/360/40?random=1"
+                underBodyImgAlt="test"
+                primaryBtnText="Get Demo"
+                primaryBtnLink="#"
+                secondaryBtnText="Get Moar Demos"
+                secondaryBtnLink="#"
+            />
 
-      <MktoForm
-        backgroundColor="bg-blue-20"
-        formId="2581"
-        thankyou="Thank you! One of our experts will contact you shortly"
-        resourceasset="testassetname"
-      />
+            <MktoForm
+                backgroundColor="bg-blue-20"
+                formId="2581"
+                thankyou="Thank you! One of our experts will contact you shortly"
+                resourceasset="testassetname"
+            />
 
-      <CareerStickyCta
-        runFilters="true"
-      />
+            <CareerStickyCta runFilters="true" />
 
-      <CardGridB
-        backgroundColor="bg-neutral-92"
-        header="Gratitude going both ways"
-        body="We love our people. And it turns out, they love working here. In fact, we were just added to Newsweek’s Most-Loved Workplaces list — the top 100 companies that get recognized for employee happiness and satisfaction at work. We’ve also been awarded the world’s top honors for innovation, artificial intelligence, and customer service and sales technology."
-        items={[
-          {
-            "imgSrc":"https://static.liveperson.com/static-assets/2022/06/06133936/FC-2022_Careers-2x.png",
-            "imgAlt":"Alt text",
-            "cardTitle":"Most Innovative Companies",
-          },
-          {
-            "imgSrc":"https://static.liveperson.com/static-assets/2022/02/08142540/61708951d071150efe0af3f0_AmericaLPWork.png",
-            "imgAlt":"Alt text",
-            "cardTitle":"America's Most Loved Workplaces",
-          },
-          {
-            "imgSrc":"https://static.liveperson.com/static-assets/2022/02/08142541/61708911126dfaf6f0b16d2c_IsraelBestPlacesToWork.png",
-            "imgAlt":"Alt text",
-            "cardTitle":"Israel: Best Places to Work",
-          },
-          {
-            "imgSrc":"https://static.liveperson.com/static-assets/2022/02/08142542/616e08d83f886e243d3c7caa_germany_great_place.jpg",
-            "imgAlt":"Alt text",
-            "cardTitle":"Germany: Great Place to Work",
-          },
-        ]}
-      />
+            <CardGridB
+                backgroundColor="bg-neutral-92"
+                header="Gratitude going both ways"
+                body="We love our people. And it turns out, they love working here. In fact, we were just added to Newsweek’s Most-Loved Workplaces list — the top 100 companies that get recognized for employee happiness and satisfaction at work. We’ve also been awarded the world’s top honors for innovation, artificial intelligence, and customer service and sales technology."
+                items={[
+                    {
+                        imgSrc: 'https://static.liveperson.com/static-assets/2022/06/06133936/FC-2022_Careers-2x.png',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Most Innovative Companies',
+                    },
+                    {
+                        imgSrc: 'https://static.liveperson.com/static-assets/2022/02/08142540/61708951d071150efe0af3f0_AmericaLPWork.png',
+                        imgAlt: 'Alt text',
+                        cardTitle: "America's Most Loved Workplaces",
+                    },
+                    {
+                        imgSrc: 'https://static.liveperson.com/static-assets/2022/02/08142541/61708911126dfaf6f0b16d2c_IsraelBestPlacesToWork.png',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Israel: Best Places to Work',
+                    },
+                    {
+                        imgSrc: 'https://static.liveperson.com/static-assets/2022/02/08142542/616e08d83f886e243d3c7caa_germany_great_place.jpg',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Germany: Great Place to Work',
+                    },
+                ]}
+            />
 
-    </Layout>
-  )
-}
+            <div className={`pane comp-scroll-horizontal-text `}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-8 offset-lg-2 text-center comp-scroll-horizontal-header">
+                            <p className="h6">here is kicker</p>
+                            <h2>here is header</h2>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-8 order-lg-last">
+                            <img
+                                src="https://static.liveperson.com/static-assets/2023/02/01100006/Generative-AI-Webinar_Hero_1x.png"
+                                className="comp-scroll-horizontal-scroll"
+                            />
+                        </div>
+                        <div className="col-lg-4 order-lg-first">
+                            <div className="comp-scroll-horizontal-text-block">
+                                <h3>block title</h3>
+                                <p>
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                </p>
+                            </div>
+                            <div className="comp-scroll-horizontal-text-block">
+                                <h3>block title</h3>
+                                <p>
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                </p>
+                            </div>
+                            <div className="comp-scroll-horizontal-text-block">
+                                <h3>block title</h3>
+                                <p>
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                </p>
+                            </div>
+                            <div className="comp-scroll-horizontal-text-block">
+                                <h3>block title</h3>
+                                <p>
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                </p>
+                            </div>
+                            <div className="comp-scroll-horizontal-text-block">
+                                <h3>block title</h3>
+                                <p>
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                </p>
+                            </div>
+                            <div className="comp-scroll-horizontal-text-block">
+                                <h3>block title</h3>
+                                <p>
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className={`pane comp-scroll-horizontal-text `}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-4">
+                            <h2 className="comp-scroll-horizontal-scroll">
+                                this is header
+                            </h2>
+                        </div>
+                        <div className="col-lg-8">
+                            <div className="comp-scroll-horizontal-text-block">
+                                <h3>block title</h3>
+                                <p>
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                </p>
+                            </div>
+                            <div className="comp-scroll-horizontal-text-block">
+                                <h3>block title</h3>
+                                <p>
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                </p>
+                            </div>
+                            <div className="comp-scroll-horizontal-text-block">
+                                <h3>block title</h3>
+                                <p>
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                </p>
+                            </div>
+                            <div className="comp-scroll-horizontal-text-block">
+                                <h3>block title</h3>
+                                <p>
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                </p>
+                            </div>
+                            <div className="comp-scroll-horizontal-text-block">
+                                <h3>block title</h3>
+                                <p>
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                    block body block body block body block body
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Layout>
+    );
+};
 
 export default IndexPage;

@@ -22,8 +22,6 @@ export const onRouteUpdate = () => {
         });
     }
 
-    console.log('onRouteUpdate', pagePath); // this works
-
     // TODO see how to make this better
     setTimeout(function () {
         const myCarouselElements = document.querySelectorAll('.carousel');
@@ -34,4 +32,9 @@ export const onRouteUpdate = () => {
             });
         });
     }, 2000);
+    window.locations = window.locations || [document.referrer];
+    locations.push(window.location.href);
+    window.previousPath = locations[locations.length - 2];
+
+    console.log('onRouteUpdate', pagePath); // this works
 };

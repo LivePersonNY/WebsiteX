@@ -6,6 +6,10 @@
     background: $primaryLight;
 }
 
+.bg-neutral-12 {
+    background: $neutral12;
+}
+
 .bg-neutral-84 {
     background: $neutral84;
 }
@@ -71,6 +75,7 @@
 
 .pane {
     padding: 80px 0;
+    scroll-margin-top: 110px;
 
     @include media-breakpoint-up(lg) {
         padding: 120px 0;
@@ -1323,6 +1328,11 @@ img[src*='doubleclick'] {
     }
     .btn {
         margin: 32px 16px 0 16px;
+    }
+    &.bg-neutral-12 {
+        * {
+            color: $neutral99 !important;
+        }
     }
 }
 

@@ -3,11 +3,11 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import MktoForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/MktoForm';
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { __ } from "@wordpress/i18n";
+import MktoForm from "../../../../../../../../gatsby-sites/www/src/components/blocks/MktoForm";
+import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
 
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -18,9 +18,19 @@ import React, { useEffect } from 'react';
  *
  * @return {WPElement} Element to render.
  */
-export default function save({attributes}) {
-
+export default function save({ attributes }) {
 	return (
-			<MktoForm autoApprove={attributes.autoApproveLang} cssClasses={attributes.className} thankyou={attributes.thankyou} header={attributes.header} sticky={attributes.sticky} backgroundColor={attributes.backgroundColor} formId={attributes.mktoFormId} resourceasset={attributes.resourceasset} resourceAssetURL={attributes.resourceAssetURL}  />
+		<MktoForm
+			autoApprove={attributes.autoApproveLang}
+			cssClasses={attributes.className}
+			thankyou={attributes.thankyou}
+			header={attributes.header}
+			sticky={attributes.sticky}
+			backgroundColor={attributes.backgroundColor}
+			formId={attributes.mktoFormId}
+			resourceasset={attributes.resourceasset}
+			resourceAssetURL={attributes.resourceAssetURL}
+			anchor={attributes.anchor}
+		/>
 	);
 }

@@ -3,8 +3,8 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import TabsB from '../../../../../../../../gatsby-sites/www/src/components/blocks/TabsB';
+import { __ } from "@wordpress/i18n";
+import TabsB from "../../../../../../../../gatsby-sites/www/src/components/blocks/TabsB";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -12,7 +12,7 @@ import TabsB from '../../../../../../../../gatsby-sites/www/src/components/block
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -23,8 +23,14 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save({attributes}) {
+export default function save({ attributes }) {
 	return (
-		<TabsB autoApprove={attributes.autoApproveLang} header={attributes.header} items={attributes.tabItems} backgroundColor={attributes.backgroundColor} />
+		<TabsB
+			autoApprove={attributes.autoApproveLang}
+			header={attributes.header}
+			items={attributes.tabItems}
+			backgroundColor={attributes.backgroundColor}
+			anchor={attributes.anchor}
+		/>
 	);
 }

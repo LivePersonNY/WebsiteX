@@ -19,6 +19,7 @@
 		"kicker": {"default": "Conversational Cloud"},
 		"backgroundColor": {"default": "bg-transparent" },
 		"autoApproveLang": {"default":false, "type": "boolean"},
+		"anchor": {},
 		"btnText": {
 			"default": "Primary CTA"
 		},

@@ -18,6 +18,7 @@
 		"header": {"default": "Header above tabs"},
 		"backgroundColor":{},
 		"autoApproveLang": {"default":false, "type": "boolean"},
+		"anchor": {},
 		"tabItems": {
 			"type": "array",
 			"default": [

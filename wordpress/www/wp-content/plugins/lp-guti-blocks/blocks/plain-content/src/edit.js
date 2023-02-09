@@ -16,6 +16,8 @@ import {
 	useBlockProps,
 	BlockControls,
 	RichText,
+	MediaUpload,
+	MediaUploadCheck,
 } from "@wordpress/block-editor";
 import PlainContent from "../../../../../../../../gatsby-sites/www/src/components/blocks/PlainContent";
 import {
@@ -203,11 +205,116 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 		</Fragment>
 	);
 
+	let assetTopControl = (
+		<MediaUploadCheck>
+			<MediaUpload
+				onSelect={function (media) {
+					setAttributes({
+						assetTopSrc: media.url,
+						assetTopId: media.id,
+						assetTopAlt: media.alt || "",
+					});
+				}}
+				value={attributes.assetTopId}
+				allowedTypes={["image"]}
+				render={({ open }) => (
+					<img
+						className="imageSelector"
+						src={attributes.assetTopSrc}
+						onClick={open}
+					/>
+				)}
+				render={({ open }) => (
+					<>
+						{(attributes.assetTopSrc && (
+							<img
+								className="imageSelector"
+								src={attributes.assetTopSrc}
+								onClick={open}
+							/>
+						)) || (
+							<Button className="mt-2" variant="link" onClick={open}>
+								Select Image
+							</Button>
+						)}
+						<Button
+							className="mt-2"
+							variant="link"
+							isDestructive={true}
+							onClick={() => {
+								setAttributes({ assetTopSrc: null });
+							}}
+						>
+							Remove Image
+						</Button>
+					</>
+				)}
+			/>
+		</MediaUploadCheck>
+	);
+
+	let assetBottomControl = (
+		<MediaUploadCheck>
+			<MediaUpload
+				onSelect={function (media) {
+					setAttributes({
+						assetBottomSrc: media.url,
+						assetBottomId: media.id,
+						assetBottomAlt: media.alt || "",
+					});
+				}}
+				value={attributes.assetBottomId}
+				allowedTypes={["image"]}
+				render={({ open }) => (
+					<>
+						{(attributes.assetBottomSrc && (
+							<img
+								className="imageSelector"
+								src={attributes.assetBottomSrc}
+								onClick={open}
+							/>
+						)) || (
+							<Button className="mt-2" variant="link" onClick={open}>
+								Select Image
+							</Button>
+						)}
+						<Button
+							className="mt-2"
+							variant="link"
+							isDestructive={true}
+							onClick={() => {
+								setAttributes({ assetBottomSrc: null });
+							}}
+						>
+							Remove Image
+						</Button>
+					</>
+				)}
+			/>
+		</MediaUploadCheck>
+	);
+
+	let vimeoUrlControls = (
+		<Fragment>
+			<InspectorControls>
+				<PanelBody title="Vimeo URL" initialOpen={false}>
+					<TextControl
+						value={attributes.vimeoUrl}
+						onChange={function (value) {
+							setAttributes({ vimeoUrl: value });
+						}}
+					/>
+				</PanelBody>
+			</InspectorControls>
+		</Fragment>
+	);
+
 	if (isSelected) {
 		return (
 			<div {...useBlockProps()}>
 				{alignButton}
 				{animatedTextControls}
+				{vimeoUrlControls}
 				<Anchor
 					value={attributes.anchor}
 					callback={function (val) {
@@ -228,6 +335,9 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					primaryBtnText={linkPrimaryTextControl}
 					secondaryBtnText={linkSecondaryTextControl}
 					linkText={linkTextControl}
+					assetTopCtl={assetTopControl}
+					assetBottomCtl={assetBottomControl}
+					vimeoUrl={attributes.vimeoUrl}
 				/>
 			</div>
 		);
@@ -255,6 +365,11 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				linkSecondaryExternal={attributes.linkSecondaryExternal}
 				linkUrl={attributes.linkUrl}
 				animatedText={attributes.animatedText}
+				assetTopSrc={attributes.assetTopSrc}
+				assetTopAlt={attributes.assetTopAlt}
+				assetBottomSrc={attributes.assetBottomSrc}
+				assetBottomAlt={attributes.assetBottomAlt}
+				vimeoUrl={attributes.vimeoUrl}
 			/>
 		</div>
 	);

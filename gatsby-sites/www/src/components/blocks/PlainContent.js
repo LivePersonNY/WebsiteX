@@ -33,6 +33,12 @@ const PlainContent = function (props) {
         return headerText[0] + animatedLoop + headerText[1];
     };
 
+    let vFrame = (
+        <div className="vimeoContainer">
+            <iframe src={props.vimeoUrl} className="vimeoFrame"></iframe>
+        </div>
+    );
+
     return (
         <div
             data-localize={props.autoApprove && `auto-approve`}
@@ -47,6 +53,13 @@ const PlainContent = function (props) {
             <div className="container">
                 <div className="row align-items-center justify-content-center">
                     <div className={`col-lg-${props.colWidth || 12}`}>
+                        {(!props.assetTopCtl && props.assetTopSrc && (
+                            <img
+                                src={props.assetTopSrc}
+                                alt={props.assetTopAlt}
+                            />
+                        )) ||
+                            props.assetTopCtl}
                         {props.kicker && (
                             <p className="h6 text-uppercase">{props.kicker}</p>
                         )}
@@ -116,6 +129,14 @@ const PlainContent = function (props) {
                                 {props.secondaryBtnText}
                             </a>
                         )}
+                        {(!props.assetBottomCtl && props.assetBottomSrc && (
+                            <img
+                                src={props.assetBottomSrc}
+                                alt={props.assetBottomAlt}
+                            />
+                        )) ||
+                            props.assetBottomCtl}
+                        {props.vimeoUrl && vFrame}
                     </div>
                 </div>
             </div>
