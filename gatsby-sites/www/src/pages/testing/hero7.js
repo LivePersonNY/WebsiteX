@@ -228,77 +228,11 @@ const htmlHack1 = `
 
 const htmlHack2 = `
 
-<div data-localize="false" class="pane comp-plain-content bg-neutral-96 text-center pane-with-lead-text">
-  <div class="container" style="opacity: 0;">
-    <div class="row align-items-center justify-content-center">
-      <div class="col-lg-10">
-        <h2>Put <s>humans first</s> with the right&nbsp;AI </h2>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="pane pane-blocks bg-neutral-96">
-  <div class="container" style="opacity: 0;">
-    <div class="row align-items-center justify-content-center">
-      <div class="col-lg-10">
-        <div class="wp-block-image">
-          <figure class="aligncenter size-full">
-            <img loading="lazy" width="1240" height="765" src="https://static.liveperson.com/static-assets/2023/01/18161954/Homepage_Product-UI_Placeholder_JV_0117_1x.png" alt="Visual of LivePerson's customer engagement platform, featuring Conversational AI software" class="wp-image-14333" srcset="https://static.liveperson.com/static-assets/2023/01/18161954/Homepage_Product-UI_Placeholder_JV_0117_1x.png 1240w, https://static.liveperson.com/static-assets/2023/01/18161954/Homepage_Product-UI_Placeholder_JV_0117_1x-300x185.png 300w, https://static.liveperson.com/static-assets/2023/01/18161954/Homepage_Product-UI_Placeholder_JV_0117_1x-1024x632.png 1024w, https://static.liveperson.com/static-assets/2023/01/18161954/Homepage_Product-UI_Placeholder_JV_0117_1x-768x474.png 768w" sizes="(max-width: 1240px) 100vw, 1240px">
-          </figure>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="pane comp-stat-grid bg-transparent pane-with-lead-text">
-  <div class="container" style="opacity: 0;">
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 class="text-center">
-          <s>Trust and scale</s> your automation while delivering <br>the most accurate bot&nbsp;experience
-        </h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="comp-4col-grid text-center">
-          <div class="row align-items-center row-cols-lg-4 row-cols-2">
-            <div class="col">
-              <p class="h1">34 billion+</p>
-              <p class="subtitle2">API calls /&nbsp;month</p>
-            </div>
-            <div class="col">
-              <p class="h1">~1 billion</p>
-              <p class="subtitle2">conversational interactions /&nbsp;month</p>
-            </div>
-            <div class="col">
-              <p class="h1">100k+</p>
-              <p class="subtitle2">human experts on&nbsp;platform</p>
-            </div>
-            <div class="col">
-              <p class="h1">70%+</p>
-              <p class="subtitle2">include automation vs. 46% industry avg</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12"></div>
-    </div>
-  </div>
-</div>
-
-
 <div data-localize="false" id="tab-a" class="pane comp-tabs-a bg-neutral-96 pane-with-lead-text">
   <div class="container" style="opacity: 0;">
     <div class="row">
       <div class="col-lg-12">
-        <h2 class="text-center">Deliver <s>personalized</s> experiences by use&nbsp;case </h2>
+        <h2 class="text-center">Deliver real-world results by use case</h2>
       </div>
     </div>
     <div class="row align-items-center">
@@ -307,35 +241,35 @@ const htmlHack2 = `
           <div class="accordion accordion-flush" id="tab-a_accordion_tabs">
             <div class="accordion-item accordion-item-active">
               <h4 class="accordion-header" id="tab-a_flush-heading0">
-                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tab-a_flush-collapse0" aria-expanded="false" aria-controls="tab-a_flush-collapse0" data-tab="0">Reduce call volume + operating costs</button>
+                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tab-a_flush-collapse0" aria-expanded="false" aria-controls="tab-a_flush-collapse0" data-tab="0">Reduce call volume and operating costs</button>
               </h4>
               <div id="tab-a_flush-collapse0" class="accordion-collapse collapse show" aria-labelledby="tab-a_flush-heading0" data-bs-parent="#tab-a_accordion_tabs">
-                <p class="subtitle1" data-tag="br split">Turn woes into wows by shifting to&nbsp;messaging.</p>
+                <p class="subtitle1" data-tag="br split">Turn woes into wows by shifting to messaging channels.</p>
                 <p class="subtitle1" data-tag="br split">
-                  <a href="https://www.liveperson.com/products/call-to-message/">Explore call reduction solutions</a>
+                  <a href="/products/call-to-message/">Explore call reduction solutions</a>
                 </p>
                 <p class="subtitle1" data-tag="br split"></p>
               </div>
             </div>
             <div class="accordion-item ">
               <h4 class="accordion-header" id="tab-a_flush-heading1">
-                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tab-a_flush-collapse1" aria-expanded="false" aria-controls="tab-a_flush-collapse1" data-tab="1">Better customer loyalty + support</button>
+                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tab-a_flush-collapse1" aria-expanded="false" aria-controls="tab-a_flush-collapse1" data-tab="1">Better customer loyalty and support</button>
               </h4>
               <div id="tab-a_flush-collapse1" class="accordion-collapse collapse " aria-labelledby="tab-a_flush-heading1" data-bs-parent="#tab-a_accordion_tabs">
-                <p class="subtitle1" data-tag="br split">Have customers swear by you, not at&nbsp;you.</p>
+                <p class="subtitle1" data-tag="br split">Have customers swear by you, not at you.</p>
                 <p class="subtitle1" data-tag="br split">
-                  <a href="https://www.liveperson.com/solutions/customer-care/">Explore conversational customer service</a>
+                  <a href="/solutions/customer-care/">Explore conversational customer service solutions</a>
                 </p>
               </div>
             </div>
             <div class="accordion-item ">
               <h4 class="accordion-header" id="tab-a_flush-heading2">
-                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tab-a_flush-collapse2" aria-expanded="false" aria-controls="tab-a_flush-collapse2" data-tab="2">Seamless shopping + increased revenue</button>
+                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tab-a_flush-collapse2" aria-expanded="false" aria-controls="tab-a_flush-collapse2" data-tab="2">Seamless shopping and increased revenue</button>
               </h4>
               <div id="tab-a_flush-collapse2" class="accordion-collapse collapse " aria-labelledby="tab-a_flush-heading2" data-bs-parent="#tab-a_accordion_tabs">
-                <p class="subtitle1" data-tag="br split">Engage customers, then clip, ship,&nbsp;hooray!</p>
+                <p class="subtitle1" data-tag="br split">Engage customers then click, ship, hooray!</p>
                 <p class="subtitle1" data-tag="br split">
-                  <a href="https://www.liveperson.com/solutions/conversational-commerce/">Explore conversational commerce</a>
+                  <a href="https://www.liveperson.com/solutions/conversational-commerce/">Explore conversational commerce solutions</a>
                 </p>
               </div>
             </div>
@@ -365,10 +299,10 @@ const htmlHack2 = `
         <div class="card h-100">
           <div class="card-body">
             <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141424/Homepage_Testimonial-1_HSBC_JV_0119.svg" alt="Warren Buckley, Global Head of Channel Optimisation for HSBC">
-            <p class="card-text quote1">“Being able to easily blend human empathy with intelligent automation has been crucial to our success. Our frontline team now can operate with increased agility to get our customers the resolutions they&nbsp;seek.”</p>
+            <p class="card-text quote1">"If they’re messaging us, the worst thing we can do is message them back to tell them to call instead. If they begin a conversation on messaging, that’s their preferred experience."</p>
           </div>
           <div class="card-footer">
-            <a href="https://www.liveperson.com/resources/success-stories/hsbc-goes-conversational/" class="card-link link">Read HSBC UK’s story</a>
+            <a href="https://www.liveperson.com/resources/success-stories/hsbc-goes-conversational/" class="card-link link">Read PNC’s story</a>
           </div>
         </div>
       </div>
@@ -376,7 +310,7 @@ const htmlHack2 = `
         <div class="card h-100">
           <div class="card-body">
             <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141425/Homepage_Testimonial-2_VirginO2_JV_0119.svg" alt="Chris Huggins, Head of Conversational Commerce for Virgin Media / O2">
-            <p class="card-text quote1">“With LivePerson, we maintain consistency in our customer engagement model, regardless of the channel that customer enters. Success hinges on the ability to augment our human customer service agents with AI and automation.”</p>
+            <p class="card-text quote1">“We’re using Conversational AI and AI chatbot automation to supercharge digital innovation and ease our customer’s path to purchase — it is quite an extraordinary thing.”</p>
           </div>
           <div class="card-footer">
             <a href="https://www.liveperson.com/resources/success-stories/virgin-media-conversational-selling/" class="card-link link">Read Virgin Media/O2’s story</a>
@@ -387,10 +321,10 @@ const htmlHack2 = `
         <div class="card h-100">
           <div class="card-body">
             <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141426/Homepage_Testimonial-3_Chipotle_JV_0119.svg" alt="Nicole West, VP Digital Strategy &amp; Product at Chipotle">
-            <p class="card-text quote1">“Everything we have done on this transformation journey has been about delivering exceptional digital experiences to our customers and our crews, to curate convenient, frictionless, engaging experiences aligned with our purpose to Cultivate a Better&nbsp;World.”</p>
+            <p class="card-text quote1">"The LivePerson team showed a lot of understanding of our business and pain points, explaining that Conversational AI was the right solution. We decided to take a bet on it, and it’s been successful by any measure you can ever think of."</p>
           </div>
           <div class="card-footer">
-            <a href="https://pr.liveperson.com/index.php?s=43&amp;item=620" class="card-link link" target="_blank" rel="noopener noreferrer">Read the press release</a>
+            <a href="https://pr.liveperson.com/index.php?s=43&amp;item=620" class="card-link link" target="_blank" rel="noopener noreferrer">CTA</a>
           </div>
         </div>
       </div>
@@ -403,7 +337,7 @@ const htmlHack2 = `
   <div class="container" style="opacity: 0;">
     <div class="row text-center">
       <div class="col-lg-8 offset-lg-2">
-        <h2 class="">You’ve come this&nbsp;far…</h2>
+        <h2 class="">Recommended resources</h2>
       </div>
     </div>
     <div class="row comp-card-grid-container">
@@ -455,10 +389,11 @@ const htmlHack2 = `
         <div class="comp-content-cta-container bg-neutral-96">
           <div class="row align-items-center text-center text-lg-start">
             <div class="col-lg-6 offset-lg-1">
-              <h2>Learn how our AI-powered customer engagement platform can give your brand a CX&nbsp;makeover</h2>
+              <h2>Get a personalized demo</h2>
+              <p>Learn how the Conversational Cloud can deliver real-world results for your brand.</p>
             </div>
             <div class="col-lg-3 offset-lg-1 text-end">
-              <a class="btn btn-primary" href="https://www.liveperson.com/roi">See the ROI</a>
+              <a class="btn btn-primary" href="https://www.liveperson.com/roi">Get a demo</a>
             </div>
           </div>
         </div>
@@ -526,64 +461,62 @@ const Hero7 = () => {
 
             {Parser(htmlHack1)}
 
-            <div className="bg-neutral-96">
-                <ScrollFeatures
-                    scrollHeight="135vh"
-                    backgroundColor="bg-neutral-96"
-                    items={[
-                        {
-                            imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161906/Homepage_Pillar-1_Automate_JV_0117_1x.png',
-                            imgAlt: 'Alt text',
-                            cardTitle: 'Conversational AI + AUTOMATION',
-                            cardHeading: 'Automate',
-                            cardContent:
-                                'Automate conversations with Conversational AI built on the world’s largest data set of customer interactions.',
-                            linkHref: '#',
-                            linkText: 'Learn more',
-                        },
-                        {
-                            imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161909/Homepage_Pillar-2_Understand_JV_0117_1x.png',
-                            imgAlt: 'Alt text',
-                            cardTitle: 'Conversational Intelligence',
-                            cardHeading: 'Understand',
-                            cardContent:
-                                'Analyze all your customer data to understand what your customers want and feel to increase sales, fix inefficient processes, and improve the customer experience.',
-                            linkHref: '#',
-                            linkText: 'Learn more',
-                        },
-                        {
-                            imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161912/Homepage_Pillar-3_Manage_JV_0117_1x.png',
-                            imgAlt: 'Alt text',
-                            cardTitle: 'Agent + Manager Experience',
-                            cardHeading: 'Manage',
-                            cardContent:
-                                'Team up customer service teams and AI to transform the productivity of your contact center and customer relationship management.',
-                            linkHref: '#',
-                            linkText: 'Learn more',
-                        },
-                        {
-                            imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161948/Homepage_Pillar-4_Configure_JV_0117_1x.png',
-                            imgAlt: 'Alt text',
-                            cardTitle: 'Platform + Integrations',
-                            cardHeading: 'Configure',
-                            cardContent:
-                                'Bring LivePerson’s AI-powered customer engagement tools and your existing systems together to bring their full power across the customer journey.',
-                            linkHref: '#',
-                            linkText: 'Learn more',
-                        },
-                        {
-                            imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161951/Homepage_Pillar-5_Reach_JV_0117_1x.png',
-                            imgAlt: 'Alt text',
-                            cardTitle: 'Communication Channels',
-                            cardHeading: 'Reach',
-                            cardContent:
-                                'Increase customer satisfactions by making it easy for them to engage with your brand in the communication channels they use every day.',
-                            linkHref: '#',
-                            linkText: 'Learn more',
-                        },
-                    ]}
-                />
-            </div>
+            <ScrollFeatures
+                scrollHeight="135vh"
+                backgroundColor="bg-neutral-96"
+                items={[
+                    {
+                        imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161906/Homepage_Pillar-1_Automate_JV_0117_1x.png',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Conversational AI + AUTOMATION',
+                        cardHeading: 'Automate',
+                        cardContent:
+                            'Automate conversations with Conversational AI built on the world’s largest data set of customer interactions.',
+                        linkHref: '#',
+                        linkText: 'Learn more',
+                    },
+                    {
+                        imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161909/Homepage_Pillar-2_Understand_JV_0117_1x.png',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Conversational Intelligence',
+                        cardHeading: 'Optimize',
+                        cardContent:
+                            'Turn insight into action. Access and analyze all your data to understand what customers want — and feel — to increase sales, fix inefficiencies, and improve experiences.',
+                        linkHref: '#',
+                        linkText: 'Learn more',
+                    },
+                    {
+                        imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161912/Homepage_Pillar-3_Manage_JV_0117_1x.png',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Agent & supervisor experience',
+                        cardHeading: 'Manage',
+                        cardContent:
+                            'Give agents and supervisors a 360-degree, omni-channel view of the customer. Supercharge productivity with the power of AI to improve employee experience and reduce attrition.',
+                        linkHref: '#',
+                        linkText: 'Learn more',
+                    },
+                    {
+                        imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161948/Homepage_Pillar-4_Configure_JV_0117_1x.png',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'platform & integrations',
+                        cardHeading: 'Configure',
+                        cardContent:
+                            'Bring LivePerson’s AI platform and your existing systems — from CRMs to marketing to data platforms — together to unlock their full potential across your enterprise.',
+                        linkHref: '#',
+                        linkText: 'Learn more',
+                    },
+                    {
+                        imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161951/Homepage_Pillar-5_Reach_JV_0117_1x.png',
+                        imgAlt: 'Alt text',
+                        cardTitle: 'Communication Channels',
+                        cardHeading: 'Engage',
+                        cardContent:
+                            'Increase customer satisfaction by making it easy for them to engage with your brand in the communication channels they use every day.',
+                        linkHref: '#',
+                        linkText: 'Learn more',
+                    },
+                ]}
+            />
 
             {Parser(htmlHack2)}
         </Layout>
