@@ -552,7 +552,6 @@ img[src*='doubleclick'] {
             }
 
             .h1 {
-                font-family: $familyKalam;
                 background: $h1Gradient;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -1066,7 +1065,6 @@ img[src*='doubleclick'] {
             padding-right: 0px;
         }
         h2 {
-            font-family: $familyKalam;
             background: $h1Gradient;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -1075,6 +1073,25 @@ img[src*='doubleclick'] {
 }
 
 .comp-side-side {
+    .row {
+        margin-bottom: 48px;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 72px;
+        }
+        &:first-child,
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .section-title {
+        margin-bottom: 48px;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 72px;
+        }
+    }
+
     img {
         margin-bottom: 24px;
 

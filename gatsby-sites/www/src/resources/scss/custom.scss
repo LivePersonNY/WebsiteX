@@ -438,8 +438,8 @@ table {
                 background: $h1Gradient;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                font-family: $familyKalam;
-                font-weight: $fontBold;
+                font-family: inherit;
+                font-weight: inherit;
                 font-size: inherit;
                 line-height: inherit;
                 display: inline-block;
