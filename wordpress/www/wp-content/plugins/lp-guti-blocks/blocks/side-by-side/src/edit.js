@@ -198,9 +198,9 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 
 	let changeHeadLevel = function () {
 		if (attributes.headLevel == "h2") {
-			setAttributes({ headerLevel: "h3" });
+			setAttributes({ headLevel: "h3" });
 		} else {
-			setAttributes({ headerLevel: "h2" });
+			setAttributes({ headLevel: "h2" });
 		}
 	};
 
@@ -245,7 +245,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					imgLeftCtl={imageLeftControl}
 					imgRightCtl={imageRightControl}
 					backgroundColor={attributes.backgroundColor}
-					headLevel={attributes.headerLevel}
+					headLevel={attributes.headLevel}
 					autoApprove={attributes.autoApproveLang}
 					anchor={attributes.anchor}
 				/>
@@ -258,7 +258,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 			<SideBySide
 				autoApprove={attributes.autoApproveLang}
 				sectionHeader={attributes.sectionHeader}
-				headLevel={attributes.headerLevel}
+				headLevel={attributes.headLevel}
 				headerLeft={attributes.headerLeft}
 				headerRight={attributes.headerRight}
 				bodyLeft={attributes.bodyLeft}

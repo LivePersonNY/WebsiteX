@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 import Paragraph from '../Paragraph';
 
 const SideBySide = (props) => {
-    const hlevel = props.headerLevel || 'h2';
+    let headerLevel = props.headLevel || 'h2';
 
     return (
         <>
@@ -38,8 +38,8 @@ const SideBySide = (props) => {
                                 />
                             )) ||
                                 props.imgLeftCtl}
-                            {hlevel == 'h2' && <h2>{props.headerLeft}</h2>}
-                            {hlevel == 'h3' && <h3>{props.headerLeft}</h3>}
+                            {headerLevel == 'h2' && <h2>{props.headerLeft}</h2>}
+                            {headerLevel == 'h3' && <h3>{props.headerLeft}</h3>}
                             <p>{props.bodyLeft}</p>
                         </div>
                         <div className={`col-lg-6 `}>
@@ -50,8 +50,12 @@ const SideBySide = (props) => {
                                 />
                             )) ||
                                 props.imgRightCtl}
-                            {hlevel == 'h2' && <h2>{props.headerRight}</h2>}
-                            {hlevel == 'h3' && <h3>{props.headerRight}</h3>}
+                            {headerLevel == 'h2' && (
+                                <h2>{props.headerRight}</h2>
+                            )}
+                            {headerLevel == 'h3' && (
+                                <h3>{props.headerRight}</h3>
+                            )}
                             <p>{props.bodyRight}</p>
                         </div>
                     </div>

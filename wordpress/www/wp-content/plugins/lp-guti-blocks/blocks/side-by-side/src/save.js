@@ -38,7 +38,7 @@ export default function save({ attributes }) {
 			backgroundColor={attributes.backgroundColor}
 			autoApprove={attributes.autoApproveLang}
 			anchor={attributes.anchor}
-			headLevel={attributes.headerLevel}
+			headLevel={attributes.headLevel}
 		/>
 	);
 }
