@@ -40,7 +40,7 @@ const SideBySide = (props) => {
                                 props.imgLeftCtl}
                             {headerLevel == 'h2' && <h2>{props.headerLeft}</h2>}
                             {headerLevel == 'h3' && <h3>{props.headerLeft}</h3>}
-                            <p>{props.bodyLeft}</p>
+                            <Paragraph text={props.bodyLeft} />
                         </div>
                         <div className={`col-lg-6 `}>
                             {(!props.imgRightCtl && props.imgRightSrc && (
@@ -56,7 +56,7 @@ const SideBySide = (props) => {
                             {headerLevel == 'h3' && (
                                 <h3>{props.headerRight}</h3>
                             )}
-                            <p>{props.bodyRight}</p>
+                            <Paragraph text={props.bodyRight} />
                         </div>
                     </div>
                 </div>
