@@ -13,8 +13,8 @@ const SideBySide = (props) => {
                 autoapprove={props.autoApprove && 'true'}
                 id={props.anchor}
                 className={`pane comp-side-side ${
-                    props.backgroundColor || 'bg-transparent'
-                }`}
+                    props.sectionHeader ? 'pane-with-lead-text' : ''
+                } ${props.backgroundColor || 'bg-transparent'}`}
             >
                 <div className="container">
                     {props.sectionHeader && (
