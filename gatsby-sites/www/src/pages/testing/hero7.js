@@ -18,9 +18,9 @@ const htmlHack1 = `
                     <div class="row text-center">
                         <div class="col-lg-8 offset-lg-2">
                         <p class="h6 text-uppercase">LivePerson conversational ai platform</p>
-                            <h1>AI for enterprise business outcomes</h1>
+                            <h1>A<span class="space-mono">I</span> for better<br />business outcomes</h1>
                             <p data-tag="new line split" class="lead">
-                                Powered by the world's largest data set of conversational interactions, continuously optimized by hundreds of thousands of human experts
+                                Powered by the world’s largest data set of conversational interactions, continuously optimized by hundreds of thousands of human experts
 </p>
 <a class="btn btn-primary" href="/request-demo/">Let's talk</a>
                         </div>
@@ -33,55 +33,44 @@ const htmlHack1 = `
                                 <div class="carousel-inner">
                                     <div class="carousel-item active" data-bs-interval="8000">
                                         <div class="carousel-content">
-                                            <img src="https://picsum.photos/1080/500?random=1">
+                                            <img src="https://static.liveperson.com/static-assets/2023/02/14114004/Homepage_Hero_Carousel-1_Convo-Intelligence_JV_0210_1x.png">
                                             <div class="carousel-caption">
-                                                <p>This is caption for picture 1</p>
+                                                <p>Access and analyze conversation data in real time</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item" data-bs-interval="8000">
                                         <div class="carousel-content">
-                                            <img src="https://picsum.photos/1080/500?random=2">
+                                            <img src="https://static.liveperson.com/static-assets/2023/02/14113959/Homepage_Hero_Carousel-2_Convo-Builder_JV_0210_1x.png">
                                             <div class="carousel-caption">
-                                                <p>This is caption for picture 2</p>
+                                                <p>Easily design, build, and integrate bots</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item" data-bs-interval="8000">
                                         <div class="carousel-content">
-                                            <img src="https://picsum.photos/1080/500?random=3">
+                                            <img src="https://static.liveperson.com/static-assets/2023/02/14113955/Homepage_Hero_Carousel-3_Intent-Analyzer_JV_0210_1x.png">
                                             <div class="carousel-caption">
-                                                <p>This is caption for picture 3</p>
+                                                <p>Understand customer intent and sentiment in every conversation</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="carousel-item" data-bs-interval="8000">
                                         <div class="carousel-content">
-                                            <img src="https://picsum.photos/1080/500?random=4">
+                                            <img src="https://static.liveperson.com/static-assets/2023/02/14113950/Homepage_Hero_Carousel-4_MACS_JV_0210_1x.png">
                                             <div class="carousel-caption">
-                                                <p>This is caption for picture 4</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="8000">
-                                        <div class="carousel-content">
-                                            <img src="https://picsum.photos/1080/500?random=5">
-                                            <div class="carousel-caption">
-                                                <p>This is caption for picture 5</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="8000">
-                                        <div class="carousel-content">
-                                            <img src="https://picsum.photos/1080/500?random=6">
-                                            <div class="carousel-caption">
-                                                <p>This is caption for picture 6</p>
+                                                <p>Measure the quality of every bot conversation</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="carousel-indicators">
+                                  <button type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                  <button type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                  <button type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                  <button type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -346,7 +335,7 @@ const htmlHack2 = `
           <img class="card-img-top" src="https://static.liveperson.com/static-assets/2023/01/19181605/Homepage_Resource-1_What-is-Convo-AI-Vid_JV_0119.png" alt="Video thumbnail talking about LivePerson's customer engagement platform, featuring Conversational AI">
           <div class="card-body">
             <p class="card-title card2">Break out the&nbsp;popcorn</p>
-            <p class="card-text subtitle2">Queue the movie montage of what’s new in Conversational AI and our customer engagement platform.</p>
+            <p class="card-text subtitle1">Queue the movie montage of what’s new in Conversational AI and our customer engagement platform.</p>
           </div>
           <div class="card-footer">
             <a href="https://player.vimeo.com/video/790194906?h=b13442a2ee&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="card-link link" target="_blank" rel="noopener noreferrer">Take a look</a>
@@ -358,7 +347,7 @@ const htmlHack2 = `
           <img class="card-img-top" src="https://static.liveperson.com/static-assets/2022/03/04094728/blog-CHintro-hi-res.jpg" alt="Curiously Human AI platform conversation example">
           <div class="card-body">
             <p class="card-title card2">Check out more&nbsp;content</p>
-            <p class="card-text subtitle2">Take a scroll through our most-read blogs, infographics, and other customer engagement software resources.</p>
+            <p class="card-text subtitle1">Take a scroll through our most-read blogs, infographics, and other customer engagement software resources.</p>
           </div>
           <div class="card-footer">
             <a href="https://www.liveperson.com/blog/" class="card-link link">Take me there</a>
@@ -370,7 +359,7 @@ const htmlHack2 = `
           <img class="card-img-top" src="https://static.liveperson.com/static-assets/2022/08/12123540/Liveperson_NYC_2022_165-e1674149080777.jpg" alt="LivePerson executive community gathering learning about our customer engagement platform">
           <div class="card-body">
             <p class="card-title card2">Get on the guest&nbsp;list</p>
-            <p class="card-text subtitle2">Score an exclusive invite to one of our one-of-a-kind industry events.</p>
+            <p class="card-text subtitle1">Score an exclusive invite to one of our one-of-a-kind industry events.</p>
           </div>
           <div class="card-footer">
             <a href="https://www.liveperson.com/events/" class="card-link link">Sign me up</a>

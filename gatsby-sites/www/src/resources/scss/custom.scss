@@ -255,6 +255,11 @@ table {
     justify-content: center;
     overflow: hidden;
     position: relative;
+    margin-top: 24px;
+
+    @include media-breakpoint-up(lg) {
+        margin-top: 48px;
+    }
     &::before,
     &::after {
         background: linear-gradient(
@@ -312,6 +317,15 @@ table {
         > .carousel-item-next {
             display: flex;
             flex-wrap: nowrap;
+        }
+    }
+    .carousel-indicators {
+        button {
+            background-color: $primaryOrange;
+            border-radius: 100px;
+            border: 0;
+            height: 20px;
+            width: 20px;
         }
     }
     // .carousel-control-prev {

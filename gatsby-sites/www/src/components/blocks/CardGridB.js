@@ -18,7 +18,7 @@ const CardGridB = (props) => {
                         item.imgCtl}
                     <div className="card-body">
                         <p className="card-title card2">{item.cardTitle}</p>
-                        <p className="card-text subtitle2">{item.body}</p>
+                        <p className="card-text subtitle1">{item.body}</p>
                     </div>
                     <div className="card-footer">
                         {item.linkText && (

@@ -160,7 +160,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
             />
 
             <link
-                href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap"
+                href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap"
                 rel="stylesheet"
             />
 
