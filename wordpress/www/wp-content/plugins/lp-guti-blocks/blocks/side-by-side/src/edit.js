@@ -3,8 +3,8 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import $ from 'jquery';
+import { __ } from "@wordpress/i18n";
+import $ from "jquery";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -12,13 +12,27 @@ import $ from 'jquery';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck, RichText } from '@wordpress/block-editor';
-import SideBySide from '../../../../../../../../gatsby-sites/www/src/components/blocks/SideBySide';
-import { __experimentalGrid as Grid,Placeholder, TextControl, Button, TextareaControl, ResponsiveWrapper, ToolbarGroup, ToolbarButton } from '@wordpress/components';
-import BackgroundSelectorMenu from '../../BackgroundSelector';
-import AutoApproveLanguage from '../../AutoApproveLanguage';
-import Anchor from '../../Anchor';
-
+import {
+	useBlockProps,
+	BlockControls,
+	MediaUpload,
+	MediaUploadCheck,
+	RichText,
+} from "@wordpress/block-editor";
+import SideBySide from "../../../../../../../../gatsby-sites/www/src/components/blocks/SideBySide";
+import {
+	__experimentalGrid as Grid,
+	Placeholder,
+	TextControl,
+	Button,
+	TextareaControl,
+	ResponsiveWrapper,
+	ToolbarGroup,
+	ToolbarButton,
+} from "@wordpress/components";
+import BackgroundSelectorMenu from "../../BackgroundSelector";
+import AutoApproveLanguage from "../../AutoApproveLanguage";
+import Anchor from "../../Anchor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -26,7 +40,7 @@ import Anchor from '../../Anchor';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -36,12 +50,21 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({attributes, isSelected, setAttributes}) {
+export default function Edit({ attributes, isSelected, setAttributes }) {
+	let sectionHeaderControl = (
+		<RichText
+			value={attributes.sectionHeader}
+			onChange={(val) => setAttributes({ sectionHeader: val })}
+			className="embedded-input"
+			placeholder="Section Header Text"
+			allowedFormats={["core/bold", "core/italic", "core/strikethrough"]}
+		/>
+	);
 
 	let headerLeftControl = (
 		<TextareaControl
-			value={ attributes.headerLeft }
-			onChange={ ( val ) => setAttributes( { headerLeft: val } ) }
+			value={attributes.headerLeft}
+			onChange={(val) => setAttributes({ headerLeft: val })}
 			className="embedded-input"
 			placeholder="Header Text"
 			rows="1"
@@ -50,8 +73,8 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 
 	let headerRightControl = (
 		<TextareaControl
-			value={ attributes.headerRight }
-			onChange={ ( val ) => setAttributes( { headerRight: val } ) }
+			value={attributes.headerRight}
+			onChange={(val) => setAttributes({ headerRight: val })}
 			className="embedded-input"
 			placeholder="Header Text"
 			rows="1"
@@ -61,10 +84,10 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	let contentLeftControl = (
 		<RichText
 			tagName="p"
-			value={ attributes.bodyLeft }
-			onChange={ ( val ) => setAttributes( { bodyLeft: val } ) }
+			value={attributes.bodyLeft}
+			onChange={(val) => setAttributes({ bodyLeft: val })}
 			className="embedded-input"
-			allowedFormats={ [ 'core/bold', 'core/italic', 'core/link'] }
+			allowedFormats={["core/bold", "core/italic", "core/link"]}
 			placeholder="Body Copy"
 		/>
 	);
@@ -72,10 +95,10 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	let contentRightControl = (
 		<RichText
 			tagName="p"
-			value={ attributes.bodyRight }
-			onChange={ ( val ) => setAttributes( { bodyRight: val } ) }
+			value={attributes.bodyRight}
+			onChange={(val) => setAttributes({ bodyRight: val })}
 			className="embedded-input"
-			allowedFormats={ [ 'core/bold', 'core/italic', 'core/link'] }
+			allowedFormats={["core/bold", "core/italic", "core/link"]}
 			placeholder="Body Copy"
 		/>
 	);
@@ -83,26 +106,45 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	let imageLeftControl = (
 		<MediaUploadCheck>
 			<MediaUpload
-				onSelect={function(media) {
+				onSelect={function (media) {
 					setAttributes({
 						imgLeftSrc: media.url,
 						imgLeftId: media.id,
-						imgLeftAlt: media.alt || ""
+						imgLeftAlt: media.alt || "",
 					});
 				}}
 				value={attributes.imgLeftId}
-				allowedTypes={ ['image'] }
-				render={({open}) => (
-					<img className="imageSelector" src={attributes.imgLeftSrc} onClick={open} />
+				allowedTypes={["image"]}
+				render={({ open }) => (
+					<img
+						className="imageSelector"
+						src={attributes.imgLeftSrc}
+						onClick={open}
+					/>
 				)}
-				render={({open}) => (
+				render={({ open }) => (
 					<>
-						{attributes.imgLeftSrc && <img className="imageSelector" src={attributes.imgLeftSrc} onClick={open} /> ||
-							<Button className="mt-2" variant="link" onClick={open}>Select Image</Button>
-						}
-						<Button className="mt-2" variant="link" isDestructive={true} onClick={() => {
-							setAttributes({imgLeftSrc: null});
-						}}>Remove Image</Button>
+						{(attributes.imgLeftSrc && (
+							<img
+								className="imageSelector"
+								src={attributes.imgLeftSrc}
+								onClick={open}
+							/>
+						)) || (
+							<Button className="mt-2" variant="link" onClick={open}>
+								Select Image
+							</Button>
+						)}
+						<Button
+							className="mt-2"
+							variant="link"
+							isDestructive={true}
+							onClick={() => {
+								setAttributes({ imgLeftSrc: null });
+							}}
+						>
+							Remove Image
+						</Button>
 					</>
 				)}
 			/>
@@ -112,40 +154,55 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 	let imageRightControl = (
 		<MediaUploadCheck>
 			<MediaUpload
-				onSelect={function(media) {
+				onSelect={function (media) {
 					setAttributes({
 						imgRightSrc: media.url,
 						imgRightId: media.id,
-						imgRightAlt: media.alt || ""
+						imgRightAlt: media.alt || "",
 					});
 				}}
 				value={attributes.imgRightId}
-				allowedTypes={ ['image'] }
-				render={({open}) => (
+				allowedTypes={["image"]}
+				render={({ open }) => (
 					<>
-						{attributes.imgRightSrc && <img className="imageSelector" src={attributes.imgRightSrc} onClick={open} /> ||
-							<Button className="mt-2" variant="link" onClick={open}>Select Image</Button>
-						}
-						<Button className="mt-2" variant="link" isDestructive={true} onClick={() => {
-							setAttributes({imgRightSrc: null});
-						}}>Remove Image</Button>
+						{(attributes.imgRightSrc && (
+							<img
+								className="imageSelector"
+								src={attributes.imgRightSrc}
+								onClick={open}
+							/>
+						)) || (
+							<Button className="mt-2" variant="link" onClick={open}>
+								Select Image
+							</Button>
+						)}
+						<Button
+							className="mt-2"
+							variant="link"
+							isDestructive={true}
+							onClick={() => {
+								setAttributes({ imgRightSrc: null });
+							}}
+						>
+							Remove Image
+						</Button>
 					</>
 				)}
 			/>
 		</MediaUploadCheck>
 	);
 
-	let changeBackground = function(color) {
+	let changeBackground = function (color) {
 		setAttributes({ backgroundColor: color });
-	}
+	};
 
-	let changeHeadLevel = function() {
+	let changeHeadLevel = function () {
 		if (attributes.headLevel == "h2") {
 			setAttributes({ headerLevel: "h3" });
 		} else {
 			setAttributes({ headerLevel: "h2" });
 		}
-	}
+	};
 
 	let bgMenu = (
 		<BlockControls>
@@ -153,25 +210,34 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				<ToolbarButton
 					icon="heading"
 					label="Head Level H2/H3"
-					onClick={ changeHeadLevel }
+					onClick={changeHeadLevel}
 				/>
-				<AutoApproveLanguage callback={function() {
-					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
-				}} selected={attributes.autoApproveLang}/>
-				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
+				<AutoApproveLanguage
+					callback={function () {
+						setAttributes({ autoApproveLang: !attributes.autoApproveLang });
+					}}
+					selected={attributes.autoApproveLang}
+				/>
+				<BackgroundSelectorMenu
+					callback={changeBackground}
+					selected={attributes.backgroundColor}
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
 
-	if (isSelected)	{
-
+	if (isSelected) {
 		return (
 			<div {...useBlockProps()}>
 				{bgMenu}
-				<Anchor value={attributes.anchor} callback={function(val) {
-					setAttributes({ anchor: val });
-				}} />
+				<Anchor
+					value={attributes.anchor}
+					callback={function (val) {
+						setAttributes({ anchor: val });
+					}}
+				/>
 				<SideBySide
+					sectionHeader={sectionHeaderControl}
 					headerLeft={headerLeftControl}
 					headerRight={headerRightControl}
 					bodyLeft={contentLeftControl}
@@ -184,7 +250,6 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 					anchor={attributes.anchor}
 				/>
 			</div>
-
 		);
 	}
 
@@ -192,6 +257,7 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 		<div {...useBlockProps()}>
 			<SideBySide
 				autoApprove={attributes.autoApproveLang}
+				sectionHeader={attributes.sectionHeader}
 				headLevel={attributes.headerLevel}
 				headerLeft={attributes.headerLeft}
 				headerRight={attributes.headerRight}
@@ -205,6 +271,5 @@ export default function Edit({attributes, isSelected, setAttributes}) {
 				anchor={attributes.anchor}
 			/>
 		</div>
-	)
-
+	);
 }
