@@ -53,6 +53,10 @@
     background: $blue20;
 }
 
+.bg-primary-dark {
+    background: $primaryDark;
+}
+
 .pb-0 {
     padding-bottom: 0;
 }
@@ -1084,14 +1088,14 @@ img[src*='doubleclick'] {
             margin-bottom: 0;
         }
     }
-    .section-title {
-        margin-bottom: 48px;
+
+    h2.text-center {
+        margin-bottom: 24px;
 
         @include media-breakpoint-up(lg) {
-            margin-bottom: 72px;
+            margin-bottom: 48px;
         }
     }
-
     img {
         margin-bottom: 24px;
 
@@ -1346,7 +1350,8 @@ img[src*='doubleclick'] {
     .btn {
         margin: 32px 16px 0 16px;
     }
-    &.bg-neutral-12 {
+    &.bg-neutral-12,
+    &.bg-primary-dark {
         * {
             color: $neutral99 !important;
         }

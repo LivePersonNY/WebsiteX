@@ -15,6 +15,7 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
+		"sectionHeader":{},
 		"imgLeftSrc":{"default":"https://picsum.photos/752/568"},
 		"imgLeftId":{},
 		"imgRightId":{},
@@ -26,7 +27,7 @@
 		"bodyLeft":{},
 		"bodyRight":{},
 		"backgroundColor":{},
-		"headerLevel": {},
+		"headLevel": {"default": "h2"},
 		"autoApproveLang": {"default":false, "type": "boolean"},
 		"anchor": {}
 	}

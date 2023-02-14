@@ -120,7 +120,7 @@ const htmlHack1 = `
   <div class="container" style="opacity: 1;">
     <div class="row">
       <div class="col-lg-12">
-        <h2 class="text-center section-title">Conversational AI purpose-built for the enterprise</h2>
+        <h2 class="text-center">Conversational AI purpose-built for the enterprise</h2>
       </div>
     </div>
     <div class="row">

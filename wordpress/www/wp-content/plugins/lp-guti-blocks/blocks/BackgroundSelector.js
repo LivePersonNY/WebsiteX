@@ -54,6 +54,12 @@ export default function BackgroundSelectorMenu({ callback, selected }) {
 					isActive: selected == "bg-neutral-12",
 					onClick: () => callback("bg-neutral-12"),
 				},
+				{
+					title: "Primary Dark",
+					icon: "admin-customizer bg-primary-dark",
+					isActive: selected == "bg-primary-dark",
+					onClick: () => callback("bg-primary-dark"),
+				},
 			]}
 		/>
 	);
