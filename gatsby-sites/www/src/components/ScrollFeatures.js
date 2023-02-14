@@ -129,7 +129,7 @@ export default function ScrollFeatures({
                                     >
                                         <div className="container">
                                             <div className="row align-items-center">
-                                                <div class="col-lg-6 order-lg-2">
+                                                <div className="col-lg-6 order-lg-2">
                                                     <p className="h6 text-uppercase">
                                                         {item.cardTitle}
                                                     </p>
@@ -143,7 +143,7 @@ export default function ScrollFeatures({
                                                         {item.linkText}
                                                     </a>
                                                 </div>
-                                                <div class="col-lg-6 order-lg-1">
+                                                <div className="col-lg-6 order-lg-1">
                                                     <img
                                                         src={item.imgSrc}
                                                         alt={item.imgAlt}
