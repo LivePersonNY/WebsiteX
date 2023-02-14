@@ -446,7 +446,11 @@ img[src*='doubleclick'] {
 
 .comp-card-grid {
     h2 {
-        margin-bottom: 20px;
+        margin-bottom: 48px;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 72px;
+        }
     }
 
     .comp-card-grid-container {
@@ -1087,15 +1091,15 @@ img[src*='doubleclick'] {
         &:last-child {
             margin-bottom: 0;
         }
-    }
+        &.comp-side-side-header {
+            margin-bottom: 24px;
 
-    h2.text-center {
-        margin-bottom: 24px;
-
-        @include media-breakpoint-up(lg) {
-            margin-bottom: 48px;
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 48px;
+            }
         }
     }
+
     img {
         margin-bottom: 24px;
 
@@ -1215,7 +1219,7 @@ img[src*='doubleclick'] {
             }
 
             .link:after {
-                background-position: -120px -1px;
+                background-position: -120px 2px;
             }
         }
     }

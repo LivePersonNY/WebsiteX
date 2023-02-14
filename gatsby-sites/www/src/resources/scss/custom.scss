@@ -301,6 +301,8 @@ table {
                 }
                 .carousel-caption {
                     position: static;
+                    padding-top: 0;
+                    padding-bottom: 60px;
                 }
                 &:first-child,
                 &:last-child {
@@ -320,22 +322,34 @@ table {
         }
     }
     .carousel-indicators {
+        position: relative;
         button {
-            background-color: $primaryOrange;
+            background-color: $primaryBlue;
             border-radius: 100px;
             border: 0;
-            height: 20px;
-            width: 20px;
+            height: 16px;
+            width: 16px;
+            margin: 0 12px;
         }
     }
-    // .carousel-control-prev {
-    //     z-index: 2000;
-    //     left: 22%;
-    // }
-    // .carousel-control-next {
-    //     z-index: 2000;
-    //     right: 22%;
-    // }
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: inline-block;
+        margin-bottom: 6px;
+        position: absolute;
+        top: auto;
+        z-index: 99;
+    }
+
+    .carousel-control-prev {
+        margin-left: -138px;
+        left: auto;
+    }
+
+    .carousel-control-next {
+        margin-left: 90px;
+        right: auto;
+    }
 }
 
 // Start vertical carousel

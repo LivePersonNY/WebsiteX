@@ -22,7 +22,7 @@ const htmlHack1 = `
                             <p data-tag="new line split" class="lead">
                                 Powered by the world’s largest data set of conversational interactions, continuously optimized by hundreds of thousands of human experts
 </p>
-<a class="btn btn-primary" href="/request-demo/">Let's talk</a>
+<a class="btn btn-primary link" href="/request-demo/">Let's talk</a>
                         </div>
                     </div>
                 </div>
@@ -70,6 +70,14 @@ const htmlHack1 = `
                                   <button type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                                   <button type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
                                 </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -82,19 +90,18 @@ const htmlHack1 = `
   <div class="container" style="opacity: 1;">
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
-        <h2 class="text-center">Trusted by <s>tens of thousands</s> of the world's biggest brands </h2>
+        <h2 class="text-center">Trusted by <s>thousands</s> of the world's biggest brands</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-10 offset-lg-1 d-flex justify-content-evenly flex-wrap">
+      <div class="col-lg-12 d-flex justify-content-evenly flex-wrap">
         <img class="" src="https://static.liveperson.com/static-assets/2023/01/19112733/Homepage_Logo-Bar_Burberry_JV_0117.svg" alt="">
         <img class="" src="https://static.liveperson.com/static-assets/2023/01/19112734/Homepage_Logo-Bar_Virgin-Media-O2_JV_0117.svg" alt="">
+        <img class="" src="https://static.liveperson.com/static-assets/2022/12/13163539/PNC_40px.svg" alt="">
         <img class="" src="https://static.liveperson.com/static-assets/2023/01/17144626/NatWest_JV_0117.svg" alt="">
         <img class="" src="https://static.liveperson.com/static-assets/2023/01/05151516/The-RealReal_40px.png" alt="">
         <img class="" src="https://static.liveperson.com/static-assets/2022/12/13163535/GM-Financial_40px.png" alt="">
         <img class="" src="https://static.liveperson.com/static-assets/2022/02/11145100/ConSensys.svg" alt="">
-        <img class="" src="https://static.liveperson.com/static-assets/2022/12/13163539/PNC_40px.svg" alt="">
-        <img class="" src="https://static.liveperson.com/static-assets/2022/12/12140945/HSBC.svg" alt="">
       </div>
     </div>
     <div class="row">
@@ -107,33 +114,34 @@ const htmlHack1 = `
 
 <div data-localize="false" class="pane comp-side-side bg-transparent">
   <div class="container" style="opacity: 1;">
-    <div class="row">
+    <div class="row comp-side-side-header">
       <div class="col-lg-12">
         <h2 class="text-center">Conversational AI purpose-built for the enterprise</h2>
+        <p class="text-center">Unlock the power of large language models to meet the needs of your business.</p>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-6 ">
-        <img src="https://picsum.photos/752/568">
-        <h2>Unrivaled data, at your&nbsp;fingertips</h2>
-        <p>Augment large language models with the world’s largest enterprise data set for more precise natural language processing, drawn from more than a billion monthly conversational interactions.</p>
+        <img src="https://static.liveperson.com/static-assets/2023/02/14143017/Homepage_Purpose.1_Unrivaled_JV_0213%402x-1.png">
+        <h2>Unrivaled data at your fingertips</h2>
+        <p>Augment large language models with the world’s largest conversational data set, drawn from a billion monthly interactions.</p>
       </div>
       <div class="col-lg-6 ">
-        <img src="https://picsum.photos/752/568">
-        <h2>Human optimization, at&nbsp;scale</h2>
-        <p>Get industry- and domain-specific accuracy with large scale knowledge engineering from over 350K skilled humans in the loop, fine-tuning models continuously.</p>
+        <img src="https://static.liveperson.com/static-assets/2023/02/14143021/Homepage_Purpose.2_Human_JV_0213%402x-1.png">
+        <h2>Human optimization at scale</h2>
+        <p>Keep conversations grounded, factual, and relevant to your industry with over 350K skilled humans in the loop, enhancing models continuously.</p>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-6 ">
-        <img src="https://picsum.photos/752/568">
-        <h2>Impactful insights, made easy</h2>
+        <img src="https://static.liveperson.com/static-assets/2023/02/14143025/Homepage_Purpose.3_Impactful_JV_0213%402x-1.png">
+        <h2>Impactful insights made easy</h2>
         <p>Accelerate better decision making with access to enterprise-level analytics and reporting that delivers actionable insights automatically.</p>
       </div>
       <div class="col-lg-6 ">
-        <img src="https://picsum.photos/752/568">
-        <h2>Responsible AI, from day one</h2>
-        <p>Reduce risk of bias by partnering with the founders of EqualAI, who spearheaded standards and certification for responsible AI since 2018.</p>
+        <img src="https://static.liveperson.com/static-assets/2023/02/14143029/Homepage_Purpose.4_Responsible_JV_0213%402x-1.png">
+        <h2>Responsible AI from day one</h2>
+        <p>Reduce risk of bias by partnering with the founders of EqualAI, spearheading standards and certification for responsible AI since 2018.</p>
       </div>
     </div>
   </div>
@@ -163,7 +171,7 @@ const htmlHack1 = `
   <div class="container" style="opacity: 1;">
     <div class="row">
       <div class="col-lg-12">
-        <h2 class="text-center">Automatically turn insights into action for outcomes</h2>
+        <h2 class="text-center">Achieve better business outcomes through the power of AI</h2>
       </div>
     </div>
     <div class="row">
@@ -279,7 +287,7 @@ const htmlHack2 = `
   <div class="container" style="opacity: 0;">
     <div class="row">
       <div class="col-lg-10">
-        <h2 class="">See success stories from leaders <s>just like&nbsp;you</s>
+        <h2 class="">See success stories from leaders <s>like&nbsp;you</s>
         </h2>
       </div>
     </div>
@@ -335,7 +343,7 @@ const htmlHack2 = `
           <img class="card-img-top" src="https://static.liveperson.com/static-assets/2023/01/19181605/Homepage_Resource-1_What-is-Convo-AI-Vid_JV_0119.png" alt="Video thumbnail talking about LivePerson's customer engagement platform, featuring Conversational AI">
           <div class="card-body">
             <p class="card-title card2">Break out the&nbsp;popcorn</p>
-            <p class="card-text subtitle1">Queue the movie montage of what’s new in Conversational AI and our customer engagement platform.</p>
+            <p class="card-text subtitle1">Cue the movie montage of what’s new in Conversational AI and our customer engagement platform.</p>
           </div>
           <div class="card-footer">
             <a href="https://player.vimeo.com/video/790194906?h=b13442a2ee&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" class="card-link link" target="_blank" rel="noopener noreferrer">Take a look</a>
@@ -362,7 +370,7 @@ const htmlHack2 = `
             <p class="card-text subtitle1">Score an exclusive invite to one of our one-of-a-kind industry events.</p>
           </div>
           <div class="card-footer">
-            <a href="https://www.liveperson.com/events/" class="card-link link">Sign me up</a>
+            <a href="https://www.liveperson.com/events/" class="card-link link">Sign me up!</a>
           </div>
         </div>
       </div>
@@ -451,23 +459,23 @@ const Hero7 = () => {
             {Parser(htmlHack1)}
 
             <ScrollFeatures
-                scrollHeight="135vh"
+                scrollHeight="125vh"
                 backgroundColor="bg-neutral-96"
                 items={[
                     {
-                        imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161906/Homepage_Pillar-1_Automate_JV_0117_1x.png',
+                        imgSrc: 'https://static.liveperson.com/static-assets/2023/02/14151042/Homepage_Pillar.1_Automate_JV_0210_2x.png',
                         imgAlt: 'Alt text',
                         cardTitle: 'Conversational AI + AUTOMATION',
                         cardHeading: 'Automate',
                         cardContent:
-                            'Automate conversations with Conversational AI built on the world’s largest data set of customer interactions.',
+                            'Automate conversations across voice and messaging channels with AI built on the world’s largest data set of enterprise customer interactions.',
                         linkHref: '#',
                         linkText: 'Learn more',
                     },
                     {
-                        imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161909/Homepage_Pillar-2_Understand_JV_0117_1x.png',
+                        imgSrc: 'https://static.liveperson.com/static-assets/2023/02/14151048/Homepage_Pillar.2_Optimize_JV_0210_2x.png',
                         imgAlt: 'Alt text',
-                        cardTitle: 'Conversational Intelligence',
+                        cardTitle: 'conversational intelligence',
                         cardHeading: 'Optimize',
                         cardContent:
                             'Turn insight into action. Access and analyze all your data to understand what customers want — and feel — to increase sales, fix inefficiencies, and improve experiences.',
@@ -475,7 +483,7 @@ const Hero7 = () => {
                         linkText: 'Learn more',
                     },
                     {
-                        imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161912/Homepage_Pillar-3_Manage_JV_0117_1x.png',
+                        imgSrc: 'https://static.liveperson.com/static-assets/2023/02/14151053/Homepage_Pillar.3_Manage_JV_0210_2x.png',
                         imgAlt: 'Alt text',
                         cardTitle: 'Agent & supervisor experience',
                         cardHeading: 'Manage',
@@ -485,7 +493,7 @@ const Hero7 = () => {
                         linkText: 'Learn more',
                     },
                     {
-                        imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161948/Homepage_Pillar-4_Configure_JV_0117_1x.png',
+                        imgSrc: 'https://static.liveperson.com/static-assets/2023/02/14151059/Homepage_Pillar.4_Configure_JV_0210_2x.png',
                         imgAlt: 'Alt text',
                         cardTitle: 'platform & integrations',
                         cardHeading: 'Configure',
@@ -495,9 +503,9 @@ const Hero7 = () => {
                         linkText: 'Learn more',
                     },
                     {
-                        imgSrc: 'https://static.liveperson.com/static-assets/2023/01/18161951/Homepage_Pillar-5_Reach_JV_0117_1x.png',
+                        imgSrc: 'https://static.liveperson.com/static-assets/2023/02/14151103/Homepage_Pillar.5_Engage_JV_0210_2x.png',
                         imgAlt: 'Alt text',
-                        cardTitle: 'Communication Channels',
+                        cardTitle: 'communication channels',
                         cardHeading: 'Engage',
                         cardContent:
                             'Increase customer satisfaction by making it easy for them to engage with your brand in the communication channels they use every day.',
