@@ -1076,6 +1076,13 @@ img[src*='doubleclick'] {
 }
 
 .comp-side-side {
+    h2.text-center {
+        margin-bottom: 24px;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 48px;
+        }
+    }
     img {
         margin-bottom: 24px;
 
