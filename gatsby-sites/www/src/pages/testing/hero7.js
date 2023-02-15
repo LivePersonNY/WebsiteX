@@ -296,10 +296,10 @@ const htmlHack2 = `
         <div class="card h-100">
           <div class="card-body">
             <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141424/Homepage_Testimonial-1_HSBC_JV_0119.svg" alt="Warren Buckley, Global Head of Channel Optimisation for HSBC">
-            <p class="card-text quote1">"If they’re messaging us, the worst thing we can do is message them back to tell them to call instead. If they begin a conversation on messaging, that’s their preferred experience."</p>
+            <p class="card-text quote1">“Being able to easily blend human empathy with intelligent automation has been crucial to our success. Our frontline team now can operate with increased agility to get our customers the resolutions they seek.”</p>
           </div>
           <div class="card-footer">
-            <a href="https://www.liveperson.com/resources/success-stories/hsbc-goes-conversational/" class="card-link link">Read PNC’s story</a>
+            <a href="/resources/success-stories/hsbc-goes-conversational/" class="card-link link">Read HSBC UK’s story</a>
           </div>
         </div>
       </div>
@@ -310,7 +310,7 @@ const htmlHack2 = `
             <p class="card-text quote1">“We’re using Conversational AI and AI chatbot automation to supercharge digital innovation and ease our customer’s path to purchase — it is quite an extraordinary thing.”</p>
           </div>
           <div class="card-footer">
-            <a href="https://www.liveperson.com/resources/success-stories/virgin-media-conversational-selling/" class="card-link link">Read Virgin Media/O2’s story</a>
+            <a href="/resources/success-stories/virgin-media-conversational-selling/" class="card-link link">Read Virgin Media/O2’s story</a>
           </div>
         </div>
       </div>
@@ -318,10 +318,10 @@ const htmlHack2 = `
         <div class="card h-100">
           <div class="card-body">
             <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141426/Homepage_Testimonial-3_Chipotle_JV_0119.svg" alt="Nicole West, VP Digital Strategy &amp; Product at Chipotle">
-            <p class="card-text quote1">"The LivePerson team showed a lot of understanding of our business and pain points, explaining that Conversational AI was the right solution. We decided to take a bet on it, and it’s been successful by any measure you can ever think of."</p>
+            <p class="card-text quote1">“Everything we have done on this transformation journey has been about delivering exceptional digital experiences to our customers and our crews, to curate convenient, frictionless, engaging experiences aligned with our purpose to Cultivate a Better World.”</p>
           </div>
           <div class="card-footer">
-            <a href="https://pr.liveperson.com/index.php?s=43&amp;item=620" class="card-link link" target="_blank" rel="noopener noreferrer">CTA</a>
+            <a href="https://pr.liveperson.com/index.php?s=43&amp;item=620" class="card-link link" target="_blank" rel="noopener noreferrer">See the press release</a>
           </div>
         </div>
       </div>
