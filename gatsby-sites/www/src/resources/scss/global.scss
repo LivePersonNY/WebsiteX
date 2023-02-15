@@ -531,7 +531,7 @@ img[src*='doubleclick'] {
 .comp-stat-grid {
     .comp-4col-grid {
         margin-top: 32px;
-        padding: 48px 21px;
+        padding: 20px;
         background: $lavendar20;
 
         @include media-breakpoint-up(lg) {

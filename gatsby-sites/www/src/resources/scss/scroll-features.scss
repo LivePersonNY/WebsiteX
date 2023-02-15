@@ -119,6 +119,11 @@
                             opacity: 1;
                         }
                     }
+                    &:first-child {
+                        .content-box {
+                            height: auto;
+                        }
+                    }
                 }
             }
         }

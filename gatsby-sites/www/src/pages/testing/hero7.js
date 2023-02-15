@@ -123,24 +123,24 @@ const htmlHack1 = `
     <div class="row">
       <div class="col-lg-6 ">
         <img src="https://static.liveperson.com/static-assets/2023/02/14143017/Homepage_Purpose.1_Unrivaled_JV_0213%402x-1.png">
-        <h2>Unrivaled data at your fingertips</h2>
+        <h3>Unrivaled data at your fingertips</h3>
         <p>Augment large language models with the world’s largest conversational data set, drawn from a billion monthly interactions.</p>
       </div>
       <div class="col-lg-6 ">
         <img src="https://static.liveperson.com/static-assets/2023/02/14143021/Homepage_Purpose.2_Human_JV_0213%402x-1.png">
-        <h2>Human optimization at scale</h2>
+        <h3>Human optimization at scale</h3>
         <p>Keep conversations grounded, factual, and relevant to your industry with over 350K skilled humans in the loop, enhancing models continuously.</p>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-6 ">
         <img src="https://static.liveperson.com/static-assets/2023/02/14143025/Homepage_Purpose.3_Impactful_JV_0213%402x-1.png">
-        <h2>Impactful insights made easy</h2>
+        <h3>Impactful insights made easy</h3>
         <p>Accelerate better decision making with access to enterprise-level analytics and reporting that delivers actionable insights automatically.</p>
       </div>
       <div class="col-lg-6 ">
         <img src="https://static.liveperson.com/static-assets/2023/02/14143029/Homepage_Purpose.4_Responsible_JV_0213%402x-1.png">
-        <h2>Responsible AI from day one</h2>
+        <h3>Responsible AI from day one</h3>
         <p>Reduce risk of bias by partnering with the founders of EqualAI, spearheading standards and certification for responsible AI since 2018.</p>
       </div>
     </div>
@@ -156,7 +156,7 @@ const htmlHack1 = `
             <div class="col-lg-6 offset-lg-1">
               <h2>Want to learn more? Visit the LivePerson AI Hub</h2>
             </div>
-            <div class="col-lg-3 offset-lg-1 text-end">
+            <div class="col-lg-3 offset-lg-1 text-lg-end">
               <a class="btn btn-primary" href="#">Learn more</a>
             </div>
           </div>
@@ -177,7 +177,7 @@ const htmlHack1 = `
     <div class="row">
       <div class="col-lg-12">
         <div class="comp-4col-grid text-center">
-          <div class="row align-items-center row-cols-lg-5 row-cols-2">
+          <div class="row row-cols-lg-5 row-cols-2">
             <div class="col">
               <p class="h1">30%</p>
               <p class="subtitle2">reduction in operating costs</p>
@@ -213,8 +213,8 @@ const htmlHack1 = `
   <div class="container" style="opacity: 0;">
     <div class="row align-items-center justify-content-center">
       <div class="col-lg-12">
-        <p class="h6">LivePerson CONVERSATIONAL CLOUD®</p>
-        <h2>Explore our award-winning<br />Conversational <s>AI</s> platform</h2>
+        <p class="h6">LIVEPERSON CONVERSATIONAL CLOUD®</p>
+        <h2>Explore our award-winning<br /><s>Conversational AI</s> platform</h2>
       </div>
     </div>
   </div>
@@ -389,8 +389,8 @@ const htmlHack2 = `
               <h2>Get a personalized demo</h2>
               <p>Learn how the Conversational Cloud can deliver real-world results for your brand.</p>
             </div>
-            <div class="col-lg-3 offset-lg-1 text-end">
-              <a class="btn btn-primary" href="https://www.liveperson.com/roi">Get a demo</a>
+            <div class="col-lg-3 offset-lg-1 text-lg-end">
+              <a class="btn btn-primary" href="/request-demo/">Get a demo</a>
             </div>
           </div>
         </div>
