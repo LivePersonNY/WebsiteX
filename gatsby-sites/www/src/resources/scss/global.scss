@@ -604,6 +604,11 @@ img[src*='doubleclick'] {
         .link::after {
             display: none;
         }
+        .col-lg-4:nth-child(n + 4) {
+            @include media-breakpoint-up(lg) {
+                margin-top: 32px;
+            }
+        }
     }
 }
 
