@@ -39,7 +39,7 @@ const htmlHack1 = `
                                         <div class="carousel-content">
                                             <img src="https://static.liveperson.com/static-assets/2023/02/14113959/Homepage_Hero_Carousel-2_Convo-Builder_JV_0210_1x.png" alt="Screenshot of how you can create bots to work on conversational platforms and help answer customer questions">
                                             <div class="carousel-caption">
-                                                <p>Easily design, build, and integrate bots</p>
+                                                <p>Design, build, and integrate bots</p>
                                             </div>
                                         </div>
                                     </div>
