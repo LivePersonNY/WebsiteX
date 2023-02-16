@@ -444,7 +444,7 @@ const HP2023 = () => {
         },
         {
             property: `og:image`,
-            content: ``,
+            content: `https://static.liveperson.com/static-assets/2023/02/16151853/Homepage_Meta-Tag_JV_0216.jpg`,
         },
         {
             property: `og:description`,
@@ -464,7 +464,7 @@ const HP2023 = () => {
         {
             name: `image`,
             property: `twitter:image`,
-            content: ``,
+            content: `https://static.liveperson.com/static-assets/2023/02/16151853/Homepage_Meta-Tag_JV_0216.jpg`,
         },
         {
             name: `author`,
