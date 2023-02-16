@@ -228,14 +228,20 @@ img[src*='doubleclick'] {
 
         .card-body {
             padding: 24px 20px 0 20px;
+            @include media-breakpoint-up(lg) {
+                padding: 40px 40px 0 40px;
+            }
         }
 
         .card-footer {
             padding: 0 20px 24px 20px;
+            @include media-breakpoint-up(lg) {
+                padding: 0px 40px 40px 40px;
+            }
 
             .card-link {
-                font-size: 14px;
-                line-height: 16px;
+                font-size: 16px;
+                line-height: 24px;
             }
         }
     }
@@ -380,9 +386,9 @@ img[src*='doubleclick'] {
 
             &::after {
                 content: '';
-                background-image: url(https://static.liveperson.com/static-assets/2022/02/09152151/arrow-icon-sprite-20px%402x.png);
+                background-image: url(https://static.liveperson.com/static-assets/2023/02/14115222/arrow-icon-sprite-20px%402x.png);
                 background-repeat: no-repeat;
-                background-size: 300px 20px;
+                background-size: 400px 20px;
                 position: absolute;
                 width: 18px;
                 height: 24px;
@@ -415,9 +421,9 @@ img[src*='doubleclick'] {
 
             &::after {
                 content: '';
-                background-image: url(https://static.liveperson.com/static-assets/2022/02/09152151/arrow-icon-sprite-20px%402x.png);
+                background-image: url(https://static.liveperson.com/static-assets/2023/02/14115222/arrow-icon-sprite-20px%402x.png);
                 background-repeat: no-repeat;
-                background-size: 300px 20px;
+                background-size: 400px 20px;
                 position: absolute;
                 width: 18px;
                 height: 24px;
@@ -446,7 +452,11 @@ img[src*='doubleclick'] {
 
 .comp-card-grid {
     h2 {
-        margin-bottom: 20px;
+        margin-bottom: 48px;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 72px;
+        }
     }
 
     .comp-card-grid-container {
@@ -527,7 +537,7 @@ img[src*='doubleclick'] {
 .comp-stat-grid {
     .comp-4col-grid {
         margin-top: 32px;
-        padding: 48px 21px;
+        padding: 20px;
         background: $lavendar20;
 
         @include media-breakpoint-up(lg) {
@@ -556,11 +566,7 @@ img[src*='doubleclick'] {
             }
 
             .h1 {
-                background: -webkit-linear-gradient(
-                    90deg,
-                    #3863e5 0%,
-                    #8d46eb 86.36%
-                );
+                background: $h1Gradient;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
@@ -777,9 +783,9 @@ img[src*='doubleclick'] {
 
                         &::after {
                             content: '';
-                            background-image: url(https://static.liveperson.com/static-assets/2022/02/09152151/arrow-icon-sprite-20px%402x.png);
+                            background-image: url(https://static.liveperson.com/static-assets/2023/02/14115222/arrow-icon-sprite-20px%402x.png);
                             background-repeat: no-repeat;
-                            background-size: 300px 20px;
+                            background-size: 400px 20px;
                             position: absolute;
                             width: 18px;
                             height: 24px;
@@ -1077,17 +1083,34 @@ img[src*='doubleclick'] {
             padding-left: 0px;
             padding-right: 0px;
         }
+        h2 {
+            background: $h1Gradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     }
 }
 
 .comp-side-side {
-    h2.text-center {
-        margin-bottom: 24px;
+    .row {
+        margin-bottom: 48px;
 
         @include media-breakpoint-up(lg) {
-            margin-bottom: 48px;
+            margin-bottom: 72px;
+        }
+        &:first-child,
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &.comp-side-side-header {
+            margin-bottom: 24px;
+
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 48px;
+            }
         }
     }
+
     img {
         margin-bottom: 24px;
 
@@ -1207,7 +1230,7 @@ img[src*='doubleclick'] {
             }
 
             .link:after {
-                background-position: -120px -1px;
+                background-position: -120px 2px;
             }
         }
     }

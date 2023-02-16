@@ -116,14 +116,15 @@ h2,
 h3,
 .h3 {
     s {
-        font-family: $familyKalam;
-        font-weight: $fontBold;
+        font-family: inherit;
+        font-weight: inherit;
         font-size: inherit;
         line-height: inherit;
         text-decoration: none;
         background: $h1Gradient;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        padding: 1px;
     }
 }
 
@@ -194,8 +195,13 @@ h3,
 .card2 {
     font-family: $familySpaceGrotesk;
     font-weight: $fontBold;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 21px;
+    line-height: 28px;
+
+    @include media-breakpoint-up(lg) {
+        font-size: 24px;
+        line-height: 32px;
+    }
 }
 
 .subtitle1 {
@@ -240,6 +246,12 @@ p {
     }
 }
 
+span.space-mono {
+    font-family: $familySpaceMono;
+    font-size: inherit;
+    line-height: inherit;
+}
+
 .link {
     font-family: $familySpaceGrotesk;
     font-weight: $fontBold;
@@ -248,10 +260,10 @@ p {
     display: inline-block;
 
     &::after {
-        content: "";
-        background-image: url(https://static.liveperson.com/static-assets/2022/02/09152151/arrow-icon-sprite-20px%402x.png);
+        content: '';
+        background-image: url(https://static.liveperson.com/static-assets/2023/02/14115222/arrow-icon-sprite-20px%402x.png);
         background-repeat: no-repeat;
-        background-size: 300px 20px;
+        background-size: 400px 20px;
         position: absolute;
         width: 18px;
         height: 24px;
@@ -311,6 +323,24 @@ p {
 
         &:hover {
             background: $primaryBlueVariant;
+        }
+        &.link {
+            padding-right: 42px;
+            &::after {
+                content: '';
+                background-image: url(https://static.liveperson.com/static-assets/2023/02/14115222/arrow-icon-sprite-20px%402x.png);
+                background-repeat: no-repeat;
+                background-size: 400px 20px;
+                position: absolute;
+                width: 18px;
+                height: 24px;
+                background-position: -360px 2px;
+                margin-left: 4px;
+
+                @include media-breakpoint-up(lg) {
+                    background-position: -360px 2px;
+                }
+            }
         }
     }
 

@@ -293,6 +293,10 @@
                 .mktoFormCol .mktoFieldWrap {
                     margin-bottom: 12px;
 
+                    input {
+                        border: 1px solid $neutral72;
+                    }
+
                     .mktoHtmlText,
                     .mktoRadioList,
                     .mktoCheckboxList,

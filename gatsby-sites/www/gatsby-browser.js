@@ -1,4 +1,4 @@
-import bootstrap from 'bootstrap';
+import bootstrap, { Carousel } from 'bootstrap';
 import runRoi from './roi-implemented';
 
 import './liveperson-scripts';
@@ -22,6 +22,16 @@ export const onRouteUpdate = () => {
         });
     }
 
+    // TODO see how to make this better
+    setTimeout(function () {
+        const myCarouselElements = document.querySelectorAll('.carousel');
+        myCarouselElements.forEach(function (myCarouselElement) {
+            myCarouselElement.classList.add('testing-here4');
+            new Carousel(myCarouselElement, {
+                ride: 'carousel',
+            });
+        });
+    }, 2000);
     window.locations = window.locations || [document.referrer];
     locations.push(window.location.href);
     window.previousPath = locations[locations.length - 2];

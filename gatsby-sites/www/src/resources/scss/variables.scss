@@ -1,49 +1,60 @@
 // Colors
-$primaryBlue: #3863E5;
-$primaryBlueVariant: #204AC5;
-$primaryOrange: #FA772E;
+$primaryBlue: #3863e5;
+$primaryBlueVariant: #204ac5;
+$primaryOrange: #fa772e;
 $primaryLight: #fcfcfc;
 $primaryDark: #101040;
 
-$dropShadow: rgba(0, 0, 0, .08);
+$dropShadow: rgba(0, 0, 0, 0.08);
 
-$rainbow: linear-gradient(90deg, #AAD5EA 0%, #C1C1F3 33.3%, #F7B1B1 66.6%, #F7B995 100%);
+$rainbow: linear-gradient(
+    90deg,
+    #aad5ea 0%,
+    #c1c1f3 33.3%,
+    #f7b1b1 66.6%,
+    #f7b995 100%
+);
 
 $secondaryLight: #ffffff;
 $secondaryDark: #000000;
 
-$neutral12: #1C1D22;
-$neutral16: #24262E;
+$neutral12: #1c1d22;
+$neutral16: #24262e;
 $neutral24: #363944;
-$neutral30: #4D4D4D;
+$neutral30: #4d4d4d;
 $neutral45: #737373;
-$neutral64: #8895BF;
-$neutral70: #B2B2B2;
-$neutral72: #AFB3C0;
-$neutral80: #C6C9D2;
-$neutral84:#D1D4DB;
-$neutral88:#C6C9D2;
-$neutral92:#E7E8EC;
-$neutral94: #E7E8EC;
+$neutral64: #8895bf;
+$neutral70: #b2b2b2;
+$neutral72: #afb3c0;
+$neutral80: #c6c9d2;
+$neutral84: #d1d4db;
+$neutral88: #c6c9d2;
+$neutral92: #e7e8ec;
+$neutral94: #e7e8ec;
 $neutral95: #f2f2f2;
-$neutral96: #F4F4F6;
+$neutral96: #f4f4f6;
 $neutral99: #fcfcfc;
 
-$lavendar20:#EFEFFC;
+$lavendar20: #efeffc;
 
-$blue20:#E7F2F7;
+$blue20: #e7f2f7;
 
-$pink100:#EBB7D4;
+$pink100: #ebb7d4;
 
-$borderGradient:linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%);
-$h1Gradient: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%);
-
+$borderGradient: linear-gradient(
+    90deg,
+    #3863e5 0%,
+    #8d46eb 43.18%,
+    #e849b7 86.36%
+);
+$h1Gradient: linear-gradient(90deg, #3863e5 0%, #8d46eb 43.18%, #e849b7 86.36%);
 
 // Font
 $fontBold: 700;
 $fontSemiBold: 600;
 $fontNormal: 400;
 $familySpaceGrotesk: 'Space Grotesk', Roboto;
+$familySpaceMono: 'Space Mono', monospace;
 $familyInter: 'Inter', Arial;
 $familyKalam: 'Kalam', cursive;
 

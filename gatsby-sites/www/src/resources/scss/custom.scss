@@ -250,6 +250,115 @@ table {
     border: 1px solid red;
 }
 
+.hero-carousel {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    margin-top: 24px;
+
+    @include media-breakpoint-up(lg) {
+        margin-top: 48px;
+        &::before,
+        &::after {
+            background: linear-gradient(
+                to right,
+                rgba(244, 244, 246, 1) 0%,
+                rgba(244, 244, 246, 0) 100%
+            );
+            content: '';
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            bottom: 0;
+        }
+        &:before {
+            right: 80%;
+            left: 0;
+            display: block;
+        }
+        &:after {
+            right: -1px;
+            left: 80%;
+            display: block;
+            transform: rotateZ(180deg);
+        }
+    }
+}
+
+#hp-hero-img-carousel {
+    &.carousel {
+        overflow: hidden;
+    }
+    .carousel-inner {
+        > .carousel-item {
+            overflow: hidden;
+
+            .carousel-content {
+                @include media-breakpoint-up(lg) {
+                    margin: 0 32px;
+                }
+                img {
+                    @include media-breakpoint-up(lg) {
+                        max-width: inherit;
+                    }
+                }
+                .carousel-caption {
+                    position: static;
+                    padding-top: 0;
+                    padding-bottom: 60px;
+                }
+                &:first-child,
+                &:last-child {
+                    img {
+                        transform: scaleY(0.8);
+                    }
+                    @include media-breakpoint-down(lg) {
+                        display: none;
+                    }
+                }
+            }
+        }
+        > .carousel-item.active {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        > .carousel-item-next {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+    }
+    .carousel-indicators {
+        position: relative;
+        button {
+            background-color: $primaryBlue;
+            border-radius: 100px;
+            border: 0;
+            height: 16px;
+            width: 16px;
+            margin: 0 12px;
+        }
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: inline-block;
+        margin-bottom: 6px;
+        position: absolute;
+        top: auto;
+        z-index: 99;
+    }
+
+    .carousel-control-prev {
+        margin-left: -138px;
+        left: auto;
+    }
+
+    .carousel-control-next {
+        margin-left: 90px;
+        right: auto;
+    }
+}
+
 // Start vertical carousel
 .vertical.carousel {
     &#hp-hero-img-carousel,
@@ -347,7 +456,7 @@ table {
 }
 .vertical.carousel.vertical-double {
     display: inline-block;
-    max-width: 50%;
+    max-width: 49%;
 }
 // End vertical carousel
 
@@ -364,52 +473,46 @@ table {
                 background: $h1Gradient;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                font-family: $familyKalam;
-                font-weight: $fontBold;
+                font-family: inherit;
+                font-weight: inherit;
                 font-size: inherit;
                 line-height: inherit;
+                display: inline-block;
+                padding: 2px;
             }
         }
     }
 }
 
 .hp-2023 {
-    .hero {
-        padding: 0;
-        h1 {
-            color: $neutral12;
-            background: 0;
-            -webkit-text-fill-color: initial;
-            -webkit-background-clip: initial;
-            font-size: 72px;
-            line-height: 72px;
+    padding: 0;
+
+    .col-lg-6 {
+        position: relative;
+        margin-bottom: -7px;
+        // &::before,
+        &::after {
+            background: linear-gradient(
+                to bottom,
+                rgba(244, 244, 246, 1) 0%,
+                rgba(244, 244, 246, 0) 100%
+            );
+            content: '';
+            height: 100px;
+            position: absolute;
+            width: 94%;
+            z-index: 2;
         }
-        .col-lg-6 {
-            position: relative;
-            &::before,
-            &::after {
-                background: linear-gradient(
-                    to bottom,
-                    rgba(255, 255, 255, 1) 0%,
-                    rgba(255, 255, 255, 0) 100%
-                );
-                content: '';
-                height: 100px;
-                position: absolute;
-                width: 94%;
-                z-index: 2;
-            }
 
-            &::after {
-                left: 0;
-                bottom: 0;
-                transform: rotateZ(180deg);
-            }
+        &::after {
+            left: 0;
+            bottom: 7px;
+            transform: rotateZ(180deg);
+        }
 
-            &::before {
-                left: 0;
-                top: 0;
-            }
+        &::before {
+            // left: 0;
+            // top: 0;
         }
     }
 }
