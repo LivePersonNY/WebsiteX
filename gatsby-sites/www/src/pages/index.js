@@ -437,9 +437,60 @@ const HP2023 = () => {
         return () => {};
     });
 
+    let meta = [
+        {
+            property: `og:title`,
+            content: 'The Best Conversational AI Platform | LivePerson' || ``,
+        },
+        {
+            property: `og:image`,
+            content: page.seo.opengraphImage
+                ? page.seo.opengraphImage.mediaItemUrl
+                : ``,
+        },
+        {
+            property: `og:description`,
+            content:
+                'LivePerson’s Conversational AI platform helps enterprises unlock the power of large language models for better business outcomes.' ||
+                ``,
+        },
+        {
+            property: `og:url`,
+            content: 'https://www.liveperson.com/',
+        },
+        {
+            name: `type`,
+            property: `og:type`,
+            content: page.seo.schema.pageType || `website`,
+        },
+        {
+            name: `image`,
+            property: `twitter:image`,
+            content:
+                (page.seo.twitterImage
+                    ? page.seo.twitterImage.mediaItemUrl
+                    : ``) ||
+                (page.seo.opengraphImage
+                    ? page.seo.opengraphImage.mediaItemUrl
+                    : ``) ||
+                ``,
+        },
+        {
+            name: `author`,
+            property: `og:author`,
+            content: `LivePerson Team`,
+        },
+    ];
+
     return (
         <Layout>
-            <Seo title="Hero7 | LivePerson" description="" />
+            <Seo
+                title="The Best Conversational AI Platform | LivePerson"
+                description="LivePerson’s Conversational AI platform helps enterprises unlock the power of large language models for better business outcomes."
+                meta={meta}
+                canonical="https://www.liveperson.com/"
+                robots=""
+            />
 
             {Parser(htmlHack1)}
 
