@@ -444,9 +444,7 @@ const HP2023 = () => {
         },
         {
             property: `og:image`,
-            content: page.seo.opengraphImage
-                ? page.seo.opengraphImage.mediaItemUrl
-                : ``,
+            content: ``,
         },
         {
             property: `og:description`,
@@ -461,19 +459,12 @@ const HP2023 = () => {
         {
             name: `type`,
             property: `og:type`,
-            content: page.seo.schema.pageType || `website`,
+            content: `website`,
         },
         {
             name: `image`,
             property: `twitter:image`,
-            content:
-                (page.seo.twitterImage
-                    ? page.seo.twitterImage.mediaItemUrl
-                    : ``) ||
-                (page.seo.opengraphImage
-                    ? page.seo.opengraphImage.mediaItemUrl
-                    : ``) ||
-                ``,
+            content: ``,
         },
         {
             name: `author`,
