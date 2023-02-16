@@ -917,6 +917,9 @@ img[src*='doubleclick'] {
 }
 
 .comp-logo-universal {
+    .d-flex {
+        align-items: center;
+    }
     h2 {
         margin-bottom: 48px;
     }
