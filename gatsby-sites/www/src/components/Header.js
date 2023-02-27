@@ -6,18 +6,18 @@ import NavBar from './NavBar';
 import NewsTicker from './NewsTicker';
 
 const Header = ({ siteTitle }) => (
-  <header>
-    <NewsTicker />
-    <NavBar siteTitle={siteTitle} />
-  </header>
+    <header>
+        <NavBar siteTitle={siteTitle} />
+        <NewsTicker />
+    </header>
 );
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+    siteTitle: PropTypes.string,
 };
 
 Header.defaultProps = {
-  siteTitle: ``,
+    siteTitle: ``,
 };
 
 export default Header;

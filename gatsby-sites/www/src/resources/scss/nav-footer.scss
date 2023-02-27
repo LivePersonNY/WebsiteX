@@ -596,26 +596,27 @@ footer {
 }
 
 .news-ticker-container {
+    display: none;
     position: relative;
     background: $borderGradient;
     text-align: center;
-    padding: 14px 0;
+    padding: 8px 0;
     max-height: 200px;
     height: auto;
     @include media-breakpoint-up(lg) {
-        max-height: 64px;
+        max-height: 44px;
     }
     .container {
         position: relative;
         .news-ticker {
             display: block;
-            font-size: 16px;
-            line-height: 24px;
-            margin-right: 16px;
+            font-size: 14px;
+            line-height: 20px;
             color: $neutral99;
             margin-bottom: 8px;
             @include media-breakpoint-up(lg) {
                 display: inline;
+                margin-right: 16px;
                 margin-bottom: 0px;
             }
         }
@@ -623,8 +624,6 @@ footer {
             font-size: 14px;
             line-height: 16px;
             color: $neutral99;
-            border: 2px solid $neutral99;
-            padding: 8px 36px 8px 16px;
             &::after {
                 background-position: -360px -1px;
             }
@@ -636,7 +635,7 @@ footer {
             cursor: pointer;
             right: 16px;
             @include media-breakpoint-up(lg) {
-                top: 10px;
+                top: 5px;
             }
         }
     }

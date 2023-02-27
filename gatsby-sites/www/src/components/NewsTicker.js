@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 
@@ -43,24 +43,28 @@ const NewsTicker = ({ siteTitle }) => {
     );
 
     useEffect(() => {
-        console.log('this is for news ticker');
         const newsTickerContainer = document.querySelector(
             '.news-ticker-container'
         );
         const newsTickerClose = document.querySelector('.news-ticker-close');
+
+        if (window.sessionStorage.getItem('newsClosed') != 'yes') {
+            newsTickerContainer.style.display = 'block';
+        }
+
         newsTickerClose.addEventListener('click', () => {
             newsTickerContainer.style.transition = 'all 1s ease-in-out';
             newsTickerContainer.style.maxHeight = '0px';
             newsTickerContainer.style.padding = '0px';
-            newsTickerContainer.style.zIndex = '-2';
-            newsTickerClose.style.display = 'none';
+            newsTickerContainer.style.overflow = 'hidden';
+            window.sessionStorage.setItem('newsClosed', 'yes');
         });
-    });
+    }, []);
 
     return (
         <>
             {newsTickerItems.nodes.length > 0 && (
-                <div className="news-ticker-container">
+                <div className={`news-ticker-container`}>
                     <div className="container">
                         {newsTickerItems.nodes.map((item, index) => {
                             const cssClasses = item.cssClasses.length
@@ -77,7 +81,7 @@ const NewsTicker = ({ siteTitle }) => {
                                             item.target && `noopener noreferrer`
                                         }
                                         title={item.title}
-                                        className="link btn btn-outline-secondary"
+                                        className="link"
                                         href={item.path}
                                     >
                                         {item.label}
@@ -88,6 +92,7 @@ const NewsTicker = ({ siteTitle }) => {
                         <img
                             className="news-ticker-close"
                             src="https://static.liveperson.com/static-assets/2023/02/27164937/cancel.png"
+                            // onClick={hideNewsTicker}
                         />
                     </div>
                 </div>
