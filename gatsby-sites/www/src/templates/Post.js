@@ -106,7 +106,7 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
                         </a>
                         <div className="post-container">
                             <p className="h6 text-uppercase">
-                                {post.seo.opengraphType}
+                                {post.blogContentType || post.seo.opengraphType}
                             </p>
                             <h1>{post.title}</h1>
                             <p className="h3 mb-4">{Parser(post.excerpt)}</p>
@@ -156,7 +156,7 @@ export const pageQuery = graphql`
             title
             link
             slug
-            testField
+            blogContentType
             postAuthors {
                 nodes {
                     uri
