@@ -319,12 +319,12 @@ class LP_Resources
 			}
 		]);
 
-		register_graphql_field( 'Post', 'test_field', [
+		register_graphql_field( 'Post', 'blog_content_type', [
 		   'type' => 'String',
-		   'description' => __( 'Is it test field?', 'wp-graphql' ),
+		   'description' => __( 'Blog Content Type', 'wp-graphql' ),
 		   'resolve' => function( $post ) {
-			 $test_value = get_post_meta( $post->ID, 'testField3', true );
-			 return ! empty( $test_value ) ? $test_value : NULL;
+			 $blog_content_type = get_post_meta( $post->ID, 'blog_content_type', true );
+			 return ! empty( $blog_content_type ) ? $blog_content_type : NULL;
 		   }
 		] );
 

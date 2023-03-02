@@ -156,6 +156,7 @@ export const pageQuery = graphql`
             title
             link
             slug
+            testField
             postAuthors {
                 nodes {
                     uri
