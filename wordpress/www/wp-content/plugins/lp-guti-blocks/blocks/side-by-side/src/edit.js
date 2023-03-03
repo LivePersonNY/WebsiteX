@@ -61,6 +61,15 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 		/>
 	);
 
+	let leadTextControl = (
+		<TextControl
+			value={attributes.leadText}
+			onChange={(val) => setAttributes({ leadText: val })}
+			className="embedded-input"
+			placeholder="Lead Text"
+		/>
+	);
+
 	let headerLeftControl = (
 		<TextareaControl
 			value={attributes.headerLeft}
@@ -226,6 +235,12 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 		</BlockControls>
 	);
 
+	const setCheckedRepeat = function (state) {
+		setAttributes({
+			repeat: state,
+		});
+	};
+
 	if (isSelected) {
 		return (
 			<div {...useBlockProps()}>
@@ -248,7 +263,22 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					headLevel={attributes.headLevel}
 					autoApprove={attributes.autoApproveLang}
 					anchor={attributes.anchor}
+					repeat={attributes.repeat}
 				/>
+				<Fragment>
+					<InspectorControls>
+						<div>
+							<PanelBody title="Repeated" initialOpen={false}>
+								<CheckboxControl
+									label="Repeated"
+									help="Check this if you're putting this module back to back with another just like it."
+									checked={attributes.repeat}
+									onChange={setCheckedRepeat}
+								/>
+							</PanelBody>
+						</div>
+					</InspectorControls>
+				</Fragment>
 			</div>
 		);
 	}
@@ -269,6 +299,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				imgRightAlt={attributes.imgRightAlt}
 				backgroundColor={attributes.backgroundColor}
 				anchor={attributes.anchor}
+				repeat={attributes.repeat}
 			/>
 		</div>
 	);

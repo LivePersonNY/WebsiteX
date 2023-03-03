@@ -27,6 +27,7 @@ export default function save({ attributes }) {
 	return (
 		<SideBySide
 			sectionHeader={attributes.sectionHeader}
+			leadText={attributes.leadText}
 			headerLeft={attributes.headerLeft}
 			headerRight={attributes.headerRight}
 			bodyLeft={attributes.bodyLeft}
@@ -39,6 +40,7 @@ export default function save({ attributes }) {
 			autoApprove={attributes.autoApproveLang}
 			anchor={attributes.anchor}
 			headLevel={attributes.headLevel}
+			repeat={attributes.repeat}
 		/>
 	);
 }

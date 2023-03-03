@@ -16,6 +16,7 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"sectionHeader":{},
+		"leadText":{},
 		"imgLeftSrc":{"default":"https://picsum.photos/752/568"},
 		"imgLeftId":{},
 		"imgRightId":{},
@@ -29,6 +30,10 @@
 		"backgroundColor":{},
 		"headLevel": {"default": "h2"},
 		"autoApproveLang": {"default":false, "type": "boolean"},
-		"anchor": {}
+		"anchor": {},
+		"repeat": {
+			"type": "boolean",
+			"default": false
+		}
 	}
 }

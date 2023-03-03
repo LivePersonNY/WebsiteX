@@ -14,17 +14,24 @@ const SideBySide = (props) => {
                 id={props.anchor}
                 className={`pane comp-side-side ${
                     props.sectionHeader ? 'pane-with-lead-text' : ''
-                } ${props.backgroundColor || 'bg-transparent'}`}
+                } ${props.backgroundColor || 'bg-transparent'} ${
+                    props.repeat ? 'comp-side-side-repeat' : ''
+                }`}
             >
                 <div className="container">
                     {props.sectionHeader && (
-                        <div className="row">
+                        <div className="row comp-side-side-header">
                             <div className="col-lg-12">
                                 <h2 className="text-center">
                                     <Paragraph
                                         text={props.sectionHeader}
                                         headerLevel="nothing"
                                     />
+                                    {props.leadText && (
+                                        <p class="text-center">
+                                            {props.leadText}
+                                        </p>
+                                    )}
                                 </h2>
                             </div>
                         </div>
