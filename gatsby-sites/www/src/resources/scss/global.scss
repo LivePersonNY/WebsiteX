@@ -1121,6 +1121,13 @@ img[src*='doubleclick'] {
             margin-bottom: 32px;
         }
     }
+    &.comp-side-side-repeat {
+        padding-bottom: 56px;
+
+        @include media-breakpoint-up(lg) {
+            padding-bottom: 72px;
+        }
+    }
 }
 
 .comp-scroll-horizontal-text {

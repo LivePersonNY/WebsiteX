@@ -272,16 +272,14 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				/>
 				<Fragment>
 					<InspectorControls>
-						<div>
-							<PanelBody title="Repeated" initialOpen={false}>
-								<CheckboxControl
-									label="Repeated"
-									help="Check this if you're putting this module back to back with another just like it."
-									checked={attributes.repeat}
-									onChange={setCheckedRepeat}
-								/>
-							</PanelBody>
-						</div>
+						<PanelBody title="Repeated" initialOpen={false}>
+							<CheckboxControl
+								label="Repeated"
+								help="Check this if you're putting this module back to back with another just like it."
+								checked={attributes.repeat}
+								onChange={setCheckedRepeat}
+							/>
+						</PanelBody>
 					</InspectorControls>
 				</Fragment>
 			</div>
