@@ -19,6 +19,9 @@ import {
 	MediaUploadCheck,
 	RichText,
 } from "@wordpress/block-editor";
+const { InspectorControls } = wp.blockEditor;
+const { PanelBody } = wp.components;
+const { Fragment, useState } = wp.element;
 import SideBySide from "../../../../../../../../gatsby-sites/www/src/components/blocks/SideBySide";
 import {
 	__experimentalGrid as Grid,
