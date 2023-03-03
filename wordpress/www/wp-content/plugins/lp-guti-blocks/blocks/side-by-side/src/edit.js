@@ -257,6 +257,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				/>
 				<SideBySide
 					sectionHeader={sectionHeaderControl}
+					leadText={leadTextControl}
 					headerLeft={headerLeftControl}
 					headerRight={headerRightControl}
 					bodyLeft={contentLeftControl}
@@ -292,6 +293,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 			<SideBySide
 				autoApprove={attributes.autoApproveLang}
 				sectionHeader={attributes.sectionHeader}
+				leadText={attributes.leadText}
 				headLevel={attributes.headLevel}
 				headerLeft={attributes.headerLeft}
 				headerRight={attributes.headerRight}
