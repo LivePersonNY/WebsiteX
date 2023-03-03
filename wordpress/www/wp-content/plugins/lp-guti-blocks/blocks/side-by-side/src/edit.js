@@ -18,7 +18,6 @@ import {
 	MediaUpload,
 	MediaUploadCheck,
 	RichText,
-	CheckboxControl,
 } from "@wordpress/block-editor";
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
@@ -33,6 +32,7 @@ import {
 	ResponsiveWrapper,
 	ToolbarGroup,
 	ToolbarButton,
+	CheckboxControl,
 } from "@wordpress/components";
 import BackgroundSelectorMenu from "../../BackgroundSelector";
 import AutoApproveLanguage from "../../AutoApproveLanguage";
