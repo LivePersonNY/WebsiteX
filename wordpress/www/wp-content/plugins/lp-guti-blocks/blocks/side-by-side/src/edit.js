@@ -18,6 +18,7 @@ import {
 	MediaUpload,
 	MediaUploadCheck,
 	RichText,
+	CheckboxControl,
 } from "@wordpress/block-editor";
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
