@@ -494,6 +494,7 @@ class LP_Resources
 				'thumbnail',
 				'author',
 				'post-formats',
+				'custom-fields',
 			],
 			'taxonomies' => [
 				'post_tag',
