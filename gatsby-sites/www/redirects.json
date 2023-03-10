@@ -272,6 +272,7 @@
 		"/whatsapp-form/cs": "/channels/whatsapp-form-cs",
 		"/whatsapp/*": "/products/whatsapp",
 		"/experts/spirituality-religion/tarot-reading/": "https://www.kasamba.com/tarot-reading/",
-		"/products/conversational-analytics/": "/products/conversational-intelligence/"
+		"/products/conversational-analytics/": "/products/conversational-intelligence/",
+		"/policies/gcp-initiative/": "/policies/public-cloud/gcp-initiative/"
 	}
 }

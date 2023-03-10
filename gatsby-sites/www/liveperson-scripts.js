@@ -398,6 +398,35 @@ window.documentReadyFn = function () {
         });
     }
 
+    if (document.location.pathname.includes('policies/public-cloud')) {
+        $('#loginbutton').on('click', function () {
+            if ($('#password').val().toLowerCase() == 'cloud2023') {
+                $('.lightbox').hide();
+                $('.hide-this').show();
+            } else {
+                $('.wrong-password').text(
+                    'Incorrect password. Please double-check and try again.'
+                );
+            }
+        });
+        $('#password').keypress(function (e) {
+            if (e.which == 13) {
+                if ($('#password').val().toLowerCase() == 'cloud2023') {
+                    $('.lightbox').hide();
+                    $('.hide-this').show();
+                } else {
+                    $('.wrong-password').text(
+                        'Incorrect password. Please double-check and try again.'
+                    );
+                }
+            }
+        });
+        $('#password').focus();
+        $('#password').click(function () {
+            $(this).attr('placeholder', '');
+        });
+    }
+
     // window.dataLayer.push({'event': 'optimize.activate'}); doesnt really work
 
     if (document.querySelectorAll('.resume-upload').length > 0) {
