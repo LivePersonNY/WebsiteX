@@ -228,21 +228,36 @@
     }
 
     .thank-you-message {
-        font-size: 1.5rem;
-        line-height: 1.75rem;
-        text-align: center;
+        font-size: 16px;
+        line-height: 24px;
         width: auto;
         margin: 0 auto;
         display: inline-block;
         background: white;
-        padding: 0.5rem 1rem;
+        padding: 40px 20px;
         border-radius: 5px;
         font-family: $familySpaceGrotesk;
+        @include media-breakpoint-up(lg) {
+            padding: 40px;
+        }
+        strong {
+            font-size: inherit;
+            line-height: inherit;
+            padding: 0;
+        }
 
         a {
             color: $primaryBlue !important;
             text-decoration: underline;
             font-size: inherit;
+        }
+        img:first-child {
+            margin-right: 0px;
+            display: block;
+            @include media-breakpoint-up(lg) {
+                margin-right: 14px;
+                display: inline;
+            }
         }
     }
 
