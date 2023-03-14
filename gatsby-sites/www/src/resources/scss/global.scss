@@ -839,8 +839,12 @@ img[src*='doubleclick'] {
             margin-bottom: 16px;
         }
 
-        h3 {
+        h3,
+        .card1 {
             margin-bottom: 8px;
+        }
+        .card1 {
+            margin-top: 8px;
         }
     }
 }
@@ -858,8 +862,12 @@ img[src*='doubleclick'] {
                 margin-bottom: 16px;
             }
 
-            h3 {
+            h3,
+            .card1 {
                 margin-bottom: 8px;
+            }
+            .card1 {
+                margin-top: 8px;
             }
         }
     }
