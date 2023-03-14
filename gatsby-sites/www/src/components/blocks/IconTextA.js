@@ -12,7 +12,7 @@ const IconTextA = (props) => {
                 )) ||
                     item.imgCtl}
                 {item.kicker && (
-                    <p className="h6 text-uppercase">{props.kicker}</p>
+                    <p className="h6 text-uppercase">{item.kicker}</p>
                 )}
                 <p className="card1">{item.title}</p>
                 <Paragraph className="subtitle1" text={item.body} />

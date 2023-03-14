@@ -150,13 +150,6 @@ export default function Edit({
 						}}
 						className="embedded-input"
 					/>
-					<ItemControls
-						index={index}
-						itemArray={itemValues}
-						callback={function (items) {
-							setAttributes({ icons: items });
-						}}
-					/>
 				</div>
 			),
 			linkUrl: null,
