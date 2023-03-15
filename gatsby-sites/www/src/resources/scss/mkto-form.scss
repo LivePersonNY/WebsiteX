@@ -236,13 +236,14 @@
         background: white;
         padding: 40px 20px;
         border-radius: 5px;
-        font-family: $familySpaceGrotesk;
+        font-family: $familyInter;
         @include media-breakpoint-up(lg) {
             padding: 40px;
         }
         strong {
             font-size: inherit;
             line-height: inherit;
+            font-family: inherit;
             padding: 0;
         }
 
