@@ -255,9 +255,9 @@ header {
 
                                     &::before {
                                         content: '';
-                                        background-image: url(https://static.liveperson.com/static-assets/2023/01/26142105/nav-icon-sprite-18px%402x.png);
+                                        background-image: url(https://static.liveperson.com/static-assets/2023/03/16151732/nav-icon-sprite-18px%402x.png);
                                         background-repeat: no-repeat;
-                                        background-size: 234px 18px;
+                                        background-size: 252px 18px;
                                         position: absolute;
                                         width: 18px;
                                         height: 18px;
@@ -322,6 +322,10 @@ header {
 
                                 &.nav-call-reduction::before {
                                     background-position: -126px 0px;
+                                }
+
+                                &.nav-voiceai::before {
+                                    background-position: -234px 0px;
                                 }
 
                                 .dropdown-item-content {
@@ -404,6 +408,7 @@ header {
                         }
                     }
 
+                    &.products,
                     &.curiously-human-ai {
                         .col-lg {
                             .dropdown-section-title {
@@ -412,7 +417,6 @@ header {
                         }
                     }
 
-                    &.products,
                     &.about,
                     &.success-services {
                         .col-lg:first-child {
