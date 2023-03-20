@@ -152,6 +152,19 @@ body.blog {
         }
     }
 
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+        margin-bottom: 1.25rem;
+    }
+
+    a {
+        font-size: inherit;
+        line-height: inherit;
+    }
+
     hr {
         border-image: $borderGradient 1;
         margin: 2rem auto;
@@ -162,9 +175,7 @@ body.blog {
     }
 
     hr.wp-block-separator:not(.is-style-wide) {
-        @include media-breakpoint-up(lg) {
-            width: 30%;
-        }
+        width: 30%;
     }
 
     & > blockquote {
@@ -173,17 +184,18 @@ body.blog {
         padding-left: 2rem;
         margin: 3rem;
         @include media-breakpoint-down(xs) {
-            margin: 0 0 1rem;
+            margin: 0 0 1.25rem;
             padding-left: 1rem;
         }
     }
 
-    figure.wp-block-embed {
-        margin: 2rem 0;
-        figcaption {
-            background: $neutral84;
-            padding: 1rem;
+    figure {
+        figcaption,
+        figcaption em {
+            color: $neutral45;
             font-style: italic;
+            font-size: 15px;
+            text-align: center;
         }
         overflow: hidden;
         border-radius: 5px;
