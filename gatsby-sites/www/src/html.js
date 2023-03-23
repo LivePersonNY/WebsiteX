@@ -73,6 +73,7 @@ export default function HTML(props) {
                     dangerouslySetInnerHTML={{ __html: props.body }}
                 />
                 {props.postBodyComponents}
+                <div id="conciergebot"></div>
             </body>
         </html>
     );
