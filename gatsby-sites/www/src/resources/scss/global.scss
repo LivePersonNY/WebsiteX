@@ -546,7 +546,8 @@ img[src*='doubleclick'] {
         }
 
         .col {
-            border-right: 1px solid $neutral12;
+            position: relative;
+            border-right: 1px solid rgba(28, 29, 34, 0.25);
             margin-top: 24px;
             margin-bottom: 24px;
 
@@ -562,6 +563,18 @@ img[src*='doubleclick'] {
             &:nth-child(even) {
                 @include media-breakpoint-down(lg) {
                     border-right: 0;
+                }
+            }
+
+            &:nth-child(n + 3)::before {
+                @include media-breakpoint-down(lg) {
+                    content: '';
+                    width: 70%;
+                    border-top: 1px solid rgba(28, 29, 34, 0.25);
+                    position: absolute;
+                    top: -22px;
+                    left: 50%;
+                    transform: translateX(-50%);
                 }
             }
 
