@@ -109,7 +109,7 @@ const NavPanel = ({
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2023/03/16151731/VoiceAI_Benefit.1_featured_asset.png"
+                                            src="https://static.liveperson.com/static-assets/2023/04/04111358/ent-gen-ai_featured_asset.png"
                                             alt="Virtual launch event"
                                         />
                                         <div className="dropdown-featured-body">
@@ -117,16 +117,16 @@ const NavPanel = ({
                                                 Virtual launch event
                                             </p>
                                             <p className="featured-body">
-                                                The future is calling — meet
-                                                LivePerson Voice AI technology
+                                                Something big is coming: Gear up
+                                                for enterprise generative AI
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/voice-ai-technology/"
-                                                target=""
+                                                href="/resources/webinars/enterprise-generative-ai/"
+                                                target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                Register now
+                                                Save your spot
                                             </a>
                                         </div>
                                     </div>
