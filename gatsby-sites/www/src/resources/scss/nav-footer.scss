@@ -604,17 +604,17 @@ footer {
     position: relative;
     background: $borderGradient;
     text-align: center;
-    padding: 8px 0;
+    padding: 10px 0;
     max-height: 200px;
     height: auto;
     @include media-breakpoint-up(lg) {
-        max-height: 44px;
+        max-height: 48px;
     }
     .container {
         position: relative;
         .news-ticker {
             display: block;
-            font-size: 14px;
+            font-size: 15px;
             line-height: 20px;
             color: $neutral99;
             margin-bottom: 8px;
@@ -625,7 +625,7 @@ footer {
             }
         }
         .link {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 16px;
             color: $neutral99;
             &::after {
@@ -639,7 +639,7 @@ footer {
             cursor: pointer;
             right: 16px;
             @include media-breakpoint-up(lg) {
-                top: 5px;
+                top: 6px;
             }
         }
     }
