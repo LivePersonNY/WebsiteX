@@ -118,7 +118,8 @@ const NavPanel = ({
                                             </p>
                                             <p className="featured-body">
                                                 Something big is coming: Gear up
-                                                for enterprise generative AI
+                                                for enterprise
+                                                generative&nbsp;AI
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
