@@ -19,7 +19,7 @@ const htmlHack1 = `
                                 Powered by the world’s largest data set of conversational interactions, continuously optimized by hundreds of thousands of human experts
 </p>
 <a class="btn btn-primary link" href="/request-demo/">Let's talk</a>
-<p style="margin-top:20px"><a class="link link-no-arrow"  href="/resources/webinars/enterprise-generative-ai/">or save your spot for our generative AI launch 🚀</a></p>
+<p style="margin-top:20px"><a class="link" href="/resources/webinars/enterprise-generative-ai/">or save your spot for our Generative AI launch</a></p>
                         </div>
                     </div>
                 </div>
