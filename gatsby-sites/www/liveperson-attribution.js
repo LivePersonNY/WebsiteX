@@ -282,6 +282,12 @@ const LivePerson = {
                 'Cookies',
                 window.navigator.cookieEnabled
             );
+            window.dataLayer &&
+                dataLayer.push({
+                    event: 'ga4-dl-test',
+                    action: 'load',
+                    Cookies: window.navigator.cookieEnabled,
+                });
         }
 
         console.log('Hydration complete.', window.lp_attr);
