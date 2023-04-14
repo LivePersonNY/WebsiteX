@@ -104,13 +104,13 @@ const NavPanel = ({
                                 );
                             })}
                             {featuredProducts && (
-                                <div className="col-lg-6 col-lg">
+                                <div className="col-lg-3 col-lg">
                                     <p className="dropdown-section-title h6">
                                         something big is coming
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2023/04/04111358/ent-gen-ai_featured_asset.png"
+                                            src="https://static.liveperson.com/static-assets/2023/04/14113120/Nav_Ent-Gen-AI_feature-image_1_0413.png"
                                             alt="Virtual launch event"
                                         />
                                         <div className="dropdown-featured-body">
@@ -122,7 +122,7 @@ const NavPanel = ({
                                                 generative AI launch
                                             </p>
                                             <a
-                                                className="dropdown-link-blue"
+                                                className="dropdown-link-blue link"
                                                 href="/resources/webinars/enterprise-generative-ai/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
