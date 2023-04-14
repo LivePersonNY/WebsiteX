@@ -14,6 +14,7 @@ const NavPanel = ({
     cssClasses,
     featuredNews,
     featuredResource,
+    featuredProducts,
 }) => {
     if (children.length > 0) {
         children.sort(function (a, b) {
@@ -102,6 +103,36 @@ const NavPanel = ({
                                     </React.Fragment>
                                 );
                             })}
+                            {featuredProducts && (
+                                <div className="col-lg-3 col-lg">
+                                    <p className="dropdown-section-title h6">
+                                        something big is coming
+                                    </p>
+                                    <div className="dropdown-featured-container">
+                                        <img
+                                            src="https://static.liveperson.com/static-assets/2023/04/14113120/Nav_Ent-Gen-AI_feature-image_1_0413.png"
+                                            alt="Virtual launch event"
+                                        />
+                                        <div className="dropdown-featured-body">
+                                            <p className="subtitle3">
+                                                Virtual Event
+                                            </p>
+                                            <p className="featured-body">
+                                                Join us for an historic
+                                                generative AI launch
+                                            </p>
+                                            <a
+                                                className="dropdown-link-blue link"
+                                                href="/resources/webinars/enterprise-generative-ai/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Save your spot
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                             {featuredResource && (
                                 <div className="col-lg-6 col-lg">
                                     <p className="dropdown-section-title h6">

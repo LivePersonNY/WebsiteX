@@ -476,6 +476,26 @@ header {
                         }
                     }
 
+                    &.products {
+                        .col-lg-3 {
+                            background: $blue20;
+                            padding-left: 30px;
+                            .dropdown-section-title {
+                                display: block;
+                                margin-left: 0;
+                                margin-bottom: 16px;
+                            }
+
+                            .dropdown-featured-body {
+                                margin-left: 0;
+                                margin-top: 16px;
+                                .dropdown-link-blue {
+                                    display: inline;
+                                }
+                            }
+                        }
+                    }
+
                     &.solutions {
                         @include media-breakpoint-down(lg) {
                             .col-lg:nth-child(2) {
