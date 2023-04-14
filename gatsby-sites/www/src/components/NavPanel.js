@@ -124,7 +124,6 @@ const NavPanel = ({
                                             <a
                                                 className="dropdown-link-blue link"
                                                 href="/resources/webinars/enterprise-generative-ai/"
-                                                target="_blank"
                                                 rel="noopener noreferrer"
                                             >
                                                 Save your spot
@@ -155,7 +154,6 @@ const NavPanel = ({
                                             <a
                                                 className="dropdown-link-blue"
                                                 href="/resources/webinars/enterprise-generative-ai/"
-                                                target="_blank"
                                                 rel="noopener noreferrer"
                                             >
                                                 Save your spot
