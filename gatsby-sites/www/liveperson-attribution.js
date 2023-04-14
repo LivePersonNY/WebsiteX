@@ -455,7 +455,7 @@ const LivePerson = {
                 MSCLIKID__c: window.lp_attr.msclkid,
                 LeadSource: window.lp_attr.leadSource,
                 Referring_URL__c: window.lp_attr.referringUrl,
-                campaignSearchKeywords__c: window.lp_attr.searchTearms,
+                campaignSearchKeywords__c: window.lp_attr.searchTerms,
                 campaignID__c: window.lp_attr.campaign,
                 campaignSource__c: window.lp_attr.campaignSource,
                 campaignMedium__c: window.lp_attr.campaignMedium,
