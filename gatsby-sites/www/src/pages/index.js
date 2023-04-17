@@ -14,7 +14,7 @@ const htmlHack1 = `
                     <div class="row text-center">
                         <div class="col-lg-8 offset-lg-2">
                         <p class="h6 text-uppercase">LivePerson conversational ai platform</p>
-                            <h1>Safe, trustworthy, and reliable A<span class="space-mono">I</span> for everyone</h1>
+                            <h1>Safe, trustworthy, and responsible A<span class="space-mono">I</span> for everyone</h1>
                             <p data-tag="new line split" class="lead">
                                 Powered by the world’s largest data set of conversational interactions, continuously optimized by hundreds of thousands of human experts
 </p>
