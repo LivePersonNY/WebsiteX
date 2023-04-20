@@ -274,6 +274,8 @@
 		"/experts/spirituality-religion/tarot-reading/": "https://www.kasamba.com/tarot-reading/",
 		"/products/conversational-analytics/": "/products/conversational-intelligence/",
 		"/policies/gcp-initiative/": "/policies/public-cloud/gcp-initiative/",
-		"/resources/webinars/voice-ai-technology/": "/resources/webinars/enterprise-generative-ai/"
+		"/resources/webinars/voice-ai-technology/": "/resources/webinars/enterprise-generative-ai/",
+		"/policies/gcp-initiative-due-diligence/": "/policies/public-cloud/gcp-initiative-due-diligence/",
+		"/policies/gcp-initiative-faq/": "/policies/public-cloud/initiative-faq/"
 	}
 }
