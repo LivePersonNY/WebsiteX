@@ -613,4 +613,80 @@ $animationSpeed: 30s;
         }
     }
 }
+
+// Pricing page
+#pricingPageAccordion {
+    .accordion-button::after {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+        transform: scale(0.7) !important;
+        position: absolute;
+        left: 62%;
+    }
+    .accordion-button:not(.collapsed)::after {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+    }
+    .accordion-item {
+        .accordion-button,
+        .accordion-body {
+            padding: 0;
+            .container {
+                .row {
+                    .col-lg-2 {
+                        border-left: 1px solid $neutral84;
+                    }
+                    .col-lg-2,
+                    .col-lg-8 {
+                        padding-top: 16px;
+                        padding-bottom: 16px;
+                        padding-left: 24px;
+                    }
+                }
+            }
+        }
+        .accordion-body {
+            .container {
+                border-bottom: 1px solid $neutral84;
+                &:last-child {
+                    border-bottom: 0;
+                }
+                .col-lg-2 {
+                    text-align: center;
+                }
+                .body1 {
+                    position: relative;
+                    font-weight: $fontSemiBold;
+                    display: block;
+                    width: 100%;
+                    text-decoration: none;
+                    color: $neutral12;
+                    margin-left: 40px;
+                    &.collapse-btn {
+                        &::before {
+                            content: '';
+                            background-image: url(https://static.liveperson.com/static-assets/2022/02/09152152/chevron-icon-sprite-20px%402x.png);
+                            background-repeat: no-repeat;
+                            background-size: 360px 20px;
+                            position: absolute;
+                            left: -20px;
+                            top: 3px;
+                            width: 18px;
+                            height: 20px;
+                            background-position: -243px 0px;
+                        }
+                        &.collapsed {
+                            &::before {
+                                background-position: -304px 0px;
+                            }
+                        }
+                    }
+                    & + div {
+                        margin-left: 40px;
+                        margin-top: 6px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 /*! purgecss end ignore */

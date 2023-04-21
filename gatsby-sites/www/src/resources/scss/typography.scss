@@ -374,3 +374,8 @@ span.space-mono {
 .white-space-break-spaces {
     white-space: break-spaces;
 }
+
+.text-neutral-99 {
+    color: $neutral99 !important;
+    -webkit-text-fill-color: inherit !important;
+}
