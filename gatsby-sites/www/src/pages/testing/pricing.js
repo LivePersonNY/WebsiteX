@@ -216,9 +216,115 @@ const htmlHack1 = `
 									</div>
 								</div>
 
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse9" role="button" aria-expanded="false" aria-controls="collapse9">
+												Conversation Orchestrator
+											</a>
+											<div class="collapse" id="collapse9">
+												<p class="body2">
+													Create, manage,test, and activate intent domain models using LivePerson NLU, with pre-built domain and starter pack access for top verticals and use cases.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse10" role="button" aria-expanded="false" aria-controls="collapse10">
+												AI Annotator
+											</a>
+											<div class="collapse" id="collapse10">
+												<p class="body2">
+													Create, manage,test, and activate intent domain models using LivePerson NLU, with pre-built domain and starter pack access for top verticals and use cases.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
 							</div>
 						</div>
 					</div>
+
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="panelsStayOpen-headingFour">
+						</button>
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-8"><h4>Agent & Supervisor Experience</h4></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
+								</div>
+							</div>
+						</button>
+						</h2>
+						<div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
+							<div class="accordion-body">
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse11" role="button" aria-expanded="false" aria-controls="collapse11">
+												Multi-channel Agent Workspace
+											</a>
+											<div class="collapse" id="collapse11">
+												<p class="body2">
+													Handles multiple conversation channels asynchronously at scale, streamlining agent operations and enhancing agent focus and efficiency. Includes conversation history, out-of-the-box and custom agent widgets, and predefined content.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse12" role="button" aria-expanded="false" aria-controls="collapse12">
+												Agent Manager Workspace
+											</a>
+											<div class="collapse" id="collapse12">
+												<p class="body2">
+													Create, manage,test, and activate intent domain models using LivePerson NLU, with pre-built domain and starter pack access for top verticals and use cases.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse13" role="button" aria-expanded="false" aria-controls="collapse13">
+												Voice/Video
+											</a>
+											<div class="collapse" id="collapse13">
+												<p class="body2">
+													Create, manage,test, and activate intent domain models using LivePerson NLU, with pre-built domain and starter pack access for top verticals and use cases.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
 				</div>
 
 			</div>
