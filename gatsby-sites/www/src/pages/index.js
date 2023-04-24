@@ -213,6 +213,12 @@ const htmlHack1 = `
         <h2>Explore our award-winning<br /><s>Conversational AI</s> platform</h2>
       </div>
     </div>
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-10 offset-lg-1" style="margin-top:60px;">
+        <div class="vimeoContainer"><iframe src="https://player.vimeo.com/video/819205374?h=5e1c30c30b&badge=0&autopause=0&player_id=0&app_id=58479%22%20frameborder=%220%22%20allow=%22autoplay;%20fullscreen;%20picture-in-picture%22%20allowfullscreen%20style=%22position:absolute;top:0;left:0;width:100%;height:100%" class="vimeoFrame"></iframe></div>
+
+      </div>
+    </div>
   </div>
 </div>
 
@@ -485,7 +491,7 @@ const HP2023 = () => {
 
             {Parser(htmlHack1)}
 
-            <ScrollFeatures
+            {/* <ScrollFeatures
                 scrollHeight="125vh"
                 backgroundColor="bg-neutral-96"
                 items={[
@@ -540,7 +546,7 @@ const HP2023 = () => {
                         linkText: 'Learn more',
                     },
                 ]}
-            />
+            /> */}
 
             {Parser(htmlHack2)}
         </Layout>
