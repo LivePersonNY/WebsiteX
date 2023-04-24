@@ -68,6 +68,17 @@ const htmlHack1 = `
 
 <div class="pane bg-neutral-96">
 	<div class="container" style="opacity: 1;">
+		<div class="row" style="margin-bottom:28px">
+			<div class="col-lg-8">
+				<h2>Conversational Cloud Packages</h2>
+			</div>
+			<div class="col-lg-2">
+				<h5 class="text-center">Conversational Cloud</h5>
+			</div>
+			<div class="col-lg-2">
+				<h5 class="text-center">Conversational Cloud + Generative AI</h5>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-12">
 
@@ -384,7 +395,7 @@ const htmlHack1 = `
 							</div>
 						</button>
 						</h2>
-						<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
+						<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
 							<div class="accordion-body">
 
 								<div class="container">
@@ -458,7 +469,7 @@ const htmlHack1 = `
 							</div>
 						</button>
 						</h2>
-						<div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
+						<div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingSix">
 							<div class="accordion-body">
 
 								<div class="container">
@@ -488,10 +499,10 @@ const htmlHack1 = `
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-8">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse16" role="button" aria-expanded="false" aria-controls="collapse16">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse17" role="button" aria-expanded="false" aria-controls="collapse17">
 												Facebook
 											</a>
-											<div class="collapse" id="collapse16">
+											<div class="collapse" id="collapse17">
 												<p class="body2">
 													Engagement Credits incurred when Brands communicate with end users on Facebook Messenger or reply to public messages (e.g., post comments).
 												</p>
@@ -529,10 +540,10 @@ const htmlHack1 = `
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-8">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse16" role="button" aria-expanded="false" aria-controls="collapse16">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse18" role="button" aria-expanded="false" aria-controls="collapse18">
 												Instagram
 											</a>
-											<div class="collapse" id="collapse16">
+											<div class="collapse" id="collapse18">
 												<p class="body2">
 													Currently available for direct messages only.
 												</p>
@@ -570,10 +581,10 @@ const htmlHack1 = `
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-8">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse16" role="button" aria-expanded="false" aria-controls="collapse16">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse19" role="button" aria-expanded="false" aria-controls="collapse19">
 												SMS
 											</a>
-											<div class="collapse" id="collapse16">
+											<div class="collapse" id="collapse19">
 												<p class="body2">
 													SMS gateway and phone number costs not included. Customers may use their own gateway or purchase LivePerson's gateway separately. LivePerson's SMS gateway use is invoiced monthly in arrears at the SMS Provider's list price rate and a 15% handling fee.
 												</p>
@@ -587,10 +598,10 @@ const htmlHack1 = `
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-8">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse16" role="button" aria-expanded="false" aria-controls="collapse16">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse20" role="button" aria-expanded="false" aria-controls="collapse20">
 												Twitter
 											</a>
-											<div class="collapse" id="collapse16">
+											<div class="collapse" id="collapse20">
 												<p class="body2">
 													Engagement Credits incurred for conversations on direct messages and when brands reply to tweets.
 												</p>
@@ -640,10 +651,10 @@ const htmlHack1 = `
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-8">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse16" role="button" aria-expanded="false" aria-controls="collapse16">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse21" role="button" aria-expanded="false" aria-controls="collapse21">
 												WhatsApp
 											</a>
-											<div class="collapse" id="collapse16">
+											<div class="collapse" id="collapse21">
 												<p class="body2">
 													Additional costs may apply for WhatsApp messaging. LivePerson invoices customers monthly in arrears according to the WhatsApp rate card, with a 15% handling fee.
 												</p>
@@ -734,16 +745,16 @@ const htmlHack1 = `
 							</div>
 						</button>
 						</h2>
-						<div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
+						<div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingSeven">
 							<div class="accordion-body">
 
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-8">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse14" role="button" aria-expanded="false" aria-controls="collapse14">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse22" role="button" aria-expanded="false" aria-controls="collapse22">
 												Proactive Messaging
 											</a>
-											<div class="collapse" id="collapse14">
+											<div class="collapse" id="collapse22">
 												<p class="body2">
 													Enables proactive messaging on WhatsApp, SMS, and InApp. SMS gateway and phone number costs not included. Customers may use their own gateway or purchase LivePerson's gateway separately. Outbound message charges apply if the end user doesn't reply within up to 30 days. Messaging channels are charged at specific rates, plus a 15% handling fee.
 												</p>
@@ -762,30 +773,30 @@ const htmlHack1 = `
 					<!-- START REPORTING ANALYTICS -->
 
 					<div class="accordion-item">
-						<h2 class="accordion-header" id="panelsStayOpen-headingSeven">
+						<h2 class="accordion-header" id="panelsStayOpen-headingEight">
 						</button>
-						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="true" aria-controls="panelsStayOpen-collapseSeven">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="true" aria-controls="panelsStayOpen-collapseEight">
 							<div class="container">
 								<div class="row">
-									<div class="col-lg-8"><h4>Administrative Experience</h4></div>
+									<div class="col-lg-8"><h4>Reporting & Analytics</h4></div>
 									<div class="col-lg-2"></div>
 									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
 						</h2>
-						<div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
+						<div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingEight">
 							<div class="accordion-body">
 
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-8">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse14" role="button" aria-expanded="false" aria-controls="collapse14">
-												Proactive Messaging
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse23" role="button" aria-expanded="false" aria-controls="collapse23">
+												Analytics Builder
 											</a>
-											<div class="collapse" id="collapse14">
+											<div class="collapse" id="collapse23">
 												<p class="body2">
-													Enables proactive messaging on WhatsApp, SMS, and InApp. SMS gateway and phone number costs not included. Customers may use their own gateway or purchase LivePerson's gateway separately. Outbound message charges apply if the end user doesn't reply within up to 30 days. Messaging channels are charged at specific rates, plus a 15% handling fee.
+													Provides business insights for data-driven decision-making, optimizing contact center operations, and tracking and increasing revenues.
 												</p>
 											</div>
 										</div>
@@ -793,6 +804,274 @@ const htmlHack1 = `
 										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
 									</div>
 								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse24" role="button" aria-expanded="false" aria-controls="collapse24">
+												Bot Analytics
+											</a>
+											<div class="collapse" id="collapse24">
+												<p class="body2">
+													Offers real-time data on bot activity to gauge effectiveness.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse25" role="button" aria-expanded="false" aria-controls="collapse25">
+												Meaningful Conversation Score (MCS)
+											</a>
+											<div class="collapse" id="collapse25">
+												<p class="body2">
+													An automatic, unbiased method for measuring the relationship between consumers and brands.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<!-- START ADVANCED ANALYTICS -->
+
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="panelsStayOpen-headingNine">
+						</button>
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="true" aria-controls="panelsStayOpen-collapseNine">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-8"><h4>Advanced Analytics</h4></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
+								</div>
+							</div>
+						</button>
+						</h2>
+						<div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingNine">
+							<div class="accordion-body">
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse26" role="button" aria-expanded="false" aria-controls="collapse26">
+												Meaningful Automated Conversation Score (MACS)
+											</a>
+											<div class="collapse" id="collapse26">
+												<p class="body2">
+													A proprietary metric evaluating bot conversation quality, understanding consumer sentiment and bot effectiveness to create self-learning and AI training feedback loops.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse27" role="button" aria-expanded="false" aria-controls="collapse27">
+												Performance Optimizer
+											</a>
+											<div class="collapse" id="collapse27">
+												<p class="body2">
+													A live management analytics dashboard measuring the health of brand conversational operations.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse28" role="button" aria-expanded="false" aria-controls="collapse28">
+												Custom Analytics Builder
+											</a>
+											<div class="collapse" id="collapse28">
+												<p class="body2">
+													Create custom reports offering vital business insights for data-driven decision-making, optimizing contact center operations, and tracking and increasing revenues.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse29" role="button" aria-expanded="false" aria-controls="collapse29">
+												Conversation Insights
+											</a>
+											<div class="collapse" id="collapse29">
+												<p class="body2">
+													A text analytics tool focusing on transcripts and a subset of metric data.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse30" role="button" aria-expanded="false" aria-controls="collapse30">
+												Data Transporter
+											</a>
+											<div class="collapse" id="collapse30">
+												<p class="body2">
+													Connects brands to Conversational Cloud report exports via Conversational Cloud Data APIs, allowing users to benefit from the open platform without developing API-based sources.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse31" role="button" aria-expanded="false" aria-controls="collapse31">
+												Conversation Assist
+											</a>
+											<div class="collapse" id="collapse31">
+												<p class="body2">
+													Recommends bots and answers to human agents within their conversations with consumers.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+					<!-- START INTEGRATIONS -->
+
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="panelsStayOpen-headingTen">
+						</button>
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="true" aria-controls="panelsStayOpen-collapseTen">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-8"><h4>Integrations & Developer Experience</h4></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
+								</div>
+							</div>
+						</button>
+						</h2>
+						<div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTen">
+							<div class="accordion-body">
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse32" role="button" aria-expanded="false" aria-controls="collapse32">
+												Integration Hub
+											</a>
+											<div class="collapse" id="collapse32">
+												<p class="body2">
+													Explore, configure, and enable integrations in a self-serve manner. Includes workflows (powered by Workato), third-party API integrations (including Medallia), and a widget marketplace for added functionality in the agent workspace.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse33" role="button" aria-expanded="false" aria-controls="collapse33">
+												Functions
+											</a>
+											<div class="collapse" id="collapse33">
+												<p class="body2">
+													Enables brands to develop custom behaviors, tailoring the system to specific needs. Developers can write simple functions, deploy them to LivePerson's infrastructure, and make them available to their LivePerson account within minutes.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse34" role="button" aria-expanded="false" aria-controls="collapse34">
+												3rd Party Bot Connectors
+											</a>
+											<div class="collapse" id="collapse34">
+												<p class="body2">
+													Connectors for common third-party bot platforms (IBM Watson, Google Dialog Flow, Amazon Lex, Microsoft bots) and access to LivePerson Functions for custom integrations with other third-party bot providers.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse35" role="button" aria-expanded="false" aria-controls="collapse35">
+												Access to 50+ Data, Connect & Customize APIs
+											</a>
+											<div class="collapse" id="collapse35">
+												<p class="body2">
+													Integrate with third-party technologies, including any NLU provider, integrate conversational data with enterprise systems for insights and decision-making across the enterprise, and configure and manipulate Conversational Cloud features and capabilities.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse36" role="button" aria-expanded="false" aria-controls="collapse36">
+												CRM Connectors
+											</a>
+											<div class="collapse" id="collapse36">
+												<p class="body2">
+													Embedded agent workspace within common CRM systems (Salesforce).
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+									</div>
+								</div>
+
 
 							</div>
 						</div>
@@ -809,7 +1088,24 @@ const htmlHack1 = `
 
 <div class="pricing-tabs-s-h pricing-tabs-bai">
 
-	<p>here is the bella stuff</p>
+	<div class=" pane comp-icon-text-b bg-neutral-96">
+	<div class="container" style="opacity: 1;">
+		<div class="row row-cols-lg-2 comp-card-grid-container">
+			<div class="col">
+				<div class="card h-100">
+					<div class="card-body">
+						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2022/02/09103000/robot-arm_circle-orange.svg" alt="">
+						<h3 class="">Bella for Business</h3>
+						<p class="card-text subtitle1" data-tag="new line split">Interact with a conversational experience to create a Generative AI powered automation that can be used to provide answers to your customers and employees, with no code or technical experience.</p>
+					</div>
+					<div class="card-footer">
+						<a href="/request-demo/" class="card-link link">Schedule a demo</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 </div>
 
