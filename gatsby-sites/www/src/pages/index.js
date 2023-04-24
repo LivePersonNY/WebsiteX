@@ -22,64 +22,15 @@ const htmlHack1 = `
 <p style="margin-top:20px"><a class="link" href="/resources/webinars/enterprise-generative-ai/">or save your spot for our Generative AI launch</a></p>
                         </div>
                     </div>
-                </div>
-                <div class="container-fluid hero-carousel" style="opacity: 1;">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <div id="hp-hero-img-carousel" class="carousel slide" data-bs-ride="false" data-bs-pause="false">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active" data-bs-interval="8000">
-                                        <div class="carousel-content">
-                                            <img src="https://static.liveperson.com/static-assets/2023/02/14114004/Homepage_Hero_Carousel-1_Convo-Intelligence_JV_0210_1x.png" alt="Screenshots from LivePerson's powerful Conversational AI platform, showcasing its artificial intelligence technology and conversational intelligence">
-                                            <div class="carousel-caption">
-                                                <p>Access and analyze conversation data in real time</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="8000">
-                                        <div class="carousel-content">
-                                            <img src="https://static.liveperson.com/static-assets/2023/02/14113959/Homepage_Hero_Carousel-2_Convo-Builder_JV_0210_1x.png" alt="Screenshot of how you can create bots to work on conversational platforms and help answer customer questions">
-                                            <div class="carousel-caption">
-                                                <p>Design, build, and integrate bots</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="8000">
-                                        <div class="carousel-content">
-                                            <img src="https://static.liveperson.com/static-assets/2023/02/14113955/Homepage_Hero_Carousel-3_Intent-Analyzer_JV_0210_1x.png" alt="Screenshot of intent analyzer that uses natural language processing for smarter bots">
-                                            <div class="carousel-caption">
-                                                <p>Understand customer intent and sentiment in every conversation</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item" data-bs-interval="8000">
-                                        <div class="carousel-content">
-                                            <img src="https://static.liveperson.com/static-assets/2023/02/14113950/Homepage_Hero_Carousel-4_MACS_JV_0210_1x.png" alt="Screenshot of conversational intelligence and analytics side of our conversational ai platform">
-                                            <div class="carousel-caption">
-                                                <p>Measure the quality of every bot conversation</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-indicators">
-                                  <button type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                  <button type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                  <button type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                  <button type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide="prev">
-                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                  <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#hp-hero-img-carousel" data-bs-slide="next">
-                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                  <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                        </div>
+                    <div class="row align-items-center justify-content-center">
+                      <div class="col-lg-12" style="margin-top:48px;">
+                        <div class="vimeoContainer"><iframe src="https://player.vimeo.com/video/819205374?h=5e1c30c30b&badge=0&autopause=0&player_id=0&app_id=58479%22%20frameborder=%220%22%20allow=%22autoplay;%20fullscreen;%20picture-in-picture%22%20allowfullscreen%20style=%22position:absolute;top:0;left:0;width:100%;height:100%" class="vimeoFrame"></iframe></div>
+
+                      </div>
                     </div>
                 </div>
-            </div>
+
+</div>
 
 
 
@@ -211,12 +162,6 @@ const htmlHack1 = `
       <div class="col-lg-12">
         <p class="h6">LIVEPERSON CONVERSATIONAL CLOUD®</p>
         <h2>Explore our award-winning<br /><s>Conversational AI</s> platform</h2>
-      </div>
-    </div>
-    <div class="row align-items-center justify-content-center">
-      <div class="col-lg-10 offset-lg-1" style="margin-top:60px;">
-        <div class="vimeoContainer"><iframe src="https://player.vimeo.com/video/819205374?h=5e1c30c30b&badge=0&autopause=0&player_id=0&app_id=58479%22%20frameborder=%220%22%20allow=%22autoplay;%20fullscreen;%20picture-in-picture%22%20allowfullscreen%20style=%22position:absolute;top:0;left:0;width:100%;height:100%" class="vimeoFrame"></iframe></div>
-
       </div>
     </div>
   </div>
@@ -491,7 +436,7 @@ const HP2023 = () => {
 
             {Parser(htmlHack1)}
 
-            {/* <ScrollFeatures
+            <ScrollFeatures
                 scrollHeight="125vh"
                 backgroundColor="bg-neutral-96"
                 items={[
@@ -546,7 +491,7 @@ const HP2023 = () => {
                         linkText: 'Learn more',
                     },
                 ]}
-            /> */}
+            />
 
             {Parser(htmlHack2)}
         </Layout>
