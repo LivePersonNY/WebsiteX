@@ -22,7 +22,49 @@ const htmlHack1 = `
 	</div>
 </div>
 
-<div class="pane">
+<div class="pane bg-transparent pricing-tabs">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<a class="pricing-tab pricing-tab-active" href="#">Conversational Cloud®</a>
+				<a class="pricing-tab" href="#">BellaAI</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class=" pane comp-icon-text-b bg-neutral-96">
+	<div class="container" style="opacity: 1;">
+		<div class="row row-cols-lg-2 comp-card-grid-container">
+			<div class="col">
+				<div class="card h-100">
+					<div class="card-body">
+						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2022/02/09103000/robot-arm_circle-orange.svg" alt="">
+						<h3 class="">Conversational Cloud</h3>
+						<p class="card-text subtitle1" data-tag="new line split">Automate messages and calls, optimize consumer insights, increase agent productivity with LivePerson AI</p>
+					</div>
+					<div class="card-footer">
+						<a href="#" class="card-link link">Schedule a demo</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card h-100">
+					<div class="card-body">
+						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2022/02/09103000/robot-arm_circle-orange.svg" alt="">
+						<h3 class="">Conversational Cloud & Generative AI</h3>
+						<p class="card-text subtitle1" data-tag="new line split">Accelerate automation, increase conversion rate, and boost agent productivity with Generative AI</p>
+					</div>
+					<div class="card-footer">
+						<a href="#" class="card-link link">Schedule a demo</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="pane bg-neutral-96">
 	<div class="container" style="opacity: 1;">
 		<div class="row">
 			<div class="col-lg-12">
@@ -327,6 +369,46 @@ const htmlHack1 = `
 
 				</div>
 
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class=" pane comp-icon-text-a bg-transparent pane-with-lead-text">
+	<div class="container" style="opacity:1">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2 class="">Choose the payment option that meets your business needs</h2>
+			</div>
+		</div>
+		<div class="row row-cols-lg-2 row-cols-1 comp-block-grid-container">
+			<div class="col">
+				<img src="https://static.liveperson.com/static-assets/2022/02/02002045/icon-phone-call_circle-white.svg" alt="ringing telephone">
+				<p class="card1">Pay as you go</p>
+				<p class="subtitle1" data-tag="new line split">Only pay for what you use: Unlimited agent seats, unlimited calls and messaging, and unlimited channels.</p>
+			</div>
+			<div class="col">
+				<img src="https://static.liveperson.com/static-assets/2022/02/02002045/icon-phone-call_circle-white.svg" alt="ringing telephone">
+				<p class="card1">Annual contract</p>
+				<p class="subtitle1" data-tag="new line split">Get customer success and enhanced support services with annual contract.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="pane comp-content-cta bg-transparent">
+	<div class="container" style="opacity: 1;">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="comp-content-cta-container bg-neutral-96">
+					<div class="row align-items-center text-center text-lg-start">
+						<div class="col-lg-7 offset-lg-1">
+							<h2>See the Conversational Cloud in action.</h2>
+						</div>
+					<div class="col-lg-2 offset-lg-1 text-lg-end">
+						<a class="btn btn-primary" href="/request-demo/">Get a demo</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

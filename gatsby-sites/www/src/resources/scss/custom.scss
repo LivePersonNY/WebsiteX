@@ -615,6 +615,34 @@ $animationSpeed: 30s;
 }
 
 // Pricing page
+.pricing-tabs {
+    padding: 0;
+    margin-top: -56px;
+    .col-lg-12 {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        a.pricing-tab {
+            max-width: 348px;
+            width: 100%;
+            background: $neutral96;
+            border-top: 4px solid $neutral96;
+            padding: 12px 32px;
+            color: $neutral64;
+            font-weight: $fontBold;
+            font-size: 21px;
+            line-height: 28px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            &.pricing-tab-active {
+                color: $neutral12;
+                border-top: 4px solid $primaryBlue;
+            }
+        }
+    }
+}
+
 #pricingPageAccordion {
     .accordion-button::after {
         background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
@@ -688,5 +716,6 @@ $animationSpeed: 30s;
         }
     }
 }
+// End Pricing page
 
 /*! purgecss end ignore */
