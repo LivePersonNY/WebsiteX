@@ -13,13 +13,11 @@ const htmlHack1 = `
                 <div class="container" style="opacity: 1;">
                     <div class="row text-center">
                         <div class="col-lg-8 offset-lg-2">
-                        <p class="h6 text-uppercase">LivePerson conversational ai platform</p>
-                            <h1>Safe, trustworthy, and responsible A<span class="space-mono">I</span> for everyone</h1>
-                            <p data-tag="new line split" class="lead">
-                                Powered by the world’s largest data set of conversational interactions, continuously optimized by hundreds of thousands of human experts
-</p>
-<a class="btn btn-primary link" href="/request-demo/">Let's talk</a>
-<p style="margin-top:20px"><a class="link" href="/resources/webinars/enterprise-generative-ai/">or save your spot for our Generative AI launch</a></p>
+                        <p class="h6 text-uppercase">LivePerson Conversational Cloud® Platform</p>
+                            <h1>Finally. Safe, equal A<span class="space-mono">I</span> for everyone.</h1>
+                            <p data-tag="new line split" class="lead">Combining the power of the world's largest conversational dataset, with decades of experience and a legacy of trust, to deliver safer, more secure AI experiences.</p>
+                            <a class="btn btn-primary link" href="/request-demo/">Schedule a guided demo</a>
+                            <p style="margin-top:20px;margin-right:24px;"><a class="link" href="/request-demo/">Build your no-code bot</a></p>
                         </div>
                     </div>
                     <div class="row align-items-center justify-content-center">
@@ -63,16 +61,16 @@ const htmlHack1 = `
   <div class="container" style="opacity: 1;">
     <div class="row comp-side-side-header">
       <div class="col-lg-12">
-        <h2 class="text-center">Conversational AI purpose-built for the enterprise</h2>
-        <p class="text-center">Unlock the power of large language models to meet the needs of your business.</p>
+        <h2 class="text-center">Generative AI enhanced and trained just for you</h2>
+        <p class="text-center">Unlock the power of large language models to meet the needs of your business, regardless of department or industry</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-6 ">
-        <img src="https://static.liveperson.com/static-assets/2023/02/14143017/Homepage_Purpose.1_Unrivaled_JV_0213%402x-1.png" alt="Screen illustrating the volume of customer interactions in our conversational ai platforms">
-        <h3>Unrivaled data at your fingertips</h3>
-        <p>Augment large language models with the world’s largest conversational data set, drawn from a billion monthly interactions.</p>
-      </div>
+		<div class="col-lg-6 ">
+			<img src="https://static.liveperson.com/static-assets/2023/02/14143029/Homepage_Purpose.4_Responsible_JV_0213%402x-1.png" alt="Human + virtual assistant hands, illustrating how we work to reduce bias in artificial intelligence technology via machine-learning, natural language processing, etc.">
+			<h3>Responsible AI from day one</h3>
+			<p>Reduce risk of bias by partnering with the founders of EqualAI, spearheading standards and certifications for responsible AI since 2018.</p>
+		</div>
       <div class="col-lg-6 ">
         <img src="https://static.liveperson.com/static-assets/2023/02/14143021/Homepage_Purpose.2_Human_JV_0213%402x-1.png" alt="Customer service agents helping improve machine-learning models in our conversational ai technology">
         <h3>Human optimization at scale</h3>
@@ -83,12 +81,12 @@ const htmlHack1 = `
       <div class="col-lg-6 ">
         <img src="https://static.liveperson.com/static-assets/2023/02/14143025/Homepage_Purpose.3_Impactful_JV_0213%402x-1.png" alt="Conversational AI platform illustration of conversational intelligence over desktop, voice, and messaging apps">
         <h3>Impactful insights made easy</h3>
-        <p>Accelerate better decision making with access to enterprise-level analytics and reporting that delivers actionable insights automatically.</p>
+        <p>Accelerate better decision making with access to enterprise-level analytics and reporting that surfaces actionable insights automatically.</p>
       </div>
-      <div class="col-lg-6 ">
-        <img src="https://static.liveperson.com/static-assets/2023/02/14143029/Homepage_Purpose.4_Responsible_JV_0213%402x-1.png" alt="Human + virtual assistant hands, illustrating how we work to reduce bias in artificial intelligence technology via machine-learning, natural language processing, etc.">
-        <h3>Responsible AI from day one</h3>
-        <p>Reduce risk of bias by partnering with the founders of EqualAI, spearheading standards and certification for responsible AI since 2018.</p>
+	  <div class="col-lg-6 ">
+        <img src="https://static.liveperson.com/static-assets/2023/02/14143017/Homepage_Purpose.1_Unrivaled_JV_0213%402x-1.png" alt="Screen illustrating the volume of customer interactions in our conversational ai platforms">
+        <h3>Unrivaled data at your fingertips</h3>
+        <p>Augment large language models with the world’s largest enterprise data set for more precise natural language processing, drawn from more than a billion monthly conversational interactions.</p>
       </div>
     </div>
   </div>
@@ -156,7 +154,7 @@ const htmlHack1 = `
 </div>
 
 
-<div data-localize="false" class="pane comp-plain-content bg-neutral-96 text-left pane-with-lead-text">
+<div data-localize="false" class="pane comp-plain-content bg-transparent text-left pane-with-lead-text">
   <div class="container" style="opacity: 0;">
     <div class="row align-items-center justify-content-center">
       <div class="col-lg-12">
@@ -167,66 +165,110 @@ const htmlHack1 = `
   </div>
 </div>
 
+<div class="pane bg-transparent comp-left-right comp-left-right-repeat">
+	<div class="container" style="opacity: 1;">
+		<div class="row align-items-center">
+			<div class="col-lg-6 ">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25160729/Homepage_Pillar.1_KnowledgeAI_JV_0424_2x.png" alt="omnichannel customer experience displayed on multiple messaging channels">
+			</div>
+			<div class="col-lg-6 ">
+				<p class="h6 text-uppercase">KNOWLEDGE AI</p>
+				<h3>LLM-powered data ingestion</h3>
+					<div class="rich-container">
+						<p data-tag="new line split">Automatically upload web pages, PDFs, FAQs, documentation and other knowledge sources to curate the most relevant content with faster response times. Data is protected by our enterprise grade safety controls, which help you build trust, ensure compliance and properly represent your brand.</p>
+					</div>
+				<a class="btn btn-link" href="/products/messaging-channels/">Explore messaging channel integrations</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="pane bg-transparent comp-left-right comp-left-right-repeat">
+	<div class="container" style="opacity: 1;">
+		<div class="row align-items-center">
+			<div class="col-lg-6 ">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25160735/Homepage_Pillar.2_GenerativeAI_JV_0424_2x-1.png" alt="omnichannel customer experience displayed on multiple messaging channels">
+			</div>
+			<div class="col-lg-6 ">
+				<p class="h6 text-uppercase">GENERATIVE AI</p>
+				<h3>LLM-powered conversations</h3>
+					<div class="rich-container">
+						<p data-tag="new line split">Safely unlock the power of large language models to automate conversations across voice and messaging channels.  Conversation Copilot arms human experts with LLM-powered tools to boost productivity, while Conversation Autopilot creates warm, natural automated interactions. </p>
+					</div>
+				<a class="btn btn-link" href="/products/messaging-channels/">Learn more about Voice AI</a>
+				<br />
+				<a class="btn btn-link" href="/products/messaging-channels/">Learn more about Messaging AI</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="pane bg-transparent comp-left-right comp-left-right-repeat">
+	<div class="container" style="opacity: 1;">
+		<div class="row align-items-center">
+			<div class="col-lg-6 ">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25160742/Homepage_Pillar.3_BellaAI_JV_0424_2x-1.png" alt="omnichannel customer experience displayed on multiple messaging channels">
+			</div>
+			<div class="col-lg-6 ">
+				<p class="h6 text-uppercase">BELLA AI</p>
+				<h3>Your safe AI assistant</h3>
+					<div class="rich-container">
+						<p data-tag="new line split">Build a safe, automated concierge in the time it takes to make a cup of coffee. Streamline, test, and deploy bot-led conversations with a new LLM-powered Conversational bot-building interface.</p>
+					</div>
+				<a class="btn btn-link" href="/products/messaging-channels/">Learn more about Bella AI</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="pane bg-transparent comp-left-right comp-left-right-repeat">
+	<div class="container" style="opacity: 1;">
+		<div class="row align-items-center">
+			<div class="col-lg-6 ">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25160748/Homepage_Pillar.4_Intelligence-Actions_JV_0424_2x-1.png" alt="omnichannel customer experience displayed on multiple messaging channels">
+			</div>
+			<div class="col-lg-6 ">
+				<p class="h6 text-uppercase">INTELLIGENCE AND ACTIONS</p>
+				<h3>Conversational Insights</h3>
+					<div class="rich-container">
+						<p data-tag="new line split">Measure the usage and effectiveness of LLM-powered features through an innovative dashboard, enabling you to understand and optimize performance.</p>
+					</div>
+				<a class="btn btn-link" href="/products/messaging-channels/">Learn more about Conversational Intelligence</a>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 `;
 
 const htmlHack2 = `
 
-<div data-localize="false" id="tab-a" class="pane comp-tabs-a bg-neutral-96 pane-with-lead-text">
-  <div class="container" style="opacity: 0;">
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 class="text-center">Deliver real-world results by use case</h2>
-      </div>
-    </div>
-    <div class="row align-items-center">
-      <div class="col-lg-4">
-        <div class="comp-content-container">
-          <div class="accordion accordion-flush" id="tab-a_accordion_tabs">
-            <div class="accordion-item accordion-item-active">
-              <h4 class="accordion-header" id="tab-a_flush-heading0">
-                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tab-a_flush-collapse0" aria-expanded="false" aria-controls="tab-a_flush-collapse0" data-tab="0">Reduce call volume and operating costs</button>
-              </h4>
-              <div id="tab-a_flush-collapse0" class="accordion-collapse collapse show" aria-labelledby="tab-a_flush-heading0" data-bs-parent="#tab-a_accordion_tabs">
-                <p class="subtitle1" data-tag="br split">Turn woes into wows by shifting to messaging channels.</p>
-                <p class="subtitle1" data-tag="br split">
-                  <a href="/products/call-to-message/">Explore call reduction solutions</a>
-                </p>
-                <p class="subtitle1" data-tag="br split"></p>
-              </div>
-            </div>
-            <div class="accordion-item ">
-              <h4 class="accordion-header" id="tab-a_flush-heading1">
-                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tab-a_flush-collapse1" aria-expanded="false" aria-controls="tab-a_flush-collapse1" data-tab="1">Better customer loyalty and support</button>
-              </h4>
-              <div id="tab-a_flush-collapse1" class="accordion-collapse collapse " aria-labelledby="tab-a_flush-heading1" data-bs-parent="#tab-a_accordion_tabs">
-                <p class="subtitle1" data-tag="br split">Have customers swear by you, not at you.</p>
-                <p class="subtitle1" data-tag="br split">
-                  <a href="/solutions/customer-care/">Explore conversational customer service solutions</a>
-                </p>
-              </div>
-            </div>
-            <div class="accordion-item ">
-              <h4 class="accordion-header" id="tab-a_flush-heading2">
-                <button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tab-a_flush-collapse2" aria-expanded="false" aria-controls="tab-a_flush-collapse2" data-tab="2">Seamless shopping and increased revenue</button>
-              </h4>
-              <div id="tab-a_flush-collapse2" class="accordion-collapse collapse " aria-labelledby="tab-a_flush-heading2" data-bs-parent="#tab-a_accordion_tabs">
-                <p class="subtitle1" data-tag="br split">Engage customers then click, ship, hooray!</p>
-                <p class="subtitle1" data-tag="br split">
-                  <a href="/solutions/conversational-commerce/">Explore conversational commerce solutions</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-7 offset-lg-1">
-        <img class="comp-tabs-img " src="https://static.liveperson.com/static-assets/2023/01/18161855/Homepage_Integration-1_Call-Volume_JV_0117_1x.png" data-tab-content="0" alt="Conversational AI solutions: virtual assistants keeping customer updated about replacement bank card">
-        <img class="comp-tabs-img display-none" src="https://static.liveperson.com/static-assets/2023/01/18161900/Homepage_Integration-2_Support_JV_0117_1x.png" data-tab-content="1" alt="Conversational AI examples: Conversational bot + customer service agents working together to help with billing questions">
-        <img class="comp-tabs-img display-none" src="https://static.liveperson.com/static-assets/2023/01/18161903/Homepage_Integration-3_Convo-Ad_JV_0117_1x.png" data-tab-content="2" alt="Conversational AI examples: Social media messaging ad that drives into a messaging app to book a vacation.">
-      </div>
-    </div>
-  </div>
+<div class=" pane comp-icon-text-a bg-blue-20 pane-with-lead-text">
+	<div class="container" style="opacity: 1;">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1">
+				<h2 class="text-center">Trustworthy AI for everyone — no matter your role or interest</h2>
+			</div>
+		</div>
+		<div class="row row-cols-lg-3 row-cols-1 comp-block-grid-container">
+			<div class="col">
+				<img src="https://static.liveperson.com/static-assets/2022/02/02002127/icon-security-scan_circle-white.svg" alt="">
+				<p class="card1">Customer engagement</p>
+				<p class="subtitle1" data-tag="new line split">Provide care, sales, and marketing teams with critical insights and actions, all in one place.</p>
+			</div>
+			<div class="col">
+				<img src="https://static.liveperson.com/static-assets/2022/02/02001913/icon-multi-language-support_circle-white.svg" alt="">
+				<p class="card1">Employee engagement</p>
+				<p class="subtitle1" data-tag="new line split">Automate employee experiences by ingesting your IT and HR documents, FAQs and standards, with the click of a button.</p>
+			</div>
+			<div class="col">
+				<img src="https://static.liveperson.com/static-assets/2022/02/02001916/icon-messaging-channels_circle-white.svg" alt="">
+				<p class="card1">Brand user insights</p>
+				<p class="subtitle1" data-tag="new line split">Aggregate, measure, and analyze your conversational data for all departments across your business, like legal, engineering, and marketing.</p>
+			</div>
+		</div>
+	</div>
 </div>
 
 
@@ -242,11 +284,11 @@ const htmlHack2 = `
       <div class="col-lg" id="0">
         <div class="card h-100">
           <div class="card-body">
-            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141424/Homepage_Testimonial-1_HSBC_JV_0119.svg" alt="Warren Buckley, Global Head of Channel Optimisation for HSBC">
-            <p class="card-text quote1">“Being able to easily blend human empathy with intelligent automation has been crucial to our success. Our frontline team now can operate with increased agility to get our customers the resolutions they seek.”</p>
+            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25160754/Homepage_Testimonial-2_CarGurus_JV_0424.svg" alt="Warren Buckley, Global Head of Channel Optimisation for HSBC">
+            <p class="card-text quote1">“On top of our successes to date with LivePerson’s Conversational AI and platform, LLMs and generative AI hold enormous promise to help us scale seamless and personalized conversations even further.”</p>
           </div>
           <div class="card-footer">
-            <a href="/resources/success-stories/hsbc-goes-conversational/" class="card-link link">Read HSBC UK’s story</a>
+            <a href="/resources/success-stories/hsbc-goes-conversational/" class="card-link link">Read more in the press release</a>
           </div>
         </div>
       </div>
@@ -254,10 +296,10 @@ const htmlHack2 = `
         <div class="card h-100">
           <div class="card-body">
             <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141425/Homepage_Testimonial-2_VirginO2_JV_0119.svg" alt="Chris Huggins, Head of Conversational Commerce for Virgin Media / O2">
-            <p class="card-text quote1">“We’re using Conversational AI and AI chatbot automation to supercharge digital innovation and ease our customer’s path to purchase — it is quite an extraordinary thing.”</p>
+            <p class="card-text quote1">“LivePerson’s omni-channel communication capabilities drive a better customer experience, while also improving agent efficiency. This, combined with LivePerson’s analytics tools and user-friendly platform, support CarGurus’ mission in providing drivers with a personalized, convenient, and transparent experience.”</p>
           </div>
           <div class="card-footer">
-            <a href="/resources/success-stories/virgin-media-conversational-selling/" class="card-link link">Read Virgin Media/O2’s story</a>
+            <a href="/resources/success-stories/virgin-media-conversational-selling/" class="card-link link">See other quotes like this</a>
           </div>
         </div>
       </div>
@@ -325,25 +367,31 @@ const htmlHack2 = `
   </div>
 </div>
 
-
-<div data-localize="false" class="pane comp-content-cta bg-transparent pane-with-lead-text">
-  <div class="container" style="opacity: 0;">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="comp-content-cta-container bg-neutral-96">
-          <div class="row align-items-center text-center text-lg-start">
-            <div class="col-lg-6 offset-lg-1">
-              <h2>Get a personalized demo</h2>
-              <p>Learn how the Conversational Cloud can deliver real-world results for your brand.</p>
-            </div>
-            <div class="col-lg-3 offset-lg-1 text-lg-end">
-              <a class="btn btn-primary" href="/request-demo/">Get a demo</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class=" pane comp-icon-text-b bg-transparent">
+	<div class="container" style="opacity: 1;">
+		<div class="row row-cols-lg-2 comp-card-grid-container">
+			<div class="col">
+				<div class="card h-100">
+					<div class="card-body">
+						<h3 class="">See how LivePerson AI can deliver real-world results.</h3>
+					</div>
+					<div class="card-footer">
+						<a href="/request-demo/" class="card-link link">Schedule a guided demo</a>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card h-100">
+					<div class="card-body">
+						<h3 class=""> Get your Bella AI free 30-day trial now.</h3>
+					</div>
+					<div class="card-footer">
+						<a href="/request-demo/" class="card-link link">Build your no-code bot</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 `;
@@ -436,7 +484,7 @@ const HP2023 = () => {
 
             {Parser(htmlHack1)}
 
-            <ScrollFeatures
+            {/* <ScrollFeatures
                 scrollHeight="125vh"
                 backgroundColor="bg-neutral-96"
                 items={[
@@ -491,7 +539,7 @@ const HP2023 = () => {
                         linkText: 'Learn more',
                     },
                 ]}
-            />
+            /> */}
 
             {Parser(htmlHack2)}
         </Layout>
