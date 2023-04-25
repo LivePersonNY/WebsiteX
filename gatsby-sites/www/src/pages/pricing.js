@@ -1097,6 +1097,8 @@ const htmlHack1 = `
 							<div class="col-lg-8 offset-lg-2 text-center">
 								<h2>Bella for Business</h2>
 								<p>Interact with a conversational experience to create a Generative AI powered automation that can be used to provide answers to your customers and employees, with no code or technical experience.</p>
+								<br />
+								<a class="link" href="https://www.getbella.ai/" target="_blank">Get your 30-day free trial</a>
 							</div>
 						</div>
 					</div>

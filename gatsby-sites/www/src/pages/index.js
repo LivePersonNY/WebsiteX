@@ -17,7 +17,9 @@ const htmlHack1 = `
                             <h1>Finally. Safe, equal A<span class="space-mono">I</span> for everyone.</h1>
                             <p data-tag="new line split" class="lead">Combining the power of the world's largest conversational dataset, with decades of experience and a legacy of trust, to deliver safer, more secure AI experiences.</p>
                             <a class="btn btn-primary link" href="/request-demo/">Schedule a guided demo</a>
-                            <p style="margin-top:20px;margin-right:24px;"><a class="link" href="/request-demo/">Build your no-code bot</a></p>
+                            <p style="margin-top:20px;margin-right:24px;">
+								<a class="link" href="https://www.getbella.ai/" target="_blank">Build your no-code bot</a>
+							</p>
                         </div>
                     </div>
                     <div class="row align-items-center justify-content-center">
@@ -197,7 +199,7 @@ const htmlHack1 = `
 					</div>
 				<a class="btn btn-link" href="/products/voice-ai/">Learn more about Voice AI</a>
 				<br />
-				<a class="btn btn-link" href="/products/messaging-channels/">Learn more about Messaging AI</a>
+				<a class="btn btn-link" href="/products/conversational-cloud/">Learn more about Messaging AI</a>
 			</div>
 		</div>
 	</div>
@@ -215,7 +217,7 @@ const htmlHack1 = `
 					<div class="rich-container">
 						<p data-tag="new line split">Build a safe, automated concierge in the time it takes to make a cup of coffee. Streamline, test, and deploy bot-led conversations with a new LLM-powered Conversational bot-building interface.</p>
 					</div>
-				<a class="btn btn-link" href="/products/messaging-channels/">Learn more about Bella AI</a>
+				<a class="btn btn-link" href="/products/bella-ai/">Learn more about Bella AI</a>
 			</div>
 		</div>
 	</div>
@@ -288,7 +290,7 @@ const htmlHack2 = `
             <p class="card-text quote1">“On top of our successes to date with LivePerson’s Conversational AI and platform, LLMs and generative AI hold enormous promise to help us scale seamless and personalized conversations even further.”</p>
           </div>
           <div class="card-footer">
-            <a href="/resources/success-stories/hsbc-goes-conversational/" class="card-link link">Read more in the press release</a>
+            <a href="https://pr.liveperson.com/2023-04-25-LivePerson-upgrades-its-Conversational-Cloud-platform-with-trustworthy-AI-capabilities-to-redefine-how-businesses-put-Generative-AI-and-LLMs-to-work" target="_blank" class="card-link link">Read more in the press release</a>
           </div>
         </div>
       </div>
@@ -299,7 +301,7 @@ const htmlHack2 = `
             <p class="card-text quote1">“LivePerson’s omni-channel communication capabilities drive a better customer experience, while also improving agent efficiency. This, combined with LivePerson’s analytics tools and user-friendly platform, support CarGurus’ mission in providing drivers with a personalized, convenient, and transparent experience.”</p>
           </div>
           <div class="card-footer">
-            <a href="/resources/success-stories/virgin-media-conversational-selling/" class="card-link link">See other quotes like this</a>
+            <a href="/resources/customers/" class="card-link link">See other quotes like this</a>
           </div>
         </div>
       </div>
@@ -386,7 +388,7 @@ const htmlHack2 = `
 						<h3 class=""> Get your Bella AI free 30-day trial now.</h3>
 					</div>
 					<div class="card-footer">
-						<a href="/request-demo/" class="card-link link">Build your no-code bot</a>
+						<a href="https://www.getbella.ai/" target="_blank" class="card-link link">Build your no-code bot</a>
 					</div>
 				</div>
 			</div>
