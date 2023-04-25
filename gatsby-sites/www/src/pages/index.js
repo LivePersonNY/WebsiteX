@@ -171,7 +171,7 @@ const htmlHack1 = `
 	<div class="container" style="opacity: 1;">
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
-				<img src="https://static.liveperson.com/static-assets/2023/04/25160729/Homepage_Pillar.1_KnowledgeAI_JV_0424_2x.png" alt="omnichannel customer experience displayed on multiple messaging channels">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25160729/Homepage_Pillar.1_KnowledgeAI_JV_0424_2x.png" alt="Knowledge base for our Conversational AI platform loading a PDF for training virtual assistants, using natural language understanding">
 			</div>
 			<div class="col-lg-6 ">
 				<p class="h6 text-uppercase">KNOWLEDGE AI</p>
@@ -188,7 +188,7 @@ const htmlHack1 = `
 	<div class="container" style="opacity: 1;">
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
-				<img src="https://static.liveperson.com/static-assets/2023/04/25160735/Homepage_Pillar.2_GenerativeAI_JV_0424_2x-1.png" alt="omnichannel customer experience displayed on multiple messaging channels">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25160735/Homepage_Pillar.2_GenerativeAI_JV_0424_2x-1.png" alt="voice assistants listening to human conversation and transcribing it to text, a new conversational ai tool for enterprise conversational ai platforms">
 			</div>
 			<div class="col-lg-6 ">
 				<p class="h6 text-uppercase">GENERATIVE AI</p>
@@ -208,7 +208,7 @@ const htmlHack1 = `
 	<div class="container" style="opacity: 1;">
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
-				<img src="https://static.liveperson.com/static-assets/2023/04/25160742/Homepage_Pillar.3_BellaAI_JV_0424_2x-1.png" alt="omnichannel customer experience displayed on multiple messaging channels">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25160742/Homepage_Pillar.3_BellaAI_JV_0424_2x-1.png" alt="Bella AI creating new virtual assistants for a business via conversational interfaces">
 			</div>
 			<div class="col-lg-6 ">
 				<p class="h6 text-uppercase">BELLA AI</p>
@@ -226,7 +226,7 @@ const htmlHack1 = `
 	<div class="container" style="opacity: 1;">
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
-				<img src="https://static.liveperson.com/static-assets/2023/04/25160748/Homepage_Pillar.4_Intelligence-Actions_JV_0424_2x-1.png" alt="omnichannel customer experience displayed on multiple messaging channels">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25160748/Homepage_Pillar.4_Intelligence-Actions_JV_0424_2x-1.png" alt="Conversational AI platform's intelligence dashboard, providing insights to human agents">
 			</div>
 			<div class="col-lg-6 ">
 				<p class="h6 text-uppercase">INTELLIGENCE AND ACTIONS</p>
