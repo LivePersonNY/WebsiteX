@@ -165,7 +165,7 @@ const htmlHack1 = `
   </div>
 </div>
 
-<div class="pane bg-transparent comp-left-right comp-left-right-repeat">
+<div class="pane bg-transparent comp-left-right">
 	<div class="container" style="opacity: 1;">
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
@@ -183,7 +183,7 @@ const htmlHack1 = `
 	</div>
 </div>
 
-<div class="pane bg-transparent comp-left-right comp-left-right-repeat">
+<div class="pane bg-transparent comp-left-right">
 	<div class="container" style="opacity: 1;">
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
@@ -203,7 +203,7 @@ const htmlHack1 = `
 	</div>
 </div>
 
-<div class="pane bg-transparent comp-left-right comp-left-right-repeat">
+<div class="pane bg-transparent comp-left-right">
 	<div class="container" style="opacity: 1;">
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
@@ -221,7 +221,7 @@ const htmlHack1 = `
 	</div>
 </div>
 
-<div class="pane bg-transparent comp-left-right comp-left-right-repeat">
+<div class="pane bg-transparent comp-left-right">
 	<div class="container" style="opacity: 1;">
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
