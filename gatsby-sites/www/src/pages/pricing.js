@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useEffect } from 'react';
-import Layout from '../../components/Layout';
-import Seo from '../../components/Seo';
-import ScrollFeatures from '../../components/ScrollFeatures';
+import Layout from '../components/Layout';
+import Seo from '../components/Seo';
+import ScrollFeatures from '../components/ScrollFeatures';
 import Parser from 'html-react-parser';
 //import $ from 'jquery';
 
@@ -12,7 +12,7 @@ const htmlHack1 = `
 	<div class="container" style="opacity: 1;">
 		<div class="row text-center">
 			<div class="col-lg-8 offset-lg-2">
-				<p class="h6 text-uppercase">liveperson pricing</p>
+				<p class="h6 text-uppercase text-neutral-99">liveperson pricing</p>
 				<h1 class="text-neutral-99">No risk. No license fees. Pay as you go.</h1>
 				<p data-tag="new line split" class="lead text-neutral-99">
 					Pay for conversations, not seats. Drive an automation-first transformation with unlimited seats, unlimited channels, and accelerated time to value for all new customers.</p>
@@ -27,7 +27,7 @@ const htmlHack1 = `
 		<div class="row">
 			<div class="col-lg-12">
 				<a class="pricing-tab pricing-tab-active" data-tab-name="pricing-tabs-cc">Conversational Cloud®</a>
-				<a class="pricing-tab" data-tab-name="pricing-tabs-bai">BellaAI</a>
+				<a class="pricing-tab" data-tab-name="pricing-tabs-bai">Bella AI</a>
 			</div>
 		</div>
 	</div>
@@ -41,7 +41,7 @@ const htmlHack1 = `
 			<div class="col">
 				<div class="card h-100">
 					<div class="card-body">
-						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2022/02/09103000/robot-arm_circle-orange.svg" alt="">
+						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25145618/numbers-1_circle-orange.svg" alt="">
 						<h3 class="">Conversational Cloud</h3>
 						<p class="card-text subtitle1" data-tag="new line split">Automate messages and calls, optimize consumer insights, increase agent productivity with Liveperson AI</p>
 					</div>
@@ -53,7 +53,7 @@ const htmlHack1 = `
 			<div class="col">
 				<div class="card h-100">
 					<div class="card-body">
-						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2022/02/09103000/robot-arm_circle-orange.svg" alt="">
+						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25145619/numbers-2_circle-orange.svg" alt="">
 						<h3 class="">Conversational Cloud & Generative AI</h3>
 						<p class="card-text subtitle1" data-tag="new line split">Accelerate automation, increase conversion rate, and boost agent productivity with Generative AI</p>
 					</div>
@@ -111,7 +111,7 @@ const htmlHack1 = `
 											</div>
 										</div>
 										<div class="col-lg-2"></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -128,7 +128,7 @@ const htmlHack1 = `
 											</div>
 										</div>
 										<div class="col-lg-2"></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -145,7 +145,7 @@ const htmlHack1 = `
 											</div>
 										</div>
 										<div class="col-lg-2"></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -162,7 +162,7 @@ const htmlHack1 = `
 											</div>
 										</div>
 										<div class="col-lg-2"></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -179,7 +179,7 @@ const htmlHack1 = `
 											</div>
 										</div>
 										<div class="col-lg-2"></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -213,8 +213,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 							</div>
@@ -249,8 +249,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -266,8 +266,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -283,8 +283,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -300,8 +300,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -337,8 +337,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -354,8 +354,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -371,8 +371,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -410,8 +410,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -427,8 +427,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -444,8 +444,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -479,8 +479,8 @@ const htmlHack1 = `
 												Apple Messaging for Business
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -491,8 +491,8 @@ const htmlHack1 = `
 												App Messaging
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -508,8 +508,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -520,8 +520,8 @@ const htmlHack1 = `
 												Google RCS Messaging (GRBM)
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -532,8 +532,8 @@ const htmlHack1 = `
 												Google Business Messaging
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -549,8 +549,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -561,8 +561,8 @@ const htmlHack1 = `
 												KakaoTalk
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -573,8 +573,8 @@ const htmlHack1 = `
 												Line
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -590,8 +590,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -607,8 +607,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -619,8 +619,8 @@ const htmlHack1 = `
 												Viber
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -631,8 +631,8 @@ const htmlHack1 = `
 												Web Messaging
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -643,8 +643,8 @@ const htmlHack1 = `
 												WeChat
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -660,8 +660,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -672,8 +672,8 @@ const htmlHack1 = `
 												Workato
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -684,8 +684,8 @@ const htmlHack1 = `
 												Chat
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -696,8 +696,8 @@ const htmlHack1 = `
 												Co-Browse
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -708,8 +708,8 @@ const htmlHack1 = `
 												Content
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -720,8 +720,8 @@ const htmlHack1 = `
 												Secure Forms
 											</a>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -760,8 +760,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -800,8 +800,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -817,8 +817,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -834,8 +834,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -874,8 +874,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -891,8 +891,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -908,8 +908,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -925,8 +925,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -942,8 +942,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -959,8 +959,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -999,8 +999,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -1016,8 +1016,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -1033,8 +1033,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -1050,8 +1050,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -1067,8 +1067,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
-										<div class="col-lg-2"><img src="https://placeimg.com/24/24/any" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -1088,24 +1088,22 @@ const htmlHack1 = `
 
 <div class="pricing-tabs-s-h pricing-tabs-bai">
 
-	<div class=" pane comp-icon-text-b bg-neutral-96">
-	<div class="container" style="opacity: 1;">
-		<div class="row row-cols-lg-2 comp-card-grid-container">
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2022/02/09103000/robot-arm_circle-orange.svg" alt="">
-						<h3 class="">Bella for Business</h3>
-						<p class="card-text subtitle1" data-tag="new line split">Interact with a conversational experience to create a Generative AI powered automation that can be used to provide answers to your customers and employees, with no code or technical experience.</p>
-					</div>
-					<div class="card-footer">
-						<a href="/request-demo/" class="card-link link">Schedule a demo</a>
+	<div class="pane comp-contained-content bg-neutral-96">
+		<div class="container" style="opacity: 1;">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="comp-contained-content-container bg-primary-light">
+						<div class="row">
+							<div class="col-lg-8 offset-lg-2 text-center">
+								<h2>Bella for Business</h2>
+								<p>Interact with a conversational experience to create a Generative AI powered automation that can be used to provide answers to your customers and employees, with no code or technical experience.</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 </div>
 
@@ -1118,12 +1116,12 @@ const htmlHack1 = `
 		</div>
 		<div class="row row-cols-lg-2 row-cols-1 comp-block-grid-container">
 			<div class="col">
-				<img src="https://static.liveperson.com/static-assets/2022/02/02002045/icon-phone-call_circle-white.svg" alt="ringing telephone">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25145621/banking-money-2_circle-orange.svg" alt="ringing telephone">
 				<p class="card1">Pay as you go</p>
 				<p class="subtitle1" data-tag="new line split">Only pay for what you use: Unlimited agent seats, unlimited calls and messaging, and unlimited channels.</p>
 			</div>
 			<div class="col">
-				<img src="https://static.liveperson.com/static-assets/2022/02/02002045/icon-phone-call_circle-white.svg" alt="ringing telephone">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25145622/insurance-handshake_circle-orange.svg" alt="ringing telephone">
 				<p class="card1">Annual contract</p>
 				<p class="subtitle1" data-tag="new line split">Get customer success and enhanced support services with annual contract.</p>
 			</div>
