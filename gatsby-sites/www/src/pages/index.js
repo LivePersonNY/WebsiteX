@@ -179,7 +179,6 @@ const htmlHack1 = `
 					<div class="rich-container">
 						<p data-tag="new line split">Automatically upload web pages, PDFs, FAQs, documentation and other knowledge sources to curate the most relevant content with faster response times. Data is protected by our enterprise grade safety controls, which help you build trust, ensure compliance and properly represent your brand.</p>
 					</div>
-				<a class="btn btn-link" href="/products/messaging-channels/">Explore messaging channel integrations</a>
 			</div>
 		</div>
 	</div>
