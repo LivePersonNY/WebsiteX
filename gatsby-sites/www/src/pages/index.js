@@ -195,7 +195,7 @@ const htmlHack1 = `
 					<div class="rich-container">
 						<p data-tag="new line split">Safely unlock the power of large language models to automate conversations across voice and messaging channels.  Conversation Copilot arms human experts with LLM-powered tools to boost productivity, while Conversation Autopilot creates warm, natural automated interactions. </p>
 					</div>
-				<a class="btn btn-link" href="/products/messaging-channels/">Learn more about Voice AI</a>
+				<a class="btn btn-link" href="/products/voice-ai/">Learn more about Voice AI</a>
 				<br />
 				<a class="btn btn-link" href="/products/messaging-channels/">Learn more about Messaging AI</a>
 			</div>
@@ -233,7 +233,7 @@ const htmlHack1 = `
 					<div class="rich-container">
 						<p data-tag="new line split">Measure the usage and effectiveness of LLM-powered features through an innovative dashboard, enabling you to understand and optimize performance.</p>
 					</div>
-				<a class="btn btn-link" href="/products/messaging-channels/">Learn more about Conversational Intelligence</a>
+				<a class="btn btn-link" href="/products/conversational-intelligence/">Learn more about Conversational Intelligence</a>
 			</div>
 		</div>
 	</div>
@@ -284,7 +284,7 @@ const htmlHack2 = `
       <div class="col-lg" id="0">
         <div class="card h-100">
           <div class="card-body">
-            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25160754/Homepage_Testimonial-2_CarGurus_JV_0424.svg" alt="Warren Buckley, Global Head of Channel Optimisation for HSBC">
+            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141424/Homepage_Testimonial-1_HSBC_JV_0119.svg" alt="Warren Buckley, Global Head of Channel Optimisation for HSBC">
             <p class="card-text quote1">“On top of our successes to date with LivePerson’s Conversational AI and platform, LLMs and generative AI hold enormous promise to help us scale seamless and personalized conversations even further.”</p>
           </div>
           <div class="card-footer">
@@ -295,7 +295,7 @@ const htmlHack2 = `
       <div class="col-lg" id="1">
         <div class="card h-100">
           <div class="card-body">
-            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141425/Homepage_Testimonial-2_VirginO2_JV_0119.svg" alt="Chris Huggins, Head of Conversational Commerce for Virgin Media / O2">
+            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25160754/Homepage_Testimonial-2_CarGurus_JV_0424.svg" alt="Chris Huggins, Head of Conversational Commerce for Virgin Media / O2">
             <p class="card-text quote1">“LivePerson’s omni-channel communication capabilities drive a better customer experience, while also improving agent efficiency. This, combined with LivePerson’s analytics tools and user-friendly platform, support CarGurus’ mission in providing drivers with a personalized, convenient, and transparent experience.”</p>
           </div>
           <div class="card-footer">
