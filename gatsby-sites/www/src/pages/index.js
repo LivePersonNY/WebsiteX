@@ -244,10 +244,10 @@ const htmlHack1 = `
       <div class="col-lg-12">
         <div class="comp-content-cta-container bg-neutral-96">
           <div class="row align-items-center text-center text-lg-start">
-            <div class="col-lg-6 offset-lg-1">
+            <div class="col-lg-8 offset-lg-1">
               <h2>Take a deeper look at the Conversational Cloud</h2>
             </div>
-            <div class="col-lg-3 offset-lg-1 text-lg-end">
+            <div class="col-lg-2 offset-lg-1">
               <a class="btn btn-primary" href="/products/conversational-cloud/">Learn more</a>
             </div>
           </div>
@@ -302,7 +302,7 @@ const htmlHack2 = `
       <div class="col-lg" id="0">
         <div class="card h-100">
           <div class="card-body">
-            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141424/Homepage_Testimonial-1_HSBC_JV_0119.svg" alt="Warren Buckley, Global Head of Channel Optimisation for HSBC">
+            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/26161110/Homepage_Testimonial-1_TalkTalk_JV_0426.svg" alt="Bhavesh Panchal, Head of Channels and Digital Adoption">
             <p class="card-text quote1">“On top of our successes to date with LivePerson’s Conversational AI and platform, LLMs and generative AI hold enormous promise to help us scale seamless and personalized conversations even further.”</p>
           </div>
           <div class="card-footer">
@@ -313,7 +313,7 @@ const htmlHack2 = `
       <div class="col-lg" id="1">
         <div class="card h-100">
           <div class="card-body">
-            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25160754/Homepage_Testimonial-2_CarGurus_JV_0424.svg" alt="Chris Huggins, Head of Conversational Commerce for Virgin Media / O2">
+            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25160754/Homepage_Testimonial-2_CarGurus_JV_0424.svg" alt="Rhett Batchelder, Senior manager, product operations">
             <p class="card-text quote1">“LivePerson’s omni-channel communication capabilities drive a better customer experience, while also improving agent efficiency. This, combined with LivePerson’s analytics tools and user-friendly platform, support CarGurus’ mission in providing drivers with a personalized, convenient, and transparent experience.”</p>
           </div>
           <div class="card-footer">
@@ -461,7 +461,7 @@ const HP2023 = () => {
         },
         {
             property: `og:image`,
-            content: `https://static.liveperson.com/static-assets/2023/02/16151853/Homepage_Meta-Tag_JV_0216.jpg`,
+            content: `https://static.liveperson.com/static-assets/2023/04/26161105/Homepage_Meta-Tag_JV_0426.png`,
         },
         {
             property: `og:description`,
@@ -481,7 +481,7 @@ const HP2023 = () => {
         {
             name: `image`,
             property: `twitter:image`,
-            content: `https://static.liveperson.com/static-assets/2023/02/16151853/Homepage_Meta-Tag_JV_0216.jpg`,
+            content: `https://static.liveperson.com/static-assets/2023/04/26161105/Homepage_Meta-Tag_JV_0426.png`,
         },
         {
             name: `author`,

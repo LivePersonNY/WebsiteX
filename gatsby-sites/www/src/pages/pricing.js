@@ -9,7 +9,7 @@ import Parser from 'html-react-parser';
 const htmlHack1 = `
 
 <div class="pane hero bg-primary-dark styles-2023">
-	<div class="container" style="opacity: 1;">
+	<div class="container" >
 		<div class="row text-center">
 			<div class="col-lg-8 offset-lg-2">
 				<p class="h6 text-uppercase text-neutral-99">liveperson pricing</p>
@@ -36,7 +36,7 @@ const htmlHack1 = `
 <div class="pricing-tabs-s-h pricing-tabs-cc">
 
 <div class=" pane comp-icon-text-b bg-neutral-96">
-	<div class="container" style="opacity: 1;">
+	<div class="container" >
 		<div class="row row-cols-lg-2 comp-card-grid-container">
 			<div class="col">
 				<div class="card h-100">
@@ -67,7 +67,7 @@ const htmlHack1 = `
 </div>
 
 <div class="pane bg-neutral-96">
-	<div class="container" style="opacity: 1;">
+	<div class="container" >
 		<div class="row" style="margin-bottom:28px">
 			<div class="col-lg-8">
 				<h2>Conversational Cloud Packages</h2>
@@ -1084,31 +1084,6 @@ const htmlHack1 = `
 	</div>
 </div>
 
-</div>
-
-<div class="pricing-tabs-s-h pricing-tabs-bai">
-
-	<div class="pane comp-contained-content bg-neutral-96">
-		<div class="container" style="opacity: 1;">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="comp-contained-content-container bg-primary-light">
-						<div class="row">
-							<div class="col-lg-8 offset-lg-2 text-center">
-								<h2>Bella for Business</h2>
-								<p>Interact with a conversational experience to create a Generative AI powered automation that can be used to provide answers to your customers and employees, with no code or technical experience.</p>
-								<br />
-								<a class="link" href="https://www.getbella.ai/" target="_blank">Get your 30-day free trial</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-</div>
-
 <div class=" pane comp-icon-text-a bg-transparent pane-with-lead-text">
 	<div class="container" style="opacity:1">
 		<div class="row">
@@ -1131,8 +1106,36 @@ const htmlHack1 = `
 	</div>
 </div>
 
+<div class="pane comp-quote-slider bg-transparent">
+	<div class="container" >
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="comp-slider-container bg-neutral-96">
+
+					<div id="carouselExampleControls" class="carousel slide testing-here4" data-bs-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<div class="col-lg-12">
+									<div class="row align-items-center">
+										<div class="col-lg-10 offset-lg-1">
+											<img class="comp-brand-img" src="https://static.liveperson.com/static-assets/2023/04/26161117/specialized-logo-40px.svg" alt="Specialized Logo">
+											<p class="h6 comp-quote-author text-uppercase">andrew mcguigan • global leader, rider care at specialized</p>
+											<p class="quote1" data-tag="new line split">“As a worldwide brand selling to more than 25 distinct markets, LivePerson’s pay-as-you-go framework is the best fit for us. Today, our CSAT score for messaging interactions with retailers and riders is 93% and growing. As we continue to roll out LivePerson’s solutions across multiple languages, channels, and markets, pay-as-you-go provides us with the flexibility we need to strategically scale up AI for our business with a trusted partner.”</p>
+											<a class="link link-mt-large" target="_blank" href="https://pr.liveperson.com/2023-04-25-LivePerson-upgrades-its-Conversational-Cloud-platform-with-trustworthy-AI-capabilities-to-redefine-how-businesses-put-Generative-AI-and-LLMs-to-work">Read the press release</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="pane comp-content-cta bg-transparent">
-	<div class="container" style="opacity: 1;">
+	<div class="container" >
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="comp-content-cta-container bg-neutral-96">
@@ -1140,14 +1143,41 @@ const htmlHack1 = `
 						<div class="col-lg-7 offset-lg-1">
 							<h2>See the Conversational Cloud in action.</h2>
 						</div>
-					<div class="col-lg-2 offset-lg-1 text-lg-end">
-						<a class="btn btn-primary" href="/request-demo/">Get a demo</a>
+						<div class="col-lg-2 offset-lg-1 text-lg-end">
+							<a class="btn btn-primary" href="/request-demo/">Get a demo</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+</div>
+
+<div class="pricing-tabs-s-h pricing-tabs-bai">
+
+	<div class="pane comp-contained-content bg-neutral-96">
+		<div class="container" >
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="comp-contained-content-container bg-primary-light">
+						<div class="row">
+							<div class="col-lg-8 offset-lg-2 text-center">
+								<h2>Bella for Business</h2>
+								<p>Interact with a conversational experience to create a Generative AI powered automation that can be used to provide answers to your customers and employees, with no code or technical experience.</p>
+								<br />
+								<a class="link" href="https://www.getbella.ai/" target="_blank">Get your 30-day free trial</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
 
 `;
 
@@ -1179,7 +1209,7 @@ const PricingPage = () => {
         },
         {
             property: `og:image`,
-            content: `https://static.liveperson.com/static-assets/2023/02/16151853/Homepage_Meta-Tag_JV_0216.jpg`,
+            content: `https://static.liveperson.com/static-assets/2023/04/26161111/Pricing_Meta-Tag_JV_0426.png`,
         },
         {
             property: `og:description`,
@@ -1199,7 +1229,7 @@ const PricingPage = () => {
         {
             name: `image`,
             property: `twitter:image`,
-            content: `https://static.liveperson.com/static-assets/2023/02/16151853/Homepage_Meta-Tag_JV_0216.jpg`,
+            content: `https://static.liveperson.com/static-assets/2023/04/26161111/Pricing_Meta-Tag_JV_0426.png`,
         },
         {
             name: `author`,
