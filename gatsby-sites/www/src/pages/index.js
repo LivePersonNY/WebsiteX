@@ -10,7 +10,7 @@ import Parser from 'html-react-parser';
 
 const htmlHack1 = `
 <div class="pane hero bg-neutral-96 styles-2023 ">
-                <div class="container" style="opacity: 1;">
+                <div class="container" >
                     <div class="row text-center">
                         <div class="col-lg-8 offset-lg-2">
                         <p class="h6 text-uppercase">LivePerson Conversational Cloud® Platform</p>
@@ -35,7 +35,7 @@ const htmlHack1 = `
 
 
 <div data-localize="false" class="pane comp-logo-universal bg-neutral-96 pane-with-lead-text">
-  <div class="container" style="opacity: 1;">
+  <div class="container" >
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
         <h2 class="text-center">Trusted by <s>thousands</s> of the world's biggest brands</h2>
@@ -60,11 +60,11 @@ const htmlHack1 = `
 </div>
 
 <div data-localize="false" class="pane comp-side-side bg-transparent">
-  <div class="container" style="opacity: 1;">
+  <div class="container" >
     <div class="row comp-side-side-header">
       <div class="col-lg-12">
         <h2 class="text-center">Generative AI enhanced and trained just for you</h2>
-        <p class="text-center">Unlock the power of large language models to meet the needs of your business, regardless of department or industry</p>
+        <p class="text-center">Unlock the power of large language models to meet the needs of your business, regardless of department or industry.</p>
       </div>
     </div>
     <div class="row">
@@ -115,7 +115,7 @@ const htmlHack1 = `
 
 
 <div class="pane comp-stat-grid bg-lavendar-20 pane-with-lead-text">
-  <div class="container" style="opacity: 1;">
+  <div class="container" >
     <div class="row">
       <div class="col-lg-12">
         <h2 class="text-center">Achieve better business outcomes through the power of AI</h2>
@@ -168,7 +168,7 @@ const htmlHack1 = `
 </div>
 
 <div class="pane bg-transparent comp-left-right">
-	<div class="container" style="opacity: 1;">
+	<div class="container" >
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
 				<img src="https://static.liveperson.com/static-assets/2023/04/25160729/Homepage_Pillar.1_KnowledgeAI_JV_0424_2x.png" alt="Knowledge base for our Conversational AI platform loading a PDF for training virtual assistants, using natural language understanding">
@@ -185,7 +185,7 @@ const htmlHack1 = `
 </div>
 
 <div class="pane bg-transparent comp-left-right">
-	<div class="container" style="opacity: 1;">
+	<div class="container" >
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
 				<img src="https://static.liveperson.com/static-assets/2023/04/25160735/Homepage_Pillar.2_GenerativeAI_JV_0424_2x-1.png" alt="voice assistants listening to human conversation and transcribing it to text, a new conversational ai tool for enterprise conversational ai platforms">
@@ -196,16 +196,14 @@ const htmlHack1 = `
 					<div class="rich-container">
 						<p data-tag="new line split">Safely unlock the power of large language models to automate conversations across voice and messaging channels.  Conversation Copilot arms human experts with LLM-powered tools to boost productivity, while Conversation Autopilot creates warm, natural automated interactions. </p>
 					</div>
-				<a class="btn btn-link" href="/products/voice-ai/">Learn more about Voice AI</a>
-				<br />
-				<a class="btn btn-link" href="/products/conversational-cloud/">Learn more about Messaging AI</a>
+				<a class="btn btn-link" href="/products/generative-ai/">Learn more about Generative AI</a>
 			</div>
 		</div>
 	</div>
 </div>
 
 <div class="pane bg-transparent comp-left-right">
-	<div class="container" style="opacity: 1;">
+	<div class="container" >
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
 				<img src="https://static.liveperson.com/static-assets/2023/04/25160742/Homepage_Pillar.3_BellaAI_JV_0424_2x-1.png" alt="Bella AI creating new virtual assistants for a business via conversational interfaces">
@@ -223,7 +221,7 @@ const htmlHack1 = `
 </div>
 
 <div class="pane bg-transparent comp-left-right">
-	<div class="container" style="opacity: 1;">
+	<div class="container" >
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
 				<img src="https://static.liveperson.com/static-assets/2023/04/25160748/Homepage_Pillar.4_Intelligence-Actions_JV_0424_2x-1.png" alt="Conversational AI platform's intelligence dashboard, providing insights to human agents">
@@ -240,13 +238,32 @@ const htmlHack1 = `
 	</div>
 </div>
 
+<div data-localize="false" class="pane comp-content-cta bg-transparent pane-with-lead-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="comp-content-cta-container bg-neutral-96">
+          <div class="row align-items-center text-center text-lg-start">
+            <div class="col-lg-6 offset-lg-1">
+              <h2>Take a deeper look at the Conversational Cloud</h2>
+            </div>
+            <div class="col-lg-3 offset-lg-1 text-lg-end">
+              <a class="btn btn-primary" href="/products/conversational-cloud/">Learn more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 `;
 
 const htmlHack2 = `
 
 <div class=" pane comp-icon-text-a bg-blue-20 pane-with-lead-text">
-	<div class="container" style="opacity: 1;">
+	<div class="container" >
 		<div class="row">
 			<div class="col-lg-10 offset-lg-1">
 				<h2 class="text-center">Trustworthy AI for everyone — no matter your role or interest</h2>
@@ -369,12 +386,12 @@ const htmlHack2 = `
 </div>
 
 <div class=" pane comp-icon-text-b bg-transparent">
-	<div class="container" style="opacity: 1;">
+	<div class="container" >
 		<div class="row row-cols-lg-2 comp-card-grid-container">
 			<div class="col">
 				<div class="card h-100">
 					<div class="card-body">
-						<h3 class="">See how LivePerson AI can deliver real-world results.</h3>
+						<h3 class="">See how LivePerson AI can deliver real-world results</h3>
 					</div>
 					<div class="card-footer">
 						<a href="/request-demo/" class="card-link link">Schedule a guided demo</a>
@@ -384,7 +401,7 @@ const htmlHack2 = `
 			<div class="col">
 				<div class="card h-100">
 					<div class="card-body">
-						<h3 class=""> Get your Bella AI free 30-day trial now.</h3>
+						<h3 class=""> Get your Bella AI free 30-day trial now</h3>
 					</div>
 					<div class="card-footer">
 						<a href="https://www.getbella.ai/" target="_blank" class="card-link link">Build your no-code bot</a>
