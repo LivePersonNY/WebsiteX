@@ -43,7 +43,7 @@ const htmlHack1 = `
 					<div class="card-body">
 						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25145618/numbers-1_circle-orange.svg" alt="">
 						<h3 class="">Conversational Cloud</h3>
-						<p class="card-text subtitle1" data-tag="new line split">Automate messages and calls, optimize consumer insights, increase agent productivity with Liveperson AI</p>
+						<p class="card-text subtitle1" data-tag="new line split">Automate messages and calls, optimize consumer insights, increase agent productivity with Liveperson AI.</p>
 					</div>
 					<div class="card-footer">
 						<a href="/request-demo/" class="card-link link">Schedule a demo</a>
@@ -55,7 +55,7 @@ const htmlHack1 = `
 					<div class="card-body">
 						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25145619/numbers-2_circle-orange.svg" alt="">
 						<h3 class="">Conversational Cloud & Generative AI</h3>
-						<p class="card-text subtitle1" data-tag="new line split">Accelerate automation, increase conversion rate, and boost agent productivity with Generative AI</p>
+						<p class="card-text subtitle1" data-tag="new line split">Accelerate automation, increase conversion rate, and boost agent productivity with Generative AI.</p>
 					</div>
 					<div class="card-footer">
 						<a href="/request-demo/" class="card-link link">Schedule a demo</a>
@@ -66,9 +66,9 @@ const htmlHack1 = `
 	</div>
 </div>
 
-<div class="pane bg-neutral-96">
+<div class="pane bg-neutral-96 pricing-table">
 	<div class="container" >
-		<div class="row" style="margin-bottom:28px">
+		<div class="row align-items-center" style="margin-bottom:28px">
 			<div class="col-lg-8">
 				<h2>Conversational Cloud Packages</h2>
 			</div>
@@ -76,7 +76,7 @@ const htmlHack1 = `
 				<h5 class="text-center">Conversational Cloud</h5>
 			</div>
 			<div class="col-lg-2">
-				<h5 class="text-center">Conversational Cloud + Generative AI</h5>
+				<h5 class="text-center">Conversational Cloud & Generative AI</h5>
 			</div>
 		</div>
 		<div class="row">
@@ -1165,7 +1165,7 @@ const htmlHack1 = `
 						<div class="row">
 							<div class="col-lg-8 offset-lg-2 text-center">
 								<h2>Bella for Business</h2>
-								<p>Interact with a conversational experience to create a Generative AI powered automation that can be used to provide answers to your customers and employees, with no code or technical experience.</p>
+								<p>Instantly create a Generative AI powered conversational assistant that provides answers and insights to customers and employees, safely, and with no code or technical experience.</p>
 								<br />
 								<a class="link" href="https://www.getbella.ai/" target="_blank">Get your 30-day free trial</a>
 							</div>

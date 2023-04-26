@@ -617,7 +617,10 @@ $animationSpeed: 30s;
 // Pricing page
 .pricing-tabs {
     padding: 0;
-    margin-top: -56px;
+    margin-top: -67px;
+    @include media-breakpoint-up(lg) {
+        margin-top: -56px;
+    }
     .col-lg-12 {
         display: flex;
         justify-content: center;
@@ -627,15 +630,20 @@ $animationSpeed: 30s;
             width: 100%;
             background: $neutral96;
             border-top: 4px solid $neutral96;
-            padding: 12px 32px;
+            padding: 8px 24px;
             color: $neutral64;
             font-weight: $fontBold;
-            font-size: 21px;
-            line-height: 28px;
+            font-size: 18px;
+            line-height: 24px;
             text-decoration: none;
             display: inline-block;
             text-align: center;
             cursor: pointer;
+            @include media-breakpoint-up(lg) {
+                font-size: 21px;
+                line-height: 28px;
+                padding: 12px 32px;
+            }
             &.pricing-tab-active {
                 color: $neutral12;
                 border-top: 4px solid $primaryBlue;
@@ -646,6 +654,24 @@ $animationSpeed: 30s;
 
 .pricing-tabs-bai {
     display: none;
+}
+
+.pricing-table {
+    overflow: scroll;
+    .row {
+        flex-wrap: nowrap;
+        @include media-breakpoint-down(lg) {
+            > div + div {
+                margin-top: 0 !important;
+            }
+            .accordion-button .container .row div {
+                background: $neutral94;
+            }
+            .accordion-body .container .row div {
+                background: $secondaryLight;
+            }
+        }
+    }
 }
 
 #pricingPageAccordion {
@@ -676,7 +702,10 @@ $animationSpeed: 30s;
                 background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
                 transform: scale(0.7) !important;
                 position: absolute;
-                left: 62%;
+                left: 91%;
+                @include media-breakpoint-up(lg) {
+                    left: 62%;
+                }
             }
             &:not(.collapsed)::after {
                 background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");

@@ -457,7 +457,9 @@ const HP2023 = () => {
     let meta = [
         {
             property: `og:title`,
-            content: 'The Best Conversational AI Platform | LivePerson' || ``,
+            content:
+                'The Best Generative & Conversational AI Platform | LivePerson' ||
+                ``,
         },
         {
             property: `og:image`,
@@ -466,7 +468,7 @@ const HP2023 = () => {
         {
             property: `og:description`,
             content:
-                'LivePerson’s Conversational AI platform helps enterprises unlock the power of large language models for better business outcomes.' ||
+                `LivePerson's Generative AI capabilities and Conversational AI platform helps enterprises unlock the power of large language models for better business outcomes.` ||
                 ``,
         },
         {
@@ -493,8 +495,8 @@ const HP2023 = () => {
     return (
         <Layout>
             <Seo
-                title="The Best Conversational AI Platform | LivePerson"
-                description="LivePerson’s Conversational AI platform helps enterprises unlock the power of large language models for better business outcomes."
+                title="The Best Generative & Conversational AI Platform | LivePerson"
+                description="LivePerson's Generative AI capabilities and Conversational AI platform helps enterprises unlock the power of large language models for better business outcomes."
                 meta={meta}
                 canonical="https://www.liveperson.com/"
                 robots=""
