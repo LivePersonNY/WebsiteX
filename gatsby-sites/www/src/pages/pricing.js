@@ -22,7 +22,7 @@ const htmlHack1 = `
 	</div>
 </div>
 
-<div class="pane bg-transparent pricing-tabs">
+<!-- <div class="pane bg-transparent pricing-tabs">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -31,7 +31,7 @@ const htmlHack1 = `
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <div class="pricing-tabs-s-h pricing-tabs-cc">
 
