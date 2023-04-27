@@ -15,7 +15,7 @@ const htmlHack1 = `
 				<p class="h6 text-uppercase text-neutral-99">liveperson pricing</p>
 				<h1 class="text-neutral-99">No risk. No license fees. Pay as you go.</h1>
 				<p data-tag="new line split" class="lead text-neutral-99">
-					Pay for conversations, not seats. Drive an automation-first transformation with unlimited seats and accelerated time to value for all new customers.</p>
+					Pay for conversations, not seats. Drive an automation-first transformation with unlimited agent seats and accelerated time to value for all new customers.</p>
 				<a class="btn btn-primary link" href="/quote/">Request a quote</a>
 			</div>
 		</div>
@@ -1095,7 +1095,7 @@ const htmlHack1 = `
 			<div class="col">
 				<img src="https://static.liveperson.com/static-assets/2023/04/25145621/banking-money-2_circle-orange.svg" alt="ringing telephone">
 				<p class="card1">Pay as you go</p>
-				<p class="subtitle1" data-tag="new line split">Only pay for what you use: Unlimited agent seats, unlimited calls and messaging.</p>
+				<p class="subtitle1" data-tag="new line split">Only pay for what you use: Unlimited agent seats.</p>
 			</div>
 			<div class="col">
 				<img src="https://static.liveperson.com/static-assets/2023/04/25145622/insurance-handshake_circle-orange.svg" alt="ringing telephone">
