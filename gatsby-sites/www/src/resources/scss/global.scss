@@ -1401,6 +1401,11 @@ img[src*='doubleclick'] {
         * {
             color: $neutral99 !important;
         }
+        h1 {
+            background: 0;
+            -webkit-text-fill-color: initial;
+            -webkit-background-clip: initial;
+        }
     }
 }
 

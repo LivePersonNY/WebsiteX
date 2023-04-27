@@ -206,7 +206,7 @@ const htmlHack1 = `
 	<div class="container" >
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
-				<img src="https://static.liveperson.com/static-assets/2023/04/25160742/Homepage_Pillar.3_BellaAI_JV_0424_2x-1.png" alt="Bella AI creating new virtual assistants for a business via conversational interfaces">
+				<img src="https://static.liveperson.com/static-assets/2023/04/26230918/Homepage_Pillar.3_BellaAI_JV_0426_2x.png" alt="Bella AI creating new virtual assistants for a business via conversational interfaces">
 			</div>
 			<div class="col-lg-6 ">
 				<p class="h6 text-uppercase">BELLA AI</p>
