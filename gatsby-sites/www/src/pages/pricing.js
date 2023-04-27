@@ -1095,7 +1095,7 @@ const htmlHack1 = `
 			<div class="col">
 				<img src="https://static.liveperson.com/static-assets/2023/04/25145621/banking-money-2_circle-orange.svg" alt="ringing telephone">
 				<p class="card1">Pay as you go</p>
-				<p class="subtitle1" data-tag="new line split">Only pay for what you use: Unlimited agent seats, unlimited calls and messaging, and unlimited channels.</p>
+				<p class="subtitle1" data-tag="new line split">Only pay for what you use: Unlimited agent seats, unlimited calls and messaging.</p>
 			</div>
 			<div class="col">
 				<img src="https://static.liveperson.com/static-assets/2023/04/25145622/insurance-handshake_circle-orange.svg" alt="ringing telephone">
