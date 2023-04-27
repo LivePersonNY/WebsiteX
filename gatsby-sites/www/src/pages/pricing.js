@@ -15,7 +15,7 @@ const htmlHack1 = `
 				<p class="h6 text-uppercase text-neutral-99">liveperson pricing</p>
 				<h1 class="text-neutral-99">No risk. No license fees. Pay as you go.</h1>
 				<p data-tag="new line split" class="lead text-neutral-99">
-					Pay for conversations, not seats. Drive an automation-first transformation with unlimited seats, unlimited channels, and accelerated time to value for all new customers.</p>
+					Pay for conversations, not seats. Drive an automation-first transformation with unlimited seats and accelerated time to value for all new customers.</p>
 				<a class="btn btn-primary link" href="/quote/">Request a quote</a>
 			</div>
 		</div>
