@@ -1141,7 +1141,7 @@ const htmlHack1 = `
 				<div class="comp-content-cta-container bg-neutral-96">
 					<div class="row align-items-center text-center text-lg-start">
 						<div class="col-lg-7 offset-lg-1">
-							<h2>See the Conversational Cloud in action.</h2>
+							<h2>See the Conversational Cloud in action</h2>
 						</div>
 						<div class="col-lg-2 offset-lg-1 text-lg-end">
 							<a class="btn btn-primary" href="/request-demo/">Get a demo</a>

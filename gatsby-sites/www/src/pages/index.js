@@ -388,8 +388,8 @@ const htmlHack2 = `
 
 <div class=" pane comp-icon-text-b bg-transparent">
 	<div class="container" >
-		<div class="row row-cols-lg-2 comp-card-grid-container">
-			<div class="col">
+		<div class="row  comp-card-grid-container">
+			<div class="col-lg-8 offset-lg-2">
 				<div class="card h-100">
 					<div class="card-body">
 						<h3 class="">See how LivePerson AI can deliver real-world results</h3>
