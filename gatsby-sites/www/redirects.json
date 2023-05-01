@@ -276,6 +276,7 @@
 		"/policies/gcp-initiative/": "/policies/public-cloud/gcp-initiative/",
 		"/resources/webinars/voice-ai-technology/": "/resources/webinars/enterprise-generative-ai/",
 		"/policies/gcp-initiative-due-diligence/": "/policies/public-cloud/gcp-initiative-due-diligence/",
-		"/policies/gcp-initiative-faq/": "/policies/public-cloud/initiative-faq/"
+		"/policies/gcp-initiative-faq/": "/policies/public-cloud/initiative-faq/",
+		"/GAI-Launch/": "/gai-launch/"
 	}
 }
