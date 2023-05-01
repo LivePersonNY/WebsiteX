@@ -192,7 +192,7 @@ const htmlHack1 = `
 			</div>
 			<div class="col-lg-6 ">
 				<p class="h6 text-uppercase">GENERATIVE AI</p>
-				<h3>LLM-powered conversations</h3>
+				<h3>LLM-powered voice & messaging</h3>
 					<div class="rich-container">
 						<p data-tag="new line split">Safely unlock the power of large language models to automate conversations across voice and messaging channels.  Conversation Copilot arms human experts with LLM-powered tools to boost productivity, while Conversation Autopilot creates warm, natural automated interactions. </p>
 					</div>

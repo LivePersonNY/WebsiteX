@@ -111,6 +111,7 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 				"core/italic",
 				"core/strikethrough",
 				"core/text-color",
+				"core/image",
 			]}
 		/>
 	);
