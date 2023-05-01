@@ -58,7 +58,7 @@ main{
 	<div class="container" style="opacity:1">
 		<div class="row">
 			<div class="col">
-				<img src="https://getbella.ai/_next/static/media/logo_ai.f77be263.svg" style="margin-right:30px" />
+				<img src="https://static.liveperson.com/static-assets/2023/05/01140253/Bella_EAI_White.svg" style="margin-right:30px" />
 				<img src="https://getbella.ai/_next/static/media/logo_lv.9834c697.svg" />
 			</div>
 		</div>
