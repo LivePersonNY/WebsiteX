@@ -76,7 +76,7 @@ const LeftRight = (props) => {
                                 <h2>
                                     <Paragraph
                                         text={props.title}
-                                        headerLevel={headLevel}
+                                        headerLevel={props.headLevel}
                                     />
                                 </h2>
                             )}
@@ -84,7 +84,7 @@ const LeftRight = (props) => {
                                 <h3>
                                     <Paragraph
                                         text={props.title}
-                                        headerLevel={headLevel}
+                                        headerLevel={props.headLevel}
                                     />
                                 </h3>
                             )}
