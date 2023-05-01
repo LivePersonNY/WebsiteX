@@ -13,7 +13,7 @@ const htmlHack1 = `
                 <div class="container" >
                     <div class="row text-center">
                         <div class="col-lg-8 offset-lg-2">
-                        <p class="h6 text-uppercase">LivePerson Conversational Cloud® Platform</p>
+                        <p class="h6 text-uppercase">LivePerson Conversational Cloud® Platform <img src="https://static.liveperson.com/static-assets/2023/05/01103844/EAI_23042902.svg" style="width: 22px;vertical-align: baseline;" /></p>
                             <h1>Finally. Safe, equal A<span class="space-mono">I</span> for everyone.</h1>
                             <p data-tag="new line split" class="lead">Combining the power of the world's largest conversational dataset, with decades of experience and a legacy of trust, to deliver safer, more secure AI experiences.</p>
                             <a class="btn btn-primary link" href="/request-demo/">Schedule a guided demo</a>
