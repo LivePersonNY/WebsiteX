@@ -92,11 +92,18 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 	);
 
 	let titleControl = (
-		<TextControl
+		<RichText
 			value={attributes.title}
 			onChange={(val) => setAttributes({ title: val })}
 			className="embedded-input"
 			placeholder="Section H2 Header"
+			allowedFormats={[
+				"core/bold",
+				"core/italic",
+				"core/strikethrough",
+				"core/text-color",
+				"core/image",
+			]}
 		/>
 	);
 

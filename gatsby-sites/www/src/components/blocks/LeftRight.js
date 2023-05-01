@@ -72,8 +72,22 @@ const LeftRight = (props) => {
                                     {props.kicker}
                                 </p>
                             )}
-                            {props.headLevel == 'h2' && <h2>{props.title}</h2>}
-                            {props.headLevel == 'h3' && <h3>{props.title}</h3>}
+                            {props.headLevel == 'h2' && (
+                                <h2>
+                                    <Paragraph
+                                        text={props.title}
+                                        headerLevel={headLevel}
+                                    />
+                                </h2>
+                            )}
+                            {props.headLevel == 'h3' && (
+                                <h3>
+                                    <Paragraph
+                                        text={props.title}
+                                        headerLevel={headLevel}
+                                    />
+                                </h3>
+                            )}
                             <Paragraph
                                 text={props.body}
                                 wrapClass="rich-container"
