@@ -126,6 +126,19 @@ h3,
         -webkit-text-fill-color: transparent;
         padding: 1px;
     }
+    mark {
+        &.has-pale-pink-color {
+            font-family: inherit;
+            font-weight: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            text-decoration: none;
+            background: $EaiGradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 1px;
+        }
+    }
 }
 
 .lead {
