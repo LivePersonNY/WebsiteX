@@ -23,7 +23,7 @@ const htmlHack1 = `
 	</div>
 </div>
 
-<!-- <div class="pane bg-transparent pricing-tabs">
+<div class="pane bg-transparent pricing-tabs">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -32,7 +32,7 @@ const htmlHack1 = `
 			</div>
 		</div>
 	</div>
-</div> -->
+</div>
 
 <div class="pricing-tabs-s-h pricing-tabs-cc">
 
@@ -1168,7 +1168,7 @@ const htmlHack1 = `
 								<h2>Bella for Business</h2>
 								<p>Instantly create a Generative AI powered conversational assistant that provides answers and insights to customers and employees, safely, and with no code or technical experience.</p>
 								<br />
-								<a class="link" href="https://www.getbella.ai/" target="_blank">Get your 30-day free trial</a>
+								<a class="link" href="https://getbella.ai/" target="_blank">Get your 30-day free trial</a>
 							</div>
 						</div>
 					</div>

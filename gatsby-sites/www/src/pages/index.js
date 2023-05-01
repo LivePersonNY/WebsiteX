@@ -18,8 +18,8 @@ const htmlHack1 = `
                             <p data-tag="new line split" class="lead">Combining the power of the world's largest conversational dataset, with decades of experience and a legacy of trust, to deliver safer, more secure AI experiences.</p>
                             <a class="btn btn-primary link" href="/request-demo/">Schedule a guided demo</a>
                             <p style="margin-top:20px;margin-right:24px;">
-								<!-- <a class="link" href="https://www.getbella.ai/" target="_blank">Build your no-code bot</a> -->
-							</p>
+								              <a class="link" href="https://getbella.ai/" target="_blank">Build your no-code bot</a>
+							              </p>
                         </div>
                     </div>
                     <div class="row align-items-center justify-content-center">
@@ -213,9 +213,8 @@ const htmlHack1 = `
 				<h3>Your safe AI assistant</h3>
 					<div class="rich-container">
 						<p data-tag="new line split">Build a safe, automated concierge in the time it takes to make a cup of coffee. Streamline, test, and deploy bot-led conversations with a new LLM-powered Conversational bot-building interface.</p>
-            <p>Coming Soon</p>
 					</div>
-				<!-- <a class="btn btn-link" href="/products/bella-ai/">Learn more about Bella AI</a> -->
+				<a class="btn btn-link" href="/products/bella-ai/">Learn more about Bella AI</a>
 			</div>
 		</div>
 	</div>
@@ -389,7 +388,7 @@ const htmlHack2 = `
 <div class=" pane comp-icon-text-b bg-transparent">
 	<div class="container" >
 		<div class="row  comp-card-grid-container">
-			<div class="col-lg-8 offset-lg-2">
+			<div class="col">
 				<div class="card h-100">
 					<div class="card-body">
 						<h3 class="">See how LivePerson AI can deliver real-world results</h3>
@@ -399,16 +398,16 @@ const htmlHack2 = `
 					</div>
 				</div>
 			</div>
-			<!-- <div class="col">
+			<div class="col">
 				<div class="card h-100">
 					<div class="card-body">
 						<h3 class=""> Get your Bella AI free 30-day trial now</h3>
 					</div>
 					<div class="card-footer">
-						<a href="https://www.getbella.ai/" target="_blank" class="card-link link">Build your no-code bot</a>
+						<a href="https://getbella.ai/" target="_blank" class="card-link link">Build your no-code bot</a>
 					</div>
 				</div>
-			</div> -->
+			</div>
 		</div>
 	</div>
 </div>
