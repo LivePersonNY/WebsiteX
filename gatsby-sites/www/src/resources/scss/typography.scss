@@ -127,6 +127,17 @@ h3,
         padding: 1px;
     }
     mark {
+        &.has-vivid-purple-color {
+            font-family: inherit;
+            font-weight: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            text-decoration: none;
+            background: $h1Gradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 1px;
+        }
         &.has-pale-pink-color {
             font-family: inherit;
             font-weight: inherit;
