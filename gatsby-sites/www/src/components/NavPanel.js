@@ -149,16 +149,15 @@ const NavPanel = ({
                                                 Virtual launch event
                                             </p>
                                             <p className="featured-body">
-                                                Something big is coming: Join us
-                                                for an historic generative AI
-                                                launch
+                                                Something big is here: See our
+                                                historical Generative AI launch
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
                                                 href="/resources/webinars/enterprise-generative-ai/"
                                                 rel="noopener noreferrer"
                                             >
-                                                Save your spot
+                                                Watch the recording
                                             </a>
                                         </div>
                                     </div>
