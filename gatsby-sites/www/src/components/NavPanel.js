@@ -110,8 +110,9 @@ const NavPanel = ({
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2023/04/14113120/Nav_Ent-Gen-AI_feature-image_1_0413.png"
-                                            alt="Virtual launch event"
+                                            src="https://static.liveperson.com/static-assets/2023/05/02095021/EAI_nav_feature.png"
+                                            alt="Open is nice, but equal is
+                                                better"
                                         />
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">
