@@ -106,7 +106,7 @@ const NavPanel = ({
                             {featuredProducts && (
                                 <div className="col-lg-3 col-lg">
                                     <p className="dropdown-section-title h6">
-                                        something big is coming
+                                        WHAT IS EAI
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
@@ -115,18 +115,19 @@ const NavPanel = ({
                                         />
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">
-                                                Virtual Event
+                                                Open is nice, but equal is
+                                                better
                                             </p>
                                             <p className="featured-body">
-                                                Join us for an historic
-                                                generative AI launch
+                                                LivePerson is making a new grade
+                                                of AI available
                                             </p>
                                             <a
                                                 className="dropdown-link-blue link"
-                                                href="/resources/webinars/enterprise-generative-ai/"
+                                                href="/eai/"
                                                 rel="noopener noreferrer"
                                             >
-                                                Save your spot
+                                                Learn more
                                             </a>
                                         </div>
                                     </div>
