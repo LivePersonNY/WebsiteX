@@ -44,11 +44,28 @@ main{
 	font-size: 48px;
 	line-height: 60px;
 }
+
+.pane.hero .btn-primary{
+    font-family: 'Rubik';
+    font-size:24px;
+    line-height:32px;
+    color:#ffffff;
+    border:1px solid #ffffff;
+    background:transparent;
+    padding:15px 40px;
+    font-weight:600;
+    border-radius:32px;
+}
+
+.pane.hero .btn-primary:hover{
+    color:#000000;
+    background:#ffffff;
+}
 </style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap" rel="stylesheet">
 
 <video autoplay="" loop="" playsinline="" id="backgroundVideo" poster="https://getbella.ai/_next/static/media/background.d04b6df6.png">
 	<source src="https://getbella.ai/_next/static/media/background.705bf0f2cb1f61604b71ce227d9a3836.mp4" type="video/mp4">
@@ -70,6 +87,7 @@ main{
 		<div class="row text-center">
 			<div class="col-lg-8 offset-lg-2">
 				<h1 class="text-neutral-99">Wow! Due to overwhelming demand, Bella AI is at capacity. Please check back later to give it a try.</h1>
+                <a class="btn btn-primary" href="https://app.smartsheet.com/b/form/9ad9f95e1f8248c892d8e681f5db7995" target="_blank" rel="noopener noreferrer">Join the waitlist</a>
 			</div>
 		</div>
 	</div>
