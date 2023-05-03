@@ -18,7 +18,7 @@ const htmlHack1 = `
                             <p data-tag="new line split" class="lead">Combining the power of the world's largest conversational dataset, with decades of experience and a legacy of trust, to deliver safer, more secure AI experiences.</p>
                             <a class="btn btn-primary link" href="/request-demo/">Schedule a guided demo</a>
                             <p style="margin-top:20px;margin-right:24px;">
-								              <a class="link" href="/products/bella-ai/">Build your no-code bot with Bella AI</a>
+								              <a class="link" href="https://getbella.ai/" target="_blank">Build your no-code bot with Bella AI</a>
 							              </p>
                         </div>
                     </div>
@@ -404,7 +404,7 @@ const htmlHack2 = `
 						<h3 class=""> Get your Bella AI free 30-day trial now</h3>
 					</div>
 					<div class="card-footer">
-						<a href="/products/bella-ai/" class="card-link link">Build your no-code bot</a>
+						<a href="https://getbella.ai/" target="_blank" class="card-link link">Build your no-code bot</a>
 					</div>
 				</div>
 			</div>
