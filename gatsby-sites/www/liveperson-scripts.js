@@ -399,10 +399,15 @@ window.documentReadyFn = function () {
     }
 
     if (document.location.pathname.includes('policies/public-cloud')) {
+        if (window.sessionStorage.getItem('cloudPassword') == 'yes') {
+            $('.lightbox').hide();
+        }
+
         $('#loginbutton').on('click', function () {
             if ($('#password').val().toLowerCase() == 'cloud2023') {
                 $('.lightbox').hide();
                 $('.hide-this').show();
+                window.sessionStorage.setItem('cloudPassword', 'yes');
             } else {
                 $('.wrong-password').text(
                     'Incorrect password. Please double-check and try again.'
@@ -414,6 +419,7 @@ window.documentReadyFn = function () {
                 if ($('#password').val().toLowerCase() == 'cloud2023') {
                     $('.lightbox').hide();
                     $('.hide-this').show();
+                    window.sessionStorage.setItem('cloudPassword', 'yes');
                 } else {
                     $('.wrong-password').text(
                         'Incorrect password. Please double-check and try again.'
