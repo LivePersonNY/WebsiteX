@@ -65,11 +65,18 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 	);
 
 	let kickerControl = (
-		<TextControl
+		<RichText
 			value={attributes.kicker}
 			onChange={(val) => setAttributes({ kicker: val })}
 			className="embedded-input"
 			placeholder="Kicker Text"
+			allowedFormats={[
+				"core/bold",
+				"core/italic",
+				"core/strikethrough",
+				"core/text-color",
+				"core/image",
+			]}
 		/>
 	);
 

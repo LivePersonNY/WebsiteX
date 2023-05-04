@@ -61,7 +61,12 @@ const PlainContent = function (props) {
                         )) ||
                             props.assetTopCtl}
                         {props.kicker && (
-                            <p className="h6 text-uppercase">{props.kicker}</p>
+                            <p className="h6 text-uppercase">
+                                <Paragraph
+                                    text={props.kicker}
+                                    headerLevel="nothing"
+                                />
+                            </p>
                         )}
                         {headerLevel == 'h2' && (
                             <h2>
