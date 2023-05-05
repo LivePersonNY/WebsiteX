@@ -35,7 +35,8 @@ module.exports = {
      languages: ["en"],
      enableWpml: false,
      allowCache: false,
-     maxCacheDurationSeconds: 60 * 60 * 24
+    //  maxCacheDurationSeconds: 60 * 60 * 24
+    maxCacheDurationSeconds: 60
    },
  },
  `gatsby-transformer-sharp`,
