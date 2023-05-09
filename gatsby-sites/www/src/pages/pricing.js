@@ -137,7 +137,7 @@ const htmlHack1 = `
 									<div class="row">
 										<div class="col-lg-8">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapse3">
-												Conversation Autopilot: Conversation Assist
+												Conversation Copilot: Conversation Assist
 											</a>
 											<div class="collapse" id="collapse3">
 												<p class="body2">
@@ -154,7 +154,7 @@ const htmlHack1 = `
 									<div class="row">
 										<div class="col-lg-8">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapse4">
-												Conversation Autopilot: Summary
+												Conversation Copilot: Summary
 											</a>
 											<div class="collapse" id="collapse4">
 												<p class="body2">
@@ -171,7 +171,7 @@ const htmlHack1 = `
 									<div class="row">
 										<div class="col-lg-8">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse5" role="button" aria-expanded="false" aria-controls="collapse5">
-												Conversation Autopilot: Generative Intent Training
+												Conversation Copilot: Generative Intent Training
 											</a>
 											<div class="collapse" id="collapse5">
 												<p class="body2">
