@@ -141,23 +141,22 @@ const NavPanel = ({
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2023/04/04111358/ent-gen-ai_featured_asset.png"
-                                            alt="Virtual launch event"
+                                            src="https://static.liveperson.com/static-assets/2023/05/09093551/LivePerson_Cohere_Webinar_featuredasset.jpg"
+                                            alt="Webinar"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">
-                                                Virtual launch event
-                                            </p>
+                                            <p className="subtitle3">Webinar</p>
                                             <p className="featured-body">
-                                                Something big is here: See our
-                                                historical Generative AI launch
+                                                Drive better business outcomes
+                                                with a custom large language
+                                                model
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/enterprise-generative-ai/"
+                                                href="/resources/webinars/custom-large-language-models/"
                                                 rel="noopener noreferrer"
                                             >
-                                                Watch the recording
+                                                Register now
                                             </a>
                                         </div>
                                     </div>
