@@ -38,6 +38,13 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
         return multiAuthors.map(function (authorId) {
             console.log(info, authorId);
 
+            let authorOrder;
+            if (id === info.id) {
+                authorOrder = 'order-1';
+            } else {
+                authorOrder = 'order-2';
+            }
+
             if (authorId.uri.indexOf(`/${info.slug}/`) >= 0) {
                 console.log(info);
 
@@ -45,7 +52,11 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
                 const avatarUrl = author?.avatar?.url;
 
                 return (
-                    <div className="bio col-lg-5 mb-4">
+                    <div
+                        className={`bio col-lg-5 mb-4 ${authorOrder}`}
+                        key={author.firstName}
+                    >
+                        {console.log(`${author.firstName} ${author.lastName}`)}
                         <div className="row">
                             <div className="col-lg-10">
                                 <div className="bio-img">
