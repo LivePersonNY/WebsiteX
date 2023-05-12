@@ -550,16 +550,18 @@ window.documentReadyFn = function () {
     let calloutGridViewMore = document.querySelector(
         '.comp-callout-grid-container .view-more-btn'
     );
-    calloutGridViewMore.addEventListener('click', (el) => {
-        el.preventDefault();
-        document
-            .querySelector('.comp-callout-grid-container .view-more-btn')
-            .classList.add('display-none');
-        let gridCards = document.querySelectorAll(
-            '.comp-callout-grid-container .col-lg-4'
-        );
-        gridCards.forEach((el) => {
-            el.classList.remove('display-none');
+    if (calloutGridViewMore) {
+        calloutGridViewMore.addEventListener('click', (el) => {
+            el.preventDefault();
+            document
+                .querySelector('.comp-callout-grid-container .view-more-btn')
+                .classList.add('display-none');
+            let gridCards = document.querySelectorAll(
+                '.comp-callout-grid-container .col-lg-4'
+            );
+            gridCards.forEach((el) => {
+                el.classList.remove('display-none');
+            });
         });
-    });
+    }
 };
