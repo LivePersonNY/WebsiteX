@@ -30,7 +30,6 @@ const CalloutGrid = (props) => {
     });
 
     let viewMore = (el) => {
-        console.log(el);
         el.preventDefault();
         document.querySelector('.view-more-btn').classList.add('display-none');
         let gridCards = document.querySelectorAll(
