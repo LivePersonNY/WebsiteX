@@ -29,16 +29,16 @@ const CalloutGrid = (props) => {
         );
     });
 
-    let viewMore = (el) => {
-        el.preventDefault();
-        document.querySelector('.view-more-btn').classList.add('display-none');
-        let gridCards = document.querySelectorAll(
-            '.comp-callout-grid-container .col-lg-4'
-        );
-        gridCards.forEach((el) => {
-            el.classList.remove('display-none');
-        });
-    };
+    // let viewMore = (el) => {
+    //     el.preventDefault();
+    //     document.querySelector('.view-more-btn').classList.add('display-none');
+    //     let gridCards = document.querySelectorAll(
+    //         '.comp-callout-grid-container .col-lg-4'
+    //     );
+    //     gridCards.forEach((el) => {
+    //         el.classList.remove('display-none');
+    //     });
+    // };
 
     return (
         <div
@@ -71,7 +71,7 @@ const CalloutGrid = (props) => {
                             <a
                                 class="btn btn-primary view-more-btn"
                                 href="#"
-                                onClick={viewMore}
+                                // onClick={viewMore}
                             >
                                 View more
                             </a>
