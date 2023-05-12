@@ -3,43 +3,43 @@ import { Link, graphql } from 'gatsby';
 import queryString from 'query-string';
 
 import Parser from 'html-react-parser';
-import Layout from '../components/Layout';
-import Seo from '../components/Seo';
-import LeftRight from '../components/blocks/LeftRight';
-import StatsGrid from '../components/blocks/StatsGrid';
-import CardGrid from '../components/blocks/CardGrid';
-import CalloutGrid from '../components/blocks/CalloutGrid';
-import Hero from '../components/blocks/Hero';
-import PlainContent from '../components/blocks/PlainContent';
-import TabsC from '../components/blocks/TabsC';
-import TabsB from '../components/blocks/TabsB';
-import TabsA from '../components/blocks/TabsA';
-import MktoForm from '../components/blocks/MktoForm';
-import IconTextA from '../components/blocks/IconTextA';
-import IconTextB from '../components/blocks/IconTextB';
-import IconTextC from '../components/blocks/IconTextC';
-import LogosUniversal from '../components/blocks/LogosUniversal';
-import QuoteSlider from '../components/blocks/QuoteSlider';
-import ContainedContent from '../components/blocks/ContainedContent';
-import ContentCTA from '../components/blocks/ContentCTA';
-import SideBySide from '../components/blocks/SideBySide';
-import IconTextD from '../components/blocks/IconTextD';
-import ScrollHorizontalText from '../components/blocks/ScrollHorizontalText';
-import Faq from '../components/blocks/Faq';
-import CardGridB from '../components/blocks/CardGridB';
-import ProgramCard from '../components/blocks/ProgramCard';
-import TeamCards from '../components/blocks/TeamCards';
-import HorizontalText from '../components/blocks/HorizontalText';
-import ExecutiveCard from '../components/blocks/ExecutiveCard';
-import BoardCards from '../components/blocks/BoardCards';
-import ScrollContent from '../components/blocks/ScrollContent';
-import HeroLottie from '../components/blocks/HeroLottie';
-import QuickLinks from '../components/blocks/QuickLinks';
-import LRForm from '../components/blocks/LRForm';
-import FeaturedSlider from '../components/blocks/FeaturedSlider';
-import PolicyContent from '../components/blocks/PolicyContent';
-import CareerStickyCta from '../components/blocks/CareerStickyCta';
-import NotFoundPage from './404';
+import Layout from '../../components/Layout';
+import Seo from '../../components/Seo';
+import LeftRight from '../../components/blocks/LeftRight';
+import StatsGrid from '../../components/blocks/StatsGrid';
+import CardGrid from '../../components/blocks/CardGrid';
+import CalloutGrid from '../../components/blocks/CalloutGrid';
+import Hero from '../../components/blocks/Hero';
+import PlainContent from '../../components/blocks/PlainContent';
+import TabsC from '../../components/blocks/TabsC';
+import TabsB from '../../components/blocks/TabsB';
+import TabsA from '../../components/blocks/TabsA';
+import MktoForm from '../../components/blocks/MktoForm';
+import IconTextA from '../../components/blocks/IconTextA';
+import IconTextB from '../../components/blocks/IconTextB';
+import IconTextC from '../../components/blocks/IconTextC';
+import LogosUniversal from '../../components/blocks/LogosUniversal';
+import QuoteSlider from '../../components/blocks/QuoteSlider';
+import ContainedContent from '../../components/blocks/ContainedContent';
+import ContentCTA from '../../components/blocks/ContentCTA';
+import SideBySide from '../../components/blocks/SideBySide';
+import IconTextD from '../../components/blocks/IconTextD';
+import ScrollHorizontalText from '../../components/blocks/ScrollHorizontalText';
+import Faq from '../../components/blocks/Faq';
+import CardGridB from '../../components/blocks/CardGridB';
+import ProgramCard from '../../components/blocks/ProgramCard';
+import TeamCards from '../../components/blocks/TeamCards';
+import HorizontalText from '../../components/blocks/HorizontalText';
+import ExecutiveCard from '../../components/blocks/ExecutiveCard';
+import BoardCards from '../../components/blocks/BoardCards';
+import ScrollContent from '../../components/blocks/ScrollContent';
+import HeroLottie from '../../components/blocks/HeroLottie';
+import QuickLinks from '../../components/blocks/QuickLinks';
+import LRForm from '../../components/blocks/LRForm';
+import FeaturedSlider from '../../components/blocks/FeaturedSlider';
+import PolicyContent from '../../components/blocks/PolicyContent';
+import CareerStickyCta from '../../components/blocks/CareerStickyCta';
+import NotFoundPage from '../404';
 
 const IndexPage = () => {
     if (
@@ -77,6 +77,71 @@ const IndexPage = () => {
                 formId="2581"
                 thankyou="Thank you! One of our experts will contact you shortly"
                 resourceasset="testassetname"
+            />
+
+            <CalloutGrid
+                items={[
+                    {
+                        imgSrc: 'https://picsum.photos/224/30?random=3',
+                        category: 'Alt text',
+                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                        author: 'the author',
+                    },
+                    {
+                        imgSrc: 'https://picsum.photos/224/30?random=3',
+                        category: 'Alt text',
+                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                        author: 'the author',
+                    },
+                    {
+                        imgSrc: 'https://picsum.photos/224/30?random=3',
+                        category: 'Alt text',
+                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                        author: 'the author',
+                    },
+                    {
+                        imgSrc: 'https://picsum.photos/224/30?random=3',
+                        category: 'Alt text',
+                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                        author: 'the author',
+                    },
+                    {
+                        imgSrc: 'https://picsum.photos/224/30?random=3',
+                        category: 'Alt text',
+                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                        author: 'the author',
+                    },
+                    {
+                        imgSrc: 'https://picsum.photos/224/30?random=3',
+                        category: 'Alt text',
+                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                        author: 'the author',
+                    },
+                    {
+                        imgSrc: 'https://picsum.photos/224/30?random=3',
+                        category: 'Alt text',
+                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                        author: 'the author',
+                    },
+                    {
+                        imgSrc: 'https://picsum.photos/224/30?random=3',
+                        category: 'Alt text',
+                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                        author: 'the author',
+                    },
+                    {
+                        imgSrc: 'https://picsum.photos/224/30?random=3',
+                        category: 'Alt text',
+                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                        author: 'the author',
+                    },
+                    {
+                        imgSrc: 'https://picsum.photos/224/30?random=3',
+                        category: 'Alt text',
+                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor',
+                        author: 'the author',
+                    },
+                ]}
             />
 
             <CareerStickyCta runFilters="true" />
