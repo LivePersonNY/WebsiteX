@@ -318,6 +318,9 @@ img[src*='doubleclick'] {
             -webkit-text-fill-color: initial;
             -webkit-background-clip: initial;
         }
+        p .link:after {
+            background-position: -360px 5px;
+        }
     }
     h6 {
         margin-bottom: 8px;
