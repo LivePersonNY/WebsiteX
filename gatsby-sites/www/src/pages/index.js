@@ -9,7 +9,7 @@ import Parser from 'html-react-parser';
 // Bootstrap carousel, separate images, opposite directions
 
 const htmlHack1 = `
-<div class="pane hero bg-neutral-96 styles-2023 ">
+<div class="pane hero bg-primary-dark styles-2023 ">
                 <div class="container" >
                     <div class="row text-center">
                         <div class="col-lg-8 offset-lg-2">
@@ -24,7 +24,7 @@ const htmlHack1 = `
                     </div>
                     <div class="row align-items-center justify-content-center">
                       <div class="col-lg-12" style="margin-top:48px;">
-                        <div class="vimeoContainer"><iframe src="https://player.vimeo.com/video/819205374?h=5e1c30c30b&badge=0&autopause=0&player_id=0&app_id=58479%22%20frameborder=%220%22%20allow=%22autoplay;%20fullscreen;%20picture-in-picture%22%20allowfullscreen%20style=%22position:absolute;top:0;left:0;width:100%;height:100%" class="vimeoFrame"></iframe></div>
+                        <div class="vimeoContainer"><iframe src="https://player.vimeo.com/video/822008356?h=aa77eb249c&title=0&byline=0&portrait=0" class="vimeoFrame"></iframe></div>
 
                       </div>
                     </div>

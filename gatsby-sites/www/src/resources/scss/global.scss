@@ -308,6 +308,17 @@ img[src*='doubleclick'] {
 }
 
 .hero {
+    &.bg-neutral-12,
+    &.bg-primary-dark {
+        * {
+            color: $neutral99 !important;
+        }
+        h1 {
+            background: 0;
+            -webkit-text-fill-color: initial;
+            -webkit-background-clip: initial;
+        }
+    }
     h6 {
         margin-bottom: 8px;
     }
