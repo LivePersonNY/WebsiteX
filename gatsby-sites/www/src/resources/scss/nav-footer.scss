@@ -636,7 +636,7 @@ footer {
 }
 
 .news-ticker-container {
-    display: none;
+    display: none !important; // Is there a better way to do this?
     position: relative;
     background: $borderGradient;
     text-align: center;
