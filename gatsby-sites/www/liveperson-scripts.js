@@ -452,7 +452,7 @@ window.documentReadyFn = function () {
             lnk.href = href;
         });
 
-        let searchURL = 'http://careers.liveperson.com?source=campaignA'
+        let searchURL = 'https://careers.liveperson.com?source=campaignA'
             .concat('&gh_src=')
             .concat(ghsrc ?? '');
         let keyWordQuery = document.getElementById('Job_Search').value;
@@ -469,9 +469,10 @@ window.documentReadyFn = function () {
             e.stopPropagation();
 
             if (e.keyCode === 13) {
-                let searchURL = 'http://careers.liveperson.com?source=campaignA'
-                    .concat('&gh_src=')
-                    .concat(ghsrc ?? '');
+                let searchURL =
+                    'https://careers.liveperson.com?source=campaignA'
+                        .concat('&gh_src=')
+                        .concat(ghsrc ?? '');
                 let keyWordQuery = document.getElementById('Job_Search').value;
                 if (keyWordQuery !== '') {
                     sendGA();
