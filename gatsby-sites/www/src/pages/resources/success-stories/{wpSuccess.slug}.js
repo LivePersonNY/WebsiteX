@@ -20,7 +20,10 @@ const SuccessStory = ({ data: { post } }) => {
     let canRoot = process.env.CAN_ROOT;
     let canonical = post.seo.canonical || post.link;
     if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
-    canonical.replace('/blog/success/', '/resources/success-stories/');
+    canonical = canonical.replace(
+        '/blog/success/',
+        '/resources/success-stories/'
+    );
 
     let meta = [
         {
