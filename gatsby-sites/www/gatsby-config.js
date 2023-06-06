@@ -14,9 +14,7 @@ module.exports = {
             resolve: `gatsby-plugin-gatsby-cloud`,
             options: {
                 generateMatchPathRewrites: false,
-                allPageHeaders: [
-                    'Strict-Transport-Security: max-age=31536000; includeSubDomains',
-                ],
+                allPageHeaders: ['Strict-Transport-Security: max-age=31536000'],
                 headers: {
                     '/*': [
                         // "Cache-Control: public, max-age=31536000, immutable",

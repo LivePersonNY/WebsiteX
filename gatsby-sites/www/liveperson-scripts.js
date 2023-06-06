@@ -548,26 +548,14 @@ window.documentReadyFn = function () {
         console.log('Scripts: End Careers Script');
     }
 
-    // let calloutGridViewMore = document.querySelector(
-    //     '.comp-callout-grid-container .view-more-btn'
-    // );
-    // if (calloutGridViewMore) {
-    //     calloutGridViewMore.addEventListener('click', (el) => {
-    //         el.preventDefault();
-    //         document
-    //             .querySelector('.comp-callout-grid-container .view-more-btn')
-    //             .classList.add('display-none');
-    //         let gridCards = document.querySelectorAll(
-    //             '.comp-callout-grid-container .col-lg-4'
-    //         );
-    //         gridCards.forEach((el) => {
-    //             el.classList.remove('display-none');
-    //         });
-    //     });
-    // }
     $('.comp-callout-grid-container .view-more-btn').on('click', function (el) {
         el.preventDefault();
-        $(this).parent().siblings().slideDown();
-        $(this).hide();
+        if ($(this).hasClass('collapse-btn')) {
+            $(this).parent().siblings('.display-none').slideUp();
+            $(this).text('View more').removeClass('collapse-btn');
+        } else {
+            $(this).parent().siblings().slideDown();
+            $(this).text('Collapse').addClass('collapse-btn');
+        }
     });
 };
