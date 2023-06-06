@@ -17,6 +17,7 @@
 	"attributes": {
 		"header": {"default": "Related Insights"},
 		"autoApproveLang": {"default":false, "type": "boolean"},
+		"anchor": {},
 		"backgroundColor": {"default": "bg-transparent" },
 		"linkText": {},
 		"linkUrl": {},

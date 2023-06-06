@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,8 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
-import CalloutGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/CalloutGrid';
+import { useBlockProps } from "@wordpress/block-editor";
+import CalloutGrid from "../../../../../../../../gatsby-sites/www/src/components/blocks/CalloutGrid";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -26,6 +26,7 @@ import CalloutGrid from '../../../../../../../../gatsby-sites/www/src/components
 export default function save({ attributes }) {
 	return (
 		<CalloutGrid
+			anchor={attributes.anchor}
 			header={attributes.header}
 			items={attributes.cards}
 			body={attributes.content}
@@ -34,5 +35,5 @@ export default function save({ attributes }) {
 			backgroundColor={attributes.backgroundColor}
 			autoApprove={attributes.autoApproveLang}
 		/>
-	)
+	);
 }
