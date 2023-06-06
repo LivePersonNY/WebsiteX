@@ -3,14 +3,25 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, ToolbarGroup, ToolbarDropdownMenu, ToolbarButton, Dashicon, Button } from '@wordpress/components';
-import CalloutGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/CalloutGrid';
-import BackgroundSelectorMenu from '../../BackgroundSelector';
-import ItemControls from '../../ItemControls';
-import LinkControl from '../../LinkControl';
-import AutoApproveLanguage from '../../AutoApproveLanguage';
-import Reorder from 'react-reorder';
+import { __ } from "@wordpress/i18n";
+import {
+	__experimentalGrid as Grid,
+	Placeholder,
+	TextControl,
+	TextareaControl,
+	ToolbarGroup,
+	ToolbarDropdownMenu,
+	ToolbarButton,
+	Dashicon,
+	Button,
+} from "@wordpress/components";
+import CalloutGrid from "../../../../../../../../gatsby-sites/www/src/components/blocks/CalloutGrid";
+import BackgroundSelectorMenu from "../../BackgroundSelector";
+import ItemControls from "../../ItemControls";
+import Anchor from "../../Anchor";
+import LinkControl from "../../LinkControl";
+import AutoApproveLanguage from "../../AutoApproveLanguage";
+import Reorder from "react-reorder";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -18,9 +29,13 @@ import Reorder from 'react-reorder';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { useInstanceId } from '@wordpress/compose';
-
+import {
+	useBlockProps,
+	BlockControls,
+	MediaUpload,
+	MediaUploadCheck,
+} from "@wordpress/block-editor";
+import { useInstanceId } from "@wordpress/compose";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -28,7 +43,7 @@ import { useInstanceId } from '@wordpress/compose';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -38,12 +53,16 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, className, setAttributes, isSelected }) {
-
+export default function Edit({
+	attributes,
+	className,
+	setAttributes,
+	isSelected,
+}) {
 	let headerControl = (
 		<TextControl
-			value={ attributes.header }
-			onChange={ ( val ) => setAttributes( { header: val } ) }
+			value={attributes.header}
+			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
 			placeholder="Section Header"
 		/>
@@ -51,29 +70,37 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 
 	let contentControl = (
 		<TextareaControl
-			value={ attributes.content }
-			onChange={ ( val ) => setAttributes( { content: val } ) }
+			value={attributes.content}
+			onChange={(val) => setAttributes({ content: val })}
 			className="embedded-input"
 			rows="1"
 		/>
 	);
 
 	let cards = [...attributes.cards];
-	let controls = attributes.cards.map((item ,index)=>{
+	let controls = attributes.cards.map((item, index) => {
 		return {
 			imgCtl: (
 				<MediaUploadCheck>
 					<MediaUpload
-						onSelect={function(media) {
+						onSelect={function (media) {
 							cards[index].imgSrc = media.url;
 							cards[index].mediaId = media.id;
-							cards[index].imgAlt = media.alt || '';
-							setAttributes({ cards: cards});
+							cards[index].imgAlt = media.alt || "";
+							setAttributes({ cards: cards });
 						}}
 						value={cards[index].mediaId}
-						allowedTypes={ ['image'] }
-						render={({open}) => (
-							<img src={cards[index].imgSrc || `https://picsum.photos/752/568?random=${index}`} data-tab-content={index} key={index} onClick={open} />
+						allowedTypes={["image"]}
+						render={({ open }) => (
+							<img
+								src={
+									cards[index].imgSrc ||
+									`https://picsum.photos/752/568?random=${index}`
+								}
+								data-tab-content={index}
+								key={index}
+								onClick={open}
+							/>
 						)}
 					/>
 				</MediaUploadCheck>
@@ -82,9 +109,9 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				<div className="wp-control-wrapper">
 					<TextareaControl
 						value={cards[index].body}
-						onChange={function(value) {
+						onChange={function (value) {
 							cards[index].body = value;
-							setAttributes({ cards: cards});
+							setAttributes({ cards: cards });
 						}}
 						className="embedded-input"
 						rows="1"
@@ -92,17 +119,17 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 					<LinkControl
 						url={cards[index].linkUrl}
 						external={cards[index].linkExternal || false}
-						callback={function(text,url,external) {
+						callback={function (text, url, external) {
 							cards[index].linkUrl = url;
 							cards[index].linkExternal = external;
-							setAttributes({ cards: cards});
+							setAttributes({ cards: cards });
 						}}
 					/>
 					<ItemControls
 						index={index}
 						itemArray={cards}
-						callback={function(items) {
-							setAttributes({ cards: items});
+						callback={function (items) {
+							setAttributes({ cards: items });
 						}}
 					/>
 				</div>
@@ -110,9 +137,9 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			category: (
 				<TextControl
 					value={cards[index].category}
-					onChange={function(value) {
+					onChange={function (value) {
 						cards[index].category = value;
-						setAttributes({ cards: cards});
+						setAttributes({ cards: cards });
 					}}
 					placeholder="Category"
 				/>
@@ -120,86 +147,95 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 			author: (
 				<TextControl
 					value={cards[index].author}
-					onChange={function(value) {
+					onChange={function (value) {
 						cards[index].author = value;
-						setAttributes({ cards: cards});
+						setAttributes({ cards: cards });
 					}}
 					placeholder="Category"
 				/>
-			)
-		}
+			),
+		};
 	});
 
 	let linkTextControl = (
 		<div className="wp-control-wrapper">
 			<TextControl
-				value={ attributes.linkText }
-				onChange={ ( val ) => setAttributes( { linkText: val } ) }
+				value={attributes.linkText}
+				onChange={(val) => setAttributes({ linkText: val })}
 				className="embedded-input"
 				placeholder="Show All"
 			/>
 
 			<TextControl
-				value={ attributes.linkUrl }
-				onChange={ ( val ) => setAttributes( { linkUrl: val } ) }
+				value={attributes.linkUrl}
+				onChange={(val) => setAttributes({ linkUrl: val })}
 				placeholder="URL"
 			/>
 		</div>
 	);
 
-	let addTabFunc = function() {
-
+	let addTabFunc = function () {
 		cards.push({
-			"imgSrc": "https://picsum.photos/224/30?random=3",
-			"category": "Being Green",
-			"author": "Kermit D. Frog",
-			"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
-			"linkText": "More about Lorem",
-			"linkUrl": "#"
+			imgSrc: "https://picsum.photos/224/30?random=3",
+			category: "Being Green",
+			author: "Kermit D. Frog",
+			body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor",
+			linkText: "More about Lorem",
+			linkUrl: "#",
 		});
 		setAttributes({
-			cards: cards
+			cards: cards,
 		});
-	}
+	};
 
-	let changeBackground = function(color) {
+	let changeBackground = function (color) {
 		setAttributes({ backgroundColor: color });
-	}
+	};
 
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
-				<ToolbarButton
-					icon="plus-alt2"
-					label="Add Card"
-					onClick={ addTabFunc }
+				<ToolbarButton icon="plus-alt2" label="Add Card" onClick={addTabFunc} />
+				<BackgroundSelectorMenu
+					callback={changeBackground}
+					selected={attributes.backgroundColor}
 				/>
-				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
-				<AutoApproveLanguage callback={function() {
-					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
-				}} selected={attributes.autoApproveLang}/>
+				<AutoApproveLanguage
+					callback={function () {
+						setAttributes({ autoApproveLang: !attributes.autoApproveLang });
+					}}
+					selected={attributes.autoApproveLang}
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
 
-
-	if (isSelected) return (
-		<div { ...useBlockProps() }>
-			{addButton}
-			<CalloutGrid
-				header={headerControl}
-				body={contentControl}
-				items={controls}
-				linkText={linkTextControl}
-				backgroundColor={attributes.backgroundColor}
-				autoApprove={attributes.autoApproveLang}
-			/>
-		</div>
-	);
+	if (isSelected)
+		return (
+			<div {...useBlockProps()}>
+				{addButton}
+				<Anchor
+					value={attributes.anchor}
+					callback={function (val) {
+						setAttributes({ anchor: val });
+					}}
+				/>
+				<CalloutGrid
+					anchor={attributes.anchor}
+					header={headerControl}
+					body={contentControl}
+					items={controls}
+					linkText={linkTextControl}
+					backgroundColor={attributes.backgroundColor}
+					autoApprove={attributes.autoApproveLang}
+				/>
+			</div>
+		);
 
 	return (
-		<div { ...useBlockProps() }>
+		<div {...useBlockProps()}>
 			<CalloutGrid
+				anchor={attributes.anchor}
 				header={attributes.header}
 				items={attributes.cards}
 				body={attributes.content}
@@ -209,5 +245,5 @@ export default function Edit({ attributes, className, setAttributes, isSelected 
 				autoApprove={attributes.autoApproveLang}
 			/>
 		</div>
-	)
+	);
 }
