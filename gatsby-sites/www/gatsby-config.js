@@ -119,6 +119,7 @@ module.exports = {
                     /\/one\//,
                     /\/partners\/portals\//,
                     /\/partners\/services\/foundations-cso\//,
+                    '/policies/**', // Exclude all pages starting with '/policies/'
                     /\/resources\/reports\/ai-search-product-guide\//,
                     /\/resources\/reports\/apac-cio-outlook\//,
                     /\/resources\/reports\/conversational-banking-video-on-demand\//,
