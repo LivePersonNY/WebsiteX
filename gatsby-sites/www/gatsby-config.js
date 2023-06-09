@@ -138,6 +138,7 @@ module.exports = {
                     '/resources/webinars/voicebase-early-adopter-enablement/',
                     '/resources/webinars/voicebase-early-adopter-enablement-apac/',
                     '/roadster-partnership-migration/',
+                    '/roi-cms/**',
                     '/services/cso-terms-and-conditions/',
                 ],
             },
