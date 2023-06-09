@@ -104,7 +104,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-sitemap`,
             options: {
-                exclude: [
+                excludes: [
                     /\/ai\//,
                     /\/apac\/auto\//,
                     /\/autofi-partnership-migration\//,
