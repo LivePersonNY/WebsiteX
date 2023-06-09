@@ -53,7 +53,7 @@ const htmlHack1 = `
     </div>
     <div class="row">
       <div class="col-lg-10 offset-lg-1 text-center">
-        <a class="link" href="/resources/success-stories/">Read their stories</a>
+        <a class="link" href="/resources/customers/">Read their stories</a>
       </div>
     </div>
   </div>
