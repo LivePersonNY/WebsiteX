@@ -140,6 +140,8 @@ module.exports = {
                     '/roadster-partnership-migration/',
                     '/roi-cms/**',
                     '/services/cso-terms-and-conditions/',
+                    '/staged/**',
+                    '/testing/**',
                 ],
             },
         },
