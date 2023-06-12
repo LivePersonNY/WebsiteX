@@ -19,7 +19,7 @@ export default function Post({ post, kicker, root, classes, isFeatured }) {
                 featured ? `col-lg-12 featured` : `col-xl-6`
             } mb-5 ${classes}`}
         >
-            <a href={slugRoot + post.slug} className="post-link">
+            <a href={slugRoot + post.slug + '/'} className="post-link">
                 <article
                     className="post-list-item card card-resource h-100"
                     itemScope
