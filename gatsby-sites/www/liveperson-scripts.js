@@ -250,16 +250,6 @@ window.documentReadyFn = function () {
                 .addClass('accordion-item-active');
         });
 
-    //hotjar
-    window.hj =
-        window.hj ||
-        function () {
-            (hj.q = hj.q || []).push(arguments);
-        };
-    $('.nav-menu + a').click(function () {
-        hj('tagRecording', ['Sign in button clicked']);
-    });
-
     //widowFix
     !(function (t) {
         $.fn.widowFix = function (i) {

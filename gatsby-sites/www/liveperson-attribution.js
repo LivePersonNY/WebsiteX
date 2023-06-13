@@ -434,9 +434,6 @@ const LivePerson = {
         var emailField = form.getFormElem().find('#Email').first();
         var emailVal = emailField.val();
 
-        //Hotjar recording tag
-        LivePerson.HotJar('Form fill - Attempt');
-
         if (!LivePerson.EmailGood(emailVal)) {
             console.log('Email Invalid ' + emailVal, form.vals());
             form.submittable(false);
@@ -499,15 +496,6 @@ const LivePerson = {
         });
 
         return valid;
-    },
-
-    HotJar: function (tag) {
-        window.hj =
-            window.hj ||
-            function () {
-                (hj.q = hj.q || []).push(arguments);
-            };
-        hj('tagRecording', [tag]);
     },
 };
 
