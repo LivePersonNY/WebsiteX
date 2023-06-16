@@ -38,7 +38,7 @@ const htmlHack1 = `
   <div class="container" >
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
-        <h2 class="text-center">Trusted by <s>thousands</s> of the world's biggest brands</h2>
+        <h2 class="text-center">Trusted by <mark class="has-inline-color has-vivid-purple-color">thousands</mark> of the world's biggest brands</h2>
       </div>
     </div>
     <div class="row">
@@ -161,7 +161,7 @@ const htmlHack1 = `
     <div class="row align-items-center justify-content-center">
       <div class="col-lg-12">
         <p class="h6">LIVEPERSON CONVERSATIONAL CLOUD®</p>
-        <h2>Explore our award-winning<br /><s>Conversational AI</s> platform</h2>
+        <h2>Explore our award-winning<br /><mark class="has-inline-color has-vivid-purple-color">Conversational AI</mark> platform</h2>
       </div>
     </div>
   </div>
@@ -294,7 +294,7 @@ const htmlHack2 = `
   <div class="container" style="opacity: 0;">
     <div class="row">
       <div class="col-lg-10">
-        <h2 class="">See success stories from leaders <s>like&nbsp;you</s>
+        <h2 class="">See success stories from leaders <mark class="has-inline-color has-vivid-purple-color">like&nbsp;you</mark>
         </h2>
       </div>
     </div>
