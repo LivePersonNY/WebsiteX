@@ -93,7 +93,6 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				"core/italic",
 				"core/link",
 				"core/image",
-				"lp-guti-blocks/heading",
 				"core/text-color",
 			]}
 		/>
@@ -110,7 +109,6 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				"core/italic",
 				"core/link",
 				"core/image",
-				"lp-guti-blocks/heading",
 				"core/text-color",
 				"core/strikethrough",
 			]}
@@ -157,6 +155,14 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 		/>
 	);
 
+	let changeHeadLevel = function () {
+		if (attributes.headLevel == "h2") {
+			setAttributes({ headLevel: "h1" });
+		} else {
+			setAttributes({ headLevel: "h2" });
+		}
+	};
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
@@ -186,6 +192,11 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 							.next()
 							.toggleClass("thank-you-message");
 					}}
+				/>
+				<ToolbarButton
+					icon="heading"
+					label="Head Level H1/H2"
+					onClick={changeHeadLevel}
 				/>
 				<AutoApproveLanguage
 					callback={function () {
@@ -251,14 +262,6 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 			</InspectorControls>
 		</Fragment>
 	);
-
-	let changeHeadLevel = function () {
-		if (attributes.headLevel == "h2") {
-			setAttributes({ headLevel: "h1" });
-		} else {
-			setAttributes({ headLevel: "h2" });
-		}
-	};
 
 	if (isSelected) {
 		return (
