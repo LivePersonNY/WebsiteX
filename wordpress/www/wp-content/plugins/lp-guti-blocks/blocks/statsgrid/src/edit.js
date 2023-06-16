@@ -59,7 +59,12 @@ export default function Edit({
 			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
 			placeholder="Section Header"
-			allowedFormats={["core/bold", "core/italic", "core/strikethrough"]}
+			allowedFormats={[
+				"core/bold",
+				"core/italic",
+				"core/strikethrough",
+				"core/text-color",
+			]}
 		/>
 	);
 
@@ -69,7 +74,13 @@ export default function Edit({
 			value={attributes.content}
 			onChange={(val) => setAttributes({ content: val })}
 			className="embedded-input"
-			allowedFormats={["core/bold", "core/italic", "core/link", "core/list"]}
+			allowedFormats={[
+				"core/bold",
+				"core/italic",
+				"core/link",
+				"core/list",
+				"core/text-color",
+			]}
 		/>
 	);
 
