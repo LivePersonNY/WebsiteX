@@ -141,19 +141,18 @@ const NavPanel = ({
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2023/05/09093551/LivePerson_Cohere_Webinar_featuredasset.jpg"
+                                            src="https://static.liveperson.com/static-assets/2023/06/16132022/featured-resource-voiceai_webinar.png"
                                             alt="Webinar"
                                         />
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">Webinar</p>
                                             <p className="featured-body">
-                                                Drive better business outcomes
-                                                with a custom large language
-                                                model
+                                                Voice AI: It's time to hang up
+                                                on IVRs
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/custom-large-language-models/"
+                                                href="/resources/webinars/future-of-voice-ai-technology/"
                                                 rel="noopener noreferrer"
                                             >
                                                 Register now
