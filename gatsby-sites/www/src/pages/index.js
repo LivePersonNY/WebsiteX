@@ -69,7 +69,7 @@ const htmlHack1 = `
     </div>
     <div class="row">
 		<div class="col-lg-6 ">
-			<img src="https://static.liveperson.com/static-assets/2023/02/14143029/Homepage_Purpose.4_Responsible_JV_0213%402x-1.png" alt="Human + virtual assistant hands, illustrating how we work to reduce bias in artificial intelligence technology via machine-learning, natural language processing, etc.">
+			<img src="https://static.liveperson.com/static-assets/2023/02/14143029/Homepage_Purpose.4_Responsible_JV_0213%402x-1.png" alt="Human + virtual assistant hands, illustrating how we work to reduce bias in artificial intelligence technology via machine-learning, natural language processing, etc." width="1280" height="857" loading="lazy">
 			<h3>Responsible AI from day one</h3>
 			<p>Reduce risk of bias by partnering with the founders of EqualAI, spearheading standards and certifications for responsible AI since 2018.</p>
 		</div>
