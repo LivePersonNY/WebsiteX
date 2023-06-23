@@ -387,6 +387,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				animatedText={attributes.animatedText}
 				assetTopSrc={attributes.assetTopSrc}
 				assetTopAlt={attributes.assetTopAlt}
+				assetTopWidth={attributes.assetTopWidth}
+				assetTopHeight={attributes.assetTopHeight}
 				assetBottomSrc={attributes.assetBottomSrc}
 				assetBottomAlt={attributes.assetBottomAlt}
 				vimeoUrl={attributes.vimeoUrl}
