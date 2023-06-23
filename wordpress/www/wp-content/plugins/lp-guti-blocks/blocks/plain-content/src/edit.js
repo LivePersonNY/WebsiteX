@@ -231,6 +231,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 						assetTopSrc: media.url,
 						assetTopId: media.id,
 						assetTopAlt: media.alt || "",
+						assetTopWidth: media.width,
+						assetTopHeight: media.height,
 					});
 				}}
 				value={attributes.assetTopId}

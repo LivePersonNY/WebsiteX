@@ -57,6 +57,8 @@ const PlainContent = function (props) {
                             <img
                                 src={props.assetTopSrc}
                                 alt={props.assetTopAlt}
+                                width={props.assetTopWidth}
+                                height={props.assetTopHeight}
                             />
                         )) ||
                             props.assetTopCtl}
