@@ -43,12 +43,12 @@ const htmlHack1 = `
     </div>
     <div class="row">
       <div class="col-lg-12 d-flex justify-content-evenly flex-wrap">
-        <img class="" src="https://static.liveperson.com/static-assets/2023/01/19112733/Homepage_Logo-Bar_Burberry_JV_0117.svg" alt="">
-        <img class="" src="https://static.liveperson.com/static-assets/2023/01/19112734/Homepage_Logo-Bar_Virgin-Media-O2_JV_0117.svg" alt="">
-        <img class="" src="https://static.liveperson.com/static-assets/2023/01/17144626/NatWest_JV_0117.svg" alt="">
-        <img class="" src="https://static.liveperson.com/static-assets/2023/01/05151516/The-RealReal_40px.png" alt="">
-        <img class="" src="https://static.liveperson.com/static-assets/2022/12/13163535/GM-Financial_40px.png" alt="">
-        <img class="" src="https://static.liveperson.com/static-assets/2022/02/11145100/ConSensys.svg" alt="">
+        <img class="" src="https://static.liveperson.com/static-assets/2023/01/19112733/Homepage_Logo-Bar_Burberry_JV_0117.svg" alt="Burberry Logo"  width="141" height="19" loading="lazy">
+        <img class="" src="https://static.liveperson.com/static-assets/2023/01/19112734/Homepage_Logo-Bar_Virgin-Media-O2_JV_0117.svg" alt="Virgin Media Logo" width="91" height="48" loading="lazy">
+        <img class="" src="https://static.liveperson.com/static-assets/2023/01/17144626/NatWest_JV_0117.svg" alt="NatWest Group Logo" width="169" height="28" loading="lazy">
+        <img class="" src="https://static.liveperson.com/static-assets/2023/01/05151516/The-RealReal_40px.png" alt="The Real Real Logo" width="175" height="40" loading="lazy">
+        <img class="" src="https://static.liveperson.com/static-assets/2022/12/13163535/GM-Financial_40px.png" alt="GM Financial Logo" width="154" height="40" loading="lazy">
+        <img class="" src="https://static.liveperson.com/static-assets/2022/02/11145100/ConSensys.svg" alt="Consensys Logo" width="125" height="28" loading="lazy">
       </div>
     </div>
     <div class="row">
@@ -69,24 +69,24 @@ const htmlHack1 = `
     </div>
     <div class="row">
 		<div class="col-lg-6 ">
-			<img src="https://static.liveperson.com/static-assets/2023/02/14143029/Homepage_Purpose.4_Responsible_JV_0213%402x-1.png" alt="Human + virtual assistant hands, illustrating how we work to reduce bias in artificial intelligence technology via machine-learning, natural language processing, etc." width="1280" height="857" loading="lazy">
+			<img src="https://static.liveperson.com/static-assets/2023/02/14143029/Homepage_Purpose.4_Responsible_JV_0213%402x-1.png" alt="Human + virtual assistant hands, illustrating how we work to reduce bias in artificial intelligence technology via machine-learning, natural language processing, etc." width="640" height="429" loading="lazy">
 			<h3>Responsible AI from day one</h3>
 			<p>Reduce risk of bias by partnering with the founders of EqualAI, spearheading standards and certifications for responsible AI since 2018.</p>
 		</div>
       <div class="col-lg-6 ">
-        <img src="https://static.liveperson.com/static-assets/2023/02/14143021/Homepage_Purpose.2_Human_JV_0213%402x-1.png" alt="Customer service agents helping improve machine-learning models in our conversational ai technology">
+        <img src="https://static.liveperson.com/static-assets/2023/02/14143021/Homepage_Purpose.2_Human_JV_0213%402x-1.png" alt="Customer service agents helping improve machine-learning models in our conversational ai technology" width="640" height="429" loading="lazy">
         <h3>Human optimization at scale</h3>
         <p>Keep conversations grounded, factual, and relevant to your industry with over 350K skilled humans in the loop, enhancing models continuously.</p>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-6 ">
-        <img src="https://static.liveperson.com/static-assets/2023/02/14143025/Homepage_Purpose.3_Impactful_JV_0213%402x-1.png" alt="Conversational AI platform illustration of conversational intelligence over desktop, voice, and messaging apps">
+        <img src="https://static.liveperson.com/static-assets/2023/02/14143025/Homepage_Purpose.3_Impactful_JV_0213%402x-1.png" alt="Conversational AI platform illustration of conversational intelligence over desktop, voice, and messaging apps" width="640" height="429" loading="lazy">
         <h3>Impactful insights made easy</h3>
         <p>Accelerate better decision making with access to enterprise-level analytics and reporting that surfaces actionable insights automatically.</p>
       </div>
 	  <div class="col-lg-6 ">
-        <img src="https://static.liveperson.com/static-assets/2023/02/14143017/Homepage_Purpose.1_Unrivaled_JV_0213%402x-1.png" alt="Screen illustrating the volume of customer interactions in our conversational ai platforms">
+        <img src="https://static.liveperson.com/static-assets/2023/02/14143017/Homepage_Purpose.1_Unrivaled_JV_0213%402x-1.png" alt="Screen illustrating the volume of customer interactions in our conversational ai platforms" width="640" height="429" loading="lazy">
         <h3>Unrivaled data at your fingertips</h3>
         <p>Augment large language models with the world’s largest enterprise data set for more precise natural language processing, drawn from more than a billion monthly conversational interactions.</p>
       </div>
@@ -171,7 +171,7 @@ const htmlHack1 = `
 	<div class="container" >
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
-				<img src="https://static.liveperson.com/static-assets/2023/04/25160729/Homepage_Pillar.1_KnowledgeAI_JV_0424_2x.png" alt="Knowledge base for our Conversational AI platform loading a PDF for training virtual assistants, using natural language understanding">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25160729/Homepage_Pillar.1_KnowledgeAI_JV_0424_2x.png" alt="Knowledge base for our Conversational AI platform loading a PDF for training virtual assistants, using natural language understanding" width="640" height="481" loading="lazy">
 			</div>
 			<div class="col-lg-6 ">
 				<p class="h6 text-uppercase">KNOWLEDGE AI</p>
@@ -188,7 +188,7 @@ const htmlHack1 = `
 	<div class="container" >
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
-				<img src="https://static.liveperson.com/static-assets/2023/04/25160735/Homepage_Pillar.2_GenerativeAI_JV_0424_2x-1.png" alt="voice assistants listening to human conversation and transcribing it to text, a new conversational ai tool for enterprise conversational ai platforms">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25160735/Homepage_Pillar.2_GenerativeAI_JV_0424_2x-1.png" alt="voice assistants listening to human conversation and transcribing it to text, a new conversational ai tool for enterprise conversational ai platforms" width="640" height="481" loading="lazy">
 			</div>
 			<div class="col-lg-6 ">
 				<p class="h6 text-uppercase">GENERATIVE AI</p>
@@ -206,7 +206,7 @@ const htmlHack1 = `
 	<div class="container" >
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
-				<img src="https://static.liveperson.com/static-assets/2023/04/26230918/Homepage_Pillar.3_BellaAI_JV_0426_2x.png" alt="Bella AI creating new virtual assistants for a business via conversational interfaces">
+				<img src="https://static.liveperson.com/static-assets/2023/04/26230918/Homepage_Pillar.3_BellaAI_JV_0426_2x.png" alt="Bella AI creating new virtual assistants for a business via conversational interfaces" width="640" height="481" loading="lazy">
 			</div>
 			<div class="col-lg-6 ">
 				<p class="h6 text-uppercase">BELLA AI</p>
@@ -224,7 +224,7 @@ const htmlHack1 = `
 	<div class="container" >
 		<div class="row align-items-center">
 			<div class="col-lg-6 ">
-				<img src="https://static.liveperson.com/static-assets/2023/04/25160748/Homepage_Pillar.4_Intelligence-Actions_JV_0424_2x-1.png" alt="Conversational AI platform's intelligence dashboard, providing insights to human agents">
+				<img src="https://static.liveperson.com/static-assets/2023/04/25160748/Homepage_Pillar.4_Intelligence-Actions_JV_0424_2x-1.png" alt="Conversational AI platform's intelligence dashboard, providing insights to human agents" width="640" height="481" loading="lazy">
 			</div>
 			<div class="col-lg-6 ">
 				<p class="h6 text-uppercase">INTELLIGENCE AND ACTIONS</p>
@@ -271,17 +271,17 @@ const htmlHack2 = `
 		</div>
 		<div class="row row-cols-lg-3 row-cols-1 comp-block-grid-container">
 			<div class="col">
-				<img src="https://static.liveperson.com/static-assets/2022/02/02002127/icon-security-scan_circle-white.svg" alt="">
+				<img src="https://static.liveperson.com/static-assets/2022/02/02002127/icon-security-scan_circle-white.svg" alt="" width="56" height="56" loading="lazy">
 				<p class="card1">Customer engagement</p>
 				<p class="subtitle1" data-tag="new line split">Provide care, sales, and marketing teams with critical insights and actions, all in one place.</p>
 			</div>
 			<div class="col">
-				<img src="https://static.liveperson.com/static-assets/2022/02/02001913/icon-multi-language-support_circle-white.svg" alt="">
+				<img src="https://static.liveperson.com/static-assets/2022/02/02001913/icon-multi-language-support_circle-white.svg" alt="" width="56" height="56" loading="lazy">
 				<p class="card1">Employee engagement</p>
 				<p class="subtitle1" data-tag="new line split">Automate employee experiences by ingesting your IT and HR documents, FAQs and standards, with the click of a button.</p>
 			</div>
 			<div class="col">
-				<img src="https://static.liveperson.com/static-assets/2022/02/02001916/icon-messaging-channels_circle-white.svg" alt="">
+				<img src="https://static.liveperson.com/static-assets/2022/02/02001916/icon-messaging-channels_circle-white.svg" alt="" width="56" height="56" loading="lazy">
 				<p class="card1">Brand user insights</p>
 				<p class="subtitle1" data-tag="new line split">Aggregate, measure, and analyze your conversational data for all departments across your business, like legal, engineering, and marketing.</p>
 			</div>
@@ -302,7 +302,7 @@ const htmlHack2 = `
       <div class="col-lg" id="0">
         <div class="card h-100">
           <div class="card-body">
-            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/26161110/Homepage_Testimonial-1_TalkTalk_JV_0426.svg" alt="Bhavesh Panchal, Head of Channels and Digital Adoption">
+            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/26161110/Homepage_Testimonial-1_TalkTalk_JV_0426.svg" alt="Bhavesh Panchal, Head of Channels and Digital Adoption" width="336" height="49" loading="lazy">
             <p class="card-text quote1">“On top of our successes to date with LivePerson’s Conversational AI and platform, LLMs and generative AI hold enormous promise to help us scale seamless and personalized conversations even further.”</p>
           </div>
           <div class="card-footer">
@@ -313,7 +313,7 @@ const htmlHack2 = `
       <div class="col-lg" id="1">
         <div class="card h-100">
           <div class="card-body">
-            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25160754/Homepage_Testimonial-2_CarGurus_JV_0424.svg" alt="Rhett Batchelder, Senior manager, product operations">
+            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25160754/Homepage_Testimonial-2_CarGurus_JV_0424.svg" alt="Rhett Batchelder, Senior manager, product operations" width="336" height="49" loading="lazy">
             <p class="card-text quote1">“LivePerson’s omni-channel communication capabilities drive a better customer experience, while also improving agent efficiency. This, combined with LivePerson’s analytics tools and user-friendly platform, support CarGurus’ mission in providing drivers with a personalized, convenient, and transparent experience.”</p>
           </div>
           <div class="card-footer">
@@ -324,7 +324,7 @@ const htmlHack2 = `
       <div class="col-lg" id="2">
         <div class="card h-100">
           <div class="card-body">
-            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141426/Homepage_Testimonial-3_Chipotle_JV_0119.svg" alt="Nicole West, VP Digital Strategy &amp; Product at Chipotle">
+            <img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/01/19141426/Homepage_Testimonial-3_Chipotle_JV_0119.svg" alt="Nicole West, VP Digital Strategy &amp; Product at Chipotle" width="336" height="33" loading="lazy">
             <p class="card-text quote1">“Everything we have done on this transformation journey has been about delivering exceptional digital experiences to our customers and our crews, to curate convenient, frictionless, engaging experiences aligned with our purpose to Cultivate a Better World.”</p>
           </div>
           <div class="card-footer">
@@ -347,7 +347,7 @@ const htmlHack2 = `
     <div class="row comp-card-grid-container">
       <div class="col-12 col-lg">
         <div class="card card-b h-100">
-          <img class="card-img-top" src="https://static.liveperson.com/static-assets/2023/01/19181605/Homepage_Resource-1_What-is-Convo-AI-Vid_JV_0119.png" alt="Conversational AI platform video thumbnail">
+          <img class="card-img-top" src="https://static.liveperson.com/static-assets/2023/01/19181605/Homepage_Resource-1_What-is-Convo-AI-Vid_JV_0119.png" alt="Conversational AI platform video thumbnail" width="416" height="235" loading="lazy">
           <div class="card-body">
             <p class="card-title card2">Break out the&nbsp;popcorn</p>
             <p class="card-text subtitle1">Cue the movie montage of what’s new in Conversational AI and our customer engagement platform.</p>
@@ -359,7 +359,7 @@ const htmlHack2 = `
       </div>
       <div class="col-12 col-lg">
         <div class="card card-b h-100">
-          <img class="card-img-top" src="https://static.liveperson.com/static-assets/2022/03/04094728/blog-CHintro-hi-res.jpg" alt="Conversational AI platform example of messaging with an AI chatbot">
+          <img class="card-img-top" src="https://static.liveperson.com/static-assets/2022/03/04094728/blog-CHintro-hi-res.jpg" alt="Conversational AI platform example of messaging with an AI chatbot" width="416" height="235" loading="lazy">
           <div class="card-body">
             <p class="card-title card2">Check out more&nbsp;content</p>
             <p class="card-text subtitle1">Take a scroll through our most-read blogs, infographics, and other customer engagement software resources.</p>
@@ -371,7 +371,7 @@ const htmlHack2 = `
       </div>
       <div class="col-12 col-lg">
         <div class="card card-b h-100">
-          <img class="card-img-top" src="https://static.liveperson.com/static-assets/2022/08/12123540/Liveperson_NYC_2022_165-e1674149080777.jpg" alt="LivePerson executive event">
+          <img class="card-img-top" src="https://static.liveperson.com/static-assets/2022/08/12123540/Liveperson_NYC_2022_165-e1674149080777.jpg" alt="LivePerson executive event" width="416" height="235" loading="lazy">
           <div class="card-body">
             <p class="card-title card2">Get on the guest&nbsp;list</p>
             <p class="card-text subtitle1">Score an exclusive invite to one of our one-of-a-kind industry events.</p>
