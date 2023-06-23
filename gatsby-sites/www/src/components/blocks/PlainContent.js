@@ -59,6 +59,7 @@ const PlainContent = function (props) {
                                 alt={props.assetTopAlt}
                                 width={props.assetTopWidth}
                                 height={props.assetTopHeight}
+                                loading="lazy"
                             />
                         )) ||
                             props.assetTopCtl}
