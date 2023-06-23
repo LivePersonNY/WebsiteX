@@ -141,6 +141,9 @@ const PlainContent = function (props) {
                             <img
                                 src={props.assetBottomSrc}
                                 alt={props.assetBottomAlt}
+                                width={props.assetBottomWidth}
+                                height={props.assetBottomHeight}
+                                loading="lazy"
                             />
                         )) ||
                             props.assetBottomCtl}

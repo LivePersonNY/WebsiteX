@@ -281,6 +281,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 						assetBottomSrc: media.url,
 						assetBottomId: media.id,
 						assetBottomAlt: media.alt || "",
+						assetBottomWidth: media.width,
+						assetBottomHeight: media.height,
 					});
 				}}
 				value={attributes.assetBottomId}
@@ -391,6 +393,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				assetTopHeight={attributes.assetTopHeight}
 				assetBottomSrc={attributes.assetBottomSrc}
 				assetBottomAlt={attributes.assetBottomAlt}
+				assetBottomWidth={attributes.assetBottomWidth}
+				assetBottomHeight={attributes.assetBottomHeight}
 				vimeoUrl={attributes.vimeoUrl}
 			/>
 		</div>

@@ -51,6 +51,8 @@ export default function save({ attributes }) {
 			assetTopHeight={attributes.assetTopHeight}
 			assetBottomSrc={attributes.assetBottomSrc}
 			assetBottomAlt={attributes.assetBottomAlt}
+			assetBottomWidth={attributes.assetBottomWidth}
+			assetBottomHeight={attributes.assetBottomHeight}
 			vimeoUrl={attributes.vimeoUrl}
 		/>
 	);
