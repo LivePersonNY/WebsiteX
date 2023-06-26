@@ -18,7 +18,13 @@ const CalloutGrid = (props) => {
                     rel={item.linkExternal && `noopener noreferrer`}
                 >
                     {(!item.imgCtl && (
-                        <img src={item.imgSrc} alt={item.imgAlt} />
+                        <img
+                            src={item.imgSrc}
+                            alt={item.imgAlt}
+                            width={item.imgWidth}
+                            height={item.imgHeight}
+                            loading="lazy"
+                        />
                     )) ||
                         item.imgCtl}
                     <p className="h6 text-uppercase">{item.category}</p>
