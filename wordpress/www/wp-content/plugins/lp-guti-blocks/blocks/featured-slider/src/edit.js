@@ -3,27 +3,41 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import bootstrap from 'bootstrap';
+import { __ } from "@wordpress/i18n";
+import bootstrap from "bootstrap";
 
-import '../../../../../../../../gatsby-sites/www/liveperson-scripts';
+import "../../../../../../../../gatsby-sites/www/liveperson-scripts";
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	BlockControls,
+	RichText,
+} from "@wordpress/block-editor";
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
-import FeaturedSlider from '../../../../../../../../gatsby-sites/www/src/components/blocks/FeaturedSlider';
-import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
+import FeaturedSlider from "../../../../../../../../gatsby-sites/www/src/components/blocks/FeaturedSlider";
+import {
+	__experimentalGrid as Grid,
+	Placeholder,
+	TextControl,
+	TextareaControl,
+	Button,
+	ResponsiveWrapper,
+	ToolbarGroup,
+	ToolbarButton,
+	Dashicon,
+} from "@wordpress/components";
 
-import AddItemButton from '../../AddItemButton';
-import ItemControls from '../../ItemControls';
-import LinkControl from '../../LinkControl';
-import BackgroundSelectorMenu from '../../BackgroundSelector';
-import AutoApproveLanguage from '../../AutoApproveLanguage';
+import AddItemButton from "../../AddItemButton";
+import ItemControls from "../../ItemControls";
+import LinkControl from "../../LinkControl";
+import BackgroundSelectorMenu from "../../BackgroundSelector";
+import AutoApproveLanguage from "../../AutoApproveLanguage";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -31,7 +45,7 @@ import AutoApproveLanguage from '../../AutoApproveLanguage';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -41,26 +55,30 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({attributes, isSelected, setAttributes, onChange}) {
-
+export default function Edit({
+	attributes,
+	isSelected,
+	setAttributes,
+	onChange,
+}) {
 	let headerControl = (
 		<TextControl
-			value={ attributes.header }
-			onChange={ ( val ) => setAttributes( { header: val } ) }
+			value={attributes.header}
+			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
 			placeholder="Section Header"
 		/>
 	);
 
 	let itemValues = [...attributes.features];
-	let itemControls = attributes.features.map((item ,index)=>{
+	let itemControls = attributes.features.map((item, index) => {
 		return {
 			header: (
 				<TextControl
 					value={itemValues[index].header}
-					onChange={function(value) {
+					onChange={function (value) {
 						itemValues[index].header = value;
-						setAttributes({ features: itemValues});
+						setAttributes({ features: itemValues });
 					}}
 					className="embedded-input"
 				/>
@@ -72,11 +90,11 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 						text={itemValues[index].linkText}
 						url={itemValues[index].linkUrl}
 						external={itemValues[index].linkExternal || false}
-						callback={function(text,url,external) {
+						callback={function (text, url, external) {
 							itemValues[index].linkText = text;
 							itemValues[index].linkUrl = url;
 							itemValues[index].linkExternal = external;
-							setAttributes({ features: itemValues});
+							setAttributes({ features: itemValues });
 						}}
 					/>
 					{/* <TextControl
@@ -102,91 +120,125 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 				<>
 					<RichText
 						value={itemValues[index].body}
-						onChange={function(value) {
+						onChange={function (value) {
 							itemValues[index].body = value;
-							setAttributes({ features: itemValues});
+							setAttributes({ features: itemValues });
 						}}
-						allowedFormats={['core/bold', 'core/italic']}
+						allowedFormats={["core/bold", "core/italic"]}
 					/>
-					<ItemControls index={index} itemArray={itemValues} callback={function(items) {
-						setAttributes({ features: items});
-					}}/>
+					<ItemControls
+						index={index}
+						itemArray={itemValues}
+						callback={function (items) {
+							setAttributes({ features: items });
+						}}
+					/>
 				</>
-
 			),
 			imgCtl: (
 				<MediaUploadCheck>
 					<MediaUpload
-						onSelect={function(media) {
+						onSelect={function (media) {
 							itemValues[index].img = media.url;
 							itemValues[index].mediaId = media.id;
-							itemValues[index].imgAlt = media.alt || '';
-							setAttributes({ features: itemValues});
+							itemValues[index].imgAlt = media.alt || "";
+							itemValues[index].imgWidth = media.width;
+							itemValues[index].imgHeight = media.height;
+							setAttributes({ features: itemValues });
 						}}
 						value={itemValues[index].mediaId}
-						allowedTypes={ ['image'] }
-						render={({open}) => (
+						allowedTypes={["image"]}
+						render={({ open }) => (
 							<>
-								{itemValues[index].img && <img className="imageSelector" src={itemValues[index].img} onClick={open} /> ||
-								<Button className="mt-2" variant="link" onClick={open}>Select Image</Button>
-							}
-								<Button className="mt-2" variant="link" isDestructive={true} onClick={() => {
-									itemValues[index].img = null;
-									itemValues[index].mediaId = null;
-									setAttributes({features: itemValues});
-								}}>Remove Image</Button>
+								{(itemValues[index].img && (
+									<img
+										className="imageSelector"
+										src={itemValues[index].img}
+										onClick={open}
+									/>
+								)) || (
+									<Button className="mt-2" variant="link" onClick={open}>
+										Select Image
+									</Button>
+								)}
+								<Button
+									className="mt-2"
+									variant="link"
+									isDestructive={true}
+									onClick={() => {
+										itemValues[index].img = null;
+										itemValues[index].mediaId = null;
+										setAttributes({ features: itemValues });
+									}}
+								>
+									Remove Image
+								</Button>
 							</>
 						)}
 					/>
 				</MediaUploadCheck>
-			)
-		}
+			),
+		};
 	});
 
-	let addTabFunc = function() {
-
+	let addTabFunc = function () {
 		let thisIndex = itemValues.length;
 
 		itemValues.push({
-				"body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-				"linkUrl": "https://www.lipsum.com/",
-				"linkText": "Learn More",
-				"img": "https://picsum.photos/752/568",
-			});
-		setAttributes({
-			features: itemValues
+			body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+			linkUrl: "https://www.lipsum.com/",
+			linkText: "Learn More",
+			img: "https://picsum.photos/752/568",
 		});
-	}
+		setAttributes({
+			features: itemValues,
+		});
+	};
 
-	let changeBackground = function(color) {
+	let changeBackground = function (color) {
 		setAttributes({ backgroundColor: color });
-	}
+	};
 
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
 				<AddItemButton callback={addTabFunc} />
-				<BackgroundSelectorMenu callback={changeBackground} selected={attributes.backgroundColor} />
-				<AutoApproveLanguage callback={function() {
-					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
-				}} selected={attributes.autoApproveLang}/>
+				<BackgroundSelectorMenu
+					callback={changeBackground}
+					selected={attributes.backgroundColor}
+				/>
+				<AutoApproveLanguage
+					callback={function () {
+						setAttributes({ autoApproveLang: !attributes.autoApproveLang });
+					}}
+					selected={attributes.autoApproveLang}
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
 
-	if (isSelected)	return (
-
-		<div {...useBlockProps()}>
-			{addButton}
-			<FeaturedSlider header={headerControl} items={itemControls} runFilters={true} backgroundColor={attributes.backgroundColor} />
-		</div>
-	);
+	if (isSelected)
+		return (
+			<div {...useBlockProps()}>
+				{addButton}
+				<FeaturedSlider
+					header={headerControl}
+					items={itemControls}
+					runFilters={true}
+					backgroundColor={attributes.backgroundColor}
+				/>
+			</div>
+		);
 
 	return (
 		<div {...useBlockProps()}>
 			{addButton}
-			<FeaturedSlider header={attributes.header} items={attributes.features} runFilters={true} backgroundColor={attributes.backgroundColor} />
+			<FeaturedSlider
+				header={attributes.header}
+				items={attributes.features}
+				runFilters={true}
+				backgroundColor={attributes.backgroundColor}
+			/>
 		</div>
-	)
-
+	);
 }
