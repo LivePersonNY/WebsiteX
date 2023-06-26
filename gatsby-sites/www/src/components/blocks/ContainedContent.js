@@ -46,6 +46,9 @@ const ContainedContent = (props) => {
                                         <img
                                             src={props.imgSrc}
                                             alt={props.imgAlt}
+                                            width={props.imgWidth}
+                                            height={props.imgHeight}
+                                            loading="lazy"
                                             className="d-block mx-auto"
                                         />
                                     )) ||

@@ -24,6 +24,8 @@
 		"autoApproveLang": {"default":false, "type": "boolean"},
 		"imgSrc": {},
 		"imgAlt": {},
-		"imgId": {}
+		"imgId": {},
+		"imgWidth":{},
+		"imgHeight":{}
 	}
 }

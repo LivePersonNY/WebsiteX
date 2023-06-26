@@ -128,6 +128,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 						imgSrc: media.url,
 						imgId: media.id,
 						imgAlt: media.alt || "",
+						imgWidth: media.width,
+						imgHeight: media.height,
 					});
 				}}
 				value={attributes.imgId}
@@ -186,6 +188,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				backgroundColor={attributes.backgroundColor}
 				imgSrc={attributes.imgSrc}
 				imgAlt={attributes.imgAlt}
+				imgWidth={attributes.imgWidth}
+				imgHeight={attributes.imgHeight}
 			/>
 		</div>
 	);
