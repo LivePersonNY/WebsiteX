@@ -17,6 +17,9 @@ const CardGrid = (props) => {
                                 className="card-image-internal"
                                 src={item.imgSrc}
                                 alt={item.imgAlt}
+                                width={item.imgWidth}
+                                height={item.imgHeight}
+                                loading="lazy"
                             />
                         )) ||
                             item.imgCtl}

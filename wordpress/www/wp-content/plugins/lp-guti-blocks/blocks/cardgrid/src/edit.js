@@ -112,6 +112,8 @@ export default function Edit({
 							cards[index].imgSrc = media.url;
 							cards[index].mediaId = media.id;
 							cards[index].imgAlt = media.alt || "";
+							cards[index].imgWidth = media.width;
+							cards[index].imgHeight = media.height;
 							setAttributes({ cards: cards });
 						}}
 						value={cards[index].mediaId}
