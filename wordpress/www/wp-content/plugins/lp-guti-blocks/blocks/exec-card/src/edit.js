@@ -3,32 +3,46 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import bootstrap from 'bootstrap';
+import { __ } from "@wordpress/i18n";
+import bootstrap from "bootstrap";
 
-import '../../../../../../../../gatsby-sites/www/liveperson-scripts';
+import "../../../../../../../../gatsby-sites/www/liveperson-scripts";
 /**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, BlockControls, RichText } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	BlockControls,
+	RichText,
+} from "@wordpress/block-editor";
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
-import ExecutiveCard from '../../../../../../../../gatsby-sites/www/src/components/blocks/ExecutiveCard';
-import { __experimentalGrid as Grid,Placeholder, TextControl, TextareaControl, Button, ResponsiveWrapper, ToolbarGroup, ToolbarButton, Dashicon } from '@wordpress/components';
-import AutoApproveLanguage from '../../AutoApproveLanguage';
-import AddItemButton from '../../AddItemButton';
-import ItemControls from '../../ItemControls';
-import BackgroundSelectorMenu from '../../BackgroundSelector';
+import ExecutiveCard from "../../../../../../../../gatsby-sites/www/src/components/blocks/ExecutiveCard";
+import {
+	__experimentalGrid as Grid,
+	Placeholder,
+	TextControl,
+	TextareaControl,
+	Button,
+	ResponsiveWrapper,
+	ToolbarGroup,
+	ToolbarButton,
+	Dashicon,
+} from "@wordpress/components";
+import AutoApproveLanguage from "../../AutoApproveLanguage";
+import AddItemButton from "../../AddItemButton";
+import ItemControls from "../../ItemControls";
+import BackgroundSelectorMenu from "../../BackgroundSelector";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -38,41 +52,49 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({attributes, isSelected, setAttributes, onChange}) {
-
+export default function Edit({
+	attributes,
+	isSelected,
+	setAttributes,
+	onChange,
+}) {
 	let headerControl = (
 		<TextControl
-			value={ attributes.header }
-			onChange={ ( val ) => setAttributes( { header: val } ) }
+			value={attributes.header}
+			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
 			placeholder="Section Header"
 		/>
 	);
 
 	let itemValues = [...attributes.quotes];
-	let itemControls = attributes.quotes.map((item ,index)=>{
+	let itemControls = attributes.quotes.map((item, index) => {
 		return {
 			name: (
 				<>
-				<TextControl
-					value={itemValues[index].name}
-					onChange={function(value) {
-						itemValues[index].name = value;
-						setAttributes({ quotes: itemValues});
-					}}
-					className="embedded-input"
-				/>
-				<ItemControls index={index} itemArray={itemValues} callback={function(items) {
-					setAttributes({ quotes: items});
-				}}/>
+					<TextControl
+						value={itemValues[index].name}
+						onChange={function (value) {
+							itemValues[index].name = value;
+							setAttributes({ quotes: itemValues });
+						}}
+						className="embedded-input"
+					/>
+					<ItemControls
+						index={index}
+						itemArray={itemValues}
+						callback={function (items) {
+							setAttributes({ quotes: items });
+						}}
+					/>
 				</>
 			),
 			title: (
 				<TextControl
 					value={itemValues[index].title}
-					onChange={function(value) {
+					onChange={function (value) {
 						itemValues[index].title = value;
-						setAttributes({ quotes: itemValues});
+						setAttributes({ quotes: itemValues });
 					}}
 					className="embedded-input"
 				/>
@@ -80,11 +102,11 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			bio: (
 				<RichText
 					value={itemValues[index].bio}
-					onChange={function(value) {
+					onChange={function (value) {
 						itemValues[index].bio = value;
-						setAttributes({ quotes: itemValues});
+						setAttributes({ quotes: itemValues });
 					}}
-					allowedFormats={['core/bold', 'core/italic']}
+					allowedFormats={["core/bold", "core/italic"]}
 				/>
 			),
 			btnUrl: null,
@@ -92,18 +114,18 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 				<div className="wp-control-wrapper">
 					<TextControl
 						value={itemValues[index].btnText}
-						onChange={function(value) {
+						onChange={function (value) {
 							itemValues[index].btnText = value;
-							setAttributes({ quotes: itemValues});
+							setAttributes({ quotes: itemValues });
 						}}
 						className="embedded-input"
 						placeholder="Link Text"
 					/>
 					<TextControl
 						value={itemValues[index].btnUrl}
-						onChange={function(value) {
+						onChange={function (value) {
 							itemValues[index].btnUrl = value;
-							setAttributes({ quotes: itemValues});
+							setAttributes({ quotes: itemValues });
 						}}
 						placeholder="Link URL"
 					/>
@@ -112,64 +134,87 @@ export default function Edit({attributes, isSelected, setAttributes, onChange}) 
 			imgCtl: (
 				<MediaUploadCheck>
 					<MediaUpload
-						onSelect={function(media) {
+						onSelect={function (media) {
 							itemValues[index].imgSrc = media.url;
 							itemValues[index].mediaId = media.id;
-							itemValues[index].imgAlt = media.alt || '';
-							setAttributes({ quotes: itemValues});
+							itemValues[index].imgAlt = media.alt || "";
+							itemValues[index].imgWidth = media.width;
+							itemValues[index].imgHeight = media.height;
+							setAttributes({ quotes: itemValues });
 						}}
 						value={itemValues[index].mediaId}
-						allowedTypes={ ['image'] }
-						render={({open}) => (
-							<img className="imageSelector" src={itemValues[index].imgSrc} data-tab-content={index} key={index} onClick={open} />
+						allowedTypes={["image"]}
+						render={({ open }) => (
+							<img
+								className="imageSelector"
+								src={itemValues[index].imgSrc}
+								data-tab-content={index}
+								key={index}
+								onClick={open}
+							/>
 						)}
 					/>
 				</MediaUploadCheck>
-			)
-		}
+			),
+		};
 	});
 
-	let addTabFunc = function() {
-
+	let addTabFunc = function () {
 		let thisIndex = itemValues.length;
 
 		itemValues.push({
-				"name": "James Sullivan",
-				"title": "Top Scarer",
-				"btnUrl": "https://movies.disney.com/monsters-inc",
-				"btnText": "Connect with James",
-				"imgSrc": "https://pbs.twimg.com/profile_images/660927373693571072/V7d5UQnA_400x400.jpg",
-				"bio": "James P. Sullivan, also known as Jimmy or Sulley, is the main character of Monsters, Inc. and one of the main characters of its prequel Monsters University. He also returned as a main character in the series Monsters at Work. He is a large mammalian monster with shaggy aqua fur with purple blotches, two small horns on his head, and a long tail."
-			});
-		setAttributes({
-			quotes: itemValues
+			name: "James Sullivan",
+			title: "Top Scarer",
+			btnUrl: "https://movies.disney.com/monsters-inc",
+			btnText: "Connect with James",
+			imgSrc:
+				"https://pbs.twimg.com/profile_images/660927373693571072/V7d5UQnA_400x400.jpg",
+			bio: "James P. Sullivan, also known as Jimmy or Sulley, is the main character of Monsters, Inc. and one of the main characters of its prequel Monsters University. He also returned as a main character in the series Monsters at Work. He is a large mammalian monster with shaggy aqua fur with purple blotches, two small horns on his head, and a long tail.",
 		});
-	}
+		setAttributes({
+			quotes: itemValues,
+		});
+	};
 
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
 				<AddItemButton callback={addTabFunc} />
-				<BackgroundSelectorMenu callback={(color) => setAttributes({backgroundColor: color})} selected={attributes.backgroundColor} />
-				<AutoApproveLanguage callback={function() {
-					setAttributes({ autoApproveLang: !attributes.autoApproveLang});
-				}} selected={attributes.autoApproveLang}/>
+				<BackgroundSelectorMenu
+					callback={(color) => setAttributes({ backgroundColor: color })}
+					selected={attributes.backgroundColor}
+				/>
+				<AutoApproveLanguage
+					callback={function () {
+						setAttributes({ autoApproveLang: !attributes.autoApproveLang });
+					}}
+					selected={attributes.autoApproveLang}
+				/>
 			</ToolbarGroup>
 		</BlockControls>
 	);
 
-	if (isSelected)	return (
-
-		<div {...useBlockProps()}>
-			{addButton}
-			<ExecutiveCard header={headerControl} items={itemControls} runFilters={true} backgroundColor={attributes.backgroundColor}/>
-		</div>
-	);
+	if (isSelected)
+		return (
+			<div {...useBlockProps()}>
+				{addButton}
+				<ExecutiveCard
+					header={headerControl}
+					items={itemControls}
+					runFilters={true}
+					backgroundColor={attributes.backgroundColor}
+				/>
+			</div>
+		);
 
 	return (
 		<div {...useBlockProps()}>
-			<ExecutiveCard header={attributes.header} items={attributes.quotes} runFilters={true} backgroundColor={attributes.backgroundColor}/>
+			<ExecutiveCard
+				header={attributes.header}
+				items={attributes.quotes}
+				runFilters={true}
+				backgroundColor={attributes.backgroundColor}
+			/>
 		</div>
-	)
-
+	);
 }

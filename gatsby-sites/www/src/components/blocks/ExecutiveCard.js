@@ -9,7 +9,13 @@ const ExecutiveCard = (props) => {
                 <div className="row">
                     <div className="col-lg-3 offset-lg-1">
                         {(!item.imgCtl && (
-                            <img src={item.imgSrc} alt={item.imgAlt} />
+                            <img
+                                src={item.imgSrc}
+                                alt={item.imgAlt}
+                                width={item.imgWidth}
+                                height={item.imgHeight}
+                                loading="lazy"
+                            />
                         )) ||
                             item.imgCtl}
                     </div>
