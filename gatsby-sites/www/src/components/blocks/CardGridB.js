@@ -13,6 +13,9 @@ const CardGridB = (props) => {
                             className="card-img-top"
                             src={item.imgSrc}
                             alt={item.imgAlt}
+                            width={item.imgWidth}
+                            height={item.imgHeight}
+                            loading="lazy"
                         />
                     )) ||
                         item.imgCtl}
