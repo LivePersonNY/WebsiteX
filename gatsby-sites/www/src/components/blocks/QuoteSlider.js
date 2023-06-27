@@ -36,7 +36,13 @@ const QuoteSlider = (props) => {
                         {(item.img || item.imgCtl) && (
                             <div className="col-lg-3 offset-lg-1" key={index}>
                                 {(!item.imgCtl && (
-                                    <img src={item.img} alt={item.imgAlt} />
+                                    <img
+                                        src={item.img}
+                                        alt={item.imgAlt}
+                                        width={item.imgWidth}
+                                        height={item.imgHeight}
+                                        loading="lazy"
+                                    />
                                 )) ||
                                     item.imgCtl}
                             </div>
@@ -53,6 +59,9 @@ const QuoteSlider = (props) => {
                                     className="comp-brand-img"
                                     src={item.brandImg}
                                     alt={item.brandImgAlt}
+                                    width={item.brandImgWidth}
+                                    height={item.brandImgHeight}
+                                    loading="lazy"
                                 />
                             )) ||
                                 item.brandImgCtl}

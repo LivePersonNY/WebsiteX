@@ -140,6 +140,8 @@ export default function Edit({
 							itemValues[index].brandImg = media.url;
 							itemValues[index].brandImgId = media.id;
 							itemValues[index].brandImgAlt = media.alt || "";
+							itemValues[index].brandImgWidth = media.width;
+							itemValues[index].brandImgHeight = media.height;
 							setAttributes({ quotes: itemValues });
 						}}
 						value={itemValues[index].iconId}
@@ -166,6 +168,8 @@ export default function Edit({
 							itemValues[index].img = media.url;
 							itemValues[index].mediaId = media.id;
 							itemValues[index].imgAlt = media.alt || "";
+							itemValues[index].imgWidth = media.width;
+							itemValues[index].imgHeight = media.height;
 							setAttributes({ quotes: itemValues });
 						}}
 						value={itemValues[index].mediaId}
