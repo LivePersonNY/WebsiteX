@@ -132,6 +132,8 @@ export default function Edit({
 							itemValues[index].img = media.url;
 							itemValues[index].mediaId = media.id;
 							itemValues[index].imgAlt = media.alt || "";
+							itemValues[index].imgWidth = media.width;
+							itemValues[index].imgHeight = media.height;
 							setAttributes({ tabItems: itemValues });
 						}}
 						value={itemValues[index].mediaId}
