@@ -52,6 +52,8 @@
 		},
 		"logoWall": {},
 		"heroImage": {},
+		"heroImageWidth": {},
+		"heroImageHeight": {},
 		"mediaId": {
 			"default": 0,
 			"type": "number"
@@ -61,6 +63,8 @@
 			"type": "string",
 			"default": "PlaceHolder"
 		},
+		"mediaWidth": {},
+		"mediaHeight": {},
 		"logoHeader": {},
 		"innerBlockCount": {
 			"type": "number",
