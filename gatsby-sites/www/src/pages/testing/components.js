@@ -33,7 +33,6 @@ import HorizontalText from '../../components/blocks/HorizontalText';
 import ExecutiveCard from '../../components/blocks/ExecutiveCard';
 import BoardCards from '../../components/blocks/BoardCards';
 import ScrollContent from '../../components/blocks/ScrollContent';
-import HeroLottie from '../../components/blocks/HeroLottie';
 import QuickLinks from '../../components/blocks/QuickLinks';
 import LRForm from '../../components/blocks/LRForm';
 import FeaturedSlider from '../../components/blocks/FeaturedSlider';
