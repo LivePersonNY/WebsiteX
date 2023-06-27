@@ -8,7 +8,13 @@ const IconTextA = (props) => {
         return (
             <div className="col" key={index}>
                 {(!item.imgCtl && item.img && (
-                    <img src={item.img} alt={item.imgAlt} />
+                    <img
+                        src={item.img}
+                        alt={item.imgAlt}
+                        width={item.imgWidth}
+                        height={item.imgHeight}
+                        loading="lazy"
+                    />
                 )) ||
                     item.imgCtl}
                 {item.kicker && (
