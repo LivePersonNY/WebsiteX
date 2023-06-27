@@ -1,7 +1,7 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import Link from "gatsby-link";
-import Paragraph from "../Paragraph";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
+import Paragraph from '../Paragraph';
 
 const LogosUniversal = (props) => {
     let logoImg = props.items.map((item, index) => {
@@ -13,6 +13,9 @@ const LogosUniversal = (props) => {
                         className=""
                         src={item.img}
                         alt={item.imgAlt}
+                        width={item.imgWidth}
+                        height={item.imgHeight}
+                        loading="lazy"
                     />
                 )) ||
                     item.imgCtl}
@@ -23,11 +26,11 @@ const LogosUniversal = (props) => {
     return (
         <div
             data-localize={props.autoApprove && `auto-approve`}
-            autoapprove={props.autoApprove && "true"}
+            autoapprove={props.autoApprove && 'true'}
             id={props.anchor}
             className={`pane comp-logo-universal ${
-                props.backgroundColor || "bg-neutral-96"
-            } ${props.header ? "pane-with-lead-text" : ""}`}
+                props.backgroundColor || 'bg-neutral-96'
+            } ${props.header ? 'pane-with-lead-text' : ''}`}
         >
             <div className="container">
                 {props.header && (

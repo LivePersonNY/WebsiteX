@@ -84,6 +84,8 @@ export default function Edit({
 								logos[index].img = media.url;
 								logos[index].mediaId = media.id;
 								logos[index].imgAlt = media.alt || "";
+								logos[index].imgWidth = media.width;
+								logos[index].imgHeight = media.height;
 								setAttributes({ logos: logos });
 							}}
 							value={logos[index].mediaId}
