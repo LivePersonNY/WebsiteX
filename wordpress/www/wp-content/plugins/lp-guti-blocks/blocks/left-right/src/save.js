@@ -53,6 +53,8 @@ export default function save({ attributes }) {
 			flipColumns={attributes.flipped}
 			imgSrc={!attributes.vimeoUrl && attributes.mediaUrl}
 			imgAlt={attributes.mediaAlt}
+			imgWidth={attributes.mediaWidth}
+			imgHeight={attributes.mediaHeight}
 			lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 			vimeoUrl={attributes.vimeoUrl}
 			anchor={attributes.anchor}
