@@ -51,6 +51,8 @@ export default function save({ attributes, clientId }) {
 				heroImageAlt={attributes.mediaAlt}
 				heroImageWidth={attributes.mediaWidth}
 				heroImageHeight={attributes.mediaHeight}
+				mediaWidth={attributes.mediaWidth}
+				mediaHeight={attributes.mediaHeight}
 				primaryBtnText={attributes.primaryBtnText}
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}
