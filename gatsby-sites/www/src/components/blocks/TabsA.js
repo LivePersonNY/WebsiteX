@@ -1,8 +1,8 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import Link from "gatsby-link";
-import $ from "jquery";
-import Paragraph from "../Paragraph";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
+import $ from 'jquery';
+import Paragraph from '../Paragraph';
 
 const TabsA = (props) => {
     const accordionId = props.accordionId || `tabsAAccordion`;
@@ -13,11 +13,14 @@ const TabsA = (props) => {
         }
         return (
             <img
-                className={`comp-tabs-img ${index !== 0 ? "display-none" : ""}`}
+                className={`comp-tabs-img ${index !== 0 ? 'display-none' : ''}`}
                 src={item.img}
                 data-tab-content={index}
                 alt={item.imgAlt}
                 key={index}
+                width={item.imgWidth}
+                height={item.imgHeight}
+                loading="lazy"
             />
         );
     });
@@ -26,7 +29,7 @@ const TabsA = (props) => {
         return (
             <div
                 className={`accordion-item ${
-                    index === 0 ? "accordion-item-active" : ""
+                    index === 0 ? 'accordion-item-active' : ''
                 }`}
                 key={index}
             >
@@ -49,7 +52,7 @@ const TabsA = (props) => {
                 <div
                     id={`${props.anchor}_flush-collapse${index}`}
                     className={`accordion-collapse collapse ${
-                        index === 0 ? "show" : ""
+                        index === 0 ? 'show' : ''
                     }`}
                     aria-labelledby={`${props.anchor}_flush-heading${index}`}
                     data-bs-parent={`#${props.anchor}_accordion_tabs`}
@@ -64,11 +67,11 @@ const TabsA = (props) => {
         <>
             <div
                 data-localize={props.autoApprove && `auto-approve`}
-                autoapprove={props.autoApprove && "true"}
+                autoapprove={props.autoApprove && 'true'}
                 id={props.anchor}
                 className={`pane comp-tabs-a ${
-                    props.backgroundColor || "bg-transparent"
-                } ${props.header ? "pane-with-lead-text" : ""}`}
+                    props.backgroundColor || 'bg-transparent'
+                } ${props.header ? 'pane-with-lead-text' : ''}`}
             >
                 <div className="container">
                     <div className="row">
