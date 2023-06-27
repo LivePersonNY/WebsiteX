@@ -3,14 +3,14 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import $ from 'jquery';
+import { __ } from "@wordpress/i18n";
+import $ from "jquery";
 
-import LRForm from '../../../../../../../../gatsby-sites/www/src/components/blocks/LRForm';
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
-import LottieFilePlayer from '../../LottieFilePlayer';
+import LRForm from "../../../../../../../../gatsby-sites/www/src/components/blocks/LRForm";
+import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
+import LottieFilePlayer from "../../LottieFilePlayer";
 
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -21,11 +21,16 @@ import React, { useEffect } from 'react';
  *
  * @return {WPElement} Element to render.
  */
-export default function save({attributes}) {
-
-	let lottiePlayerElement = attributes.lottieFile && (
-		<LottieFilePlayer lottieFile={attributes.lottieFile} autoplay={true} loop={true} />
-	) || "";
+export default function save({ attributes }) {
+	let lottiePlayerElement =
+		(attributes.lottieFile && (
+			<LottieFilePlayer
+				lottieFile={attributes.lottieFile}
+				autoplay={true}
+				loop={true}
+			/>
+		)) ||
+		"";
 
 	return (
 		<LRForm
@@ -42,10 +47,12 @@ export default function save({attributes}) {
 			autoApprove={attributes.autoApproveLang}
 			imgSrc={!attributes.vimeoUrl && attributes.mediaUrl}
 			imgAlt={attributes.mediaAlt}
+			imgWidth={attributes.mediaWidth}
+			imgHeight={attributes.mediaHeight}
 			lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 			vimeoUrl={attributes.vimeoUrl}
 			mediaKicker={attributes.mediaKicker}
-			resourceasset={attributes.resourceasset} 
+			resourceasset={attributes.resourceasset}
 			resourceAssetURL={attributes.resourceAssetURL}
 		/>
 	);

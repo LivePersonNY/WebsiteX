@@ -330,6 +330,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				anchor={attributes.anchor}
 				imgSrc={!attributes.vimeoUrl && attributes.mediaUrl}
 				imgAlt={attributes.mediaAlt}
+				imgWidth={attributes.mediaWidth}
+				imgHeight={attributes.mediaHeight}
 				lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 				vimeoUrl={attributes.vimeoUrl}
 				mediaKicker={attributes.mediaKicker}
