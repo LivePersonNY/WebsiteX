@@ -1,52 +1,104 @@
-import { useBlockProps, BlockControls, MediaUpload, MediaUploadCheck, InnerBlocks } from '@wordpress/block-editor';
-import { Button } from '@wordpress/components';
-import LottieFilePlayer from './LottieFilePlayer';
+import {
+	useBlockProps,
+	BlockControls,
+	MediaUpload,
+	MediaUploadCheck,
+	InnerBlocks,
+} from "@wordpress/block-editor";
+import { Button } from "@wordpress/components";
+import LottieFilePlayer from "./LottieFilePlayer";
 
-export default function MediaPicker({setAttributes, attributes, allowLottie, cssClass, clientId}) {
-
+export default function MediaPicker({
+	setAttributes,
+	attributes,
+	allowLottie,
+	cssClass,
+	clientId,
+}) {
 	const dateNow = Date.now();
 
 	return (
 		<>
 			<MediaUploadCheck>
 				<MediaUpload
-					onSelect={function(media) {
-						if (media.mime == "application/json" || media.mime == "application/zip") {
+					onSelect={function (media) {
+						if (
+							media.mime == "application/json" ||
+							media.mime == "application/zip"
+						) {
 							setAttributes({
 								lottieFile: media.url,
 								lottieId: media.id,
 								mediaUrl: null,
 								mediaId: null,
 								mediaAlt: null,
-								updated: dateNow
+								updated: dateNow,
 							});
-							document.querySelector(`#block-${clientId}>dotlottie-player`).load(media.url);
+							document
+								.querySelector(`#block-${clientId}>dotlottie-player`)
+								.load(media.url);
 						} else {
 							setAttributes({
 								mediaUrl: media.url,
 								mediaId: media.id,
 								mediaAlt: media.alt || "",
+								mediaWidth: media.width,
+								mediaHeight: media.height,
 								lottieFile: null,
 								lottieId: null,
-								updated: dateNow
+								updated: dateNow,
 							});
 						}
 					}}
 					value={attributes.mediaId || attributes.lottieId}
-					allowedTypes={ allowLottie ? ['image', 'application/json', 'application/zip'] : ['image'] }
-					render={({open}) => (
+					allowedTypes={
+						allowLottie
+							? ["image", "application/json", "application/zip"]
+							: ["image"]
+					}
+					render={({ open }) => (
 						<>
-							{!attributes.lottieFile && attributes.mediaId > 0 && <img className={`imageSelector ${cssClass}`} src={attributes.mediaUrl} onClick={open} />}
-							{attributes.lottieFile && <LottieFilePlayer className={`imageSelector ${cssClass} ${attributes.lottieId}`} onClick={open} lottieFile={attributes.lottieFile} autoplay={true} loop={true} />}
+							{!attributes.lottieFile && attributes.mediaId > 0 && (
+								<img
+									className={`imageSelector ${cssClass}`}
+									src={attributes.mediaUrl}
+									onClick={open}
+								/>
+							)}
+							{attributes.lottieFile && (
+								<LottieFilePlayer
+									className={`imageSelector ${cssClass} ${attributes.lottieId}`}
+									onClick={open}
+									lottieFile={attributes.lottieFile}
+									autoplay={true}
+									loop={true}
+								/>
+							)}
 
-							{!attributes.lottieId && !attributes.mediaId && <Button variant="link" onClick={open}>Select Image</Button>}
+							{!attributes.lottieId && !attributes.mediaId && (
+								<Button variant="link" onClick={open}>
+									Select Image
+								</Button>
+							)}
 
-							<Button variant="link" isDestructive={true} onClick={() => setAttributes({lottieFile: null, lottieId: null, mediaUrl: null, mediaId: null})}>Remove Image</Button>
+							<Button
+								variant="link"
+								isDestructive={true}
+								onClick={() =>
+									setAttributes({
+										lottieFile: null,
+										lottieId: null,
+										mediaUrl: null,
+										mediaId: null,
+									})
+								}
+							>
+								Remove Image
+							</Button>
 						</>
 					)}
 				/>
 			</MediaUploadCheck>
 		</>
 	);
-
 }
