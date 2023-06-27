@@ -36,6 +36,10 @@ export default function save({ attributes }) {
 			imgRightSrc={attributes.imgRightSrc}
 			imgLeftAlt={attributes.imgLeftAlt}
 			imgRightAlt={attributes.imgRightAlt}
+			imgLeftWidth={attributes.imgLeftWidth}
+			imgLeftHeight={attributes.imgLeftHeight}
+			imgRightWidth={attributes.imgRightWidth}
+			imgRightHeight={attributes.imgRightHeight}
 			backgroundColor={attributes.backgroundColor}
 			autoApprove={attributes.autoApproveLang}
 			anchor={attributes.anchor}

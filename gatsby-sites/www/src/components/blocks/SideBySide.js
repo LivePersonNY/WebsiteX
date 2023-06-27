@@ -42,6 +42,9 @@ const SideBySide = (props) => {
                                 <img
                                     src={props.imgLeftSrc}
                                     alt={props.imgLeftAlt}
+                                    width={props.imgLeftWidth}
+                                    height={props.imgLeftHeight}
+                                    loading="lazy"
                                 />
                             )) ||
                                 props.imgLeftCtl}
@@ -54,6 +57,9 @@ const SideBySide = (props) => {
                                 <img
                                     src={props.imgRightSrc}
                                     alt={props.imgRightAlt}
+                                    width={props.imgRightWidth}
+                                    height={props.imgRightHeight}
+                                    loading="lazy"
                                 />
                             )) ||
                                 props.imgRightCtl}

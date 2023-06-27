@@ -129,6 +129,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 						imgLeftSrc: media.url,
 						imgLeftId: media.id,
 						imgLeftAlt: media.alt || "",
+						imgLeftWidth: media.width,
+						imgLeftHeight: media.height,
 					});
 				}}
 				value={attributes.imgLeftId}
@@ -177,6 +179,8 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 						imgRightSrc: media.url,
 						imgRightId: media.id,
 						imgRightAlt: media.alt || "",
+						imgRightWidth: media.width,
+						imgRightHeight: media.height,
 					});
 				}}
 				value={attributes.imgRightId}
@@ -306,6 +310,10 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				imgRightSrc={attributes.imgRightSrc}
 				imgLeftAlt={attributes.imgLeftAlt}
 				imgRightAlt={attributes.imgRightAlt}
+				imgLeftWidth={attributes.imgLeftWidth}
+				imgLeftHeight={attributes.imgLeftHeight}
+				imgRightWidth={attributes.imgRightWidth}
+				imgRightHeight={attributes.imgRightHeight}
 				backgroundColor={attributes.backgroundColor}
 				anchor={attributes.anchor}
 				repeat={attributes.repeat}
