@@ -40,6 +40,8 @@ export default function save({ attributes, clientId }) {
 				cssClasses={attributes.className}
 				underBodyImg={attributes.logoWall}
 				underBodyImgAlt={attributes.logoWallAlt}
+				underBodyImgWidth={attributes.logoWallWidth}
+				underBodyImgHeight={attributes.logoWallHeight}
 				backgroundImage={attributes.backgroundImage}
 				backgroundColor={attributes.backgroundColor}
 				header={attributes.header}
@@ -47,6 +49,8 @@ export default function save({ attributes, clientId }) {
 				kicker={attributes.kicker}
 				heroImage={!attributes.vimeoUrl && attributes.mediaUrl}
 				heroImageAlt={attributes.mediaAlt}
+				heroImageWidth={attributes.mediaWidth}
+				heroImageHeight={attributes.mediaHeight}
 				primaryBtnText={attributes.primaryBtnText}
 				secondaryBtnText={attributes.secondaryBtnText}
 				primaryBtnLink={attributes.primaryBtnLink}

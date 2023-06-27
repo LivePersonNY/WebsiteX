@@ -27,6 +27,8 @@
 		"logoWall": {},
 		"logoWallId": {},
 		"logoWallAlt": {},
+		"logoWallWidth": {},
+		"logoWallHeight": {},
 		"primaryBtnText": {"default": "Here's button link text"},
 		"primaryBtnLink": {"default": "https://www.liveperson.com"},
 		"linkExternal": {

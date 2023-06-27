@@ -87,6 +87,9 @@ const Hero = (props) => {
                                         <img
                                             src={props.underBodyImg}
                                             alt={props.underBodyImgAlt}
+                                            width={props.underBodyImgWidth}
+                                            height={props.underBodyImgHeight}
+                                            loading="lazy"
                                         />
                                     )) ||
                                         props.imgLogoCtl}
@@ -129,6 +132,9 @@ const Hero = (props) => {
                                     )}`
                                 }
                                 alt={props.heroImageAlt || ''}
+                                width={props.heroImageWidth}
+                                height={props.heroImageHeight}
+                                loading="lazy"
                             />
                         )) ||
                             props.imgCtl ||
