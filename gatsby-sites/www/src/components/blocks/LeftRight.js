@@ -56,6 +56,9 @@ const LeftRight = (props) => {
                                         )}`
                                     }
                                     alt={props.imgAlt || ''}
+                                    width={props.imgWidth}
+                                    height={props.imgHeight}
+                                    loading="lazy"
                                 />
                             )) ||
                                 props.imgCtl ||
