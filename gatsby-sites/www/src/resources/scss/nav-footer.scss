@@ -528,6 +528,17 @@ header {
                                 }
                             }
                         }
+                        .col-lg:nth-child(4) {
+                            .dropdown-item {
+                                &.dropdown-section-title {
+                                    padding: 0;
+                                    margin-top: 20px;
+                                    .dropdown-item-span {
+                                        font-size: 12px;
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     &.curiously-human-ai {
