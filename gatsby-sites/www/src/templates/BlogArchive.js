@@ -275,6 +275,8 @@ export const pageQuery = graphql`
                     node {
                         altText
                         mediaItemUrl
+                        width
+                        height
                     }
                 }
                 author {
@@ -331,6 +333,8 @@ export const pageQuery = graphql`
                     node {
                         altText
                         mediaItemUrl
+                        width
+                        height
                     }
                 }
                 author {
@@ -378,6 +382,8 @@ export const pageQuery = graphql`
                 node {
                     altText
                     mediaItemUrl
+                    width
+                    height
                 }
             }
             author {

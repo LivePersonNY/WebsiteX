@@ -15,6 +15,8 @@ const Report = ({ data: { post } }) => {
     const featuredImage = {
         data: post.featuredImage?.node?.mediaItemUrl || ``,
         alt: post.featuredImage?.node?.altText || ``,
+        width: post.featuredImage?.node?.width || ``,
+        height: post.featuredImage?.node?.height || ``,
     };
 
     let canRoot = process.env.CAN_ROOT;
@@ -126,6 +128,8 @@ export const pageQuery = graphql`
                 node {
                     altText
                     mediaItemUrl
+                    width
+                    height
                 }
             }
         }

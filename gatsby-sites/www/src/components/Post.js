@@ -6,6 +6,8 @@ export default function Post({ post, kicker, root, classes, isFeatured }) {
     const featuredImage = {
         data: post?.featuredImage?.node?.mediaItemUrl || ``,
         alt: post?.featuredImage?.node?.altText || ``,
+        width: post.featuredImage?.node?.width || ``,
+        height: post.featuredImage?.node?.height || ``,
     };
 
     const featured = isFeatured;
@@ -25,7 +27,13 @@ export default function Post({ post, kicker, root, classes, isFeatured }) {
                     itemScope
                     itemType="http://schema.org/Article"
                 >
-                    <img src={featuredImage.data} alt={featuredImage.alt} />
+                    <img
+                        src={featuredImage.data}
+                        alt={featuredImage.alt}
+                        width={featuredImage.width}
+                        height={featuredImage.height}
+                        loading="lazy"
+                    />
                     <div className="card-body">
                         <p className="h6 text-uppercase">
                             {post.blogContentType ||

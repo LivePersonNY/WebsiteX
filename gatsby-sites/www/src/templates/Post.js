@@ -26,6 +26,8 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
     const featuredImage = {
         data: post.featuredImage?.node?.mediaItemUrl || ``,
         alt: post.featuredImage?.node?.altText || ``,
+        width: post.featuredImage?.node?.width || ``,
+        height: post.featuredImage?.node?.height || ``,
     };
 
     let canRoot = process.env.CAN_ROOT;
@@ -120,6 +122,9 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
                                 className="my-4 rounded-3 w-100"
                                 src={featuredImage.data}
                                 alt={featuredImage.alt}
+                                width={featuredImage.width}
+                                height={featuredImage.height}
+                                loading="lazy"
                             />
                             <AddThis url={canonical} type="share" />
                             <hr className="mb-4" />
@@ -207,6 +212,8 @@ export const pageQuery = graphql`
                 node {
                     altText
                     mediaItemUrl
+                    width
+                    height
                 }
             }
         }
