@@ -76,7 +76,7 @@ const TabsC = (props) => {
                             src={item.img}
                             alt={item.imgAlt}
                             width={item.imgWidth}
-                            height={item.imgeight}
+                            height={item.imgHeight}
                             loading="lazy"
                         />
                     )) ||
