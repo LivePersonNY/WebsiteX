@@ -31,6 +31,7 @@ import Reorder from "react-reorder";
 import {
 	useBlockProps,
 	BlockControls,
+	RichText,
 	MediaUpload,
 	MediaUploadCheck,
 } from "@wordpress/block-editor";
