@@ -64,6 +64,9 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
                                         <img
                                             src={avatarUrl}
                                             className="rounded-circle"
+                                            width="52"
+                                            height="52"
+                                            loading="lazy"
                                         />
                                     </a>
                                 </div>
