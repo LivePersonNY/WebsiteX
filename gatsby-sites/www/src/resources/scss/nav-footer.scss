@@ -255,9 +255,9 @@ header {
 
                                     &::before {
                                         content: '';
-                                        background-image: url(https://static.liveperson.com/static-assets/2023/05/16140638/nav-icon-sprite-18px%402x-1.png);
+                                        background-image: url(https://static.liveperson.com/static-assets/2023/06/29114027/nav-icon-sprite-18px%402x.png);
                                         background-repeat: no-repeat;
-                                        background-size: 324px 18px;
+                                        background-size: 396px 18px;
                                         position: absolute;
                                         width: 18px;
                                         height: 18px;
@@ -342,6 +342,22 @@ header {
 
                                 &.nav-tech-support::before {
                                     background-position: -306px 0px;
+                                }
+
+                                &.nav-marketplace::before {
+                                    background-position: -324px 0px;
+                                }
+
+                                &.nav-find-partner::before {
+                                    background-position: -342px 0px;
+                                }
+
+                                &.nav-become-partner::before {
+                                    background-position: -360px 0px;
+                                }
+
+                                &.nav-partner-login::before {
+                                    background-position: -378px 0px;
                                 }
 
                                 .dropdown-item-content {
