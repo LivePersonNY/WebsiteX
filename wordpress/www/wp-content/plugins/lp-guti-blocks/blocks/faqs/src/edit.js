@@ -100,14 +100,21 @@ export default function Edit({
 			),
 			body: (
 				<div className="wp-control-wrapper">
-					<TextareaControl
+					<RichText
+						tagName="p"
 						value={faqs[index].body}
 						onChange={function (value) {
 							faqs[index].body = value;
 							setAttributes({ faqs: faqs });
 						}}
 						className="embedded-input"
-						rows="1"
+						allowedFormats={[
+							"core/bold",
+							"core/italic",
+							"core/link",
+							"core/list",
+							"core/text-color",
+						]}
 					/>
 					<ItemControls
 						index={index}
