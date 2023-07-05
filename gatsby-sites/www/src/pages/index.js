@@ -17,9 +17,7 @@ const htmlHack1 = `
                             <h1>Finally. Safe, equal A<span class="space-mono">I</span> for everyone.</h1>
                             <p data-tag="new line split" class="lead">Combining the power of the world's largest conversational dataset, with decades of experience and a legacy of trust, to deliver safer, more secure AI experiences.</p>
                             <a class="btn btn-primary link" href="/request-demo/">Schedule a guided demo</a>
-                            <p style="margin-top:20px;margin-right:24px;">
-								              <a class="link" href="https://getbella.ai/" target="_blank">Build your no-code bot with Bella AI</a>
-							              </p>
+
                         </div>
                     </div>
                     <div class="row align-items-center justify-content-center">

@@ -573,6 +573,10 @@ header {
                             }
                         }
                     }
+
+                    &.partners {
+                        display: none;
+                    }
                 }
             }
         }
