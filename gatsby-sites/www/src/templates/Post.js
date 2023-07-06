@@ -274,6 +274,8 @@ export const pageQuery = graphql`
                 node {
                     altText
                     mediaItemUrl
+                    width
+                    height
                 }
             }
         }

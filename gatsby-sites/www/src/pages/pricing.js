@@ -47,7 +47,7 @@ const htmlHack1 = `
 						<p class="card-text subtitle1" data-tag="new line split">Automate messages and calls, optimize consumer insights, increase agent productivity with Liveperson AI.</p>
 					</div>
 					<div class="card-footer">
-						<a href="/request-demo/" class="card-link link">Schedule a demo</a>
+						<a href="/quote/" class="card-link link">Request a quote</a>
 					</div>
 				</div>
 			</div>
@@ -59,7 +59,7 @@ const htmlHack1 = `
 						<p class="card-text subtitle1" data-tag="new line split">Accelerate automation, increase conversion rate, and boost agent productivity with Generative AI.</p>
 					</div>
 					<div class="card-footer">
-						<a href="/request-demo/" class="card-link link">Schedule a demo</a>
+						<a href="/quote/" class="card-link link">Request a quote</a>
 					</div>
 				</div>
 			</div>
