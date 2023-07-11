@@ -33,20 +33,20 @@ const ProgramCard = (props) => {
                             className="subtitle2 event-body"
                             text={item.body}
                         />
-                        {item.btnText && (
-                            <a
-                                href={item.btnUrl}
-                                className="btn btn2 btn-primary"
-                            >
-                                {item.btnText}
-                            </a>
-                        )}
                         {item.btnSecondaryText && (
                             <a
                                 href={item.btnSecondaryUrl}
                                 className="btn btn2 btn-outline-secondary"
                             >
                                 {item.btnSecondaryText}
+                            </a>
+                        )}
+                        {item.btnText && (
+                            <a
+                                href={item.btnUrl}
+                                className="btn btn2 btn-primary"
+                            >
+                                {item.btnText}
                             </a>
                         )}
                     </div>
