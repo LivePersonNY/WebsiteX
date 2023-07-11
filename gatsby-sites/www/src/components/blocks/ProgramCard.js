@@ -81,10 +81,12 @@ const ProgramCard = (props) => {
                                     />
                                 </h2>
                             )}
-                            <Paragraph
-                                text={props.sectionBody}
-                                wrapClass="rich-container"
-                            />
+                            {props.sectionBody && (
+                                <Paragraph
+                                    text={props.sectionBody}
+                                    wrapClass="rich-container"
+                                />
+                            )}
                         </div>
                     </div>
                 )}

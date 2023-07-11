@@ -1286,6 +1286,9 @@ img[src*='doubleclick'] {
 .comp-program-card {
     .comp-program-card-header {
         margin-bottom: 24px;
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 48px;
+        }
         .h6 {
             margin-bottom: 8px;
         }
