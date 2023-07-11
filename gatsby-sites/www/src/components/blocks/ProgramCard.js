@@ -66,7 +66,7 @@ const ProgramCard = (props) => {
         >
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-12">
+                    <div className="col-lg-8 offset-lg-2 text-center">
                         {props.sectionKicker && (
                             <p className="h6 text-uppercase">
                                 {props.sectionKicker}
@@ -74,7 +74,10 @@ const ProgramCard = (props) => {
                         )}
                         {props.sectionTitle && (
                             <h2>
-                                <Paragraph text={props.sectionTitle} />
+                                <Paragraph
+                                    text={props.sectionTitle}
+                                    headerLevel="none"
+                                />
                             </h2>
                         )}
                         <Paragraph
