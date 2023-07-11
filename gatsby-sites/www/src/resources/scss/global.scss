@@ -1284,8 +1284,11 @@ img[src*='doubleclick'] {
 }
 
 .comp-program-card {
-    .h6 {
-        margin-bottom: 8px;
+    .comp-program-card-header {
+        margin-bottom: 24px;
+        .h6 {
+            margin-bottom: 8px;
+        }
     }
     .comp-program-card-container {
         padding: 24px 20px 36px 20px;
