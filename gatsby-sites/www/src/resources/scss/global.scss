@@ -1336,6 +1336,9 @@ img[src*='doubleclick'] {
 
         .btn {
             margin-top: 32px;
+            &.btn-outline-secondary {
+                margin-right: 16px;
+            }
         }
     }
 }

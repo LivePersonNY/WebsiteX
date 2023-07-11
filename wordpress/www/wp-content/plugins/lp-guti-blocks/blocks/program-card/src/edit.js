@@ -133,6 +133,28 @@ export default function Edit({
 					/>
 				</div>
 			),
+			btnSecondaryUrl: null,
+			btnSecondaryText: (
+				<div className="wp-control-wrapper">
+					<TextControl
+						value={itemValues[index].btnSecondaryText}
+						onChange={function (value) {
+							itemValues[index].btnSecondaryText = value;
+							setAttributes({ quotes: itemValues });
+						}}
+						className="embedded-input"
+						placeholder="Link Text"
+					/>
+					<TextControl
+						value={itemValues[index].btnSecondaryUrl}
+						onChange={function (value) {
+							itemValues[index].btnSecondaryUrl = value;
+							setAttributes({ quotes: itemValues });
+						}}
+						placeholder="Link URL"
+					/>
+				</div>
+			),
 			body: (
 				<RichText
 					value={itemValues[index].body}
@@ -186,6 +208,9 @@ export default function Edit({
 			btnUrl:
 				"https://backtothefuture.fandom.com/wiki/Enchantment_Under_the_Sea",
 			btnText: "Learn More",
+			btnSecondaryUrl:
+				"https://backtothefuture.fandom.com/wiki/Enchantment_Under_the_Sea",
+			btnSecondaryText: "Learn More",
 			imgSrc:
 				"https://imgc.allpostersimages.com/img/posters/enchantment-under-the-sea-dance-movie-poster_u-L-F5C1PW0.jpg?artHeight=550&artPerspective=n&artWidth=550&background=ffffff",
 		});

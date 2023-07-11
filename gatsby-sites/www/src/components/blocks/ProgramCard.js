@@ -41,6 +41,14 @@ const ProgramCard = (props) => {
                                 {item.btnText}
                             </a>
                         )}
+                        {item.btnSecondaryText && (
+                            <a
+                                href={item.btnSecondaryUrl}
+                                className="btn btn2 btn-outline-secondary"
+                            >
+                                {item.btnSecondaryText}
+                            </a>
+                        )}
                     </div>
                 </div>
             </div>
