@@ -15,7 +15,9 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
-		"header": {"default": "Header above events"},
+		"sectionKicker":{"default": "Kicker above events"},
+		"sectionTitle": {"default": "Header above events"},
+		"sectionBody":{"default": "Content above events"},
 		"backgroundColor": {},
 		"autoApproveLang": {"default":false, "type": "boolean"},
 		"quotes": {

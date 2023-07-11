@@ -66,6 +66,24 @@ const ProgramCard = (props) => {
         >
             <div className="container">
                 <div className="row">
+                    <div className="col-lg-12">
+                        {props.sectionKicker && (
+                            <p className="h6 text-uppercase">
+                                {props.sectionKicker}
+                            </p>
+                        )}
+                        {props.sectionTitle && (
+                            <h2>
+                                <Paragraph text={props.sectionTitle} />
+                            </h2>
+                        )}
+                        <Paragraph
+                            text={props.sectionBody}
+                            wrapClass="rich-container"
+                        />
+                    </div>
+                </div>
+                <div className="row">
                     <div className="col-lg-12">{programBlock}</div>
                 </div>
             </div>

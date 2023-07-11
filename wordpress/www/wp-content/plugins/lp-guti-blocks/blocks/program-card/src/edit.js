@@ -59,6 +59,49 @@ export default function Edit({
 	setAttributes,
 	onChange,
 }) {
+	let sectionKicker = (
+		<TextControl
+			value={attributes.sectionKicker}
+			onChange={(val) => setAttributes({ sectionKicker: val })}
+			className="embedded-input"
+			placeholder="Kicker Text"
+		/>
+	);
+
+	let sectionTitle = (
+		<RichText
+			value={attributes.sectionTitle}
+			onChange={(val) => setAttributes({ sectionTitle: val })}
+			className="embedded-input"
+			placeholder="Section H2 Header"
+			allowedFormats={[
+				"core/bold",
+				"core/italic",
+				"core/link",
+				"core/image",
+				"core/strikethrough",
+				"core/text-color",
+			]}
+		/>
+	);
+
+	let sectionBody = (
+		<RichText
+			tagName="p"
+			value={attributes.sectionBody}
+			onChange={(val) => setAttributes({ sectionBody: val })}
+			className="embedded-input"
+			placeholder="Body content here"
+			allowedFormats={[
+				"core/bold",
+				"core/italic",
+				"core/strikethrough",
+				"core/text-color",
+				"core/image",
+			]}
+		/>
+	);
+
 	let itemValues = [...attributes.quotes];
 	let itemControls = attributes.quotes.map((item, index) => {
 		return {
@@ -242,6 +285,9 @@ export default function Edit({
 			<div {...useBlockProps()}>
 				{addButton}
 				<ProgramCard
+					sectionKicker={sectionKicker}
+					sectionTitle={sectionTitle}
+					sectionBody={sectionBody}
 					items={itemControls}
 					runFilters={true}
 					backgroundColor={attributes.backgroundColor}
@@ -252,6 +298,9 @@ export default function Edit({
 	return (
 		<div {...useBlockProps()}>
 			<ProgramCard
+				sectionKicker={attributes.sectionKicker}
+				sectionTitle={attributes.sectionTitle}
+				sectionBody={attributes.sectionBody}
 				items={attributes.quotes}
 				runFilters={true}
 				backgroundColor={attributes.backgroundColor}
