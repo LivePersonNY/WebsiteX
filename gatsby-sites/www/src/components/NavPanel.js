@@ -155,7 +155,7 @@ const NavPanel = ({
                                                 href="/resources/webinars/future-of-voice-ai-technology/"
                                                 rel="noopener noreferrer"
                                             >
-                                                Register now
+                                                Watch now
                                             </a>
                                         </div>
                                     </div>
