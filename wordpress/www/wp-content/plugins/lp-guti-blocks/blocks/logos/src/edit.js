@@ -103,23 +103,19 @@ export default function Edit({
 							)}
 						/>
 					</MediaUploadCheck>
-					<ItemControls
-						index={index}
-						itemArray={logos}
-						callback={function (items) {
-							setAttributes({ logos: logos });
-						}}
-					/>
-				</div>
-			),
-			body: (
-				<div className="wp-control-wrapper">
 					<LinkControl
 						url={logos[index].itemLinkUrl}
 						external={logos[index].itemLinkExternal || false}
 						callback={function (text, url, external) {
 							logos[index].itemLinkUrl = url;
 							logos[index].itemLinkExternal = external;
+							setAttributes({ logos: logos });
+						}}
+					/>
+					<ItemControls
+						index={index}
+						itemArray={logos}
+						callback={function (items) {
 							setAttributes({ logos: logos });
 						}}
 					/>
