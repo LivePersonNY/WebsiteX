@@ -5,6 +5,34 @@ import Paragraph from '../Paragraph';
 
 const LogosUniversal = (props) => {
     let logoImg = props.items.map((item, index) => {
+        let includeLink = item.itemLinkUrl;
+        if (includeLink) {
+            return (
+                <>
+                    {includeLink && (
+                        <a
+                            className=""
+                            href={item.itemLinkUrl}
+                            target={item.itemLinkExternal && `_blank`}
+                            rel={item.itemLinkExternal && `noopener noreferrer`}
+                        >
+                            {(!item.imgCtl && (
+                                <img
+                                    key={index}
+                                    className=""
+                                    src={item.img}
+                                    alt={item.imgAlt}
+                                    width={item.imgWidth}
+                                    height={item.imgHeight}
+                                    loading="lazy"
+                                />
+                            )) ||
+                                item.imgCtl}
+                        </a>
+                    )}
+                </>
+            );
+        }
         return (
             <>
                 {(!item.imgCtl && (

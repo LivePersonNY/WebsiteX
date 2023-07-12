@@ -112,6 +112,19 @@ export default function Edit({
 					/>
 				</div>
 			),
+			body: (
+				<div className="wp-control-wrapper">
+					<LinkControl
+						url={logos[index].itemLinkUrl}
+						external={logos[index].itemLinkExternal || false}
+						callback={function (text, url, external) {
+							logos[index].itemLinkUrl = url;
+							logos[index].itemLinkExternal = external;
+							setAttributes({ logos: logos });
+						}}
+					/>
+				</div>
+			),
 		};
 	});
 
