@@ -168,8 +168,10 @@ export default function Edit({
 					/>
 					<TextControl
 						value={itemValues[index].btnUrl}
-						onChange={function (value) {
+						external={itemValues[index].btnUrlExternal || false}
+						onChange={function (value, external) {
 							itemValues[index].btnUrl = value;
+							itemValues[index].btnUrlExternal = external;
 							setAttributes({ quotes: itemValues });
 						}}
 						placeholder="Link URL"
@@ -190,8 +192,10 @@ export default function Edit({
 					/>
 					<TextControl
 						value={itemValues[index].btnSecondaryUrl}
-						onChange={function (value) {
+						external={itemValues[index].btnSecondaryUrlExternal || false}
+						onChange={function (value, external) {
 							itemValues[index].btnSecondaryUrl = value;
+							itemValues[index].btnSecondaryUrlExternal = external;
 							setAttributes({ quotes: itemValues });
 						}}
 						placeholder="Link URL"

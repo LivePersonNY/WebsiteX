@@ -37,6 +37,13 @@ const ProgramCard = (props) => {
                             <a
                                 href={item.btnSecondaryUrl}
                                 className="btn btn2 btn-outline-secondary"
+                                target={
+                                    item.btnSecondaryUrlExternal && `_blank`
+                                }
+                                rel={
+                                    item.btnSecondaryUrlExternal &&
+                                    `noopener noreferrer`
+                                }
                             >
                                 {item.btnSecondaryText}
                             </a>
@@ -45,6 +52,10 @@ const ProgramCard = (props) => {
                             <a
                                 href={item.btnUrl}
                                 className="btn btn2 btn-primary"
+                                target={item.btnUrlExternal && `_blank`}
+                                rel={
+                                    item.btnUrlExternal && `noopener noreferrer`
+                                }
                             >
                                 {item.btnText}
                             </a>
