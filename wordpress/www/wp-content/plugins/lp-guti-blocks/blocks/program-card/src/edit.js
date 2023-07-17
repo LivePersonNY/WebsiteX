@@ -37,6 +37,7 @@ import AddItemButton from "../../AddItemButton";
 import ItemControls from "../../ItemControls";
 import BackgroundSelectorMenu from "../../BackgroundSelector";
 import AutoApproveLanguage from "../../AutoApproveLanguage";
+import LinkControl from "../../LinkControl";
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -157,7 +158,18 @@ export default function Edit({
 			btnUrl: null,
 			btnText: (
 				<div className="wp-control-wrapper">
-					<TextControl
+					<LinkControl
+						text={itemValues[index].btnText}
+						url={itemValues[index].btnUrl}
+						external={itemValues[index].btnUrlExternal || false}
+						callback={function (text, url, external) {
+							itemValues[index].btnText = text;
+							itemValues[index].btnUrl = url;
+							itemValues[index].btnUrlExternal = external;
+							setAttributes({ quotes: itemValues });
+						}}
+					/>
+					{/* <TextControl
 						value={itemValues[index].btnText}
 						onChange={function (value) {
 							itemValues[index].btnText = value;
@@ -175,13 +187,24 @@ export default function Edit({
 							setAttributes({ quotes: itemValues });
 						}}
 						placeholder="Link URL"
-					/>
+					/> */}
 				</div>
 			),
 			btnSecondaryUrl: null,
 			btnSecondaryText: (
 				<div className="wp-control-wrapper">
-					<TextControl
+					<LinkControl
+						text={itemValues[index].btnSecondaryText}
+						url={itemValues[index].btnSecondaryUrl}
+						external={itemValues[index].btnSecondaryUrlExternal || false}
+						callback={function (text, url, external) {
+							itemValues[index].btnSecondaryText = text;
+							itemValues[index].btnSecondaryUrl = url;
+							itemValues[index].btnSecondaryUrlExternal = external;
+							setAttributes({ quotes: itemValues });
+						}}
+					/>
+					{/* <TextControl
 						value={itemValues[index].btnSecondaryText}
 						onChange={function (value) {
 							itemValues[index].btnSecondaryText = value;
@@ -199,7 +222,7 @@ export default function Edit({
 							setAttributes({ quotes: itemValues });
 						}}
 						placeholder="Link URL"
-					/>
+					/> */}
 				</div>
 			),
 			body: (
