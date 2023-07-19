@@ -77,12 +77,13 @@ const TabsC = (props) => {
                             {item.linkText}
                         </a>
                     )}
-                    {item.tabStats && (
+                    {(item.tabStats && (
                         <>
                             {item.tabStats}
                             {statsFinal}
                         </>
-                    )}
+                    )) ||
+                        ''}
                 </div>
                 <div className="col-lg-6 offset-lg-1">
                     {(!item.imgCtl && (
