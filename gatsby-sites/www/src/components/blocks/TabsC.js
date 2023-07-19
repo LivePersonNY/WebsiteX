@@ -77,7 +77,7 @@ const TabsC = (props) => {
                             {item.linkText}
                         </a>
                     )}
-                    {(item.tabStats && (
+                    {(statsFinal && (
                         <>
                             {item.tabStats}
                             {statsFinal}
