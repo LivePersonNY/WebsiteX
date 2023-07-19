@@ -37,9 +37,9 @@ const TabsC = (props) => {
     });
 
     let tabsContent = props.items.map((item, index) => {
+        let statsFinal = '';
         if (item.tabStats) {
             let statsObj = JSON.parse(item.tabStats);
-            let statsFinal = '';
             for (let i in statsObj) {
                 statsFinal += `<p>${i}</p><p>${statsObj[i]}</p>`;
             }
@@ -77,7 +77,7 @@ const TabsC = (props) => {
                             {item.linkText}
                         </a>
                     )}
-                    {(statsFinal && (
+                    {(item.tabStats && (
                         <>
                             {item.tabStats}
                             {statsFinal}
