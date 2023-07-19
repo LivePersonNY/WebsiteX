@@ -37,6 +37,12 @@ const TabsC = (props) => {
     });
 
     let tabsContent = props.items.map((item, index) => {
+        let statsObj = JSON.parse(item.tabStats);
+        for (let i in statsObj) {
+            let statsFinal = `<p>${i}</p><p>${statsObj[i]}</p>`;
+            return statsFinal;
+        }
+
         return (
             <div
                 className={`row bg-primary-light align-items-center comp-tabs-content `}
@@ -70,6 +76,7 @@ const TabsC = (props) => {
                         </a>
                     )}
                     {item.tabStats}
+                    {statsFinal}
                 </div>
                 <div className="col-lg-6 offset-lg-1">
                     {(!item.imgCtl && (
