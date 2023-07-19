@@ -86,7 +86,7 @@ const TabsC = (props) => {
                             {item.linkText}
                         </a>
                     )}
-                    {item.tabStatsValue && <p>{item.tabStatsValue}</p>}
+                    {item.tabStats && <p>{item.tabStats}</p>}
                     {(item.tabStats && (
                         <div dangerouslySetInnerHTML={{ __html: statsFinal }} />
                     )) ||

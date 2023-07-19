@@ -127,10 +127,10 @@ export default function Edit({
 					allowedFormats={["core/bold", "core/italic", "core/link"]}
 				/>
 			),
-			tabStatsValue: (
+			tabStats: (
 				<div className="wp-control-wrapper">
 					<TextControl
-						value={itemValues[index].tabStatsValue}
+						value={itemValues[index].tabStats}
 						onChange={function (value) {
 							itemValues[index].tabStats = value;
 							setAttributes({ tabItems: itemValues });
@@ -211,7 +211,6 @@ export default function Edit({
 			img: `https://picsum.photos/752/568?random=${thisIndex}`,
 			imgAlt: "An image placeholder",
 			icon: `https://loremicon.com/rect/64/64/${thisIndex}/png`,
-			tabStats: '{"1": "one", "2": "two", "3": "three"}',
 		});
 		setAttributes({
 			tabItems: itemValues,
