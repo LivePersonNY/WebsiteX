@@ -37,11 +37,11 @@ const TabsC = (props) => {
     });
 
     let tabsContent = props.items.map((item, index) => {
-        // let statsObj = JSON.parse(item.tabStats);
-        // for (let i in statsObj) {
-        //     let statsFinal = `<p>${i}</p><p>${statsObj[i]}</p>`;
-        //     return statsFinal;
-        // }
+        let statsObj = JSON.parse(item.tabStats);
+        let statsFinal = '';
+        for (let i in statsObj) {
+            statsFinal += `<p>${i}</p><p>${statsObj[i]}</p>`;
+        }
 
         return (
             <div
@@ -76,7 +76,7 @@ const TabsC = (props) => {
                         </a>
                     )}
                     {item.tabStats}
-                    {/* {statsFinal} */}
+                    {statsFinal}
                 </div>
                 <div className="col-lg-6 offset-lg-1">
                     {(!item.imgCtl && (
