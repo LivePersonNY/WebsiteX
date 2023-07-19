@@ -30,7 +30,7 @@
 					"img": "https://picsum.photos/752/568",
 					"imgAlt": "An image placeholder",
 					"icon": "https://loremicon.com/rect/64/64/8903836/png",
-					"tabStats": ""
+					"tabStats": "{1: one, 2: two, 3: three}"
 				}
 			]
 		}

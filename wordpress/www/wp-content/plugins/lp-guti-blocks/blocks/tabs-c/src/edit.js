@@ -211,7 +211,7 @@ export default function Edit({
 			img: `https://picsum.photos/752/568?random=${thisIndex}`,
 			imgAlt: "An image placeholder",
 			icon: `https://loremicon.com/rect/64/64/${thisIndex}/png`,
-			tabStats: "",
+			tabStats: "{ 1: one, 2: two, 3: three}",
 		});
 		setAttributes({
 			tabItems: itemValues,
