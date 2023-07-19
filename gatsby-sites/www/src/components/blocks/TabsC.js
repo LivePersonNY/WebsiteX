@@ -38,7 +38,7 @@ const TabsC = (props) => {
 
     let tabsContent = props.items.map((item, index) => {
         let statsFinal = '';
-        if (item.tabStats) {
+        if (item.tabStats && typeof item.tabStats == 'object') {
             let statsObj = JSON.parse(item.tabStats);
             for (let i in statsObj) {
                 statsFinal += `<p>${i}</p><p>${statsObj[i]}</p>`;
