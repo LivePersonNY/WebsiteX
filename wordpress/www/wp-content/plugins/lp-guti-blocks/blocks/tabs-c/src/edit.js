@@ -127,7 +127,7 @@ export default function Edit({
 					allowedFormats={["core/bold", "core/italic", "core/link"]}
 				/>
 			),
-			tabStats: (
+			tabStatsValue: (
 				<div className="wp-control-wrapper">
 					<TextControl
 						value={itemValues[index].tabStatsValue}
