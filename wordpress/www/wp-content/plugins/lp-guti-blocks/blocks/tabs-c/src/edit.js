@@ -127,7 +127,18 @@ export default function Edit({
 					allowedFormats={["core/bold", "core/italic", "core/link"]}
 				/>
 			),
-			tabStats: itemValues[index].tabStats,
+			tabStats: (
+				<div className="wp-control-wrapper">
+					<TextControl
+						value={itemValues[index].tabStatsValue}
+						onChange={function (value) {
+							itemValues[index].tabStats = value;
+							setAttributes({ tabItems: itemValues });
+						}}
+						className="embedded-input"
+					/>
+				</div>
+			),
 			iconCtl: (
 				<MediaUploadCheck>
 					<MediaUpload
