@@ -91,7 +91,7 @@ const TabsC = (props) => {
                     )}
                     {(item.tabStats && (
                         <div
-                            className="row align-items-center row-cols-lg row-cols-2"
+                            className="row align-items-center row-cols-lg row-cols-2 tab-stats-grid"
                             dangerouslySetInnerHTML={{ __html: statsFinal }}
                         />
                     )) ||
