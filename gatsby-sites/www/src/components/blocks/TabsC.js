@@ -90,10 +90,13 @@ const TabsC = (props) => {
                         <p className="tabStats-editor">{item.tabStats}</p>
                     )}
                     {(item.tabStats && (
-                        <div
-                            className="row align-items-center row-cols-lg row-cols-2 tab-stats-grid"
-                            dangerouslySetInnerHTML={{ __html: statsFinal }}
-                        />
+                        <>
+                            <p className="h6">OUTCOMES</p>
+                            <div
+                                className="row align-items-center row-cols-lg row-cols-2 tab-stats-grid"
+                                dangerouslySetInnerHTML={{ __html: statsFinal }}
+                            />
+                        </>
                     )) ||
                         ''}
                 </div>
