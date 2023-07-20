@@ -50,7 +50,7 @@ const TabsC = (props) => {
         if (isJSON(item.tabStats)) {
             let statsObj = JSON.parse(item.tabStats);
             for (let i in statsObj) {
-                statsFinal += `<p>${i}</p><p>${statsObj[i]}</p>`;
+                statsFinal += `<div class="col"><p class="h2">${i}</p><p class="subtitle3">${statsObj[i]}</p></div>`;
             }
         }
 
@@ -90,7 +90,10 @@ const TabsC = (props) => {
                         <p className="tabStats-editor">{item.tabStats}</p>
                     )}
                     {(item.tabStats && (
-                        <div dangerouslySetInnerHTML={{ __html: statsFinal }} />
+                        <div
+                            className="row align-items-center row-cols-lg row-cols-2"
+                            dangerouslySetInnerHTML={{ __html: statsFinal }}
+                        />
                     )) ||
                         ''}
                 </div>
