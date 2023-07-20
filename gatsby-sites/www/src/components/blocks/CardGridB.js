@@ -6,7 +6,7 @@ import Paragraph from '../Paragraph';
 const CardGridB = (props) => {
     let cardCol = props.items.map((item, index) => {
         return (
-            <div className="col-12 col-lg-3" key={index}>
+            <div className="col-12 col-lg" key={index}>
                 <div className="card card-b h-100">
                     {(!item.imgCtl && (
                         <img

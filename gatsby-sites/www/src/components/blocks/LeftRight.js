@@ -43,7 +43,13 @@ const LeftRight = (props) => {
                                     />
                                 </h2>
                                 {props.sectionBody && (
-                                    <Paragraph text={props.sectionBody} />
+                                    <Paragraph
+                                        className={`${
+                                            props.alignmentClass ||
+                                            'text-center'
+                                        } `}
+                                        text={props.sectionBody}
+                                    />
                                 )}
                             </div>
                         </div>
