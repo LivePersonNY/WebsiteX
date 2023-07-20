@@ -118,7 +118,6 @@ export default function Edit({
 						value={itemValues[index].title}
 						onChange={function (value) {
 							itemValues[index].title = value;
-							itemValues[index].kicker = value;
 							setAttributes({ tabItems: itemValues });
 						}}
 						className="embedded-input"
@@ -132,7 +131,18 @@ export default function Edit({
 					/>
 				</div>
 			),
-			kicker: itemValues[index].title,
+			kicker: (
+				<div className="wp-control-wrapper">
+					<TextControl
+						value={itemValues[index].kicker}
+						onChange={function (value) {
+							itemValues[index].kicker = value;
+							setAttributes({ tabItems: itemValues });
+						}}
+						className="embedded-input"
+					/>
+				</div>
+			),
 			body: (
 				<RichText
 					value={itemValues[index].body}
