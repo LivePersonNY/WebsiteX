@@ -17,6 +17,7 @@
 	"attributes": {
 		"kicker": {},
 		"header": {},
+		"sectioBody": {},
 		"backgroundColor": {
 			"default": "bg-transparent"
 		},

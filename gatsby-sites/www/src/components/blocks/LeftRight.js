@@ -38,6 +38,9 @@ const LeftRight = (props) => {
                                         headerLevel="nothing"
                                     />
                                 </h2>
+                                {props.sectionBody && (
+                                    <Paragraph text={props.sectionBody} />
+                                )}
                             </div>
                         </div>
                     )}

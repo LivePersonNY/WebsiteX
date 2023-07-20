@@ -107,6 +107,21 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 		/>
 	);
 
+	let sectionBodyControl = (
+		<RichText
+			tagName="p"
+			value={attributes.sectionBody}
+			onChange={(val) => setAttributes({ sectionBody: val })}
+			allowedFormats={[
+				"core/bold",
+				"core/italic",
+				"core/link",
+				"core/image",
+				"lp-guti-blocks/heading",
+			]}
+		/>
+	);
+
 	let headerControl = (
 		<RichText
 			value={attributes.header}
@@ -262,6 +277,7 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 					linkText={linkTextControl}
 					linkSecondaryText={linkSecondaryTextControl}
 					body={contentControl}
+					sectionBody={sectionBodyControl}
 					title={titleControl}
 					header={headerControl}
 					flipColumns={attributes.flipped}
@@ -313,6 +329,7 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 				linkSecondaryExternal={attributes.linkSecondaryExternal}
 				colWidth={attributes.colWidth}
 				body={attributes.text}
+				sectionBody={attributes.sectionBody}
 				title={attributes.title}
 				header={attributes.header}
 				flipColumns={attributes.flipped}

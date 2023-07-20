@@ -48,6 +48,7 @@ export default function save({ attributes }) {
 			linkSecondaryText={attributes.linkSecondaryText}
 			linkSecondaryExternal={attributes.linkSecondaryExternal}
 			body={attributes.text}
+			sectionBody={attributes.sectionBody}
 			title={attributes.title}
 			header={attributes.header}
 			flipColumns={attributes.flipped}
