@@ -130,6 +130,12 @@ const TabsC = (props) => {
                     <div className="row">
                         <div className="col-lg-8 offset-lg-2">
                             <h2 className="text-center">{props.header}</h2>
+                            {props.body && (
+                                <Paragraph
+                                    className="text-center"
+                                    text={props.body}
+                                />
+                            )}
                         </div>
                     </div>
                     <div className="row justify-content-center text-center">

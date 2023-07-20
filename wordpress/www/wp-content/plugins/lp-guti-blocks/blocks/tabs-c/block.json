@@ -16,6 +16,7 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"header": {"default": "Header above tabs"},
+		"body": {"default": "This should be compelling content. But it isn't."},
 		"backgroundColor": {},
 		"autoApproveLang": {"default":false, "type": "boolean"},
 		"tabItems": {

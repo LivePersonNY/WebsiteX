@@ -69,6 +69,22 @@ export default function Edit({
 		/>
 	);
 
+	let bodyControl = (
+		<RichText
+			tagName="p"
+			value={attributes.body}
+			onChange={(val) => setAttributes({ body: val })}
+			className="embedded-input"
+			allowedFormats={[
+				"core/bold",
+				"core/italic",
+				"core/link",
+				"core/list",
+				"core/text-color",
+			]}
+		/>
+	);
+
 	let itemValues = [...attributes.tabItems];
 	let itemControls = attributes.tabItems.map((item, index) => {
 		return {
@@ -246,6 +262,7 @@ export default function Edit({
 				{addButton}
 				<TabsC
 					header={headerControl}
+					body={bodyControl}
 					items={itemControls}
 					backgroundColor={attributes.backgroundColor}
 				/>
@@ -257,6 +274,7 @@ export default function Edit({
 			{addButton}
 			<TabsC
 				header={attributes.header}
+				body={attributes.body}
 				items={attributes.tabItems}
 				runFilters={true}
 				backgroundColor={attributes.backgroundColor}
