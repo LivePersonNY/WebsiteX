@@ -665,9 +665,9 @@ footer {
             }
         }
         #ot-sdk-btn {
-            background: none;
+            background: none !important;
             border: 0;
-            color: $neutral99;
+            color: $neutral99 !important;
             font-size: 12px;
             padding-left: 0;
             padding-right: 15px;
