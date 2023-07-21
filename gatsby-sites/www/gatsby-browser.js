@@ -37,6 +37,7 @@ export const onRouteUpdate = () => {
     window.previousPath = locations[locations.length - 2];
 
     if (location && window.OneTrust) {
+        console.log('OneTrust here');
         OneTrust.initializeCookiePolicyHtml();
     }
 
