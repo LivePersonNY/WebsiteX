@@ -149,6 +149,9 @@ const Footer = () => {
                                 </a>
                             );
                         })}
+                        <button id="ot-sdk-btn" class="ot-sdk-show-settings">
+                            Cookie Settings
+                        </button>
                         <div className="footer-social">
                             <AddThis type="follow" />
                         </div>
