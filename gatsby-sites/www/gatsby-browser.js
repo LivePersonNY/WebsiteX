@@ -36,7 +36,9 @@ export const onRouteUpdate = () => {
     locations.push(window.location.href);
     window.previousPath = locations[locations.length - 2];
 
-    OneTrust.initializeCookiePolicyHtml();
+    if (location && window.OneTrust) {
+        OneTrust.initializeCookiePolicyHtml();
+    }
 
     console.log('onRouteUpdate', pagePath); // this works
 };

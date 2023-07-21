@@ -149,7 +149,10 @@ const Footer = () => {
                                 </a>
                             );
                         })}
-                        <button id="ot-sdk-btn" class="ot-sdk-show-settings">
+                        <button
+                            id="ot-sdk-btn"
+                            className="ot-sdk-show-settings"
+                        >
                             Cookie Settings
                         </button>
                         <div className="footer-social">
