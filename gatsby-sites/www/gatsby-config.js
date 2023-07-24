@@ -60,11 +60,11 @@ module.exports = {
                     process.env.WP_HOST || 'https://edit.liveperson.com'
                 }/graphql`,
                 debug: {
-                    preview: false,
+                    preview: true,
                 },
                 production: {
                     allow404Images: false,
-                    hardCacheMediaFiles: true,
+                    hardCacheMediaFiles: false,
                 },
                 develop: {
                     //caches media files outside of Gatsby's default cache an thus allows them to persist through a cache reset.
@@ -72,6 +72,7 @@ module.exports = {
                 },
                 type: {
                     MediaItem: {
+                        createFileNodes: false,
                         localFile: {
                             excludeByMimeTypes: [
                                 `image/png`,

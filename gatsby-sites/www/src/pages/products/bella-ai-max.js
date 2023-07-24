@@ -140,7 +140,7 @@ const PricingPage = () => {
                 title="Bella AI | LivePerson"
                 description=""
                 meta={meta}
-                canonical="https://www.liveperson.com/pricing"
+                canonical="https://www.liveperson.com/products/bella-ai-max"
                 robots="noindex, nofollow"
             />
 
