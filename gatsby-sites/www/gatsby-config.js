@@ -76,6 +76,7 @@ module.exports = {
                             excludeByMimeTypes: [
                                 `image/png`,
                                 `image/jpeg`,
+                                `image/jpg`,
                                 `application/json`,
                                 `application/zip`,
                                 `image/svg+xml`,
