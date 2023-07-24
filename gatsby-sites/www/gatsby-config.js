@@ -55,6 +55,7 @@ module.exports = {
                 verbose: true,
                 schema: {
                     timeout: 1200000,
+                    requestConcurrency: 5,
                 },
                 url: `${
                     process.env.WP_HOST || 'https://edit.liveperson.com'
@@ -82,6 +83,7 @@ module.exports = {
                                 `application/pdf`,
                             ],
                             maxFileSizeBytes: 0,
+                            requestConcurrency: 50,
                         },
                     },
                 },
