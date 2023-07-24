@@ -61,6 +61,9 @@ module.exports = {
                 }/graphql`,
                 debug: {
                     preview: true,
+                    graphql: {
+                        showQueryOnError: true,
+                    },
                 },
                 production: {
                     allow404Images: false,
@@ -72,7 +75,6 @@ module.exports = {
                 },
                 type: {
                     MediaItem: {
-                        createFileNodes: false,
                         localFile: {
                             excludeByMimeTypes: [
                                 `image/png`,
