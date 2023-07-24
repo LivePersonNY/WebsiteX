@@ -36,10 +36,10 @@ export const onRouteUpdate = () => {
     locations.push(window.location.href);
     window.previousPath = locations[locations.length - 2];
 
-    // if (location && window.OneTrust) {
-    //     console.log('OneTrust here');
-    //     OneTrust.initializeCookiePolicyHtml();
-    // }
+    if (location && window.OneTrust) {
+        console.log('OneTrust here3');
+        OneTrust.initializeCookiePolicyHtml();
+    }
 
     console.log('onRouteUpdate', pagePath); // this works
 };
