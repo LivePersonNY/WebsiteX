@@ -52,6 +52,7 @@ module.exports = {
         {
             resolve: `gatsby-source-wordpress`,
             options: {
+                verbose: true,
                 schema: {
                     timeout: 1200000,
                 },
@@ -64,6 +65,10 @@ module.exports = {
                 production: {
                     allow404Images: false,
                     hardCacheMediaFiles: false,
+                },
+                develop: {
+                    //caches media files outside of Gatsby's default cache an thus allows them to persist through a cache reset.
+                    hardCacheMediaFiles: true,
                 },
                 type: {
                     MediaItem: {
