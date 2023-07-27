@@ -22,7 +22,7 @@ const LeftRight = (props) => {
                     props.backgroundColor || 'bg-transparent'
                 } comp-left-right ${
                     props.repeat ? 'comp-left-right-repeat' : ''
-                }`}
+                } ${props.cssClasses}`}
             >
                 <div className="container">
                     {props.header && (

@@ -362,6 +362,14 @@ img[src*='doubleclick'] {
         }
     }
 
+    &.main-header-half {
+        .row.justify-content-center {
+            @include media-breakpoint-up(lg) {
+                width: 60%;
+            }
+        }
+    }
+
     h6 {
         margin-bottom: 8px;
     }

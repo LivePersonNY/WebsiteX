@@ -612,6 +612,17 @@ $animationSpeed: 30s;
             }
         }
     }
+    &.july-2023 {
+        h1 + p {
+            font-size: 21px;
+            line-height: 28px;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 24px;
+                line-height: 32px;
+            }
+        }
+    }
 }
 
 // Pricing page
