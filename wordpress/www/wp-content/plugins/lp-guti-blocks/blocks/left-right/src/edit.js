@@ -270,6 +270,7 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 					}}
 				/>
 				<LeftRight
+					cssClasses={attributes.className}
 					headLevel={attributes.headLevel}
 					kicker={kickerControl}
 					backgroundColor={attributes.backgroundColor}
@@ -317,6 +318,7 @@ export default function Edit({ attributes, setAttributes, isSelected }) {
 	return (
 		<div {...useBlockProps()}>
 			<LeftRight
+				cssClasses={attributes.className}
 				headLevel={attributes.headLevel}
 				kicker={attributes.kicker}
 				backgroundColor={attributes.backgroundColor}

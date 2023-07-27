@@ -36,6 +36,7 @@ export default function save({ attributes }) {
 
 	return (
 		<LeftRight
+			cssClasses={attributes.className}
 			headLevel={attributes.headLevel}
 			colWidth={attributes.colWidth}
 			kicker={attributes.kicker}
