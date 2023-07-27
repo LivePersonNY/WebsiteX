@@ -672,7 +672,7 @@ footer {
 }
 
 .news-ticker-container {
-    display: none; // Is there a better way to do this?
+    display: none;
     position: relative;
     background: $borderGradient;
     text-align: center;
@@ -681,6 +681,9 @@ footer {
     height: auto;
     @include media-breakpoint-up(lg) {
         max-height: 48px;
+    }
+    &.display-none {
+        display: none !important;
     }
     .container {
         position: relative;
