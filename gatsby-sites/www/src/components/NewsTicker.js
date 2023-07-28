@@ -61,10 +61,19 @@ const NewsTicker = ({ siteTitle }) => {
         });
     }, []);
 
+    let hideNT = '';
+    newsTickerItems.nodes.map((item, index) => {
+        let nTCss = item.cssClasses;
+        if (nTCss.includes('display-none')) {
+            hideNT = 'display-none';
+            return;
+        }
+    });
+
     return (
         <>
             {newsTickerItems.nodes.length > 0 && (
-                <div className={`news-ticker-container`}>
+                <div className={`news-ticker-container ${hideNT}`}>
                     <div className="container">
                         {newsTickerItems.nodes.map((item, index) => {
                             const cssClasses = item.cssClasses.length

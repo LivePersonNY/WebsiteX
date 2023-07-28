@@ -672,7 +672,7 @@ footer {
 }
 
 .news-ticker-container {
-    display: none !important; // better way?
+    display: none;
     position: relative;
     background: $borderGradient;
     text-align: center;
