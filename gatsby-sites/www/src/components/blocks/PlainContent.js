@@ -6,11 +6,11 @@ import Paragraph from '../Paragraph';
 const PlainContent = function (props) {
     let headerLevel = props.headLevel || 'h2';
 
-    let fullAnimation = () => {
-        let headerText = props.header;
+    let fullAnimation = (textContent, animatedContent) => {
+        let headerText = textContent;
         headerText = headerText.split('animatedText');
 
-        let headerAnimateText = props.animatedText;
+        let headerAnimateText = animatedContent;
         headerAnimateText = headerAnimateText.split(',');
         let animatedLoop = headerAnimateText.map((item, index) => {
             let isActive = '';
@@ -65,10 +65,22 @@ const PlainContent = function (props) {
                             props.assetTopCtl}
                         {props.kicker && (
                             <p className="h6 text-uppercase">
-                                <Paragraph
-                                    text={props.kicker}
-                                    headerLevel="nothing"
-                                />
+                                {!props.animatedKickerText && (
+                                    <Paragraph
+                                        text={props.kicker}
+                                        headerLevel="nothing"
+                                    />
+                                )}
+                                {props.animatedKickerText && (
+                                    <Paragraph
+                                        text={fullAnimation(
+                                            props.kicker,
+                                            props.animatedKickerText
+                                        )}
+                                        headerLevel="nothing"
+                                    />
+                                )}
+                                <Paragraph text={props.kicker} />
                             </p>
                         )}
                         {headerLevel == 'h2' && (
@@ -81,7 +93,10 @@ const PlainContent = function (props) {
                                 )}
                                 {props.animatedText && (
                                     <Paragraph
-                                        text={fullAnimation()}
+                                        text={fullAnimation(
+                                            props.header,
+                                            props.animatedContent
+                                        )}
                                         headerLevel={headerLevel}
                                     />
                                 )}
@@ -97,7 +112,10 @@ const PlainContent = function (props) {
                                 )}
                                 {props.animatedText && (
                                     <Paragraph
-                                        text={fullAnimation()}
+                                        text={fullAnimation(
+                                            props.header,
+                                            props.animatedContent
+                                        )}
                                         headerLevel={headerLevel}
                                     />
                                 )}
