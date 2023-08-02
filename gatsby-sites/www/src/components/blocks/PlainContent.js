@@ -6,6 +6,10 @@ import Paragraph from '../Paragraph';
 const PlainContent = function (props) {
     let headerLevel = props.headLevel || 'h2';
 
+    if (props.animatedText) {
+        console.log('we are doing animation');
+    }
+
     let fullAnimation = () => {
         let headerText = props.header;
         headerText = headerText.split('animatedText');
