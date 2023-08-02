@@ -95,7 +95,7 @@ const PlainContent = function (props) {
                                     <Paragraph
                                         text={fullAnimation(
                                             props.header,
-                                            props.animatedContent
+                                            props.animatedText
                                         )}
                                         headerLevel={headerLevel}
                                     />
@@ -114,7 +114,7 @@ const PlainContent = function (props) {
                                     <Paragraph
                                         text={fullAnimation(
                                             props.header,
-                                            props.animatedContent
+                                            props.animatedText
                                         )}
                                         headerLevel={headerLevel}
                                     />
