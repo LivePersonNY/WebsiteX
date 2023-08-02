@@ -45,6 +45,7 @@ export default function save({ attributes }) {
 			linkExternal={attributes.linkExternal}
 			linkSecondaryExternal={attributes.linkSecondaryExternal}
 			animatedText={attributes.animatedText}
+			animatedKickerText={attributes.animatedKickerText}
 			assetTopSrc={attributes.assetTopSrc}
 			assetTopAlt={attributes.assetTopAlt}
 			assetTopWidth={attributes.assetTopWidth}

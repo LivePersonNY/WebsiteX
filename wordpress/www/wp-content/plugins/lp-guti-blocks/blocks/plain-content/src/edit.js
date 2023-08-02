@@ -219,6 +219,14 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 						}}
 					/>
 				</PanelBody>
+				<PanelBody title="Animated Kicker Text" initialOpen={false}>
+					<TextControl
+						value={attributes.animatedKickerText}
+						onChange={function (value) {
+							setAttributes({ animatedKickerText: value });
+						}}
+					/>
+				</PanelBody>
 			</InspectorControls>
 		</Fragment>
 	);
@@ -387,6 +395,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				linkSecondaryExternal={attributes.linkSecondaryExternal}
 				linkUrl={attributes.linkUrl}
 				animatedText={attributes.animatedText}
+				animatedKickerText={attributes.animatedKickerText}
 				assetTopSrc={attributes.assetTopSrc}
 				assetTopAlt={attributes.assetTopAlt}
 				assetTopWidth={attributes.assetTopWidth}
