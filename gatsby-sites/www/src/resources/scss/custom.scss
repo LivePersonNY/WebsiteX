@@ -485,30 +485,23 @@ table {
 }
 
 .kicker-animated {
-    .h6.text-uppercase {
-        font-size: 18px;
-        line-height: 24px;
-
-        @include media-breakpoint-up(lg) {
-            font-size: 21px;
-            line-height: 28px;
+    .h4 {
+        .animatedText-carousel {
+            span {
+                background: none !important;
+                -webkit-background-clip: inherit !important;
+                -webkit-text-fill-color: inherit !important;
+            }
         }
     }
-    .animatedText-carousel {
-        span {
-            background: none !important;
-            -webkit-background-clip: inherit !important;
-            -webkit-text-fill-color: inherit !important;
-            font-size: 18px !important;
-            line-height: 24px !important;
-            font-family: $familySpaceGrotesk !important;
-            font-weight: 700 !important;
-            text-transform: uppercase !important;
+    h2,
+    h1 {
+        font-size: 32px;
+        line-height: 36px;
 
-            @include media-breakpoint-up(lg) {
-                font-size: 21px !important;
-                line-height: 28px !important;
-            }
+        @include media-breakpoint-up(lg) {
+            font-size: 64px;
+            line-height: 72px;
         }
     }
 }
