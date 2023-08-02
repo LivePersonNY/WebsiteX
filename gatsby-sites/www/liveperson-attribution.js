@@ -75,6 +75,20 @@ const MktoForms = {
                             ' - ' +
                             window.location.pathname
                     );
+                    // Do not change anything in the following two lines
+                    window.VWO = window.VWO || [];
+                    VWO.event =
+                        VWO.event ||
+                        function () {
+                            VWO.push(
+                                ['event'].concat([].slice.call(arguments))
+                            );
+                        };
+
+                    // Replace the property values with your actual values
+                    VWO.event('webpageFormSubmission', {
+                        testprop: formId,
+                    });
                     return false;
                 });
             });
@@ -439,8 +453,6 @@ const LivePerson = {
             form.submittable(false);
             form.showErrorMessage('Must be Business email.', emailField);
         } else {
-            //continueDemandbase(formID);
-
             var vals = {
                 GCLID__c: window.lp_attr.gclid,
                 MSCLIKID__c: window.lp_attr.msclkid,
