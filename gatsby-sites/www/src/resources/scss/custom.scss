@@ -484,6 +484,35 @@ table {
     }
 }
 
+.kicker-animated {
+    .h6.text-uppercase {
+        font-size: 18px;
+        line-height: 24px;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 21px;
+            line-height: 28px;
+        }
+    }
+    .animatedText-carousel {
+        span {
+            background: none !important;
+            -webkit-background-clip: inherit !important;
+            -webkit-text-fill-color: inherit !important;
+            font-size: 18px !important;
+            line-height: 24px !important;
+            font-family: $familySpaceGrotesk !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 21px !important;
+                line-height: 28px !important;
+            }
+        }
+    }
+}
+
 .hp-2023 {
     padding: 0;
 

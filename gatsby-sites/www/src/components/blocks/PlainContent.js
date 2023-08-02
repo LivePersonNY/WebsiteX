@@ -64,23 +64,27 @@ const PlainContent = function (props) {
                         )) ||
                             props.assetTopCtl}
                         {props.kicker && (
-                            <p className="h6 text-uppercase">
+                            <>
                                 {!props.animatedKickerText && (
-                                    <Paragraph
-                                        text={props.kicker}
-                                        headerLevel="nothing"
-                                    />
+                                    <p className="h6 text-uppercase">
+                                        <Paragraph
+                                            text={props.kicker}
+                                            headerLevel="nothing"
+                                        />
+                                    </p>
                                 )}
                                 {props.animatedKickerText && (
-                                    <Paragraph
-                                        text={fullAnimation(
-                                            props.kicker,
-                                            props.animatedKickerText
-                                        )}
-                                        headerLevel="nothing"
-                                    />
+                                    <h4 className="h4 text-uppercase">
+                                        <Paragraph
+                                            text={fullAnimation(
+                                                props.kicker,
+                                                props.animatedKickerText
+                                            )}
+                                            headerLevel="nothing"
+                                        />
+                                    </h4>
                                 )}
-                            </p>
+                            </>
                         )}
                         {headerLevel == 'h2' && (
                             <h2>
