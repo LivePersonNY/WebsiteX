@@ -80,7 +80,6 @@ const PlainContent = function (props) {
                                         headerLevel="nothing"
                                     />
                                 )}
-                                <Paragraph text={props.kicker} />
                             </p>
                         )}
                         {headerLevel == 'h2' && (
