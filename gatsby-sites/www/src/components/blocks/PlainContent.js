@@ -9,7 +9,7 @@ const PlainContent = function (props) {
     let fullAnimation = (textContent, animatedContent) => {
         let headerText = textContent;
         headerText = headerText.split('animatedText');
-        headerText = headerText.fitler((e) => e);
+        headerText = headerText.filter((e) => e);
 
         let headerAnimateText = animatedContent;
         headerAnimateText = headerAnimateText.split(',');
