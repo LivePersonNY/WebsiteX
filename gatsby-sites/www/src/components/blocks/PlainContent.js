@@ -2,7 +2,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Paragraph from '../Paragraph';
-import Parser from 'html-react-parser';
 
 const PlainContent = function (props) {
     let headerLevel = props.headLevel || 'h2';
@@ -35,7 +34,7 @@ const PlainContent = function (props) {
         // if (headerText[1] != undefined) {
         //     return headerText[0] + animatedLoop + headerText[1];
         // } else {
-        return headerText[0] + animatedLoop + '';
+        return headerText[0] + animatedLoop;
         // }
     };
 
@@ -81,12 +80,13 @@ const PlainContent = function (props) {
                                 )}
                                 {props.animatedKickerText && (
                                     <h4 className="h4 text-uppercase">
-                                        {Parser(
-                                            fullAnimation(
+                                        <Paragraph
+                                            text={fullAnimation(
                                                 props.kicker,
                                                 props.animatedKickerText
-                                            )
-                                        )}
+                                            )}
+                                            headerLevel="nothing"
+                                        />
                                     </h4>
                                 )}
                             </>
