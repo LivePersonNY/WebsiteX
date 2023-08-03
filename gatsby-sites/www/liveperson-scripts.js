@@ -553,7 +553,6 @@ window.documentReadyFn = function () {
         var fixCarousel = $('#plain-content-text-carousel')
             .html()
             .replace('&nbsp;', '');
-        console.log('im here');
         $('#plain-content-text-carousel').html(fixCarousel);
     }
 };
