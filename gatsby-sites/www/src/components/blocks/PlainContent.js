@@ -30,11 +30,11 @@ const PlainContent = function (props) {
                             ''
                         )} </div>
                     </div>`;
-        if (headerText[1] != ' ') {
-            return headerText[0] + animatedLoop + headerText[1];
-        } else {
-            return headerText[0] + animatedLoop;
-        }
+        // if (headerText[1] != ' ') {
+        //     return headerText[0] + animatedLoop + headerText[1];
+        // } else {
+        return headerText[0] + animatedLoop;
+        // }
     };
 
     let vFrame = (
