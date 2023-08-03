@@ -34,7 +34,7 @@ const PlainContent = function (props) {
         // if (headerText[1] != undefined) {
         //     return headerText[0] + animatedLoop + headerText[1];
         // } else {
-        return headerText[0] + animatedLoop;
+        return headerText[0] + animatedLoop + '';
         // }
     };
 
