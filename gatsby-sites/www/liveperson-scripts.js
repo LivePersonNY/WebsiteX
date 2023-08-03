@@ -548,4 +548,12 @@ window.documentReadyFn = function () {
             $(this).text('Collapse').addClass('collapse-btn');
         }
     });
+
+    if (document.querySelectorAll('#plain-content-text-carousel').length > 0) {
+        var fixCarousel = $('#plain-content-text-carousel')
+            .html()
+            .replace('&nbsp;', '');
+        console.log('im here');
+        $('#plain-content-text-carousel').html(fixCarousel);
+    }
 };
