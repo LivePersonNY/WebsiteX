@@ -1,7 +1,9 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Paragraph from '../Paragraph';
+import $ from 'jquery';
 
 const PlainContent = function (props) {
     let headerLevel = props.headLevel || 'h2';
