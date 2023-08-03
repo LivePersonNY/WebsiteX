@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Paragraph from '../Paragraph';
+import Parser from 'html-react-parser';
 
 const PlainContent = function (props) {
     let headerLevel = props.headLevel || 'h2';
@@ -80,9 +81,11 @@ const PlainContent = function (props) {
                                 )}
                                 {props.animatedKickerText && (
                                     <h4 className="h4 text-uppercase">
-                                        {fullAnimation(
-                                            props.kicker,
-                                            props.animatedKickerText
+                                        {Parser(
+                                            fullAnimation(
+                                                props.kicker,
+                                                props.animatedKickerText
+                                            )
                                         )}
                                     </h4>
                                 )}
