@@ -495,12 +495,12 @@ table {
         }
     }
     h1 {
-        font-size: 32px;
-        line-height: 36px;
+        font-size: 32px !important;
+        line-height: 36px !important;
 
         @include media-breakpoint-up(lg) {
-            font-size: 56px;
-            line-height: 60px;
+            font-size: 56px !important;
+            line-height: 60px !important;
         }
     }
 }
