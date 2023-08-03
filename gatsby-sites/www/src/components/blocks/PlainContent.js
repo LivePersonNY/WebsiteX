@@ -80,13 +80,10 @@ const PlainContent = function (props) {
                                 )}
                                 {props.animatedKickerText && (
                                     <h4 className="h4 text-uppercase">
-                                        <Paragraph
-                                            text={fullAnimation(
-                                                props.kicker,
-                                                props.animatedKickerText
-                                            )}
-                                            headerLevel="nothing"
-                                        />
+                                        {fullAnimation(
+                                            props.kicker,
+                                            props.animatedKickerText
+                                        )}
                                     </h4>
                                 )}
                             </>
