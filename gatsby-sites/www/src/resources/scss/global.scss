@@ -346,9 +346,10 @@ img[src*='doubleclick'] {
 
     &.rem-padding {
         padding: 80px 0;
+        padding-bottom: 0;
 
         .col-lg-6 {
-            margin-bottom: -6rem;
+            // margin-bottom: -6rem;
         }
     }
 }
