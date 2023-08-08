@@ -278,6 +278,6 @@
 		"/policies/gcp-initiative-due-diligence/": "/policies/public-cloud/gcp-initiative-due-diligence/",
 		"/policies/gcp-initiative-faq/": "/policies/public-cloud/initiative-faq/",
 		"/policies/voicebase/analytics-terms-of-use/": "/policies/analytics-studio-terms-of-use/",
-		"/demo/": "/request-demo/"
+		"/demo": "/request-demo/"
 	}
 }
