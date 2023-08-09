@@ -243,6 +243,7 @@ export default function Edit({
 				{addButton}
 				{attributes.blocktype == "CardGrid" && (
 					<CardGrid
+						cssClasses={attributes.className}
 						header={headerControl}
 						items={controls}
 						body={contentControl}
@@ -252,6 +253,7 @@ export default function Edit({
 				)}
 				{attributes.blocktype == "CardGridB" && (
 					<CardGridB
+						cssClasses={attributes.className}
 						header={headerControl}
 						items={controls}
 						body={contentControl}
@@ -266,6 +268,7 @@ export default function Edit({
 			{addButton}
 			{attributes.blocktype == "CardGrid" && (
 				<CardGrid
+					cssClasses={attributes.className}
 					header={attributes.header}
 					body={attributes.content}
 					items={attributes.cards}
@@ -275,6 +278,7 @@ export default function Edit({
 			)}
 			{attributes.blocktype == "CardGridB" && (
 				<CardGridB
+					cssClasses={attributes.className}
 					header={attributes.header}
 					items={attributes.cards}
 					body={attributes.content}

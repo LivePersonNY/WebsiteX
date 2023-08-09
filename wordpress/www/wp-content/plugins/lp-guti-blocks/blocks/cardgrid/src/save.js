@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,9 +11,9 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
-import CardGrid from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGrid';
-import CardGridB from '../../../../../../../../gatsby-sites/www/src/components/blocks/CardGridB';
+import { useBlockProps } from "@wordpress/block-editor";
+import CardGrid from "../../../../../../../../gatsby-sites/www/src/components/blocks/CardGrid";
+import CardGridB from "../../../../../../../../gatsby-sites/www/src/components/blocks/CardGridB";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -27,22 +27,26 @@ import CardGridB from '../../../../../../../../gatsby-sites/www/src/components/b
 export default function save({ attributes }) {
 	return (
 		<>
-		{attributes.blocktype == "CardGrid" &&
-		<CardGrid
-			header={attributes.header}
-			items={attributes.cards}
-			body={attributes.content}
-			backgroundColor={attributes.backgroundColor}
-			autoApprove={attributes.autoApproveLang}
-		/>}
-		{attributes.blocktype == "CardGridB" &&
-		<CardGridB
-			header={attributes.header}
-			items={attributes.cards}
-			body={attributes.content}
-			backgroundColor={attributes.backgroundColor}
-			autoApprove={attributes.autoApproveLang}
-		/>}
+			{attributes.blocktype == "CardGrid" && (
+				<CardGrid
+					cssClasses={attributes.className}
+					header={attributes.header}
+					items={attributes.cards}
+					body={attributes.content}
+					backgroundColor={attributes.backgroundColor}
+					autoApprove={attributes.autoApproveLang}
+				/>
+			)}
+			{attributes.blocktype == "CardGridB" && (
+				<CardGridB
+					cssClasses={attributes.className}
+					header={attributes.header}
+					items={attributes.cards}
+					body={attributes.content}
+					backgroundColor={attributes.backgroundColor}
+					autoApprove={attributes.autoApproveLang}
+				/>
+			)}
 		</>
-	)
+	);
 }
