@@ -793,9 +793,10 @@ $animationSpeed: 30s;
 // End Pricing page
 
 .media-kit-grid {
-    .row {
-        .col {
+    .row.comp-card-grid-container {
+        .col-lg {
             @include media-breakpoint-up(xl) {
+                flex: 0 0 auto;
                 width: 25%;
             }
         }
