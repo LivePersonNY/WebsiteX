@@ -792,4 +792,14 @@ $animationSpeed: 30s;
 }
 // End Pricing page
 
+.media-kit-grid {
+    .row {
+        .col {
+            @include media-breakpoint-up(xl) {
+                width: 25%;
+            }
+        }
+    }
+}
+
 /*! purgecss end ignore */
