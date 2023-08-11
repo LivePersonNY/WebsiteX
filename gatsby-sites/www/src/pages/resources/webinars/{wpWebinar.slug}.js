@@ -68,6 +68,7 @@ const Webinar = ({ data: { page } }) => {
                 meta={meta}
                 canonical={canonical}
                 robots={robots.join(', ')}
+                schema={page.seo.schema.raw}
             />
             {Parser(page.content)}
         </Layout>
@@ -107,6 +108,10 @@ export const pageQuery = graphql`
                 twitterTitle
                 opengraphImage {
                     mediaItemUrl
+                }
+                schema {
+                    articleType
+                    raw
                 }
             }
         }
