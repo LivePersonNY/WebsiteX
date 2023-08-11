@@ -89,7 +89,7 @@ const SuccessStory = ({ data: { post } }) => {
                 meta={meta}
                 canonical={canonical}
                 robots={robots.join(', ')}
-                schema={page.seo.schema.raw}
+                schema={post.seo.schema.raw}
             />
             <div className="container">
                 <div className="row justify-content-md-center">

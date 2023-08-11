@@ -153,7 +153,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
             <meta name="theme-color" content="#FA772E" />
             <link rel="icon" type="image/png" href={favicon} sizes="32x32" />
             <script type="application/ld+json">{schema}</script>
-            {console.log(`this is the schema ${schema}`)}
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link
                 rel="preconnect"
