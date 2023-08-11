@@ -76,6 +76,7 @@ const PageTemplate = ({ data: { page } }) => {
                 meta={meta}
                 canonical={canonical}
                 robots={robots.join(', ')}
+                schema={page.seo.schema.raw}
             />
             {Parser(page.content)}
         </Layout>
@@ -120,6 +121,7 @@ export const pageQuery = graphql`
                 schema {
                     articleType
                     pageType
+                    raw
                 }
             }
         }

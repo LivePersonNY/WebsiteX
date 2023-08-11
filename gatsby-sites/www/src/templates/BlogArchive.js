@@ -103,6 +103,7 @@ const BlogIndex = ({
                         : null
                 }
                 robots={robots}
+                schema={page.seo.schema.raw}
             />
 
             <div className="container blog mt-5">
@@ -296,6 +297,7 @@ export const pageQuery = graphql`
                     metaRobotsNoindex
                     schema {
                         articleType
+                        raw
                     }
                 }
             }
@@ -357,6 +359,7 @@ export const pageQuery = graphql`
                     metaRobotsNoindex
                     schema {
                         articleType
+                        raw
                     }
                 }
             }
@@ -406,6 +409,7 @@ export const pageQuery = graphql`
                 metaRobotsNoindex
                 schema {
                     articleType
+                    raw
                 }
             }
         }

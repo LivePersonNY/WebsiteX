@@ -81,6 +81,7 @@ const Report = ({ data: { post } }) => {
                 meta={meta}
                 canonical={canonical}
                 robots={robots.join(', ')}
+                schema={page.seo.schema.raw}
             />
             {Parser(post.content)}
         </Layout>
@@ -122,6 +123,7 @@ export const pageQuery = graphql`
                 }
                 schema {
                     articleType
+                    raw
                 }
             }
             featuredImage {

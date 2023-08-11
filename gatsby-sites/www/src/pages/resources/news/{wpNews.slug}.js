@@ -86,6 +86,7 @@ const News = ({ data: { post } }) => {
                 meta={meta}
                 canonical={canonical}
                 robots={robots.join(', ')}
+                schema={page.seo.schema.raw}
             />
             <div className="container">
                 <div className="row justify-content-md-center">
@@ -158,6 +159,7 @@ export const pageQuery = graphql`
                 }
                 schema {
                     articleType
+                    raw
                 }
             }
             featuredImage {

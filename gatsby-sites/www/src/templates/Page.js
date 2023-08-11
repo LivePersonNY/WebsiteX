@@ -85,6 +85,7 @@ const PageTemplate = ({ data: { page, staged } }) => {
                 meta={meta}
                 canonical={canonical}
                 robots={robots.join(', ')}
+                schema={page.seo.schema.raw}
             />
             {page.content && Parser(page.content)}
         </Layout>
@@ -128,6 +129,7 @@ export const pageQuery = graphql`
                 schema {
                     articleType
                     pageType
+                    raw
                 }
             }
         }
@@ -164,6 +166,7 @@ export const pageQuery = graphql`
                 schema {
                     articleType
                     pageType
+                    raw
                 }
             }
         }

@@ -14,7 +14,7 @@ import { LivePerson, MktoForms } from '../../liveperson-attribution';
 
 const marketoScriptId = 'mktoForms';
 
-const Seo = ({ description, lang, meta, title, canonical, robots }) => {
+const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
     const { wp } = useStaticQuery(
         graphql`
             query {
@@ -152,6 +152,8 @@ const Seo = ({ description, lang, meta, title, canonical, robots }) => {
             <meta name="robots" content={robots} />
             <meta name="theme-color" content="#FA772E" />
             <link rel="icon" type="image/png" href={favicon} sizes="32x32" />
+            <script type="application/ld+json">{schema}</script>
+            {console.log(`this is the schema ${schema}`)}
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link
                 rel="preconnect"

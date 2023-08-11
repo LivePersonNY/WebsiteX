@@ -96,6 +96,7 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
                 meta={meta}
                 canonical={canonical}
                 robots={robots.join(', ')}
+                schema={post.seo.schema.raw}
             />
             <div className="container">
                 <div className="row justify-content-md-center">
@@ -205,6 +206,7 @@ export const pageQuery = graphql`
                 }
                 schema {
                     articleType
+                    raw
                 }
             }
             date(formatString: "MMMM DD, YYYY")
@@ -267,6 +269,7 @@ export const pageQuery = graphql`
                 }
                 schema {
                     articleType
+                    raw
                 }
             }
             date(formatString: "MMMM DD, YYYY")
