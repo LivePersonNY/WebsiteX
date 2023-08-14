@@ -44,6 +44,7 @@
         "/digital-report/defi-customer-experience": "/resources/reports/defi-customer-experience",
         "/end-user-license-agreement-nl": "/policies/license-agreement",
         "/expert/*": "https://www.prestoexperts.com",
+        "/experts/*": "https://www.prestoexperts.com",
         "/gbm-registration-form": "/channels/gbm-registration-form",
         "/gbm-registration-form/cs": "/channels/gbm-registration-form-cs",
         "/help/*": "https://knowledge.liveperson.com",
