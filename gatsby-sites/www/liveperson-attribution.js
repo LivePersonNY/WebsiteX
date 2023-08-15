@@ -61,8 +61,6 @@ const MktoForms = {
                 });
 
                 form.onSuccess(function (values, forwardUrl) {
-                    console.log(`this is the form id: ${formId}`);
-                    LivePerson.ShowAfterMessage(form);
                     window.dataLayer && dataLayer.push({ event: ctaString });
                     $('.pane.gated').slideDown();
                     // Do not change anything in the following two lines
@@ -79,6 +77,14 @@ const MktoForms = {
                     VWO.event('webpageFormSubmission', {
                         testprop: formId,
                     });
+
+                    console.log(`this is the form id: ${formId}`);
+                    if (formId == 4958) {
+                        location.href = '/thanks-demo/';
+                        return false;
+                    }
+                    LivePerson.ShowAfterMessage(form);
+
                     return false;
                 });
             });
