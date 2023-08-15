@@ -61,20 +61,10 @@ const MktoForms = {
                 });
 
                 form.onSuccess(function (values, forwardUrl) {
+                    console.log(`this is the form id: ${formId}`);
                     LivePerson.ShowAfterMessage(form);
                     window.dataLayer && dataLayer.push({ event: ctaString });
                     $('.pane.gated').slideDown();
-                    ga(
-                        'send',
-                        'event',
-                        'Web 22',
-                        'Form Submit',
-                        formId +
-                            ' - ' +
-                            buttonLabel +
-                            ' - ' +
-                            window.location.pathname
-                    );
                     // Do not change anything in the following two lines
                     window.VWO = window.VWO || [];
                     VWO.event =
