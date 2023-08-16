@@ -78,7 +78,6 @@ const MktoForms = {
                         testprop: formId,
                     });
 
-                    console.log(`this is the form id: ${formId}`);
                     if (formId == 4958) {
                         location.href = '/thanks-demo/';
                         return false;
