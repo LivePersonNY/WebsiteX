@@ -86,6 +86,7 @@ const MktoForms = {
                             document.querySelector('.mkto-resource-asset')
                                 .dataset.resourceasseturl
                         }`;
+                        return false;
                     }
                     if (formId == 1234) {
                         location.href = '/thanks-demo/';
