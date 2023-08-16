@@ -52,16 +52,12 @@ const CareersPage = () => {
                         .concat(ghsrc ?? '');
                 let keyWordQuery = document.getElementById('Job_Search').value;
                 if (keyWordQuery !== '') {
-                    sendGA();
                     searchURL = searchURL
                         .concat('&q=')
                         .concat(encodeURIComponent(keyWordQuery));
                 }
                 location.href = searchURL;
             }
-        }
-        function sendGA() {
-            ga('send', 'event', 'careers', 'click', 'Job search');
         }
 
         function setURLParams(e) {
@@ -93,9 +89,7 @@ const CareersPage = () => {
 
         document
             .querySelector('.resume-upload')
-            .addEventListener('click', function () {
-                ga('send', 'event', 'careers', 'click', 'Match resume');
-            });
+            .addEventListener('click', function () {});
 
         document
             .querySelector('.hero-or')

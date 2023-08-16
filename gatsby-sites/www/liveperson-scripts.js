@@ -103,20 +103,6 @@ window.documentReadyFn = function () {
         window.populateLanguageMenu(preferredLang);
     });
 
-    // window.dataLayer && dataLayer.push({ virtualTitle: this.props.data.articlePage.title });
-    // window.dataLayer && dataLayer.push({ event: 'virtualPageview' });
-
-    // const pagePath = location ? location.pathname + location.search + location.hash	: undefined;
-    // window.ga && window.ga('set', 'page', pagePath);
-    // window.ga && window.ga('send', 'pageview');
-
-    // window.dataLayer = window.dataLayer || [];
-    // 	window.dataLayer.push({
-    // 	'event': 'Pageview',
-    // 	'pagePath': pagePath,
-    // 	'pageTitle': ''
-    // });
-
     window.lottieFiles = [];
 
     window.lpCallbacks.forEach(function (item) {
@@ -328,22 +314,6 @@ window.documentReadyFn = function () {
         //linkFix: false
     });
 
-    // GA events
-    setTimeout(function () {
-        $('.LPMcontainer .LPMimage').attr(
-            'onclick',
-            "ga('send', 'event', 'chat', 'click', 'site-wide button')"
-        );
-        $('.LPMcontainer').attr(
-            'onclick',
-            "ga('send', 'event', 'form', 'submit', 'Chat engagement clicks')"
-        );
-        $('.vimeoContainer iframe').attr(
-            'onclick',
-            "ga('send', 'event', 'Web 22', 'Click', 'Vimeo Container')"
-        );
-    }, 3000);
-
     $('.comp-policy-content').each(function () {
         $(this)
             .find('h3')
@@ -465,18 +435,12 @@ window.documentReadyFn = function () {
                         .concat(ghsrc ?? '');
                 let keyWordQuery = document.getElementById('Job_Search').value;
                 if (keyWordQuery !== '') {
-                    sendGA();
                     searchURL = searchURL
                         .concat('&q=')
                         .concat(encodeURIComponent(keyWordQuery));
                 }
                 console.log(`searchurl is ${searchURL}`);
                 location.href = searchURL;
-            }
-        }
-        function sendGA() {
-            if (window.ga && window.navigator) {
-                window.ga('send', 'event', 'careers', 'click', 'Job search');
             }
         }
 
@@ -509,17 +473,7 @@ window.documentReadyFn = function () {
 
         document
             .querySelector('.resume-upload')
-            .addEventListener('click', function () {
-                if (window.ga && window.navigator) {
-                    window.ga(
-                        'send',
-                        'event',
-                        'careers',
-                        'click',
-                        'Match resume'
-                    );
-                }
-            });
+            .addEventListener('click', function () {});
 
         //Adding fix for Vocal video here too
         if (!window.VocalVideo) {

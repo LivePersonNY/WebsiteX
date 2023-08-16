@@ -273,26 +273,6 @@ const LivePerson = {
             onetrust: window.OnetrustActiveGroups,
         });
 
-        if (window.ga) {
-            window.ga(
-                'send',
-                'event',
-                'Web 22',
-                'Load',
-                'Lead Source: ' + leadSourceCookie
-            );
-        }
-
-        if (window.ga && window.navigator) {
-            window.ga(
-                'send',
-                'event',
-                'Web 22',
-                'Cookies',
-                window.navigator.cookieEnabled
-            );
-        }
-
         console.log('Hydration complete.', window.lp_attr);
 
         if (callback) callback();
