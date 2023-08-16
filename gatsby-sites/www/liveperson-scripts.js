@@ -509,4 +509,10 @@ window.documentReadyFn = function () {
             .replace('&nbsp;', '');
         $('#plain-content-text-carousel').html(fixCarousel);
     }
+
+    if (document.querySelector('.thanks-download-link a[href="#report"]')) {
+        let resourceAssetURLParam = Query.get('resourceasseturl');
+        document.querySelector('.thanks-download-link a[href="#report"]').href =
+            resourceAssetURLParam;
+    }
 };
