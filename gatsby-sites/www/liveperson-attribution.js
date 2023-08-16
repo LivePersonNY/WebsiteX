@@ -78,7 +78,16 @@ const MktoForms = {
                         testprop: formId,
                     });
 
+                    // 4958
+                    // if (document.querySelector('.mkto-resource-asset')) {
                     if (formId == 4958) {
+                        console.log('it has report');
+                        location.href = `/thanks-download/${
+                            document.querySelector('.mkto-resource-asset')
+                                .dataset.resourceasseturl
+                        }`;
+                    }
+                    if (formId == 1234) {
                         location.href = '/thanks-demo/';
                         return false;
                     }
