@@ -81,7 +81,6 @@ const MktoForms = {
                     // 4958
                     // if (document.querySelector('.mkto-resource-asset')) {
                     if (formId == 4958) {
-                        console.log('it has report');
                         location.href = `/thanks-download/?resourceasseturl=${
                             document.querySelector('.mkto-resource-asset')
                                 .dataset.resourceasseturl
