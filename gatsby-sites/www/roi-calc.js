@@ -8,7 +8,7 @@ const ROICalc = {
     // debug: debug,
     model: model,
     results: results,
-    controller: controller,
+    // controller: controller,
 };
 
 function updateState() {
