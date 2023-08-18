@@ -80,14 +80,19 @@ const MktoForms = {
 
                     // 4958
                     // if (document.querySelector('.mkto-resource-asset')) {
-                    if (formId == 4958) {
+                    if (
+                        formId == 3524 ||
+                        formId == 3458 ||
+                        formId == 2581 ||
+                        formId == 4067
+                    ) {
                         location.href = `/thanks-download/?resourceasseturl=${
                             document.querySelector('.mkto-resource-asset')
                                 .dataset.resourceasseturl
                         }`;
                         return false;
                     }
-                    if (formId == 1234) {
+                    if (formId == 2580) {
                         location.href = '/thanks-demo/';
                         return false;
                     }
