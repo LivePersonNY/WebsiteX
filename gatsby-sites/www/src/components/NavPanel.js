@@ -141,21 +141,21 @@ const NavPanel = ({
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2023/06/16132022/featured-resource-voiceai_webinar.png"
+                                            src="https://static.liveperson.com/static-assets/2023/08/16110134/HSR_Retail_Web%402x.png"
                                             alt="Webinar"
                                         />
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">Webinar</p>
                                             <p className="featured-body">
-                                                Voice AI: It's time to hang up
-                                                on IVRs
+                                                Going conversational with The
+                                                RealReal: A time-to-value story
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/future-of-voice-ai-technology/"
+                                                href="/resources/webinars/conversational-time-to-value/"
                                                 rel="noopener noreferrer"
                                             >
-                                                Watch now
+                                                Register now
                                             </a>
                                         </div>
                                     </div>
