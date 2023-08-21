@@ -141,7 +141,7 @@ const NavPanel = ({
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2023/08/16110134/HSR_Retail_Web%402x.png"
+                                            src="https://static.liveperson.com/static-assets/2023/08/14172112/Going-Conversational_Webinar_TRR_Web%402x.png"
                                             alt="Webinar"
                                             width="250"
                                             height="141"
