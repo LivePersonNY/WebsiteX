@@ -106,27 +106,24 @@ const NavPanel = ({
                             {featuredProducts && (
                                 <div className="col-lg-3 col-lg">
                                     <p className="dropdown-section-title h6">
-                                        WHAT IS EAI
+                                        PUT IT ALL TOGETHER
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2023/05/02095021/EAI_nav_feature.png"
-                                            alt="Open is nice, but equal is
-                                                better"
+                                            src="https://static.liveperson.com/static-assets/2023/08/22160527/EAI_mod_2_Enterprise_nav-callout-217w.png"
+                                            alt="AI Chatbot Toolset"
                                         />
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">
-                                                Open is nice, but equal is
-                                                better
+                                                AI Chatbot Toolset
                                             </p>
                                             <p className="featured-body">
-                                                LivePerson is making a new grade
-                                                of AI available
+                                                Better conversations start with
+                                                a better AI chatbot
                                             </p>
                                             <a
                                                 className="dropdown-link-blue link"
-                                                href="/eai/"
-                                                rel="noopener noreferrer"
+                                                href="/products/ai-chatbots/"
                                             >
                                                 Learn more
                                             </a>
@@ -155,7 +152,6 @@ const NavPanel = ({
                                             <a
                                                 className="dropdown-link-blue"
                                                 href="/resources/webinars/conversational-time-to-value/"
-                                                rel="noopener noreferrer"
                                             >
                                                 Register now
                                             </a>
