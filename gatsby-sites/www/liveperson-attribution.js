@@ -86,10 +86,10 @@ const MktoForms = {
                         formId == 2581 ||
                         formId == 4067
                     ) {
-                        location.href = `/thanks-download/?resourceasseturl=${
+                        location.href = `/thanks-download/?resourceasseturl=${encodeURIComponent(
                             document.querySelector('.mkto-resource-asset')
                                 .dataset.resourceasseturl
-                        }`;
+                        )}`;
                         return false;
                     }
                     if (formId == 2580) {

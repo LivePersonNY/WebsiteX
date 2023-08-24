@@ -513,6 +513,6 @@ window.documentReadyFn = function () {
     if (document.querySelector('.thanks-download-link a[href="#report"]')) {
         let resourceAssetURLParam = Query.get('resourceasseturl');
         document.querySelector('.thanks-download-link a[href="#report"]').href =
-            resourceAssetURLParam;
+            decodeURIComponent(resourceAssetURLParam);
     }
 };
