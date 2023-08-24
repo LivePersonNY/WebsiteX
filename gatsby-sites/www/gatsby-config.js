@@ -149,6 +149,8 @@ module.exports = {
                     '/services/cso-terms-and-conditions/',
                     '/staged/**',
                     '/testing/**',
+                    '/thanks-demo/',
+                    '/thanks-download/',
                 ],
             },
         },
