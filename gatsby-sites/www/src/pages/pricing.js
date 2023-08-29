@@ -1245,7 +1245,7 @@ const PricingPage = () => {
                 title="LivePerson Pricing & Packaging | LivePerson"
                 description="Explore LivePerson pricing and packaging designed to help you drive an automation-first customer engagement transformation."
                 meta={meta}
-                canonical="https://www.liveperson.com/pricing"
+                canonical="https://www.liveperson.com/pricing/"
                 robots=""
             />
 
