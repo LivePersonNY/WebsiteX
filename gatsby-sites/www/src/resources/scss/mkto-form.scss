@@ -118,6 +118,12 @@
         padding: 0;
         display: block;
 
+        span,
+        label,
+        p {
+            font-family: $familyInter;
+        }
+
         .mktoFormRow {
             clear: none;
             float: left;
