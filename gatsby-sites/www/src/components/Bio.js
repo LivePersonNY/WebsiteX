@@ -36,7 +36,7 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
 
     let authorBox = authors.map(function ({ info }) {
         return multiAuthors.map(function (authorId) {
-            console.log(info, authorId);
+            // console.log(info, authorId);
 
             let authorOrder;
             if (id === info.id) {
@@ -46,7 +46,7 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
             }
 
             if (authorId.uri.indexOf(`/${info.slug}/`) >= 0) {
-                console.log(info);
+                // console.log(info);
 
                 const author = info;
                 const avatarUrl = author?.avatar?.url;
@@ -56,7 +56,7 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
                         className={`bio col-lg-5 mb-4 ${authorOrder}`}
                         key={author.firstName}
                     >
-                        {console.log(`${author.firstName} ${author.lastName}`)}
+                        {/* {console.log(`${author.firstName} ${author.lastName}`)} */}
                         <div className="row">
                             <div className="col-lg-10">
                                 <div className="bio-img">
