@@ -10,30 +10,24 @@ module.exports = {
         author: 'LivePerson',
     },
     plugins: [
-        // {
-        //     resolve: `gatsby-plugin-gatsby-cloud`,
-        //     options: {
-        //         generateMatchPathRewrites: false,
-        //         allPageHeaders: ['Strict-Transport-Security: max-age=31536000'],
-        //         headers: {
-        //             '/*': [
-        //                 // "Cache-Control: public, max-age=31536000, immutable",
-        //                 'cache-control: public, max-age=0, must-revalidate',
-        //             ],
-        //         },
-        //     },
-        // },
+        {
+            resolve: `gatsby-plugin-gatsby-cloud`,
+            options: {
+                generateMatchPathRewrites: false,
+                allPageHeaders: ['Strict-Transport-Security: max-age=31536000'],
+                headers: {
+                    '/*': ['cache-control: public, max-age=0, must-revalidate'],
+                },
+            },
+        },
         {
             resolve: `gatsby-plugin-netlify`,
             options: {
-                // generateMatchPathRewrites: false,
-                // allPageHeaders: ['Strict-Transport-Security: max-age=31536000'],
-                // headers: {
-                //     '/*': [
-                //         // "Cache-Control: public, max-age=31536000, immutable",
-                //         'cache-control: public, max-age=0, must-revalidate',
-                //     ],
-                // },
+                generateMatchPathRewrites: false,
+                allPageHeaders: ['Strict-Transport-Security: max-age=31536000'],
+                headers: {
+                    '/*': ['cache-control: public, max-age=0, must-revalidate'],
+                },
             },
         },
         `gatsby-plugin-react-helmet`,
