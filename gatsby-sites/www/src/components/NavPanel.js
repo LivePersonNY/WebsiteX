@@ -138,7 +138,7 @@ const NavPanel = ({
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2023/08/14172112/Going-Conversational_Webinar_TRR_Web%402x.png"
+                                            src="https://static.liveperson.com/static-assets/2023/09/13132536/AI-SAFETY-250x141-1.jpg"
                                             alt="Webinar"
                                             width="250"
                                             height="141"
@@ -146,12 +146,14 @@ const NavPanel = ({
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">Webinar</p>
                                             <p className="featured-body">
-                                                Going conversational with The
-                                                RealReal: A time-to-value story
+                                                Harnessing generative AI for the
+                                                enterprise: Results,
+                                                relationships, and
+                                                responsibility
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/conversational-time-to-value/"
+                                                href="/resources/webinars/ai-safety-for-enterprise/"
                                             >
                                                 Register now
                                             </a>
