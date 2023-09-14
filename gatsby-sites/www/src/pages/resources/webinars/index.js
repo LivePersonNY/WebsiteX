@@ -6,7 +6,7 @@ import Resources from '../../../templates/Resources';
 const WebinarIndex = function (props) {
     const items = props.data.items.nodes;
 
-    console.log(items);
+    // console.log(items);
 
     return <Resources active="webinar" items={items} kicker="Webinar" />;
 };

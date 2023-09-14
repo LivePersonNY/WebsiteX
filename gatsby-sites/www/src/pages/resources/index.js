@@ -15,7 +15,7 @@ const ResourceIndex = function (props) {
         return Date.parse(b.date) - Date.parse(a.date);
     });
 
-    console.log(items);
+    // console.log(items);
 
     return <Resources active="all" items={items} />;
 };
