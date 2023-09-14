@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 import NotFoundPage from '../pages/404';
 
 import LayoutRoi from '../components/LayoutRoi';
@@ -16,15 +15,15 @@ const PageTemplate = ({ pageContext: {page}}) => {
 	}
 
 	useEffect(() => {
-    
+
 		window.runRoi();
-		
+
 	});
-	
+
 	let canRoot = process.env.CAN_ROOT;
 	let canonical = page.seo.canonical || page.link;
 	if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
-	
+
 	if (!page) return "The slug does not exist in the CMS";
   return (
   <LayoutRoi mainClass="biz-case">

@@ -24,6 +24,7 @@
     "gatsby-plugin-exclude": "^1.0.2",
     "gatsby-plugin-gatsby-cloud": "^4.6.0",
     "gatsby-plugin-google-tagmanager": "^4.7.0",
+    "gatsby-plugin-image": "^2.20.0",
     "gatsby-plugin-manifest": "^4.2.0",
     "gatsby-plugin-netlify": "^5.1.0",
     "gatsby-plugin-no-index": "^1.0.2",
@@ -31,10 +32,12 @@
     "gatsby-plugin-react-helmet": "^5.7.0",
     "gatsby-plugin-robots-txt": "^1.7.0",
     "gatsby-plugin-sass": "^5.1.0",
+    "gatsby-plugin-sharp": "^4.20.0",
     "gatsby-plugin-sitemap": "^5.9.0",
     "gatsby-plugin-trigger-deploy": "^0.0.2",
     "gatsby-source-wordpress": "^6.2.0",
     "gatsby-source-wordpress-menus": "^1.1.4",
+    "gatsby-transformer-sharp": "^4.20.0",
     "html-react-parser": "^1.4.2",
     "jquery": "^3.6.0",
     "jquery-ui-bundle": "^1.12.1-migrate",
@@ -48,7 +51,8 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-load-script": "^0.0.6",
-    "sass": "^1.43.4"
+    "sass": "^1.43.4",
+    "@popperjs/core": "2.11.5"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
