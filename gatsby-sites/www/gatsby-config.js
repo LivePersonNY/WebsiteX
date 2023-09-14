@@ -31,14 +31,6 @@ module.exports = {
             },
         },
         `gatsby-plugin-react-helmet`,
-        // `gatsby-plugin-image`,
-        // `gatsby-plugin-sitemap`,
-        // {
-        //   resolve: 'gatsby-plugin-robots-txt',
-        //   options: {
-        //     configFile: 'robots-txt.config.js'
-        //   },
-        // },
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {

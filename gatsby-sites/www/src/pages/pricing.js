@@ -23,17 +23,6 @@ const htmlHack1 = `
 	</div>
 </div>
 
-<div class="pane bg-transparent pricing-tabs">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<a class="pricing-tab pricing-tab-active" data-tab-name="pricing-tabs-cc">Conversational Cloud®</a>
-				<a class="pricing-tab" data-tab-name="pricing-tabs-bai">Bella AI</a>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div class="pricing-tabs-s-h pricing-tabs-cc">
 
 <div class=" pane comp-icon-text-b bg-neutral-96">
@@ -1156,28 +1145,7 @@ const htmlHack1 = `
 
 </div>
 
-<div class="pricing-tabs-s-h pricing-tabs-bai">
 
-	<div class="pane comp-contained-content bg-neutral-96">
-		<div class="container" >
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="comp-contained-content-container bg-primary-light">
-						<div class="row">
-							<div class="col-lg-8 offset-lg-2 text-center">
-								<h2>Bella for Business</h2>
-								<p>Instantly create a Generative AI powered conversational assistant that provides answers and insights to customers and employees, safely, and with no code or technical experience.</p>
-								<br />
-								<a class="link" href="https://getbella.ai/" target="_blank">Get your 30-day free trial</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-</div>
 
 
 `;
