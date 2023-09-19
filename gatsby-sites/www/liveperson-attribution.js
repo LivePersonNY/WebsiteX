@@ -78,6 +78,7 @@ const MktoForms = {
                         testprop: formId,
                     });
 
+                    window.VWO.push(['track.goalConversion', 11]);
 
                     // if (document.querySelector('.mkto-resource-asset')) {
                     if (
@@ -97,7 +98,8 @@ const MktoForms = {
                         return false;
                     }
                     if (formId == 4956) {
-                        location.href = 'https://demo.liveperson.com/demo/showcase/470ba46b2c504e4eba6e562bebe9230d';
+                        location.href =
+                            'https://demo.liveperson.com/demo/showcase/470ba46b2c504e4eba6e562bebe9230d';
                         return false;
                     }
                     LivePerson.ShowAfterMessage(form);
