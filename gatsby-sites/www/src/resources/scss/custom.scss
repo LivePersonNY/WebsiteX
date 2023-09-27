@@ -803,4 +803,24 @@ $animationSpeed: 30s;
     }
 }
 
+// Institute custom styles
+.institute-hero {
+    & ~ .comp-team-cards {
+        img {
+            width: 50%;
+            margin: auto;
+        }
+        &.pane-with-lead-text {
+            .col-12 {
+                width: 50%;
+            }
+        }
+    }
+    & ~ .comp-quote-slider {
+        img {
+            width: 20% !important;
+        }
+    }
+}
+
 /*! purgecss end ignore */
