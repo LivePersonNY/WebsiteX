@@ -8,7 +8,7 @@ const WebinarIndex = function (props) {
 
     // console.log(items);
 
-    return <Resources active="webinar" items={items} kicker="Webinar" />;
+    return <Resources active="webinar" items={items} kicker="Webinar" canonical="https://www.liveperson.com/resources/webinars/" />;
 };
 export default WebinarIndex;
 

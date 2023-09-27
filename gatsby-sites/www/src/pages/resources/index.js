@@ -17,7 +17,7 @@ const ResourceIndex = function (props) {
 
     // console.log(items);
 
-    return <Resources active="all" items={items} />;
+    return <Resources active="all" items={items} canonical="https://www.liveperson.com/resources/" />;
 };
 export default ResourceIndex;
 
