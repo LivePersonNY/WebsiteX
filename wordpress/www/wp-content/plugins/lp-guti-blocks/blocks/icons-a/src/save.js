@@ -29,7 +29,6 @@ import { useBlockProps } from "@wordpress/block-editor";
 export default function save({ attributes }) {
 	return (
 		<>
-			anchor={attributes.anchor}
 			{attributes.blocktype == "IconTextA" && (
 				<IconTextA
 					cardCTA={attributes.cta}
@@ -41,6 +40,7 @@ export default function save({ attributes }) {
 					header={attributes.header}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
+					anchor={attributes.anchor}
 				/>
 			)}
 			{attributes.blocktype == "IconTextB" && (
@@ -54,6 +54,7 @@ export default function save({ attributes }) {
 					header={attributes.header}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
+					anchor={attributes.anchor}
 				/>
 			)}
 			{attributes.blocktype == "IconTextC" && (
@@ -67,6 +68,7 @@ export default function save({ attributes }) {
 					header={attributes.header}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
+					anchor={attributes.anchor}
 				/>
 			)}
 			{attributes.blocktype == "IconTextD" && (
@@ -82,6 +84,7 @@ export default function save({ attributes }) {
 					header={attributes.header}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
+					anchor={attributes.anchor}
 				/>
 			)}
 		</>

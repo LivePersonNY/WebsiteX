@@ -15,7 +15,7 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
-		"anchor": {},
+		"anchor": { "default": "" },
 		"cta": { "default": false },
 		"ctaBody": { "default": "Call to action goes here" },
 		"autoApproveLang": { "default": false, "type": "boolean" },
