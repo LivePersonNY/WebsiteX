@@ -26,6 +26,7 @@ import IconTextB from "../../../../../../../../gatsby-sites/www/src/components/b
 import IconTextC from "../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextC";
 import IconTextD from "../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextD";
 import AutoApproveLanguage from "../../AutoApproveLanguage";
+import Anchor from "../../Anchor";
 import BackgroundSelectorMenu from "../../BackgroundSelector";
 import ItemControls from "../../ItemControls";
 import LinkControl from "../../LinkControl";
@@ -316,7 +317,12 @@ export default function Edit({
 		return (
 			<div {...useBlockProps()}>
 				{addButton}
-
+				<Anchor
+					value={attributes.anchor}
+					callback={function (val) {
+						setAttributes({ anchor: val });
+					}}
+				/>
 				{attributes.blocktype == "IconTextA" && (
 					<IconTextA
 						cardCTA={attributes.cta}
@@ -325,6 +331,7 @@ export default function Edit({
 						header={headerControl}
 						items={itemControls}
 						backgroundColor={attributes.backgroundColor}
+						anchor={attributes.anchor}
 					/>
 				)}
 				{attributes.blocktype == "IconTextB" && (
@@ -335,6 +342,7 @@ export default function Edit({
 						header={headerControl}
 						items={itemControls}
 						backgroundColor={attributes.backgroundColor}
+						anchor={attributes.anchor}
 					/>
 				)}
 				{attributes.blocktype == "IconTextC" && (
@@ -345,6 +353,7 @@ export default function Edit({
 						header={headerControl}
 						items={itemControls}
 						backgroundColor={attributes.backgroundColor}
+						anchor={attributes.anchor}
 					/>
 				)}
 				{attributes.blocktype == "IconTextD" && (
@@ -357,6 +366,7 @@ export default function Edit({
 						header={headerControl}
 						items={itemControls}
 						backgroundColor={attributes.backgroundColor}
+						anchor={attributes.anchor}
 					/>
 				)}
 			</div>
@@ -374,6 +384,7 @@ export default function Edit({
 					header={attributes.header}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
+					anchor={attributes.anchor}
 				/>
 			)}
 			{attributes.blocktype == "IconTextB" && (
@@ -385,6 +396,7 @@ export default function Edit({
 					header={attributes.header}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
+					anchor={attributes.anchor}
 				/>
 			)}
 			{attributes.blocktype == "IconTextC" && (
@@ -396,6 +408,7 @@ export default function Edit({
 					header={attributes.header}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
+					anchor={attributes.anchor}
 				/>
 			)}
 			{attributes.blocktype == "IconTextD" && (
@@ -409,6 +422,7 @@ export default function Edit({
 					header={attributes.header}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
+					anchor={attributes.anchor}
 				/>
 			)}
 		</div>

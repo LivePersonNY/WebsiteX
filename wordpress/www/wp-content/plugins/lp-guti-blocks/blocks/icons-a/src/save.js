@@ -3,11 +3,11 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import IconTextA from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextA';
-import IconTextB from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextB';
-import IconTextC from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextC';
-import IconTextD from '../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextD';
+import { __ } from "@wordpress/i18n";
+import IconTextA from "../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextA";
+import IconTextB from "../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextB";
+import IconTextC from "../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextC";
+import IconTextD from "../../../../../../../../gatsby-sites/www/src/components/blocks/IconTextD";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -15,7 +15,7 @@ import IconTextD from '../../../../../../../../gatsby-sites/www/src/components/b
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -26,33 +26,64 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save({attributes}) {
+export default function save({ attributes }) {
 	return (
 		<>
-		{attributes.blocktype == "IconTextA" && <IconTextA cardCTA={attributes.cta}
-		gated={attributes.gated}
-		autoApprove={attributes.autoApproveLang}
-		cardCTAbody={attributes.ctaBody}
-		btnText={attributes.btnText}
-		btnUrl={attributes.btnUrl} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-		{attributes.blocktype == "IconTextB" && <IconTextB cardCTA={attributes.cta}
-		gated={attributes.gated}
-		autoApprove={attributes.autoApproveLang}
-		cardCTAbody={attributes.ctaBody}
-		btnText={attributes.btnText}
-		btnUrl={attributes.btnUrl} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-		{attributes.blocktype == "IconTextC" && <IconTextC cardCTA={attributes.cta}
-		gated={attributes.gated}
-		autoApprove={attributes.autoApproveLang}
-		cardCTAbody={attributes.ctaBody}
-		btnText={attributes.btnText}
-		btnUrl={attributes.btnUrl} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
-		{attributes.blocktype == "IconTextD" && <IconTextD cardCTA={attributes.cta}
-		gated={attributes.gated}
-		autoApprove={attributes.autoApproveLang}
-		cardCTAbody={attributes.ctaBody}
-		btnText={attributes.btnText}
-		btnUrl={attributes.btnUrl} centerBody={attributes.centerBody} body={attributes.body} header={attributes.header} items={attributes.icons} backgroundColor={attributes.backgroundColor}/>}
+			anchor={attributes.anchor}
+			{attributes.blocktype == "IconTextA" && (
+				<IconTextA
+					cardCTA={attributes.cta}
+					gated={attributes.gated}
+					autoApprove={attributes.autoApproveLang}
+					cardCTAbody={attributes.ctaBody}
+					btnText={attributes.btnText}
+					btnUrl={attributes.btnUrl}
+					header={attributes.header}
+					items={attributes.icons}
+					backgroundColor={attributes.backgroundColor}
+				/>
+			)}
+			{attributes.blocktype == "IconTextB" && (
+				<IconTextB
+					cardCTA={attributes.cta}
+					gated={attributes.gated}
+					autoApprove={attributes.autoApproveLang}
+					cardCTAbody={attributes.ctaBody}
+					btnText={attributes.btnText}
+					btnUrl={attributes.btnUrl}
+					header={attributes.header}
+					items={attributes.icons}
+					backgroundColor={attributes.backgroundColor}
+				/>
+			)}
+			{attributes.blocktype == "IconTextC" && (
+				<IconTextC
+					cardCTA={attributes.cta}
+					gated={attributes.gated}
+					autoApprove={attributes.autoApproveLang}
+					cardCTAbody={attributes.ctaBody}
+					btnText={attributes.btnText}
+					btnUrl={attributes.btnUrl}
+					header={attributes.header}
+					items={attributes.icons}
+					backgroundColor={attributes.backgroundColor}
+				/>
+			)}
+			{attributes.blocktype == "IconTextD" && (
+				<IconTextD
+					cardCTA={attributes.cta}
+					gated={attributes.gated}
+					autoApprove={attributes.autoApproveLang}
+					cardCTAbody={attributes.ctaBody}
+					btnText={attributes.btnText}
+					btnUrl={attributes.btnUrl}
+					centerBody={attributes.centerBody}
+					body={attributes.body}
+					header={attributes.header}
+					items={attributes.icons}
+					backgroundColor={attributes.backgroundColor}
+				/>
+			)}
 		</>
 	);
 }
