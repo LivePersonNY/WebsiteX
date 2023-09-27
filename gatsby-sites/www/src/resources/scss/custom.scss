@@ -821,6 +821,12 @@ $animationSpeed: 30s;
             width: 20% !important;
         }
     }
+
+    & ~ .comp-logo-universal {
+        img {
+            width: 20% !important;
+        }
+    }
 }
 
 /*! purgecss end ignore */
