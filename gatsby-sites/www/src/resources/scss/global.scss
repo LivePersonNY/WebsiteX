@@ -647,6 +647,10 @@ img[src*='doubleclick'] {
             margin-top: 16px;
         }
 
+        .link{
+            color: $neutral12;
+        }
+
         .link::after {
             display: none;
         }

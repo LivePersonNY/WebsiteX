@@ -15,15 +15,18 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
-		"cta": {"default": false},
-		"ctaBody": {"default": "Call to action goes here"},
-		"autoApproveLang": {"default":false, "type": "boolean"},
-		"btnText": {"default": "Click me!"},
+		"anchor": { "default": "" },
+		"cta": { "default": false },
+		"ctaBody": { "default": "Call to action goes here" },
+		"autoApproveLang": { "default": false, "type": "boolean" },
+		"btnText": { "default": "Click me!" },
 		"btnUrl": {},
-		"header": {"default": "Product Features"},
-		"blocktype": {"default": "IconTextA" },
-		"backgroundColor": {"default": "bg-transparent"},
-		"body": {"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."},
+		"header": { "default": "Product Features" },
+		"blocktype": { "default": "IconTextA" },
+		"backgroundColor": { "default": "bg-transparent" },
+		"body": {
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+		},
 		"gated": {
 			"type": "boolean",
 			"default": false
@@ -32,46 +35,46 @@
 			"type": "array",
 			"default": [
 				{
-				  "img":"https://loremicon.com/rect/64/64/890836/png",
-				  "imgAlt":"Alt text",
-				  "kicker":"Kicker",
-				  "title":"Intent Manager",
-				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+					"img": "https://loremicon.com/rect/64/64/890836/png",
+					"imgAlt": "Alt text",
+					"kicker": "Kicker",
+					"title": "Intent Manager",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
 				},
 				{
-				  "img":"https://loremicon.com/rect/64/64/8903836/png",
-				  "imgAlt":"Alt text",
-				  "kicker":"Kicker",
-				  "title":"Conversation Manager",
-				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+					"img": "https://loremicon.com/rect/64/64/8903836/png",
+					"imgAlt": "Alt text",
+					"kicker": "Kicker",
+					"title": "Conversation Manager",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
 				},
 				{
-				  "img":"https://loremicon.com/rect/64/64/89036/png",
-				  "imgAlt":"Alt text",
-				  "kicker":"Kicker",
-				  "title":"Conversation Channels",
-				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+					"img": "https://loremicon.com/rect/64/64/89036/png",
+					"imgAlt": "Alt text",
+					"kicker": "Kicker",
+					"title": "Conversation Channels",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
 				},
 				{
-				  "img":"https://loremicon.com/rect/64/64/890368/png",
-				  "imgAlt":"Alt text",
-				  "kicker":"Kicker",
-				  "title":"Conversation Builder",
-				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+					"img": "https://loremicon.com/rect/64/64/890368/png",
+					"imgAlt": "Alt text",
+					"kicker": "Kicker",
+					"title": "Conversation Builder",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
 				},
 				{
-				  "img":"https://loremicon.com/rect/64/64/8036836/png",
-				  "imgAlt":"Conversation Orchestrator",
-				  "kicker":"Kicker",
-				  "title":"Conversation Orchestrator",
-				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+					"img": "https://loremicon.com/rect/64/64/8036836/png",
+					"imgAlt": "Conversation Orchestrator",
+					"kicker": "Kicker",
+					"title": "Conversation Orchestrator",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
 				},
 				{
-				  "img":"https://loremicon.com/rect/64/64/890336/png",
-				  "imgAlt":"Conversation Analytics",
-				  "kicker":"Kicker",
-				  "title":"Conversation Analytics",
-				  "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
+					"img": "https://loremicon.com/rect/64/64/890336/png",
+					"imgAlt": "Conversation Analytics",
+					"kicker": "Kicker",
+					"title": "Conversation Analytics",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accumsan arcu dis commodo risus."
 				}
 			]
 		}

@@ -8,7 +8,7 @@ const NewsIndex = function (props) {
 
     // console.log(items);
 
-    return <Resources active="news" items={items} kicker="In the News" />;
+    return <Resources active="news" items={items} kicker="In the News" canonical="https://www.liveperson.com/resources/news/" />;
 };
 export default NewsIndex;
 

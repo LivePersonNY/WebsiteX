@@ -8,7 +8,7 @@ import ResourcesNav from '../components/blocks/ResourcesNav';
 import Post from '../components/Post';
 
 const Resources = function( props ) {
-	
+
 	const nodeTypes = {
 		News: {
 			kicker: "In the news",
@@ -28,29 +28,29 @@ const Resources = function( props ) {
 		}
 	}
 
-	
+
 	return (
 		<Layout>
-			<Helmet 
+			<Helmet
 				bodyAttributes={{
 				  class: `resources ${props.active}`
 				}}
 			/>
-			<Seo title="" description="" meta={[]} canonical="" robots="index, follow" />
-			
+			<Seo title="" description="" meta={[]} canonical={props.canonical} robots="index, follow" />
+
 			<PlainContent alignmentClass="text-center" headLevel="h1" header="Everything you need to know to go Conversational" kicker="Resource Library" colWidth="6" />
 			<ResourcesNav active={props.active || `all`} />
 			<div className="pane index">
 				<div className="container">
 					<div className="row">
 						{props.items.map(function(item) {
-							
+
 							let tags = [];
 							item.tags.nodes.map(function(tag) {
 							  tags.push(tag.slug);
 							});
 							tags = tags.join(' ');
-							
+
 							return (item.seo.metaRobotsNoindex == 'index' &&
 								<Post post={item} kicker={nodeTypes[item.nodeType].kicker} root={"/resources/" + nodeTypes[item.nodeType].slug} classes={tags}/>
 							);
@@ -58,7 +58,7 @@ const Resources = function( props ) {
 					</div>
 				</div>
 			</div>
-			
+
 		</Layout>
 	)
 }

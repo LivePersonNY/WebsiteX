@@ -14,6 +14,7 @@ const SuccessIndex = function (props) {
             items={items}
             kicker="Success Story"
             slug="success-stories"
+            canonical="https://www.liveperson.com/resources/success-stories/"
         />
     );
 };

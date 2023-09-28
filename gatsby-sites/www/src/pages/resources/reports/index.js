@@ -8,7 +8,7 @@ const ReportsIndex = function (props) {
 
     // console.log(items);
 
-    return <Resources active="reports" items={items} kicker="Report" />;
+    return <Resources active="reports" items={items} kicker="Report" canonical="https://www.liveperson.com/resources/reports/" />;
 };
 export default ReportsIndex;
 
