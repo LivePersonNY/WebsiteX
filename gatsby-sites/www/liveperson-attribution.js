@@ -79,6 +79,7 @@ const MktoForms = {
                     });
 
                     window.VWO.push(['track.goalConversion', 11]);
+                    window.VWO.push(['track.goalConversion', 16]);
 
                     // if (document.querySelector('.mkto-resource-asset')) {
                     if (
