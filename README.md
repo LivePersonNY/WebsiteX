@@ -10,10 +10,13 @@ The official repo of the LivePerson Marketing Website X 2022 project. Full docum
 
 GC Notes:
 New blocks:
-- Lp-guti-blocks.php, blocks/all.js, (You have to register the block the same way the others are registered.)
+
+-   Lp-guti-blocks.php, blocks/all.js, (You have to register the block the same way the others are registered.)
 
 WP build:
-- in root: composer guti-build
+
+-   in root: composer guti-build
 
 https://developer.wordpress.org/resource/dashicons/
 https://github.com/showdownjs/showdown/wiki/Emojis
+test
