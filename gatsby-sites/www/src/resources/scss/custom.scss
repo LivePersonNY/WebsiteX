@@ -827,6 +827,17 @@ $animationSpeed: 30s;
             width: 20% !important;
         }
     }
+
+    &.institute-home {
+        & ~ .comp-quote-slider {
+            img {
+                display: none;
+            }
+            .comp-quote-author {
+                padding-left: 0;
+            }
+        }
+    }
 }
 
 /*! purgecss end ignore */
