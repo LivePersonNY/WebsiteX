@@ -818,7 +818,10 @@ $animationSpeed: 30s;
     }
     & ~ .comp-quote-slider {
         img {
-            width: 20% !important;
+            display: none;
+        }
+        .comp-quote-author {
+            padding-left: 0;
         }
     }
 
@@ -830,12 +833,6 @@ $animationSpeed: 30s;
 
     &.institute-home {
         & ~ .comp-quote-slider {
-            img {
-                display: none;
-            }
-            .comp-quote-author {
-                padding-left: 0;
-            }
         }
     }
 }
