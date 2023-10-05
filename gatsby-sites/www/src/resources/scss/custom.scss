@@ -817,6 +817,9 @@ $animationSpeed: 30s;
         }
     }
     & ~ .comp-quote-slider {
+        .col-lg-6 {
+            display: none;
+        }
         img {
             display: none;
         }
@@ -833,6 +836,9 @@ $animationSpeed: 30s;
 
     &.institute-home {
         & ~ .comp-quote-slider {
+            .col-lg-6 {
+                display: block;
+            }
         }
     }
 }
