@@ -309,7 +309,8 @@
         "www.bing.",
         "www.yahoo.",
         "search.yahoo.",
-        "cn.bing."
+        "cn.bing.",
+        "duckduckgo."
     ],
     "socialSites": [
         "plus.url.google.com",
