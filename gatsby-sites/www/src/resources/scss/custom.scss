@@ -805,10 +805,10 @@ $animationSpeed: 30s;
 
 // Institute custom styles
 .institute-hero {
-    & ~ .comp-team-cards {
+    & ~ .comp-team-cards,
+    & ~ .comp-icon-text-a {
         img {
-            width: 50%;
-            margin: auto;
+            width: 84px;
         }
         &.pane-with-lead-text {
             .col-12 {
@@ -825,6 +825,15 @@ $animationSpeed: 30s;
         }
         .comp-quote-author {
             padding-left: 0;
+        }
+    }
+    & ~ .comp-exec-card {
+        padding-bottom: 0;
+        h2.heading {
+            margin-bottom: 48px;
+            @include media-breakpoint-up(xl) {
+                margin-bottom: 72px;
+            }
         }
     }
 
