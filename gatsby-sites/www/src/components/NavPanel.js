@@ -138,22 +138,22 @@ const NavPanel = ({
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2023/09/13132536/AI-SAFETY-250x141-1.jpg"
+                                            src="https://static.liveperson.com/static-assets/2023/10/12125755/Spark-Virtual_Hero_JV_0929_250w.png"
                                             alt="Webinar"
                                             width="250"
-                                            height="141"
+                                            height="115"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">Webinar</p>
+                                            <p className="subtitle3">
+                                                Virtual Product Launch
+                                            </p>
                                             <p className="featured-body">
-                                                Harnessing generative AI for the
-                                                enterprise: Results,
-                                                relationships, and
-                                                responsibility
+                                                Ignite your AI engine with
+                                                Conversational Intelligence
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/ai-safety-for-enterprise/"
+                                                href="/resources/webinars/conversational-intelligence-software-launch/?utm_source=featured_resources_promo&utm_medium=direct&utm_campaign=spark_virtual_event&utm_content=webinar"
                                             >
                                                 Register now
                                             </a>
