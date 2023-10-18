@@ -337,20 +337,20 @@ class LP_Resources
 		   }
 		] );
 
-		register_graphql_field( 'Post', 'blog_form_header', [
+		register_graphql_field( 'staged_post', 'blog_form_header', [
 		   'type' => 'String',
 		   'description' => __( 'Blog Form Header', 'wp-graphql' ),
-		   'resolve' => function( $stagedpost ) {
-			 $blog_form_header = get_post_meta( $stagedpost->ID, 'blog_form_header', true );
+		   'resolve' => function( $post ) {
+			 $blog_form_header = get_post_meta( $post->ID, 'blog_form_header', true );
 			 return ! empty( $blog_form_header ) ? $blog_form_header : NULL;
 		   }
 		] );
 
-		register_graphql_field( 'Staged Posts', 'blog_form_thankYou', [
+		register_graphql_field( 'staged_posts', 'blog_form_thankYou', [
 		   'type' => 'String',
 		   'description' => __( 'Blog Form Thank You', 'wp-graphql' ),
-		   'resolve' => function( $stagedPosts ) {
-			 $blog_form_thankYou = get_post_meta( $stagedPosts->ID, 'blog_form_thankYou', true );
+		   'resolve' => function( $post ) {
+			 $blog_form_thankYou = get_post_meta( $post->ID, 'blog_form_thankYou', true );
 			 return ! empty( $blog_form_thankYou ) ? $blog_form_thankYou : NULL;
 		   }
 		] );
