@@ -12,7 +12,7 @@ const SuccessIndex = function (props) {
         <Resources
             active="success"
             items={items}
-            kicker="Success Story"
+            kicker="Case study"
             slug="success-stories"
             canonical="https://www.liveperson.com/resources/success-stories/"
         />
