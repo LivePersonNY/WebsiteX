@@ -328,7 +328,7 @@ class LP_Resources
 		   }
 		] );
 
-		register_graphql_field( 'Post', 'blog_formId', [
+		register_graphql_field( 'staged_post', 'blog_formId', [
 		   'type' => 'String',
 		   'description' => __( 'Blog Form ID', 'wp-graphql' ),
 		   'resolve' => function( $post ) {
@@ -346,7 +346,7 @@ class LP_Resources
 		   }
 		] );
 
-		register_graphql_field( 'staged_posts', 'blog_form_thankYou', [
+		register_graphql_field( 'staged_post', 'blog_form_thankYou', [
 		   'type' => 'String',
 		   'description' => __( 'Blog Form Thank You', 'wp-graphql' ),
 		   'resolve' => function( $post ) {
