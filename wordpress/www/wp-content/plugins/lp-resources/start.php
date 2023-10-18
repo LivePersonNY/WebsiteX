@@ -328,6 +328,15 @@ class LP_Resources
 		   }
 		] );
 
+		register_graphql_field( 'StagedPost', 'blog_formId', [
+		   'type' => 'String',
+		   'description' => __( 'Blog Form ID', 'wp-graphql' ),
+		   'resolve' => function( $post ) {
+			 $blog_formId = get_post_meta( $post->ID, 'blog_formId', true );
+			 return ! empty( $blog_formId ) ? $blog_formId : NULL;
+		   }
+		] );
+
 	}
 
 	public function register_type()
