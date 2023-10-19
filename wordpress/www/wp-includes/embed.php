@@ -787,6 +787,7 @@ function _oembed_rest_pre_serve_request( $served, $result, $request, $server ) {
 
 	if ( ! headers_sent() ) {
 		$server->send_header( 'Content-Type', 'text/xml; charset=' . get_option( 'blog_charset' ) );
+		$server->send_header( 'Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload' );
 	}
 
 	echo $result;
