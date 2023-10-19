@@ -80,6 +80,7 @@ const MktoForms = {
 
                     window.VWO.push(['track.goalConversion', 11]);
                     window.VWO.push(['track.goalConversion', 16]);
+                    window.VWO.push(['track.goalConversion', 19]);
 
                     // if (document.querySelector('.mkto-resource-asset')) {
                     if (
