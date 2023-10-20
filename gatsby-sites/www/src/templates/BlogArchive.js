@@ -103,6 +103,11 @@ const BlogIndex = ({
                         : null
                 }
                 robots={robots}
+                canonical={
+                    category
+                        ? `https://www.liveperson.com${category.link}`
+                        : `https://www.liveperson.com/blog/`
+                }
             />
 
             <div className="container blog mt-5">
