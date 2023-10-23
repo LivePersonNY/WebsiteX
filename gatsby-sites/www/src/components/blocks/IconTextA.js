@@ -49,7 +49,13 @@ const IconTextA = (props) => {
                 {props.header && (
                     <div className="row">
                         <div className="col-lg-10 offset-lg-1">
-                            <h2 className="text-center">{props.header}</h2>
+                            <h2 className="text-center">
+                                <Paragraph
+                                    text={props.header}
+                                    headerLevel="nothing"
+                                />
+                            </h2>
+                            <Paragraph text={props.sectionBody} />
                         </div>
                     </div>
                 )}

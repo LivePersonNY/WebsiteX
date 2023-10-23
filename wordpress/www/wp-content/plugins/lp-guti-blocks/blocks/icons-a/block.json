@@ -22,6 +22,7 @@
 		"btnText": { "default": "Click me!" },
 		"btnUrl": {},
 		"header": { "default": "Product Features" },
+		"sectionBody": {},
 		"blocktype": { "default": "IconTextA" },
 		"backgroundColor": { "default": "bg-transparent" },
 		"body": {

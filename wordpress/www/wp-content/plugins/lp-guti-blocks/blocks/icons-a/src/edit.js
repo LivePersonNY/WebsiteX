@@ -75,12 +75,27 @@ export default function Edit({
 	};
 
 	let headerControl = (
-		<TextareaControl
+		<RichText
 			value={attributes.header}
 			onChange={(val) => setAttributes({ header: val })}
 			className="embedded-input"
-			placeholder="Section H2 Header"
-			rows="1"
+			placeholder="Section Header"
+			allowedFormats={[
+				"core/bold",
+				"core/italic",
+				"core/strikethrough",
+				"core/text-color",
+			]}
+		/>
+	);
+
+	let sectionBodyControl = (
+		<RichText
+			value={attributes.sectionBody}
+			onChange={(val) => setAttributes({ sectionBody: val })}
+			className="embedded-input"
+			allowedFormats={["core/bold", "core/italic"]}
+			placeholder="Body copy for this section"
 		/>
 	);
 
@@ -329,6 +344,7 @@ export default function Edit({
 						cardCTAbody={ctaBodyControl}
 						btnText={btnControl}
 						header={headerControl}
+						sectionBody={sectionBodyControl}
 						items={itemControls}
 						backgroundColor={attributes.backgroundColor}
 						anchor={attributes.anchor}
@@ -382,6 +398,7 @@ export default function Edit({
 					btnText={attributes.btnText}
 					btnUrl={attributes.btnUrl}
 					header={attributes.header}
+					sectionBody={attributes.sectionBody}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
 					anchor={attributes.anchor}

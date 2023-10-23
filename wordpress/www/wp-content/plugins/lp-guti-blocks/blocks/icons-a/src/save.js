@@ -38,6 +38,7 @@ export default function save({ attributes }) {
 					btnText={attributes.btnText}
 					btnUrl={attributes.btnUrl}
 					header={attributes.header}
+					sectionBody={attributes.sectionBody}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
 					anchor={attributes.anchor}
