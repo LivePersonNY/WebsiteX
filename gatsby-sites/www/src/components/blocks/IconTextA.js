@@ -55,7 +55,10 @@ const IconTextA = (props) => {
                                     headerLevel="nothing"
                                 />
                             </h2>
-                            <Paragraph text={props.sectionBody} />
+                            <Paragraph
+                                text={props.sectionBody}
+                                className="text-center"
+                            />
                         </div>
                     </div>
                 )}
