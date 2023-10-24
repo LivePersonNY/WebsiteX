@@ -43,7 +43,7 @@ const IconTextA = (props) => {
             id={props.anchor}
             className={`${props.gated ? 'gated' : ''} pane comp-icon-text-a ${
                 props.backgroundColor || 'bg-transparent'
-            } ${props.header ? 'pane-with-lead-text' : ''}`}
+            } ${props.header ? 'pane-with-lead-text' : ''} ${props.cssClasses}`}
         >
             <div className="container">
                 {props.header && (

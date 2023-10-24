@@ -52,7 +52,9 @@ export default function save({ attributes }) {
 					cardCTAbody={attributes.ctaBody}
 					btnText={attributes.btnText}
 					btnUrl={attributes.btnUrl}
+					kicker={attributes.kicker}
 					header={attributes.header}
+					sectionBody={attributes.sectionBody}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
 					anchor={attributes.anchor}

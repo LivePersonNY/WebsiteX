@@ -74,6 +74,15 @@ export default function Edit({
 		}
 	};
 
+	let kickerControl = (
+		<TextControl
+			value={attributes.kicker}
+			onChange={(val) => setAttributes({ kicker: val })}
+			className="embedded-input"
+			placeholder="Kicker Text"
+		/>
+	);
+
 	let headerControl = (
 		<RichText
 			value={attributes.header}
@@ -355,7 +364,9 @@ export default function Edit({
 						cardCTA={attributes.cta}
 						cardCTAbody={ctaBodyControl}
 						btnText={btnControl}
+						kicker={kickerControl}
 						header={headerControl}
+						sectionBody={sectionBodyControl}
 						items={itemControls}
 						backgroundColor={attributes.backgroundColor}
 						anchor={attributes.anchor}
@@ -410,7 +421,9 @@ export default function Edit({
 					cardCTAbody={attributes.ctaBody}
 					btnText={attributes.btnText}
 					btnUrl={attributes.btnUrl}
+					kicker={attributes.kicker}
 					header={attributes.header}
+					sectionBody={attributes.sectionBody}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
 					anchor={attributes.anchor}

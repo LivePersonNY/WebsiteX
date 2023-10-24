@@ -647,7 +647,7 @@ img[src*='doubleclick'] {
             margin-top: 16px;
         }
 
-        .link{
+        .link {
             color: $neutral12;
         }
 
@@ -997,6 +997,13 @@ img[src*='doubleclick'] {
                 width: 100% !important;
             }
         }
+    }
+}
+
+.comp-icon-text-f {
+    text-align: center;
+    .comp-card-grid-container {
+        justify-content: center;
     }
 }
 
