@@ -31,6 +31,7 @@ export default function save({ attributes }) {
 		<>
 			{attributes.blocktype == "IconTextA" && (
 				<IconTextA
+					cssClasses={attributes.className}
 					cardCTA={attributes.cta}
 					gated={attributes.gated}
 					autoApprove={attributes.autoApproveLang}
@@ -46,6 +47,7 @@ export default function save({ attributes }) {
 			)}
 			{attributes.blocktype == "IconTextB" && (
 				<IconTextB
+					cssClasses={attributes.className}
 					cardCTA={attributes.cta}
 					gated={attributes.gated}
 					autoApprove={attributes.autoApproveLang}

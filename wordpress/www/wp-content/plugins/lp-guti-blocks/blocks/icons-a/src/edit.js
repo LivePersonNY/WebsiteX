@@ -349,6 +349,7 @@ export default function Edit({
 				/>
 				{attributes.blocktype == "IconTextA" && (
 					<IconTextA
+						cssClasses={attributes.className}
 						cardCTA={attributes.cta}
 						cardCTAbody={ctaBodyControl}
 						btnText={btnControl}
@@ -361,6 +362,7 @@ export default function Edit({
 				)}
 				{attributes.blocktype == "IconTextB" && (
 					<IconTextB
+						cssClasses={attributes.className}
 						cardCTA={attributes.cta}
 						cardCTAbody={ctaBodyControl}
 						btnText={btnControl}
@@ -404,6 +406,7 @@ export default function Edit({
 			{addButton}
 			{attributes.blocktype == "IconTextA" && (
 				<IconTextA
+					cssClasses={attributes.className}
 					cardCTA={attributes.cta}
 					cardCTAbody={attributes.ctaBody}
 					btnText={attributes.btnText}
@@ -417,6 +420,7 @@ export default function Edit({
 			)}
 			{attributes.blocktype == "IconTextB" && (
 				<IconTextB
+					cssClasses={attributes.className}
 					cardCTA={attributes.cta}
 					cardCTAbody={attributes.ctaBody}
 					btnText={attributes.btnText}

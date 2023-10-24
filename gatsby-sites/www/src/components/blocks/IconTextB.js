@@ -57,7 +57,7 @@ const IconTextB = (props) => {
                     <div className="row">
                         <div className="col-lg-10 offset-lg-1">
                             {props.kicker && (
-                                <p className="h6 text-uppercase">
+                                <p className="h6 text-uppercase text-center">
                                     {props.kicker}
                                 </p>
                             )}
