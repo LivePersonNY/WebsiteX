@@ -21,7 +21,9 @@
 		"autoApproveLang": { "default": false, "type": "boolean" },
 		"btnText": { "default": "Click me!" },
 		"btnUrl": {},
+		"kicker": {},
 		"header": { "default": "Product Features" },
+		"sectionBody": {},
 		"blocktype": { "default": "IconTextA" },
 		"backgroundColor": { "default": "bg-transparent" },
 		"body": {

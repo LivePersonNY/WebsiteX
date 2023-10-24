@@ -43,13 +43,22 @@ const IconTextA = (props) => {
             id={props.anchor}
             className={`${props.gated ? 'gated' : ''} pane comp-icon-text-a ${
                 props.backgroundColor || 'bg-transparent'
-            } ${props.header ? 'pane-with-lead-text' : ''}`}
+            } ${props.header ? 'pane-with-lead-text' : ''} ${props.cssClasses}`}
         >
             <div className="container">
                 {props.header && (
                     <div className="row">
                         <div className="col-lg-10 offset-lg-1">
-                            <h2 className="text-center">{props.header}</h2>
+                            <h2 className="text-center">
+                                <Paragraph
+                                    text={props.header}
+                                    headerLevel="nothing"
+                                />
+                            </h2>
+                            <Paragraph
+                                text={props.sectionBody}
+                                className="text-center"
+                            />
                         </div>
                     </div>
                 )}

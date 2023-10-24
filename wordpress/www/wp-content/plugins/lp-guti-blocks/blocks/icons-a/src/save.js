@@ -31,6 +31,7 @@ export default function save({ attributes }) {
 		<>
 			{attributes.blocktype == "IconTextA" && (
 				<IconTextA
+					cssClasses={attributes.className}
 					cardCTA={attributes.cta}
 					gated={attributes.gated}
 					autoApprove={attributes.autoApproveLang}
@@ -38,6 +39,7 @@ export default function save({ attributes }) {
 					btnText={attributes.btnText}
 					btnUrl={attributes.btnUrl}
 					header={attributes.header}
+					sectionBody={attributes.sectionBody}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
 					anchor={attributes.anchor}
@@ -45,13 +47,16 @@ export default function save({ attributes }) {
 			)}
 			{attributes.blocktype == "IconTextB" && (
 				<IconTextB
+					cssClasses={attributes.className}
 					cardCTA={attributes.cta}
 					gated={attributes.gated}
 					autoApprove={attributes.autoApproveLang}
 					cardCTAbody={attributes.ctaBody}
 					btnText={attributes.btnText}
 					btnUrl={attributes.btnUrl}
+					kicker={attributes.kicker}
 					header={attributes.header}
+					sectionBody={attributes.sectionBody}
 					items={attributes.icons}
 					backgroundColor={attributes.backgroundColor}
 					anchor={attributes.anchor}

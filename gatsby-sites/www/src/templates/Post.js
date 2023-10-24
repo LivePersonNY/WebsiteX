@@ -138,10 +138,16 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
             </div>
             <div id="form">
                 <MktoForm
-                    formId="3733"
+                    formId={post.blogFormId || '3733'}
                     backgroundColor="bg-neutral-96"
-                    header="Let's put LivePerson to work for you"
-                    thankyou="Thanks! Someone from our team will get back to you soon."
+                    header={
+                        post.blogFormHeader ||
+                        "Let's put LivePerson to work for you"
+                    }
+                    thankyou={
+                        post.blogFormThankYou ||
+                        'Thanks! Someone from our team will get back to you soon.'
+                    }
                 />
             </div>
         </Layout>
@@ -226,6 +232,9 @@ export const pageQuery = graphql`
             title
             link
             slug
+            blogFormHeader
+            blogFormId
+            blogFormThankYou
             postAuthors {
                 nodes {
                     uri
