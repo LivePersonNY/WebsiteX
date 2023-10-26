@@ -60,7 +60,7 @@ const IconTextD = (props) => {
                 >
                     {blockCol}
                     {props.cardCTA && (
-                        <div className="col">
+                        <div className="col-12 col-lg">
                             <div className="card h-100 text-center icon-text-cta">
                                 <div className="card-body d-flex flex-column justify-content-center align-items-center">
                                     <h3 className="card-text">
