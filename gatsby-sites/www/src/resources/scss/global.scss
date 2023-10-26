@@ -941,7 +941,8 @@ img[src*='doubleclick'] {
 
 .comp-icon-text-b {
     .comp-card-grid-container {
-        .col {
+        .col,
+        .col-12 {
             margin-top: 24px;
 
             @include media-breakpoint-up(lg) {
@@ -965,8 +966,7 @@ img[src*='doubleclick'] {
 
 .comp-icon-text-d {
     .comp-block-grid-container {
-        .col,
-        .col-12 {
+        .col {
             margin-top: 24px;
 
             @include media-breakpoint-up(lg) {
