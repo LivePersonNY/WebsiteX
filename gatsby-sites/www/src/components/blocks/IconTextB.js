@@ -6,7 +6,7 @@ import Paragraph from '../Paragraph';
 const IconTextB = (props) => {
     let cardCol = props.items.map((item, index) => {
         return (
-            <div className="col" key={index}>
+            <div className="col-12 col-lg" key={index}>
                 <div className="card h-100">
                     <div className="card-body">
                         {(!item.imgCtl && item.img && (
@@ -77,7 +77,7 @@ const IconTextB = (props) => {
                 <div className="row row-cols-lg-3 comp-card-grid-container">
                     {cardCol}
                     {props.cardCTA && (
-                        <div className="col">
+                        <div className="col-12 col-lg">
                             <div className="card h-100 text-center icon-text-cta">
                                 <div className="card-body d-flex flex-column justify-content-center align-items-center">
                                     <h3 className="card-text">

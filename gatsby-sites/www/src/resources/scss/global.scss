@@ -938,10 +938,11 @@ img[src*='doubleclick'] {
         }
     }
 }
-
+// test
 .comp-icon-text-b {
     .comp-card-grid-container {
-        .col {
+        .col,
+        .col-12 {
             margin-top: 24px;
 
             @include media-breakpoint-up(lg) {
