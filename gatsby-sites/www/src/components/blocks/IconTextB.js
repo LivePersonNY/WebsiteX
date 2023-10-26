@@ -6,7 +6,7 @@ import Paragraph from '../Paragraph';
 const IconTextB = (props) => {
     let cardCol = props.items.map((item, index) => {
         return (
-            <div className="col" key={index}>
+            <div className="col-12 col-lg" key={index}>
                 <div className="card h-100">
                     <div className="card-body">
                         {(!item.imgCtl && item.img && (
