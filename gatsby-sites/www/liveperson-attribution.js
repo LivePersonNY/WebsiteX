@@ -132,6 +132,8 @@ const LivePerson = {
         var lsSource = Cookie.get('lp-lsSource');
         var lsMedium = Cookie.get('lp-lsMedium');
         var lsContent = Cookie.get('lp-lsContent');
+        var lsGclid = Cookie.get('lp-lsGclid');
+        var lsMsclkid = Cookie.get('lp-lsMsclkid');
         var queryString = Cookie.get('lp-queryString');
         var _mkto_trk = Cookie.get('_mkto_trk');
 
@@ -188,6 +190,16 @@ const LivePerson = {
             Cookie.set('lp-lsRef', document.referrer, 1);
             lsRef = document.referrer;
             console.log('setting referrer... done.', lsRef);
+        }
+
+        if (!lsGclid) {
+            lsGclid = Query.get('gclid');
+            Cookie.set('lp-lsGclid', lsGclid, 30);
+        }
+
+        if (!lsMsclkid) {
+            lsMsclkid = Query.get('msclkid');
+            Cookie.set('lp-lsMsclkid', lsMsclkid, 30);
         }
 
         var lpindex = lsRef.indexOf('liveperson.com');
@@ -280,8 +292,8 @@ const LivePerson = {
         }
 
         window.lp_attr = $.extend(window.lp_attr || {}, {
-            gclid: Query.get('gclid'),
-            msclkid: Query.get('msclkid'),
+            gclid: lsGclid,
+            msclkid: lsMsclkid,
             leadSource: leadSourceCookie,
             referringUrl: lsRef,
             searchTerms: lsTerms,
