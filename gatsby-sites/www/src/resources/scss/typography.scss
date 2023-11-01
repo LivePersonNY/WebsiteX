@@ -260,10 +260,10 @@ h6 {
     }
 
     + .vimeoContainer {
-        margin-top: 42px;
+        margin-top: 24px;
 
         @include media-breakpoint-up(lg) {
-            margin-top: 72px;
+            margin-top: 48px;
         }
     }
 }
