@@ -258,6 +258,14 @@ h6 {
             margin-top: 24px;
         }
     }
+
+    + .vimeoContainer {
+        margin-top: 42px;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 72px;
+        }
+    }
 }
 
 p {
