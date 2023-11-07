@@ -183,6 +183,55 @@
                             }
                         }
                     }
+
+                    a.mkto-tooltip {
+                        outline: none;
+                        margin-left: 3px;
+                        &:hover {
+                            text-decoration: none;
+                            span {
+                                display: inline;
+                                position: absolute;
+                                background: $primaryLight;
+                                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+                                border-radius: 8px;
+                                border-color: transparent;
+                                border: 0;
+                                padding: 24px 20px 20px;
+                            }
+                        }
+                        span {
+                            z-index: 10;
+                            display: none;
+                            margin-top: -30px;
+                            margin-left: 28px;
+                            width: 500px;
+                        }
+                    }
+
+                    label {
+                        span.mkto-cb-tooltip {
+                            display: none;
+                            z-index: 10;
+                            display: none;
+                            margin-top: -30px;
+                            margin-left: 28px;
+                            width: 500px;
+                        }
+                        &:hover {
+                            span.mkto-cb-tooltip {
+                                display: block;
+                                display: inline;
+                                position: absolute;
+                                background: $primaryLight;
+                                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+                                border-radius: 8px;
+                                border-color: transparent;
+                                border: 0;
+                                padding: 24px 20px 20px;
+                            }
+                        }
+                    }
                 }
             }
         }
