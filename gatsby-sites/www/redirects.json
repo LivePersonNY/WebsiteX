@@ -282,6 +282,7 @@
         "/demo": "/request-demo/",
         "/resources/reports/speech-analytics-platform/": "/products/voice-ai/",
         "/resources/reports/gartner-whatsapp-business/": "/products/whatsapp/",
-        "/channels/gbm-registration-form/": "https://knowledge.liveperson.com/getting-started-quick-start-guides-gbm-quick-start.html/"
+        "/channels/gbm-registration-form/": "https://knowledge.liveperson.com/getting-started-quick-start-guides-gbm-quick-start.html/",
+        "/products/voice/": "/products/voice-ai/"
     }
 }
