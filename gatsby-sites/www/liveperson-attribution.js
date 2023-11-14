@@ -101,8 +101,7 @@ const MktoForms = {
                         return false;
                     }
                     if (formId == 4956) {
-                        location.href =
-                            'https://demo.liveperson.com/demo/showcase/470ba46b2c504e4eba6e562bebe9230d';
+                        location.href = '/guided-demo-library/';
                         return false;
                     }
                     LivePerson.ShowAfterMessage(form);
