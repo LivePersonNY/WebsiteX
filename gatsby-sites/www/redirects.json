@@ -284,6 +284,7 @@
         "/resources/reports/gartner-whatsapp-business/": "/products/whatsapp/",
         "/channels/gbm-registration-form/": "https://knowledge.liveperson.com/getting-started-quick-start-guides-gbm-quick-start.html/",
         "/products/bella-ai/": "/products/generative-ai/",
+        "/products/bella-ai-max/": "/products/generative-ai/",
         "/products/voice/": "/products/voice-ai/",
         "/conversational-intelligence/": "/products/conversational-intelligence/"
     }
