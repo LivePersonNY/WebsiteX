@@ -154,7 +154,7 @@ const NavPanel = ({
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/capitec-business-sense/?utm_source=featured_resources_promo&utm_medium=direct&utm_campaign=spark_virtual_event&utm_content=webinar"
+                                                href="/resources/webinars/capitec-business-sense/?utm_source=featured_resources_promo&utm_medium=direct&utm_campaign=capitec_webinar"
                                             >
                                                 Register now
                                             </a>
