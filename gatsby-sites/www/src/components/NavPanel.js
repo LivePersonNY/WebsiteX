@@ -145,7 +145,7 @@ const NavPanel = ({
                                         />
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">
-                                                LIVE WEBINAR
+                                                Live Webinar
                                             </p>
                                             <p className="featured-body">
                                                 Common sense makes business
