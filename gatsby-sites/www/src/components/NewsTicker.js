@@ -99,7 +99,7 @@ const NewsTicker = ({ siteTitle }) => {
                             );
                         })}
                         <img
-                            className="news-ticker-close"
+                            className="news-ticker-close display-none"
                             src="https://static.liveperson.com/static-assets/2023/02/27164937/cancel.png"
                             // onClick={hideNewsTicker}
                         />
