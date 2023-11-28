@@ -54,6 +54,7 @@ module.exports = {
                 verbose: true,
                 schema: {
                     timeout: 1200000,
+                    perPage: 20,
                     requestConcurrency: 5,
                 },
                 url: `${
@@ -83,7 +84,7 @@ module.exports = {
                                 `application/pdf`,
                             ],
                             maxFileSizeBytes: 0,
-                            // requestConcurrency: 50,
+                            requestConcurrency: 5,
                         },
                     },
                 },
