@@ -286,6 +286,7 @@
         "/products/bella-ai/": "/products/generative-ai/",
         "/products/bella-ai-max/": "/products/generative-ai/",
         "/products/voice/": "/products/voice-ai/",
-        "/conversational-intelligence/": "/products/conversational-intelligence/"
+        "/conversational-intelligence/": "/products/conversational-intelligence/",
+        "/products/bella-health/": "/solutions/healthcare/"
     }
 }
