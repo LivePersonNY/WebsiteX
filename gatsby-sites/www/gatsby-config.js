@@ -10,16 +10,16 @@ module.exports = {
         author: 'LivePerson',
     },
     plugins: [
-        {
-            resolve: `gatsby-plugin-gatsby-cloud`,
-            options: {
-                generateMatchPathRewrites: false,
-                allPageHeaders: ['Strict-Transport-Security: max-age=31536000'],
-                headers: {
-                    '/*': ['cache-control: public, max-age=0, must-revalidate'],
-                },
-            },
-        },
+        // {
+        //     resolve: `gatsby-plugin-gatsby-cloud`,
+        //     options: {
+        //         generateMatchPathRewrites: false,
+        //         allPageHeaders: ['Strict-Transport-Security: max-age=31536000'],
+        //         headers: {
+        //             '/*': ['cache-control: public, max-age=0, must-revalidate'],
+        //         },
+        //     },
+        // },
         {
             resolve: `gatsby-plugin-netlify`,
             options: {
@@ -54,7 +54,7 @@ module.exports = {
                 verbose: true,
                 schema: {
                     timeout: 1200000,
-                    // requestConcurrency: 5,
+                    requestConcurrency: 5,
                 },
                 url: `${
                     process.env.WP_HOST || 'https://edit.liveperson.com'
