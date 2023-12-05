@@ -325,6 +325,16 @@
         "/events/whatsapp-berlin/": "/events/",
         "/events/yankees-astros/": "/events/",
         "/events/emea-finserv-breakfast-november/": "/events/",
-        "/events/exec-community-london-042822/": "/events/"
+        "/events/exec-community-london-042822/": "/events/",
+        "/blog-category/*": "/blog/*",
+        "/blog/4-customer-service-tips-apac": "/blog/4-customer-service-tips/",
+        "/blog/4-customer-service-tips-emea/": "/blog/4-customer-service-tips/",
+        "/blog/4-customer-service-tips-emea/": "/blog/4-customer-service-tips/",
+        "/blog/is-your-": "/blog/",
+        "/blog/news/*": "/resources/news/*",
+        "/blog/reports/*": "/resources/reports/*",
+        "/blog/success/*": "/resources/success-stories/*",
+        "/blog/webinars/*": "/resources/webinars/*",
+        "/blog/policy-page/voicebase/minimum-terms/": "/blog/*"
     }
 }
