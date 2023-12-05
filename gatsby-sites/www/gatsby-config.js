@@ -54,8 +54,8 @@ module.exports = {
                 verbose: true,
                 schema: {
                     timeout: 1200000,
-                    perPage: 10,
-                    requestConcurrency: 3,
+                    // perPage: 10,
+                    // requestConcurrency: 3,
                 },
                 url: `${
                     process.env.WP_HOST || 'https://edit.liveperson.com'
