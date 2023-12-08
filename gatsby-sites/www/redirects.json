@@ -73,7 +73,6 @@
         "/partners/solution-provider": "/partners",
         "/pay-for-performance": "/services/gainshare/",
         "/payment": "/policies/license-agreement",
-        "/policies/*": "/policies/privacy",
         "/policies/additional_product_and_third_party_application_terms": "/policies/additional-product-and-third-party-application-terms",
         "/policies/applications-terms-and-use": "/policies/apitou/",
         "/policies/customer-website-privacy": "/policies/privacy",
