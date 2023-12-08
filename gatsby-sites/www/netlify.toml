@@ -1,2 +1,7 @@
 [[plugins]]
   package = "@netlify/plugin-gatsby"
+
+[[redirects]]
+  from = "/policies/additional_product_and_third_party_application_terms/"
+  to = "/policies/additional-product-and-third-party-application-terms/"
+  status = 301

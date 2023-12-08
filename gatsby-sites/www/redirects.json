@@ -329,7 +329,6 @@
         "/blog-category/*": "/blog/*",
         "/blog/4-customer-service-tips-apac": "/blog/4-customer-service-tips/",
         "/blog/4-customer-service-tips-emea/": "/blog/4-customer-service-tips/",
-        "/blog/4-customer-service-tips-emea/": "/blog/4-customer-service-tips/",
         "/blog/is-your-": "/blog/",
         "/blog/news/*": "/resources/news/*",
         "/blog/reports/*": "/resources/reports/*",
