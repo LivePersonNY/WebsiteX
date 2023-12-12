@@ -138,25 +138,25 @@ const NavPanel = ({
                                     </p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2023/11/13101702/Capitec_Dec-Webinar_Landing-Page_1110%402x.png"
+                                            src="https://static.liveperson.com/static-assets/2023/11/27163856/Landing-Page-TRR-16_9_image_1%40x2.jpg"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
                                         />
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">
-                                                Live Webinar
+                                                Case Study
                                             </p>
                                             <p className="featured-body">
-                                                Common sense makes business
-                                                sense: How Capitec made banking
-                                                better with conversational AI
+                                                Building easy, effortless, and
+                                                personalized digital customer
+                                                experiences with The RealReal
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/capitec-business-sense/?utm_source=featured_resources_promo&utm_medium=direct&utm_campaign=capitec_webinar"
+                                                href="/resources/success-stories/trr-digital-customer-experiences/?utm_source=featured_resources_promo&utm_medium=direct&utm_campaign=trr_case_study"
                                             >
-                                                Register now
+                                                Read now
                                             </a>
                                         </div>
                                     </div>
