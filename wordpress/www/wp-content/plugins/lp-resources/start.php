@@ -464,6 +464,7 @@ class LP_Resources
 				'editor',
 				'excerpt',
 				'thumbnail',
+				'custom-fields',
 			],
 			'capability_type' => 'resource',
 			'map_meta_cap' => true,

@@ -28,6 +28,7 @@ export const itemsQuery = graphql`
                 title
                 nodeType
                 slug
+                blogContentType
                 date(formatString: "MMMM DD, YYYY")
                 tags {
                     nodes {
