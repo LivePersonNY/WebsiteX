@@ -328,6 +328,15 @@ class LP_Resources
 		   }
 		] );
 
+		register_graphql_field( 'success', 'blog_content_type', [
+		   'type' => 'String',
+		   'description' => __( 'Blog Content Type', 'wp-graphql' ),
+		   'resolve' => function( $post ) {
+			 $blog_content_type = get_post_meta( $post->ID, 'blog_content_type', true );
+			 return ! empty( $blog_content_type ) ? $blog_content_type : NULL;
+		   }
+		] );
+
 		register_graphql_field( 'staged_post', 'blog_formId', [
 		   'type' => 'String',
 		   'description' => __( 'Blog Form ID', 'wp-graphql' ),
