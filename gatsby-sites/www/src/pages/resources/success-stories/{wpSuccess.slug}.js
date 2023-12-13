@@ -95,7 +95,9 @@ const SuccessStory = ({ data: { post } }) => {
                 <div className="row justify-content-md-center">
                     <div className="col-xl-10">
                         <div className="post-container">
-                            <p className="h6 text-uppercase">Case studies</p>
+                            <p className="h6 text-uppercase">
+                                {post.blogContentType || 'Case Studies'}
+                            </p>
                             <h1>{post.title}</h1>
                             <img
                                 className="my-4 rounded-3 w-100"
@@ -134,6 +136,7 @@ export const pageQuery = graphql`
             excerpt
             content
             title
+            blogContentType
             link
             seo {
                 readingTime
