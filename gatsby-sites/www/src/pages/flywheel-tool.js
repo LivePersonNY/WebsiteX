@@ -36,26 +36,32 @@ const Flywheel = () => {
         }
     };
 
-    // useEffect(() => {
-    //     console.log('this is loaded');
-    //     $('.btn-flywheel-results').on('click', () => {
-    //         if (
-    //             $('input[name="questionOne"').is(':checked') &&
-    //             $('input[name="questionTwo"').is(':checked') &&
-    //             $('input[name="questionThree"').is(':checked') &&
-    //             $('input[name="questionFour"').is(':checked')
-    //         ) {
-    //             $('.flywheel-tool-input').hide();
-    //             $('.flywheel-tool-result').fadeIn();
-    //         } else {
-    //             var myModal = new Modal(
-    //                 document.getElementById('exampleModal'),
-    //                 {}
-    //             );
-    //             myModal.show();
-    //         }
-    //     });
-    // }, []);
+    useEffect(() => {
+        async function loadBootstrap() {
+            const bootstrap = await import(
+                '../../node_modules/bootstrap/dist/js/bootstrap'
+            );
+            console.log('this is loaded');
+            $('.btn-flywheel-results').on('click', () => {
+                if (
+                    $('input[name="questionOne"').is(':checked') &&
+                    $('input[name="questionTwo"').is(':checked') &&
+                    $('input[name="questionThree"').is(':checked') &&
+                    $('input[name="questionFour"').is(':checked')
+                ) {
+                    $('.flywheel-tool-input').hide();
+                    $('.flywheel-tool-result').fadeIn();
+                } else {
+                    var myModal = new Modal(
+                        document.getElementById('exampleModal'),
+                        {}
+                    );
+                    myModal.show();
+                }
+            });
+        }
+        loadBootstrap();
+    }, []);
 
     return (
         <Layout mainclassName="">
@@ -441,10 +447,7 @@ const Flywheel = () => {
                                     </div>
                                 </div>
 
-                                <a
-                                    className="btn btn-primary mt-4 text-center btn-flywheel-results"
-                                    onClick={toolScript}
-                                >
+                                <a className="btn btn-primary mt-4 text-center btn-flywheel-results">
                                     Get my results
                                 </a>
 
