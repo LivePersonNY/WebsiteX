@@ -6,7 +6,6 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import NotFoundPage from './404';
 import $ from 'jquery';
-import { Modal } from 'bootstrap';
 
 const Flywheel = () => {
     if (
@@ -17,33 +16,21 @@ const Flywheel = () => {
     }
 
     useEffect(() => {
-        async function loadBootstrap() {
-            const bootstrap = await import(
-                '../../node_modules/bootstrap/dist/js/bootstrap'
-            );
-
-            console.log('this is loaded');
-            $('.btn-flywheel-results').on('click', () => {
-                if (
-                    $('input[name="questionOne"').is(':checked') &&
-                    $('input[name="questionTwo"').is(':checked') &&
-                    $('input[name="questionThree"').is(':checked') &&
-                    $('input[name="questionFour"').is(':checked')
-                ) {
-                    $('.flywheel-tool-input').hide();
-                    $('.flywheel-tool-result').fadeIn();
-                } else {
-                    var myModal = new Modal(
-                        document.getElementById('exampleModal'),
-                        {}
-                    );
-                    myModal.show();
-                    console.log('nope');
-                }
-            });
-        }
-
-        loadBootstrap();
+        console.log('this is loaded');
+        $('.btn-flywheel-results').on('click', () => {
+            if (
+                $('input[name="questionOne"').is(':checked') &&
+                $('input[name="questionTwo"').is(':checked') &&
+                $('input[name="questionThree"').is(':checked') &&
+                $('input[name="questionFour"').is(':checked')
+            ) {
+                $('.flywheel-tool-input').hide();
+                $('.flywheel-tool-result').fadeIn();
+            } else {
+                $('.modal-button').trigger('click');
+                console.log('nope');
+            }
+        });
     }, []);
 
     return (
@@ -433,6 +420,15 @@ const Flywheel = () => {
                                 <a className="btn btn-primary mt-4 text-center btn-flywheel-results">
                                     Get my results
                                 </a>
+
+                                <button
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    className="display-none modal-button"
+                                >
+                                    Launch modal
+                                </button>
 
                                 <div
                                     className="modal fade"
