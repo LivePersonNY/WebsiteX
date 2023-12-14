@@ -30,11 +30,11 @@ const Flywheel = () => {
             $('.flywheel-tool-input').hide();
             $('.flywheel-tool-result').fadeIn();
         } else {
-            var myModal = new Modal(
-                document.getElementById('exampleModal'),
-                {}
-            );
-            myModal.show();
+            // var myModal = new Modal(
+            //     document.getElementById('exampleModal'),
+            //     {}
+            // );
+            // myModal.show();
         }
     };
 
