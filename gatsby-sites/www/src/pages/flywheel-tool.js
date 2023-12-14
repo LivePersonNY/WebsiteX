@@ -16,28 +16,44 @@ const Flywheel = () => {
         return <NotFoundPage />;
     }
 
-    useEffect(() => {
-        window.onload = (e) => {
-            var myModal = new Modal(
-                document.getElementById('exampleModal'),
-                {}
-            );
+    const toolScript = () => {
+        var myModal = new Modal(document.getElementById('exampleModal'), {});
 
-            console.log('this is loaded');
-            $('.btn-flywheel-results').on('click', () => {
-                if (
-                    $('input[name="questionOne"').is(':checked') &&
-                    $('input[name="questionTwo"').is(':checked') &&
-                    $('input[name="questionThree"').is(':checked') &&
-                    $('input[name="questionFour"').is(':checked')
-                ) {
-                    $('.flywheel-tool-input').hide();
-                    $('.flywheel-tool-result').fadeIn();
-                } else {
-                    myModal.show();
-                }
-            });
-        };
+        console.log('this is loaded');
+        $('.btn-flywheel-results').on('click', () => {
+            if (
+                $('input[name="questionOne"').is(':checked') &&
+                $('input[name="questionTwo"').is(':checked') &&
+                $('input[name="questionThree"').is(':checked') &&
+                $('input[name="questionFour"').is(':checked')
+            ) {
+                $('.flywheel-tool-input').hide();
+                $('.flywheel-tool-result').fadeIn();
+            } else {
+                myModal.show();
+            }
+        });
+    };
+
+    useEffect(() => {
+        console.log('this is loaded');
+        $('.btn-flywheel-results').on('click', () => {
+            if (
+                $('input[name="questionOne"').is(':checked') &&
+                $('input[name="questionTwo"').is(':checked') &&
+                $('input[name="questionThree"').is(':checked') &&
+                $('input[name="questionFour"').is(':checked')
+            ) {
+                $('.flywheel-tool-input').hide();
+                $('.flywheel-tool-result').fadeIn();
+            } else {
+                var myModal = new Modal(
+                    document.getElementById('exampleModal'),
+                    {}
+                );
+                myModal.show();
+            }
+        });
     }, []);
 
     return (
