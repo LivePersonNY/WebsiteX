@@ -36,32 +36,26 @@ const Flywheel = () => {
         }
     };
 
-    useEffect(() => {
-        async function loadBootstrap() {
-            const bootstrap = await import(
-                '../../node_modules/bootstrap/dist/js/bootstrap'
-            );
-            console.log('this is loaded');
-            $('.btn-flywheel-results').on('click', () => {
-                if (
-                    $('input[name="questionOne"').is(':checked') &&
-                    $('input[name="questionTwo"').is(':checked') &&
-                    $('input[name="questionThree"').is(':checked') &&
-                    $('input[name="questionFour"').is(':checked')
-                ) {
-                    $('.flywheel-tool-input').hide();
-                    $('.flywheel-tool-result').fadeIn();
-                } else {
-                    var myModal = new Modal(
-                        document.getElementById('exampleModal'),
-                        {}
-                    );
-                    myModal.show();
-                }
-            });
-        }
-        loadBootstrap();
-    }, []);
+    // useEffect(() => {
+    //     console.log('this is loaded');
+    //     $('.btn-flywheel-results').on('click', () => {
+    //         if (
+    //             $('input[name="questionOne"').is(':checked') &&
+    //             $('input[name="questionTwo"').is(':checked') &&
+    //             $('input[name="questionThree"').is(':checked') &&
+    //             $('input[name="questionFour"').is(':checked')
+    //         ) {
+    //             $('.flywheel-tool-input').hide();
+    //             $('.flywheel-tool-result').fadeIn();
+    //         } else {
+    //             var myModal = new Modal(
+    //                 document.getElementById('exampleModal'),
+    //                 {}
+    //             );
+    //             myModal.show();
+    //         }
+    //     });
+    // }, []);
 
     return (
         <Layout mainclassName="">

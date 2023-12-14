@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import lottie from 'lottie-web';
 import { Cookie, Query, LivePerson } from './liveperson-attribution';
+import bootstrap, { Modal } from 'bootstrap';
 
 window.lottie = lottie;
 
@@ -515,4 +516,23 @@ window.documentReadyFn = function () {
         document.querySelector('.thanks-download-link a[href="#report"]').href =
             decodeURIComponent(resourceAssetURLParam);
     }
+
+    $('.btn-flywheel-results').on('click', () => {
+        console.log('this is loaded');
+        if (
+            $('input[name="questionOne"').is(':checked') &&
+            $('input[name="questionTwo"').is(':checked') &&
+            $('input[name="questionThree"').is(':checked') &&
+            $('input[name="questionFour"').is(':checked')
+        ) {
+            $('.flywheel-tool-input').hide();
+            $('.flywheel-tool-result').fadeIn();
+        } else {
+            var myModal = new Modal(
+                document.getElementById('exampleModal'),
+                {}
+            );
+            myModal.show();
+        }
+    });
 };
