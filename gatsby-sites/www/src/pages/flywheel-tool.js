@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import NotFoundPage from './404';
 import $ from 'jquery';
-import bootstrap, { Modal } from 'bootstrap';
+// import bootstrap, { Modal } from 'bootstrap';
 
 const Flywheel = () => {
     if (
@@ -16,41 +16,7 @@ const Flywheel = () => {
         return <NotFoundPage />;
     }
 
-    // const [isReady, setIsReady] = useState(false);
-
-    const toolScript = () => {
-        console.log('this is loaded');
-
-        if (
-            $('input[name="questionOne"').is(':checked') &&
-            $('input[name="questionTwo"').is(':checked') &&
-            $('input[name="questionThree"').is(':checked') &&
-            $('input[name="questionFour"').is(':checked')
-        ) {
-            $('.flywheel-tool-input').hide();
-            $('.flywheel-tool-result').fadeIn();
-        } else {
-            // var myModal = new Modal(
-            //     document.getElementById('exampleModal'),
-            //     {}
-            // );
-            // myModal.show();
-        }
-    };
-
     useEffect(() => {
-        // function waitForDocumentReadyFn() {
-        //     if (!window.documentReadyFn) {
-        //         window.readyTimeout = setTimeout(waitForDocumentReadyFn, 10);
-        //     } else {
-        //         clearTimeout(window.readyTimeout);
-        //         //window.documentReadyFn();
-        //         setIsReady(true);
-        //     }
-        // }
-        // waitForDocumentReadyFn();
-
-        // if (isReady) {
         console.log('this is loaded');
         $('.btn-flywheel-results').on('click', () => {
             if (
@@ -70,7 +36,6 @@ const Flywheel = () => {
                 console.log('nope');
             }
         });
-        // }
     }, []);
 
     return (
