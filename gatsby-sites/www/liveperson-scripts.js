@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import lottie from 'lottie-web';
 import { Cookie, Query, LivePerson } from './liveperson-attribution';
-import bootstrap, { Modal } from 'bootstrap';
+import { bootstrap, Modal } from 'bootstrap';
 
 window.lottie = lottie;
 
