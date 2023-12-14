@@ -16,7 +16,6 @@ const Flywheel = () => {
     }
 
     useEffect(() => {
-        console.log('this is loaded');
         $('.btn-flywheel-results').on('click', () => {
             if (
                 $('input[name="questionOne"').is(':checked') &&
@@ -28,7 +27,6 @@ const Flywheel = () => {
                 $('.flywheel-tool-result').fadeIn();
             } else {
                 $('.modal-button').trigger('click');
-                console.log('nope');
             }
         });
     }, []);
