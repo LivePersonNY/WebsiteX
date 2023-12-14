@@ -17,7 +17,7 @@ const Flywheel = () => {
     }
 
     useEffect(() => {
-        var myModal = new Modal(document.getElementById('exampleModal'), {});
+        var myModal = new Modal($('#exampleModal'));
 
         console.log('this is loaded');
         $('.btn-flywheel-results').on('click', () => {
