@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import NotFoundPage from './404';
 import $ from 'jquery';
-// import bootstrap, { Modal } from 'bootstrap';
+import { Modal } from 'bootstrap';
 
 const Flywheel = () => {
     if (
@@ -28,11 +28,11 @@ const Flywheel = () => {
                 $('.flywheel-tool-input').hide();
                 $('.flywheel-tool-result').fadeIn();
             } else {
-                // var myModal = new Modal(
-                //     document.getElementById('exampleModal'),
-                //     {}
-                // );
-                // myModal.show();
+                var myModal = new Modal(
+                    document.getElementById('exampleModal'),
+                    {}
+                );
+                myModal.show();
                 console.log('nope');
             }
         });
