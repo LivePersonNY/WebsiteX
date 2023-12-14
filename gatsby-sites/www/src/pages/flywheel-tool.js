@@ -7,7 +7,6 @@ import Seo from '../components/Seo';
 import NotFoundPage from './404';
 import $ from 'jquery';
 import { Modal } from 'bootstrap';
-window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
 
 const Flywheel = () => {
     if (
@@ -16,6 +15,8 @@ const Flywheel = () => {
     ) {
         return <NotFoundPage />;
     }
+
+    window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
 
     useEffect(() => {
         console.log('this is loaded');
