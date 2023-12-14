@@ -15,8 +15,7 @@ const Flywheel = () => {
     ) {
         return <NotFoundPage />;
     }
-
-    useEffect(() => {
+    const testRun = function () {
         var myModal = new Modal($('#exampleModal'));
 
         console.log('this is loaded');
@@ -33,7 +32,7 @@ const Flywheel = () => {
                 myModal.show();
             }
         });
-    });
+    };
 
     return (
         <Layout mainclassName="">
@@ -631,6 +630,7 @@ const Flywheel = () => {
                 formId="2580"
                 thankyou="Thank you! One of our experts will contact you shortly"
             />
+            {testRun()}
         </Layout>
     );
 };
