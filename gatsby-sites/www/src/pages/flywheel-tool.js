@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Hero from '../components/blocks/Hero';
 import MktoForm from '../components/blocks/MktoForm';
 import Layout from '../components/Layout';
@@ -15,6 +15,8 @@ const Flywheel = () => {
     ) {
         return <NotFoundPage />;
     }
+
+    // const [isReady, setIsReady] = useState(false);
 
     const toolScript = () => {
         console.log('this is loaded');
@@ -36,26 +38,40 @@ const Flywheel = () => {
         }
     };
 
-    // useEffect(() => {
-    //     console.log('this is loaded');
-    //     $('.btn-flywheel-results').on('click', () => {
-    //         if (
-    //             $('input[name="questionOne"').is(':checked') &&
-    //             $('input[name="questionTwo"').is(':checked') &&
-    //             $('input[name="questionThree"').is(':checked') &&
-    //             $('input[name="questionFour"').is(':checked')
-    //         ) {
-    //             $('.flywheel-tool-input').hide();
-    //             $('.flywheel-tool-result').fadeIn();
-    //         } else {
-    //             var myModal = new Modal(
-    //                 document.getElementById('exampleModal'),
-    //                 {}
-    //             );
-    //             myModal.show();
-    //         }
-    //     });
-    // }, []);
+    useEffect(() => {
+        // function waitForDocumentReadyFn() {
+        //     if (!window.documentReadyFn) {
+        //         window.readyTimeout = setTimeout(waitForDocumentReadyFn, 10);
+        //     } else {
+        //         clearTimeout(window.readyTimeout);
+        //         //window.documentReadyFn();
+        //         setIsReady(true);
+        //     }
+        // }
+        // waitForDocumentReadyFn();
+
+        // if (isReady) {
+        console.log('this is loaded');
+        $('.btn-flywheel-results').on('click', () => {
+            if (
+                $('input[name="questionOne"').is(':checked') &&
+                $('input[name="questionTwo"').is(':checked') &&
+                $('input[name="questionThree"').is(':checked') &&
+                $('input[name="questionFour"').is(':checked')
+            ) {
+                $('.flywheel-tool-input').hide();
+                $('.flywheel-tool-result').fadeIn();
+            } else {
+                // var myModal = new Modal(
+                //     document.getElementById('exampleModal'),
+                //     {}
+                // );
+                // myModal.show();
+                console.log('nope');
+            }
+        });
+        // }
+    }, []);
 
     return (
         <Layout mainclassName="">
