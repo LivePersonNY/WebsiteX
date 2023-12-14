@@ -468,66 +468,158 @@ const Flywheel = () => {
                     <div className="row align-items-center mt-4 flywheel-tool-result display-none">
                         <div className="col-lg-12">
                             <h2>Results</h2>
-                            Phase 1: Understand Score: X/5 The Understand phase
-                            of the Conversational Flywheel is all about
-                            analyzing your customer conversations so you know
-                            why customers are reaching out, which channels they
-                            prefer, and where and when to deploy automation. How
-                            to improve your Understand score: Intent analysis:
-                            Group your customer conversations into top intents
-                            to understand the most common reasons customers are
-                            reaching out. Omnichannel analytics: Invest in
-                            advanced, AI-powered analytics tools to gain deeper
-                            insights into customer conversations across various
-                            channels. Generative insights: Explore how Large
-                            Language Models and generative AI-powered solutions
-                            can empower your team to derive insights in an
-                            intuitive, conversational way. Phase 2 : Connect
-                            Score: X/5 The Connect phase of the Conversational
-                            Flywheel is where your business systems with digital
-                            channels to shift conversations away from the call
-                            center and email ticketing to improve operational
-                            efficiency. How to improve your Connect score
-                            Explore additional channels: Based on your analysis
-                            in the Understand phase, integrate additional
-                            communication channels such as social media
-                            platforms, in-app messaging, or SMS/WhatsApp.
-                            Seamless integration: Ensure seamless integration of
-                            your CRM, CDP, telephony and other enterprise
-                            systems for a unified customer conversation. IVR
-                            deflection: Turn your dreaded Interactive Voice
-                            Response system into your best asset by allowing
-                            customers to shift conversations into digital
-                            channels like automated voice and messaging. Phase
-                            3: Assist Score: X/5 At the Assist phase, you’re
-                            leveraging agent-facing AI, tools, and automated
-                            workflows to boost agent productivity and offer more
-                            personalized customer service. How to improve your
-                            Assist score Co-pilot: Provide agents with advanced
-                            AI tools that offer real-time suggestions and
-                            guidance to resolve customer issues faster. Unified
-                            workspace: Bring cross-channel customer
-                            conversations and essential tools and workflows into
-                            a single platform. Bot-human tango: Use automation
-                            to free up agents to focus on your most valuable
-                            conversations and customers. Phase 4: Automate
-                            Score: X/5 The Automate phase is where you deploy
-                            consumer-facing automation and AI to enable
-                            self-service, scale your conversations, and resolve
-                            customer issues more quickly and efficiently. By
-                            scaling your automated conversations you increase
-                            your data, feeding back into the Understand phase of
-                            the Flywheel. How to improve your Automate score
-                            Knowledge AI: Expand self-service options by
-                            integrating your AI chatbots with your knowledge
-                            base and other relevant support documentation.
-                            Generative AI: Leverage and fine-tune Large Language
-                            models to create a more personalized, conversational
-                            customer experience. Hallucination and bias
-                            detection: Consider enterprise grade solutions that
-                            can detect hallucinations, bias, and other
-                            non-compliant answers before being exposed to
-                            customers.
+                            <h4>
+                                Phase 1: Understand
+                                <br />
+                                <br />
+                                Score: X/5
+                            </h4>
+                            <p>
+                                The Understand phase of the Conversational
+                                Flywheel is all about analyzing your customer
+                                conversations so you know why customers are
+                                reaching out, which channels they prefer, and
+                                where and when to deploy automation.
+                            </p>
+                            <p>
+                                <strong>
+                                    How to improve your Understand score:
+                                </strong>
+                            </p>
+                            <ul>
+                                <li>
+                                    Intent analysis: Group your customer
+                                    conversations into top intents to understand
+                                    the most common reasons customers are
+                                    reaching out.
+                                </li>
+                                <li>
+                                    Omnichannel analytics: Invest in advanced,
+                                    AI-powered analytics tools to gain deeper
+                                    insights into customer conversations across
+                                    various channels.
+                                </li>
+                                <li>
+                                    Generative insights: Explore how Large
+                                    Language Models and generative AI-powered
+                                    solutions can empower your team to derive
+                                    insights in an intuitive, conversational
+                                    way.
+                                </li>
+                            </ul>
+                            <h4>
+                                Phase 2 : Connect
+                                <br />
+                                <br /> Score: X/5
+                            </h4>
+                            <p>
+                                The Connect phase of the Conversational Flywheel
+                                is where your business systems with digital
+                                channels to shift conversations away from the
+                                call center and email ticketing to improve
+                                operational efficiency.
+                            </p>
+                            <p>
+                                <strong>
+                                    How to improve your Connect score
+                                </strong>
+                            </p>
+                            <ul>
+                                <li>
+                                    Explore additional channels: Based on your
+                                    analysis in the Understand phase, integrate
+                                    additional communication channels such as
+                                    social media platforms, in-app messaging, or
+                                    SMS/WhatsApp.
+                                </li>
+                                <li>
+                                    Seamless integration: Ensure seamless
+                                    integration of your CRM, CDP, telephony and
+                                    other enterprise systems for a unified
+                                    customer conversation.
+                                </li>
+                                <li>
+                                    IVR deflection: Turn your dreaded
+                                    Interactive Voice Response system into your
+                                    best asset by allowing customers to shift
+                                    conversations into digital channels like
+                                    automated voice and messaging.
+                                </li>
+                            </ul>
+                            <h4>
+                                Phase 3: Assist
+                                <br />
+                                <br /> Score: X/5
+                            </h4>
+                            <p>
+                                At the Assist phase, you’re leveraging
+                                agent-facing AI, tools, and automated workflows
+                                to boost agent productivity and offer more
+                                personalized customer service.
+                            </p>
+                            <p>
+                                <strong>
+                                    How to improve your Assist score
+                                </strong>
+                            </p>
+                            <ul>
+                                <li>
+                                    Co-pilot: Provide agents with advanced AI
+                                    tools that offer real-time suggestions and
+                                    guidance to resolve customer issues faster.
+                                </li>
+                                <li>
+                                    Unified workspace: Bring cross-channel
+                                    customer conversations and essential tools
+                                    and workflows into a single platform.
+                                </li>
+                                <li>
+                                    Bot-human tango: Use automation to free up
+                                    agents to focus on your most valuable
+                                    conversations and customers.
+                                </li>
+                            </ul>
+                            <h4>
+                                Phase 4: Automate <br />
+                                <br />
+                                Score: X/5
+                            </h4>
+                            <p>
+                                The Automate phase is where you deploy
+                                consumer-facing automation and AI to enable
+                                self-service, scale your conversations, and
+                                resolve customer issues more quickly and
+                                efficiently. By scaling your automated
+                                conversations you increase your data, feeding
+                                back into the Understand phase of the Flywheel.
+                            </p>
+                            <p>
+                                <strong>
+                                    How to improve your Automate score
+                                </strong>
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Knowledge AI: Expand self-service options by
+                                    integrating your AI chatbots with your
+                                    knowledge base and other relevant support
+                                    documentation.
+                                </li>
+                                <li>
+                                    Generative AI: Leverage and fine-tune Large
+                                    Language models to create a more
+                                    personalized, conversational customer
+                                    experience.
+                                </li>
+                                <li>
+                                    Hallucination and bias detection: Consider
+                                    enterprise grade solutions that can detect
+                                    hallucinations, bias, and other
+                                    non-compliant answers before being exposed
+                                    to customers.
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
