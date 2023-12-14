@@ -15,24 +15,30 @@ const Flywheel = () => {
     ) {
         return <NotFoundPage />;
     }
-    const testRun = function () {
-        var myModal = new Modal($('#exampleModal'));
 
-        console.log('this is loaded');
-        $('.btn-flywheel-results').on('click', () => {
-            if (
-                $('input[name="questionOne"').is(':checked') &&
-                $('input[name="questionTwo"').is(':checked') &&
-                $('input[name="questionThree"').is(':checked') &&
-                $('input[name="questionFour"').is(':checked')
-            ) {
-                $('.flywheel-tool-input').hide();
-                $('.flywheel-tool-result').fadeIn();
-            } else {
-                myModal.show();
-            }
-        });
-    };
+    useEffect(() => {
+        window.onload = (e) => {
+            var myModal = new Modal(
+                document.getElementById('exampleModal'),
+                {}
+            );
+
+            console.log('this is loaded');
+            $('.btn-flywheel-results').on('click', () => {
+                if (
+                    $('input[name="questionOne"').is(':checked') &&
+                    $('input[name="questionTwo"').is(':checked') &&
+                    $('input[name="questionThree"').is(':checked') &&
+                    $('input[name="questionFour"').is(':checked')
+                ) {
+                    $('.flywheel-tool-input').hide();
+                    $('.flywheel-tool-result').fadeIn();
+                } else {
+                    myModal.show();
+                }
+            });
+        };
+    }, []);
 
     return (
         <Layout mainclassName="">
@@ -630,7 +636,6 @@ const Flywheel = () => {
                 formId="2580"
                 thankyou="Thank you! One of our experts will contact you shortly"
             />
-            {testRun()}
         </Layout>
     );
 };
