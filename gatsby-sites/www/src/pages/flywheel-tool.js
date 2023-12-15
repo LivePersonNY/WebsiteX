@@ -8,10 +8,7 @@ import NotFoundPage from './404';
 import $ from 'jquery';
 
 const Flywheel = () => {
-    if (
-        process.env.BRANCH != 'develop' &&
-        process.env.GATSBY_IS_PREVIEW !== 'true'
-    ) {
+    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
         return <NotFoundPage />;
     }
 
@@ -33,11 +30,7 @@ const Flywheel = () => {
 
     return (
         <Layout mainclassName="">
-            <Seo
-                title="Flywheel Tool | LivePerson"
-                description="Use this tool."
-                robots="noindex, nofollow"
-            />
+            <Seo title="Flywheel Tool | LivePerson" description="Use this tool." robots="noindex, nofollow" />
             <Hero
                 backgroundColor="bg-neutral-96"
                 header="The business case for going conversational"
@@ -45,10 +38,7 @@ const Flywheel = () => {
                 vimeoUrl="//player.vimeo.com/video/530992337"
             />
 
-            <div
-                data-localize="false"
-                className="pane bg-transparent undefined"
-            >
+            <div data-localize="false" className="pane bg-transparent undefined">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-12 text-center">
@@ -70,9 +60,7 @@ const Flywheel = () => {
                                             aria-expanded="true"
                                             aria-controls="collapseOne"
                                         >
-                                            How does your company currently
-                                            analyze customer inquiries and
-                                            concerns?
+                                            How does your company currently analyze customer inquiries and concerns?
                                         </button>
                                     </h2>
                                     <div
@@ -88,12 +76,8 @@ const Flywheel = () => {
                                                     name="questionOne"
                                                     id="questionOne1"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionOne1"
-                                                >
-                                                    We rely on manual review of
-                                                    emails and call transcripts.
+                                                <label className="form-check-label" for="questionOne1">
+                                                    We rely on manual review of emails and call transcripts.
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -103,12 +87,8 @@ const Flywheel = () => {
                                                     name="questionOne"
                                                     id="questionOne2"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionOne2"
-                                                >
-                                                    We use basic analytics tools
-                                                    to track customer sentiment.
+                                                <label className="form-check-label" for="questionOne2">
+                                                    We use basic analytics tools to track customer sentiment.
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -118,14 +98,9 @@ const Flywheel = () => {
                                                     name="questionOne"
                                                     id="questionOne3"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionOne3"
-                                                >
-                                                    We’re only able to analyze
-                                                    conversations on discrete
-                                                    channels (e.g. only voice or
-                                                    only chat and email)
+                                                <label className="form-check-label" for="questionOne3">
+                                                    We’re only able to analyze conversations on discrete channels (e.g.
+                                                    only voice or only chat and email)
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -135,15 +110,9 @@ const Flywheel = () => {
                                                     name="questionOne"
                                                     id="questionOne4"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionOne4"
-                                                >
-                                                    We leverage advanced
-                                                    analytics and AI-driven
-                                                    tools to understand customer
-                                                    sentiments and trends across
-                                                    various communication
+                                                <label className="form-check-label" for="questionOne4">
+                                                    We leverage advanced analytics and AI-driven tools to understand
+                                                    customer sentiments and trends across various communication
                                                     channels.
                                                 </label>
                                             </div>
@@ -160,8 +129,7 @@ const Flywheel = () => {
                                             aria-expanded="false"
                                             aria-controls="collapseTwo"
                                         >
-                                            How does your company interact with
-                                            customers across different channels?
+                                            How does your company interact with customers across different channels?
                                         </button>
                                     </h2>
                                     <div
@@ -177,12 +145,8 @@ const Flywheel = () => {
                                                     name="questionTwo"
                                                     id="questionTwo1"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionTwo1"
-                                                >
-                                                    We primarily use traditional
-                                                    phone and email channels.
+                                                <label className="form-check-label" for="questionTwo1">
+                                                    We primarily use traditional phone and email channels.
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -192,13 +156,9 @@ const Flywheel = () => {
                                                     name="questionTwo"
                                                     id="questionTwo2"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionTwo2"
-                                                >
-                                                    We've started exploring
-                                                    digital communication
-                                                    channels like live chat.
+                                                <label className="form-check-label" for="questionTwo2">
+                                                    We've started exploring digital communication channels like live
+                                                    chat.
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -208,13 +168,9 @@ const Flywheel = () => {
                                                     name="questionTwo"
                                                     id="questionTwo3"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionTwo3"
-                                                >
-                                                    We're active on multiple
-                                                    social messaging platforms
-                                                    for customer service.
+                                                <label className="form-check-label" for="questionTwo3">
+                                                    We're active on multiple social messaging platforms for customer
+                                                    service.
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -224,15 +180,9 @@ const Flywheel = () => {
                                                     name="questionTwo"
                                                     id="questionTwo4"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionTwo4"
-                                                >
-                                                    We've integrated our
-                                                    business software with web,
-                                                    in-app, and social messaging
-                                                    channels for seamless
-                                                    interaction.
+                                                <label className="form-check-label" for="questionTwo4">
+                                                    We've integrated our business software with web, in-app, and social
+                                                    messaging channels for seamless interaction.
                                                 </label>
                                             </div>
                                         </div>
@@ -248,9 +198,8 @@ const Flywheel = () => {
                                             aria-expanded="false"
                                             aria-controls="collapseThree"
                                         >
-                                            How does your company empower
-                                            support agents to handle customer
-                                            inquiries effectively?
+                                            How does your company empower support agents to handle customer inquiries
+                                            effectively?
                                         </button>
                                     </h2>
                                     <div
@@ -266,12 +215,8 @@ const Flywheel = () => {
                                                     name="questionThree"
                                                     id="questionThree1"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionThree1"
-                                                >
-                                                    Agents follow predefined
-                                                    scripts.
+                                                <label className="form-check-label" for="questionThree1">
+                                                    Agents follow predefined scripts.
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -281,12 +226,8 @@ const Flywheel = () => {
                                                     name="questionThree"
                                                     id="questionThree2"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionThree2"
-                                                >
-                                                    Agents have access to basic
-                                                    knowledge bases.
+                                                <label className="form-check-label" for="questionThree2">
+                                                    Agents have access to basic knowledge bases.
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -296,13 +237,8 @@ const Flywheel = () => {
                                                     name="questionThree"
                                                     id="questionThree3"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionThree3"
-                                                >
-                                                    Agents are equipped with
-                                                    AI-powered tools to suggest
-                                                    solutions.
+                                                <label className="form-check-label" for="questionThree3">
+                                                    Agents are equipped with AI-powered tools to suggest solutions.
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -312,14 +248,9 @@ const Flywheel = () => {
                                                     name="questionThree"
                                                     id="questionThree4"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionThree4"
-                                                >
-                                                    Agents utilize advanced
-                                                    generative AI to provide
-                                                    personalized and efficient
-                                                    support.
+                                                <label className="form-check-label" for="questionThree4">
+                                                    Agents utilize advanced generative AI to provide personalized and
+                                                    efficient support.
                                                 </label>
                                             </div>
                                         </div>
@@ -336,8 +267,7 @@ const Flywheel = () => {
                                             aria-expanded="false"
                                             aria-controls="collapseFour"
                                         >
-                                            Does your company employ automation
-                                            to facilitate self-service for
+                                            Does your company employ automation to facilitate self-service for
                                             customers?
                                         </button>
                                     </h2>
@@ -354,12 +284,8 @@ const Flywheel = () => {
                                                     name="questionFour"
                                                     id="questionFour1"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionFour1"
-                                                >
-                                                    Minimal automation, mainly
-                                                    for simple tasks.
+                                                <label className="form-check-label" for="questionFour1">
+                                                    Minimal automation, mainly for simple tasks.
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -369,12 +295,8 @@ const Flywheel = () => {
                                                     name="questionFour"
                                                     id="questionFour2"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionFour2"
-                                                >
-                                                    Basic automated responses
-                                                    for FAQs.
+                                                <label className="form-check-label" for="questionFour2">
+                                                    Basic automated responses for FAQs.
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -384,13 +306,8 @@ const Flywheel = () => {
                                                     name="questionFour"
                                                     id="questionFour3"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionFour3"
-                                                >
-                                                    We have implemented basic AI
-                                                    and automation for common
-                                                    issues.
+                                                <label className="form-check-label" for="questionFour3">
+                                                    We have implemented basic AI and automation for common issues.
                                                 </label>
                                             </div>
                                             <div className="form-check">
@@ -400,24 +317,16 @@ const Flywheel = () => {
                                                     name="questionFour"
                                                     id="questionFour4"
                                                 />
-                                                <label
-                                                    className="form-check-label"
-                                                    for="questionFour4"
-                                                >
-                                                    We extensively use
-                                                    consumer-facing automation,
-                                                    powered by generative AI,
-                                                    for self-service and faster
-                                                    issue resolution.
+                                                <label className="form-check-label" for="questionFour4">
+                                                    We extensively use consumer-facing automation, powered by generative
+                                                    AI, for self-service and faster issue resolution.
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <a className="btn btn-primary mt-4 text-center btn-flywheel-results">
-                                    Get my results
-                                </a>
+                                <a className="btn btn-primary mt-4 text-center btn-flywheel-results">Get my results</a>
 
                                 <button
                                     type="button"
@@ -438,10 +347,7 @@ const Flywheel = () => {
                                     <div className="modal-dialog">
                                         <div className="modal-content">
                                             <div className="modal-header">
-                                                <h3
-                                                    className="modal-title fs-5"
-                                                    id="exampleModalLabel"
-                                                >
+                                                <h3 className="modal-title fs-5" id="exampleModalLabel">
                                                     Error
                                                 </h3>
                                                 <button
@@ -451,9 +357,7 @@ const Flywheel = () => {
                                                     aria-label="Close"
                                                 ></button>
                                             </div>
-                                            <div className="modal-body">
-                                                Please select all options
-                                            </div>
+                                            <div className="modal-body">Please select all options</div>
                                             <div className="modal-footer">
                                                 <button
                                                     type="button"
@@ -480,35 +384,25 @@ const Flywheel = () => {
                                 Score: X/5
                             </h4>
                             <p>
-                                The Understand phase of the Conversational
-                                Flywheel is all about analyzing your customer
-                                conversations so you know why customers are
-                                reaching out, which channels they prefer, and
-                                where and when to deploy automation.
+                                The Understand phase of the Conversational Flywheel is all about analyzing your customer
+                                conversations so you know why customers are reaching out, which channels they prefer,
+                                and where and when to deploy automation.
                             </p>
                             <p>
-                                <strong>
-                                    How to improve your Understand score:
-                                </strong>
+                                <strong>How to improve your Understand score:</strong>
                             </p>
                             <ul>
                                 <li>
-                                    Intent analysis: Group your customer
-                                    conversations into top intents to understand
-                                    the most common reasons customers are
-                                    reaching out.
+                                    Intent analysis: Group your customer conversations into top intents to understand
+                                    the most common reasons customers are reaching out.
                                 </li>
                                 <li>
-                                    Omnichannel analytics: Invest in advanced,
-                                    AI-powered analytics tools to gain deeper
-                                    insights into customer conversations across
-                                    various channels.
+                                    Omnichannel analytics: Invest in advanced, AI-powered analytics tools to gain deeper
+                                    insights into customer conversations across various channels.
                                 </li>
                                 <li>
-                                    Generative insights: Explore how Large
-                                    Language Models and generative AI-powered
-                                    solutions can empower your team to derive
-                                    insights in an intuitive, conversational
+                                    Generative insights: Explore how Large Language Models and generative AI-powered
+                                    solutions can empower your team to derive insights in an intuitive, conversational
                                     way.
                                 </li>
                             </ul>
@@ -518,36 +412,26 @@ const Flywheel = () => {
                                 <br /> Score: X/5
                             </h4>
                             <p>
-                                The Connect phase of the Conversational Flywheel
-                                is where your business systems with digital
-                                channels to shift conversations away from the
-                                call center and email ticketing to improve
-                                operational efficiency.
+                                The Connect phase of the Conversational Flywheel is where your business systems with
+                                digital channels to shift conversations away from the call center and email ticketing to
+                                improve operational efficiency.
                             </p>
                             <p>
-                                <strong>
-                                    How to improve your Connect score
-                                </strong>
+                                <strong>How to improve your Connect score</strong>
                             </p>
                             <ul>
                                 <li>
-                                    Explore additional channels: Based on your
-                                    analysis in the Understand phase, integrate
-                                    additional communication channels such as
-                                    social media platforms, in-app messaging, or
-                                    SMS/WhatsApp.
+                                    Explore additional channels: Based on your analysis in the Understand phase,
+                                    integrate additional communication channels such as social media platforms, in-app
+                                    messaging, or SMS/WhatsApp.
                                 </li>
                                 <li>
-                                    Seamless integration: Ensure seamless
-                                    integration of your CRM, CDP, telephony and
-                                    other enterprise systems for a unified
-                                    customer conversation.
+                                    Seamless integration: Ensure seamless integration of your CRM, CDP, telephony and
+                                    other enterprise systems for a unified customer conversation.
                                 </li>
                                 <li>
-                                    IVR deflection: Turn your dreaded
-                                    Interactive Voice Response system into your
-                                    best asset by allowing customers to shift
-                                    conversations into digital channels like
+                                    IVR deflection: Turn your dreaded Interactive Voice Response system into your best
+                                    asset by allowing customers to shift conversations into digital channels like
                                     automated voice and messaging.
                                 </li>
                             </ul>
@@ -557,30 +441,23 @@ const Flywheel = () => {
                                 <br /> Score: X/5
                             </h4>
                             <p>
-                                At the Assist phase, you’re leveraging
-                                agent-facing AI, tools, and automated workflows
-                                to boost agent productivity and offer more
-                                personalized customer service.
+                                At the Assist phase, you’re leveraging agent-facing AI, tools, and automated workflows
+                                to boost agent productivity and offer more personalized customer service.
                             </p>
                             <p>
-                                <strong>
-                                    How to improve your Assist score
-                                </strong>
+                                <strong>How to improve your Assist score</strong>
                             </p>
                             <ul>
                                 <li>
-                                    Co-pilot: Provide agents with advanced AI
-                                    tools that offer real-time suggestions and
+                                    Co-pilot: Provide agents with advanced AI tools that offer real-time suggestions and
                                     guidance to resolve customer issues faster.
                                 </li>
                                 <li>
-                                    Unified workspace: Bring cross-channel
-                                    customer conversations and essential tools
+                                    Unified workspace: Bring cross-channel customer conversations and essential tools
                                     and workflows into a single platform.
                                 </li>
                                 <li>
-                                    Bot-human tango: Use automation to free up
-                                    agents to focus on your most valuable
+                                    Bot-human tango: Use automation to free up agents to focus on your most valuable
                                     conversations and customers.
                                 </li>
                             </ul>
@@ -590,39 +467,28 @@ const Flywheel = () => {
                                 Score: X/5
                             </h4>
                             <p>
-                                The Automate phase is where you deploy
-                                consumer-facing automation and AI to enable
-                                self-service, scale your conversations, and
-                                resolve customer issues more quickly and
-                                efficiently. By scaling your automated
-                                conversations you increase your data, feeding
+                                The Automate phase is where you deploy consumer-facing automation and AI to enable
+                                self-service, scale your conversations, and resolve customer issues more quickly and
+                                efficiently. By scaling your automated conversations you increase your data, feeding
                                 back into the Understand phase of the Flywheel.
                             </p>
                             <p>
-                                <strong>
-                                    How to improve your Automate score
-                                </strong>
+                                <strong>How to improve your Automate score</strong>
                             </p>
 
                             <ul>
                                 <li>
-                                    Knowledge AI: Expand self-service options by
-                                    integrating your AI chatbots with your
-                                    knowledge base and other relevant support
-                                    documentation.
+                                    Knowledge AI: Expand self-service options by integrating your AI chatbots with your
+                                    knowledge base and other relevant support documentation.
                                 </li>
                                 <li>
-                                    Generative AI: Leverage and fine-tune Large
-                                    Language models to create a more
-                                    personalized, conversational customer
-                                    experience.
+                                    Generative AI: Leverage and fine-tune Large Language models to create a more
+                                    personalized, conversational customer experience.
                                 </li>
                                 <li>
-                                    Hallucination and bias detection: Consider
-                                    enterprise grade solutions that can detect
-                                    hallucinations, bias, and other
-                                    non-compliant answers before being exposed
-                                    to customers.
+                                    Hallucination and bias detection: Consider enterprise grade solutions that can
+                                    detect hallucinations, bias, and other non-compliant answers before being exposed to
+                                    customers.
                                 </li>
                             </ul>
                         </div>

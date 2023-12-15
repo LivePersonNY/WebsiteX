@@ -9,9 +9,7 @@ export const onRouteUpdate = () => {
     window.dataLayer = window.dataLayer || [];
     window.runRoi = runRoi;
 
-    const pagePath = location
-        ? location.pathname + location.search + location.hash
-        : undefined;
+    const pagePath = location ? location.pathname + location.search + location.hash : undefined;
 
     if (location && window.Munchkin) {
         window.Munchkin.munchkinFunction('visitWebPage', {
@@ -22,7 +20,7 @@ export const onRouteUpdate = () => {
 
     // TODO see how to make this better
     setTimeout(function () {
-        const myCarouselElements = document.querySelectorAll('.carousel');
+        const myCarouselElements = document.querySelectorAll('.carousel:not(#carouselExampleFlywheel)');
         myCarouselElements.forEach(function (myCarouselElement) {
             myCarouselElement.classList.add('testing-here4');
             new Carousel(myCarouselElement, {
