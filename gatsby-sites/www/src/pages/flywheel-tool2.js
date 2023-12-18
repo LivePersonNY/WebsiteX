@@ -45,7 +45,7 @@ const Flywheel = () => {
             <div data-localize="false" className="pane bg-transparent undefined">
                 <div className="container">
                     <div className="row justify-content-center">
-                        <div className="col-lg-12 text-center">
+                        <div className="col-lg-10 offset-lg-1 text-center">
                             <h2>Start your assessment</h2>
                             <p>
                                 LivePerson’s Conversational Flywheel™ is a four-step framework designed to help you
