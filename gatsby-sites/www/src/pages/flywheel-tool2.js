@@ -13,11 +13,6 @@ const Flywheel = () => {
     }
 
     useEffect(() => {
-        // $('#carouselExampleFlywheel').carousel({
-        //     pause: true,
-        //     interval: false,
-        // });
-
         $('.btn-flywheel-results').on('click', () => {
             if (
                 $('input[name="questionOne"').is(':checked') &&
@@ -25,6 +20,10 @@ const Flywheel = () => {
                 $('input[name="questionThree"').is(':checked') &&
                 $('input[name="questionFour"').is(':checked')
             ) {
+                $('.question-one-score').html($('input[name="questionOne"]:checked').data('question-score'));
+                $('.question-two-score').html($('input[name="questionTwo"]:checked').data('question-score'));
+                $('.question-three-score').html($('input[name="questionThree"]:checked').data('question-score'));
+                $('.question-four-score').html($('input[name="questionFour"]:checked').data('question-score'));
                 $('.flywheel-tool-input').hide();
                 $('.flywheel-tool-result').fadeIn();
             } else {
@@ -38,17 +37,22 @@ const Flywheel = () => {
             <Seo title="Flywheel Tool | LivePerson" description="Use this tool." robots="noindex, nofollow" />
             <Hero
                 backgroundColor="bg-neutral-96"
-                header="The business case for going conversational"
-                subHeader="Conversational AI increases revenue growth, improves customer satisfaction, and reduces operating costs. Though a detailed review with one of our experts will shape the impact to your business based on your specific use cases, our calculator, below, will show the potential ROI with LivePerson."
-                vimeoUrl="//player.vimeo.com/video/530992337"
+                header="Bridge the gap with a Conversational Maturity Assessment"
+                subHeader="The data is in: Digital conversations are the antidote to frustrating and costly customer experiences. But how conversational is your contact center, really? Find out by answering four simple questions below."
+                vimeoUrl="//player.vimeo.com/video/880643218?h=050389172a"
             />
 
             <div data-localize="false" className="pane bg-transparent undefined">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-12 text-center">
-                            <h2>Tool header is here</h2>
-                            <p>Why not some content too</p>
+                            <h2>Start your assessment</h2>
+                            <p>
+                                LivePerson’s Conversational Flywheel™ is a four-step framework designed to help you
+                                bridge the AI Gap by transforming into a true digital-first contact center. Discover
+                                where you stand at each phase of the flywheel – and how to boost efficiency and
+                                satisfaction along the way – by answering these four simple questions:
+                            </p>
                         </div>
                     </div>
 
@@ -59,7 +63,8 @@ const Flywheel = () => {
                                     <div className="carousel-item active" style={{ padding: '8px' }}>
                                         <p>
                                             <strong>
-                                                How does your company currently analyze customer inquiries and concerns?
+                                                Question 1: How does your company currently analyze customer inquiries
+                                                and concerns?
                                             </strong>
                                         </p>
                                         <div className="form-check">
@@ -68,6 +73,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionOne"
                                                 id="questionOne1"
+                                                data-question-score="1"
                                             />
                                             <label className="form-check-label" for="questionOne1">
                                                 We rely on manual review of emails and call transcripts.
@@ -79,6 +85,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionOne"
                                                 id="questionOne2"
+                                                data-question-score="2"
                                             />
                                             <label className="form-check-label" for="questionOne2">
                                                 We use basic analytics tools to track customer sentiment.
@@ -90,6 +97,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionOne"
                                                 id="questionOne3"
+                                                data-question-score="3"
                                             />
                                             <label className="form-check-label" for="questionOne3">
                                                 We’re only able to analyze conversations on discrete channels (e.g. only
@@ -102,6 +110,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionOne"
                                                 id="questionOne4"
+                                                data-question-score="4"
                                             />
                                             <label className="form-check-label" for="questionOne4">
                                                 We leverage advanced analytics and AI-driven tools to understand
@@ -121,7 +130,8 @@ const Flywheel = () => {
                                     <div className="carousel-item" style={{ padding: '8px' }}>
                                         <p>
                                             <strong>
-                                                How does your company interact with customers across different channels?
+                                                Question 2: How does your company interact with customers across
+                                                different channels?
                                             </strong>
                                         </p>
                                         <div className="form-check">
@@ -130,6 +140,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionTwo"
                                                 id="questionTwo1"
+                                                data-question-score="1"
                                             />
                                             <label className="form-check-label" for="questionTwo1">
                                                 We primarily use traditional phone and email channels.
@@ -141,6 +152,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionTwo"
                                                 id="questionTwo2"
+                                                data-question-score="2"
                                             />
                                             <label className="form-check-label" for="questionTwo2">
                                                 We've started exploring digital communication channels like live chat.
@@ -152,6 +164,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionTwo"
                                                 id="questionTwo3"
+                                                data-question-score="3"
                                             />
                                             <label className="form-check-label" for="questionTwo3">
                                                 We're active on multiple social messaging platforms for customer
@@ -164,6 +177,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionTwo"
                                                 id="questionTwo4"
+                                                data-question-score="4"
                                             />
                                             <label className="form-check-label" for="questionTwo4">
                                                 We've integrated our business software with web, in-app, and social
@@ -192,8 +206,8 @@ const Flywheel = () => {
                                     <div className="carousel-item" style={{ padding: '8px' }}>
                                         <p>
                                             <strong>
-                                                How does your company empower support agents to handle customer
-                                                inquiries effectively?
+                                                Question 3: How does your company empower support agents to handle
+                                                customer inquiries effectively?
                                             </strong>
                                         </p>
                                         <div className="form-check">
@@ -202,6 +216,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionThree"
                                                 id="questionThree1"
+                                                data-question-score="1"
                                             />
                                             <label className="form-check-label" for="questionThree1">
                                                 Agents follow predefined scripts.
@@ -213,6 +228,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionThree"
                                                 id="questionThree2"
+                                                data-question-score="2"
                                             />
                                             <label className="form-check-label" for="questionThree2">
                                                 Agents have access to basic knowledge bases.
@@ -224,6 +240,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionThree"
                                                 id="questionThree3"
+                                                data-question-score="3"
                                             />
                                             <label className="form-check-label" for="questionThree3">
                                                 Agents are equipped with AI-powered tools to suggest solutions.
@@ -235,6 +252,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionThree"
                                                 id="questionThree4"
+                                                data-question-score="4"
                                             />
                                             <label className="form-check-label" for="questionThree4">
                                                 Agents utilize advanced generative AI to provide personalized and
@@ -263,8 +281,8 @@ const Flywheel = () => {
                                     <div className="carousel-item" style={{ padding: '8px' }}>
                                         <p>
                                             <strong>
-                                                Does your company employ automation to facilitate self-service for
-                                                customers?
+                                                Question 4: Does your company employ automation to facilitate
+                                                self-service for customers?
                                             </strong>
                                         </p>
                                         <div className="form-check">
@@ -273,6 +291,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionFour"
                                                 id="questionFour1"
+                                                data-question-score="1"
                                             />
                                             <label className="form-check-label" for="questionFour1">
                                                 Minimal automation, mainly for simple tasks.
@@ -284,6 +303,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionFour"
                                                 id="questionFour2"
+                                                data-question-score="2"
                                             />
                                             <label className="form-check-label" for="questionFour2">
                                                 Basic automated responses for FAQs.
@@ -295,6 +315,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionFour"
                                                 id="questionFour3"
+                                                data-question-score="3"
                                             />
                                             <label className="form-check-label" for="questionFour3">
                                                 We have implemented basic AI and automation for common issues.
@@ -306,6 +327,7 @@ const Flywheel = () => {
                                                 type="radio"
                                                 name="questionFour"
                                                 id="questionFour4"
+                                                data-question-score="4"
                                             />
                                             <label className="form-check-label" for="questionFour4">
                                                 We extensively use consumer-facing automation, powered by generative AI,
@@ -378,7 +400,16 @@ const Flywheel = () => {
                                 Phase 1: Understand
                                 <br />
                                 <br />
-                                Score: X/5
+                                Score:{' '}
+                                <span
+                                    className="question-one-score"
+                                    style={{
+                                        fontFamily: 'inherit',
+                                        fontSize: 'inherit',
+                                        lineHeight: 'inherit',
+                                    }}
+                                ></span>
+                                /5
                             </h4>
                             <p>
                                 The Understand phase of the Conversational Flywheel is all about analyzing your customer
@@ -406,7 +437,16 @@ const Flywheel = () => {
                             <h4>
                                 Phase 2 : Connect
                                 <br />
-                                <br /> Score: X/5
+                                <br /> Score:{' '}
+                                <span
+                                    className="question-two-score"
+                                    style={{
+                                        fontFamily: 'inherit',
+                                        fontSize: 'inherit',
+                                        lineHeight: 'inherit',
+                                    }}
+                                ></span>
+                                /5
                             </h4>
                             <p>
                                 The Connect phase of the Conversational Flywheel is where your business systems with
@@ -435,7 +475,16 @@ const Flywheel = () => {
                             <h4>
                                 Phase 3: Assist
                                 <br />
-                                <br /> Score: X/5
+                                <br /> Score:{' '}
+                                <span
+                                    className="question-three-score"
+                                    style={{
+                                        fontFamily: 'inherit',
+                                        fontSize: 'inherit',
+                                        lineHeight: 'inherit',
+                                    }}
+                                ></span>
+                                /5
                             </h4>
                             <p>
                                 At the Assist phase, you’re leveraging agent-facing AI, tools, and automated workflows
@@ -461,7 +510,16 @@ const Flywheel = () => {
                             <h4>
                                 Phase 4: Automate <br />
                                 <br />
-                                Score: X/5
+                                Score:{' '}
+                                <span
+                                    className="question-four-score"
+                                    style={{
+                                        fontFamily: 'inherit',
+                                        fontSize: 'inherit',
+                                        lineHeight: 'inherit',
+                                    }}
+                                ></span>
+                                /5
                             </h4>
                             <p>
                                 The Automate phase is where you deploy consumer-facing automation and AI to enable
