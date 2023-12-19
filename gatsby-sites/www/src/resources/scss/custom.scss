@@ -261,11 +261,7 @@ table {
         margin-top: 48px;
         &::before,
         &::after {
-            background: linear-gradient(
-                to right,
-                rgba(244, 244, 246, 1) 0%,
-                rgba(244, 244, 246, 0) 100%
-            );
+            background: linear-gradient(to right, rgba(244, 244, 246, 1) 0%, rgba(244, 244, 246, 0) 100%);
             content: '';
             position: absolute;
             z-index: 2;
@@ -515,11 +511,7 @@ table {
         margin-bottom: -7px;
         // &::before,
         &::after {
-            background: linear-gradient(
-                to bottom,
-                rgba(244, 244, 246, 1) 0%,
-                rgba(244, 244, 246, 0) 100%
-            );
+            background: linear-gradient(to bottom, rgba(244, 244, 246, 1) 0%, rgba(244, 244, 246, 0) 100%);
             content: '';
             height: 100px;
             position: absolute;
@@ -543,11 +535,7 @@ table {
 // Start css animation1 https://codepen.io/studiojvla/pen/qVbQqW
 // if another needed could try https://codepen.io/chriscoyier/pen/EyxPPm
 @mixin white-gradient {
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0) 100%
-    );
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 $animationSpeed: 30s;
@@ -847,6 +835,48 @@ $animationSpeed: 30s;
         & ~ .comp-quote-slider {
             .col-lg-6 {
                 display: block;
+            }
+        }
+    }
+}
+
+// Fly Wheel custom styles
+.flywheel-tool {
+    .vimeoContainer {
+        margin-top: 48px;
+    }
+    .flywheel-quiz {
+        .container {
+            background: $neutral96;
+            padding-top: 104px;
+            padding-bottom: 120px;
+            .carousel-item {
+                .form-check-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    p {
+                        text-align: center;
+                    }
+                    .form-check {
+                        background: $neutral99;
+                        padding: 40px;
+                        margin-top: 32px;
+                        border-radius: 8px;
+                        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+                        display: inline-flex;
+                        width: 48%;
+                        &:nth-child(even) {
+                            margin-right: 32px;
+                        }
+                        .form-check-input {
+                            margin-left: 0;
+                            margin-right: 8px;
+                        }
+                    }
+                    .form-check-button {
+                    }
+                }
             }
         }
     }

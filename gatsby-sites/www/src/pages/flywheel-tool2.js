@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import NotFoundPage from './404';
 import $ from 'jquery';
+import PlainContent from '../components/blocks/PlainContent';
 
 const Flywheel = () => {
     if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
@@ -33,19 +34,24 @@ const Flywheel = () => {
     }, []);
 
     return (
-        <Layout mainclassName="">
+        <Layout mainClass="flywheel-tool">
             <Seo title="Flywheel Tool | LivePerson" description="Use this tool." robots="noindex, nofollow" />
-            <Hero
-                backgroundColor="bg-neutral-96"
-                header="Bridge the gap with a Conversational Maturity Assessment"
-                subHeader="The data is in: Digital conversations are the antidote to frustrating and costly customer experiences. But how conversational is your contact center, really? Find out by answering four simple questions below."
+
+            <PlainContent
+                backgroundColor="bg-primary-dark"
+                colWidth="10"
+                headerLevel="h1"
+                headLevel="h1"
+                alignmentClass="text-center"
+                header="Bridge the gap with a Conversational Maturity&nbsp;Assessment"
+                body="The data is in: Digital conversations are the antidote to frustrating and costly customer experiences. But how conversational is your contact center, really? Find out by answering four simple questions below."
                 vimeoUrl="//player.vimeo.com/video/880643218?h=050389172a"
             />
 
-            <div data-localize="false" className="pane bg-transparent undefined">
+            <div data-localize="false" className="pane bg-transparent flywheel-quiz">
                 <div className="container">
                     <div className="row justify-content-center">
-                        <div className="col-lg-10 offset-lg-1 text-center">
+                        <div className="col-lg-10 text-center">
                             <h2>Start your assessment</h2>
                             <p>
                                 LivePerson’s Conversational Flywheel™ is a four-step framework designed to help you
@@ -61,293 +67,310 @@ const Flywheel = () => {
                             <div id="carouselExampleFlywheel" className="carousel slide" data-bs-interval="false">
                                 <div className="carousel-inner">
                                     <div className="carousel-item active" style={{ padding: '8px' }}>
-                                        <p>
-                                            <strong>
-                                                Question 1: How does your company currently analyze customer inquiries
-                                                and concerns?
-                                            </strong>
-                                        </p>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionOne"
-                                                id="questionOne1"
-                                                data-question-score="1"
-                                            />
-                                            <label className="form-check-label" for="questionOne1">
-                                                We rely on manual review of emails and call transcripts.
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionOne"
-                                                id="questionOne2"
-                                                data-question-score="2"
-                                            />
-                                            <label className="form-check-label" for="questionOne2">
-                                                We use basic analytics tools to track customer sentiment.
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionOne"
-                                                id="questionOne3"
-                                                data-question-score="3"
-                                            />
-                                            <label className="form-check-label" for="questionOne3">
-                                                We’re only able to analyze conversations on discrete channels (e.g. only
-                                                voice or only chat and email)
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionOne"
-                                                id="questionOne4"
-                                                data-question-score="4"
-                                            />
-                                            <label className="form-check-label" for="questionOne4">
-                                                We leverage advanced analytics and AI-driven tools to understand
-                                                customer sentiments and trends across various communication channels.
-                                            </label>
-                                        </div>
+                                        <div className="form-check-container">
+                                            <p>
+                                                <strong>
+                                                    Question 1: How does your company currently analyze customer
+                                                    inquiries and concerns?
+                                                </strong>
+                                            </p>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionOne"
+                                                    id="questionOne1"
+                                                    data-question-score="1"
+                                                />
+                                                <label className="form-check-label" for="questionOne1">
+                                                    We rely on manual review of emails and call transcripts.
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionOne"
+                                                    id="questionOne2"
+                                                    data-question-score="2"
+                                                />
+                                                <label className="form-check-label" for="questionOne2">
+                                                    We use basic analytics tools to track customer sentiment.
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionOne"
+                                                    id="questionOne3"
+                                                    data-question-score="3"
+                                                />
+                                                <label className="form-check-label" for="questionOne3">
+                                                    We’re only able to analyze conversations on discrete channels (e.g.
+                                                    only voice or only chat and email)
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionOne"
+                                                    id="questionOne4"
+                                                    data-question-score="4"
+                                                />
+                                                <label className="form-check-label" for="questionOne4">
+                                                    We leverage advanced analytics and AI-driven tools to understand
+                                                    customer sentiments and trends across various communication
+                                                    channels.
+                                                </label>
+                                            </div>
 
-                                        <button
-                                            type="button"
-                                            data-bs-target="#carouselExampleFlywheel"
-                                            data-bs-slide-to="1"
-                                            className="btn btn-primary mt-4 text-center"
-                                        >
-                                            Next
-                                        </button>
+                                            <div className="form-check-button">
+                                                <button
+                                                    type="button"
+                                                    data-bs-target="#carouselExampleFlywheel"
+                                                    data-bs-slide-to="1"
+                                                    className="btn btn-primary mt-4 text-center"
+                                                >
+                                                    Next
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className="carousel-item" style={{ padding: '8px' }}>
-                                        <p>
-                                            <strong>
-                                                Question 2: How does your company interact with customers across
-                                                different channels?
-                                            </strong>
-                                        </p>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionTwo"
-                                                id="questionTwo1"
-                                                data-question-score="1"
-                                            />
-                                            <label className="form-check-label" for="questionTwo1">
-                                                We primarily use traditional phone and email channels.
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionTwo"
-                                                id="questionTwo2"
-                                                data-question-score="2"
-                                            />
-                                            <label className="form-check-label" for="questionTwo2">
-                                                We've started exploring digital communication channels like live chat.
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionTwo"
-                                                id="questionTwo3"
-                                                data-question-score="3"
-                                            />
-                                            <label className="form-check-label" for="questionTwo3">
-                                                We're active on multiple social messaging platforms for customer
-                                                service.
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionTwo"
-                                                id="questionTwo4"
-                                                data-question-score="4"
-                                            />
-                                            <label className="form-check-label" for="questionTwo4">
-                                                We've integrated our business software with web, in-app, and social
-                                                messaging channels for seamless interaction.
-                                            </label>
-                                        </div>
+                                        <div className="form-check-container">
+                                            <p>
+                                                <strong>
+                                                    Question 2: How does your company interact with customers across
+                                                    different channels?
+                                                </strong>
+                                            </p>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionTwo"
+                                                    id="questionTwo1"
+                                                    data-question-score="1"
+                                                />
+                                                <label className="form-check-label" for="questionTwo1">
+                                                    We primarily use traditional phone and email channels.
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionTwo"
+                                                    id="questionTwo2"
+                                                    data-question-score="2"
+                                                />
+                                                <label className="form-check-label" for="questionTwo2">
+                                                    We've started exploring digital communication channels like live
+                                                    chat.
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionTwo"
+                                                    id="questionTwo3"
+                                                    data-question-score="3"
+                                                />
+                                                <label className="form-check-label" for="questionTwo3">
+                                                    We're active on multiple social messaging platforms for customer
+                                                    service.
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionTwo"
+                                                    id="questionTwo4"
+                                                    data-question-score="4"
+                                                />
+                                                <label className="form-check-label" for="questionTwo4">
+                                                    We've integrated our business software with web, in-app, and social
+                                                    messaging channels for seamless interaction.
+                                                </label>
+                                            </div>
 
-                                        <button
-                                            type="button"
-                                            data-bs-target="#carouselExampleFlywheel"
-                                            data-bs-slide-to="0"
-                                            className="btn btn-outline-secondary mt-4 text-center"
-                                        >
-                                            Previous
-                                        </button>
-                                        <button
-                                            type="button"
-                                            data-bs-target="#carouselExampleFlywheel"
-                                            data-bs-slide-to="2"
-                                            className="btn btn-primary mt-4 text-center"
-                                            style={{ marginLeft: '20px' }}
-                                        >
-                                            Next
-                                        </button>
+                                            <div className="form-check-button">
+                                                <button
+                                                    type="button"
+                                                    data-bs-target="#carouselExampleFlywheel"
+                                                    data-bs-slide-to="0"
+                                                    className="btn btn-outline-secondary mt-4 text-center"
+                                                >
+                                                    Previous
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    data-bs-target="#carouselExampleFlywheel"
+                                                    data-bs-slide-to="2"
+                                                    className="btn btn-primary mt-4 text-center"
+                                                    style={{ marginLeft: '20px' }}
+                                                >
+                                                    Next
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div className="carousel-item" style={{ padding: '8px' }}>
-                                        <p>
-                                            <strong>
-                                                Question 3: How does your company empower support agents to handle
-                                                customer inquiries effectively?
-                                            </strong>
-                                        </p>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionThree"
-                                                id="questionThree1"
-                                                data-question-score="1"
-                                            />
-                                            <label className="form-check-label" for="questionThree1">
-                                                Agents follow predefined scripts.
-                                            </label>
+                                        <div className="form-check-container">
+                                            <p>
+                                                <strong>
+                                                    Question 3: How does your company empower support agents to handle
+                                                    customer inquiries effectively?
+                                                </strong>
+                                            </p>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionThree"
+                                                    id="questionThree1"
+                                                    data-question-score="1"
+                                                />
+                                                <label className="form-check-label" for="questionThree1">
+                                                    Agents follow predefined scripts.
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionThree"
+                                                    id="questionThree2"
+                                                    data-question-score="2"
+                                                />
+                                                <label className="form-check-label" for="questionThree2">
+                                                    Agents have access to basic knowledge bases.
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionThree"
+                                                    id="questionThree3"
+                                                    data-question-score="3"
+                                                />
+                                                <label className="form-check-label" for="questionThree3">
+                                                    Agents are equipped with AI-powered tools to suggest solutions.
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionThree"
+                                                    id="questionThree4"
+                                                    data-question-score="4"
+                                                />
+                                                <label className="form-check-label" for="questionThree4">
+                                                    Agents utilize advanced generative AI to provide personalized and
+                                                    efficient support.
+                                                </label>
+                                            </div>
+                                            <div className="form-check-button">
+                                                <button
+                                                    type="button"
+                                                    data-bs-target="#carouselExampleFlywheel"
+                                                    data-bs-slide-to="1"
+                                                    className="btn btn-outline-secondary mt-4 text-center"
+                                                >
+                                                    Previous
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    data-bs-target="#carouselExampleFlywheel"
+                                                    data-bs-slide-to="3"
+                                                    className="btn btn-primary mt-4 text-center"
+                                                    style={{ marginLeft: '20px' }}
+                                                >
+                                                    Next
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionThree"
-                                                id="questionThree2"
-                                                data-question-score="2"
-                                            />
-                                            <label className="form-check-label" for="questionThree2">
-                                                Agents have access to basic knowledge bases.
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionThree"
-                                                id="questionThree3"
-                                                data-question-score="3"
-                                            />
-                                            <label className="form-check-label" for="questionThree3">
-                                                Agents are equipped with AI-powered tools to suggest solutions.
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionThree"
-                                                id="questionThree4"
-                                                data-question-score="4"
-                                            />
-                                            <label className="form-check-label" for="questionThree4">
-                                                Agents utilize advanced generative AI to provide personalized and
-                                                efficient support.
-                                            </label>
-                                        </div>
-
-                                        <button
-                                            type="button"
-                                            data-bs-target="#carouselExampleFlywheel"
-                                            data-bs-slide-to="1"
-                                            className="btn btn-outline-secondary mt-4 text-center"
-                                        >
-                                            Previous
-                                        </button>
-                                        <button
-                                            type="button"
-                                            data-bs-target="#carouselExampleFlywheel"
-                                            data-bs-slide-to="3"
-                                            className="btn btn-primary mt-4 text-center"
-                                            style={{ marginLeft: '20px' }}
-                                        >
-                                            Next
-                                        </button>
                                     </div>
                                     <div className="carousel-item" style={{ padding: '8px' }}>
-                                        <p>
-                                            <strong>
-                                                Question 4: Does your company employ automation to facilitate
-                                                self-service for customers?
-                                            </strong>
-                                        </p>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionFour"
-                                                id="questionFour1"
-                                                data-question-score="1"
-                                            />
-                                            <label className="form-check-label" for="questionFour1">
-                                                Minimal automation, mainly for simple tasks.
-                                            </label>
+                                        <div className="form-check-container">
+                                            <p>
+                                                <strong>
+                                                    Question 4: Does your company employ automation to facilitate
+                                                    self-service for customers?
+                                                </strong>
+                                            </p>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionFour"
+                                                    id="questionFour1"
+                                                    data-question-score="1"
+                                                />
+                                                <label className="form-check-label" for="questionFour1">
+                                                    Minimal automation, mainly for simple tasks.
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionFour"
+                                                    id="questionFour2"
+                                                    data-question-score="2"
+                                                />
+                                                <label className="form-check-label" for="questionFour2">
+                                                    Basic automated responses for FAQs.
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionFour"
+                                                    id="questionFour3"
+                                                    data-question-score="3"
+                                                />
+                                                <label className="form-check-label" for="questionFour3">
+                                                    We have implemented basic AI and automation for common issues.
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="questionFour"
+                                                    id="questionFour4"
+                                                    data-question-score="4"
+                                                />
+                                                <label className="form-check-label" for="questionFour4">
+                                                    We extensively use consumer-facing automation, powered by generative
+                                                    AI, for self-service and faster issue resolution.
+                                                </label>
+                                            </div>
+                                            <div className="form-check-button">
+                                                <button
+                                                    type="button"
+                                                    data-bs-target="#carouselExampleFlywheel"
+                                                    data-bs-slide-to="2"
+                                                    className="btn btn-outline-secondary mt-4 text-center"
+                                                >
+                                                    Previous
+                                                </button>
+                                                <a
+                                                    className="btn btn-primary mt-4 text-center btn-flywheel-results"
+                                                    style={{ marginLeft: '20px' }}
+                                                >
+                                                    Get my results
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionFour"
-                                                id="questionFour2"
-                                                data-question-score="2"
-                                            />
-                                            <label className="form-check-label" for="questionFour2">
-                                                Basic automated responses for FAQs.
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionFour"
-                                                id="questionFour3"
-                                                data-question-score="3"
-                                            />
-                                            <label className="form-check-label" for="questionFour3">
-                                                We have implemented basic AI and automation for common issues.
-                                            </label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="questionFour"
-                                                id="questionFour4"
-                                                data-question-score="4"
-                                            />
-                                            <label className="form-check-label" for="questionFour4">
-                                                We extensively use consumer-facing automation, powered by generative AI,
-                                                for self-service and faster issue resolution.
-                                            </label>
-                                        </div>
-                                        <button
-                                            type="button"
-                                            data-bs-target="#carouselExampleFlywheel"
-                                            data-bs-slide-to="2"
-                                            className="btn btn-outline-secondary mt-4 text-center"
-                                        >
-                                            Previous
-                                        </button>
-                                        <a
-                                            className="btn btn-primary mt-4 text-center btn-flywheel-results"
-                                            style={{ marginLeft: '20px' }}
-                                        >
-                                            Get my results
-                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -394,7 +417,7 @@ const Flywheel = () => {
                     </div>
 
                     <div className="row align-items-center mt-4 flywheel-tool-result display-none">
-                        <div className="col-lg-12">
+                        <div className="col-lg-10 offset-lg-1">
                             <h2>Results</h2>
                             <h4>
                                 Phase 1: Understand
