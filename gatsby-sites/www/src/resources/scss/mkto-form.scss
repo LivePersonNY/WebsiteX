@@ -20,13 +20,7 @@
     }
 
     &.bg-rainbow {
-        background: linear-gradient(
-            90deg,
-            #aad5ea 0%,
-            #c1c1f3 33.3%,
-            #f7b1b1 66.6%,
-            #f7b995 100%
-        );
+        background: linear-gradient(90deg, #aad5ea 0%, #c1c1f3 33.3%, #f7b1b1 66.6%, #f7b995 100%);
     }
 
     .container {
@@ -140,6 +134,9 @@
 
                 .mktoFieldWrap {
                     width: 100%;
+                    @include media-breakpoint-down(lg) {
+                        margin-bottom: 12px;
+                    }
 
                     input,
                     textarea {

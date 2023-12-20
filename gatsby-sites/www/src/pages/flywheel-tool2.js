@@ -46,9 +46,11 @@ const Flywheel = () => {
                 header="Bridge the gap with a Conversational Maturity&nbsp;Assessment"
                 body="The data is in: Digital conversations are the antidote to frustrating and costly customer experiences. But how conversational is your contact center, really? Find out by answering four simple questions below."
                 vimeoUrl="//player.vimeo.com/video/880643218?h=050389172a"
+                primaryBtnText="Start your assessment"
+                primaryBtnLink="#assessment"
             />
 
-            <div data-localize="false" className="pane bg-transparent flywheel-quiz">
+            <div data-localize="false" className="pane bg-transparent flywheel-quiz" id="assessment">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-10 text-center">
@@ -416,13 +418,22 @@ const Flywheel = () => {
                         </div>
                     </div>
 
-                    <div className="row align-items-center mt-4 flywheel-tool-result display-none">
+                    <div className="row mt-4 flywheel-tool-result display-none">
                         <div className="col-lg-10 offset-lg-1">
                             <h2>Results</h2>
+                        </div>
+                        <div className="col-lg-2 offset-lg-1">
+                            <img
+                                src="https://static.liveperson.com/static-assets/2023/12/20115206/1-Understand.svg"
+                                alt="Understand"
+                            />
+                            <div className="flywheel-phase">
+                                <h6>Phase 1</h6>
+                                <h4>Understand</h4>
+                            </div>
+                        </div>
+                        <div className="col-lg-8">
                             <h4>
-                                Phase 1: Understand
-                                <br />
-                                <br />
                                 Score:{' '}
                                 <span
                                     className="question-one-score"
@@ -444,23 +455,33 @@ const Flywheel = () => {
                             </p>
                             <ul>
                                 <li>
-                                    Intent analysis: Group your customer conversations into top intents to understand
-                                    the most common reasons customers are reaching out.
+                                    <strong>Intent analysis:</strong> Group your customer conversations into top intents
+                                    to understand the most common reasons customers are reaching out.
                                 </li>
                                 <li>
-                                    Omnichannel analytics: Invest in advanced, AI-powered analytics tools to gain deeper
-                                    insights into customer conversations across various channels.
+                                    <strong>Omnichannel analytics:</strong> Invest in advanced, AI-powered analytics
+                                    tools to gain deeper insights into customer conversations across various channels.
                                 </li>
                                 <li>
-                                    Generative insights: Explore how Large Language Models and generative AI-powered
-                                    solutions can empower your team to derive insights in an intuitive, conversational
-                                    way.
+                                    <strong>Generative insights:</strong> Explore how Large Language Models and
+                                    generative AI-powered solutions can empower your team to derive insights in an
+                                    intuitive, conversational way.
                                 </li>
                             </ul>
+                        </div>
+                        <div className="col-lg-2 offset-lg-1">
+                            <img
+                                src="https://static.liveperson.com/static-assets/2023/12/20115203/2-Connect.svg"
+                                alt="Connect"
+                            />
+                            <div className="flywheel-phase">
+                                <h6>Phase 2</h6>
+                                <h4>Connect</h4>
+                            </div>
+                        </div>
+                        <div className="col-lg-8">
                             <h4>
-                                Phase 2 : Connect
-                                <br />
-                                <br /> Score:{' '}
+                                Score:{' '}
                                 <span
                                     className="question-two-score"
                                     style={{
@@ -481,24 +502,34 @@ const Flywheel = () => {
                             </p>
                             <ul>
                                 <li>
-                                    Explore additional channels: Based on your analysis in the Understand phase,
-                                    integrate additional communication channels such as social media platforms, in-app
-                                    messaging, or SMS/WhatsApp.
+                                    <strong>Explore additional channels:</strong> Based on your analysis in the
+                                    Understand phase, integrate additional communication channels such as social media
+                                    platforms, in-app messaging, or SMS/WhatsApp.
                                 </li>
                                 <li>
-                                    Seamless integration: Ensure seamless integration of your CRM, CDP, telephony and
-                                    other enterprise systems for a unified customer conversation.
+                                    <strong>Seamless integration:</strong> Ensure seamless integration of your CRM, CDP,
+                                    telephony and other enterprise systems for a unified customer conversation.
                                 </li>
                                 <li>
-                                    IVR deflection: Turn your dreaded Interactive Voice Response system into your best
-                                    asset by allowing customers to shift conversations into digital channels like
-                                    automated voice and messaging.
+                                    <strong>IVR deflection:</strong> Turn your dreaded Interactive Voice Response system
+                                    into your best asset by allowing customers to shift conversations into digital
+                                    channels like automated voice and messaging.
                                 </li>
                             </ul>
+                        </div>
+                        <div className="col-lg-2 offset-lg-1">
+                            <img
+                                src="https://static.liveperson.com/static-assets/2023/12/20115204/3-Assist.svg"
+                                alt="Assist"
+                            />
+                            <div className="flywheel-phase">
+                                <h6>Phase 3</h6>
+                                <h4>Assist</h4>
+                            </div>
+                        </div>
+                        <div className="col-lg-8">
                             <h4>
-                                Phase 3: Assist
-                                <br />
-                                <br /> Score:{' '}
+                                Score:{' '}
                                 <span
                                     className="question-three-score"
                                     style={{
@@ -509,6 +540,7 @@ const Flywheel = () => {
                                 ></span>
                                 /5
                             </h4>
+
                             <p>
                                 At the Assist phase, you’re leveraging agent-facing AI, tools, and automated workflows
                                 to boost agent productivity and offer more personalized customer service.
@@ -518,21 +550,31 @@ const Flywheel = () => {
                             </p>
                             <ul>
                                 <li>
-                                    Co-pilot: Provide agents with advanced AI tools that offer real-time suggestions and
-                                    guidance to resolve customer issues faster.
+                                    <strong>Co-pilot:</strong> Provide agents with advanced AI tools that offer
+                                    real-time suggestions and guidance to resolve customer issues faster.
                                 </li>
                                 <li>
-                                    Unified workspace: Bring cross-channel customer conversations and essential tools
-                                    and workflows into a single platform.
+                                    <strong>Unified workspace:</strong> Bring cross-channel customer conversations and
+                                    essential tools and workflows into a single platform.
                                 </li>
                                 <li>
-                                    Bot-human tango: Use automation to free up agents to focus on your most valuable
-                                    conversations and customers.
+                                    <strong>Bot-human tango:</strong> Use automation to free up agents to focus on your
+                                    most valuable conversations and customers.
                                 </li>
                             </ul>
+                        </div>
+                        <div className="col-lg-2 offset-lg-1">
+                            <img
+                                src="https://static.liveperson.com/static-assets/2023/12/20115205/4-Automate.svg"
+                                alt="Automate"
+                            />
+                            <div className="flywheel-phase">
+                                <h6>Phase 4</h6>
+                                <h4>Automate</h4>
+                            </div>
+                        </div>
+                        <div className="col-lg-8">
                             <h4>
-                                Phase 4: Automate <br />
-                                <br />
                                 Score:{' '}
                                 <span
                                     className="question-four-score"
@@ -544,6 +586,7 @@ const Flywheel = () => {
                                 ></span>
                                 /5
                             </h4>
+
                             <p>
                                 The Automate phase is where you deploy consumer-facing automation and AI to enable
                                 self-service, scale your conversations, and resolve customer issues more quickly and
@@ -556,17 +599,17 @@ const Flywheel = () => {
 
                             <ul>
                                 <li>
-                                    Knowledge AI: Expand self-service options by integrating your AI chatbots with your
-                                    knowledge base and other relevant support documentation.
+                                    <strong>Knowledge AI:</strong> Expand self-service options by integrating your AI
+                                    chatbots with your knowledge base and other relevant support documentation.
                                 </li>
                                 <li>
-                                    Generative AI: Leverage and fine-tune Large Language models to create a more
-                                    personalized, conversational customer experience.
+                                    <strong>Generative AI:</strong> Leverage and fine-tune Large Language models to
+                                    create a more personalized, conversational customer experience.
                                 </li>
                                 <li>
-                                    Hallucination and bias detection: Consider enterprise grade solutions that can
-                                    detect hallucinations, bias, and other non-compliant answers before being exposed to
-                                    customers.
+                                    <strong>Hallucination and bias detection:</strong> Consider enterprise grade
+                                    solutions that can detect hallucinations, bias, and other non-compliant answers
+                                    before being exposed to customers.
                                 </li>
                             </ul>
                         </div>
@@ -574,12 +617,50 @@ const Flywheel = () => {
                 </div>
             </div>
 
-            <MktoForm
-                backgroundColor="bg-blue-20"
-                header="Talk to rep about results"
-                formId="2580"
-                thankyou="Thank you! One of our experts will contact you shortly"
-            />
+            <div className="undefined pane pane-form  bg-blue-20 pane-with-lead-text ">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-8 offset-lg-2">
+                            <h2>Find out where you stand in your&nbsp;industry</h2>
+                            <p>
+                                Book a personalized maturity benchmarking session to discover how you stack up against
+                                top brands in your space.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <a className="mobileForm">
+                                <span className="span1">Get a demo</span>
+                                <span className="span2">
+                                    <svg
+                                        version="1.1"
+                                        viewBox="0 0 62 62"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        style={{ width: '40px;' }}
+                                    >
+                                        <g fill="#162036" fill-rule="evenodd">
+                                            <g transform="translate(1 1)" stroke="#fff">
+                                                <circle cx="30" cy="30" r="30"></circle>
+                                                <g
+                                                    stroke="#ffffff"
+                                                    transform="translate(15 15)"
+                                                    stroke-linecap="square"
+                                                >
+                                                    <path d="m0.51724 0.51724l29.26 29.26"></path>
+                                                    <path d="m29.483 0.51724l-29.26 29.26"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </span>
+                            </a>
+                            <form id={`mktoForm_2580`} mkto="2580"></form>
+                            <mkto-after mkto="2580">Thank you! One of our experts will contact you shortly</mkto-after>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </Layout>
     );
 };

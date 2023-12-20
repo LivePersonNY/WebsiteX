@@ -848,8 +848,12 @@ $animationSpeed: 30s;
     .flywheel-quiz {
         .container {
             background: $neutral96;
-            padding-top: 104px;
-            padding-bottom: 120px;
+            padding-top: 72px;
+            padding-bottom: 80px;
+            @include media-breakpoint-up(xl) {
+                padding-top: 104px;
+                padding-bottom: 120px;
+            }
             .carousel-item {
                 .form-check-container {
                     display: flex;
@@ -860,14 +864,21 @@ $animationSpeed: 30s;
                     }
                     .form-check {
                         background: $neutral99;
-                        padding: 40px;
-                        margin-top: 32px;
+                        padding: 24px;
+                        margin-top: 24px;
                         border-radius: 8px;
                         box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
                         display: inline-flex;
-                        width: 48%;
+                        width: 100%;
+                        @include media-breakpoint-up(xl) {
+                            width: 48%;
+                            padding: 40px;
+                            margin-top: 32px;
+                        }
                         &:nth-child(even) {
-                            margin-right: 32px;
+                            @include media-breakpoint-up(xl) {
+                                margin-right: 32px;
+                            }
                         }
                         .form-check-input {
                             margin-left: 0;
@@ -877,6 +888,37 @@ $animationSpeed: 30s;
                     .form-check-button {
                     }
                 }
+            }
+            .flywheel-tool-result {
+                .col-lg-2,
+                .col-lg-8,
+                .col-lg-10 {
+                    margin-top: 32px;
+                    @include media-breakpoint-up(xl) {
+                        margin-top: 72px;
+                    }
+                }
+                .col-lg-2 {
+                    img,
+                    .flywheel-phase {
+                        display: inline-block;
+                        vertical-align: top;
+                    }
+                    img {
+                        margin-right: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .pane-form .container {
+        h2 {
+            margin-bottom: 0;
+        }
+        p {
+            margin-bottom: 24px;
+            @include media-breakpoint-up(xl) {
+                margin-bottom: 48px;
             }
         }
     }
