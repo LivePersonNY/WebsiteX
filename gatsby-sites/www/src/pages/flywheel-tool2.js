@@ -26,7 +26,7 @@ const Flywheel = () => {
                 $('.question-three-score').html($('input[name="questionThree"]:checked').data('question-score'));
                 $('.question-four-score').html($('input[name="questionFour"]:checked').data('question-score'));
                 $('.flywheel-tool-input').hide();
-                $('.flywheel-tool-result').fadeIn();
+                $('.flywheel-tool-result').fadeIn().css('display', 'flex');
             } else {
                 $('.modal-button').trigger('click');
             }
