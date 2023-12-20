@@ -623,8 +623,8 @@ const Flywheel = () => {
                         <div className="col-lg-8 offset-lg-2">
                             <h2>Find out where you stand in your&nbsp;industry</h2>
                             <p>
-                                Book a personalized maturity benchmarking session to discover how you stack up against
-                                top brands in your space.
+                                Ready to dive deeper? Book a personalized maturity benchmarking session with a
+                                LivePerson expert to discover how you stack up against top brands in your space.
                             </p>
                         </div>
                     </div>
