@@ -73,7 +73,7 @@ const Flywheel = () => {
                                             <p>
                                                 <strong>
                                                     Question 1: Which statement best describes how your company
-                                                    currently analyzes customer conversations?
+                                                    currently analyzes customer&nbsp;conversations?
                                                 </strong>
                                             </p>
                                             <div className="form-check">
@@ -145,7 +145,7 @@ const Flywheel = () => {
                                             <p>
                                                 <strong>
                                                     Question 2: Which statement best describes how your company
-                                                    interacts with customers across different channels?
+                                                    interacts with customers across different&nbsp;channels?
                                                 </strong>
                                             </p>
                                             <div className="form-check">
@@ -226,7 +226,7 @@ const Flywheel = () => {
                                             <p>
                                                 <strong>
                                                     Question 3: Which statement best describes how your company empowers
-                                                    support agents to efficiently handle customer conversations?
+                                                    support agents to efficiently handle customer&nbsp;conversations?
                                                 </strong>
                                             </p>
                                             <div className="form-check">
@@ -304,7 +304,7 @@ const Flywheel = () => {
                                             <p>
                                                 <strong>
                                                     Question 4: Which statement best describes how your company deploys
-                                                    automation and AI to enable customers to self-serve?
+                                                    automation and AI to enable customers to&nbsp;self-serve?
                                                 </strong>
                                             </p>
                                             <div className="form-check">
