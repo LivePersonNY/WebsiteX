@@ -304,7 +304,8 @@ const Flywheel = () => {
                                             <p>
                                                 <strong>
                                                     Question 4: Which statement best describes how your company deploys
-                                                    automation and AI to enable customers to&nbsp;self-serve?
+                                                    automation and AI to enable customers
+                                                    to&nbsp;self&#8288;&#8211;&#8288;serve?
                                                 </strong>
                                             </p>
                                             <div className="form-check">
