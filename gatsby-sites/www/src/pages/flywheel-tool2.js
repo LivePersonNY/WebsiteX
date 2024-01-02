@@ -72,8 +72,8 @@ const Flywheel = () => {
                                         <div className="form-check-container">
                                             <p>
                                                 <strong>
-                                                    Question 1: How does your company currently analyze customer
-                                                    inquiries and concerns?
+                                                    Question 1: Which statement best describes how your company
+                                                    currently analyzes customer conversations?
                                                 </strong>
                                             </p>
                                             <div className="form-check">
@@ -144,8 +144,8 @@ const Flywheel = () => {
                                         <div className="form-check-container">
                                             <p>
                                                 <strong>
-                                                    Question 2: How does your company interact with customers across
-                                                    different channels?
+                                                    Question 2: Which statement best describes how your company
+                                                    interacts with customers across different channels?
                                                 </strong>
                                             </p>
                                             <div className="form-check">
@@ -225,8 +225,8 @@ const Flywheel = () => {
                                         <div className="form-check-container">
                                             <p>
                                                 <strong>
-                                                    Question 3: How does your company empower support agents to handle
-                                                    customer inquiries effectively?
+                                                    Question 3: Which statement best describes how your company empowers
+                                                    support agents to efficiently handle customer conversations?
                                                 </strong>
                                             </p>
                                             <div className="form-check">
@@ -303,8 +303,8 @@ const Flywheel = () => {
                                         <div className="form-check-container">
                                             <p>
                                                 <strong>
-                                                    Question 4: Does your company employ automation to facilitate
-                                                    self-service for customers?
+                                                    Question 4: Which statement best describes how your company deploys
+                                                    automation and AI to enable customers to self-serve?
                                                 </strong>
                                             </p>
                                             <div className="form-check">
