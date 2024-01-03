@@ -38,15 +38,10 @@ export default function HTML(props) {
         visibility: 'hidden',
     };
 
-    let windowCssFile =
-        'https://lp-site.s3.amazonaws.com/web2020/css/window.css';
+    let windowCssFile = 'https://lp-site.s3.amazonaws.com/web2020/css/window.css';
 
-    if (
-        process.env.BRANCH != 'develop' &&
-        process.env.GATSBY_IS_PREVIEW !== 'true'
-    ) {
-        windowCssFile =
-            'https://lp-site.s3.amazonaws.com/web2020/css/window.min.css';
+    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
+        windowCssFile = 'https://lp-site.s3.amazonaws.com/web2020/css/window.min.css';
     }
 
     return (
@@ -54,10 +49,7 @@ export default function HTML(props) {
             <head>
                 <meta charSet="utf-8" />
                 <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-                />
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
                 <script src="https://global.localizecdn.com/localize.js"></script>
                 <script dangerouslySetInnerHTML={{ __html: lzScript }}></script>
@@ -67,11 +59,7 @@ export default function HTML(props) {
             </head>
             <body {...props.bodyAttributes}>
                 {props.preBodyComponents}
-                <div
-                    key={`body`}
-                    id="___gatsby"
-                    dangerouslySetInnerHTML={{ __html: props.body }}
-                />
+                <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{ __html: props.body }} />
                 {props.postBodyComponents}
                 <div id="elpi_2023_html"></div>
             </body>

@@ -6,32 +6,32 @@ import Header from './Header';
 import Footer from './Footer';
 
 const Layout = ({ isHomePage, children, mainClass }) => {
-  const {
-    wp: {
-      generalSettings: { title },
-    },
-  } = useStaticQuery(graphql`
-    query LayoutQuery {
-      wp {
-        generalSettings {
-          title
-          description
+    const {
+        wp: {
+            generalSettings: { title },
+        },
+    } = useStaticQuery(graphql`
+        query LayoutQuery {
+            wp {
+                generalSettings {
+                    title
+                    description
+                }
+            }
         }
-      }
-    }
-  `);
+    `);
 
-  return (
-    <>
-      <Header siteTitle={title || `Title`} />
-      <main className={mainClass}>{children}</main>
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <Header siteTitle={title || `Title`} />
+            <main className={mainClass}>{children}</main>
+            <Footer />
+        </>
+    );
 };
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
 };
 
 export default Layout;
