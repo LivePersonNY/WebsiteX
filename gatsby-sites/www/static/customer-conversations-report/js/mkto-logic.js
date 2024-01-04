@@ -533,7 +533,6 @@ var cart = {
 
 (function ($) {
     //GA chat tracking
-    setTimeout(waitForLpTags, 500);
 
     var blacklist = [
         '@aim.com',
