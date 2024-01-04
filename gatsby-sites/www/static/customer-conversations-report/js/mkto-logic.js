@@ -531,11 +531,7 @@ var cart = {
     ],
 };
 
-var pushSDEData = (function () {
-    lpTag.sdes.push(JWTPayload);
-    lpTag.sdes.push(personalInfo);
-    lpTag.sdes.push(cart);
-})(function ($) {
+(function ($) {
     //GA chat tracking
     setTimeout(waitForLpTags, 500);
 
