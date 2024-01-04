@@ -40,6 +40,11 @@
         <!-- End Google Tag Manager -->
         <script defer="defer" src="js/app.js"></script>
         <link href="css/app.css" rel="stylesheet" />
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
         <script defer="defer" src="js/mkto-logic.js"></script>
     </head>
     <body class="home">
@@ -885,7 +890,14 @@
                         <script src="//info.liveperson.com/js/forms2/js/forms2.min.js"></script>
                         <form id="mktoForm_4999"></form>
                         <script>
-                            MktoForms2.loadForm('//info.liveperson.com', '501-BLE-979', 4999);
+                            MktoForms2.loadForm('//info.liveperson.com', '501-BLE-979', 4999, function (form) {
+                                form.onSuccess(function (values, followUpUrl) {
+                                    let formSuccessMessage = '<p class="form-success">Thank you message here</p>';
+                                    form.getFormElem().html('').append(formSuccessMessage);
+
+                                    return false;
+                                });
+                            });
                         </script>
                     </div>
                 </div>
