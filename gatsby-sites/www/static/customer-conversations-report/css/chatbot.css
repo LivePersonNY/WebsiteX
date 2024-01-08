@@ -4,3 +4,13 @@
 #elpi_2023_html .elpi-2023-container .elpi-bubbles-container .elpi-bubble {
     color: #1c1d22;
 }
+
+#ot-sdk-btn.ot-sdk-show-settings,
+#ot-sdk-btn.optanon-show-settings {
+    font-size: 12px;
+    line-height: 1.66;
+    border: 0;
+    color: #ffffff;
+    background: none;
+    padding: 0;
+}
