@@ -7,8 +7,7 @@ const Cookie = {
         var date = new Date();
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
         var expires = '; expires=' + date.toGMTString();
-        document.cookie =
-            name + '=' + value + expires + '; path=/; domain=liveperson.com;';
+        document.cookie = name + '=' + value + expires + '; path=/; domain=liveperson.com;';
     },
     get: function (cname) {
         let name = cname + '=';
@@ -29,9 +28,7 @@ const Cookie = {
 
 const Query = {
     get: function (key) {
-        var match = RegExp('[?&]' + key + '=([^&]*)').exec(
-            window.location.search
-        );
+        var match = RegExp('[?&]' + key + '=([^&]*)').exec(window.location.search);
         var value = match && decodeURIComponent(match[1].replace(/\+/g, ' '));
         return value;
     },
@@ -45,15 +42,9 @@ const MktoForms = {
                 const formId = form.getId();
                 const ctaString = Dictionary.ctas[formId];
 
-                const buttonLabel = form
-                    .getFormElem()
-                    .find('.mktoButton')
-                    .text();
+                const buttonLabel = form.getFormElem().find('.mktoButton').text();
 
-                form.getFormElem()
-                    .siblings('a.mobileForm')
-                    .find('.span1')
-                    .text(buttonLabel);
+                form.getFormElem().siblings('a.mobileForm').find('.span1').text(buttonLabel);
 
                 LivePerson.FormReady(form);
                 form.onValidate(function () {
@@ -68,9 +59,7 @@ const MktoForms = {
                     VWO.event =
                         VWO.event ||
                         function () {
-                            VWO.push(
-                                ['event'].concat([].slice.call(arguments))
-                            );
+                            VWO.push(['event'].concat([].slice.call(arguments)));
                         };
 
                     // Replace the property values with your actual values
@@ -82,17 +71,12 @@ const MktoForms = {
                     window.VWO.push(['track.goalConversion', 16]);
                     window.VWO.push(['track.goalConversion', 19]);
                     window.VWO.push(['track.goalConversion', 22]);
+                    window.VWO.push(['track.goalConversion', 26]);
 
                     // if (document.querySelector('.mkto-resource-asset')) {
-                    if (
-                        formId == 3524 ||
-                        formId == 3458 ||
-                        formId == 2581 ||
-                        formId == 4067
-                    ) {
+                    if (formId == 3524 || formId == 3458 || formId == 2581 || formId == 4067) {
                         location.href = `/thanks-download/?resourceasseturl=${encodeURIComponent(
-                            document.querySelector('.mkto-resource-asset')
-                                .dataset.resourceasseturl
+                            document.querySelector('.mkto-resource-asset').dataset.resourceasseturl
                         )}`;
                         return false;
                     }
@@ -114,11 +98,7 @@ const MktoForms = {
         $('form:not(.mktoForm)').each(function () {
             const formId = $(this).attr('mkto');
             if (!formId) return;
-            MktoForms2.loadForm(
-                'https://info.liveperson.com',
-                '501-BLE-979',
-                formId
-            );
+            MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId);
         });
     },
 };
@@ -234,17 +214,10 @@ const LivePerson = {
                 // Email
                 Cookie.set('lp-leadSource', 'Email', 1);
                 leadSourceCookie = 'Email';
-            } else if (
-                lsRef.indexOf('go.liveperson.com') >= 0 ||
-                lsRef.indexOf('mkto-g0178.com') >= 0
-            ) {
+            } else if (lsRef.indexOf('go.liveperson.com') >= 0 || lsRef.indexOf('mkto-g0178.com') >= 0) {
                 Cookie.set('lp-leadSource', 'Email', 1);
                 leadSourceCookie = 'Email';
-            } else if (
-                lsRef === '' ||
-                !lsRef ||
-                (lpindex > -1 && lpindex < 15)
-            ) {
+            } else if (lsRef === '' || !lsRef || (lpindex > -1 && lpindex < 15)) {
                 // Direct
                 Cookie.set('lp-leadSource', 'Direct', 1);
                 leadSourceCookie = 'Direct';
@@ -351,37 +324,22 @@ const LivePerson = {
 
         if (
             (fullName.match(/ /g) || []).length === 0 ||
-            fullName.substring(fullName.indexOf(' ') + 1, fullName.length) ===
-                ''
+            fullName.substring(fullName.indexOf(' ') + 1, fullName.length) === ''
         ) {
             first = fullName.capitalize();
             last = 'null';
-        } else if (
-            fullName.substring(0, fullName.indexOf(' ')).indexOf('.') > -1
-        ) {
+        } else if (fullName.substring(0, fullName.indexOf(' ')).indexOf('.') > -1) {
             first =
                 fullName.substring(0, fullName.indexOf(' ')).capitalize() +
                 ' ' +
                 fullName
                     .substring(fullName.indexOf(' ') + 1, fullName.length)
-                    .substring(
-                        0,
-                        fullName
-                            .substring(
-                                fullName.indexOf(' ') + 1,
-                                fullName.length
-                            )
-                            .indexOf(' ')
-                    )
+                    .substring(0, fullName.substring(fullName.indexOf(' ') + 1, fullName.length).indexOf(' '))
                     .capitalize();
-            last = fullName
-                .substring(first.length + 1, fullName.length)
-                .capitalize();
+            last = fullName.substring(first.length + 1, fullName.length).capitalize();
         } else {
             first = fullName.substring(0, fullName.indexOf(' ')).capitalize();
-            last = fullName
-                .substring(fullName.indexOf(' ') + 1, fullName.length)
-                .capitalize();
+            last = fullName.substring(fullName.indexOf(' ') + 1, fullName.length).capitalize();
         }
         var vals = {
             FirstName: first,
@@ -446,10 +404,7 @@ const LivePerson = {
     },
 
     Validate: function (form) {
-        if (
-            form.getValues().wholeName !== undefined &&
-            form.getValues().wholeName !== ''
-        ) {
+        if (form.getValues().wholeName !== undefined && form.getValues().wholeName !== '') {
             LivePerson.SetFullName('FirstName', 'LastName', 'wholeName', form);
         }
 
@@ -476,12 +431,10 @@ const LivePerson = {
                 oneTrustActiveGroups: window.OnetrustActiveGroups,
                 Company: LivePerson.GetCompany(emailVal, form),
                 resourceasset: document.querySelector('.mkto-resource-asset')
-                    ? document.querySelector('.mkto-resource-asset').dataset
-                          .resourceasset
+                    ? document.querySelector('.mkto-resource-asset').dataset.resourceasset
                     : '',
                 resourceAssetURL: document.querySelector('.mkto-resource-asset')
-                    ? document.querySelector('.mkto-resource-asset').dataset
-                          .resourceasseturl
+                    ? document.querySelector('.mkto-resource-asset').dataset.resourceasseturl
                     : '',
             };
 
@@ -489,10 +442,7 @@ const LivePerson = {
 
             form.addHiddenFields({
                 Referrer_URL_c: window.location.href,
-                alexTestField:
-                    window.lp_attr.leadSource +
-                    ' , ' +
-                    window.lp_attr.referringUrl,
+                alexTestField: window.lp_attr.leadSource + ' , ' + window.lp_attr.referringUrl,
                 thisIsPrevPage: window.previousPath,
             });
 
@@ -506,12 +456,7 @@ const LivePerson = {
         var valid = true;
 
         Dictionary.personalEmails.forEach(function (domain) {
-            if (
-                email.indexOf(domain) >= 0 ||
-                email === '' ||
-                email.indexOf('@') < 0 ||
-                email.indexOf('.') < 0
-            ) {
+            if (email.indexOf(domain) >= 0 || email === '' || email.indexOf('@') < 0 || email.indexOf('.') < 0) {
                 valid = false;
             }
         });
