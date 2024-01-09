@@ -15,3 +15,7 @@
     padding: 0;
     background: none !important;
 }
+
+.ch-three section.main #ch3DV1 .pie-slices .pie-slice {
+    outline: 0;
+}
