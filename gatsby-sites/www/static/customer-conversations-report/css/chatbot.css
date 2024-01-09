@@ -10,7 +10,8 @@
     font-size: 12px;
     line-height: 1.66;
     border: 0;
-    color: #ffffff;
+    color: #ffffff !important;
     background: none;
     padding: 0;
+    background: none !important;
 }
