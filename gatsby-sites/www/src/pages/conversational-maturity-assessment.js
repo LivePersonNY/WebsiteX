@@ -45,8 +45,8 @@ const Flywheel = () => {
     return (
         <Layout mainClass="flywheel-tool">
             <Seo
-                title="Conversational Maturity Assessment | LivePerson"
-                description="Bridge the gap with a Conversational Maturity Assessment"
+                title="Conversational AI Maturity Model Assessment | LivePerson"
+                description="How seamless and efficient is your customer engagement, really? Take our conversational AI maturity model assessment to find out."
                 robots="noindex, nofollow"
             />
 
