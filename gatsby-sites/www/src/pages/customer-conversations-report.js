@@ -25,6 +25,15 @@ const Flywheel = () => {
                 $('.question-two-score').html($('input[name="questionTwo"]:checked').data('question-score'));
                 $('.question-three-score').html($('input[name="questionThree"]:checked').data('question-score'));
                 $('.question-four-score').html($('input[name="questionFour"]:checked').data('question-score'));
+
+                let resultsFormValue = `Understand: ${$('input[name="questionOne"]:checked').data(
+                    'question-score'
+                )}; Connect: ${$('input[name="questionTwo"]:checked').data('question-score')}; Assist: ${$(
+                    'input[name="questionThree"]:checked'
+                ).data('question-score')}; Automate: ${$('input[name="questionFour"]:checked').data('question-score')}`;
+                // console.log(resultsFormValue);
+                $('input[name=maturityAssessmentQuizResults]').val(resultsFormValue);
+
                 $('.flywheel-tool-input').hide();
                 $('.flywheel-tool-result').fadeIn().css('display', 'flex');
             } else {
@@ -35,7 +44,11 @@ const Flywheel = () => {
 
     return (
         <Layout mainClass="flywheel-tool">
-            <Seo title="Flywheel Tool | LivePerson" description="Use this tool." robots="noindex, nofollow" />
+            <Seo
+                title="Conversational Maturity Assessment | LivePerson"
+                description="Bridge the gap with a Conversational Maturity Assessment"
+                robots="noindex, nofollow"
+            />
 
             <PlainContent
                 backgroundColor="bg-primary-dark"
