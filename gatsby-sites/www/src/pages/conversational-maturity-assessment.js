@@ -435,6 +435,11 @@ const Flywheel = () => {
                     <div className="row mt-4 flywheel-tool-result display-none">
                         <div className="col-lg-10 offset-lg-1">
                             <h2>Results</h2>
+                            <p>
+                                Thank you for taking our Conversational Maturity Assessment. Your scores and improvement
+                                suggestions are below. To schedule a meeting with a LivePerson expert to discuss your
+                                results, <a href="#formMeeting">click here</a>.
+                            </p>
                         </div>
                         <div className="col-lg-2 offset-lg-1">
                             <img
@@ -631,7 +636,7 @@ const Flywheel = () => {
                 </div>
             </div>
 
-            <div className="undefined pane pane-form  bg-blue-20 pane-with-lead-text ">
+            <div className="undefined pane pane-form  bg-blue-20 pane-with-lead-text " id="formMeeting">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 offset-lg-2">
