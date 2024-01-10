@@ -333,6 +333,7 @@
         "/blog/reports/*": "/resources/reports/*",
         "/blog/success/*": "/resources/success-stories/*",
         "/blog/webinars/*": "/resources/webinars/*",
-        "/blog/policy-page/voicebase/minimum-terms/": "/blog/*"
+        "/blog/policy-page/voicebase/minimum-terms/": "/blog/*",
+        "/resources/reports/forrester-customer-experience/": "https://pr.liveperson.com/index.php?s=43&item=606"
     }
 }
