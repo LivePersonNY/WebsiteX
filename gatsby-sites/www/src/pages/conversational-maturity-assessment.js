@@ -47,7 +47,6 @@ const Flywheel = () => {
             <Seo
                 title="Conversational AI Maturity Model Assessment | LivePerson"
                 description="How seamless and efficient is your customer engagement, really? Take our conversational AI maturity model assessment to find out."
-                robots="noindex, nofollow"
             />
 
             <PlainContent
