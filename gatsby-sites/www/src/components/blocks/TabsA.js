@@ -66,7 +66,7 @@ const TabsA = (props) => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
+                            {props.kicker && <p className="h6 text-uppercase text-center">{props.kicker}</p>}
                             <h2 className="text-center">
                                 <Paragraph headerLevel="nothing" text={props.header} />
                             </h2>
