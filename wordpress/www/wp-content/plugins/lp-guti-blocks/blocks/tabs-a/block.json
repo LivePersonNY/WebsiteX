@@ -15,11 +15,12 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
-		"anchor": {"default": "tab-a"},
-		"header": {"default": "Header above tabs"},
-		"autoApproveLang": {"default":false, "type": "boolean"},
+		"anchor": { "default": "tab-a" },
+		"kicker": {},
+		"header": { "default": "Header above tabs" },
+		"autoApproveLang": { "default": false, "type": "boolean" },
 		"body": {},
-		"backgroundColor":{},
+		"backgroundColor": {},
 		"tabItems": {
 			"type": "array",
 			"default": [

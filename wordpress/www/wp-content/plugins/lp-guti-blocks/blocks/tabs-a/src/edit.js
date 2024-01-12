@@ -58,6 +58,15 @@ export default function Edit({
 	setAttributes,
 	onChange,
 }) {
+	let kickerControl = (
+		<TextControl
+			value={attributes.kicker}
+			onChange={(val) => setAttributes({ kicker: val })}
+			className="embedded-input"
+			placeholder="Kicker Text"
+		/>
+	);
+
 	let headerControl = (
 		<RichText
 			value={attributes.header}
@@ -204,6 +213,7 @@ export default function Edit({
 				/>
 				<TabsA
 					anchor={attributes.anchor}
+					kicker={kickerControl}
 					body={bodyControl}
 					header={headerControl}
 					items={itemControls}
@@ -216,6 +226,7 @@ export default function Edit({
 		<div {...useBlockProps()}>
 			<TabsA
 				anchor={attributes.anchor}
+				kicker={attributes.kicker}
 				body={attributes.body}
 				header={attributes.header}
 				items={attributes.tabItems}

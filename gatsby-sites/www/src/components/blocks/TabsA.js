@@ -27,16 +27,8 @@ const TabsA = (props) => {
 
     let tabContent = props.items.map((item, index) => {
         return (
-            <div
-                className={`accordion-item ${
-                    index === 0 ? 'accordion-item-active' : ''
-                }`}
-                key={index}
-            >
-                <h4
-                    className="accordion-header"
-                    id={`${props.anchor}_flush-heading${index}`}
-                >
+            <div className={`accordion-item ${index === 0 ? 'accordion-item-active' : ''}`} key={index}>
+                <h4 className="accordion-header" id={`${props.anchor}_flush-heading${index}`}>
                     <button
                         className="collapsed"
                         type="button"
@@ -51,9 +43,7 @@ const TabsA = (props) => {
                 </h4>
                 <div
                     id={`${props.anchor}_flush-collapse${index}`}
-                    className={`accordion-collapse collapse ${
-                        index === 0 ? 'show' : ''
-                    }`}
+                    className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`}
                     aria-labelledby={`${props.anchor}_flush-heading${index}`}
                     data-bs-parent={`#${props.anchor}_accordion_tabs`}
                 >
@@ -69,41 +59,29 @@ const TabsA = (props) => {
                 data-localize={props.autoApprove && `auto-approve`}
                 autoapprove={props.autoApprove && 'true'}
                 id={props.anchor}
-                className={`pane comp-tabs-a ${
-                    props.backgroundColor || 'bg-transparent'
-                } ${props.header ? 'pane-with-lead-text' : ''}`}
+                className={`pane comp-tabs-a ${props.backgroundColor || 'bg-transparent'} ${
+                    props.header ? 'pane-with-lead-text' : ''
+                }`}
             >
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
+                            {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
                             <h2 className="text-center">
-                                <Paragraph
-                                    headerLevel="nothing"
-                                    text={props.header}
-                                />
+                                <Paragraph headerLevel="nothing" text={props.header} />
                             </h2>
-                            {props.body && (
-                                <Paragraph
-                                    className="text-center mb-8"
-                                    text={props.body}
-                                />
-                            )}
+                            {props.body && <Paragraph className="text-center mb-8" text={props.body} />}
                         </div>
                     </div>
                     <div className="row align-items-center">
                         <div className="col-lg-4">
                             <div className="comp-content-container">
-                                <div
-                                    className="accordion accordion-flush"
-                                    id={`${props.anchor}_accordion_tabs`}
-                                >
+                                <div className="accordion accordion-flush" id={`${props.anchor}_accordion_tabs`}>
                                     {tabContent}
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-7 offset-lg-1">
-                            {tabImgOutput}
-                        </div>
+                        <div className="col-lg-7 offset-lg-1">{tabImgOutput}</div>
                     </div>
                 </div>
             </div>
