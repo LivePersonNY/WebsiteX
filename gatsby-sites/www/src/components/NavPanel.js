@@ -136,7 +136,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/customer-conversations-report/?utm_source=featured_news&utm_medium=direct&utm_campaign=socc_report_q1"
+                                                href="https://www.liveperson.com/customer-conversations-report/?utm_source=featured_news&utm_medium=direct&utm_campaign=socc_report_q1"
                                                 rel="noopener noreferrer"
                                             >
                                                 Learn more
