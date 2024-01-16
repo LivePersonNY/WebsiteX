@@ -125,18 +125,18 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured News</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2022/03/17143938/Featured_Resource_Fast_Company_1x.jpg"
-                                            alt="Fast Company Award"
+                                            src="https://static.liveperson.com/static-assets/2024/01/05165439/State-of-Customer-Conversations_Report_Web_V2a%402x.png"
+                                            alt="State of Customer Conversations 2024 report"
+                                            width="180"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">Fast Company Award</p>
+                                            <p className="subtitle3">Industry Report</p>
                                             <p className="featured-body">
-                                                LivePerson named the #1 Most Innovative AI Company in the world
+                                                LivePerson reveals State of Customer Conversations 2024 report
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="https://pr.liveperson.com/2022-03-08-Fast-Company-names-LivePerson-the-1-Most-Innovative-AI-Company-in-the-World"
-                                                target="_blank"
+                                                href="/customer-conversations-report/?utm_source=featured_news&utm_medium=direct&utm_campaign=socc_report_q1"
                                                 rel="noopener noreferrer"
                                             >
                                                 Learn more
