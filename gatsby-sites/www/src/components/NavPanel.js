@@ -138,6 +138,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                                 className="dropdown-link-blue"
                                                 href="https://www.liveperson.com/customer-conversations-report/?utm_source=featured_news&utm_medium=direct&utm_campaign=socc_report_q1"
                                                 rel="noopener noreferrer"
+                                                target="_blank"
                                             >
                                                 Learn more
                                             </a>
