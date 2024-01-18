@@ -9,10 +9,6 @@ import $ from 'jquery';
 import PlainContent from '../components/blocks/PlainContent';
 
 const Flywheel = () => {
-    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
-        return <NotFoundPage />;
-    }
-
     useEffect(() => {
         $('.btn-flywheel-results').on('click', () => {
             if (
