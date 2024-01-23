@@ -99,7 +99,7 @@ const PlainContent = function (props) {
                                                 <span className="h6 text-uppercase">
                                                     <Paragraph text={props.kicker} headerLevel="nothing" />
                                                 </span>
-                                                {props.header}
+                                                <Paragraph text={props.header} headerLevel="nothing" />
                                             </h1>
                                         )}
                                         {props.animatedKickerText && (
@@ -110,7 +110,7 @@ const PlainContent = function (props) {
                                                         headerLevel="nothing"
                                                     />
                                                 </span>
-                                                {props.header}
+                                                <Paragraph text={props.header} headerLevel="nothing" />
                                             </h1>
                                         )}
                                     </>
