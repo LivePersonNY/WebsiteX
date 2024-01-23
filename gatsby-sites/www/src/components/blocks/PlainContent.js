@@ -26,9 +26,7 @@ const PlainContent = function (props) {
                         data-bs-ride="false"
                         data-bs-pause="false"
                     >
-                        <div className="carousel-inner"> ${animatedLoop.join(
-                            ''
-                        )} </div>
+                        <div className="carousel-inner"> ${animatedLoop.join('')} </div>
                     </div>`;
         return headerText[0] + animatedLoop + headerText[1];
     };
@@ -44,9 +42,7 @@ const PlainContent = function (props) {
             data-localize={props.autoApprove && `auto-approve`}
             autoapprove={props.autoApprove && 'true'}
             id={props.anchor}
-            className={`pane comp-plain-content ${
-                props.backgroundColor || 'bg-transparent'
-            } ${props.alignmentClass} ${
+            className={`pane comp-plain-content ${props.backgroundColor || 'bg-transparent'} ${props.alignmentClass} ${
                 props.header ? 'pane-with-lead-text' : ''
             } ${props.cssClasses}`}
         >
@@ -63,73 +59,78 @@ const PlainContent = function (props) {
                             />
                         )) ||
                             props.assetTopCtl}
-                        {props.kicker && (
+
+                        {headerLevel == 'h2' && (
                             <>
-                                {!props.animatedKickerText && (
-                                    <p className="h6 text-uppercase">
-                                        <Paragraph
-                                            text={props.kicker}
-                                            headerLevel="nothing"
-                                        />
-                                    </p>
+                                {props.kicker && (
+                                    <>
+                                        {!props.animatedKickerText && (
+                                            <p className="h6 text-uppercase">
+                                                <Paragraph text={props.kicker} headerLevel="nothing" />
+                                            </p>
+                                        )}
+                                        {props.animatedKickerText && (
+                                            <h4 className="h4 text-uppercase">
+                                                <Paragraph
+                                                    text={fullAnimation(props.kicker, props.animatedKickerText)}
+                                                    headerLevel="nothing"
+                                                />
+                                            </h4>
+                                        )}
+                                    </>
                                 )}
-                                {props.animatedKickerText && (
-                                    <h4 className="h4 text-uppercase">
+                                <h2>
+                                    {!props.animatedText && <Paragraph text={props.header} headerLevel={headerLevel} />}
+                                    {props.animatedText && (
                                         <Paragraph
-                                            text={fullAnimation(
-                                                props.kicker,
-                                                props.animatedKickerText
-                                            )}
-                                            headerLevel="nothing"
+                                            text={fullAnimation(props.header, props.animatedText)}
+                                            headerLevel={headerLevel}
                                         />
-                                    </h4>
+                                    )}
+                                </h2>
+                            </>
+                        )}
+                        {headerLevel == 'h1' && (
+                            <>
+                                {props.kicker && (
+                                    <>
+                                        {!props.animatedKickerText && (
+                                            <Paragraph text={props.header} headerLevel={headerLevel}>
+                                                <span className="h6 text-uppercase">
+                                                    <Paragraph text={props.kicker} headerLevel="nothing" />
+                                                </span>
+                                            </Paragraph>
+                                        )}
+                                        {props.animatedKickerText && (
+                                            <Paragraph text={props.header} headerLevel={headerLevel}>
+                                                <h4 className="h4 text-uppercase">
+                                                    <Paragraph
+                                                        text={fullAnimation(props.kicker, props.animatedKickerText)}
+                                                        headerLevel="nothing"
+                                                    />
+                                                </h4>
+                                            </Paragraph>
+                                        )}
+                                    </>
+                                )}
+                                {!props.kicker && (
+                                    <h1>
+                                        {!props.animatedText && (
+                                            <Paragraph text={props.header} headerLevel={headerLevel} />
+                                        )}
+                                        {props.animatedText && (
+                                            <Paragraph
+                                                text={fullAnimation(props.header, props.animatedText)}
+                                                headerLevel={headerLevel}
+                                            />
+                                        )}
+                                    </h1>
                                 )}
                             </>
                         )}
-                        {headerLevel == 'h2' && (
-                            <h2>
-                                {!props.animatedText && (
-                                    <Paragraph
-                                        text={props.header}
-                                        headerLevel={headerLevel}
-                                    />
-                                )}
-                                {props.animatedText && (
-                                    <Paragraph
-                                        text={fullAnimation(
-                                            props.header,
-                                            props.animatedText
-                                        )}
-                                        headerLevel={headerLevel}
-                                    />
-                                )}
-                            </h2>
-                        )}
-                        {headerLevel == 'h1' && (
-                            <h1>
-                                {!props.animatedText && (
-                                    <Paragraph
-                                        text={props.header}
-                                        headerLevel={headerLevel}
-                                    />
-                                )}
-                                {props.animatedText && (
-                                    <Paragraph
-                                        text={fullAnimation(
-                                            props.header,
-                                            props.animatedText
-                                        )}
-                                        headerLevel={headerLevel}
-                                    />
-                                )}
-                            </h1>
-                        )}
                         {props.body && <Paragraph text={props.body} />}
                         {props.linkText && (
-                            <a
-                                className="link link-mt-large"
-                                href={props.linkUrl}
-                            >
+                            <a className="link link-mt-large" href={props.linkUrl}>
                                 {props.linkText}
                             </a>
                         )}
@@ -138,9 +139,7 @@ const PlainContent = function (props) {
                                 className="btn btn-primary"
                                 href={props.primaryBtnLink}
                                 target={props.linkExternal && `_blank`}
-                                rel={
-                                    props.linkExternal && `noopener noreferrer`
-                                }
+                                rel={props.linkExternal && `noopener noreferrer`}
                             >
                                 {props.primaryBtnText}
                             </a>
@@ -150,10 +149,7 @@ const PlainContent = function (props) {
                                 className="btn btn-outline-secondary"
                                 href={props.secondaryBtnLink}
                                 target={props.linkSecondaryExternal && `_blank`}
-                                rel={
-                                    props.linkSecondaryExternal &&
-                                    `noopener noreferrer`
-                                }
+                                rel={props.linkSecondaryExternal && `noopener noreferrer`}
                             >
                                 {props.secondaryBtnText}
                             </a>
