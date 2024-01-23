@@ -95,21 +95,23 @@ const PlainContent = function (props) {
                                 {props.kicker && (
                                     <>
                                         {!props.animatedKickerText && (
-                                            <Paragraph text={props.header} headerLevel={headerLevel}>
+                                            <h1>
                                                 <span className="h6 text-uppercase">
                                                     <Paragraph text={props.kicker} headerLevel="nothing" />
                                                 </span>
-                                            </Paragraph>
+                                                {props.header}
+                                            </h1>
                                         )}
                                         {props.animatedKickerText && (
-                                            <Paragraph text={props.header} headerLevel={headerLevel}>
-                                                <h4 className="h4 text-uppercase">
+                                            <h1>
+                                                <span className="h4 text-uppercase">
                                                     <Paragraph
                                                         text={fullAnimation(props.kicker, props.animatedKickerText)}
                                                         headerLevel="nothing"
                                                     />
-                                                </h4>
-                                            </Paragraph>
+                                                </span>
+                                                {props.header}
+                                            </h1>
                                         )}
                                     </>
                                 )}
