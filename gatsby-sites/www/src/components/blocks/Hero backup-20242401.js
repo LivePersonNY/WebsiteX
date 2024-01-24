@@ -31,7 +31,9 @@ const Hero = (props) => {
                         data-bs-ride="false"
                         data-bs-pause="false"
                     >
-                        <div className="carousel-inner"> ${animatedLoop.join('')} </div>
+                        <div className="carousel-inner"> ${animatedLoop.join(
+                            ''
+                        )} </div>
                     </div>`;
         return headerText[0] + animatedLoop + headerText[1];
     };
@@ -41,9 +43,9 @@ const Hero = (props) => {
             id={props.anchor}
             data-localize={props.autoApprove && `auto-approve`}
             autoapprove={props.autoApprove && 'true'}
-            className={`pane hero ${props.backgroundColor || 'bg-transparent'} ${props.removePB ? 'rem-padding' : ''} ${
-                props.cssClasses
-            }`}
+            className={`pane hero ${
+                props.backgroundColor || 'bg-transparent'
+            } ${props.removePB ? 'rem-padding' : ''} ${props.cssClasses}`}
         >
             {props.backgroundImage && (
                 <style>
@@ -55,17 +57,29 @@ const Hero = (props) => {
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-lg-5">
+                        {props.kicker && (
+                            <p className="h6 text-uppercase">{props.kicker}</p>
+                        )}
                         <h1>
-                            {props.kicker && (
-                                <span className="h6 text-uppercase">
-                                    <Paragraph text={props.kicker} headerLevel="nothing" />
-                                </span>
+                            {!props.animatedText && (
+                                <Paragraph
+                                    text={props.header}
+                                    headerLevel="nothing"
+                                />
                             )}
-                            {!props.animatedText && <Paragraph text={props.header} headerLevel="nothing" />}
-                            {props.animatedText && <Paragraph text={fullAnimation()} headerLevel="nothing" />}
+                            {props.animatedText && (
+                                <Paragraph
+                                    text={fullAnimation()}
+                                    headerLevel="nothing"
+                                />
+                            )}
                         </h1>
                         <Paragraph text={props.subHeader} />
-                        {props.logoHeader && <h6 className="mt-4 white-space-break-spaces">{props.logoHeader}</h6>}
+                        {props.logoHeader && (
+                            <h6 className="mt-4 white-space-break-spaces">
+                                {props.logoHeader}
+                            </h6>
+                        )}
                         {(props.imgLogoCtl || props.underBodyImg) && (
                             <>
                                 <div className="body-image">
@@ -87,7 +101,9 @@ const Hero = (props) => {
                                 className="btn btn-primary"
                                 href={props.primaryBtnLink}
                                 target={props.linkExternal && `_blank`}
-                                rel={props.linkExternal && `noopener noreferrer`}
+                                rel={
+                                    props.linkExternal && `noopener noreferrer`
+                                }
                             >
                                 {props.primaryBtnText}
                             </a>
@@ -97,7 +113,10 @@ const Hero = (props) => {
                                 className="btn btn-outline-secondary"
                                 href={props.secondaryBtnLink}
                                 target={props.linkSecondaryExternal && `_blank`}
-                                rel={props.linkSecondaryExternal && `noopener noreferrer`}
+                                rel={
+                                    props.linkSecondaryExternal &&
+                                    `noopener noreferrer`
+                                }
                             >
                                 {props.secondaryBtnText}
                             </a>
@@ -108,7 +127,9 @@ const Hero = (props) => {
                             <img
                                 src={
                                     props.heroImage ||
-                                    `https://picsum.photos/752/568?random=${parseInt(Math.random() * 100)}`
+                                    `https://picsum.photos/752/568?random=${parseInt(
+                                        Math.random() * 100
+                                    )}`
                                 }
                                 alt={props.heroImageAlt || ''}
                                 width={props.heroImageWidth}
