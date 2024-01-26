@@ -35,8 +35,8 @@ const Resources = function (props) {
                 }}
             />
             <Seo
-                title=""
-                description=""
+                title={props.title}
+                description={props.description}
                 meta={[]}
                 canonical={props.canonical}
                 robots="index, follow"
@@ -65,10 +65,7 @@ const Resources = function (props) {
                                     <Post
                                         post={item}
                                         kicker={nodeTypes[item.nodeType].kicker}
-                                        root={
-                                            '/resources/' +
-                                            nodeTypes[item.nodeType].slug
-                                        }
+                                        root={'/resources/' + nodeTypes[item.nodeType].slug}
                                         classes={tags}
                                     />
                                 )

@@ -17,7 +17,15 @@ const ResourceIndex = function (props) {
 
     // console.log(items);
 
-    return <Resources active="all" items={items} canonical="https://www.liveperson.com/resources/" />;
+    return (
+        <Resources
+            active="all"
+            items={items}
+            title="Conversational AI Resources | LivePerson"
+            description="Explore LivePerson's library of conversational AI resources, from in-depth guides to playbooks, case studies, webinars, and more."
+            canonical="https://www.liveperson.com/resources/"
+        />
+    );
 };
 export default ResourceIndex;
 
