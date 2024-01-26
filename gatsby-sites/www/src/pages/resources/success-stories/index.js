@@ -8,13 +8,37 @@ const SuccessIndex = function (props) {
 
     // console.log(items);
 
+    let meta = [
+        {
+            property: `og:title`,
+            content: `Conversational AI Case Studies | LivePerson`,
+        },
+        {
+            property: `og:description`,
+            content: `Browse conversational AI case studies on how businesses have worked with LivePerson to boost CSAT, streamline operations, & scale engagement.`,
+        },
+        {
+            name: `type`,
+            property: `og:type`,
+            content: `website`,
+        },
+        {
+            name: `author`,
+            property: `og:author`,
+            content: `LivePerson Team`,
+        },
+    ];
+
     return (
         <Resources
             active="success"
             items={items}
             kicker="Case study"
             slug="success-stories"
+            title="Conversational AI Case Studies | LivePerson"
+            description="Browse conversational AI case studies on how businesses have worked with LivePerson to boost CSAT, streamline operations, & scale engagement."
             canonical="https://www.liveperson.com/resources/success-stories/"
+            meta={meta}
         />
     );
 };

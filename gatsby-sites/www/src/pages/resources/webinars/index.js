@@ -8,12 +8,36 @@ const WebinarIndex = function (props) {
 
     // console.log(items);
 
+    let meta = [
+        {
+            property: `og:title`,
+            content: `Conversational AI Webinars | LivePerson`,
+        },
+        {
+            property: `og:description`,
+            content: `Pull up a chair & learn from the experts in these conversational AI webinars, where business leaders walk you through challenges & successes.`,
+        },
+        {
+            name: `type`,
+            property: `og:type`,
+            content: `website`,
+        },
+        {
+            name: `author`,
+            property: `og:author`,
+            content: `LivePerson Team`,
+        },
+    ];
+
     return (
         <Resources
             active="webinar"
             items={items}
             kicker="Webinar"
+            title="Conversational AI Webinars | LivePerson"
+            description="Pull up a chair & learn from the experts in these conversational AI webinars, where business leaders walk you through challenges & successes."
             canonical="https://www.liveperson.com/resources/webinars/"
+            meta={meta}
         />
     );
 };

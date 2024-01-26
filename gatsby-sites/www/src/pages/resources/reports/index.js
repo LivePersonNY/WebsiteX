@@ -8,7 +8,38 @@ const ReportsIndex = function (props) {
 
     // console.log(items);
 
-    return <Resources active="reports" items={items} kicker="Report" canonical="https://www.liveperson.com/resources/reports/" />;
+    let meta = [
+        {
+            property: `og:title`,
+            content: `Conversational AI Reports | LivePerson`,
+        },
+        {
+            property: `og:description`,
+            content: `Discover in-depth conversational AI reports and guides on how to use AI-powered engagement tools to your benefit in business.`,
+        },
+        {
+            name: `type`,
+            property: `og:type`,
+            content: `website`,
+        },
+        {
+            name: `author`,
+            property: `og:author`,
+            content: `LivePerson Team`,
+        },
+    ];
+
+    return (
+        <Resources
+            active="reports"
+            items={items}
+            kicker="Report"
+            title="Conversational AI Reports | LivePerson"
+            description="Discover in-depth conversational AI reports and guides on how to use AI-powered engagement tools to your benefit in business."
+            canonical="https://www.liveperson.com/resources/reports/"
+            meta={meta}
+        />
+    );
 };
 export default ReportsIndex;
 
