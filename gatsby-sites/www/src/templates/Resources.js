@@ -37,7 +37,7 @@ const Resources = function (props) {
             <Seo
                 title={props.title}
                 description={props.description}
-                meta={[]}
+                meta={props.meta}
                 canonical={props.canonical}
                 robots="index, follow"
             />

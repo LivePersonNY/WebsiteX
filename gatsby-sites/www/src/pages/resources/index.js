@@ -17,6 +17,27 @@ const ResourceIndex = function (props) {
 
     // console.log(items);
 
+    let meta = [
+        {
+            property: `og:title`,
+            content: `Conversational AI Resources | LivePerson`,
+        },
+        {
+            property: `og:description`,
+            content: `Explore LivePerson's library of conversational AI resources, from in-depth guides to playbooks, case studies, webinars, and more.`,
+        },
+        {
+            name: `type`,
+            property: `og:type`,
+            content: `website`,
+        },
+        {
+            name: `author`,
+            property: `og:author`,
+            content: `LivePerson Team`,
+        },
+    ];
+
     return (
         <Resources
             active="all"
@@ -24,6 +45,7 @@ const ResourceIndex = function (props) {
             title="Conversational AI Resources | LivePerson"
             description="Explore LivePerson's library of conversational AI resources, from in-depth guides to playbooks, case studies, webinars, and more."
             canonical="https://www.liveperson.com/resources/"
+            meta={meta}
         />
     );
 };
