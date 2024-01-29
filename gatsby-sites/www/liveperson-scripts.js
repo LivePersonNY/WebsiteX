@@ -440,15 +440,12 @@ window.documentReadyFn = function () {
             decodeURIComponent(resourceAssetURLParam);
     }
 
-    // if (
-    //     document.querySelector(
-    //         'body.resources a[href="/resources/success-stories/mindvalleys-managed-contact-center/"].post-link '
-    //     )
-    // ) {
-    //     let reportLink = document.querySelector(
-    //         'body.resources a[href="/resources/success-stories/mindvalleys-managed-contact-center/"].post-link '
-    //     );
-    //     reportLink.setAttribute('href', '/customer-conversations-report/?giancarlotest=123');
-    //     reportLink.setAttribute('target', '_blank');
-    // }
+    if (document.querySelector('body.resources a[href="/resources/reports/socc-2024/"].post-link ')) {
+        let reportLink = document.querySelector('body.resources a[href="/resources/reports/socc-2024/"].post-link ');
+        reportLink.setAttribute(
+            'href',
+            '/customer-conversations-report/?utm_source=resources_library&utm_medium=direct&utm_campaign=socc_report_q1'
+        );
+        reportLink.setAttribute('target', '_blank');
+    }
 };
