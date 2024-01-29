@@ -61,9 +61,7 @@ window.populateLanguageMenu = function (selected) {
         return item.code == 'en-US';
     });
 
-    document.getElementById('languageMenuCurrent').innerText = current[0]
-        ? current[0].name
-        : english[0].name;
+    document.getElementById('languageMenuCurrent').innerText = current[0] ? current[0].name : english[0].name;
 
     window.availableLanguages.forEach(function (item) {
         document.getElementById(
@@ -142,30 +140,18 @@ window.documentReadyFn = function () {
         .on('click', '.comp-tabs-a h4.accordion-header button', function (e) {
             e.preventDefault();
             const anchor = $(this).parents('.comp-tabs-a').attr('id');
-            $('#' + anchor + ' .accordion-item').removeClass(
-                'accordion-item-active'
-            );
-            $(this)
-                .parents('.accordion-item')
-                .addClass('accordion-item-active');
+            $('#' + anchor + ' .accordion-item').removeClass('accordion-item-active');
+            $(this).parents('.accordion-item').addClass('accordion-item-active');
             let tabIndex = $(this).data('tab');
-            $(
-                '#' + anchor + ` .comp-tabs-img[data-tab-content="${tabIndex}"]`
-            ).fadeIn();
-            $(
-                '#' +
-                    anchor +
-                    ` .comp-tabs-img:not([data-tab-content="${tabIndex}"])`
-            ).hide();
+            $('#' + anchor + ` .comp-tabs-img[data-tab-content="${tabIndex}"]`).fadeIn();
+            $('#' + anchor + ` .comp-tabs-img:not([data-tab-content="${tabIndex}"])`).hide();
         });
 
     $('body')
         .off('click', '.comp-tabs-b h4.comp-tab')
         .on('click', '.comp-tabs-b h4.comp-tab', function (e) {
             e.preventDefault();
-            $('.comp-tabs-b .comp-tabs-list-container h4').removeClass(
-                'comp-tab-active'
-            );
+            $('.comp-tabs-b .comp-tabs-list-container h4').removeClass('comp-tab-active');
             $(this).addClass('comp-tab-active');
             let tabIndex = $(this).data('tab');
             $(
@@ -183,12 +169,8 @@ window.documentReadyFn = function () {
             $('.comp-tabs-c .btn.pill').removeClass('pill-active');
             $(e.target).addClass('pill-active');
             let tabIndex = $(e.target).data('tab');
-            $(
-                `.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`
-            ).fadeIn();
-            $(
-                `.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`
-            ).hide();
+            $(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
+            $(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
         });
 
     setTimeout(function () {
@@ -199,16 +181,13 @@ window.documentReadyFn = function () {
             $(window)
                 .off('scroll')
                 .on('scroll', function () {
-                    $('.pane:not(.hero, .pane-form, .gated) .container').each(
-                        function (i) {
-                            var bottom_of_object = $(this).position().top;
-                            var bottom_of_window =
-                                $(window).scrollTop() + $(window).height();
-                            if (bottom_of_window > bottom_of_object) {
-                                $(this).animate({ opacity: '1' }, 1000);
-                            }
+                    $('.pane:not(.hero, .pane-form, .gated) .container').each(function (i) {
+                        var bottom_of_object = $(this).position().top;
+                        var bottom_of_window = $(window).scrollTop() + $(window).height();
+                        if (bottom_of_window > bottom_of_object) {
+                            $(this).animate({ opacity: '1' }, 1000);
                         }
-                    );
+                    });
                 });
         }
     }, 1000);
@@ -220,10 +199,7 @@ window.documentReadyFn = function () {
 
     $('body').on('click', '.edit-post-visual-editor .wp-block', function () {
         $('textarea').each(function () {
-            this.setAttribute(
-                'style',
-                'height:' + this.scrollHeight + 'px;overflow-y:hidden;'
-            );
+            this.setAttribute('style', 'height:' + this.scrollHeight + 'px;overflow-y:hidden;');
         });
     });
 
@@ -231,18 +207,13 @@ window.documentReadyFn = function () {
         .off('click', '.comp-faq h4.accordion-header button')
         .on('click', '.comp-faq h4.accordion-header button', function (e) {
             $('.comp-faq .accordion-item').removeClass('accordion-item-active');
-            $(this)
-                .parents('.accordion-item')
-                .addClass('accordion-item-active');
+            $(this).parents('.accordion-item').addClass('accordion-item-active');
         });
 
     //widowFix
     !(function (t) {
         $.fn.widowFix = function (i) {
-            var n = t.extend(
-                { letterLimit: null, prevLimit: null, linkFix: !1, dashes: !1 },
-                i
-            );
+            var n = t.extend({ letterLimit: null, prevLimit: null, linkFix: !1, dashes: !1 }, i);
             if (this.length)
                 return this.each(function () {
                     var i,
@@ -264,45 +235,28 @@ window.documentReadyFn = function () {
                         ) {
                             t.each(['-', '–', '—'], function (t, i) {
                                 if (h.indexOf(i) > 0)
-                                    return (
-                                        (h =
-                                            '<span style="white-space:nowrap;">' +
-                                            h +
-                                            '</span>'),
-                                        !1
-                                    );
+                                    return (h = '<span style="white-space:nowrap;">' + h + '</span>'), !1;
                             });
                         }
                         var s = a[a.length - 1];
                         if (n.linkFix) {
-                            if (
-                                null !== n.letterLimit &&
-                                i.length >= n.letterLimit
-                            )
+                            if (null !== n.letterLimit && i.length >= n.letterLimit)
                                 return void e.find('var').each(function () {
-                                    t(this).contents().replaceWith(l),
-                                        t(this).contents().unwrap();
+                                    t(this).contents().replaceWith(l), t(this).contents().unwrap();
                                 });
                             if (null !== n.prevLimit && s.length >= n.prevLimit)
                                 return void e.find('var').each(function () {
-                                    t(this).contents().replaceWith(l),
-                                        t(this).contents().unwrap();
+                                    t(this).contents().replaceWith(l), t(this).contents().unwrap();
                                 });
                         } else {
-                            if (
-                                null !== n.letterLimit &&
-                                h.length >= n.letterLimit
-                            )
-                                return;
-                            if (null !== n.prevLimit && s.length >= n.prevLimit)
-                                return;
+                            if (null !== n.letterLimit && h.length >= n.letterLimit) return;
+                            if (null !== n.prevLimit && s.length >= n.prevLimit) return;
                         }
                         var u = a.join(' ') + '&nbsp;' + h;
                         e.html(u),
                             n.linkFix &&
                                 e.find('var').each(function () {
-                                    t(this).contents().replaceWith(l),
-                                        t(this).contents().unwrap();
+                                    t(this).contents().replaceWith(l), t(this).contents().unwrap();
                                 });
                     }
                 });
@@ -338,9 +292,7 @@ window.documentReadyFn = function () {
 
     if (document.location.pathname.includes('policies/gdpr-data-privacy')) {
         console.log('gdpr test');
-        var gdprLink = document.querySelector(
-            '.comp-card-grid-container .col:nth-child(3) .card-link'
-        );
+        var gdprLink = document.querySelector('.comp-card-grid-container .col:nth-child(3) .card-link');
         if (gdprLink) {
             var gdprLink2 = document.createElement('a');
             gdprLink2.setAttribute('href', '/policies/lpbvdpa/');
@@ -351,9 +303,7 @@ window.documentReadyFn = function () {
     }
 
     if (document.location.pathname.includes('policies/subprocessors')) {
-        $.getScript(
-            'https://visualping.io/externalfiles/widget/vp.min.js'
-        ).done(function () {
+        $.getScript('https://visualping.io/externalfiles/widget/vp.min.js').done(function () {
             console.log('Visualping done');
         });
     }
@@ -369,9 +319,7 @@ window.documentReadyFn = function () {
                 $('.hide-this').show();
                 window.sessionStorage.setItem('cloudPassword', 'yes');
             } else {
-                $('.wrong-password').text(
-                    'Incorrect password. Please double-check and try again.'
-                );
+                $('.wrong-password').text('Incorrect password. Please double-check and try again.');
             }
         });
         $('#password').keypress(function (e) {
@@ -381,9 +329,7 @@ window.documentReadyFn = function () {
                     $('.hide-this').show();
                     window.sessionStorage.setItem('cloudPassword', 'yes');
                 } else {
-                    $('.wrong-password').text(
-                        'Incorrect password. Please double-check and try again.'
-                    );
+                    $('.wrong-password').text('Incorrect password. Please double-check and try again.');
                 }
             }
         });
@@ -401,25 +347,19 @@ window.documentReadyFn = function () {
         let ghsrc = Query.get('gh_src');
         console.log('ghsrc is: ' + ghsrc);
 
-        document
-            .querySelectorAll('.comp-body-container a')
-            .forEach(function (lnk) {
-                var href = lnk.href.concat('&gh_src=').concat(ghsrc ?? '');
-                lnk.href = href;
-            });
+        document.querySelectorAll('.comp-body-container a').forEach(function (lnk) {
+            var href = lnk.href.concat('&gh_src=').concat(ghsrc ?? '');
+            lnk.href = href;
+        });
         document.querySelectorAll('.resume-upload').forEach(function (lnk) {
             var href = lnk.href.concat('&gh_src=').concat(ghsrc ?? '');
             lnk.href = href;
         });
 
-        let searchURL = 'https://careers.liveperson.com?source=campaignA'
-            .concat('&gh_src=')
-            .concat(ghsrc ?? '');
+        let searchURL = 'https://careers.liveperson.com?source=campaignA'.concat('&gh_src=').concat(ghsrc ?? '');
         let keyWordQuery = document.getElementById('Job_Search').value;
         if (keyWordQuery !== '') {
-            searchURL = searchURL
-                .concat('&q=')
-                .concat(encodeURIComponent(keyWordQuery));
+            searchURL = searchURL.concat('&q=').concat(encodeURIComponent(keyWordQuery));
         }
         let submit = document.getElementById('Search_Submit_Button');
         submit.href = searchURL;
@@ -429,15 +369,12 @@ window.documentReadyFn = function () {
             e.stopPropagation();
 
             if (e.keyCode === 13) {
-                let searchURL =
-                    'https://careers.liveperson.com?source=campaignA'
-                        .concat('&gh_src=')
-                        .concat(ghsrc ?? '');
+                let searchURL = 'https://careers.liveperson.com?source=campaignA'
+                    .concat('&gh_src=')
+                    .concat(ghsrc ?? '');
                 let keyWordQuery = document.getElementById('Job_Search').value;
                 if (keyWordQuery !== '') {
-                    searchURL = searchURL
-                        .concat('&q=')
-                        .concat(encodeURIComponent(keyWordQuery));
+                    searchURL = searchURL.concat('&q=').concat(encodeURIComponent(keyWordQuery));
                 }
                 console.log(`searchurl is ${searchURL}`);
                 location.href = searchURL;
@@ -447,8 +384,7 @@ window.documentReadyFn = function () {
         function setURLParams(e) {
             let keyWordQuery = document.getElementById('Job_Search').value;
 
-            let searchURLParams =
-                'https://careers.liveperson.com/?source=campaignA&q=';
+            let searchURLParams = 'https://careers.liveperson.com/?source=campaignA&q=';
             searchURLParams = searchURLParams
                 .concat(encodeURIComponent(keyWordQuery))
                 .concat('&gh_src=')
@@ -461,19 +397,11 @@ window.documentReadyFn = function () {
             b.setAttribute('action', searchURLParams);
         }
 
-        document
-            .getElementById('Job_Search')
-            .addEventListener('keyup', handleKey);
-        document
-            .getElementById('wf-form-Search-Form')
-            .addEventListener('keyup', handleKey);
-        document
-            .getElementById('Job_Search')
-            .addEventListener('input', setURLParams);
+        document.getElementById('Job_Search').addEventListener('keyup', handleKey);
+        document.getElementById('wf-form-Search-Form').addEventListener('keyup', handleKey);
+        document.getElementById('Job_Search').addEventListener('input', setURLParams);
 
-        document
-            .querySelector('.resume-upload')
-            .addEventListener('click', function () {});
+        document.querySelector('.resume-upload').addEventListener('click', function () {});
 
         //Adding fix for Vocal video here too
         if (!window.VocalVideo) {
@@ -481,9 +409,7 @@ window.documentReadyFn = function () {
             const script = document.createElement('script');
             script.src = 'https://vocalvideo.com/embed/v1/host.js';
             head.appendChild(script);
-            const iframe = document.querySelectorAll(
-                'iframe[title="Vocal Video"]'
-            )[0]; // only works with 1 gallery embed per page
+            const iframe = document.querySelectorAll('iframe[title="Vocal Video"]')[0]; // only works with 1 gallery embed per page
             if (iframe) {
                 iframe.src = iframe.src;
             }
@@ -504,9 +430,7 @@ window.documentReadyFn = function () {
     });
 
     if (document.querySelectorAll('#plain-content-text-carousel').length > 0) {
-        var fixCarousel = $('#plain-content-text-carousel')
-            .html()
-            .replace('&nbsp;', '');
+        var fixCarousel = $('#plain-content-text-carousel').html().replace('&nbsp;', '');
         $('#plain-content-text-carousel').html(fixCarousel);
     }
 
@@ -515,4 +439,16 @@ window.documentReadyFn = function () {
         document.querySelector('.thanks-download-link a[href="#report"]').href =
             decodeURIComponent(resourceAssetURLParam);
     }
+
+    // if (
+    //     document.querySelector(
+    //         'body.resources a[href="/resources/success-stories/mindvalleys-managed-contact-center/"].post-link '
+    //     )
+    // ) {
+    //     let reportLink = document.querySelector(
+    //         'body.resources a[href="/resources/success-stories/mindvalleys-managed-contact-center/"].post-link '
+    //     );
+    //     reportLink.setAttribute('href', '/customer-conversations-report/?giancarlotest=123');
+    //     reportLink.setAttribute('target', '_blank');
+    // }
 };
