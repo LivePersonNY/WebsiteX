@@ -4,7 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from "@wordpress/i18n";
-import FeaturedSlider from "../../../../../../../../gatsby-sites/www/src/components/blocks/OverlaySlider";
+import OverlaySlider from "../../../../../../../../gatsby-sites/www/src/components/blocks/OverlaySlider";
 
 /**
  * React hook that is used to mark the block wrapper element.

@@ -6,7 +6,7 @@
 	"title": "Overlay Slider",
 	"category": "liveperson",
 	"icon": "megaphone",
-	"description": "Featured",
+	"description": "Overlay",
 	"supports": {
 		"html": false
 	},

@@ -20,7 +20,7 @@ import {
 } from "@wordpress/block-editor";
 const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
 
-import FeaturedSlider from "../../../../../../../../gatsby-sites/www/src/components/blocks/OverlaySlider";
+import OverlaySlider from "../../../../../../../../gatsby-sites/www/src/components/blocks/OverlaySlider";
 import {
 	__experimentalGrid as Grid,
 	Placeholder,
