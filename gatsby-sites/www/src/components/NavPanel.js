@@ -100,7 +100,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/01/02101856/TalkTalk-Webinar_Landing-Page_v1.png"
+                                            src="https://static.liveperson.com/static-assets/2024/02/02095156/Deloitte_Feb-Webinar_Web-Hero_Opt1%402x.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
@@ -108,11 +108,12 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">Webinar</p>
                                             <p className="featured-body">
-                                                Disrupting traditional CX with a digital evolution
+                                                AI Labs: Explore the potential of generative AI with LivePerson +
+                                                Deloitte
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/talktalk-digital-transformation-journey/?utm_source=featured_resources_promo&utm_medium=direct&utm_campaign=talktalk_webinar_q1"
+                                                href="/resources/webinars/deloitte-ai-labs/?utm_source=featured_resources&utm_medium=direct&utm_campaign=deloitte_webinar_q1"
                                             >
                                                 Register now
                                             </a>
