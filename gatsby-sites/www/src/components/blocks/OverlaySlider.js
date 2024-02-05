@@ -34,7 +34,7 @@ const OverlaySlider = (props) => {
                 <div className={`col-lg-${props.small ? '4' : '12'}`}>
                     <div className={`row align-items-center`}>
                         {(item.img || item.imgCtl) && (
-                            <div className="col-lg-3 offset-lg-2" key={index}>
+                            <div className="col-lg-3 offset-lg-1" key={index}>
                                 {(!item.imgCtl && (
                                     <img
                                         src={item.img}
@@ -47,11 +47,18 @@ const OverlaySlider = (props) => {
                                     item.imgCtl}
                             </div>
                         )}
-                        <div className={`${item.img || item.imgCtl ? 'col-lg-5' : 'col-lg-10 offset-lg-1'}`}>
-                            <Paragraph className="h3" text={item.body} />
+                        <div className={`${item.img || item.imgCtl ? 'col-lg-4' : 'col-lg-10 offset-lg-1'}`}>
+                            <h6 className="h6">
+                                <Paragraph headerLevel="h6" text={item.kicker} />
+                            </h6>
+                            <h3 className="h3">
+                                <Paragraph headerLevel="h3" text={item.body} />
+                            </h3>
+                        </div>
+                        <div className={`col-lg-3`}>
                             {item.linkText && (
                                 <a
-                                    className="link link-mt-large"
+                                    className="btn btn-primary"
                                     href={item.linkUrl}
                                     target={item.linkExternal && `_blank`}
                                     rel={item.linkExternal && `noopener noreferrer`}
