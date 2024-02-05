@@ -52,6 +52,7 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/roi-calculator/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/roi-content/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/roi-header/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/overlay-slider/' );
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
 
