@@ -1658,6 +1658,13 @@ main:not(.company-careers) {
             img {
                 height: 130px;
             }
+            .carousel-item {
+                .row {
+                    .col-lg-3:last-child {
+                        text-align: center;
+                    }
+                }
+            }
         }
     }
 }
