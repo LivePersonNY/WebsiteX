@@ -47,23 +47,14 @@ const FeaturedSlider = (props) => {
                                     item.imgCtl}
                             </div>
                         )}
-                        <div
-                            className={`${
-                                item.img || item.imgCtl
-                                    ? 'col-lg-5'
-                                    : 'col-lg-10 offset-lg-1'
-                            }`}
-                        >
+                        <div className={`${item.img || item.imgCtl ? 'col-lg-5' : 'col-lg-10 offset-lg-1'}`}>
                             <Paragraph className="h3" text={item.body} />
                             {item.linkText && (
                                 <a
                                     className="link link-mt-large"
                                     href={item.linkUrl}
                                     target={item.linkExternal && `_blank`}
-                                    rel={
-                                        item.linkExternal &&
-                                        `noopener noreferrer`
-                                    }
+                                    rel={item.linkExternal && `noopener noreferrer`}
                                 >
                                     {item.linkText}
                                 </a>
@@ -80,19 +71,13 @@ const FeaturedSlider = (props) => {
             data-localize={props.autoApprove && `auto-approve`}
             autoapprove={props.autoApprove && 'true'}
             id={props.anchor}
-            className={`pane comp-featured-slider ${
-                props.backgroundColor || 'bg-transparent'
-            }`}
+            className={`pane comp-featured-slider ${props.backgroundColor || 'bg-transparent'}`}
         >
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="comp-slider-container">
-                            <div
-                                id="featured-slider"
-                                className="carousel slide"
-                                data-bs-ride="carousel"
-                            >
+                            <div id="featured-slider" className="carousel slide" data-bs-ride="carousel">
                                 {props.items.length > 1 && (
                                     <>
                                         <button
@@ -101,13 +86,8 @@ const FeaturedSlider = (props) => {
                                             data-bs-target="#featured-slider"
                                             data-bs-slide="prev"
                                         >
-                                            <span
-                                                className="carousel-control-prev-icon"
-                                                aria-hidden="true"
-                                            ></span>
-                                            <span className="visually-hidden">
-                                                Previous
-                                            </span>
+                                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span className="visually-hidden">Previous</span>
                                         </button>
                                         <button
                                             className="carousel-control-next"
@@ -115,25 +95,14 @@ const FeaturedSlider = (props) => {
                                             data-bs-target="#featured-slider"
                                             data-bs-slide="next"
                                         >
-                                            <span
-                                                className="carousel-control-next-icon"
-                                                aria-hidden="true"
-                                            ></span>
-                                            <span className="visually-hidden">
-                                                Next
-                                            </span>
+                                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span className="visually-hidden">Next</span>
                                         </button>
                                     </>
                                 )}
-                                <div className="carousel-inner">
-                                    {contentBlock}
-                                </div>
+                                <div className="carousel-inner">{contentBlock}</div>
                             </div>
-                            {props.small && (
-                                <script data-type="pageScript">
-                                    {tabScript}
-                                </script>
-                            )}
+                            {props.small && <script data-type="pageScript">{tabScript}</script>}
                         </div>
                     </div>
                 </div>
