@@ -58,7 +58,7 @@ const OverlaySlider = (props) => {
                         <div className={`col-lg-3`}>
                             {item.linkText && (
                                 <a
-                                    className="btn btn-primary"
+                                    className="btn btn-outline-secondary"
                                     href={item.linkUrl}
                                     target={item.linkExternal && `_blank`}
                                     rel={item.linkExternal && `noopener noreferrer`}
