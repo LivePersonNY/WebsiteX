@@ -1520,6 +1520,12 @@ img[src*='doubleclick'] {
             padding-bottom: 0;
         }
     }
+    .link + .vimeoContainer {
+        margin-top: 24px;
+        @include media-breakpoint-up(lg) {
+            margin-top: 32px;
+        }
+    }
 }
 
 main:not(.company-careers) {
