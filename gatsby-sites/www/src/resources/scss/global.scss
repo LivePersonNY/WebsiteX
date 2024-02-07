@@ -1648,6 +1648,7 @@ main:not(.company-careers) {
 .comp-overlay-slider {
     padding-top: 0;
     padding-bottom: 0;
+    height: 430px;
     @include media-breakpoint-up(lg) {
         height: 226px;
     }
@@ -1656,6 +1657,7 @@ main:not(.company-careers) {
     background: linear-gradient(to bottom, $primaryDark 50%, $blue20 0%);
     .comp-slider-container {
         background: $neutral99;
+        height: 430px;
         @include media-breakpoint-up(lg) {
             height: 226px;
         }
@@ -1665,10 +1667,21 @@ main:not(.company-careers) {
         }
         #overlay-slider {
             button {
-                top: 50%;
-                transform: translateY(-50%);
+                left: 42%;
+                transform: translateX(-50%);
+                top: auto;
+                bottom: -24px;
+                @include media-breakpoint-up(lg) {
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: auto;
+                }
             }
             .carousel-item {
+                text-align: center;
+                @include media-breakpoint-up(lg) {
+                    text-align: left;
+                }
                 .row {
                     .col-lg-3:last-child {
                         text-align: center;
