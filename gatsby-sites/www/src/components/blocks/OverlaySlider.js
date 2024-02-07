@@ -85,6 +85,7 @@ const OverlaySlider = (props) => {
                     <div className="col-lg-12">
                         <div className="comp-slider-container">
                             <div id="overlay-slider" className="carousel slide" data-bs-ride="carousel">
+                                <div className="carousel-inner">{contentBlock}</div>
                                 {props.items.length > 1 && (
                                     <>
                                         <button
@@ -107,7 +108,6 @@ const OverlaySlider = (props) => {
                                         </button>
                                     </>
                                 )}
-                                <div className="carousel-inner">{contentBlock}</div>
                             </div>
                             {props.small && <script data-type="pageScript">{tabScript}</script>}
                         </div>

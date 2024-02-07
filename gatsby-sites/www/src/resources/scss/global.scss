@@ -1648,26 +1648,34 @@ main:not(.company-careers) {
 .comp-overlay-slider {
     padding-top: 0;
     padding-bottom: 0;
-    height: 226px;
+    @include media-breakpoint-up(lg) {
+        height: 226px;
+    }
     overflow: hidden;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
     background: linear-gradient(to bottom, $primaryDark 50%, $blue20 0%);
     .comp-slider-container {
         background: $neutral99;
-        height: 226px;
-        padding: 48px 80px;
+        @include media-breakpoint-up(lg) {
+            height: 226px;
+        }
+        padding: 24px 40px;
+        @include media-breakpoint-up(lg) {
+            padding: 48px 80px;
+        }
         #overlay-slider {
             button {
                 top: 50%;
                 transform: translateY(-50%);
             }
-            img {
-                height: 130px;
-            }
             .carousel-item {
                 .row {
                     .col-lg-3:last-child {
                         text-align: center;
+                    }
+
+                    img {
+                        height: 130px;
                     }
                 }
             }
