@@ -1,6 +1,53 @@
 #elpi_2023_html {
     z-index: 9999;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
+
+.LPMcontainer {
+    margin-bottom: 15px !important;
+    margin-right: 15px !important;
+}
+
+#elpi_2023_html .elpi-2023-container {
+    position: relative;
+}
+
+#elpi_2023_html .elpi-2023-container .elpi-bubbles-container {
+    margin-right: 12px;
+}
+
+#elpi_2023_html .elpi-2023-container div {
+    clear: right;
+    float: right;
+    position: relative;
+}
+
+#elpi_2023_html .elpi-2023-container .elpi-bubbles-container .epli-close-button {
+    float: right;
+    margin-bottom: 8px;
+}
+
+#elpi_2023_html .elpi-2023-container .elpi-bubbles-container .elpi-bubble {
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 1.991773009300232px 11.950637817382812px 0 rgba(0, 0, 0, 0.2);
+    font-family: Inter !important;
+    font-size: 16px;
+    line-height: 19px;
+    display: inline;
+    clear: right;
+    float: right;
+    margin-bottom: 8px;
+}
+
+#elpi_2023_html .elpi-2023-container .epli-engagement-container .epli-engagement-img {
+    width: 90px;
+    cursor: pointer;
+}
+
 /* #elpi_2023_html .elpi-2023-container .elpi-bubbles-container .elpi-bubble {
     color: #1c1d22;
 } */
