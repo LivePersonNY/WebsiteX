@@ -1663,7 +1663,7 @@ main:not(.company-careers) {
         }
         padding: 24px 40px;
         @include media-breakpoint-up(lg) {
-            padding: 48px 80px;
+            padding: 48px 0;
         }
         #overlay-slider {
             button {
