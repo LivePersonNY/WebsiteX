@@ -100,7 +100,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/02/02095156/Deloitte_Feb-Webinar_Web-Hero_Opt1%402x.png"
+                                            src="https://static.liveperson.com/static-assets/2024/02/13111526/Deloitte_Feb-Webinar_Web-Hero_V2%402x.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
