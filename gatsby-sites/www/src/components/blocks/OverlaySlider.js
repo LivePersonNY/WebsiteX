@@ -78,7 +78,7 @@ const OverlaySlider = (props) => {
             data-localize={props.autoApprove && `auto-approve`}
             autoapprove={props.autoApprove && 'true'}
             id={props.anchor}
-            className={`pane comp-overlay-slider`}
+            className={`pane comp-overlay-slider ${props.cssClasses}`}
         >
             <div className="container">
                 <div className="row">

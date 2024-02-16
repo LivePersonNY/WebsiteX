@@ -223,6 +223,7 @@ export default function Edit({
 			<div {...useBlockProps()}>
 				{addButton}
 				<OverlaySlider
+					cssClasses={attributes.className}
 					header={headerControl}
 					items={itemControls}
 					runFilters={true}
@@ -235,6 +236,7 @@ export default function Edit({
 		<div {...useBlockProps()}>
 			{addButton}
 			<OverlaySlider
+				cssClasses={attributes.className}
 				header={attributes.header}
 				items={attributes.features}
 				runFilters={true}
