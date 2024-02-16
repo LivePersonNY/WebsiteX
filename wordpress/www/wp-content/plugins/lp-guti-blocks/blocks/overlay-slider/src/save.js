@@ -26,6 +26,7 @@ import { useBlockProps } from "@wordpress/block-editor";
 export default function save({ attributes }) {
 	return (
 		<OverlaySlider
+			cssClasses={attributes.className}
 			autoApprove={attributes.autoApproveLang}
 			header={attributes.header}
 			items={attributes.features}
