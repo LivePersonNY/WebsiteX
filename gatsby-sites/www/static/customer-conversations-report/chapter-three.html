@@ -2088,6 +2088,18 @@
                                     let formSuccessMessage =
                                         '<p class="form-success">Thank you for submitting your information.<br />Click the button below to grab your copy of State of Customer Conversations 2024.<br /><br /><a href="https://liveperson.docsend.com/view/w5n9ev8sh4txu647" target="_blank" class="btn btn-download download-btn">Download the report</a></p>';
                                     form.getFormElem().html('').append(formSuccessMessage);
+                                    // Do not change anything in the following two lines
+                                    window.VWO = window.VWO || [];
+                                    VWO.event =
+                                        VWO.event ||
+                                        function () {
+                                            VWO.push(['event'].concat([].slice.call(arguments)));
+                                        };
+
+                                    // Replace the property values with your actual values
+                                    VWO.event('webpageFormSubmission', {
+                                        testprop: '4999',
+                                    });
 
                                     return false;
                                 });
