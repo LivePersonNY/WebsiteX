@@ -43,27 +43,18 @@ const Report = ({ data: { post } }) => {
         },
         {
             property: `og:image`,
-            content: post.seo.opengraphImage
-                ? post.seo.opengraphImage.mediaItemUrl
-                : featuredImage.data,
+            content: post.seo.opengraphImage ? post.seo.opengraphImage.mediaItemUrl : featuredImage.data,
         },
         {
             property: `twitter:image`,
             content:
-                (post.seo.twitterImage
-                    ? post.seo.twitterImage.mediaItemUrl
-                    : ``) ||
-                (post.seo.opengraphImage
-                    ? post.seo.opengraphImage.mediaItemUrl
-                    : featuredImage.data) ||
+                (post.seo.twitterImage ? post.seo.twitterImage.mediaItemUrl : ``) ||
+                (post.seo.opengraphImage ? post.seo.opengraphImage.mediaItemUrl : featuredImage.data) ||
                 ``,
         },
         {
             property: `og:type`,
-            content:
-                post.seo.opengraphType ||
-                post.seo.schema.articleType ||
-                `website`,
+            content: post.seo.opengraphType || post.seo.schema.articleType || `website`,
         },
         {
             property: `og:url`,
@@ -72,6 +63,19 @@ const Report = ({ data: { post } }) => {
     ];
 
     let robots = [post.seo.metaRobotsNoindex, post.seo.metaRobotsNofollow];
+
+    let breadCrumbs = post.seo.breadcrumbs;
+    breadCrumbs = breadCrumbs.map((item, index) => {
+        let divider = '/';
+        if (breadCrumbs.length - 1 === index) {
+            divider = '';
+        }
+        return (
+            <div key={index}>
+                <a href={item.url}>{item.text}</a> {divider}
+            </div>
+        );
+    });
 
     return (
         <Layout>
@@ -84,6 +88,7 @@ const Report = ({ data: { post } }) => {
                 schema={post.seo.schema.raw}
             />
             {Parser(post.content)}
+            {breadCrumbs}
         </Layout>
     );
 };
@@ -124,6 +129,10 @@ export const pageQuery = graphql`
                 schema {
                     articleType
                     raw
+                }
+                breadcrumbs {
+                    text
+                    url
                 }
             }
             featuredImage {
