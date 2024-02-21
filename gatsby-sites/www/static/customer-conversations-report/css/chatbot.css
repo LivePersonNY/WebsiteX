@@ -52,6 +52,77 @@
     color: #1c1d22;
 }
 
+/* new chat styles */
+.lp_header {
+    border-radius: 16px 16px 0 0 !important;
+    background-color: #0d0943 !important;
+    height: 64px !important;
+    border-color: #ffffff !important;
+    border-width: 0 0 1px 0 !important;
+}
+
+.lp_header .lp_title-text {
+    color: #fafafa !important;
+    font-family: 'Space Grotesk', Roboto !important;
+    font-size: 15px;
+    font-weight: 700 !important;
+    line-height: 19px;
+    letter-spacing: 0px;
+}
+
+.lp_agent .lpc_message {
+    background-color: #060751 !important;
+    border: 0 !important;
+    padding: 8px 16px !important;
+}
+
+.lp_agent .lpc_message .lp_title_text {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    line-height: 19px !important;
+}
+
+.lp_visitor .lpc_message {
+    background-color: #5d51e4 !important;
+    border: 0 !important;
+    padding: 8px 16px !important;
+}
+
+.lp_visitor .lpc_message .lp_title_text {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    line-height: 19px !important;
+}
+
+.chips-wrapper .chips-item-container button {
+    border-color: #d0d0d0 !important;
+    background: none !important;
+    padding: 8px 16px !important;
+    color: #000000 !important;
+    font-size: 16px !important;
+    line-height: 19px !important;
+}
+
+.lp_location_bottom {
+    height: 54px !important;
+}
+
+.lp_location_bottom .lp_bottom_area {
+    padding-top: 6px !important;
+}
+
+.lp_location_bottom .lp_bottom_area .lp_input_area .lpview_form_textarea {
+    color: #a6a6a6 !important;
+    font-size: 16px !important;
+    line-height: 19px !important;
+    font-family: 'Inter', Arial !important;
+}
+
+.lp_location_bottom .lp_bottom_area .lp_send_button {
+    bottom: 14px !important;
+}
+/* end new chat styles */
+
 #ot-sdk-btn.ot-sdk-show-settings,
 #ot-sdk-btn.optanon-show-settings {
     font-size: 12px;
