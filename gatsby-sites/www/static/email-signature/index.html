@@ -1,0 +1,668 @@
+<html>
+    <head>
+        <title></title>
+        <meta data-react-helmet="true" name="robots" content="noindex, nofollow" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            #user_input td {
+                padding-bottom: 5px;
+            }
+
+            .custom {
+                display: none;
+            }
+
+            input {
+                width: 200px;
+            }
+
+            .hidden {
+                visibility: hidden;
+            }
+
+            .long {
+                width: 100%;
+                white-space: normal;
+            }
+
+            #code2 {
+                height: 270px;
+                width: 544px;
+            }
+        </style>
+    </head>
+
+    <body style="padding-bottom: 25px">
+        <div id="signature-generator" style="font-family: Verdana; font-size: smaller">
+            <img
+                style="margin-left: 48px; margin-top: 30px"
+                src="https://signature.s3.amazonaws.com/images/title.jpg"
+            />
+            <p
+                style="
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 16px;
+                    color: #868686;
+                    width: 680px;
+                    margin-left: 45px;
+                    margin-top: 5px;
+                "
+            >
+                &nbsp;
+            </p>
+            <img
+                style="margin-left: 22px; margin-top: 35px"
+                src="https://signature.s3.amazonaws.com/images/divider.jpg"
+            />
+            <p
+                style="
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 24px;
+                    color: #868686;
+                    width: 680px;
+                    margin-left: 22px;
+                    margin-top: 5px;
+                "
+            >
+                <span style="color: #f78b1e">1</span> Enter your Personal Data
+            </p>
+
+            <div style="margin-top: 23px; margin-left: 44px; float: left; width: 410px">
+                <table id="user_input" style="font-family: Verdana; font-size: smaller">
+                    <tr>
+                        <td>Name:</td>
+                        <td>
+                            <input class="normal_input" name="input-user-name" value="First Last" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Position:</td>
+                        <td>
+                            <input class="normal_input" name="input-user-position" value="Position" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <!-- <tr>
+                    <td>
+                        Address
+                    </td>
+                    <td>
+                        <select id="change_address_1">
+                            <option selected disabled>Pick One</option>
+                            <option value="a">US - New York</option>
+                            <option value="c">US - Atlanta</option>
+                            <option value="d">Israel - Ra'anana</option>
+                            <option value="h">Israel - Tel Aviv</option>
+                            <option value="e">UK - Reading</option>
+                            <option value="f">UK - London</option>
+                            <option value="i">Amsterdam</option>
+                            <option value="j">Mannheim</option>
+                            <option value="k">Berlin</option>
+                            <option value="l">Paris</option>
+                            <option value="m">Milan</option>
+                            <option value="n">Melbourne</option>
+                            <option value="o">Tokyo</option>
+                            <option value="p">US - Seattle</option>
+                            <option value="q">US - Mountain View</option>
+                            <option value="r">US - Austin</option>
+                            <option value="s">Tampa</option>
+                            <option value="t">Sydney</option>
+                            <option value="g">Custom</option>
+                        </select>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr class="custom">
+                    <td>
+                        Custom:
+                    </td>
+                    <td>
+                        <input class="custom_input" name="input-company-custom-address" value="" />
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr> -->
+                    <!--<tr class="custom">
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        <input class="custom_input" name="input-company-custom-pobox" value="" />
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr class="custom">
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        <input class="custom_input" name="input-company-custom-country" value="" />
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr class="custom">
+                    <td>
+                        Fax:
+                    </td>
+                    <td>
+                        <input class="custom_input" name="input-user-custom-fax" value="" />
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>-->
+                    <!--<tr>
+                    <td style="padding-right:5px">
+                        Address 2
+                    </td>
+                    <td>
+                        <select id="change_address_2">
+                        <option value="g">None</option>
+                        <option value="a">US - New York</option>
+                        <option value="b">US - San Francisco</option>
+                        <option value="c">US - Atlanta</option>
+                        <option value="d">Israel - Ra'anana</option>
+                        <option value="e">UK - Reading</option>
+                        <option value="f">UK - London</option>
+                        </select>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>-->
+                    <tr>
+                        <td>Direct:</td>
+                        <td>
+                            <input class="normal_input" name="input-user-direct" value="+1 212 609 XXXX" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>Ex. +1 123 456 7890</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <!-- <tr>
+                    <td>
+                        Mobile:
+                    </td>
+                    <td>
+                        <input class="normal_input" name="input-user-mobile" value="+1 XXX XXX XXXX" />
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        <a href="#" name="display-mobile" status="show">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        Ex. +1 123 456 7890
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr> -->
+                    <tr>
+                        <td>Banner:</td>
+                        <td>
+                            <select id="banner">
+                                <option value="v1">Version 1</option>
+                                <option value="v2">Version 2</option>
+                                <!-- <option value="cc">Conversational Commerce</option>
+                            <option value="rip">R.I.P. websites</option> -->
+                            </select>
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- <div style="float:left;border-left:2px solid #f2f2f2">
+            <p style="float:left;margin-left:30px;font-family: Arial, Helvetica, sans-serif; font-size:18px;color: #c7c5c5">Reference LivePerson addresses:</p>
+            <p style="clear:left;float:left;margin-left:30px;margin-top:15px;width:218px;font-family: Arial, Helvetica, sans-serif; font-size:14px;color: #868686">
+                <span style="font-weight:bold">US - New York</span>
+                <br /> 475 10th Avenue
+                <br /> 5th Floor
+                <br /> New York, NY 10018-9722
+                <br />
+                <br />
+                <span style="font-weight:bold">US - Atlanta</span>
+                <br /> 11720 Amber Park Drive
+                <br /> Suite 500
+                <br /> Alpharetta, GA 30009
+                <br />
+                <br />
+                <span style="font-weight:bold">Amsterdam</span>
+                <br /> Herengracht 124
+                <br /> 1015 BT Amsterdam
+                <br /> The Netherlands
+                <br />
+                <br />
+                <span style="font-weight:bold">Berlin</span>
+                <br /> Charlottenstrasse 4,
+                <br /> 10969 Berlin,
+                <br /> Germany
+                <br />
+                <br />
+                <span style="font-weight:bold">Milan</span>
+                <br /> Via Camillo Finocchiaro Aprile 14,
+                <br /> 20124 Milan, Italy
+                <br />
+                <br />
+                <span style="font-weight:bold">Tokyo</span>
+                <br /> 4-4-4 Sendagaya,
+                <br /> Shibuya-ku, Tokyo,
+                <br /> 151-0051, Japan
+                <br />
+                <br />
+                <span style="font-weight:bold">US - Seattle</span>
+                <br /> 221 Yale Ave. N
+                <br /> Suite 320
+                <br /> Seattle, WA 98109
+                <br />
+                <br />
+                <span style="font-weight:bold">US - Austin</span>
+                <br /> 720 Brazos St
+                <br /> 4th floor
+                <br /> Austin, TX 78701
+                <br />
+                <br />
+                <span style="font-weight:bold">Tampa</span>
+                <br /> 1120 E. Kennedy Blvd
+                <br /> Ste 226
+                <br /> Tampa, FL 33602</p>
+            <p style="float:left;margin-top:15px;font-family: Arial, Helvetica, sans-serif; font-size:14px;color: #868686">
+                <span style="font-weight:bold">Israel - Ra’anana</span>
+                <br /> 13 Zarchin Street
+                <br /> PO Box 2067, Industrial Area
+                <br /> Ra'anana 43100, Israel
+                <br />
+                <br />
+                <span style="font-weight:bold">Israel - Tel Aviv</span>
+                <br /> Maklef st. 5-7 Tel-Aviv
+                <br /> Floor 59
+                <br /> Tel Aviv-Yafo, Israel
+                <br />
+                <br />
+                <span style="font-weight:bold">UK - Reading</span>
+                <br /> 250 South Oak Way
+                <br /> Green Park, Reading
+                <br /> RG2 6UG UK
+                <br />
+                <br />
+                <span style="font-weight:bold">UK - London</span>
+                <br /> 338 Goswell Rd
+                <br /> The Angel, London
+                <br /> EC1V 7LQ, UK
+                <br />
+                <br />
+                <span style="font-weight:bold">Mannheim</span>
+                <br /> P 3, 1-3
+                <br /> 3. OG
+                <br /> D-68161 Mannheim, Germany
+                <br />
+                <br />
+                <span style="font-weight:bold">Paris</span>
+                <br /> NCI Opera
+                <br /> 59 rue des Petits-Champs
+                <br /> Paris, France
+                <br />
+                <br />
+                <span style="font-weight:bold">Melbourne</span>
+                <br /> Level 2, 4-5 Queens Rd,
+                <br /> Melbourne, VIC, AUS, 3004
+                <br />
+                <br />
+                <span style="font-weight:bold">US - Mountain View</span>
+                <br /> 485 N Whisman Road
+                <br /> Suite 100
+                <br /> Mountain View, CA 94043
+                <br /><br />
+                <span style="font-weight:bold">Sydney</span>
+                <br /> Level 36, Gateway Building,
+                <br /> 1 Macquarie Place,
+                <br /> Sydney, NSW 2000. Australia</p>
+        </div> -->
+
+            <img
+                style="clear: left; float: left; margin-left: 22px; margin-top: 35px"
+                src="https://signature.s3.amazonaws.com/images/divider.jpg"
+            />
+            <p
+                style="
+                    clear: left;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 24px;
+                    color: #868686;
+                    width: 680px;
+                    margin-left: 22px;
+                    padding-top: 5px;
+                "
+            >
+                <span style="color: #f78b1e">2</span> Preview
+            </p>
+            <p
+                style="
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 14px;
+                    color: #868686;
+                    width: 560px;
+                    margin-left: 44px;
+                    margin-top: 5px;
+                "
+            >
+                Preview the way your signature will appear.
+            </p>
+        </div>
+        <div id="signature" style="margin-top: 20px; width: 600px">
+            <div style="width: 400px; float: left">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td valign="top" colspan="2" style="padding-top: 24px; padding-bottom: 6px">
+                            <font style="font-family: arial; font-size: 20px; color: #162036">
+                                <span name="output-user-name">{firstName} {lastName}</span>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" colspan="2">
+                            <font style="font-family: arial; font-size: 13px; color: #7c7774">
+                                <span name="output-user-position">{title}</span>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top" style="padding-top: 10px">
+                            <font style="font-family: arial; font-size: 13px; color: #7c7774; font-weight: bold"
+                                >T:
+                                <span style="font-weight: normal" name="output-user-direct">{workPhone}</span>
+                            </font>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top" colspan="2" style="padding-top: 20px">
+                            <img
+                                src="https://signature.s3.amazonaws.com/2024/LivePerson-logo-light_2x.png"
+                                style="display: block; border: 0; width: 180px"
+                                width="180"
+                            />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top" colspan="2" style="padding-top: 20px">
+                            <a
+                                name="output-banner"
+                                href="https://www.liveperson.com/customer-conversations-report/?utm_source=EmailSignature&utm_campaign=SOCC-campaign&utm_medium=organic-content&utm_content=45301"
+                                target="_blank"
+                            >
+                                <img
+                                    src="https://signature.s3.amazonaws.com/2024/Email-Signature_SOCC_DA_0104_FINAL_2x.png"
+                                    style="display: block; border: 0; width: 400px"
+                                    width="400"
+                                />
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+
+        <script>
+            $('.normal_input').keyup(function () {
+                $username = $('[name="input-user-name"]').val();
+                $userposition = $('[name="input-user-position"]').val();
+                $userdirect = $('[name="input-user-direct"]').val();
+                $usermobile = $('[name="input-user-mobile"]').val();
+                $userfax = $('[name="input-user-fax"]').val();
+
+                $('[name="output-user-name"]').html($username);
+                $('[name="output-user-position"]').html($userposition);
+                $('[name="output-user-direct"]').html($userdirect);
+                $('[name="output-user-fax"]').html($userfax);
+
+                if ($('[name="display-mobile"]').attr('status') == 'show')
+                    $('[name="output-user-mobile"]').html($usermobile);
+            });
+
+            $('[name="display-mobile"]').click(function () {
+                if ($(this).attr('status') == 'show') {
+                    //user hit Remove
+                    $(this).attr('status', 'Remove');
+                    $(this).html('Show');
+                    $('[name="output-user-mobile-title"]').html('');
+                    $('[name="output-user-mobile"]').html('');
+                } else {
+                    //user hit SHOW
+                    $(this).attr('status', 'show');
+                    $(this).html('Remove');
+                    $('[name="output-user-mobile-title"]').html('M ');
+                    $('[name="output-user-mobile"]').html('  ' + $usermobile);
+                }
+            });
+
+            $('#gen_code').click(function () {
+                $('#code').val($('#signature').html());
+            });
+
+            $(document).ready(function () {
+                function changeAddress() {
+                    if ($('#change_address_1').val() == 'a') {
+                        $('[name="output-company-address"]').html('475 10th Avenue 5th Floor New York, NY 10018-9722');
+                        $('[name="output-user-fax"]').html('+1 212 609 4201');
+                        $('#fax_field').css('visibility', 'visible');
+                        $('.custom').css('display', 'none');
+                    } else if ($('#change_address_1').val() == 'b') {
+                        $('[name="output-company-address"]').html('115 Sansome St 14th Floor San Francisco, CA 94104');
+                        $('[name="output-user-fax"]').html('+1 415 813 6126');
+                        $('#fax_field').css('visibility', 'visible');
+                        $('.custom').css('display', 'none');
+                    } else if ($('#change_address_1').val() == 'c') {
+                        $('[name="output-company-address"]').html(
+                            '11720 Amber Park Drive Suite 500 Alpharetta, GA 30009'
+                        );
+                        $('[name="output-user-fax"]').html('+1 770 431 6308');
+                        $('#fax_field').css('visibility', 'visible');
+                        $('.custom').css('display', 'none');
+                    } else if ($('#change_address_1').val() == 'd') {
+                        $('[name="output-company-address"]').html(
+                            "13 Zarchin Street PO Box 2067, Industrial Area Ra'anana 43100, Israel"
+                        );
+                        $('[name="output-user-fax"]').html('+972 74 700 4900');
+                        $('#fax_field').css('visibility', 'visible');
+                        $('.custom').css('display', 'none');
+                    } else if ($('#change_address_1').val() == 'h') {
+                        $('[name="output-company-address"]').html(
+                            'Maklef st. 5-7 Tel-Aviv, Floor 59, Tel Aviv-Yafo, Israel '
+                        );
+                        $('#fax_field').css('visibility', 'hidden');
+                        $('.custom').css('display', 'none');
+                    } else if ($('#change_address_1').val() == 'e') {
+                        $('[name="output-company-address"]').html('250 South Oak Way Green Park, Reading RG2 6UG UK');
+                        $('[name="output-user-fax"]').html('+44 8701 306690');
+                        $('#fax_field').css('visibility', 'visible');
+                        $('.custom').css('display', 'none');
+                    } else if ($('#change_address_1').val() == 'f') {
+                        $('[name="output-company-address"]').html('338 Goswell Rd, The Angel, London, EC1V 7LQ, UK');
+                        $('#fax_field').css('visibility', 'hidden');
+                        $('.custom').css('display', 'none');
+                    } else if ($('#change_address_1').val() == 'g') {
+                        $('.custom').css('display', 'table-row');
+                        //$('#fax_field').css('visibility','visible');
+                        $('.custom_input').keyup(function () {
+                            $customAddress = $('[name="input-company-custom-address"]').val();
+                            $customPobox = $('[name="input-company-custom-pobox"]').val();
+                            $customCountry = $('[name="input-company-custom-country"]').val();
+                            $customFax = $('[name="input-user-custom-fax"]').val();
+                            $('[name="output-company-address"]').html($customAddress);
+                            $('[name="output-company-pobox"]').html($customPobox);
+                            $('[name="output-company-country"]').html($customCountry);
+                            $('[name="output-user-fax"]').html($customFax);
+                        });
+                    } else if ($('#change_address_1').val() == 'i') {
+                        $('[name="output-company-address"]').html('Herengracht 124 1015 BT Amsterdam The Netherlands');
+                    } else if ($('#change_address_1').val() == 'j') {
+                        $('[name="output-company-address"]').html('P 3, 1-3, 3. OG D-68161 Mannheim, Germany');
+                    } else if ($('#change_address_1').val() == 'k') {
+                        $('[name="output-company-address"]').html('Charlottenstrasse 4, 10969 Berlin, Germany');
+                    } else if ($('#change_address_1').val() == 'l') {
+                        $('[name="output-company-address"]').html('NCI Opera 59 rue des Petits-Champs Paris, France');
+                    } else if ($('#change_address_1').val() == 'm') {
+                        $('[name="output-company-address"]').html(
+                            'Via Camillo Finocchiaro Aprile 14, 20124 Milan, Italy'
+                        );
+                    } else if ($('#change_address_1').val() == 'n') {
+                        $('[name="output-company-address"]').html('Level 2, 4-5 Queens Rd, Melbourne, VIC, AUS, 3004');
+                    } else if ($('#change_address_1').val() == 'o') {
+                        $('[name="output-company-address"]').html(
+                            'Roppongi Hills Mori Tower 17F, 6-10-1 Roppongi, Minato-ku, Tokyo, 106-6111, Japan'
+                        );
+                    } else if ($('#change_address_1').val() == 'p') {
+                        $('[name="output-company-address"]').html('221 Yale Ave. N, Suite 320, Seattle, WA 98109');
+                    } else if ($('#change_address_1').val() == 'q') {
+                        $('[name="output-company-address"]').html(
+                            '485 N Whisman Road, Suite 100, Mountain View, CA 94043'
+                        );
+                    } else if ($('#change_address_1').val() == 'r') {
+                        $('[name="output-company-address"]').html('720 Brazos St, 4th floor, Austin, TX 78701');
+                    } else if ($('#change_address_1').val() == 's') {
+                        $('[name="output-company-address"]').html('1120 E. Kennedy Blvd, Ste 226, Tampa, FL 33602');
+                    } else if ($('#change_address_1').val() == 't') {
+                        $('[name="output-company-address"]').html(
+                            'Level 36, Gateway Building, 1 Macquarie Place, Sydney, NSW 2000. Australia'
+                        );
+                    }
+                }
+
+                function changeAddress2() {
+                    if ($('#change_address_2').val() == 'a') {
+                        $('[name="output-company-address2"]').html('475 10th Avenue');
+                        $('[name="output-company-pobox2"]').html('5th Floor');
+                        $('[name="output-company-country2"]').html('New York, NY 10018-9722');
+                        $('#address1_table').css('border-right', '3px solid #f1f1f2');
+                    } else if ($('#change_address_2').val() == 'b') {
+                        $('[name="output-company-address2"]').html('340 Brannan Street');
+                        $('[name="output-company-pobox2"]').html('Suite 301');
+                        $('[name="output-company-country2"]').html('San Francisco, CA 94107');
+                        $('#address1_table').css('border-right', '3px solid #f1f1f2');
+                    } else if ($('#change_address_2').val() == 'c') {
+                        $('[name="output-company-address2"]').html('11720 Amber Park Drive');
+                        $('[name="output-company-pobox2"]').html('Suite 500');
+                        $('[name="output-company-country2"]').html('Alpharetta, GA 30009');
+                        $('#address1_table').css('border-right', '3px solid #f1f1f2');
+                    } else if ($('#change_address_2').val() == 'd') {
+                        $('[name="output-company-address2"]').html('13 Zarchin Street');
+                        $('[name="output-company-pobox2"]').html('PO Box 2067, Industrial Area');
+                        $('[name="output-company-country2"]').html("Ra'anana 43100, Israel");
+                        $('#address1_table').css('border-right', '3px solid #f1f1f2');
+                    } else if ($('#change_address_2').val() == 'e') {
+                        $('[name="output-company-address2"]').html('250 South Oak Way');
+                        $('[name="output-company-pobox2"]').html('Green Park, Reading');
+                        $('[name="output-company-country2"]').html('RG2 6UG UK');
+                        $('#address1_table').css('border-right', '3px solid #f1f1f2');
+                    } else if ($('#change_address_2').val() == 'f') {
+                        $('[name="output-company-address2"]').html('Garrick House');
+                        $('[name="output-company-pobox2"]').html('26-27 Southampton Street');
+                        $('[name="output-company-country2"]').html('London WC2E 7RS UK');
+                        $('#address1_table').css('border-right', '3px solid #f1f1f2');
+                    } else if ($('#change_address_2').val() == 'g') {
+                        $('[name="output-company-address2"]').html('');
+                        $('[name="output-company-pobox2"]').html('');
+                        $('[name="output-company-country2"]').html('');
+                        $('#address1_table').css('border-right', '0');
+                    }
+                }
+
+                function changeBanner() {
+                    if ($('#banner').val() == 'v1') {
+                        $('[name="output-banner"]').attr(
+                            'href',
+                            'https://www.liveperson.com/customer-conversations-report/?utm_source=EmailSignature&utm_campaign=SOCC-campaign&utm_medium=organic-content&utm_content=45301'
+                        );
+                        $('[name="output-banner"] img').attr(
+                            'src',
+                            'https://signature.s3.amazonaws.com/2024/Email-Signature_SOCC_DA_0104_FINAL_2x.png'
+                        );
+                    } else if ($('#banner').val() == 'v2') {
+                        $('[name="output-banner"]').attr(
+                            'href',
+                            'https://www.liveperson.com/customer-conversations-report/?utm_source=EmailSignature&utm_campaign=SOCC-campaign&utm_medium=organic-content&utm_content=45301'
+                        );
+                        $('[name="output-banner"] img').attr(
+                            'src',
+                            'https://signature.s3.amazonaws.com/2024/Animated-email-signature_SoCC_DA_v1.gif'
+                        );
+                        // } else if ($('#banner').val() == 'maven') {
+                        //     $('[name="output-banner"]').attr(
+                        //         'href',
+                        //         'https://bit.ly/2RS120I'
+                        //     );
+                        //     $('[name="output-banner"] img').attr(
+                        //         'src',
+                        //         'https://signature.s3.amazonaws.com/2018/email-sig-ai.png'
+                        //     );
+                        // } else if ($('#banner').val() == 'wsj') {
+                        //     $('[name="output-banner"]').attr(
+                        //         'href',
+                        //         'https://liveperson.docsend.com/view/drieh2u'
+                        //     );
+                        //     $('[name="output-banner"] img').attr(
+                        //         'src',
+                        //         'https://signature.s3.amazonaws.com/2019/WSJ-banner.jpg'
+                        //     );
+                    }
+                }
+
+                $('#change_address_1').change(changeAddress);
+                $('#change_address_2').change(changeAddress2);
+                $('#banner').change(changeBanner);
+            });
+        </script>
+    </body>
+</html>
