@@ -78,8 +78,6 @@
 
 .lp_agent .lpc_message .lp_title_text {
     color: #ffffff !important;
-    font-size: 16px !important;
-    line-height: 19px !important;
 }
 
 .lp_visitor .lpc_message {
@@ -90,8 +88,6 @@
 
 .lp_visitor .lpc_message .lp_title_text {
     color: #ffffff !important;
-    font-size: 16px !important;
-    line-height: 19px !important;
 }
 
 .chips-wrapper .chips-item-container button {
