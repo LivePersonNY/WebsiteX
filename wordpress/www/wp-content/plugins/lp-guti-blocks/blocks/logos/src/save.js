@@ -33,6 +33,7 @@ export default function save({ attributes }) {
 			linkUrl={attributes.linkUrl}
 			linkText={attributes.linkText}
 			linkExternal={attributes.linkExternal}
+			anchor={attributes.anchor}
 		/>
 	);
 }
