@@ -450,11 +450,10 @@ window.documentReadyFn = function () {
     }
 
     if (document.location.pathname.includes('/guided-demo-library') && sessionStorage.getItem('guided-demo-email')) {
-        console.log('on library page');
         let demoButton = document.querySelectorAll('.comp-program-card-container .btn-primary');
         demoButton.forEach((elem) => {
             let demoButtonLink = elem.getAttribute('href');
-            elem.setAttribute('href', `${demoButtonLink}&guided-email=${sessionStorage.getItem('guided-demo-email')}`);
+            elem.setAttribute('href', `${demoButtonLink}&guided_email=${sessionStorage.getItem('guided-demo-email')}`);
         });
     }
 };
