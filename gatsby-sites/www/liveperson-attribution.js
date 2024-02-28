@@ -85,7 +85,7 @@ const MktoForms = {
                         return false;
                     }
                     if (formId == 4956) {
-                        console.log('form values: ' + values.Email);
+                        sessionStorage.setItem('guided-demo-email', values.Email);
                         location.href = '/guided-demo-library/';
                         return false;
                     }
