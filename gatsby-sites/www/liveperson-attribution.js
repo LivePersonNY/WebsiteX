@@ -85,6 +85,7 @@ const MktoForms = {
                         return false;
                     }
                     if (formId == 4956) {
+                        console.log(`form values: ${values}`);
                         location.href = '/guided-demo-library/';
                         return false;
                     }
