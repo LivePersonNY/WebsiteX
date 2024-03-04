@@ -28,7 +28,6 @@ const TabsA = (props) => {
     let tabContent = props.items.map((item, index) => {
         return (
             <div className={`accordion-item ${index === 0 ? 'accordion-item-active' : ''}`} key={index}>
-                <h6>{item.tabKicker}</h6>
                 <h4 className="accordion-header" id={`${props.anchor}_flush-heading${index}`}>
                     <button
                         className="collapsed"
@@ -39,6 +38,7 @@ const TabsA = (props) => {
                         aria-controls={`${props.anchor}_flush-collapse${index}`}
                         data-tab={index}
                     >
+                        <span className="h6 display-block">{item.tabKicker}</span>
                         {item.title}
                     </button>
                 </h4>
