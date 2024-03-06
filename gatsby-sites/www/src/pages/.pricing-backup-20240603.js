@@ -15,7 +15,7 @@ const htmlHack1 = `
 				<p class="h6 text-uppercase text-neutral-99">liveperson pricing</p>
 				<h1 class="text-neutral-99">No risk. No license fees. Pay as you go.</h1>
 				<p data-tag="new line split" class="lead text-neutral-99">
-					Pay for conversations, not seats. Drive a digital-first contact center transformation with unlimited seats, unlimited channels, and accelerated time to value for all enterprise brands.
+					Pay for resolutions, not seats, chats, or minutes. Drive an automation-first transformation and accelerate time to value with unlimited agent seats, and unlimited messaging and voice pricing for all new customers.
 				</p>
 				<a class="btn btn-primary link" href="/quote/">Request a quote</a>
 			</div>
@@ -27,20 +27,20 @@ const htmlHack1 = `
 
 <div class=" pane comp-icon-text-b bg-neutral-96">
 	<div class="container" >
-		<div class="row row-cols-lg comp-card-grid-container">
-			<div class="col-lg-8 offset-lg-2">
+		<div class="row row-cols-lg-2 comp-card-grid-container">
+			<div class="col">
 				<div class="card h-100">
 					<div class="card-body">
-						<!--<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25145618/numbers-1_circle-orange.svg" alt="">-->
-						<h3 class="">Transform your CX and business with the Conversational Cloud®</h3>
-						<p class="card-text subtitle1" data-tag="new line split">Orchestrate omnichannel conversations, supercharge agent productivity, and deliver more personalized, AI-empowered customer experiences with LivePerson’s digital customer conversation platform.</p>
+						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25145618/numbers-1_circle-orange.svg" alt="">
+						<h3 class="">Conversational Cloud</h3>
+						<p class="card-text subtitle1" data-tag="new line split">Automate messages and calls, optimize consumer insights, increase agent productivity with Liveperson AI.</p>
 					</div>
 					<div class="card-footer">
-						<a href="/request-demo/" class="card-link link">Schedule a demo</a>
+						<a href="/quote/" class="card-link link">Request a quote</a>
 					</div>
 				</div>
 			</div>
-			<!--<div class="col">
+			<div class="col">
 				<div class="card h-100">
 					<div class="card-body">
 						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25145619/numbers-2_circle-orange.svg" alt="">
@@ -51,7 +51,7 @@ const htmlHack1 = `
 						<a href="/quote/" class="card-link link">Request a quote</a>
 					</div>
 				</div>
-			</div>-->
+			</div>
 		</div>
 	</div>
 </div>
@@ -62,12 +62,12 @@ const htmlHack1 = `
 			<div class="col-lg-8">
 				<h2>Conversational Cloud Packages</h2>
 			</div>
-			<div class="col-lg-4">
+			<div class="col-lg-2">
 				<h5 class="text-center">Conversational Cloud</h5>
 			</div>
-			<!--<div class="col-lg-2">
+			<div class="col-lg-2">
 				<h5 class="text-center">Conversational Cloud & Generative AI</h5>
-			</div>-->
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-12">
@@ -78,9 +78,9 @@ const htmlHack1 = `
 						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
 							<div class="container">
 								<div class="row">
-									<div class="col-lg-8"><h4>Automations & AI</h4></div>
-									<div class="col-lg-4"></div>
-									<!--<div class="col-lg-2"></div>-->
+									<div class="col-lg-8"><h4>Enterprise Generative AI Suite</h4></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
@@ -92,16 +92,16 @@ const htmlHack1 = `
 									<div class="row">
 										<div class="col-lg-8">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
-												Intent Manager
+												Conversation Autopilot: Voice Bot
 											</a>
 											<div class="collapse" id="collapse1">
 												<p class="body2">
-													Create, manage,test, and activate intent domain models using LivePerson NLU, with pre-built domain and starter pack access for top verticals and use cases.
+													LLM-powered bots that harness Knowledge AI to leverage knowledge base content, internal documents, and more, creating voice bots and chatbots that generate human-like responses with relevant information to automate phone calls.
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -109,16 +109,16 @@ const htmlHack1 = `
 									<div class="row">
 										<div class="col-lg-8">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
-												Conversation Builder
+												Conversation Autopilot: Messaging Bot
 											</a>
 											<div class="collapse" id="collapse2">
 												<p class="body2">
-													Build bots that connect to consumer messaging channels and everyday systems with an easy-to-use bot builder for non-technical staff. Includes post-conversation survey bots, voice-enabled bots, and common use case templates.
+													LLM-powered bots harness Knowledge AI to access knowledge base content, internal documents, and more, to craft voice and chatbots that produce human-like responses containing pertinent information.
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -126,16 +126,16 @@ const htmlHack1 = `
 									<div class="row">
 										<div class="col-lg-8">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse3" role="button" aria-expanded="false" aria-controls="collapse3">
-												Conversation Orchestrator
+												Conversation Copilot: Conversation Assist
 											</a>
 											<div class="collapse" id="collapse3">
 												<p class="body2">
-													Craft highly personalized conversational experiences for consumers using Dynamic Routing, Conversation Context Service, and the Next Actions API.
+													Offers instant contextual recommended answers to agents using existing knowledge base, website content, and more, increasing productivity by quickly providing relevant information from brand-invested content sources.
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -143,16 +143,33 @@ const htmlHack1 = `
 									<div class="row">
 										<div class="col-lg-8">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse4" role="button" aria-expanded="false" aria-controls="collapse4">
-												AI Annotator
+												Conversation Copilot: Summary
 											</a>
 											<div class="collapse" id="collapse4">
 												<p class="body2">
-													Simplify identification, flagging, and correction of automation issues for agents and QA teams. Includes agent annotations, false responses, and Intent Manager Optimize tab access for annotation management.
+													Generates a concise summary of previous customer conversations handled by a bot or human agent before transfer, outlining the customer's questions, concerns, key issues, and attempted resolutions by the bot or previous agent.
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse5" role="button" aria-expanded="false" aria-controls="collapse5">
+												Conversation Copilot: Generative Intent Training
+											</a>
+											<div class="collapse" id="collapse5">
+												<p class="body2">
+													Accelerates NLU model development by using LLMs to automatically generate training phrases, producing various potential customer inquiry phrases.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -165,9 +182,9 @@ const htmlHack1 = `
 						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
 							<div class="container">
 								<div class="row">
-									<div class="col-lg-8"><h4>Agent & Supervisor Experience</h4></div>
-									<div class="col-lg-4"></div>
-									<!--<div class="col-lg-2"></div>-->
+									<div class="col-lg-8"><h4>VoiceBot</h4></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
@@ -178,53 +195,18 @@ const htmlHack1 = `
 									<div class="row">
 										<div class="col-lg-8">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse6" role="button" aria-expanded="false" aria-controls="collapse6">
-												Multi-channel Agent Workspace
+												VoiceBot
 											</a>
 											<div class="collapse" id="collapse6">
 												<p class="body2">
-													Handles multiple conversation channels asynchronously at scale, streamlining agent operations and enhancing agent focus and efficiency. Includes conversation history, out-of-the-box and custom agent widgets, and predefined content.
+													Automates, deflects, and contains calls within Voice Bot.
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
-
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-8">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseAMW" role="button" aria-expanded="false" aria-controls="collapseAMW">
-												Agent Manager Workspace
-											</a>
-											<div class="collapse" id="collapseAMW">
-												<p class="body2">
-													Centralized hub for data and agent information needed to manage a shift, offering insight into tracked metrics' causes and enabling private messaging to agents in live conversations.
-												</p>
-											</div>
-										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
-									</div>
-								</div>
-
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-8">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseVV" role="button" aria-expanded="false" aria-controls="collapseVV">
-												Voice/Video
-											</a>
-											<div class="collapse" id="collapseVV">
-												<p class="body2">
-													Web Messaging Voice and Video Connections service enables voice and video capabilities within Web Messaging conversations.
-												</p>
-											</div>
-										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
-									</div>
-								</div>
-
 							</div>
 						</div>
 					</div>
@@ -235,9 +217,9 @@ const htmlHack1 = `
 						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
 							<div class="container">
 								<div class="row">
-									<div class="col-lg-8"><h4>Administrative Experience</h4></div>
-									<div class="col-lg-4"></div>
-									<!--<div class="col-lg-2"></div>-->
+									<div class="col-lg-8"><h4>Automations & AI</h4></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
@@ -249,16 +231,16 @@ const htmlHack1 = `
 									<div class="row">
 										<div class="col-lg-8">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse7" role="button" aria-expanded="false" aria-controls="collapse7">
-												Management Console
+												Intent Manager
 											</a>
 											<div class="collapse" id="collapse7">
 												<p class="body2">
-													Explore, configure, and enable platform capabilities in a self-serve manner.
+													Create, manage,test, and activate intent domain models using LivePerson NLU, with pre-built domain and starter pack access for top verticals and use cases.
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -266,16 +248,16 @@ const htmlHack1 = `
 									<div class="row">
 										<div class="col-lg-8">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse8" role="button" aria-expanded="false" aria-controls="collapse8">
-												Create and manage users and skills
+												Conversation Builder
 											</a>
 											<div class="collapse" id="collapse8">
 												<p class="body2">
-													Add users, control permissions, establish agent groups, and create and assign skills for routing. Includes ability to control Dynamic Capacity settings for agent load balancing.
+													Build bots that connect to consumer messaging channels and everyday systems with an easy-to-use bot builder for non-technical staff. Includes post-conversation survey bots, voice-enabled bots, and common use case templates.
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -283,16 +265,33 @@ const htmlHack1 = `
 									<div class="row">
 										<div class="col-lg-8">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse9" role="button" aria-expanded="false" aria-controls="collapse9">
-												Campaign Builder
+												Conversation Orchestrator
 											</a>
 											<div class="collapse" id="collapse9">
 												<p class="body2">
-													Customizable messaging button library, or engagements, determining button display location, audience, and behavior. Includes Engagement Controller for controlling incoming Web Messaging conversation flow according to skill-defined thresholds.
+													Craft highly personalized conversational experiences for consumers using Dynamic Routing, Conversation Context Service, and the Next Actions API.
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse10" role="button" aria-expanded="false" aria-controls="collapse10">
+												AI Annotator
+											</a>
+											<div class="collapse" id="collapse10">
+												<p class="body2">
+													Simplify identification, flagging, and correction of automation issues for agents and QA teams. Includes agent annotations, false responses, and Intent Manager Optimize tab access for annotation management.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -300,7 +299,149 @@ const htmlHack1 = `
 						</div>
 					</div>
 
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="panelsStayOpen-headingFour">
+						</button>
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-8"><h4>Agent & Supervisor Experience</h4></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
+								</div>
+							</div>
+						</button>
+						</h2>
+						<div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
+							<div class="accordion-body">
 
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse11" role="button" aria-expanded="false" aria-controls="collapse11">
+												Multi-channel Agent Workspace
+											</a>
+											<div class="collapse" id="collapse11">
+												<p class="body2">
+													Handles multiple conversation channels asynchronously at scale, streamlining agent operations and enhancing agent focus and efficiency. Includes conversation history, out-of-the-box and custom agent widgets, and predefined content.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse12" role="button" aria-expanded="false" aria-controls="collapse12">
+												Agent Manager Workspace
+											</a>
+											<div class="collapse" id="collapse12">
+												<p class="body2">
+													Centralized hub for data and agent information needed to manage a shift, offering insight into tracked metrics' causes and enabling private messaging to agents in live conversations.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse13" role="button" aria-expanded="false" aria-controls="collapse13">
+												Voice/Video
+											</a>
+											<div class="collapse" id="collapse13">
+												<p class="body2">
+													Web Messaging Voice and Video Connections service enables voice and video capabilities within Web Messaging conversations.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<!-- START ADMIN EXPERIENCE -->
+
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="panelsStayOpen-headingFive">
+						</button>
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true" aria-controls="panelsStayOpen-collapseFive">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-8"><h4>Administrative Experience</h4></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
+								</div>
+							</div>
+						</button>
+						</h2>
+						<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
+							<div class="accordion-body">
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse14" role="button" aria-expanded="false" aria-controls="collapse14">
+												Management Console
+											</a>
+											<div class="collapse" id="collapse14">
+												<p class="body2">
+													Explore, configure, and enable platform capabilities in a self-serve manner.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse15" role="button" aria-expanded="false" aria-controls="collapse15">
+												Create and manage users and skills
+											</a>
+											<div class="collapse" id="collapse15">
+												<p class="body2">
+													Add users, control permissions, establish agent groups, and create and assign skills for routing. Includes ability to control Dynamic Capacity settings for agent load balancing.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse16" role="button" aria-expanded="false" aria-controls="collapse16">
+												Campaign Builder
+											</a>
+											<div class="collapse" id="collapse16">
+												<p class="body2">
+													Customizable messaging button library, or engagements, determining button display location, audience, and behavior. Includes Engagement Controller for controlling incoming Web Messaging conversation flow according to skill-defined thresholds.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
 
 
 					<!-- START MESSAGING CHANNELS -->
@@ -312,8 +453,8 @@ const htmlHack1 = `
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-8"><h4>Messaging Channels</h4></div>
-									<div class="col-lg-4"></div>
-									<!--<div class="col-lg-2"></div>-->
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
@@ -328,8 +469,8 @@ const htmlHack1 = `
 												Apple Messaging for Business
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -340,8 +481,8 @@ const htmlHack1 = `
 												App Messaging
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -357,8 +498,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -369,8 +510,8 @@ const htmlHack1 = `
 												Google RCS Messaging (GRBM)
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -381,8 +522,8 @@ const htmlHack1 = `
 												Google Business Messaging
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -398,8 +539,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -410,8 +551,8 @@ const htmlHack1 = `
 												KakaoTalk
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -422,8 +563,8 @@ const htmlHack1 = `
 												Line
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -439,8 +580,25 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse20" role="button" aria-expanded="false" aria-controls="collapse20">
+												Twitter
+											</a>
+											<div class="collapse" id="collapse20">
+												<p class="body2">
+													Engagement Credits incurred for conversations on direct messages and when brands reply to tweets.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -451,8 +609,8 @@ const htmlHack1 = `
 												Viber
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -463,8 +621,8 @@ const htmlHack1 = `
 												Web Messaging
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -475,8 +633,8 @@ const htmlHack1 = `
 												WeChat
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -492,8 +650,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -504,8 +662,8 @@ const htmlHack1 = `
 												Workato
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -516,8 +674,8 @@ const htmlHack1 = `
 												Chat
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -528,8 +686,8 @@ const htmlHack1 = `
 												Co-Browse
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -540,8 +698,8 @@ const htmlHack1 = `
 												Content
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -552,8 +710,8 @@ const htmlHack1 = `
 												Secure Forms
 											</a>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -570,9 +728,9 @@ const htmlHack1 = `
 						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="true" aria-controls="panelsStayOpen-collapseSeven">
 							<div class="container">
 								<div class="row">
-									<div class="col-lg-8"><h4>Proactive Messaging</h4></div>
-									<div class="col-lg-4"></div>
-									<!--<div class="col-lg-2"></div>-->
+									<div class="col-lg-8"><h4>Administrative Experience</h4></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
@@ -592,8 +750,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -611,31 +769,14 @@ const htmlHack1 = `
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-8"><h4>Reporting & Analytics</h4></div>
-									<div class="col-lg-4"></div>
-									<!--<div class="col-lg-2"></div>-->
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
 						</h2>
 						<div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingEight">
 							<div class="accordion-body">
-
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-8">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseRC" role="button" aria-expanded="false" aria-controls="collapseRC">
-												Report Center
-											</a>
-											<div class="collapse" id="collapseRC">
-												<p class="body2">
-													Consolidates metrics for sentiments, intents, operations, bots, generative AI, and voice analytics in one dashboard.
-												</p>
-											</div>
-										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
-									</div>
-								</div>
 
 								<div class="container">
 									<div class="row">
@@ -649,8 +790,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -666,8 +807,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -683,8 +824,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -702,8 +843,8 @@ const htmlHack1 = `
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-8"><h4>Advanced Analytics</h4></div>
-									<div class="col-lg-4"></div>
-									<!--<div class="col-lg-2"></div>-->
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
@@ -723,8 +864,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -740,8 +881,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -757,8 +898,25 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse29" role="button" aria-expanded="false" aria-controls="collapse29">
+												Conversation Insights
+											</a>
+											<div class="collapse" id="collapse29">
+												<p class="body2">
+													A text analytics tool focusing on transcripts and a subset of metric data.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -774,8 +932,25 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-8">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse31" role="button" aria-expanded="false" aria-controls="collapse31">
+												Conversation Assist
+											</a>
+											<div class="collapse" id="collapse31">
+												<p class="body2">
+													Recommends bots and answers to human agents within their conversations with consumers.
+												</p>
+											</div>
+										</div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -793,8 +968,8 @@ const htmlHack1 = `
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-8"><h4>Integrations & Developer Experience</h4></div>
-									<div class="col-lg-4"></div>
-									<!--<div class="col-lg-2"></div>-->
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
@@ -814,8 +989,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -831,8 +1006,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -848,8 +1023,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -865,8 +1040,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -882,8 +1057,8 @@ const htmlHack1 = `
 												</p>
 											</div>
 										</div>
-										<div class="col-lg-4"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<!--<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>-->
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -903,61 +1078,45 @@ const htmlHack1 = `
 	<div class="container" style="opacity:1">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="">Unlock more customer insights with:</h2>
+				<h2 class="">Choose the payment option that meets your business needs</h2>
 			</div>
 		</div>
 		<div class="row row-cols-lg-2 row-cols-1 comp-block-grid-container">
 			<div class="col">
-				<!--<img src="https://static.liveperson.com/static-assets/2023/04/25145621/banking-money-2_circle-orange.svg" alt="ringing telephone">-->
-				<p class="card1">Analytics Studio</p>
-				<p class="subtitle1" data-tag="new line split">Analytics Studio is a tightly integrated, turn-key analytics platform that converts conversations into rich actionable data within minutes.</p>
+				<img src="https://static.liveperson.com/static-assets/2023/04/25145621/banking-money-2_circle-orange.svg" alt="ringing telephone">
+				<p class="card1">Pay as you go</p>
+				<p class="subtitle1" data-tag="new line split">Only pay for what you use: Unlimited agent seats.</p>
 			</div>
 			<div class="col">
-				<!--<img src="https://static.liveperson.com/static-assets/2023/04/25145622/insurance-handshake_circle-orange.svg" alt="ringing telephone">-->
-				<p class="card1">Generative Insights</p>
-				<p class="subtitle1" data-tag="new line split">Generative Insights is a cutting-edge tool that empowers users to use natural language to harness the rich treasure trove of data buried within their conversation history.</p>
+				<img src="https://static.liveperson.com/static-assets/2023/04/25145622/insurance-handshake_circle-orange.svg" alt="ringing telephone">
+				<p class="card1">Annual contract</p>
+				<p class="subtitle1" data-tag="new line split">Get customer success and enhanced support services with annual contract.</p>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class=" pane comp-icon-text-b bg-neutral-96">
+<div class="pane comp-quote-slider bg-transparent">
 	<div class="container" >
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="">Accelerate agent productivity and automation with Generative AI:</h2>
-			</div>
-		</div>
-		<div class="row row-cols-lg-2 comp-card-grid-container">
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<h3 class="">Conversation Copilot: Summary</h3>
-						<p class="card-text subtitle1" data-tag="new line split">Generates a concise summary of previous customer conversations handled by a bot or human agent before transfer, outlining the customer's questions, concerns, key issues, and attempted resolutions by the bot or previous agent.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<h3 class="">Conversation Copilot: Conversation Assist</h3>
-						<p class="card-text subtitle1" data-tag="new line split">Offers instant contextual recommended answers to agents using existing knowledge base, website content, and more, increasing productivity by quickly providing relevant information from brand-invested content sources.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<h3 class="">Conversation Copilot: Generative Intent Training</h3>
-						<p class="card-text subtitle1" data-tag="new line split">Accelerates NLU model development by using LLMs to automatically generate training phrases, producing various potential customer inquiry phrases.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<h3 class="">Conversation Autopilot: Messaging</h3>
-						<p class="card-text subtitle1" data-tag="new line split">LLM-powered bots harness Knowledge AI to access knowledge base content, internal documents, and more, to craft AI agent chatbots that produce human-like responses containing pertinent information.</p>
+				<div class="comp-slider-container bg-neutral-96">
+
+					<div id="carouselExampleControls" class="carousel slide testing-here4" data-bs-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<div class="col-lg-12">
+									<div class="row align-items-center">
+										<div class="col-lg-10 offset-lg-1">
+											<img class="comp-brand-img" src="https://static.liveperson.com/static-assets/2023/04/26161117/specialized-logo-40px.svg" alt="Specialized Logo">
+											<p class="h6 comp-quote-author text-uppercase">andrew mcguigan • global leader, rider care at specialized</p>
+											<p class="quote1" data-tag="new line split">“As a worldwide brand selling to more than 25 distinct markets, LivePerson’s pay-as-you-go framework is the best fit for us. Today, our CSAT score for messaging interactions with retailers and riders is 93% and growing. As we continue to roll out LivePerson’s solutions across multiple languages, channels, and markets, pay-as-you-go provides us with the flexibility we need to strategically scale up AI for our business with a trusted partner.”</p>
+											<a class="link link-mt-large" target="_blank" href="https://pr.liveperson.com/2023-04-25-LivePerson-upgrades-its-Conversational-Cloud-platform-with-trustworthy-AI-capabilities-to-redefine-how-businesses-put-Generative-AI-and-LLMs-to-work">Read the press release</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -965,21 +1124,20 @@ const htmlHack1 = `
 	</div>
 </div>
 
-<div class=" pane comp-icon-text-a bg-transparent pane-with-lead-text">
-	<div class="container" style="opacity:1">
+<div class="pane comp-content-cta bg-transparent">
+	<div class="container" >
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="">Automate phone calls and boost customer satisfaction with:</h2>
-			</div>
-		</div>
-		<div class="row row-cols-lg-2 row-cols-1 comp-block-grid-container">
-			<div class="col">
-				<p class="card1">VoiceBot</p>
-				<p class="subtitle1" data-tag="new line split">Automates, deflects, and  contains calls within Voice Bot.</p>
-			</div>
-			<div class="col">
-				<p class="card1">Conversation Autopilot: Voice Bot</p>
-				<p class="subtitle1" data-tag="new line split">LLM-powered bots that harness Knowledge AI to leverage knowledge base content, internal documents, and more, creating voice bots and chatbots that generate human-like responses with relevant information to automate phone calls.</p>
+				<div class="comp-content-cta-container bg-neutral-96">
+					<div class="row align-items-center text-center text-lg-start">
+						<div class="col-lg-7 offset-lg-1">
+							<h2>See the Conversational Cloud in action</h2>
+						</div>
+						<div class="col-lg-2 offset-lg-1 text-lg-end">
+							<a class="btn btn-primary" href="/request-demo/">Get a demo</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

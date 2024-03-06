@@ -704,10 +704,10 @@ $animationSpeed: 30s;
             padding: 0;
             .container {
                 .row {
-                    .col-lg-2 {
+                    .col-lg-4 {
                         border-left: 1px solid $neutral84;
                     }
-                    .col-lg-2,
+                    .col-lg-4,
                     .col-lg-8 {
                         padding-top: 16px;
                         padding-bottom: 16px;
@@ -739,7 +739,7 @@ $animationSpeed: 30s;
                 &:last-child {
                     border-bottom: 0;
                 }
-                .col-lg-2 {
+                .col-lg-4 {
                     text-align: center;
                 }
                 .body1 {
