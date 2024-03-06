@@ -106,6 +106,16 @@ export default function Edit({
 	let itemValues = [...attributes.tabItems];
 	let itemControls = attributes.tabItems.map((item, index) => {
 		return {
+			tabKicker: (
+				<TextControl
+					value={itemValues[index].tabKicker}
+					onChange={function (value) {
+						itemValues[index].tabKicker = value;
+						setAttributes({ tabItems: itemValues });
+					}}
+					className="embedded-input"
+				/>
+			),
 			title: (
 				<TextControl
 					value={itemValues[index].title}
@@ -173,6 +183,7 @@ export default function Edit({
 		let thisIndex = itemValues.length;
 
 		itemValues.push({
+			tabKicker: `Kicker`,
 			title: `1914 translation by H. Rackham`,
 			body: `But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.`,
 			img: `https://picsum.photos/752/568?random=${thisIndex}`,
