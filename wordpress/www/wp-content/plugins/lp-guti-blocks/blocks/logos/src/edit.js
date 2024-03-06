@@ -20,6 +20,7 @@ import BackgroundSelectorMenu from "../../BackgroundSelector";
 import ItemControls from "../../ItemControls";
 import AutoApproveLanguage from "../../AutoApproveLanguage";
 import LinkControl from "../../LinkControl";
+import Anchor from "../../Anchor";
 import Reorder from "react-reorder";
 
 /**
@@ -175,11 +176,18 @@ export default function Edit({
 		return (
 			<div {...useBlockProps()}>
 				{addButton}
+				<Anchor
+					value={attributes.anchor}
+					callback={function (val) {
+						setAttributes({ anchor: val });
+					}}
+				/>
 				<LogosUniversal
 					header={headerControl}
 					items={controls}
 					backgroundColor={attributes.backgroundColor}
 					linkText={linkTextControl}
+					anchor={attributes.anchor}
 				/>
 			</div>
 		);
@@ -193,6 +201,7 @@ export default function Edit({
 				linkUrl={attributes.linkUrl}
 				linkText={attributes.linkText}
 				linkExternal={attributes.linkExternal}
+				anchor={attributes.anchor}
 			/>
 		</div>
 	);

@@ -115,7 +115,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                                 className="dropdown-link-blue"
                                                 href="/resources/webinars/deloitte-ai-labs/?utm_source=featured_resources&utm_medium=direct&utm_campaign=deloitte_webinar_q1"
                                             >
-                                                Register now
+                                                Watch now
                                             </a>
                                         </div>
                                     </div>

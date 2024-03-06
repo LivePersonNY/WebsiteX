@@ -38,6 +38,7 @@ const TabsA = (props) => {
                         aria-controls={`${props.anchor}_flush-collapse${index}`}
                         data-tab={index}
                     >
+                        <span className="h6 d-block text-uppercase">{item.tabKicker}</span>
                         {item.title}
                     </button>
                 </h4>
