@@ -14,7 +14,7 @@ import "../../../../../../../../gatsby-sites/www/liveperson-scripts";
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps, BlockControls } from "@wordpress/block-editor";
-const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
+const { MediaUpload, MediaUploadCheck, RichText } = wp.blockEditor;
 
 import TabsB from "../../../../../../../../gatsby-sites/www/src/components/blocks/TabsB";
 import {
@@ -115,14 +115,20 @@ export default function Edit({
 			),
 			kicker: itemValues[index].title,
 			body: (
-				<TextareaControl
+				<RichText
 					value={itemValues[index].body}
 					onChange={function (value) {
 						itemValues[index].body = value;
 						setAttributes({ tabItems: itemValues });
 					}}
 					className="embedded-input"
-					rows="1"
+					allowedFormats={[
+						"core/bold",
+						"core/italic",
+						"core/strikethrough",
+						"core/text-color",
+						"core/image",
+					]}
 				/>
 			),
 			imgCtl: (
