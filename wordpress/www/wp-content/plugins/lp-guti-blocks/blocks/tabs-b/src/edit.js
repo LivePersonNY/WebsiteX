@@ -33,6 +33,7 @@ import AutoApproveLanguage from "../../AutoApproveLanguage";
 import BackgroundSelectorMenu from "../../BackgroundSelector";
 import AddItemButton from "../../AddItemButton";
 import LinkControl from "../../LinkControl";
+import ItemControls from "../../ItemControls";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -102,7 +103,7 @@ export default function Edit({
 						}}
 						className="embedded-input"
 					/>
-					<button
+					{/* <button
 						className="v-tab-remove"
 						onClick={function (e) {
 							itemValues.splice(index, 1);
@@ -110,7 +111,14 @@ export default function Edit({
 						}}
 					>
 						<span className="dashicons-before dashicons-remove"></span>
-					</button>
+					</button> */}
+					<ItemControls
+						index={index}
+						itemArray={itemValues}
+						callback={function (items) {
+							setAttributes({ tabItems: items });
+						}}
+					/>
 				</div>
 			),
 			kicker: (
