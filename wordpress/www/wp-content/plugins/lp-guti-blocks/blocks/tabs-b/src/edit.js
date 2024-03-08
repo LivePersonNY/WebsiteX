@@ -14,7 +14,7 @@ import "../../../../../../../../gatsby-sites/www/liveperson-scripts";
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps, BlockControls } from "@wordpress/block-editor";
-const { MediaUpload, MediaUploadCheck } = wp.blockEditor;
+const { MediaUpload, MediaUploadCheck, RichText } = wp.blockEditor;
 
 import TabsB from "../../../../../../../../gatsby-sites/www/src/components/blocks/TabsB";
 import {
@@ -33,6 +33,7 @@ import AutoApproveLanguage from "../../AutoApproveLanguage";
 import BackgroundSelectorMenu from "../../BackgroundSelector";
 import AddItemButton from "../../AddItemButton";
 import LinkControl from "../../LinkControl";
+import ItemControls from "../../ItemControls";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -102,7 +103,7 @@ export default function Edit({
 						}}
 						className="embedded-input"
 					/>
-					<button
+					{/* <button
 						className="v-tab-remove"
 						onClick={function (e) {
 							itemValues.splice(index, 1);
@@ -110,19 +111,41 @@ export default function Edit({
 						}}
 					>
 						<span className="dashicons-before dashicons-remove"></span>
-					</button>
+					</button> */}
+					<ItemControls
+						index={index}
+						itemArray={itemValues}
+						callback={function (items) {
+							setAttributes({ tabItems: items });
+						}}
+					/>
 				</div>
 			),
-			kicker: itemValues[index].title,
+			kicker: (
+				<TextControl
+					value={itemValues[index].kicker}
+					onChange={function (value) {
+						itemValues[index].kicker = value;
+						setAttributes({ tabItems: itemValues });
+					}}
+					className="embedded-input"
+				/>
+			),
 			body: (
-				<TextareaControl
+				<RichText
 					value={itemValues[index].body}
 					onChange={function (value) {
 						itemValues[index].body = value;
 						setAttributes({ tabItems: itemValues });
 					}}
 					className="embedded-input"
-					rows="1"
+					allowedFormats={[
+						"core/bold",
+						"core/italic",
+						"core/strikethrough",
+						"core/text-color",
+						"core/image",
+					]}
 				/>
 			),
 			imgCtl: (
@@ -161,6 +184,7 @@ export default function Edit({
 
 		itemValues.push({
 			title: `The Translation`,
+			kicker: `Kicker Text`,
 			header: `1914 translation by H. Rackham`,
 			body: `But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.`,
 			linkUrl: "https://www.lipsum.com/",

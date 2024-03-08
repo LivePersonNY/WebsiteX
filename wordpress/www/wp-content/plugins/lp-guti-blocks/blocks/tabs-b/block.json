@@ -15,15 +15,16 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
-		"header": {"default": "Header above tabs"},
-		"backgroundColor":{},
-		"autoApproveLang": {"default":false, "type": "boolean"},
+		"header": { "default": "Header above tabs" },
+		"backgroundColor": {},
+		"autoApproveLang": { "default": false, "type": "boolean" },
 		"anchor": {},
 		"tabItems": {
 			"type": "array",
 			"default": [
 				{
 					"title": "Lorem Ipsum",
+					"kicker": "Kicker Text",
 					"header": "What is Lorem Ipsum?",
 					"body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
 					"linkUrl": "https://www.lipsum.com/",
