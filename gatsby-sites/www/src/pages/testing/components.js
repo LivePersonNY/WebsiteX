@@ -41,10 +41,7 @@ import CareerStickyCta from '../../components/blocks/CareerStickyCta';
 import NotFoundPage from '../404';
 
 const IndexPage = () => {
-    if (
-        process.env.BRANCH != 'develop' &&
-        process.env.GATSBY_IS_PREVIEW !== 'true'
-    ) {
+    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
         return <NotFoundPage />;
     }
 
@@ -69,6 +66,27 @@ const IndexPage = () => {
                 primaryBtnLink="#"
                 secondaryBtnText="Get Moar Demos"
                 secondaryBtnLink="#"
+            />
+
+            <QuickLinks
+                items={[
+                    {
+                        linkUrl: 'url1',
+                        linkText: 'text1',
+                    },
+                    {
+                        linkUrl: 'url2',
+                        linkText: 'text2',
+                    },
+                    {
+                        linkUrl: 'url3',
+                        linkText: 'text3',
+                    },
+                    {
+                        linkUrl: 'url4',
+                        linkText: 'text4',
+                    },
+                ]}
             />
 
             <MktoForm
@@ -192,49 +210,49 @@ const IndexPage = () => {
                             <div className="comp-scroll-horizontal-text-block">
                                 <h3>block title</h3>
                                 <p>
-                                    block body block body block body block body
-                                    block body block body block body block body
-                                    block body block body block body block body
+                                    {' '}
+                                    block body block body block body block body block body block body block body block
+                                    body block body block body block body block body
                                 </p>
                             </div>
                             <div className="comp-scroll-horizontal-text-block">
                                 <h3>block title</h3>
                                 <p>
-                                    block body block body block body block body
-                                    block body block body block body block body
-                                    block body block body block body block body
+                                    {' '}
+                                    block body block body block body block body block body block body block body block
+                                    body block body block body block body block body
                                 </p>
                             </div>
                             <div className="comp-scroll-horizontal-text-block">
                                 <h3>block title</h3>
                                 <p>
-                                    block body block body block body block body
-                                    block body block body block body block body
-                                    block body block body block body block body
+                                    {' '}
+                                    block body block body block body block body block body block body block body block
+                                    body block body block body block body block body
                                 </p>
                             </div>
                             <div className="comp-scroll-horizontal-text-block">
                                 <h3>block title</h3>
                                 <p>
-                                    block body block body block body block body
-                                    block body block body block body block body
-                                    block body block body block body block body
+                                    {' '}
+                                    block body block body block body block body block body block body block body block
+                                    body block body block body block body block body
                                 </p>
                             </div>
                             <div className="comp-scroll-horizontal-text-block">
                                 <h3>block title</h3>
                                 <p>
-                                    block body block body block body block body
-                                    block body block body block body block body
-                                    block body block body block body block body
+                                    {' '}
+                                    block body block body block body block body block body block body block body block
+                                    body block body block body block body block body
                                 </p>
                             </div>
                             <div className="comp-scroll-horizontal-text-block">
                                 <h3>block title</h3>
                                 <p>
-                                    block body block body block body block body
-                                    block body block body block body block body
-                                    block body block body block body block body
+                                    {' '}
+                                    block body block body block body block body block body block body block body block
+                                    body block body block body block body block body
                                 </p>
                             </div>
                         </div>
@@ -245,50 +263,46 @@ const IndexPage = () => {
             <div className={`pane comp-scroll-horizontal-text `}>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-4">
-                            <h2 className="comp-scroll-horizontal-scroll">
-                                this is header
-                            </h2>
-                        </div>
+                        <div className="col-lg-4">className="com this is header</div>
                         <div className="col-lg-8">
                             <div className="comp-scroll-horizontal-text-block">
                                 <h3>block title</h3>
                                 <p>
-                                    block body block body block body block body
-                                    block body block body block body block body
-                                    block body block body block body block body
+                                    {' '}
+                                    block body block body block body block body block body block body block body block
+                                    body block body block body block body block body
                                 </p>
                             </div>
                             <div className="comp-scroll-horizontal-text-block">
                                 <h3>block title</h3>
                                 <p>
-                                    block body block body block body block body
-                                    block body block body block body block body
-                                    block body block body block body block body
+                                    {' '}
+                                    block body block body block body block body block body block body block body block
+                                    body block body block body block body block body
                                 </p>
                             </div>
                             <div className="comp-scroll-horizontal-text-block">
                                 <h3>block title</h3>
                                 <p>
-                                    block body block body block body block body
-                                    block body block body block body block body
-                                    block body block body block body block body
+                                    {' '}
+                                    block body block body block body block body block body block body block body block
+                                    body block body block body block body block body
                                 </p>
                             </div>
                             <div className="comp-scroll-horizontal-text-block">
                                 <h3>block title</h3>
                                 <p>
-                                    block body block body block body block body
-                                    block body block body block body block body
-                                    block body block body block body block body
+                                    {' '}
+                                    block body block body block body block body block body block body block body block
+                                    body block body block body block body block body
                                 </p>
                             </div>
                             <div className="comp-scroll-horizontal-text-block">
                                 <h3>block title</h3>
                                 <p>
-                                    block body block body block body block body
-                                    block body block body block body block body
-                                    block body block body block body block body
+                                    {' '}
+                                    block body block body block body block body block body block body block body block
+                                    body block body block body block body block body
                                 </p>
                             </div>
                         </div>

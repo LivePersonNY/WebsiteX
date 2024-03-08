@@ -1570,10 +1570,13 @@ main:not(.company-careers) {
 
 .comp-quick-links {
     padding: 0;
+    position: sticky;
+    top: 64px;
+    background: $neutral99;
 
     .row {
-        padding-top: 22px;
-        padding-bottom: 22px;
+        padding-top: 11px;
+        padding-bottom: 11px;
         border-top: 1px solid $neutral72;
         border-bottom: 1px solid $neutral72;
 
@@ -1588,6 +1591,7 @@ main:not(.company-careers) {
             @include media-breakpoint-up(lg) {
                 display: flex;
                 padding: 0;
+                padding-top: 11px;
             }
         }
 
@@ -1603,7 +1607,7 @@ main:not(.company-careers) {
 
             @include media-breakpoint-up(lg) {
                 display: flex;
-                padding: 0;
+                padding: 11px 32px;
             }
         }
     }
