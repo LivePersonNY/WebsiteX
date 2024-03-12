@@ -100,7 +100,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/02/13111526/Deloitte_Feb-Webinar_Web-Hero_V2%402x.png"
+                                            src="https://static.liveperson.com/static-assets/2024/03/11104619/liveperson-digital-transformation-webinar-hard-rock-hero%402x.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
@@ -108,12 +108,11 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">Webinar</p>
                                             <p className="featured-body">
-                                                AI Labs: Explore the potential of generative AI with LivePerson +
-                                                Deloitte
+                                                Digital transformation strategies from a global CIO leader
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/deloitte-ai-labs/?utm_source=featured_resources&utm_medium=direct&utm_campaign=deloitte_webinar_q1"
+                                                href="/resources/webinars/cio-digital-transformation-strategies/?utm_source=featured_resources&utm_medium=direct&utm_campaign=hard_rock_webinar_q1"
                                             >
                                                 Watch now
                                             </a>
