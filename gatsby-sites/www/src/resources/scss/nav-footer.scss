@@ -537,20 +537,20 @@ header {
                     }
 
                     &.solutions {
-                        @include media-breakpoint-down(lg) {
-                            .col-lg:nth-child(2) {
-                                border-bottom: 0;
-                                padding-bottom: 0;
-                            }
+                        // @include media-breakpoint-down(lg) {
+                        //     .col-lg:nth-child(2) {
+                        //         border-bottom: 0;
+                        //         padding-bottom: 0;
+                        //     }
 
-                            .col-lg:nth-child(3) {
-                                padding-top: 0;
+                        //     .col-lg:nth-child(3) {
+                        //         padding-top: 0;
 
-                                .dropdown-section-title {
-                                    display: none;
-                                }
-                            }
-                        }
+                        //         .dropdown-section-title {
+                        //             display: none;
+                        //         }
+                        //     }
+                        // }
                         .col-lg:nth-child(3) {
                             .dropdown-item {
                                 &.dropdown-section-title {
