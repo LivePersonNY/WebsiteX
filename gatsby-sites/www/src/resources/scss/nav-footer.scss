@@ -363,6 +363,10 @@ header {
                                     background-position: -396px 0px;
                                 }
 
+                                &.nav-digital-sm::before {
+                                    background-position: -432px 0px;
+                                }
+
                                 .dropdown-item-content {
                                     color: $neutral24;
                                     margin-top: 4px;
@@ -547,7 +551,7 @@ header {
                                 }
                             }
                         }
-                        .col-lg:nth-child(4) {
+                        .col-lg:nth-child(3) {
                             .dropdown-item {
                                 &.dropdown-section-title {
                                     padding: 0;
