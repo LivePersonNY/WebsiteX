@@ -31,8 +31,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
         `
     );
 
-    const metaDescription =
-        description || wp.generalSettings?.description || ``;
+    const metaDescription = description || wp.generalSettings?.description || ``;
     const defaultTitle = wp.generalSettings?.title || ``;
     const favicon = wp.allSettings?.siteIcon || ``;
 
@@ -65,30 +64,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
         if (isReady) {
             window.documentReadyFn();
         }
-
-        /*if (!document.getElementById('localize_js')) {
-        loadLocalizeScript();
-      } else {
-        setLzLoaded(true);
-      }
-
-      if (lzLoaded) {
-
-        !function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
-
-        Localize.initialize({
-          key: `${process.env.LOCALIZE_KEY}`,
-          saveNewPhrasesFromSource: true,
-          retranslateOnNewPhrases: true,
-          translateMetaTags: true,
-          blockedClasses: [
-            'lp-window-root',
-            'microMode'
-          ],
-        });
-
-        console.log('Initialize localize.', `${process.env.LOCALIZE_KEY}`);
-      }*/
     }, [isLoaded]);
 
     const loadFormScript = () => {
@@ -98,32 +73,11 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
         s.async = true;
         s.src = 'https://info.liveperson.com/js/forms2/js/forms2.min.js';
         s.onreadystatechange = function () {
-            if (
-                this.readyState === 'complete' ||
-                this.readyState === 'loaded'
-            ) {
+            if (this.readyState === 'complete' || this.readyState === 'loaded') {
                 setIsLoaded(true);
             }
         };
         s.onload = () => setIsLoaded(true);
-        document.getElementsByTagName('head')[0].appendChild(s);
-    };
-
-    const loadLocalizeScript = () => {
-        var s = document.createElement('script');
-        s.id = 'localize_js';
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'https://global.localizecdn.com/localize.js';
-        s.onreadystatechange = function () {
-            if (
-                this.readyState === 'complete' ||
-                this.readyState === 'loaded'
-            ) {
-                setLzLoaded(true);
-            }
-        };
-        s.onload = () => setLzLoaded(true);
         document.getElementsByTagName('head')[0].appendChild(s);
     };
 
@@ -154,11 +108,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
             <link rel="icon" type="image/png" href={favicon} sizes="32x32" />
             <script type="application/ld+json">{schema}</script>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link
-                rel="preconnect"
-                href="https://fonts.gstatic.com"
-                crossOrigin
-            />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
 
             <link
                 href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap"

@@ -14,62 +14,6 @@ window.testGated = function () {
     $('.pane.gated').slideDown();
 };
 
-window.availableLanguages = [
-    {
-        code: 'en-US',
-        name: 'English (United States)',
-    },
-    {
-        code: 'ja',
-        name: '日本語 (Japan)',
-    },
-    {
-        code: 'pt-BR',
-        name: 'Português (Brasil)',
-    },
-    {
-        code: 'es',
-        name: 'Español (Spain)',
-    },
-    {
-        code: 'es-MX',
-        name: 'Español (Mexico)',
-    },
-    {
-        code: 'it',
-        name: 'Italiano (Italy)',
-    },
-    {
-        code: 'de',
-        name: 'Deutsch (Germany)',
-    },
-    {
-        code: 'fr',
-        name: 'Français (France)',
-    },
-];
-
-window.populateLanguageMenu = function (selected) {
-    if (!document.getElementById('languageMenuItems')) return;
-    document.getElementById('languageMenuItems').innerHTML = '';
-
-    let current = window.availableLanguages.filter(function (item) {
-        return item.code == selected;
-    });
-
-    let english = window.availableLanguages.filter(function (item) {
-        return item.code == 'en-US';
-    });
-
-    document.getElementById('languageMenuCurrent').innerText = current[0] ? current[0].name : english[0].name;
-
-    window.availableLanguages.forEach(function (item) {
-        document.getElementById(
-            'languageMenuItems'
-        ).innerHTML += `<li><a class="dropdown-item language-item" data-code="${item.code}">${item.name}</a></li>`;
-    });
-};
-
 window.lpHydrateAttributes = function () {
     LivePerson.HydrateAttributes(function () {
         LivePerson.waitForChat(function () {
@@ -79,28 +23,6 @@ window.lpHydrateAttributes = function () {
 };
 
 window.documentReadyFn = function () {
-    /*Localize.detectLanguage(function(err, languages) {
-		if (err) return console.log(err);
-
-		var currentSetLang = Cookie.get("currentLang");
-
-		var preferredLang = currentSetLang || languages[0] || null;
-
-		if (preferredLang) {
-		  window.setLanguage(preferredLang);
-		  window.populateLanguageMenu(preferredLang);
-		}
-	  });*/
-
-    window.Localize && window.populateLanguageMenu(Localize.getLanguage());
-
-    $('body').on('click', 'a.language-item', function (e) {
-        e.preventDefault();
-        let preferredLang = $(this).data('code');
-        Localize.setLanguage(preferredLang);
-        window.populateLanguageMenu(preferredLang);
-    });
-
     window.lottieFiles = [];
 
     window.lpCallbacks.forEach(function (item) {
