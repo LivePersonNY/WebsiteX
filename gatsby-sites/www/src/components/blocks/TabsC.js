@@ -26,11 +26,7 @@ const TabsC = (props) => {
 
     let pillListOutput = props.items.map((item, index) => {
         return (
-            <a
-                className={`btn pill ${index === 0 ? 'pill-active' : ''}`}
-                data-tab={index}
-                key={index}
-            >
+            <a className={`btn pill ${index === 0 ? 'pill-active' : ''}`} data-tab={index} key={index}>
                 {item.title}
             </a>
         );
@@ -71,9 +67,7 @@ const TabsC = (props) => {
                         />
                     )) ||
                         item.iconCtl}
-                    {item.kicker && (
-                        <p className="h6 text-uppercase">{item.kicker}</p>
-                    )}
+                    {item.kicker && <p className="h6 text-uppercase">{item.kicker}</p>}
                     <h3>{item.header}</h3>
                     <Paragraph text={item.body} />
                     {item.linkText && (
@@ -86,9 +80,7 @@ const TabsC = (props) => {
                             {item.linkText}
                         </a>
                     )}
-                    {item.tabStats && (
-                        <p className="tabStats-editor">{item.tabStats}</p>
-                    )}
+                    {item.tabStats && <p className="tabStats-editor">{item.tabStats}</p>}
                     {(item.tabStats && (
                         <>
                             <p className="h6">OUTCOMES</p>
@@ -122,42 +114,31 @@ const TabsC = (props) => {
                 data-localize={props.autoApprove && `auto-approve`}
                 autoapprove={props.autoApprove && 'true'}
                 id={props.anchor}
-                className={`pane comp-tabs-c ${
-                    props.backgroundColor || 'bg-transparent'
-                } ${props.header ? 'pane-with-lead-text' : ''}`}
+                className={`pane comp-tabs-c ${props.backgroundColor || 'bg-transparent'} ${
+                    props.header ? 'pane-with-lead-text' : ''
+                }`}
             >
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 offset-lg-2">
                             <h2 className="text-center">
-                                <Paragraph
-                                    text={props.header}
-                                    headerLevel="nothing"
-                                />
+                                <Paragraph text={props.header} headerLevel="nothing" />
                             </h2>
-                            {props.body && (
-                                <Paragraph
-                                    className="text-center"
-                                    text={props.body}
-                                />
-                            )}
+                            {props.body && <Paragraph className="text-center" text={props.body} />}
                         </div>
                     </div>
                     <div className="row justify-content-center text-center">
                         <div className="col-lg-10 pills-mobile-scroll">
-                            <div
-                                className="pills-container"
-                                style={{ width: props.mobilePillsWidth }}
-                            >
+                            <div className="pills-container" style={{ width: props.mobilePillsWidth }}>
                                 {pillListOutput}
                             </div>
                         </div>
                     </div>
                     {tabsContent}
                 </div>
-                {!props.runFilters && (
+                {/* {!props.runFilters && (
                     <script data-type="pageScript">{tabScript}</script>
-                )}
+                )} */}
             </div>
         </>
     );
