@@ -85,7 +85,7 @@ window.documentReadyFn = function () {
         });
 
     $('body')
-        // .off('click', '.comp-tabs-c .btn.pill')
+        .off('click', '.comp-tabs-c .btn.pill')
         .on('click', '.comp-tabs-c .btn.pill', function (e) {
             e.preventDefault();
             const anchor = $(this).parents('.comp-tabs-c').attr('id');
