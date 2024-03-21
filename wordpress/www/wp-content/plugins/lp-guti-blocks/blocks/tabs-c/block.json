@@ -15,10 +15,11 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
-		"header": {"default": "Header above tabs"},
-		"body": {"default": "This should be compelling content. But it isn't."},
+		"anchor": { "default": "horizontal1" },
+		"header": { "default": "Header above tabs" },
+		"body": { "default": "This should be compelling content. But it isn't." },
 		"backgroundColor": {},
-		"autoApproveLang": {"default":false, "type": "boolean"},
+		"autoApproveLang": { "default": false, "type": "boolean" },
 		"tabItems": {
 			"type": "array",
 			"default": [

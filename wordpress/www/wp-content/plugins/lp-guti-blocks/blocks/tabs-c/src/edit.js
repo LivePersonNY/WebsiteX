@@ -37,6 +37,7 @@ import AddItemButton from "../../AddItemButton";
 import BackgroundSelectorMenu from "../../BackgroundSelector";
 import ItemControls from "../../ItemControls";
 import LinkControl from "../../LinkControl";
+import Anchor from "../../Anchor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -277,7 +278,14 @@ export default function Edit({
 		return (
 			<div {...useBlockProps()}>
 				{addButton}
+				<Anchor
+					value={attributes.anchor}
+					callback={function (val) {
+						setAttributes({ anchor: val });
+					}}
+				/>
 				<TabsC
+					anchor={attributes.anchor}
 					header={headerControl}
 					body={bodyControl}
 					items={itemControls}
@@ -290,6 +298,7 @@ export default function Edit({
 		<div {...useBlockProps()}>
 			{addButton}
 			<TabsC
+				anchor={attributes.anchor}
 				header={attributes.header}
 				body={attributes.body}
 				items={attributes.tabItems}

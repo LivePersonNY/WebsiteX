@@ -166,11 +166,12 @@ window.documentReadyFn = function () {
         .off('click', '.comp-tabs-c .btn.pill')
         .on('click', '.comp-tabs-c .btn.pill', function (e) {
             e.preventDefault();
-            $('.comp-tabs-c .btn.pill').removeClass('pill-active');
+            const anchor = $(this).parents('.comp-tabs-c').attr('id');
+            $('#' + anchor + ' .comp-tabs-c .btn.pill').removeClass('pill-active');
             $(e.target).addClass('pill-active');
             let tabIndex = $(e.target).data('tab');
-            $(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
-            $(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
+            $('#' + anchor + ` .comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
+            $('#' + anchor + ` .comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
         });
 
     setTimeout(function () {
