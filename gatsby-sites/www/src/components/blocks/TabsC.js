@@ -18,11 +18,11 @@ const TabsC = (props) => {
       }
     `;
 
-    if (props.runFilters) {
-        useEffect(() => {
-            eval(tabScript);
-        });
-    }
+    // if (props.runFilters) {
+    //     useEffect(() => {
+    //         eval(tabScript);
+    //     });
+    // }
 
     let pillListOutput = props.items.map((item, index) => {
         return (
@@ -136,7 +136,7 @@ const TabsC = (props) => {
                     </div>
                     {tabsContent}
                 </div>
-                {/* {!props.runFilters && <script data-type="pageScript">{tabScript}</script>} */}
+                {!props.runFilters && <script data-type="pageScript">{tabScript}</script>}
             </div>
         </>
     );
