@@ -165,10 +165,8 @@ window.documentReadyFn = function () {
     $('body')
         .off('click', '.comp-tabs-c .btn.pill')
         .on('click', '.comp-tabs-c .btn.pill', function (e) {
-            console.log('clicked');
             e.preventDefault();
             const anchor = $(this).parents('.comp-tabs-c').attr('id');
-            console.log(`anchor is: ${anchor}`);
             $('#' + anchor + '.comp-tabs-c .btn.pill').removeClass('pill-active');
             $(e.target).addClass('pill-active');
             let tabIndex = $(e.target).data('tab');
