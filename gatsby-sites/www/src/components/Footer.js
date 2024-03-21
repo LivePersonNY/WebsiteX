@@ -20,10 +20,7 @@ const Footer = () => {
         graphql`
             query topLevelQueryForFooter {
                 legalItems: allWpMenuItem(
-                    filter: {
-                        menu: { node: { locations: { in: [LEGAL_MENU] } } }
-                        parentId: { eq: null }
-                    }
+                    filter: { menu: { node: { locations: { in: [LEGAL_MENU] } } }, parentId: { eq: null } }
                 ) {
                     nodes {
                         id
@@ -33,12 +30,7 @@ const Footer = () => {
                     }
                 }
                 topItems: allWpMenuItem(
-                    filter: {
-                        menu: {
-                            node: { locations: { in: [GATSBY_FOOTER_MENU] } }
-                        }
-                        parentId: { eq: null }
-                    }
+                    filter: { menu: { node: { locations: { in: [GATSBY_FOOTER_MENU] } } }, parentId: { eq: null } }
                 ) {
                     nodes {
                         id
@@ -94,37 +86,24 @@ const Footer = () => {
                         item.childItems.nodes.sort(sortFunc);
                         return (
                             <div className="col-lg-3 col-6" key={index}>
-                                {item.childItems.nodes.map(function (
-                                    section,
-                                    index
-                                ) {
+                                {item.childItems.nodes.map(function (section, index) {
                                     section.childItems.nodes.sort(sortFunc);
                                     return (
-                                        <div
-                                            className="footer-section"
-                                            key={index}
-                                        >
-                                            <p className="footer-section-title">
-                                                {section.label}
-                                            </p>
-                                            {section.childItems.nodes.map(
-                                                function (link, index) {
-                                                    return (
-                                                        <a
-                                                            href={link.path}
-                                                            className="footer-section-link"
-                                                            target={link.target}
-                                                            rel={
-                                                                item.target &&
-                                                                `noopener noreferrer`
-                                                            }
-                                                            key={index}
-                                                        >
-                                                            {link.label}
-                                                        </a>
-                                                    );
-                                                }
-                                            )}
+                                        <div className="footer-section" key={index}>
+                                            <p className="footer-section-title">{section.label}</p>
+                                            {section.childItems.nodes.map(function (link, index) {
+                                                return (
+                                                    <a
+                                                        href={link.path}
+                                                        className="footer-section-link"
+                                                        target={link.target}
+                                                        rel={item.target && `noopener noreferrer`}
+                                                        key={index}
+                                                    >
+                                                        {link.label}
+                                                    </a>
+                                                );
+                                            })}
                                         </div>
                                     );
                                 })}
@@ -134,31 +113,20 @@ const Footer = () => {
                 </div>
                 <div className="row">
                     <div className="col-lg-12 footer-legal-container">
-                        <p className="footer-legal">
-                            © {new Date().getFullYear()} LivePerson. All rights
-                            reserved.
-                        </p>
+                        <p className="footer-legal">© {new Date().getFullYear()} LivePerson. All rights reserved.</p>
                         {legalItems.nodes.map(function (link, index) {
                             return (
-                                <a
-                                    href={link.path}
-                                    className="footer-legal footer-legal-link"
-                                    key={index}
-                                >
+                                <a href={link.path} className="footer-legal footer-legal-link" key={index}>
                                     {link.label}
                                 </a>
                             );
                         })}
-                        <button
-                            id="ot-sdk-btn"
-                            className="ot-sdk-show-settings"
-                        >
+                        <button id="ot-sdk-btn" className="ot-sdk-show-settings">
                             Cookie Settings
                         </button>
                         <div className="footer-social">
                             <AddThis type="follow" />
                         </div>
-                        <LanguageSelector />
                     </div>
                 </div>
             </div>

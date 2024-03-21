@@ -3,27 +3,6 @@ import PropTypes from 'prop-types';
 
 export default function HTML(props) {
     const gtm_id = process.env.GTM_ID;
-    const lzScript = `
-
-      !function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","getAvailableLanguages","untranslatePage","bootstrap","prefetch","on","off","hideWidget","showWidget","getSourceLanguage"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);
-
-      Localize.initialize({
-        key: '${process.env.LOCALIZE_KEY}',
-        retranslateOnNewPhrases: true,
-        saveNewPhrasesFromSource: true,
-        translateMetaTags: true,
-        rememberLanguage: true,
-        autodetectLanguage: true,
-        blockedClasses: [
-          'lp-window-root',
-          'microMode'
-        ],
-        blockedIds: [
-          'gatsby-announcer'
-        ]
-      });
-
-  `;
 
     const gtmScript = `
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -51,8 +30,6 @@ export default function HTML(props) {
                 <meta httpEquiv="x-ua-compatible" content="ie=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-                <script src="https://global.localizecdn.com/localize.js"></script>
-                <script dangerouslySetInnerHTML={{ __html: lzScript }}></script>
                 <link href={windowCssFile} rel="stylesheet" />
 
                 {props.headComponents}

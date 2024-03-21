@@ -251,6 +251,7 @@
                             <select id="banner">
                                 <option value="v1">Version 1</option>
                                 <option value="v2">Version 2</option>
+                                <option value="Spark">Spark In-Person</option>
                                 <!-- <option value="cc">Conversational Commerce</option>
                             <option value="rip">R.I.P. websites</option> -->
                             </select>
@@ -637,6 +638,15 @@
                         $('[name="output-banner"] img').attr(
                             'src',
                             'https://signature.s3.amazonaws.com/2024/Animated-email-signature_SoCC_DA_v1.gif'
+                        );
+                    } else if ($('#banner').val() == 'Spark') {
+                        $('[name="output-banner"]').attr(
+                            'href',
+                            'https://www.liveperson.com/events/spark-may-2024/?utm_source=EmailSignature&utm_campaign=Event&utm_medium=organic-content&utm_content=45371'
+                        );
+                        $('[name="output-banner"] img').attr(
+                            'src',
+                            'https://signature.s3.amazonaws.com/2024/liveperson-spark-may-email-signature-in-person%402x.png'
                         );
                         // } else if ($('#banner').val() == 'maven') {
                         //     $('[name="output-banner"]').attr(
