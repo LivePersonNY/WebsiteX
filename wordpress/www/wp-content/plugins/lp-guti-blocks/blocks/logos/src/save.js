@@ -27,6 +27,7 @@ export default function save({ attributes }) {
 	return (
 		<LogosUniversal
 			header={attributes.header}
+			body={attributes.body}
 			items={attributes.logos}
 			backgroundColor={attributes.backgroundColor}
 			autoApprove={attributes.autoApproveLang}
