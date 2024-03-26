@@ -1531,7 +1531,8 @@ img[src*='doubleclick'] {
         }
     }
     .link + .vimeoContainer,
-    .btn + .vimeoContainer {
+    .btn + .vimeoContainer,
+    p + .vimeoContainer {
         margin-top: 24px;
         @include media-breakpoint-up(lg) {
             margin-top: 32px;
