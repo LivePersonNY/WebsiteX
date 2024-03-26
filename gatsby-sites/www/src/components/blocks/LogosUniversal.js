@@ -67,7 +67,7 @@ const LogosUniversal = (props) => {
                             <h2 className="text-center">
                                 <Paragraph headerLevel="nothing" text={props.header} />
                             </h2>
-                            <Paragraph text={props.body} />
+                            <Paragraph text={props.body} className="text-center" />
                         </div>
                     </div>
                 )}
