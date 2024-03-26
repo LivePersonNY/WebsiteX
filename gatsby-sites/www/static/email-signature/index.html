@@ -252,6 +252,7 @@
                                 <option value="v1">Version 1</option>
                                 <option value="v2">Version 2</option>
                                 <option value="Spark">Spark In-Person</option>
+                                <option value="SparkV">Spark Virtual</option>
                                 <!-- <option value="cc">Conversational Commerce</option>
                             <option value="rip">R.I.P. websites</option> -->
                             </select>
@@ -647,6 +648,15 @@
                         $('[name="output-banner"] img').attr(
                             'src',
                             'https://signature.s3.amazonaws.com/2024/liveperson-spark-may-email-signature-in-person%402x.png'
+                        );
+                    } else if ($('#banner').val() == 'SparkV') {
+                        $('[name="output-banner"]').attr(
+                            'href',
+                            'https://www.liveperson.com/resources/webinars/connected-customer-conversations/?utm_source=EmailSignature&utm_campaign=Event&utm_medium=organic-content&utm_content=45376'
+                        );
+                        $('[name="output-banner"] img').attr(
+                            'src',
+                            'https://signature.s3.amazonaws.com/2024/liveperson-spark-may-email-signature-2.png'
                         );
                         // } else if ($('#banner').val() == 'maven') {
                         //     $('[name="output-banner"]').attr(
