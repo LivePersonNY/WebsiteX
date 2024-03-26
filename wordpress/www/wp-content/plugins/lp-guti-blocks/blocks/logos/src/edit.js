@@ -78,7 +78,7 @@ export default function Edit({
 		<RichText
 			tagName="p"
 			value={attributes.bodyControl}
-			onChange={(val) => setAttributes({ bodyControl: val })}
+			onChange={(val) => setAttributes({ body: val })}
 			allowedFormats={[
 				"core/bold",
 				"core/italic",
