@@ -285,6 +285,7 @@ export default function Edit({
 					}}
 				/>
 				<TabsC
+					cssClasses={attributes.className}
 					anchor={attributes.anchor}
 					header={headerControl}
 					body={bodyControl}
@@ -298,6 +299,7 @@ export default function Edit({
 		<div {...useBlockProps()}>
 			{addButton}
 			<TabsC
+				cssClasses={attributes.className}
 				anchor={attributes.anchor}
 				header={attributes.header}
 				body={attributes.body}

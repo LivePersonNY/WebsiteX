@@ -26,6 +26,7 @@ import { useBlockProps } from "@wordpress/block-editor";
 export default function save({ attributes }) {
 	return (
 		<TabsC
+			cssClasses={attributes.className}
 			anchor={attributes.anchor}
 			autoApprove={attributes.autoApproveLang}
 			header={attributes.header}
