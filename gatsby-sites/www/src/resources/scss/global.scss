@@ -763,6 +763,16 @@ img[src*='doubleclick'] {
             overflow: auto;
         }
     }
+
+    &.remove-padding {
+        .comp-tabs-content {
+            .col-lg-6 {
+                @include media-breakpoint-up(lg) {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
 }
 
 .comp-tabs-b {
