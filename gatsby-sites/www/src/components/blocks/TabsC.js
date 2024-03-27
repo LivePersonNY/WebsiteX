@@ -57,15 +57,16 @@ const TabsC = (props) => {
                 key={index}
             >
                 <div className="col-lg-4 offset-lg-1">
-                    {(!item.iconCtl && (
-                        <img
-                            src={item.icon}
-                            alt={item.iconAlt}
-                            width={item.iconWidth}
-                            height={item.iconHeight}
-                            loading="lazy"
-                        />
-                    )) ||
+                    {(!item.iconCtl &&
+                        item.icon(
+                            <img
+                                src={item.icon}
+                                alt={item.iconAlt}
+                                width={item.iconWidth}
+                                height={item.iconHeight}
+                                loading="lazy"
+                            />
+                        )) ||
                         item.iconCtl}
                     {item.kicker && <p className="h6 text-uppercase">{item.kicker}</p>}
                     <h3>{item.header}</h3>
