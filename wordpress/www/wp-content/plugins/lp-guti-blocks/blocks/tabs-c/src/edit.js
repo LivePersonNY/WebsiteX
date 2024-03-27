@@ -204,6 +204,10 @@ export default function Edit({
 									isDestructive={true}
 									onClick={() => {
 										itemValues[index].icon = null;
+										itemValues[index].iconId = null;
+										itemValues[index].iconAlt = null;
+										itemValues[index].iconWidth = null;
+										itemValues[index].iconHeight = null;
 										setAttributes({ tabItems: itemValues });
 									}}
 								>
