@@ -204,7 +204,7 @@ export default function Edit({
 									isDestructive={true}
 									onClick={() => {
 										itemValues[index].icon = null;
-										setAttributes({ icon: null });
+										setAttributes({ tabItems: itemValues });
 									}}
 								>
 									Remove Image
