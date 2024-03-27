@@ -187,16 +187,29 @@ export default function Edit({
 						value={itemValues[index].iconId}
 						allowedTypes={["image"]}
 						render={({ open }) => (
-							<img
-								className="imageSelector"
-								src={
-									itemValues[index].icon ||
-									`https://loremicon.com/rect/64/64/${index}/png`
-								}
-								data-tab-content={index}
-								key={index}
-								onClick={open}
-							/>
+							<>
+								<img
+									className="imageSelector"
+									src={
+										itemValues[index].icon ||
+										`https://loremicon.com/rect/64/64/${index}/png`
+									}
+									data-tab-content={index}
+									key={index}
+									onClick={open}
+								/>
+								<Button
+									className="mt-2"
+									variant="link"
+									isDestructive={true}
+									onClick={() => {
+										itemValues[index].icon = null;
+										setAttributes({ icon: null });
+									}}
+								>
+									Remove Image
+								</Button>
+							</>
 						)}
 					/>
 				</MediaUploadCheck>
