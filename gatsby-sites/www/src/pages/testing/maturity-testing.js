@@ -32,48 +32,20 @@ const Flywheel = () => {
                 // console.log(resultsFormValue);
                 $('input[name=maturityAssessmentQuizResults]').val(resultsFormValue);
 
+                MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', 5024, function (form) {
+                    form.addHiddenFields({
+                        maturityAssessmentQuizResults: resultsFormValue,
+                    });
+                    form.submit();
+                    // console.log('Submitting values:', form.vals());
+                });
+
                 $('.flywheel-tool-input').hide();
                 $('.flywheel-tool-result').fadeIn().css('display', 'flex');
             } else {
                 $('.modal-button').trigger('click');
             }
         });
-
-        $('.btn-form-test').on('click', () => {
-            MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', 5024, function (form) {
-                console.log('test btn clicked');
-                // let scoreForm = MktoForms2.getForm(5024);
-                console.log('here is the form: ', form.getId());
-
-                // scoreForm.submittable();
-
-                // scoreForm.onValidate(function (form) {
-                //     console.log('here to validate?');
-                // });
-
-                console.log(form.validate());
-
-                form.addHiddenFields({
-                    maturityAssessmentQuizResults: 'giancarlo testing, delete this',
-                });
-
-                form.submit();
-
-                console.log('Submitting values:', form.vals());
-            });
-
-            // MktoForms2.whenReady(function (form) {
-            //     // console.log('here is the form: ', form);
-            //     let formId = form.getId();
-            //     let formId2 = MktoForms2.getForm(5024);
-            //     console.log('here is the form: ', formId2);
-            //     // if (formId == 5024) {
-            //     //     form.submit();
-            //     // }
-            // });
-        });
-        console.log('on load script');
-        // window.MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', 5024);
     }, []);
 
     return (
@@ -682,7 +654,6 @@ const Flywheel = () => {
                     </div>
                     <div className="row">
                         <div className="col-lg-12">
-                            <a className="btn-form-test">test button</a>
                             <a className="mobileForm">
                                 <span className="span1">Get a demo</span>
                                 <span className="span2">
@@ -710,8 +681,7 @@ const Flywheel = () => {
                             </a>
                             <form id={`mktoForm_5004`} mkto="5004"></form>
                             <mkto-after mkto="5004">Thank you! One of our experts will contact you shortly</mkto-after>
-                            {/* <form id="mktoForm_5024" mkto="5024" style={{ display: 'none' }}></form>*/}
-                            <form id="mktoForm_5024"></form>
+                            <form id="mktoForm_5024" style={{ display: 'none' }}></form>
                         </div>
                     </div>
                 </div>
