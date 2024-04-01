@@ -100,7 +100,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/03/11104619/liveperson-digital-transformation-webinar-hard-rock-hero%402x.png"
+                                            src="https://static.liveperson.com/static-assets/2024/03/28160123/liveperson-generative-ai-chatbot-webinar-oua-hero_2x-1.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
@@ -108,13 +108,13 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">Webinar</p>
                                             <p className="featured-body">
-                                                Digital transformation strategies from a global CIO leader
+                                                Demystifying generative AI chatbots with Open Universities Australia
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/cio-digital-transformation-strategies/?utm_source=featured_resources&utm_medium=direct&utm_campaign=hard_rock_webinar_q1"
+                                                href="/resources/webinars/oua-generative-ai-chatbots/?utm_source=featured_resources&utm_medium=direct&utm_campaign=oua_webinar_q2"
                                             >
-                                                Watch now
+                                                Register now
                                             </a>
                                         </div>
                                     </div>

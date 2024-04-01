@@ -71,11 +71,14 @@
         "@zendesk",
         "@zopim",
         "@mailinator",
+        "@mailinato",
+        "@ailinator",
         "@rogers.com",
         "@amenonuhoko1.com",
         "@hldrive.com",
         "@getmail.io",
-        "@peacoats.co"
+        "@peacoats.co",
+        "@business.com"
     ],
     "prSites": [
         "www.wsj.com",
