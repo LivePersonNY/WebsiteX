@@ -8,6 +8,7 @@ import Bio from '../../../components/Bio';
 import AddThis from '../../../components/AddThis';
 import { Helmet } from 'react-helmet';
 import MktoForm from '../../../components/blocks/MktoForm';
+import Breadcrumb from '../../../components/Breadcrumb';
 
 import { Link, graphql } from 'gatsby';
 
@@ -66,14 +67,37 @@ const Report = ({ data: { post } }) => {
 
     let breadCrumbs = post.seo.breadcrumbs;
     breadCrumbs = breadCrumbs.map((item, index) => {
-        let divider = '/';
+        if (index === 0) {
+            // item.url = location.origin;
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/">
+                        Resource Library
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/reports/">
+                        Reports
+                    </a>{' '}
+                    /{' '}
+                </>
+            );
+        }
+        let divider = '/ ';
         if (breadCrumbs.length - 1 === index) {
             divider = '';
         }
+        item.url = item.url.replace('/blog/reports/', '/resources/reports/');
         return (
-            <div key={index}>
-                <a href={item.url}>{item.text}</a> {divider}
-            </div>
+            <>
+                <a className="breadcrumb-link link link-no-arrow" key={index} href={item.url}>
+                    {item.text}
+                </a>{' '}
+                {divider}
+            </>
         );
     });
 
@@ -88,7 +112,7 @@ const Report = ({ data: { post } }) => {
                 schema={post.seo.schema.raw}
             />
             {Parser(post.content)}
-            {breadCrumbs}
+            <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );
 };
