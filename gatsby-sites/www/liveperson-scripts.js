@@ -14,62 +14,6 @@ window.testGated = function () {
     $('.pane.gated').slideDown();
 };
 
-window.availableLanguages = [
-    {
-        code: 'en-US',
-        name: 'English (United States)',
-    },
-    {
-        code: 'ja',
-        name: '日本語 (Japan)',
-    },
-    {
-        code: 'pt-BR',
-        name: 'Português (Brasil)',
-    },
-    {
-        code: 'es',
-        name: 'Español (Spain)',
-    },
-    {
-        code: 'es-MX',
-        name: 'Español (Mexico)',
-    },
-    {
-        code: 'it',
-        name: 'Italiano (Italy)',
-    },
-    {
-        code: 'de',
-        name: 'Deutsch (Germany)',
-    },
-    {
-        code: 'fr',
-        name: 'Français (France)',
-    },
-];
-
-window.populateLanguageMenu = function (selected) {
-    if (!document.getElementById('languageMenuItems')) return;
-    document.getElementById('languageMenuItems').innerHTML = '';
-
-    let current = window.availableLanguages.filter(function (item) {
-        return item.code == selected;
-    });
-
-    let english = window.availableLanguages.filter(function (item) {
-        return item.code == 'en-US';
-    });
-
-    document.getElementById('languageMenuCurrent').innerText = current[0] ? current[0].name : english[0].name;
-
-    window.availableLanguages.forEach(function (item) {
-        document.getElementById(
-            'languageMenuItems'
-        ).innerHTML += `<li><a class="dropdown-item language-item" data-code="${item.code}">${item.name}</a></li>`;
-    });
-};
-
 window.lpHydrateAttributes = function () {
     LivePerson.HydrateAttributes(function () {
         LivePerson.waitForChat(function () {
@@ -79,28 +23,6 @@ window.lpHydrateAttributes = function () {
 };
 
 window.documentReadyFn = function () {
-    /*Localize.detectLanguage(function(err, languages) {
-		if (err) return console.log(err);
-
-		var currentSetLang = Cookie.get("currentLang");
-
-		var preferredLang = currentSetLang || languages[0] || null;
-
-		if (preferredLang) {
-		  window.setLanguage(preferredLang);
-		  window.populateLanguageMenu(preferredLang);
-		}
-	  });*/
-
-    window.Localize && window.populateLanguageMenu(Localize.getLanguage());
-
-    $('body').on('click', 'a.language-item', function (e) {
-        e.preventDefault();
-        let preferredLang = $(this).data('code');
-        Localize.setLanguage(preferredLang);
-        window.populateLanguageMenu(preferredLang);
-    });
-
     window.lottieFiles = [];
 
     window.lpCallbacks.forEach(function (item) {
@@ -166,12 +88,22 @@ window.documentReadyFn = function () {
         .off('click', '.comp-tabs-c .btn.pill')
         .on('click', '.comp-tabs-c .btn.pill', function (e) {
             e.preventDefault();
-            $('.comp-tabs-c .btn.pill').removeClass('pill-active');
+            let anchor = $(this).parents('.comp-tabs-c').attr('id');
+            if (anchor ? (anchor = `#${anchor}`) : (anchor = ''));
+
+            $(anchor + '.comp-tabs-c .btn.pill').removeClass('pill-active');
             $(e.target).addClass('pill-active');
             let tabIndex = $(e.target).data('tab');
-            $(`.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
-            $(`.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
+            $(anchor + `.comp-tabs-c .comp-tabs-content[data-tab-content="${tabIndex}"]`).fadeIn();
+            $(anchor + `.comp-tabs-c .comp-tabs-content:not([data-tab-content="${tabIndex}"])`).hide();
         });
+
+    document.querySelectorAll('.comp-tabs-c .comp-tabs-content').forEach(function (item) {
+        item.style.display = 'none';
+    });
+    document.querySelectorAll('.comp-tabs-c .comp-tabs-content[data-tab-content="0"]').forEach(function (item) {
+        item.style.display = 'flex';
+    });
 
     setTimeout(function () {
         // console.log('This is load scroll position: ' + window.scrollY);
@@ -447,5 +379,13 @@ window.documentReadyFn = function () {
             '/customer-conversations-report/?utm_source=resources_library&utm_medium=direct&utm_campaign=socc_report_q1'
         );
         reportLink.setAttribute('target', '_blank');
+    }
+
+    if (document.location.pathname.includes('/guided-demo-library') && sessionStorage.getItem('guided-demo-email')) {
+        let demoButton = document.querySelectorAll('.comp-program-card-container .btn-primary');
+        demoButton.forEach((elem) => {
+            let demoButtonLink = elem.getAttribute('href');
+            elem.setAttribute('href', `${demoButtonLink}&guided_email=${sessionStorage.getItem('guided-demo-email')}`);
+        });
     }
 };

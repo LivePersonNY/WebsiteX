@@ -85,6 +85,7 @@ const MktoForms = {
                         return false;
                     }
                     if (formId == 4956) {
+                        sessionStorage.setItem('guided-demo-email', values.Email);
                         location.href = '/guided-demo-library/';
                         return false;
                     }
@@ -122,7 +123,7 @@ const LivePerson = {
         var _mkto_trk = Cookie.get('_mkto_trk');
 
         if (!lsTerms) {
-            console.log('setting terms...');
+            // console.log('setting terms...');
             lsTerms =
                 Query.get('utm_term') ||
                 Query.get('keywords') ||
@@ -131,49 +132,49 @@ const LivePerson = {
                 Query.get('query') ||
                 Query.get('_bk');
             Cookie.set('lp-lsTerms', lsTerms, 30);
-            console.log('setting terms... done.', lsTerms);
+            // console.log('setting terms... done.', lsTerms);
         }
 
         if (!lsCampaign) {
-            console.log('setting campaign...');
+            // console.log('setting campaign...');
             lsCampaign = Query.get('utm_campaign');
             Cookie.set('lp-lsCampaign', lsCampaign, 30);
-            console.log('setting campaign... done.', lsCampaign);
+            // console.log('setting campaign... done.', lsCampaign);
         }
 
         if (!lsSource) {
-            console.log('setting source...');
+            // console.log('setting source...');
             lsSource = Query.get('utm_source');
             Cookie.set('lp-lsSource', lsSource, 30);
-            console.log('setting source... done.', lsSource);
+            // console.log('setting source... done.', lsSource);
         }
 
         if (!lsMedium) {
-            console.log('setting medium...');
+            // console.log('setting medium...');
             lsMedium = Query.get('utm_medium');
             Cookie.set('lp-lsMedium', lsMedium, 30);
-            console.log('setting medium... done.', lsMedium);
+            // console.log('setting medium... done.', lsMedium);
         }
 
         if (!lsContent) {
-            console.log('setting content...');
+            // console.log('setting content...');
             lsContent = Query.get('utm_content');
             Cookie.set('lp-lsContent', lsContent, 30);
-            console.log('setting content... done.', lsContent);
+            // console.log('setting content... done.', lsContent);
         }
 
         if (!queryString) {
-            console.log('setting string...');
+            // console.log('setting string...');
             queryString = window.location.search;
             Cookie.set('lp-queryString', queryString, 30);
-            console.log('setting string... done.', queryString);
+            // console.log('setting string... done.', queryString);
         }
 
         if (!lsRef) {
-            console.log('setting referrer...');
+            // console.log('setting referrer...');
             Cookie.set('lp-lsRef', document.referrer, 1);
             lsRef = document.referrer;
-            console.log('setting referrer... done.', lsRef);
+            // console.log('setting referrer... done.', lsRef);
         }
 
         if (!lsGclid) {

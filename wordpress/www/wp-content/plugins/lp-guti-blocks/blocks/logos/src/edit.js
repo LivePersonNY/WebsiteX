@@ -74,6 +74,21 @@ export default function Edit({
 		/>
 	);
 
+	let bodyControl = (
+		<RichText
+			tagName="p"
+			value={attributes.body}
+			onChange={(val) => setAttributes({ body: val })}
+			allowedFormats={[
+				"core/bold",
+				"core/italic",
+				"core/link",
+				"core/image",
+				"lp-guti-blocks/heading",
+			]}
+		/>
+	);
+
 	let logos = [...attributes.logos];
 	let controls = attributes.logos.map((item, index) => {
 		return {
@@ -184,6 +199,7 @@ export default function Edit({
 				/>
 				<LogosUniversal
 					header={headerControl}
+					body={bodyControl}
 					items={controls}
 					backgroundColor={attributes.backgroundColor}
 					linkText={linkTextControl}
@@ -196,6 +212,7 @@ export default function Edit({
 		<div {...useBlockProps()}>
 			<LogosUniversal
 				header={attributes.header}
+				body={attributes.body}
 				items={attributes.logos}
 				backgroundColor={attributes.backgroundColor}
 				linkUrl={attributes.linkUrl}

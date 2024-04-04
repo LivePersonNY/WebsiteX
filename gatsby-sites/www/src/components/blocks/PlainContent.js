@@ -79,15 +79,19 @@ const PlainContent = function (props) {
                                         )}
                                     </>
                                 )}
-                                <h2>
-                                    {!props.animatedText && <Paragraph text={props.header} headerLevel={headerLevel} />}
-                                    {props.animatedText && (
-                                        <Paragraph
-                                            text={fullAnimation(props.header, props.animatedText)}
-                                            headerLevel={headerLevel}
-                                        />
-                                    )}
-                                </h2>
+                                {props.header && (
+                                    <h2>
+                                        {!props.animatedText && (
+                                            <Paragraph text={props.header} headerLevel={headerLevel} />
+                                        )}
+                                        {props.animatedText && (
+                                            <Paragraph
+                                                text={fullAnimation(props.header, props.animatedText)}
+                                                headerLevel={headerLevel}
+                                            />
+                                        )}
+                                    </h2>
+                                )}
                             </>
                         )}
                         {headerLevel == 'h1' && (

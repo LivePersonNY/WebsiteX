@@ -37,6 +37,7 @@ import AddItemButton from "../../AddItemButton";
 import BackgroundSelectorMenu from "../../BackgroundSelector";
 import ItemControls from "../../ItemControls";
 import LinkControl from "../../LinkControl";
+import Anchor from "../../Anchor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -186,16 +187,33 @@ export default function Edit({
 						value={itemValues[index].iconId}
 						allowedTypes={["image"]}
 						render={({ open }) => (
-							<img
-								className="imageSelector"
-								src={
-									itemValues[index].icon ||
-									`https://loremicon.com/rect/64/64/${index}/png`
-								}
-								data-tab-content={index}
-								key={index}
-								onClick={open}
-							/>
+							<>
+								<img
+									className="imageSelector"
+									src={
+										itemValues[index].icon ||
+										`https://loremicon.com/rect/64/64/${index}/png`
+									}
+									data-tab-content={index}
+									key={index}
+									onClick={open}
+								/>
+								<Button
+									className="mt-2"
+									variant="link"
+									isDestructive={true}
+									onClick={() => {
+										itemValues[index].icon = null;
+										itemValues[index].iconId = null;
+										itemValues[index].iconAlt = null;
+										itemValues[index].iconWidth = null;
+										itemValues[index].iconHeight = null;
+										setAttributes({ tabItems: itemValues });
+									}}
+								>
+									Remove Image
+								</Button>
+							</>
 						)}
 					/>
 				</MediaUploadCheck>
@@ -277,7 +295,15 @@ export default function Edit({
 		return (
 			<div {...useBlockProps()}>
 				{addButton}
+				<Anchor
+					value={attributes.anchor}
+					callback={function (val) {
+						setAttributes({ anchor: val });
+					}}
+				/>
 				<TabsC
+					cssClasses={attributes.className}
+					anchor={attributes.anchor}
 					header={headerControl}
 					body={bodyControl}
 					items={itemControls}
@@ -290,6 +316,8 @@ export default function Edit({
 		<div {...useBlockProps()}>
 			{addButton}
 			<TabsC
+				cssClasses={attributes.className}
+				anchor={attributes.anchor}
 				header={attributes.header}
 				body={attributes.body}
 				items={attributes.tabItems}

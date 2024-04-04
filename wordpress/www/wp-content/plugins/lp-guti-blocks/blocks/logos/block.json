@@ -16,6 +16,7 @@
 	"style": "file:../../build/style-all.css",
 	"attributes": {
 		"header": { "default": "Logos of all the things" },
+		"body": { "default": "Body  content here" },
 		"backgroundColor": { "default": "bg-neutral-96" },
 		"autoApproveLang": { "default": false, "type": "boolean" },
 		"anchor": {},

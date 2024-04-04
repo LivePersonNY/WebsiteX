@@ -135,8 +135,7 @@ header {
                             padding: 0;
 
                             & > .row {
-                                box-shadow: -10px 4px 8px $dropShadow,
-                                    10px 4px 8px $dropShadow,
+                                box-shadow: -10px 4px 8px $dropShadow, 10px 4px 8px $dropShadow,
                                     inset 0 0 8px $dropShadow;
                             }
                         }
@@ -255,9 +254,9 @@ header {
 
                                     &::before {
                                         content: '';
-                                        background-image: url(https://static.liveperson.com/static-assets/2023/10/31170700/nav-icon-sprite-18px%402x.png);
+                                        background-image: url(https://static.liveperson.com/static-assets/2024/03/18145737/nav-icon-sprite-18px%402x.png);
                                         background-repeat: no-repeat;
-                                        background-size: 414px 18px;
+                                        background-size: 450px 18px;
                                         position: absolute;
                                         width: 18px;
                                         height: 18px;
@@ -309,7 +308,7 @@ header {
                                 }
 
                                 &.nav-conv-cloud::before {
-                                    background-position: -180px 0px;
+                                    background-position: -414px 0px;
                                 }
 
                                 &.nav-integrations::before {
@@ -362,6 +361,10 @@ header {
 
                                 &.nav-lp360::before {
                                     background-position: -396px 0px;
+                                }
+
+                                &.nav-digital-sm::before {
+                                    background-position: -432px 0px;
                                 }
 
                                 .dropdown-item-content {
@@ -534,21 +537,21 @@ header {
                     }
 
                     &.solutions {
-                        @include media-breakpoint-down(lg) {
-                            .col-lg:nth-child(2) {
-                                border-bottom: 0;
-                                padding-bottom: 0;
-                            }
+                        // @include media-breakpoint-down(lg) {
+                        //     .col-lg:nth-child(2) {
+                        //         border-bottom: 0;
+                        //         padding-bottom: 0;
+                        //     }
 
-                            .col-lg:nth-child(3) {
-                                padding-top: 0;
+                        //     .col-lg:nth-child(3) {
+                        //         padding-top: 0;
 
-                                .dropdown-section-title {
-                                    display: none;
-                                }
-                            }
-                        }
-                        .col-lg:nth-child(4) {
+                        //         .dropdown-section-title {
+                        //             display: none;
+                        //         }
+                        //     }
+                        // }
+                        .col-lg:nth-child(3) {
                             .dropdown-item {
                                 &.dropdown-section-title {
                                     padding: 0;

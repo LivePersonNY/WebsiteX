@@ -56,27 +56,23 @@ const LogosUniversal = (props) => {
             data-localize={props.autoApprove && `auto-approve`}
             autoapprove={props.autoApprove && 'true'}
             id={props.anchor}
-            className={`pane comp-logo-universal ${
-                props.backgroundColor || 'bg-neutral-96'
-            } ${props.header ? 'pane-with-lead-text' : ''}`}
+            className={`pane comp-logo-universal ${props.backgroundColor || 'bg-neutral-96'} ${
+                props.header ? 'pane-with-lead-text' : ''
+            }`}
         >
             <div className="container">
                 {props.header && (
                     <div className="row">
                         <div className="col-lg-10 offset-lg-1">
                             <h2 className="text-center">
-                                <Paragraph
-                                    headerLevel="nothing"
-                                    text={props.header}
-                                />
+                                <Paragraph headerLevel="nothing" text={props.header} />
                             </h2>
+                            <Paragraph text={props.body} className="text-center" />
                         </div>
                     </div>
                 )}
                 <div className="row">
-                    <div className="col-lg-10 offset-lg-1 d-flex justify-content-evenly flex-wrap">
-                        {logoImg}
-                    </div>
+                    <div className="col-lg-10 offset-lg-1 d-flex justify-content-evenly flex-wrap">{logoImg}</div>
                 </div>
                 {props.linkText && (
                     <div className="row">
@@ -85,9 +81,7 @@ const LogosUniversal = (props) => {
                                 className="link"
                                 href={props.linkUrl}
                                 target={props.linkExternal && `_blank`}
-                                rel={
-                                    props.linkExternal && `noopener noreferrer`
-                                }
+                                rel={props.linkExternal && `noopener noreferrer`}
                             >
                                 {props.linkText}
                             </a>

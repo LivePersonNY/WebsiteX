@@ -15,11 +15,14 @@
 	"editorStyle": "file:../../build/all.css",
 	"style": "file:../../build/style-all.css",
 	"attributes": {
-		"content": {"default": "Provided you're ready and willing, you might want to click that button."},
-		"linkText": {"default": "That Button"},
-		"linkUrl": {"default": "https://www.liveperson.com"},
-		"linkExternal": {"default": false},
-		"autoApproveLang": {"default":false, "type": "boolean"},
+		"content": {
+			"default": "Provided you're ready and willing, you might want to click that button."
+		},
+		"secondBody": { "default": "Body text here" },
+		"linkText": { "default": "That Button" },
+		"linkUrl": { "default": "https://www.liveperson.com" },
+		"linkExternal": { "default": false },
+		"autoApproveLang": { "default": false, "type": "boolean" },
 		"backgroundColor": {
 			"default": "bg-transparent"
 		},

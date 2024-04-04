@@ -3,8 +3,8 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
-import ContentCTA from '../../../../../../../../gatsby-sites/www/src/components/blocks/ContentCTA';
+import { __ } from "@wordpress/i18n";
+import ContentCTA from "../../../../../../../../gatsby-sites/www/src/components/blocks/ContentCTA";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -12,7 +12,7 @@ import ContentCTA from '../../../../../../../../gatsby-sites/www/src/components/
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps } from "@wordpress/block-editor";
 
 /**
  * The save function defines the way in which the different attributes should
@@ -23,8 +23,16 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save({attributes}) {
+export default function save({ attributes }) {
 	return (
-			<ContentCTA autoApprove={attributes.autoApproveLang} anchor={attributes.anchor} body={attributes.content} linkText={attributes.linkText} linkUrl={attributes.linkUrl} linkExternal={attributes.linkExternal} />
+		<ContentCTA
+			autoApprove={attributes.autoApproveLang}
+			anchor={attributes.anchor}
+			body={attributes.content}
+			secondBody={attributes.secondBody}
+			linkText={attributes.linkText}
+			linkUrl={attributes.linkUrl}
+			linkExternal={attributes.linkExternal}
+		/>
 	);
 }

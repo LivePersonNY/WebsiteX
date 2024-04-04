@@ -763,6 +763,16 @@ img[src*='doubleclick'] {
             overflow: auto;
         }
     }
+
+    &.remove-padding {
+        .comp-tabs-content {
+            .col-lg-6 {
+                @include media-breakpoint-up(lg) {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
 }
 
 .comp-tabs-b {
@@ -1029,7 +1039,7 @@ img[src*='doubleclick'] {
     .d-flex {
         align-items: center;
     }
-    h2 {
+    div:first-child div:first-child .col-lg-10 {
         margin-bottom: 48px;
     }
 
@@ -1521,7 +1531,8 @@ img[src*='doubleclick'] {
         }
     }
     .link + .vimeoContainer,
-    .btn + .vimeoContainer {
+    .btn + .vimeoContainer,
+    p + .vimeoContainer {
         margin-top: 24px;
         @include media-breakpoint-up(lg) {
             margin-top: 32px;
@@ -1570,10 +1581,13 @@ main:not(.company-careers) {
 
 .comp-quick-links {
     padding: 0;
+    position: sticky;
+    top: 64px;
+    background: $neutral99;
 
     .row {
-        padding-top: 22px;
-        padding-bottom: 22px;
+        padding-top: 11px;
+        padding-bottom: 11px;
         border-top: 1px solid $neutral72;
         border-bottom: 1px solid $neutral72;
 
@@ -1588,6 +1602,7 @@ main:not(.company-careers) {
             @include media-breakpoint-up(lg) {
                 display: flex;
                 padding: 0;
+                padding-top: 11px;
             }
         }
 
@@ -1603,7 +1618,7 @@ main:not(.company-careers) {
 
             @include media-breakpoint-up(lg) {
                 display: flex;
-                padding: 0;
+                padding: 11px 32px;
             }
         }
     }
