@@ -8,6 +8,7 @@ import Bio from '../../../components/Bio';
 import AddThis from '../../../components/AddThis';
 import { Helmet } from 'react-helmet';
 import MktoForm from '../../../components/blocks/MktoForm';
+import Breadcrumb from '../../../components/Breadcrumb';
 
 import { Link, graphql } from 'gatsby';
 
@@ -22,10 +23,7 @@ const SuccessStory = ({ data: { post } }) => {
     let canRoot = process.env.CAN_ROOT;
     let canonical = post.seo.canonical || post.link;
     if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
-    canonical = canonical.replace(
-        '/blog/success/',
-        '/resources/success-stories/'
-    );
+    canonical = canonical.replace('/blog/success/', '/resources/success-stories/');
 
     let meta = [
         {
@@ -46,27 +44,18 @@ const SuccessStory = ({ data: { post } }) => {
         },
         {
             property: `og:image`,
-            content: post.seo.opengraphImage
-                ? post.seo.opengraphImage.mediaItemUrl
-                : featuredImage.data,
+            content: post.seo.opengraphImage ? post.seo.opengraphImage.mediaItemUrl : featuredImage.data,
         },
         {
             property: `twitter:image`,
             content:
-                (post.seo.twitterImage
-                    ? post.seo.twitterImage.mediaItemUrl
-                    : ``) ||
-                (post.seo.opengraphImage
-                    ? post.seo.opengraphImage.mediaItemUrl
-                    : featuredImage.data) ||
+                (post.seo.twitterImage ? post.seo.twitterImage.mediaItemUrl : ``) ||
+                (post.seo.opengraphImage ? post.seo.opengraphImage.mediaItemUrl : featuredImage.data) ||
                 ``,
         },
         {
             property: `og:type`,
-            content:
-                post.seo.opengraphType ||
-                post.seo.schema.articleType ||
-                `website`,
+            content: post.seo.opengraphType || post.seo.schema.articleType || `website`,
         },
         {
             property: `og:url`,
@@ -75,6 +64,41 @@ const SuccessStory = ({ data: { post } }) => {
     ];
 
     let robots = [post.seo.metaRobotsNoindex, post.seo.metaRobotsNofollow];
+
+    let breadCrumbs = post.seo.breadcrumbs;
+    breadCrumbs = breadCrumbs.map((item, index) => {
+        if (index === 0) {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/">
+                        Resource Library
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/success-stories/">
+                        Case Studies
+                    </a>{' '}
+                    /{' '}
+                </>
+            );
+        }
+        let divider = '/ ';
+        if (breadCrumbs.length - 1 === index) {
+            divider = '';
+        }
+        item.url = item.url.replace('/blog/success/', '/resources/success-stories/');
+        return (
+            <>
+                <a className="breadcrumb-link link link-no-arrow" key={index} href={item.url}>
+                    {item.text}
+                </a>{' '}
+                {divider}
+            </>
+        );
+    });
 
     return (
         <Layout>
@@ -95,9 +119,7 @@ const SuccessStory = ({ data: { post } }) => {
                 <div className="row justify-content-md-center">
                     <div className="col-xl-10">
                         <div className="post-container">
-                            <p className="h6 text-uppercase">
-                                {post.blogContentType || 'Case Studies'}
-                            </p>
+                            <p className="h6 text-uppercase">{post.blogContentType || 'Case Studies'}</p>
                             <h1>{post.title}</h1>
                             <img
                                 className="my-4 rounded-3 w-100"
@@ -124,6 +146,7 @@ const SuccessStory = ({ data: { post } }) => {
                     thankyou="Thanks! Someone from our team will get back to you soon."
                 />
             </div>
+            <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );
 };
@@ -166,6 +189,10 @@ export const pageQuery = graphql`
                 schema {
                     articleType
                     raw
+                }
+                breadcrumbs {
+                    text
+                    url
                 }
             }
             featuredImage {

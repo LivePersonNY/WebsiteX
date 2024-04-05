@@ -11,6 +11,7 @@ import MktoForm from '../components/blocks/MktoForm';
 import NotFoundPage from '../pages/404';
 
 import { Link, graphql } from 'gatsby';
+import Breadcrumb from '../components/Breadcrumb';
 
 const BlogPost = ({ data: { previous, next, post, staged } }) => {
     if (staged && process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
@@ -72,14 +73,31 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
 
     let breadCrumbs = post.seo.breadcrumbs;
     breadCrumbs = breadCrumbs.map((item, index) => {
+        if (index === 0) {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/blog/">
+                        Blog
+                    </a>{' '}
+                    /{' '}
+                </>
+            );
+        }
         let divider = '/';
         if (breadCrumbs.length - 1 === index) {
             divider = '';
         }
         return (
-            <div key={index}>
-                <a href={item.url}>{item.text}</a> {divider}
-            </div>
+            <>
+                <a className="breadcrumb-link link link-no-arrow" key={index} href={item.url}>
+                    {item.text}
+                </a>{' '}
+                {divider}
+            </>
         );
     });
 
@@ -139,7 +157,7 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
                     thankyou={post.blogFormThankYou || 'Thanks! Someone from our team will get back to you soon.'}
                 />
             </div>
-            {breadCrumbs}
+            <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );
 };

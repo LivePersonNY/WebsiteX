@@ -68,7 +68,6 @@ const Report = ({ data: { post } }) => {
     let breadCrumbs = post.seo.breadcrumbs;
     breadCrumbs = breadCrumbs.map((item, index) => {
         if (index === 0) {
-            // item.url = location.origin;
             return (
                 <>
                     <a className="breadcrumb-link link link-no-arrow" href={location.origin}>

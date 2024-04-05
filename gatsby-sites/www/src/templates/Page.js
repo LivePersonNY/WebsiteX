@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
 import Parser from 'html-react-parser';
+import Breadcrumb from '../components/Breadcrumb';
 
 const PageTemplate = ({ data: { page, staged } }) => {
     if (staged && process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
@@ -68,14 +69,27 @@ const PageTemplate = ({ data: { page, staged } }) => {
 
     let breadCrumbs = page.seo.breadcrumbs;
     breadCrumbs = breadCrumbs.map((item, index) => {
+        if (index === 0) {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                        Home
+                    </a>{' '}
+                    /{' '}
+                </>
+            );
+        }
         let divider = '/';
         if (breadCrumbs.length - 1 === index) {
             divider = '';
         }
         return (
-            <div key={index}>
-                <a href={item.url}>{item.text}</a> {divider}
-            </div>
+            <>
+                <a className="breadcrumb-link link link-no-arrow" key={index} href={item.url}>
+                    {item.text}
+                </a>{' '}
+                {divider}
+            </>
         );
     });
 
@@ -91,7 +105,7 @@ const PageTemplate = ({ data: { page, staged } }) => {
                 schema={page.seo.schema.raw}
             />
             {page.content && Parser(page.content)}
-            {breadCrumbs}
+            <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );
 };
