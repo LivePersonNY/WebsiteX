@@ -86,7 +86,7 @@ const BlogIndex = ({
         if (category) {
             return (
                 <>
-                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
                         Home
                     </a>{' '}
                     /{' '}
@@ -102,7 +102,7 @@ const BlogIndex = ({
         } else {
             return (
                 <>
-                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
                         Home
                     </a>{' '}
                     /{' '}

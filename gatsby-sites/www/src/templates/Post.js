@@ -76,7 +76,7 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
         if (index === 0) {
             return (
                 <>
-                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
                         Home
                     </a>{' '}
                     /{' '}

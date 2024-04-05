@@ -32,7 +32,7 @@ const Resources = function (props) {
         if (props.active == 'reports') {
             return (
                 <>
-                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
                         Home
                     </a>{' '}
                     /{' '}
@@ -48,7 +48,7 @@ const Resources = function (props) {
         } else if (props.active == 'news') {
             return (
                 <>
-                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
                         Home
                     </a>{' '}
                     /{' '}
@@ -64,7 +64,7 @@ const Resources = function (props) {
         } else if (props.active == 'success') {
             return (
                 <>
-                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
                         Home
                     </a>{' '}
                     /{' '}
@@ -80,7 +80,7 @@ const Resources = function (props) {
         } else if (props.active == 'webinar') {
             return (
                 <>
-                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
                         Home
                     </a>{' '}
                     /{' '}
@@ -96,7 +96,7 @@ const Resources = function (props) {
         } else {
             return (
                 <>
-                    <a className="breadcrumb-link link link-no-arrow" href={location.origin}>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
                         Home
                     </a>{' '}
                     /{' '}
