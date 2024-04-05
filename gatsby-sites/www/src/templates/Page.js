@@ -88,7 +88,7 @@ const PageTemplate = ({ data: { page, staged } }) => {
                 <a className="breadcrumb-link link link-no-arrow" key={index} href={item.url}>
                     {item.text}
                 </a>{' '}
-                {divider}
+                {divider}{' '}
             </>
         );
     });
