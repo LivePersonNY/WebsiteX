@@ -125,22 +125,22 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured News</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/01/05165439/State-of-Customer-Conversations_Report_Web_V2a%402x.png"
-                                            alt="State of Customer Conversations 2024 report"
+                                            src="https://static.liveperson.com/static-assets/2024/02/23114955/liveperson-spark-omnichannel-messaging-virtual-hero%402x.png"
+                                            alt="Virtual Product Launch"
                                             width="180"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">Industry Report</p>
+                                            <p className="subtitle3">Virtual Product Launch</p>
                                             <p className="featured-body">
-                                                LivePerson reveals State of Customer Conversations 2024 report
+                                                Spark: The future of connected customer conversations
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="https://www.liveperson.com/customer-conversations-report/?utm_source=featured_news&utm_medium=direct&utm_campaign=socc_report_q1"
+                                                href="https://www.liveperson.com/resources/webinars/connected-customer-conversations/?utm_source=featured_news&utm_medium=direct&utm_campaign=spark_virtual_q1_2024"
                                                 rel="noopener noreferrer"
                                                 target="_blank"
                                             >
-                                                Learn more
+                                                Register now
                                             </a>
                                         </div>
                                     </div>
