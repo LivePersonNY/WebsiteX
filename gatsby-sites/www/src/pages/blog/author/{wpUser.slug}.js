@@ -18,12 +18,47 @@ const Author = ({ data: { wpUser } }) => {
     let schemaJson = JSON.parse(wpUser.seo.schema.raw);
     let jobTitle = schemaJson['@graph'][4]['jobTitle'];
 
+    let meta = [
+        {
+            name: `twitter:title`,
+            content: wpUser.seo.title || ``,
+        },
+        {
+            name: `twitter:description`,
+            content: wpUser.seo.metaDesc || ``,
+        },
+        {
+            property: `og:title`,
+            content: wpUser.seo.title || ``,
+        },
+        {
+            property: `og:description`,
+            content: wpUser.seo.metaDesc || ``,
+        },
+        {
+            property: `og:image`,
+            content: wpUser.avatar.url || ``,
+        },
+        {
+            property: `twitter:image`,
+            content: wpUser.avatar.url || ``,
+        },
+        {
+            property: `og:type`,
+            content: `article`,
+        },
+        {
+            property: `og:url`,
+            content: wpUser.seo.canonical,
+        },
+    ];
+
     return (
         <Layout>
             <Seo
                 title={wpUser.seo.title}
-                description=""
-                // meta=""
+                description={wpUser.seo.metaDesc}
+                meta={meta}
                 canonical={canonical}
                 robots=""
                 schema={wpUser.seo.schema.raw}
@@ -35,7 +70,7 @@ const Author = ({ data: { wpUser } }) => {
                             <div className="comp-exec-card-container bg-neutral-96">
                                 <div className="row">
                                     <div className="col-lg-3 offset-lg-1 text-center">
-                                        <img src={wpUser.avatar.url} alt="" loading="lazy" />
+                                        <img src={wpUser.avatar.url} alt="" loading="lazy" style={{ width: '100%' }} />
                                     </div>
                                     <div className="col-lg-6 offset-lg-1">
                                         <h2 className="card1">{wpUser.name}</h2>
@@ -80,6 +115,7 @@ export const pageQuery = graphql`
                     raw
                 }
                 canonical
+                metaDesc
                 title
                 social {
                     linkedIn
