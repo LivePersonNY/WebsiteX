@@ -72,6 +72,7 @@ const MktoForms = {
                     window.VWO.push(['track.goalConversion', 19]);
                     window.VWO.push(['track.goalConversion', 22]);
                     window.VWO.push(['track.goalConversion', 26]);
+                    window.VWO.push(['track.goalConversion', 28]);
 
                     // if (document.querySelector('.mkto-resource-asset')) {
                     if (formId == 3524 || formId == 3458 || formId == 2581 || formId == 4067) {
