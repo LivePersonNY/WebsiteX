@@ -406,5 +406,5 @@ window.documentReadyFn = function () {
             })
             .catch((error) => alert(error));
     };
-    document.querySelector('.form-netlify').addEventListener('submit', handleSubmit);
+    $('.form-netlify').on('submit', handleSubmit);
 };
