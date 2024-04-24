@@ -6,14 +6,14 @@ import NotFoundPage from '../404';
 
 const formSubmit = () => {
     if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
-        return <NotFoundPage />;
+        // return <NotFoundPage />;
     }
 
     useEffect(() => {}, []);
 
     return (
         <Layout mainClass="form">
-            <Seo title="form test | LivePerson" description="form test" />
+            <Seo title="form test | LivePerson" description="form test" robots="noindex, nofollow" />
 
             <div data-localize="false" className="pane bg-transparent">
                 <div className="container">
