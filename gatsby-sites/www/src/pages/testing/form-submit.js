@@ -20,6 +20,23 @@ const formSubmit = () => {
                     <div className="row justify-content-center">
                         <div className="col-lg-10 text-center">
                             <h2>Form test</h2>
+                            <br />
+                            <br />
+                            <form className="form-netlify" name="contact" data-netlify="true">
+                                <p>
+                                    <label>
+                                        Name <input type="text" name="name" />
+                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                        Email <input type="email" name="email" />
+                                    </label>
+                                </p>
+                                <p>
+                                    <button type="submit">Send</button>
+                                </p>
+                            </form>
                         </div>
                     </div>
                 </div>
