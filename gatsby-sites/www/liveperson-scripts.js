@@ -400,7 +400,7 @@ window.documentReadyFn = function () {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString(),
         })
-            .then(() => {
+            .then((response) => {
                 console.log('====================================');
                 console.log(`${JSON.stringify(response, null, 2)}`);
                 console.log('====================================');
