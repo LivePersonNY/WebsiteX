@@ -393,12 +393,7 @@ window.documentReadyFn = function () {
         event.preventDefault();
 
         const myForm = event.target;
-        console.log(myForm);
         const formData = new FormData(myForm);
-        console.log('11111111');
-        console.log(formData.toString());
-        console.log(`${JSON.stringify(formData, null, 2)}`);
-        console.log('11111111');
 
         fetch('/', {
             method: 'POST',
@@ -407,7 +402,8 @@ window.documentReadyFn = function () {
         })
             .then((response) => {
                 console.log('====================================');
-                console.log(`${JSON.stringify(response, null, 2)}`);
+                console.log(response);
+                console.log(JSON.stringify(response));
                 console.log('====================================');
                 var messageParagraph = $('<p>').addClass('thank-you-message').append('Thank you for your submission');
                 $('.form-netlify').html('').append(messageParagraph);
