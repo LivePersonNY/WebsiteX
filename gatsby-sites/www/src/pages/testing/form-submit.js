@@ -22,7 +22,14 @@ const formSubmit = () => {
                             <h2>Form test</h2>
                             <br />
                             <br />
-                            <form className="form-netlify" name="contact" data-netlify="true">
+                            <form
+                                className="form-netlify"
+                                name="contact"
+                                data-netlify="true"
+                                data-netlify-honeypot="bot-field"
+                                action="/"
+                                method="post"
+                            >
                                 <input type="hidden" name="form-name" value="contact" />
                                 <input type="hidden" name="bot-field" />
                                 <p>

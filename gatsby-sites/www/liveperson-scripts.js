@@ -394,15 +394,14 @@ window.documentReadyFn = function () {
 
         const myForm = event.target;
         const formData = new FormData(myForm);
+        console.log('11111111');
+        console.log(`${JSON.stringify(formData, null, 2)}`);
+        console.log('11111111');
 
         fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            // body: new URLSearchParams(formData).toString(),
-            body: this.encode({
-                'form-name': myForm.getAttribute('name'),
-                ...this.state,
-            }),
+            body: new URLSearchParams(formData).toString(),
         })
             .then((response) => {
                 console.log('====================================');
