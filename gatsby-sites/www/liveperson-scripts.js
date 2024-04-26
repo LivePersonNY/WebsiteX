@@ -393,8 +393,10 @@ window.documentReadyFn = function () {
         event.preventDefault();
 
         const myForm = event.target;
+        console.log(myForm);
         const formData = new FormData(myForm);
         console.log('11111111');
+        console.log(formData);
         console.log(`${JSON.stringify(formData, null, 2)}`);
         console.log('11111111');
 
