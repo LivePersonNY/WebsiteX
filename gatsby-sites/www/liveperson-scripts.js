@@ -398,7 +398,11 @@ window.documentReadyFn = function () {
         fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString(),
+            // body: new URLSearchParams(formData).toString(),
+            body: this.encode({
+                'form-name': myForm.getAttribute('name'),
+                ...this.state,
+            }),
         })
             .then((response) => {
                 console.log('====================================');
