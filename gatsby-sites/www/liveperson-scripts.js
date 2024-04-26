@@ -401,6 +401,9 @@ window.documentReadyFn = function () {
             body: new URLSearchParams(formData).toString(),
         })
             .then(() => {
+                console.log('====================================');
+                console.log(`${JSON.stringify(response, null, 2)}`);
+                console.log('====================================');
                 var messageParagraph = $('<p>').addClass('thank-you-message').append('Thank you for your submission');
                 $('.form-netlify').html('').append(messageParagraph);
             })

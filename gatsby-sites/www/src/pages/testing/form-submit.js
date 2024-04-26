@@ -24,6 +24,7 @@ const formSubmit = () => {
                             <br />
                             <form className="form-netlify" name="contact" data-netlify="true">
                                 <input type="hidden" name="form-name" value="contact" />
+                                <input type="hidden" name="bot-field" />
                                 <p>
                                     <label>
                                         Name <input type="text" name="name" />
