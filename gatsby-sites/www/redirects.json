@@ -335,6 +335,7 @@
         "/blog/webinars/*": "/resources/webinars/*",
         "/blog/policy-page/voicebase/minimum-terms/": "/blog/*",
         "/resources/reports/forrester-customer-experience/": "https://pr.liveperson.com/index.php?s=43&item=606",
-        "/services/gainshare/": "/services/lp-360/"
+        "/services/gainshare/": "/services/lp-360/",
+        "/spark/*": "/resources/webinars/connected-customer-conversations/"
     }
 }
