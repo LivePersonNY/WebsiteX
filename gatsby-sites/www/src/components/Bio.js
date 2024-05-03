@@ -13,6 +13,7 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
                 authors: edges {
                     info: node {
                         slug
+                        uri
                         firstName
                         lastName
                         id
@@ -52,15 +53,12 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
                 const avatarUrl = author?.avatar?.url;
 
                 return (
-                    <div
-                        className={`bio col-lg-5 mb-4 ${authorOrder}`}
-                        key={author.firstName}
-                    >
+                    <div className={`bio col-lg-5 mb-4 ${authorOrder}`} key={author.firstName}>
                         {/* {console.log(`${author.firstName} ${author.lastName}`)} */}
                         <div className="row">
                             <div className="col-lg-10">
                                 <div className="bio-img">
-                                    <a href={author.seo.social.linkedIn}>
+                                    <a href={author.uri}>
                                         <img
                                             src={avatarUrl}
                                             className="rounded-circle"
@@ -77,11 +75,7 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
                                             <>
                                                 <br />
                                                 <span className="bio-company">
-                                                    {author.seo.social.mySpace},{' '}
-                                                    {
-                                                        author.seo.social
-                                                            .soundCloud
-                                                    }
+                                                    {author.seo.social.mySpace}, {author.seo.social.soundCloud}
                                                 </span>
                                             </>
                                         )}
