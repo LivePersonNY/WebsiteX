@@ -278,6 +278,10 @@ body.blog {
 
             p.h5 {
                 margin-bottom: 0;
+                a {
+                    font-family: $familySpaceGrotesk;
+                    color: $neutral12;
+                }
             }
         }
     }

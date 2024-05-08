@@ -70,7 +70,9 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
                                 </div>
                                 <div className="bio-body">
                                     <p className="h5">
-                                        {author.firstName} {author.lastName}
+                                        <a href={author.uri}>
+                                            {author.firstName} {author.lastName}
+                                        </a>
                                         {author.seo.social.mySpace && (
                                             <>
                                                 <br />
