@@ -30,6 +30,14 @@ const Flywheel = () => {
                 // console.log(resultsFormValue);
                 $('input[name=maturityAssessmentQuizResults]').val(resultsFormValue);
 
+                MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', 5024, function (form) {
+                    form.addHiddenFields({
+                        maturityAssessmentQuizResults: resultsFormValue,
+                    });
+                    form.submit();
+                    // console.log('Submitting values:', form.vals());
+                });
+
                 $('.flywheel-tool-input').hide();
                 $('.flywheel-tool-result').fadeIn().css('display', 'flex');
             } else {
@@ -671,6 +679,7 @@ const Flywheel = () => {
                             </a>
                             <form id={`mktoForm_5004`} mkto="5004"></form>
                             <mkto-after mkto="5004">Thank you! One of our experts will contact you shortly</mkto-after>
+                            <form id="mktoForm_5024" style={{ display: 'none' }}></form>
                         </div>
                     </div>
                 </div>
