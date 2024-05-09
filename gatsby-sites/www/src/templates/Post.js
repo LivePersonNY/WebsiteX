@@ -11,13 +11,10 @@ import MktoForm from '../components/blocks/MktoForm';
 import NotFoundPage from '../pages/404';
 
 import { Link, graphql } from 'gatsby';
+import Breadcrumb from '../components/Breadcrumb';
 
 const BlogPost = ({ data: { previous, next, post, staged } }) => {
-    if (
-        staged &&
-        process.env.BRANCH != 'develop' &&
-        process.env.GATSBY_IS_PREVIEW !== 'true'
-    ) {
+    if (staged && process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
         return <NotFoundPage />;
     }
 
@@ -53,27 +50,18 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
         },
         {
             property: `og:image`,
-            content: post.seo.opengraphImage
-                ? post.seo.opengraphImage.mediaItemUrl
-                : featuredImage.data,
+            content: post.seo.opengraphImage ? post.seo.opengraphImage.mediaItemUrl : featuredImage.data,
         },
         {
             property: `twitter:image`,
             content:
-                (post.seo.twitterImage
-                    ? post.seo.twitterImage.mediaItemUrl
-                    : ``) ||
-                (post.seo.opengraphImage
-                    ? post.seo.opengraphImage.mediaItemUrl
-                    : featuredImage.data) ||
+                (post.seo.twitterImage ? post.seo.twitterImage.mediaItemUrl : ``) ||
+                (post.seo.opengraphImage ? post.seo.opengraphImage.mediaItemUrl : featuredImage.data) ||
                 ``,
         },
         {
             property: `og:type`,
-            content:
-                post.seo.opengraphType ||
-                post.seo.schema.articleType ||
-                `website`,
+            content: post.seo.opengraphType || post.seo.schema.articleType || `website`,
         },
         {
             property: `og:url`,
@@ -82,6 +70,36 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
     ];
 
     let robots = [post.seo.metaRobotsNoindex, post.seo.metaRobotsNofollow];
+
+    let breadCrumbs = post.seo.breadcrumbs;
+    breadCrumbs = breadCrumbs.map((item, index) => {
+        if (index === 0) {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/blog/">
+                        Blog
+                    </a>{' '}
+                    /{' '}
+                </>
+            );
+        }
+        let divider = '/';
+        if (breadCrumbs.length - 1 === index) {
+            divider = '';
+        }
+        return (
+            <>
+                <a className="breadcrumb-link link link-no-arrow" key={index} href={item.url}>
+                    {item.text}
+                </a>{' '}
+                {divider}
+            </>
+        );
+    });
 
     return (
         <Layout>
@@ -101,16 +119,11 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
             <div className="container">
                 <div className="row justify-content-md-center">
                     <div className="col-xl-10">
-                        <a
-                            href="/blog/"
-                            className="return-link link link-mt-large"
-                        >
+                        <a href="/blog/" className="return-link link link-mt-large">
                             Blog
                         </a>
                         <div className="post-container">
-                            <p className="h6 text-uppercase">
-                                {post.blogContentType || post.seo.opengraphType}
-                            </p>
+                            <p className="h6 text-uppercase">{post.blogContentType || post.seo.opengraphType}</p>
                             <h1>{post.title}</h1>
                             <p className="h3 mb-4">{Parser(post.excerpt)}</p>
                             <Bio
@@ -140,27 +153,18 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
                 <MktoForm
                     formId={post.blogFormId || '3733'}
                     backgroundColor="bg-neutral-96"
-                    header={
-                        post.blogFormHeader ||
-                        "Let's put LivePerson to work for you"
-                    }
-                    thankyou={
-                        post.blogFormThankYou ||
-                        'Thanks! Someone from our team will get back to you soon.'
-                    }
+                    header={post.blogFormHeader || "Let's put LivePerson to work for you"}
+                    thankyou={post.blogFormThankYou || 'Thanks! Someone from our team will get back to you soon.'}
                 />
             </div>
+            <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );
 };
 export default BlogPost;
 
 export const pageQuery = graphql`
-    query BlogPostById(
-        $id: String!
-        $previousPostId: String
-        $nextPostId: String
-    ) {
+    query BlogPostById($id: String!, $previousPostId: String, $nextPostId: String) {
         post: wpPost(id: { eq: $id }) {
             id
             excerpt
@@ -213,6 +217,10 @@ export const pageQuery = graphql`
                 schema {
                     articleType
                     raw
+                }
+                breadcrumbs {
+                    text
+                    url
                 }
             }
             date(formatString: "MMMM DD, YYYY")

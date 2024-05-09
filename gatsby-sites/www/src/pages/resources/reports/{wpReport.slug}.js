@@ -8,6 +8,7 @@ import Bio from '../../../components/Bio';
 import AddThis from '../../../components/AddThis';
 import { Helmet } from 'react-helmet';
 import MktoForm from '../../../components/blocks/MktoForm';
+import Breadcrumb from '../../../components/Breadcrumb';
 
 import { Link, graphql } from 'gatsby';
 
@@ -43,27 +44,18 @@ const Report = ({ data: { post } }) => {
         },
         {
             property: `og:image`,
-            content: post.seo.opengraphImage
-                ? post.seo.opengraphImage.mediaItemUrl
-                : featuredImage.data,
+            content: post.seo.opengraphImage ? post.seo.opengraphImage.mediaItemUrl : featuredImage.data,
         },
         {
             property: `twitter:image`,
             content:
-                (post.seo.twitterImage
-                    ? post.seo.twitterImage.mediaItemUrl
-                    : ``) ||
-                (post.seo.opengraphImage
-                    ? post.seo.opengraphImage.mediaItemUrl
-                    : featuredImage.data) ||
+                (post.seo.twitterImage ? post.seo.twitterImage.mediaItemUrl : ``) ||
+                (post.seo.opengraphImage ? post.seo.opengraphImage.mediaItemUrl : featuredImage.data) ||
                 ``,
         },
         {
             property: `og:type`,
-            content:
-                post.seo.opengraphType ||
-                post.seo.schema.articleType ||
-                `website`,
+            content: post.seo.opengraphType || post.seo.schema.articleType || `website`,
         },
         {
             property: `og:url`,
@@ -72,6 +64,41 @@ const Report = ({ data: { post } }) => {
     ];
 
     let robots = [post.seo.metaRobotsNoindex, post.seo.metaRobotsNofollow];
+
+    let breadCrumbs = post.seo.breadcrumbs;
+    breadCrumbs = breadCrumbs.map((item, index) => {
+        if (index === 0) {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/">
+                        Resource Library
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/reports/">
+                        Reports
+                    </a>{' '}
+                    /{' '}
+                </>
+            );
+        }
+        let divider = '/ ';
+        if (breadCrumbs.length - 1 === index) {
+            divider = '';
+        }
+        item.url = item.url.replace('/blog/reports/', '/resources/reports/');
+        return (
+            <>
+                <a className="breadcrumb-link link link-no-arrow" key={index} href={item.url}>
+                    {item.text}
+                </a>{' '}
+                {divider}
+            </>
+        );
+    });
 
     return (
         <Layout>
@@ -84,6 +111,7 @@ const Report = ({ data: { post } }) => {
                 schema={post.seo.schema.raw}
             />
             {Parser(post.content)}
+            <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );
 };
@@ -124,6 +152,10 @@ export const pageQuery = graphql`
                 schema {
                     articleType
                     raw
+                }
+                breadcrumbs {
+                    text
+                    url
                 }
             }
             featuredImage {

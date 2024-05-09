@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../../../components/Layout';
 import Seo from '../../../components/Seo';
 import Parser from 'html-react-parser';
+import Breadcrumb from '../../../components/Breadcrumb';
 
 const Webinar = ({ data: { page } }) => {
     let canRoot = process.env.CAN_ROOT;
@@ -31,19 +32,13 @@ const Webinar = ({ data: { page } }) => {
         },
         {
             property: `og:image`,
-            content: page.seo.opengraphImage
-                ? page.seo.opengraphImage.mediaItemUrl
-                : ``,
+            content: page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``,
         },
         {
             property: `twitter:image`,
             content:
-                (page.seo.twitterImage
-                    ? page.seo.twitterImage.mediaItemUrl
-                    : ``) ||
-                (page.seo.opengraphImage
-                    ? page.seo.opengraphImage.mediaItemUrl
-                    : ``) ||
+                (page.seo.twitterImage ? page.seo.twitterImage.mediaItemUrl : ``) ||
+                (page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``) ||
                 ``,
         },
         {
@@ -58,6 +53,41 @@ const Webinar = ({ data: { page } }) => {
 
     let robots = [page.seo.metaRobotsNoindex, page.seo.metaRobotsNofollow];
 
+    let breadCrumbs = page.seo.breadcrumbs;
+    breadCrumbs = breadCrumbs.map((item, index) => {
+        if (index === 0) {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/">
+                        Resource Library
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/webinars/">
+                        Webinars
+                    </a>{' '}
+                    /{' '}
+                </>
+            );
+        }
+        let divider = '/ ';
+        if (breadCrumbs.length - 1 === index) {
+            divider = '';
+        }
+        item.url = item.url.replace('/blog/webinars/', '/resources/webinars/');
+        return (
+            <>
+                <a className="breadcrumb-link link link-no-arrow" key={index} href={item.url}>
+                    {item.text}
+                </a>{' '}
+                {divider}
+            </>
+        );
+    });
+
     if (!page) return 'The slug does not exist in the CMS';
     return (
         <Layout>
@@ -70,6 +100,7 @@ const Webinar = ({ data: { page } }) => {
                 schema={page.seo.schema.raw}
             />
             {Parser(page.content)}
+            <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );
 };
@@ -111,6 +142,10 @@ export const pageQuery = graphql`
                 schema {
                     articleType
                     raw
+                }
+                breadcrumbs {
+                    text
+                    url
                 }
             }
         }

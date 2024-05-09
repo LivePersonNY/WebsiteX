@@ -7,13 +7,10 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
 import Parser from 'html-react-parser';
+import Breadcrumb from '../components/Breadcrumb';
 
 const PageTemplate = ({ data: { page, staged } }) => {
-    if (
-        staged &&
-        process.env.BRANCH != 'develop' &&
-        process.env.GATSBY_IS_PREVIEW !== 'true'
-    ) {
+    if (staged && process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
         return <NotFoundPage />;
     }
 
@@ -30,9 +27,7 @@ const PageTemplate = ({ data: { page, staged } }) => {
         },
         {
             property: `og:image`,
-            content: page.seo.opengraphImage
-                ? page.seo.opengraphImage.mediaItemUrl
-                : ``,
+            content: page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``,
         },
         {
             property: `og:description`,
@@ -51,12 +46,8 @@ const PageTemplate = ({ data: { page, staged } }) => {
             name: `image`,
             property: `twitter:image`,
             content:
-                (page.seo.twitterImage
-                    ? page.seo.twitterImage.mediaItemUrl
-                    : ``) ||
-                (page.seo.opengraphImage
-                    ? page.seo.opengraphImage.mediaItemUrl
-                    : ``) ||
+                (page.seo.twitterImage ? page.seo.twitterImage.mediaItemUrl : ``) ||
+                (page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``) ||
                 ``,
         },
         /*{
@@ -76,6 +67,32 @@ const PageTemplate = ({ data: { page, staged } }) => {
 
     let robots = [page.seo.metaRobotsNoindex, page.seo.metaRobotsNofollow];
 
+    let breadCrumbs = page.seo.breadcrumbs;
+    breadCrumbs = breadCrumbs.map((item, index) => {
+        if (index === 0) {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                </>
+            );
+        }
+        let divider = '/';
+        if (breadCrumbs.length - 1 === index) {
+            divider = '';
+        }
+        return (
+            <>
+                <a className="breadcrumb-link link link-no-arrow" key={index} href={item.url}>
+                    {item.text}
+                </a>{' '}
+                {divider}{' '}
+            </>
+        );
+    });
+
     if (!page) return 'The slug does not exist in the CMS';
     return (
         <Layout>
@@ -88,6 +105,7 @@ const PageTemplate = ({ data: { page, staged } }) => {
                 schema={page.seo.schema.raw}
             />
             {page.content && Parser(page.content)}
+            <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );
 };
@@ -130,6 +148,10 @@ export const pageQuery = graphql`
                     articleType
                     pageType
                     raw
+                }
+                breadcrumbs {
+                    text
+                    url
                 }
             }
         }

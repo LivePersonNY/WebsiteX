@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import { Helmet } from 'react-helmet';
 import Post from '../components/Post';
+import Breadcrumb from '../components/Breadcrumb';
 
 const BlogIndex = ({
     data,
@@ -35,10 +36,7 @@ const BlogIndex = ({
             <Layout isHomePage>
                 <Seo title="All posts" />
                 <Bio />
-                <p>
-                    No blog posts found. Add posts to your WordPress site and
-                    they'll appear here!
-                </p>
+                <p>No blog posts found. Add posts to your WordPress site and they'll appear here!</p>
             </Layout>
         );
     }
@@ -84,6 +82,38 @@ const BlogIndex = ({
         }
     }
 
+    let breadCrumbs = () => {
+        if (category) {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/blog/">
+                        Blog
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href={category.link}>
+                        {category.name}
+                    </a>
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/blog/">
+                        Blog
+                    </a>
+                </>
+            );
+        }
+    };
+
     return (
         <Layout isHomePage>
             <Helmet
@@ -92,22 +122,10 @@ const BlogIndex = ({
                 }}
             />
             <Seo
-                title={
-                    category
-                        ? category.seo.title
-                        : `The Conversational, a LivePerson blog | LivePerson`
-                }
-                description={
-                    category
-                        ? category.description || category.seo.metaDesc
-                        : null
-                }
+                title={category ? category.seo.title : `The Conversational, a LivePerson blog | LivePerson`}
+                description={category ? category.description || category.seo.metaDesc : null}
                 robots={robots}
-                canonical={
-                    category
-                        ? `https://www.liveperson.com${category.link}`
-                        : `https://www.liveperson.com/blog/`
-                }
+                canonical={category ? `https://www.liveperson.com${category.link}` : `https://www.liveperson.com/blog/`}
             />
 
             <div className="container blog mt-5">
@@ -119,10 +137,7 @@ const BlogIndex = ({
                             {categories.map((category, index) => {
                                 return (
                                     <li>
-                                        <a
-                                            className="link link-mt-small"
-                                            href={category.link}
-                                        >
+                                        <a className="link link-mt-small" href={category.link}>
                                             {category.name}
                                         </a>
                                     </li>
@@ -139,17 +154,11 @@ const BlogIndex = ({
                             >
                                 Topics
                             </button>
-                            <ul
-                                className="dropdown-menu categories px-3"
-                                aria-labelledby="dropdownMenuButton1"
-                            >
+                            <ul className="dropdown-menu categories px-3" aria-labelledby="dropdownMenuButton1">
                                 {categories.map((category, index) => {
                                     return (
                                         <li>
-                                            <a
-                                                className="link link-mt-small"
-                                                href={`${category.link}`}
-                                            >
+                                            <a className="link link-mt-small" href={`${category.link}`}>
                                                 {category.name}
                                             </a>
                                         </li>
@@ -162,11 +171,7 @@ const BlogIndex = ({
                         <div className="d-none d-sm-block">{titleElement}</div>
                         <div className="row">
                             {pageNumber === 1 && !category && sticky && (
-                                <Post
-                                    post={sticky}
-                                    root="/blog"
-                                    isFeatured={true}
-                                />
+                                <Post post={sticky} root="/blog" isFeatured={true} />
                             )}
 
                             {posts.map((post, index) => {
@@ -178,23 +183,14 @@ const BlogIndex = ({
 
                                 /* {postCounter == 4 && <div className={`col-lg-12 chat-button`}><div id="LP_Embedded_Blog"></div></div>} */
 
-                                return (
-                                    <Post
-                                        post={post}
-                                        root="/blog"
-                                        classes={tags}
-                                    />
-                                );
+                                return <Post post={post} root="/blog" classes={tags} />;
                             })}
                         </div>
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
                                 {previousPagePath && (
                                     <li class="page-item">
-                                        <a
-                                            class="page-link"
-                                            href={previousPagePath}
-                                        >
+                                        <a class="page-link" href={previousPagePath}>
                                             Previous
                                         </a>
                                     </li>
@@ -206,10 +202,7 @@ const BlogIndex = ({
 
                                 {nextPagePath && (
                                     <li class="page-item">
-                                        <a
-                                            class="page-link"
-                                            href={nextPagePath}
-                                        >
+                                        <a class="page-link" href={nextPagePath}>
                                             Next
                                         </a>
                                     </li>
@@ -219,6 +212,7 @@ const BlogIndex = ({
                     </div>
                 </div>
             </div>
+            <Breadcrumb breadCrumbs={breadCrumbs()} />
         </Layout>
     );
 };
@@ -226,11 +220,7 @@ const BlogIndex = ({
 export default BlogIndex;
 
 export const pageQuery = graphql`
-    query WordPressPostArchive(
-        $offset: Int!
-        $postsPerPage: Int!
-        $categoryLink: String
-    ) {
+    query WordPressPostArchive($offset: Int!, $postsPerPage: Int!, $categoryLink: String) {
         categories: allWpCategory {
             nodes {
                 id
@@ -252,9 +242,7 @@ export const pageQuery = graphql`
             filter: {
                 isSticky: { eq: false }
                 seo: { metaRobotsNoindex: { eq: "index" } }
-                categories: {
-                    nodes: { elemMatch: { link: { in: [$categoryLink] } } }
-                }
+                categories: { nodes: { elemMatch: { link: { in: [$categoryLink] } } } }
             }
         ) {
             nodes {
@@ -312,9 +300,7 @@ export const pageQuery = graphql`
             filter: {
                 isSticky: { eq: false }
                 seo: { metaRobotsNoindex: { eq: "index" } }
-                categories: {
-                    nodes: { elemMatch: { link: { nin: "/blog/learning/" } } }
-                }
+                categories: { nodes: { elemMatch: { link: { nin: "/blog/learning/" } } } }
             }
         ) {
             nodes {

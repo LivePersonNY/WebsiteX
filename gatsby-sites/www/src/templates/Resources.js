@@ -6,6 +6,7 @@ import PlainContent from '../components/blocks/PlainContent';
 import { Helmet } from 'react-helmet';
 import ResourcesNav from '../components/blocks/ResourcesNav';
 import Post from '../components/Post';
+import Breadcrumb from '../components/Breadcrumb';
 
 const Resources = function (props) {
     const nodeTypes = {
@@ -25,6 +26,86 @@ const Resources = function (props) {
             kicker: 'Webinar',
             slug: 'webinars',
         },
+    };
+
+    let breadCrumbs = () => {
+        if (props.active == 'reports') {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/">
+                        Resource Library
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/reports/">
+                        Reports
+                    </a>
+                </>
+            );
+        } else if (props.active == 'news') {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/">
+                        Resource Library
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/news/">
+                        News
+                    </a>
+                </>
+            );
+        } else if (props.active == 'success') {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/">
+                        Resource Library
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/success-stories/">
+                        Case Studies
+                    </a>
+                </>
+            );
+        } else if (props.active == 'webinar') {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/">
+                        Resource Library
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/webinars/">
+                        Webinars
+                    </a>
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/">
+                        Resource Library
+                    </a>
+                </>
+            );
+        }
     };
 
     return (
@@ -74,6 +155,7 @@ const Resources = function (props) {
                     </div>
                 </div>
             </div>
+            <Breadcrumb breadCrumbs={breadCrumbs()} />
         </Layout>
     );
 };
