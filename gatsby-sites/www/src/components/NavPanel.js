@@ -100,19 +100,19 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/03/28160123/liveperson-generative-ai-chatbot-webinar-oua-hero_2x-1.png"
-                                            alt="Webinar"
+                                            src="https://static.liveperson.com/static-assets/2024/02/23114955/liveperson-spark-omnichannel-messaging-virtual-hero%402x.png"
+                                            alt="Virtual Product Launch"
                                             width="250"
                                             height="115"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">Webinar</p>
+                                            <p className="subtitle3">Virtual Product Launch</p>
                                             <p className="featured-body">
-                                                Demystifying generative AI chatbots with Open Universities Australia
+                                                Spark: The future of connected customer conversations
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/oua-generative-ai-chatbots/?utm_source=featured_resources&utm_medium=direct&utm_campaign=oua_webinar_q2"
+                                                href="/resources/webinars/connected-customer-conversations/?utm_source=featured_news&utm_medium=direct&utm_campaign=spark_virtual_q1_2024"
                                             >
                                                 Register now
                                             </a>
@@ -125,22 +125,22 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured News</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/01/05165439/State-of-Customer-Conversations_Report_Web_V2a%402x.png"
-                                            alt="State of Customer Conversations 2024 report"
+                                            src="https://static.liveperson.com/static-assets/2024/02/23114955/liveperson-spark-omnichannel-messaging-virtual-hero%402x.png"
+                                            alt="Virtual Product Launch"
                                             width="180"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">Industry Report</p>
+                                            <p className="subtitle3">Virtual Product Launch</p>
                                             <p className="featured-body">
-                                                LivePerson reveals State of Customer Conversations 2024 report
+                                                Spark: The future of connected customer conversations
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="https://www.liveperson.com/customer-conversations-report/?utm_source=featured_news&utm_medium=direct&utm_campaign=socc_report_q1"
+                                                href="/resources/webinars/connected-customer-conversations/?utm_source=featured_news&utm_medium=direct&utm_campaign=spark_virtual_q1_2024"
                                                 rel="noopener noreferrer"
                                                 target="_blank"
                                             >
-                                                Learn more
+                                                Register now
                                             </a>
                                         </div>
                                     </div>
