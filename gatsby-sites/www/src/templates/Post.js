@@ -288,6 +288,10 @@ export const pageQuery = graphql`
                     articleType
                     raw
                 }
+                breadcrumbs {
+                    text
+                    url
+                }
             }
             date(formatString: "MMMM DD, YYYY")
             featuredImage {
