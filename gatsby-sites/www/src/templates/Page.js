@@ -190,6 +190,10 @@ export const pageQuery = graphql`
                     pageType
                     raw
                 }
+                breadcrumbs {
+                    text
+                    url
+                }
             }
         }
     }
