@@ -140,7 +140,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                                 // rel="noopener noreferrer"
                                                 // target="_blank"
                                             >
-                                                Register now
+                                                Learn more
                                             </a>
                                         </div>
                                     </div>
