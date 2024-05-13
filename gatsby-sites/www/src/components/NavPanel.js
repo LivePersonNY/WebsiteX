@@ -137,8 +137,8 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                             <a
                                                 className="dropdown-link-blue"
                                                 href="/resources/news/avaya-lp-omnichannel-solution/?utm_source=featured_news&utm_medium=direct&utm_campaign=avaya"
-                                                rel="noopener noreferrer"
-                                                target="_blank"
+                                                // rel="noopener noreferrer"
+                                                // target="_blank"
                                             >
                                                 Register now
                                             </a>
