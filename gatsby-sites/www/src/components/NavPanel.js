@@ -125,18 +125,18 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured News</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/02/23114955/liveperson-spark-omnichannel-messaging-virtual-hero%402x.png"
-                                            alt="Virtual Product Launch"
+                                            src="https://static.liveperson.com/static-assets/2024/05/10135424/liveperson-avaya-news-image-optimized.jpg"
+                                            alt="LivePerson + Avaya"
                                             width="180"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">Virtual Product Launch</p>
+                                            <p className="subtitle3">LivePerson + Avaya</p>
                                             <p className="featured-body">
-                                                Spark: The future of connected customer conversations
+                                                Announcing a new partnership to deliver best-in-class CX
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/connected-customer-conversations/?utm_source=featured_news&utm_medium=direct&utm_campaign=spark_virtual_q1_2024"
+                                                href="/resources/news/avaya-lp-omnichannel-solution/?utm_source=featured_news&utm_medium=direct&utm_campaign=avaya"
                                                 rel="noopener noreferrer"
                                                 target="_blank"
                                             >
