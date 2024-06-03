@@ -75,10 +75,12 @@ const htmlHack1 = `
 		<div class="row">
 			<div class="col-lg-12">
 
+				<div class="accordion open" id="pricingPageAccordion">
+
 				<!-- Start Agent & Supervisor Experience -->
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingFour">
-					</button>
+
 					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">
 						<div class="container">
 							<div class="row">
@@ -118,7 +120,7 @@ const htmlHack1 = `
 				<!-- START ADMIN EXPERIENCE -->
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingFive">
-					</button>
+
 					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true" aria-controls="panelsStayOpen-collapseFive">
 						<div class="container">
 							<div class="row">
@@ -153,7 +155,7 @@ const htmlHack1 = `
 				<!-- START Communication Channels -->
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingChannels">
-					</button>
+
 					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseChannels" aria-expanded="true" aria-controls="panelsStayOpen-collapseChannels">
 						<div class="container">
 							<div class="row">
@@ -195,7 +197,7 @@ X (former Twitter) is supported with additional fees.
 				<!-- START INTEGRATIONS -->
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingTen">
-					</button>
+
 					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="true" aria-controls="panelsStayOpen-collapseTen">
 						<div class="container">
 							<div class="row">
@@ -293,7 +295,7 @@ Customer may use Functions free of charge for up to 150,000 invocations per mont
 
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingThree">
-					</button>
+
 					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true" aria-controls="panelsStayOpen-collapseThree">
 						<div class="container">
 							<div class="row">
@@ -440,7 +442,7 @@ Customer may use Functions free of charge for up to 150,000 invocations per mont
 
 				<!-- Start Conversational Intelligence -->
 
-				<div class="accordion open" id="pricingPageAccordion">
+
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="panelsStayOpen-headingOne">
 						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -510,7 +512,7 @@ Additional terms regarding LivePerson Analytics Studio can be found <a href="/po
 										</div>
 										<div class="col-lg-2"></div>
 										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -555,7 +557,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 										</div>
 										<div class="col-lg-2"></div>
 										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 							</div>
@@ -567,7 +569,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="panelsStayOpen-headingSix">
-						</button>
+
 						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="true" aria-controls="panelsStayOpen-collapseSix">
 							<div class="container">
 								<div class="row">
@@ -640,7 +642,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 										</div>
 										<div class="col-lg-2"></div>
 										<div class="col-lg-2"></div>
-										<div class="col-lg-2"></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -705,7 +707,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="panelsStayOpen-headingSeven">
-						</button>
+
 						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="true" aria-controls="panelsStayOpen-collapseSeven">
 							<div class="container">
 								<div class="row">
@@ -724,7 +726,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="panelsStayOpen-headingSeven">
-						</button>
+
 						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="true" aria-controls="panelsStayOpen-collapseSeven">
 							<div class="container">
 								<div class="row">
@@ -764,7 +766,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 
 					<div class="accordion-item">
 						<h2 class="accordion-header" id="panelsStayOpen-headingSeven">
-						</button>
+
 						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="true" aria-controls="panelsStayOpen-collapseSeven">
 							<div class="container">
 								<div class="row">
