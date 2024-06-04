@@ -75,13 +75,13 @@ const htmlHack1 = `
 		<div class="row">
 			<div class="col-lg-12">
 
-				<div class="accordion open" id="pricingPageAccordion">
+				<div class="accordion open pricing2024" id="pricingPageAccordion">
 
 				<!-- Start Agent & Supervisor Experience -->
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingFour">
 
-					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true" aria-controls="panelsStayOpen-collapseFour">
+					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Agent & Supervisor Experience</h4></div>
@@ -121,7 +121,7 @@ const htmlHack1 = `
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingFive">
 
-					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true" aria-controls="panelsStayOpen-collapseFive">
+					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Administrative Experience</h4></div>
@@ -138,7 +138,7 @@ const htmlHack1 = `
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-6">
-										<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse14" role="button" aria-expanded="false" aria-controls="collapse14">
+										<a class="body1">
 											Administrative Experience
 										</a>
 									</div>
@@ -156,7 +156,7 @@ const htmlHack1 = `
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingChannels">
 
-					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseChannels" aria-expanded="true" aria-controls="panelsStayOpen-collapseChannels">
+					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseChannels" aria-expanded="false" aria-controls="panelsStayOpen-collapseChannels">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Communication Channels</h4></div>
@@ -173,7 +173,7 @@ const htmlHack1 = `
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-6">
-										<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse14" role="button" aria-expanded="false" aria-controls="collapseChannels">
+										<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseChannels" role="button" aria-expanded="false" aria-controls="collapseChannels">
 											Communication Channels
 										</a>
 										<div class="collapse" id="collapseChannels">
@@ -198,7 +198,7 @@ X (former Twitter) is supported with additional fees.
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingTen">
 
-					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="true" aria-controls="panelsStayOpen-collapseTen">
+					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false" aria-controls="panelsStayOpen-collapseTen">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Integrations & Developer Experience</h4></div>
@@ -745,7 +745,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse17" role="button" aria-expanded="false" aria-controls="collapse17">
+											<a class="body1">
 
 											</a>
 										</div>

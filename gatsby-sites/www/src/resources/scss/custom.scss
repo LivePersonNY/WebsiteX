@@ -778,6 +778,16 @@ $animationSpeed: 30s;
             }
         }
     }
+    &.pricing2024 {
+        .accordion-button {
+            &::after {
+                left: 91%;
+                @include media-breakpoint-up(lg) {
+                    left: 46%;
+                }
+            }
+        }
+    }
 }
 // End Pricing page
 
