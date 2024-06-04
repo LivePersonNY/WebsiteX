@@ -81,7 +81,7 @@ const htmlHack1 = `
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingFour">
 
-					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Agent & Supervisor Experience</h4></div>
@@ -92,7 +92,7 @@ const htmlHack1 = `
 						</div>
 					</button>
 					</h2>
-					<div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
+					<div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
 						<div class="accordion-body">
 
 							<div class="container">
@@ -121,7 +121,7 @@ const htmlHack1 = `
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingFive">
 
-					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Administrative Experience</h4></div>
@@ -132,7 +132,7 @@ const htmlHack1 = `
 						</div>
 					</button>
 					</h2>
-					<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
+					<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
 						<div class="accordion-body">
 
 							<div class="container">
@@ -156,7 +156,7 @@ const htmlHack1 = `
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingChannels">
 
-					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseChannels" aria-expanded="false" aria-controls="panelsStayOpen-collapseChannels">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseChannels" aria-expanded="false" aria-controls="panelsStayOpen-collapseChannels">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Communication Channels</h4></div>
@@ -167,7 +167,7 @@ const htmlHack1 = `
 						</div>
 					</button>
 					</h2>
-					<div id="panelsStayOpen-collapseChannels" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingChannels">
+					<div id="panelsStayOpen-collapseChannels" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingChannels">
 						<div class="accordion-body">
 
 							<div class="container">
@@ -198,7 +198,7 @@ X (former Twitter) is supported with additional fees.
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingTen">
 
-					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false" aria-controls="panelsStayOpen-collapseTen">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTen" aria-expanded="false" aria-controls="panelsStayOpen-collapseTen">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Integrations & Developer Experience</h4></div>
@@ -209,7 +209,7 @@ X (former Twitter) is supported with additional fees.
 						</div>
 					</button>
 					</h2>
-					<div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTen">
+					<div id="panelsStayOpen-collapseTen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTen">
 						<div class="accordion-body">
 
 							<div class="container">
@@ -712,14 +712,31 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-6"><h4>Technical Support</h4></div>
-									<div class="col-lg-2">Standard</div>
-									<div class="col-lg-2">Enhanced</div>
-									<div class="col-lg-2">Enhanced</div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
 						</h2>
+						<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
+							<div class="accordion-body">
 
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-6">
+											<a class="body1">
+
+											</a>
+										</div>
+										<div class="col-lg-2">Standard</div>
+										<div class="col-lg-2">Enhanced</div>
+										<div class="col-lg-2">Enhanced</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
 					</div>
 
 					<!-- START Customer Success -->
@@ -731,13 +748,32 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-6"><h4>Customer Success</h4></div>
-									<div class="col-lg-2">Quarterly</div>
-									<div class="col-lg-2">Designated CSM</div>
-									<div class="col-lg-2">Designated CSM</div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
 						</h2>
+
+						<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
+							<div class="accordion-body">
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-6">
+											<a class="body1">
+
+											</a>
+										</div>
+										<div class="col-lg-2">Quarterly</div>
+										<div class="col-lg-2">Designated CSM</div>
+										<div class="col-lg-2">Designated CSM</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
 
 						<div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingSix">
 							<div class="accordion-body">
@@ -771,13 +807,32 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-6"><h4>Implementation</h4></div>
-									<div class="col-lg-2">4 weeks</div>
-									<div class="col-lg-2">8 weeks</div>
-									<div class="col-lg-2">12 weeks</div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
+									<div class="col-lg-2"></div>
 								</div>
 							</div>
 						</button>
 						</h2>
+
+						<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
+							<div class="accordion-body">
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-6">
+											<a class="body1">
+
+											</a>
+										</div>
+										<div class="col-lg-2">4 weeks</div>
+										<div class="col-lg-2">8 weeks</div>
+										<div class="col-lg-2">12 weeks</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
 
 					</div>
 
