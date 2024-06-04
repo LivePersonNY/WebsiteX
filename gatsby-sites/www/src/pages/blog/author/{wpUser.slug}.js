@@ -7,10 +7,6 @@ import NotFoundPage from '../../404';
 import Seo from '../../../components/Seo';
 
 const Author = ({ data: { wpUser } }) => {
-    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
-        return <NotFoundPage />;
-    }
-
     let canRoot = process.env.CAN_ROOT;
     let canonical = wpUser.seo.canonical;
     if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
