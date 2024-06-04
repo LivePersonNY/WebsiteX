@@ -843,13 +843,13 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 
 		<div class="row align-items-center" style="margin-bottom:28px">
 			<div class="col-lg-12">
-				<p>1. Analytics Studio: Please reach out to your sales representatives to see the entitlements
-<br /><br/>
+				<p><br /><br /><i>1. Analytics Studio: Please reach out to your sales representatives to see the entitlements
+<br><br>
 2. Proactive Messaging: Please reach out to your sales representatives to see the entitlements
-<br /><br/>
+<br><br>
 3. Generative AI: Please reach out to your sales representatives to see the entitlements for Generative AI tokens
-<br /><br/>
-4. Service Credits: Please reach out to your sales representatives to see the service credit entitlements
+<br><br>
+4. Service Credits: Please reach out to your sales representatives to see the service credit entitlements</i>
 </p>
 			</div>
 
