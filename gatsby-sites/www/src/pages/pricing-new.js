@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import ScrollFeatures from '../components/ScrollFeatures';
 import Parser from 'html-react-parser';
+import NotFoundPage from './404';
 //import $ from 'jquery';
 
 const htmlHack1 = `
