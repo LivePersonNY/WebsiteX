@@ -1714,4 +1714,10 @@ main:not(.company-careers) {
 
 .breadcrumbs-container {
     padding: 24px 0;
+    .col-12 {
+        font-size: 14px;
+        a {
+            font-size: 14px;
+        }
+    }
 }

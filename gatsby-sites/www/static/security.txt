@@ -1,0 +1,6 @@
+Contact: https://www.liveperson.com/policies/vulnerability-disclosure-policy/
+Expires: 2025-02-06T23:00:00.000Z
+Acknowledgments: https://app.intigriti.com/company/programs/liveperson/livepersonconversationalcloud/
+Preferred-Languages: en
+Policy: https://www.liveperson.com/policies/vulnerability-disclosure-policy/
+Hiring: https://www.liveperson.com/company/careers/
