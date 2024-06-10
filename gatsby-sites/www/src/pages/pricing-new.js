@@ -57,9 +57,9 @@ const htmlHack1 = `
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Agent & Supervisor Experience</h4></div>
-								<div class="col-lg-2"></div>
-								<div class="col-lg-2"></div>
-								<div class="col-lg-2"></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 							</div>
 						</div>
 					</button>
@@ -93,18 +93,18 @@ const htmlHack1 = `
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingFive">
 
-					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseAdmin" aria-expanded="false" aria-controls="panelsStayOpen-collapseAdmin">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Administrative Experience</h4></div>
-								<div class="col-lg-2"></div>
-								<div class="col-lg-2"></div>
-								<div class="col-lg-2"></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 							</div>
 						</div>
 					</button>
 					</h2>
-					<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+					<div id="panelsStayOpen-collapseAdmin" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
 						<div class="accordion-body">
 
 							<div class="container">
@@ -132,9 +132,9 @@ const htmlHack1 = `
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Communication Channels</h4></div>
-								<div class="col-lg-2"></div>
-								<div class="col-lg-2"></div>
-								<div class="col-lg-2"></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 							</div>
 						</div>
 					</button>
@@ -174,9 +174,9 @@ X (former Twitter) is supported with additional fees.
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6"><h4>Integrations & Developer Experience</h4></div>
-								<div class="col-lg-2"></div>
-								<div class="col-lg-2"></div>
-								<div class="col-lg-2"></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+								<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 							</div>
 						</div>
 					</button>
