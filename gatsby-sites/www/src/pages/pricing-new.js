@@ -890,7 +890,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 <br><br>
 2. Proactive Messaging: Please reach out to your sales representatives to see the entitlements
 <br><br>
-3. Generative AI: Please reach out to your sales representatives to see the entitlements for Generative AI tokens
+3. Generative AI: Please reach out to your sales representatives to see the entitlements for Generative AI tokens</i>
 </p>
 			</div>
 
