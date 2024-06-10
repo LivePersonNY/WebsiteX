@@ -26,36 +26,7 @@ const htmlHack1 = `
 
 <div class="pricing-tabs-s-h pricing-tabs-cc">
 
-<div class=" pane comp-icon-text-b bg-neutral-96">
-	<div class="container" >
-		<div class="row row-cols-lg-2 comp-card-grid-container">
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25145618/numbers-1_circle-orange.svg" alt="">
-						<h3 class="">Conversational Cloud</h3>
-						<p class="card-text subtitle1" data-tag="new line split">Automate messages and calls, optimize consumer insights, increase agent productivity with Liveperson AI.</p>
-					</div>
-					<div class="card-footer">
-						<a href="/quote/" class="card-link link">Request a quote</a>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<img class="card-image-internal" src="https://static.liveperson.com/static-assets/2023/04/25145619/numbers-2_circle-orange.svg" alt="">
-						<h3 class="">Conversational Cloud & Generative AI</h3>
-						<p class="card-text subtitle1" data-tag="new line split">Accelerate automation, increase conversion rate, and boost agent productivity with Generative AI.</p>
-					</div>
-					<div class="card-footer">
-						<a href="/quote/" class="card-link link">Request a quote</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+
 
 <div class="pane bg-neutral-96 pricing-table">
 	<div class="container" >
@@ -896,28 +867,6 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 
 		</div>
 
-	</div>
-</div>
-
-<div class=" pane comp-icon-text-a bg-transparent pane-with-lead-text">
-	<div class="container" style="opacity:1">
-		<div class="row">
-			<div class="col-lg-12">
-				<h2 class="">Choose the payment option that meets your business needs</h2>
-			</div>
-		</div>
-		<div class="row row-cols-lg-2 row-cols-1 comp-block-grid-container">
-			<div class="col">
-				<img src="https://static.liveperson.com/static-assets/2023/04/25145621/banking-money-2_circle-orange.svg" alt="ringing telephone">
-				<p class="card1">Pay as you go</p>
-				<p class="subtitle1" data-tag="new line split">Only pay for what you use: Unlimited agent seats.</p>
-			</div>
-			<div class="col">
-				<img src="https://static.liveperson.com/static-assets/2023/04/25145622/insurance-handshake_circle-orange.svg" alt="ringing telephone">
-				<p class="card1">Annual contract</p>
-				<p class="subtitle1" data-tag="new line split">Get customer success and enhanced support services with annual contract.</p>
-			</div>
-		</div>
 	</div>
 </div>
 
