@@ -55,11 +55,10 @@ module.exports = {
                 schema: {
                     timeout: 1200000,
                     // perPage: 10,
-                    // requestConcurrency: 3,
+                    requestConcurrency: 3,
+                    //this somehow might maybe not really but could help local build?
                 },
-                url: `${
-                    process.env.WP_HOST || 'https://edit.liveperson.com'
-                }/graphql`,
+                url: `${process.env.WP_HOST || 'https://edit.liveperson.com'}/graphql`,
                 debug: {
                     preview: true,
                     graphql: {
@@ -96,8 +95,7 @@ module.exports = {
         {
             resolve: 'gatsby-source-wordpress-menus',
             options: {
-                wordpressUrl:
-                    process.env.WP_HOST || 'https://edit.liveperson.com',
+                wordpressUrl: process.env.WP_HOST || 'https://edit.liveperson.com',
                 enableWpml: false,
                 allowCache: false,
                 // maxCacheDurationSeconds: 60 * 60 * 24,
@@ -199,15 +197,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-env-variables`,
             options: {
-                allowList: [
-                    'CAN_ROOT',
-                    'NODE_ENV',
-                    'BRANCH',
-                    'GATSBY_IS_PREVIEW',
-                    'LOCALIZE_KEY',
-                    'GA_ID',
-                    'GTM_ID',
-                ],
+                allowList: ['CAN_ROOT', 'NODE_ENV', 'BRANCH', 'GATSBY_IS_PREVIEW', 'LOCALIZE_KEY', 'GA_ID', 'GTM_ID'],
             },
         },
         {

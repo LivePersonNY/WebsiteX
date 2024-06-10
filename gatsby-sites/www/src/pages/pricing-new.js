@@ -61,7 +61,7 @@ const htmlHack1 = `
 	<div class="container" >
 		<div class="row align-items-center" style="margin-bottom:28px">
 			<div class="col-lg-6">
-				<h2>Theme</h2>
+
 			</div>
 			<div class="col-lg-2">
 				<h5 class="text-center">Agent Workspace</h5>
@@ -276,9 +276,6 @@ X (former Twitter) is supported with additional fees.
 										<div class="collapse" id="collapse33">
 											<p class="body2">
 												Enables brands to develop custom behaviors to better tailor the system to their specific needs. By offering these capabilities, developers can write a simple function, deploy it to LivePerson's infrastructure and make it available to their LivePerson account in minutes.
-<br /><br />
-Customer may use Functions free of charge for up to 150,000 invocations per month. Should Customer exceed the above cap, Customer’s continued usage will consume 1 Credit for every 250 invocations. An Invocation is triggered each time an event calls upon a function to be utilized.
-
 											</p>
 										</div>
 									</div>
@@ -551,7 +548,7 @@ Additional terms regarding LivePerson Analytics Studio can be found <a href="/po
 Messaging channels are charged at the following rates, plus a handling fee of 15%.
 <ul>
 <li>SMS outbound - list price rate of the SMS Provider </li>
-<li>WhatsApp rate card can be found here.</li>
+<li>WhatsApp rate card can be found <a href="https://developers.facebook.com/docs/whatsapp/pricing" target="_blank">here</a>.</li>
 </ul>
 												</p>
 											</div>
@@ -574,7 +571,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="true" aria-controls="panelsStayOpen-collapseSix">
 							<div class="container">
 								<div class="row">
-									<div class="col-lg-6"><h4>Generative AI3</h4></div>
+									<div class="col-lg-6"><h4>Generative AI<sup>3</sup></h4></div>
 									<div class="col-lg-2"></div>
 									<div class="col-lg-2"></div>
 									<div class="col-lg-2"></div>
@@ -651,7 +648,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 									<div class="row">
 										<div class="col-lg-6">
 											<a class="body1">
-												AI Agent: Messaging Bot
+												AI Agents: Messaging Bot
 											</a>
 										</div>
 										<div class="col-lg-2"></div>
@@ -664,7 +661,72 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 									<div class="row">
 										<div class="col-lg-6">
 											<a class="body1">
-												AI Agent: Voice Bot
+												AI Agents: Voice Bot
+											</a>
+										</div>
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-6">
+											<a class="body1">
+												AI Agents: KnowledgeAI Agent
+											</a>
+										</div>
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-6">
+											<a class="body1">
+												AI Agents: Routing AI Agent
+											</a>
+										</div>
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-6">
+											<a class="body1">
+												AI Agents: Data Collection AI Agent
+											</a>
+										</div>
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-6">
+											<a class="body1">
+												Hallucination Detection
+											</a>
+										</div>
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									</div>
+								</div>
+
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-6">
+											<a class="body1">
+												Prompt Library
 											</a>
 										</div>
 										<div class="col-lg-2"></div>
@@ -767,8 +829,8 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 
 											</a>
 										</div>
-										<div class="col-lg-2">Quarterly</div>
-										<div class="col-lg-2">Designated CSM</div>
+										<div class="col-lg-2">Community</div>
+										<div class="col-lg-2">Pooled CSM</div>
 										<div class="col-lg-2">Designated CSM</div>
 									</div>
 								</div>
@@ -776,26 +838,6 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 							</div>
 						</div>
 
-						<div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingSix">
-							<div class="accordion-body">
-
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-6">
-											<a class="body1">
-
-											</a>
-										</div>
-										<div class="col-lg-2"></div>
-										<div class="col-lg-2">25 credits<sup>4</sup> per quarter</div>
-										<div class="col-lg-2">100 credits<sup>4</sup> per quarter
-(50% carry over each quarter)
-</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
 
 					</div>
 
@@ -826,9 +868,9 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 
 											</a>
 										</div>
-										<div class="col-lg-2">4 weeks</div>
-										<div class="col-lg-2">8 weeks</div>
-										<div class="col-lg-2">12 weeks</div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									</div>
 								</div>
 
@@ -849,8 +891,6 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 2. Proactive Messaging: Please reach out to your sales representatives to see the entitlements
 <br><br>
 3. Generative AI: Please reach out to your sales representatives to see the entitlements for Generative AI tokens
-<br><br>
-4. Service Credits: Please reach out to your sales representatives to see the service credit entitlements</i>
 </p>
 			</div>
 
