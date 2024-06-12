@@ -12,11 +12,11 @@ const htmlHack1 = `
 <div class="pane hero bg-primary-dark styles-2023">
 	<div class="container" >
 		<div class="row text-center">
-			<div class="col-lg-8 offset-lg-2">
+			<div class="col-lg-10 offset-lg-1">
 				<p class="h6 text-uppercase text-neutral-99">liveperson pricing</p>
-				<h1 class="text-neutral-99">Simple pricing with no additional service fees and minimum add-ons.</h1>
+				<h1 class="text-neutral-99">Simple pricing with minimum add-ons and no additional service&nbsp;fees.</h1>
 				<p data-tag="new line split" class="lead text-neutral-99">
-					Auto-attached services to accelerate the automation and productivity boost.
+					Auto-attached services to accelerate the automation and productivity&nbsp;boost.
 				</p>
 				<a class="btn btn-primary link" href="/quote/">Request a quote</a>
 			</div>
@@ -110,9 +110,14 @@ const htmlHack1 = `
 							<div class="container">
 								<div class="row">
 									<div class="col-lg-6">
-										<a class="body1">
+										<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse110" role="button" aria-expanded="false" aria-controls="collapse110">
 											Administrative Experience
 										</a>
+										<div class="collapse" id="collapse110">
+											<p class="body2">
+												Include management console, campaign builder, and allow admins to create and manage users and skills.
+											</p>
+										</div>
 									</div>
 									<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
 									<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
@@ -153,6 +158,24 @@ const htmlHack1 = `
 												Include web, app, SMS, Email Connect, Whatsapp, Apple Messaging for Business, Messenger, Instagram, Google RCS Messaging, Google Business Messaging, Kakao Talk, Line, Viber, WeChat.
 <br /><br />
 X (former Twitter) is supported with additional fees.
+											</p>
+										</div>
+									</div>
+									<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+									<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
+								</div>
+							</div>
+
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-6">
+										<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseConnMess" role="button" aria-expanded="false" aria-controls="collapseConnMess">
+											Connect to Messaging
+										</a>
+										<div class="collapse" id="collapseConnMess">
+											<p class="body2">
+												LivePerson Connect to Messaging (C2M) is an IVR deflection solution that lets brands move voice calls to messages through the Conversational Cloud platform.
 											</p>
 										</div>
 									</div>
@@ -579,7 +602,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 											</a>
 											<div class="collapse" id="collapseCopilotSummary">
 												<p class="body2">
-													Gen AI summaries, empowering agents to swiftly catch up on both ongoing and historical conversations handled by bots or human agents. The summaries encompass customer inquiries, concerns, key issues, and attempted resolutions, covering both voice and messaging interactions.
+													Provide focused summaries across bot and agent conversations for quicker context to reduce consumer repetition, and for faster agent wrap-up times.
 												</p>
 											</div>
 										</div>
@@ -592,9 +615,14 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseCopilotAssist" role="button" aria-expanded="false" aria-controls="collapseCopilotAssist">
 												Copilot Assist
 											</a>
+											<div class="collapse" id="collapseCopilotAssist">
+												<p class="body2">
+													Generative AI-powered Conversation Assist.
+												</p>
+											</div>
 										</div>
 										<div class="col-lg-2"></div>
 										<div class="col-lg-2"></div>
@@ -605,9 +633,14 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseCopilotRewrite" role="button" aria-expanded="false" aria-controls="collapseCopilotRewrite">
 												Copilot Rewrite
 											</a>
+											<div class="collapse" id="collapseCopilotRewrite">
+												<p class="body2">
+													Copilot Rewrite, part of Conversation Copilot, enhances agent communication in the workspace. It interprets and refines messages for clarity and professionalism within the agent workspace, setting the bar for high customer and agent experiences.
+												</p>
+											</div>
 										</div>
 										<div class="col-lg-2"></div>
 										<div class="col-lg-2"></div>
@@ -644,9 +677,14 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseKnowAI" role="button" aria-expanded="false" aria-controls="collapseKnowAI">
 												AI Agents: KnowledgeAI Agent
 											</a>
+											<div class="collapse" id="collapseKnowAI">
+												<p class="body2">
+													Utilize existing knowledge bases, CRMs, and CMSs to inform AI interactions for increased self-service.
+												</p>
+											</div>
 										</div>
 										<div class="col-lg-2"></div>
 										<div class="col-lg-2"></div>
@@ -657,9 +695,14 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseRoutAI" role="button" aria-expanded="false" aria-controls="collapseRoutAI">
 												AI Agents: Routing AI Agent
 											</a>
+											<div class="collapse" id="collapseRoutAI">
+												<p class="body2">
+													Accurately route consumers to the best-suited agent or bot based on their intent, without needing to build manual routing rules, for reduced mis-routes and faster deployment.
+												</p>
+											</div>
 										</div>
 										<div class="col-lg-2"></div>
 										<div class="col-lg-2"></div>
@@ -670,22 +713,14 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1">
-												AI Agents: Data Collection AI Agent
-											</a>
-										</div>
-										<div class="col-lg-2"></div>
-										<div class="col-lg-2"></div>
-										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-									</div>
-								</div>
-
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-6">
-											<a class="body1">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseHallDet" role="button" aria-expanded="false" aria-controls="collapseHallDet">
 												Hallucination Detection
 											</a>
+											<div class="collapse" id="collapseHallDet">
+												<p class="body2">
+													Transform and unifies existing (or new) KB, CRM, and CMS content into accurate, engaging conversations for full automation or faster agent handle times. Hallucination Detection ensures that responses are reliable and consistent with your business data.
+												</p>
+											</div>
 										</div>
 										<div class="col-lg-2"></div>
 										<div class="col-lg-2"></div>
@@ -696,9 +731,14 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapsePromLib" role="button" aria-expanded="false" aria-controls="collapsePromLib">
 												Prompt Library
 											</a>
+											<div class="collapse" id="collapsePromLib">
+												<p class="body2">
+													Allow for customization of prompts for more tailored & controlled AI conversations.
+												</p>
+											</div>
 										</div>
 										<div class="col-lg-2"></div>
 										<div class="col-lg-2"></div>
@@ -709,9 +749,14 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseGenIn" role="button" aria-expanded="false" aria-controls="collapseGenIn">
 												Generative Insights
 											</a>
+											<div class="collapse" id="collapseGenIn">
+												<p class="body2">
+													Conversational interface to query data using plain language and open-ended questions for accelerated data-driven decision making.
+												</p>
+											</div>
 										</div>
 										<div class="col-lg-2"></div>
 										<div class="col-lg-2"></div>
@@ -722,9 +767,14 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1">
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseBringLLM" role="button" aria-expanded="false" aria-controls="collapseBringLLM">
 												Bring your own LLM
 											</a>
+											<div class="collapse" id="collapseBringLLM">
+												<p class="body2">
+													Integrate existing LLM models to be used in agent and consumer-facing capabilities for enhanced control, compliance, and cost.
+												</p>
+											</div>
 										</div>
 										<div class="col-lg-2"></div>
 										<div class="col-lg-2"></div>
