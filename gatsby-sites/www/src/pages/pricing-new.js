@@ -35,6 +35,20 @@ const htmlHack1 = `
 
 			</div>
 			<div class="col-lg-2">
+				<h3 class="text-center">Bronze</h3>
+			</div>
+			<div class="col-lg-2">
+				<h3 class="text-center">Silver</h3>
+			</div>
+			<div class="col-lg-2">
+				<h3 class="text-center">Gold</h3>
+			</div>
+		</div>
+		<div class="row align-items-center" style="margin-bottom:28px">
+			<div class="col-lg-6">
+
+			</div>
+			<div class="col-lg-2">
 				<h5 class="text-center">Agent Workspace</h5>
 			</div>
 			<div class="col-lg-2">
@@ -306,7 +320,7 @@ X (former Twitter) is supported with additional fees.
 								<div class="row">
 									<div class="col-lg-6">
 										<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapse7" role="button" aria-expanded="false" aria-controls="collapse7">
-											Intent Manager (Build, Optimize, (Analyze and Discover Features)
+											Intent Manager (Build, Optimize, Analyze, and Discover Features)
 										</a>
 										<div class="collapse" id="collapse7">
 											<p class="body2">
@@ -541,8 +555,8 @@ Additional terms regarding LivePerson Analytics Studio can be found <a href="/po
 <br /><br />
 Messaging channels are charged at the following rates, plus a handling fee of 15%.
 <ul>
-<li>SMS outbound - list price rate of the SMS Provider </li>
-<li>WhatsApp rate card can be found <a href="https://developers.facebook.com/docs/whatsapp/pricing" target="_blank">here</a>.</li>
+<li class="body2">SMS outbound - list price rate of the SMS Provider </li>
+<li class="body2">WhatsApp rate card can be found <a href="https://developers.facebook.com/docs/whatsapp/pricing" target="_blank">here</a>.</li>
 </ul>
 												</p>
 											</div>
