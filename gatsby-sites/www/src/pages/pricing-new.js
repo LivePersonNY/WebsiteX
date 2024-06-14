@@ -16,7 +16,7 @@ const htmlHack1 = `
 				<p class="h6 text-uppercase text-neutral-99">liveperson pricing</p>
 				<h1 class="text-neutral-99">Simple pricing with minimum add-ons and no additional service&nbsp;fees.</h1>
 				<p data-tag="new line split" class="lead text-neutral-99">
-					Auto-attached services to accelerate the automation and productivity&nbsp;boost.
+					All-Inclusive services to accelerate the automation and productivity&nbsp;boost.
 				</p>
 				<a class="btn btn-primary link" href="/quote/">Request a quote</a>
 			</div>
@@ -763,12 +763,12 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseGenIn" role="button" aria-expanded="false" aria-controls="collapseGenIn">
-												Generative Insights
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseBringLLM" role="button" aria-expanded="false" aria-controls="collapseBringLLM">
+												Bring your own LLM
 											</a>
-											<div class="collapse" id="collapseGenIn">
+											<div class="collapse" id="collapseBringLLM">
 												<p class="body2">
-													Conversational interface to query data using plain language and open-ended questions for accelerated data-driven decision making.
+													Integrate existing LLM models to be used in agent and consumer-facing capabilities for enhanced control, compliance, and cost.
 												</p>
 											</div>
 										</div>
@@ -781,12 +781,12 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseBringLLM" role="button" aria-expanded="false" aria-controls="collapseBringLLM">
-												Bring your own LLM
+											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseGenIn" role="button" aria-expanded="false" aria-controls="collapseGenIn">
+												Generative Insights<sup>4</sup>
 											</a>
-											<div class="collapse" id="collapseBringLLM">
+											<div class="collapse" id="collapseGenIn">
 												<p class="body2">
-													Integrate existing LLM models to be used in agent and consumer-facing capabilities for enhanced control, compliance, and cost.
+													Conversational interface to query data using plain language and open-ended questions for accelerated data-driven decision making.
 												</p>
 											</div>
 										</div>
@@ -925,7 +925,9 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 <br><br>
 2. Proactive Messaging: Please reach out to your sales representatives to see the entitlements
 <br><br>
-3. Generative AI: Please reach out to your sales representatives to see the entitlements for Generative AI tokens</i>
+3. Generative AI: Please reach out to your sales representatives to see the entitlements for Generative AI tokens
+<br><br>
+4. Early access</i>
 </p>
 			</div>
 
