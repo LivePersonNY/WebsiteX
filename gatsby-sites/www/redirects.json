@@ -342,7 +342,7 @@
         "/intents/education/": "/resources/reports/chatbot-for-education-intents/",
         "/intents/insurance/": "/resources/reports/chatbots-in-insurance/",
         "/intents/retail/": "/resources/reports/chatbots-for-retail/",
-        "/intents/travel/": "/resources/reports/travel-chatbot-analysis/",
+        "/intents/travel/": "/resources/reports/travel-chatbot-intents/",
         "/intents/telecom/": "/resources/reports/telecom-chatbot-intents/"
     }
 }
