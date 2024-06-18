@@ -121,6 +121,7 @@ const News = ({ data: { post } }) => {
                         <div className="post-container">
                             <p className="h6 text-uppercase">In the News</p>
                             <h1>{post.title}</h1>
+                            <p className="h6 date">{post.date}</p>
                             <img
                                 className="my-4 rounded-3 w-100"
                                 src={featuredImage.data}
@@ -202,6 +203,7 @@ export const pageQuery = graphql`
                     height
                 }
             }
+            date(formatString: "MMMM DD, YYYY")
         }
     }
 `;
