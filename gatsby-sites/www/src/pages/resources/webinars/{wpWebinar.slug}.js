@@ -10,7 +10,7 @@ import Breadcrumb from '../../../components/Breadcrumb';
 const Webinar = ({ data: { page } }) => {
     let canRoot = process.env.CAN_ROOT;
     let canonical = page.seo.canonical || page.link;
-    if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
+    canonical = canRoot + canonical;
     canonical = canonical.replace('/blog/webinars/', '/resources/webinars/');
 
     let meta = [
@@ -47,7 +47,7 @@ const Webinar = ({ data: { page } }) => {
         },
         {
             property: `og:url`,
-            content: page.seo.canonical,
+            content: canonical,
         },
     ];
 

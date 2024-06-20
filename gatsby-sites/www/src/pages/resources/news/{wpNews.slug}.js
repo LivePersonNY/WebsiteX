@@ -22,7 +22,7 @@ const News = ({ data: { post } }) => {
 
     let canRoot = process.env.CAN_ROOT;
     let canonical = post.seo.canonical || post.link;
-    if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
+    canonical = canRoot + canonical;
     canonical = canonical.replace('/blog/news/', '/resources/news/');
 
     let meta = [
@@ -59,7 +59,7 @@ const News = ({ data: { post } }) => {
         },
         {
             property: `og:url`,
-            content: post.seo.canonical,
+            content: canonical,
         },
     ];
 
@@ -121,6 +121,7 @@ const News = ({ data: { post } }) => {
                         <div className="post-container">
                             <p className="h6 text-uppercase">In the News</p>
                             <h1>{post.title}</h1>
+                            <p className="h6 date">{post.date}</p>
                             <img
                                 className="my-4 rounded-3 w-100"
                                 src={featuredImage.data}
@@ -202,6 +203,7 @@ export const pageQuery = graphql`
                     height
                 }
             }
+            date(formatString: "MMMM DD, YYYY")
         }
     }
 `;

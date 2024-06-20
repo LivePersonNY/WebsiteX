@@ -18,7 +18,7 @@ const PageTemplate = ({ data: { page, staged } }) => {
 
     let canRoot = process.env.CAN_ROOT;
     let canonical = page.seo.canonical || page.link;
-    if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
+    canonical = canRoot + canonical;
 
     let meta = [
         {
@@ -35,7 +35,7 @@ const PageTemplate = ({ data: { page, staged } }) => {
         },
         {
             property: `og:url`,
-            content: page.seo.canonical,
+            content: canonical,
         },
         {
             name: `type`,
