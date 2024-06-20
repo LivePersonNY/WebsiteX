@@ -16,7 +16,7 @@ const htmlHack1 = `
 				<p class="h6 text-uppercase text-neutral-99">liveperson pricing</p>
 				<h1 class="text-neutral-99">Simple pricing. Minimal add-ons. No service&nbsp;fees.</h1>
 				<p data-tag="new line split" class="lead text-neutral-99">
-					Making it easy for you to realize measurable returns on your digital investments (or something like&nbsp;that).
+					Making it easy for you to realize measurable returns on your digital investments.
 				</p>
 				<a class="btn btn-primary link" href="/quote/">Request a quote</a>
 			</div>
