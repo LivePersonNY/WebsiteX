@@ -22,7 +22,7 @@ const News = ({ data: { post } }) => {
 
     let canRoot = process.env.CAN_ROOT;
     let canonical = post.seo.canonical || post.link;
-    if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
+    canonical = canRoot + canonical;
     canonical = canonical.replace('/blog/news/', '/resources/news/');
 
     let meta = [
