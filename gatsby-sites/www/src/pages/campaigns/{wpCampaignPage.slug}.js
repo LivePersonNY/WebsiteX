@@ -20,9 +20,7 @@ const PageTemplate = ({ data: { page } }) => {
         },
         {
             property: `og:image`,
-            content: page.seo.opengraphImage
-                ? page.seo.opengraphImage.mediaItemUrl
-                : ``,
+            content: page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``,
         },
         {
             property: `og:description`,
@@ -30,7 +28,7 @@ const PageTemplate = ({ data: { page } }) => {
         },
         {
             property: `og:url`,
-            content: page.seo.canonical,
+            content: canonical,
         },
         {
             name: `type`,
@@ -41,12 +39,8 @@ const PageTemplate = ({ data: { page } }) => {
             name: `image`,
             property: `twitter:image`,
             content:
-                (page.seo.twitterImage
-                    ? page.seo.twitterImage.mediaItemUrl
-                    : ``) ||
-                (page.seo.opengraphImage
-                    ? page.seo.opengraphImage.mediaItemUrl
-                    : ``) ||
+                (page.seo.twitterImage ? page.seo.twitterImage.mediaItemUrl : ``) ||
+                (page.seo.opengraphImage ? page.seo.opengraphImage.mediaItemUrl : ``) ||
                 ``,
         },
         /*{

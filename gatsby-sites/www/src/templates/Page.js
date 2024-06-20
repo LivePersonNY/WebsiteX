@@ -35,7 +35,7 @@ const PageTemplate = ({ data: { page, staged } }) => {
         },
         {
             property: `og:url`,
-            content: page.seo.canonical,
+            content: canonical,
         },
         {
             name: `type`,

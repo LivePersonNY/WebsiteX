@@ -59,7 +59,7 @@ const SuccessStory = ({ data: { post } }) => {
         },
         {
             property: `og:url`,
-            content: post.seo.canonical,
+            content: canonical,
         },
     ];
 

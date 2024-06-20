@@ -47,7 +47,7 @@ const Webinar = ({ data: { page } }) => {
         },
         {
             property: `og:url`,
-            content: page.seo.canonical,
+            content: canonical,
         },
     ];
 

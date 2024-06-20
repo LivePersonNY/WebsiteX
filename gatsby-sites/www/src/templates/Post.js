@@ -65,7 +65,7 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
         },
         {
             property: `og:url`,
-            content: post.seo.canonical,
+            content: canonical,
         },
     ];
 

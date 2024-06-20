@@ -59,7 +59,7 @@ const News = ({ data: { post } }) => {
         },
         {
             property: `og:url`,
-            content: post.seo.canonical,
+            content: canonical,
         },
     ];
 
