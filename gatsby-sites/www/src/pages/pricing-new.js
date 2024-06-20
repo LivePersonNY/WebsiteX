@@ -14,9 +14,9 @@ const htmlHack1 = `
 		<div class="row text-center">
 			<div class="col-lg-10 offset-lg-1">
 				<p class="h6 text-uppercase text-neutral-99">liveperson pricing</p>
-				<h1 class="text-neutral-99">Simple pricing with minimum add-ons and no additional service&nbsp;fees.</h1>
+				<h1 class="text-neutral-99">Simple pricing. Minimal add-ons. No service&nbsp;fees.</h1>
 				<p data-tag="new line split" class="lead text-neutral-99">
-					All-Inclusive services to accelerate the automation and productivity&nbsp;boost.
+					Making it easy for you to realize measurable returns on your digital investments (or something like&nbsp;that).
 				</p>
 				<a class="btn btn-primary link" href="/quote/">Request a quote</a>
 			</div>
@@ -49,13 +49,13 @@ const htmlHack1 = `
 
 			</div>
 			<div class="col-lg-2">
-				<h5 class="text-center">Agent Workspace</h5>
+				<h5 class="text-center">Boost agent efficiency with a messaging-first workspace</h5>
 			</div>
 			<div class="col-lg-2">
-				<h5 class="text-center">Automation</h5>
+				<h5 class="text-center">Increase self-service with intelligent automation</h5>
 			</div>
 			<div class="col-lg-2">
-				<h5 class="text-center">Advanced Intelligence and Generative AI</h5>
+				<h5 class="text-center">Enhance personalization with advanced analytics and Generative AI</h5>
 			</div>
 		</div>
 		<div class="row">
@@ -933,34 +933,6 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 
 		</div>
 
-	</div>
-</div>
-
-<div class="pane comp-quote-slider bg-transparent">
-	<div class="container" >
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="comp-slider-container bg-neutral-96">
-
-					<div id="carouselExampleControls" class="carousel slide testing-here4" data-bs-ride="carousel">
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<div class="col-lg-12">
-									<div class="row align-items-center">
-										<div class="col-lg-10 offset-lg-1">
-											<img class="comp-brand-img" src="https://static.liveperson.com/static-assets/2023/04/26161117/specialized-logo-40px.svg" alt="Specialized Logo">
-											<p class="h6 comp-quote-author text-uppercase">andrew mcguigan • global leader, rider care at specialized</p>
-											<p class="quote1" data-tag="new line split">“As a worldwide brand selling to more than 25 distinct markets, LivePerson’s pay-as-you-go framework is the best fit for us. Today, our CSAT score for messaging interactions with retailers and riders is 93% and growing. As we continue to roll out LivePerson’s solutions across multiple languages, channels, and markets, pay-as-you-go provides us with the flexibility we need to strategically scale up AI for our business with a trusted partner.”</p>
-											<a class="link link-mt-large" target="_blank" href="https://pr.liveperson.com/2023-04-25-LivePerson-upgrades-its-Conversational-Cloud-platform-with-trustworthy-AI-capabilities-to-redefine-how-businesses-put-Generative-AI-and-LLMs-to-work">Read the press release</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
 
