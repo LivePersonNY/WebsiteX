@@ -14,7 +14,7 @@ const htmlHack1 = `
 		<div class="row text-center">
 			<div class="col-lg-10 offset-lg-1">
 				<p class="h6 text-uppercase text-neutral-99">liveperson pricing</p>
-				<h1 class="text-neutral-99">Simple pricing. Minimal add-ons. No service&nbsp;fees.</h1>
+				<h1 class="text-neutral-99">Simple pricing.<br />Minimal add&#8209;ons.<br />No service&nbsp;fees.</h1>
 				<p data-tag="new line split" class="lead text-neutral-99">
 					Making it easy for you to realize measurable returns on your digital investments.
 				</p>
@@ -283,7 +283,7 @@ X (former Twitter) is supported with additional fees.
 										</a>
 										<div class="collapse" id="collapse33">
 											<p class="body2">
-												Enables brands to develop custom behaviors to better tailor the system to their specific needs. By offering these capabilities, developers can write a simple function, deploy it to LivePerson's infrastructure and make it available to their LivePerson account in minutes.
+												Enable brands to develop custom behaviors to better tailor the system to their specific needs. By offering these capabilities, developers can write a simple function, deploy it to LivePerson's infrastructure and make it available to their LivePerson account in minutes.
 											</p>
 										</div>
 									</div>
@@ -473,7 +473,7 @@ X (former Twitter) is supported with additional fees.
 											</a>
 											<div class="collapse" id="collapse1">
 												<p class="body2">
-													Connects brands with Conversational Cloud report exports from the suite of Conversational Cloud Data APIs, enabling users to benefit from the power and agility of the Conversational Cloud open platform without the need to develop on top of our API based sources. Maximum 15 tasks for the file transfer subscriptions per site ID.
+													Connect brands with Conversational Cloud report exports from the suite of Conversational Cloud Data APIs, enabling users to benefit from the power and agility of the Conversational Cloud open platform without the need to develop on top of our API based sources. Maximum 15 tasks for the file transfer subscriptions per site ID.
 												</p>
 											</div>
 										</div>
@@ -491,7 +491,7 @@ X (former Twitter) is supported with additional fees.
 											</a>
 											<div class="collapse" id="collapse2">
 												<p class="body2">
-													Consolidates metrics for sentiments, intents, operations, bots, generative AI, and voice analytics in one dashboard.
+													Consolidate metrics for sentiments, intents, operations, bots, generative AI, and voice analytics in one dashboard.
 												</p>
 											</div>
 										</div>
@@ -551,7 +551,7 @@ Additional terms regarding LivePerson Analytics Studio can be found <a href="/po
 											</a>
 											<div class="collapse" id="collapse6">
 												<p class="body2">
-													Enables Customer to proactively send messages on WhatsApp, SMS and InApp. SMS gateway and phone number costs are not included. Customer may use its own gateway or purchase use of LivePerson’s provided gateway separately.
+													Enable Customer to proactively send messages on WhatsApp, SMS and InApp. SMS gateway and phone number costs are not included. Customer may use its own gateway or purchase use of LivePerson’s provided gateway separately.
 <br /><br />
 Messaging channels are charged at the following rates, plus a handling fee of 15%.
 <ul>
@@ -732,7 +732,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 											</a>
 											<div class="collapse" id="collapseHallDet">
 												<p class="body2">
-													Transform and unifies existing (or new) KB, CRM, and CMS content into accurate, engaging conversations for full automation or faster agent handle times. Hallucination Detection ensures that responses are reliable and consistent with your business data.
+													Transform and unify existing (or new) KB, CRM, and CMS content into accurate, engaging conversations for full automation or faster agent handle times. Hallucination Detection ensures that responses are reliable and consistent with your business data.
 												</p>
 											</div>
 										</div>
