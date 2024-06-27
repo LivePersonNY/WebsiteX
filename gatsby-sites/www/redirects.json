@@ -343,6 +343,7 @@
         "/intents/insurance/": "/resources/reports/chatbots-in-insurance/",
         "/intents/retail/": "/resources/reports/chatbots-for-retail/",
         "/intents/travel/": "/resources/reports/travel-chatbot-intents/",
-        "/intents/telecom/": "/resources/reports/telecom-chatbot-intents/"
+        "/intents/telecom/": "/resources/reports/telecom-chatbot-intents/",
+        "/products/voice-omnichannel-solutions/": "/solutions/ccaas/"
     }
 }
