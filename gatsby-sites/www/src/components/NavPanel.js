@@ -100,21 +100,21 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/05/20154921/liveperson-ai-compliance-webinar-mastering-ai-compliance-hero_2x.png"
+                                            src="https://static.liveperson.com/static-assets/2024/06/17100040/liveperson-bringing-voice-into-the-digital-fold-image-1_2x-1.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">Webinar</p>
+                                            <p className="subtitle3">VOICE TO DIGITAL PLAYBOOK</p>
                                             <p className="featured-body">
-                                                Mastering AI compliance: Key strategies and tools
+                                                Modernize your contact center by bringing voice into the digital fold
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/master-ai-compliance/?utm_source=featured_resources&utm_medium=direct&utm_campaign=june_webinar_q2_2024"
+                                                href="/resources/reports/voice-omnichannel-engagement/?utm_source=featured_resources&utm_medium=direct&utm_campaign=voice_to_digital_playbook"
                                             >
-                                                Register now
+                                                Download now
                                             </a>
                                         </div>
                                     </div>
