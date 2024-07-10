@@ -95,7 +95,20 @@ const MktoForms = {
                         return false;
                     }
                     if (formId == 5038) {
+                        let playbookChosen = values.conversationalDigitalTransformationPlaybookIndustryChoice;
+                        let playbookLink = 'https://liveperson.docsend.com/view/iqypsy9iap58m2iu';
                         console.log('submit here ' + values.conversationalDigitalTransformationPlaybookIndustryChoice);
+                        if (playbookChosen === 'Airline') {
+                            playbookLink = 'https://liveperson.docsend.com/view/hub4r8t64a68jv35';
+                        } else if (playbookChosen === 'Banking') {
+                            playbookLink = 'https://liveperson.docsend.com/view/qt6id3gkvz6fvdhe';
+                        } else if (playbookChosen === 'Telecom') {
+                            playbookLink = 'https://liveperson.docsend.com/view/3gi72tauxymi99xh';
+                        } else if (playbookChosen === 'Agnostic') {
+                            playbookLink = 'https://liveperson.docsend.com/view/iqypsy9iap58m2iu';
+                        }
+                        let messageParagraph = `<a href="${playbookLink}" target="_blank" rel="noreferrer noopener">Access the digital transformation playbook here!</a>`;
+                        form.getFormElem().html('').append(messageParagraph);
                         return false;
                     }
 
