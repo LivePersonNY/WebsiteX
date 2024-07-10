@@ -97,7 +97,6 @@ const MktoForms = {
                     if (formId == 5038) {
                         let playbookChosen = values.conversationalDigitalTransformationPlaybookIndustryChoice;
                         let playbookLink = 'https://liveperson.docsend.com/view/iqypsy9iap58m2iu';
-                        console.log('submit here ' + values.conversationalDigitalTransformationPlaybookIndustryChoice);
                         if (playbookChosen === 'Airline') {
                             playbookLink = 'https://liveperson.docsend.com/view/hub4r8t64a68jv35';
                         } else if (playbookChosen === 'Banking') {
