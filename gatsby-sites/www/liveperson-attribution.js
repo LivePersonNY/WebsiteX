@@ -94,6 +94,11 @@ const MktoForms = {
                         location.href = 'https://demo.liveperson.com/demo/b8b3e093adac4b07bde3edcb2bca0e68';
                         return false;
                     }
+                    if (formId == 5038) {
+                        console.log('submit here ' + values.conversationalDigitalTransformationPlaybookIndustryChoice);
+                        return false;
+                    }
+
                     LivePerson.ShowAfterMessage(form);
 
                     return false;
