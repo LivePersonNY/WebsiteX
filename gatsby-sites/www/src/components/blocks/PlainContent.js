@@ -37,6 +37,8 @@ const PlainContent = function (props) {
         </div>
     );
 
+    let imgLoading = headerLevel == 'h1' ? 'eager' : 'lazy';
+
     return (
         <div
             data-localize={props.autoApprove && `auto-approve`}
@@ -55,7 +57,7 @@ const PlainContent = function (props) {
                                 alt={props.assetTopAlt}
                                 width={props.assetTopWidth}
                                 height={props.assetTopHeight}
-                                loading="lazy"
+                                loading={imgLoading}
                             />
                         )) ||
                             props.assetTopCtl}
@@ -166,7 +168,7 @@ const PlainContent = function (props) {
                                 alt={props.assetBottomAlt}
                                 width={props.assetBottomWidth}
                                 height={props.assetBottomHeight}
-                                loading="lazy"
+                                loading={imgLoading}
                             />
                         )) ||
                             props.assetBottomCtl}
