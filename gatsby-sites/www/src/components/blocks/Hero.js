@@ -75,7 +75,7 @@ const Hero = (props) => {
                                             alt={props.underBodyImgAlt}
                                             width={props.underBodyImgWidth}
                                             height={props.underBodyImgHeight}
-                                            loading="lazy"
+                                            loading="eager"
                                         />
                                     )) ||
                                         props.imgLogoCtl}
@@ -113,7 +113,7 @@ const Hero = (props) => {
                                 alt={props.heroImageAlt || ''}
                                 width={props.heroImageWidth}
                                 height={props.heroImageHeight}
-                                loading="lazy"
+                                loading="eager"
                             />
                         )) ||
                             props.imgCtl ||
