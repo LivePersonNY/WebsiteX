@@ -65,16 +65,16 @@ const BlogIndex = ({
         let catLink = category ? category.link : '/blog/';
         if (i == pageNumber) {
             paginationLinks.push(
-                <li class="page-item active">
-                    <a class="page-link" href={`${catLink}${pageNumberPath}`}>
+                <li className="page-item active">
+                    <a className="page-link" href={`${catLink}${pageNumberPath}`}>
                         {i}
                     </a>
                 </li>
             );
         } else {
             paginationLinks.push(
-                <li class="page-item">
-                    <a class="page-link" href={`${catLink}${pageNumberPath}`}>
+                <li className="page-item">
+                    <a className="page-link" href={`${catLink}${pageNumberPath}`}>
                         {i}
                     </a>
                 </li>
@@ -136,7 +136,7 @@ const BlogIndex = ({
                         <ul className="categories desktop-only">
                             {categories.map((category, index) => {
                                 return (
-                                    <li>
+                                    <li key={index}>
                                         <a className="link link-mt-small" href={category.link}>
                                             {category.name}
                                         </a>
@@ -157,7 +157,7 @@ const BlogIndex = ({
                             <ul className="dropdown-menu categories px-3" aria-labelledby="dropdownMenuButton1">
                                 {categories.map((category, index) => {
                                     return (
-                                        <li>
+                                        <li key={index}>
                                             <a className="link link-mt-small" href={`${category.link}`}>
                                                 {category.name}
                                             </a>
@@ -183,14 +183,14 @@ const BlogIndex = ({
 
                                 /* {postCounter == 4 && <div className={`col-lg-12 chat-button`}><div id="LP_Embedded_Blog"></div></div>} */
 
-                                return <Post post={post} root="/blog" classes={tags} />;
+                                return <Post post={post} root="/blog" classes={tags} key={index} index={index} />;
                             })}
                         </div>
                         <nav aria-label="Page navigation example">
-                            <ul class="pagination">
+                            <ul className="pagination">
                                 {previousPagePath && (
-                                    <li class="page-item">
-                                        <a class="page-link" href={previousPagePath}>
+                                    <li className="page-item">
+                                        <a className="page-link" href={previousPagePath}>
                                             Previous
                                         </a>
                                     </li>
@@ -201,8 +201,8 @@ const BlogIndex = ({
                                 })}
 
                                 {nextPagePath && (
-                                    <li class="page-item">
-                                        <a class="page-link" href={nextPagePath}>
+                                    <li className="page-item">
+                                        <a className="page-link" href={nextPagePath}>
                                             Next
                                         </a>
                                     </li>

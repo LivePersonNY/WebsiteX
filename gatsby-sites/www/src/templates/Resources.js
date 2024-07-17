@@ -134,7 +134,7 @@ const Resources = function (props) {
             <div className="pane index">
                 <div className="container">
                     <div className="row">
-                        {props.items.map(function (item) {
+                        {props.items.map(function (item, index) {
                             let tags = [];
                             item.tags.nodes.map(function (tag) {
                                 tags.push(tag.slug);
@@ -148,6 +148,8 @@ const Resources = function (props) {
                                         kicker={nodeTypes[item.nodeType].kicker}
                                         root={'/resources/' + nodeTypes[item.nodeType].slug}
                                         classes={tags}
+                                        key={index}
+                                        index={index}
                                     />
                                 )
                             );
