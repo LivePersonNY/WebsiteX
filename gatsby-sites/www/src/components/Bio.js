@@ -64,7 +64,7 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
                                             className="rounded-circle"
                                             width="52"
                                             height="52"
-                                            loading="lazy"
+                                            loading="eager"
                                         />
                                     </a>
                                 </div>

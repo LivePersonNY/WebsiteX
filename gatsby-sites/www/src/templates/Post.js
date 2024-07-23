@@ -138,7 +138,7 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
                                 alt={featuredImage.alt}
                                 width={featuredImage.width}
                                 height={featuredImage.height}
-                                loading="lazy"
+                                loading="eager"
                             />
                             <AddThis url={canonical} type="share" />
                             <hr className="mb-4" />

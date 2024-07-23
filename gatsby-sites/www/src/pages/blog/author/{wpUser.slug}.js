@@ -66,7 +66,7 @@ const Author = ({ data: { wpUser } }) => {
                             <div className="comp-exec-card-container bg-neutral-96">
                                 <div className="row">
                                     <div className="col-lg-3 offset-lg-1 text-center">
-                                        <img src={wpUser.avatar.url} alt="" loading="lazy" style={{ width: '100%' }} />
+                                        <img src={wpUser.avatar.url} alt="" loading="eager" style={{ width: '100%' }} />
                                     </div>
                                     <div className="col-lg-6 offset-lg-1">
                                         <h2 className="card1">{wpUser.name}</h2>
