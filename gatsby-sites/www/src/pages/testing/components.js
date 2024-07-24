@@ -72,10 +72,134 @@ const IndexPage = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-7">
-                            <div className="comp-logo-strip-logos">test</div>
+                            <div className="comp-logo-strip-logos">
+                                <h2>Trusted by thousands of the world’s biggest brands</h2>
+                                <p>
+                                    Built for enterprise scale and security, LivePerson’s Conversational Cloud® platform
+                                    has helped some of the most beloved global brands digitally transform. From banking
+                                    and insurance to telecom and travel, complexity and compliance is our specialty.
+                                </p>
+                                <div className="comp-logo-strip-logos-container d-flex justify-content-between flex-wrap">
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/02/26152815/Burberry_JV_0226.svg"
+                                        alt=""
+                                        width="125"
+                                        height="21"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2023/01/19112734/Homepage_Logo-Bar_Virgin-Media-O2_JV_0117.svg"
+                                        alt=""
+                                        width="91"
+                                        height="48"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2023/01/05105238/The-RealReal_40px.svg"
+                                        alt=""
+                                        width="175"
+                                        height="40"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2023/01/03130949/Zurich-Insurance_40px.svg"
+                                        alt=""
+                                        width="144"
+                                        height="40"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2023/01/17144627/PNC_JV_0117.svg"
+                                        alt=""
+                                        width="101"
+                                        height="34"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2023/01/05105238/The-RealReal_40px.svg"
+                                        alt=""
+                                        width="175"
+                                        height="40"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2023/01/03130949/Zurich-Insurance_40px.svg"
+                                        alt=""
+                                        width="144"
+                                        height="40"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2023/01/17144627/PNC_JV_0117.svg"
+                                        alt=""
+                                        width="101"
+                                        height="34"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <a className="link" href="/resources/customers/">
+                                    Read their stories
+                                </a>
+                            </div>
                         </div>
                         <div className="col-lg-5">
-                            <div className="comp-logo-strip-carousel">test2</div>
+                            <div className="comp-logo-strip-carousel">
+                                <div id="ls-carousel" class="carousel slide">
+                                    <div className="carousel-inner">
+                                        <div className="carousel-item active">
+                                            <p className="quote2">
+                                                “LivePerson is the best fit for traditional enterprises seeking a
+                                                reliable and scalable digital transformation partner.”
+                                            </p>
+                                            <p>
+                                                — “The Forrester Wave™: Digital Customer Interaction Solutions, Q2 2024"
+                                            </p>
+                                        </div>
+                                        <div className="carousel-item">
+                                            <p className="quote2">
+                                                Quote 2 is hereQuote 2 is here Quote 2 is here Quote 2 is here Quote 2
+                                                is here Quote 2 is here Quote 2 is here
+                                            </p>
+                                            <p>
+                                                — “The Forrester Wave™: Digital Customer Interaction Solutions, Q2 2024"
+                                            </p>
+                                        </div>
+                                        <div className="carousel-item">
+                                            <p className="quote2">
+                                                Third one lives here Third one lives hereThird one lives here Third one
+                                                lives here Third one lives here Third one lives here Third one lives
+                                                here
+                                            </p>
+                                            <p>
+                                                — “The Forrester Wave™: Digital Customer Interaction Solutions, Q2 2024"
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="carousel-indicators">
+                                        <button
+                                            type="button"
+                                            data-bs-target="#carousel"
+                                            data-bs-slide-to="0"
+                                            className="active"
+                                            aria-current="true"
+                                            aria-label="Slide 1"
+                                        ></button>
+                                        <button
+                                            type="button"
+                                            data-bs-target="#carousel"
+                                            data-bs-slide-to="1"
+                                            aria-label="Slide 2"
+                                        ></button>
+                                        <button
+                                            type="button"
+                                            data-bs-target="#carousel"
+                                            data-bs-slide-to="2"
+                                            aria-label="Slide 3"
+                                        ></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
