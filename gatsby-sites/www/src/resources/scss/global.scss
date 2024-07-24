@@ -1723,3 +1723,13 @@ main:not(.company-careers) {
         }
     }
 }
+
+.comp-logo-strip {
+    .comp-logo-strip-logos {
+        background: $neutral96;
+        text-align: center;
+    }
+    .comp-logo-strip-carousel {
+        background-color: $pink20;
+    }
+}

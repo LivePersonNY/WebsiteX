@@ -246,7 +246,7 @@ window.documentReadyFn = function () {
         }
 
         $('#loginbutton').on('click', function () {
-            if ($('#password').val().toLowerCase() == 'cloud2023') {
+            if ($('#password').val().toLowerCase() == 'cloud2024') {
                 $('.lightbox').hide();
                 $('.hide-this').show();
                 window.sessionStorage.setItem('cloudPassword', 'yes');
@@ -256,7 +256,7 @@ window.documentReadyFn = function () {
         });
         $('#password').keypress(function (e) {
             if (e.which == 13) {
-                if ($('#password').val().toLowerCase() == 'cloud2023') {
+                if ($('#password').val().toLowerCase() == 'cloud2024') {
                     $('.lightbox').hide();
                     $('.hide-this').show();
                     window.sessionStorage.setItem('cloudPassword', 'yes');

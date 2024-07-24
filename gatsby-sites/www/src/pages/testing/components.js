@@ -68,6 +68,26 @@ const IndexPage = () => {
                 secondaryBtnLink="#"
             />
 
+            <div className="pane comp-logo-strip bg-transparent">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-7">
+                            <div className="comp-logo-strip-logos">test</div>
+                        </div>
+                        <div className="col-lg-5">
+                            <div className="comp-logo-strip-carousel">test2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <MktoForm
+                backgroundColor="bg-blue-20"
+                formId="2581"
+                thankyou="Thank you! One of our experts will contact you shortly"
+                resourceasset="testassetname"
+            />
+
             <QuickLinks
                 items={[
                     {
@@ -87,13 +107,6 @@ const IndexPage = () => {
                         linkText: 'text4',
                     },
                 ]}
-            />
-
-            <MktoForm
-                backgroundColor="bg-blue-20"
-                formId="2581"
-                thankyou="Thank you! One of our experts will contact you shortly"
-                resourceasset="testassetname"
             />
 
             <CalloutGrid

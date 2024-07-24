@@ -7,13 +7,7 @@ $primaryDark: #101040;
 
 $dropShadow: rgba(0, 0, 0, 0.08);
 
-$rainbow: linear-gradient(
-    90deg,
-    #aad5ea 0%,
-    #c1c1f3 33.3%,
-    #f7b1b1 66.6%,
-    #f7b995 100%
-);
+$rainbow: linear-gradient(90deg, #aad5ea 0%, #c1c1f3 33.3%, #f7b1b1 66.6%, #f7b995 100%);
 
 $secondaryLight: #ffffff;
 $secondaryDark: #000000;
@@ -39,22 +33,12 @@ $lavendar20: #efeffc;
 
 $blue20: #e7f2f7;
 
+$pink20: #f9eef4;
 $pink100: #ebb7d4;
 
-$borderGradient: linear-gradient(
-    90deg,
-    #3863e5 0%,
-    #8d46eb 43.18%,
-    #e849b7 86.36%
-);
+$borderGradient: linear-gradient(90deg, #3863e5 0%, #8d46eb 43.18%, #e849b7 86.36%);
 $h1Gradient: linear-gradient(90deg, #3863e5 0%, #8d46eb 43.18%, #e849b7 86.36%);
-$EaiGradient: linear-gradient(
-    105.82deg,
-    #fab47c 7.64%,
-    #f63d68 47.31%,
-    #fb459a 78.44%,
-    #59a7e0 122.84%
-);
+$EaiGradient: linear-gradient(105.82deg, #fab47c 7.64%, #f63d68 47.31%, #fb459a 78.44%, #59a7e0 122.84%);
 
 // Font
 $fontBold: 700;
