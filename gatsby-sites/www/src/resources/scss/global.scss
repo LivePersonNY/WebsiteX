@@ -159,13 +159,13 @@ img {
     }
 }
 
-.pane:nth-child(n + 4):not(.gated) {
-    .container {
-        img {
-            opacity: 0;
-        }
-    }
-}
+// .pane:nth-child(n + 4):not(.gated) {
+//     .container {
+//         img {
+//             opacity: 0;
+//         }
+//     }
+// }
 
 img[src*='doubleclick'] {
     height: 0 !important;
