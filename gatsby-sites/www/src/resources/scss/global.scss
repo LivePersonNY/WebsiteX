@@ -1728,20 +1728,29 @@ main:not(.company-careers) {
     .comp-logo-strip-logos {
         background: $neutral96;
         text-align: center;
-        padding: 66px 80px;
+        padding: 34px 20px;
+        @include media-breakpoint-up(lg) {
+            padding: 66px 80px;
+        }
         .comp-logo-strip-logos-container {
             margin: 18px 0;
             img {
-                margin: 16px;
+                margin: 8px 0;
+                @include media-breakpoint-up(lg) {
+                    margin: 16px;
+                }
             }
         }
     }
     .comp-logo-strip-carousel {
         background-color: $pink20;
-        padding: 0px 40px 66px 40px;
+        padding: 34px 20px 34px 20px;
         height: 100%;
         display: flex;
         align-items: flex-end;
+        @include media-breakpoint-up(lg) {
+            padding: 0px 40px 66px 40px;
+        }
         .carousel-indicators {
             position: relative;
             margin: 0;
