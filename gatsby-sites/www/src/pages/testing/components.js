@@ -262,87 +262,87 @@ const IndexPage = () => {
                             <div className="comp-logo-strip-logos">
                                 <div className="comp-logo-strip-logos-container d-flex justify-content-around flex-wrap">
                                     <img
-                                        src="https://static.liveperson.com/static-assets/2023/01/03130919/Azul-Airlines_40px.svg"
-                                        alt=""
-                                        width="132"
-                                        height="40"
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170203/Azul-Sm%403x.svg"
+                                        alt="Azul logo"
+                                        width="74"
+                                        height="23"
                                         loading="lazy"
                                     />
                                     <img
-                                        src="https://static.liveperson.com/static-assets/2023/05/24104947/bankwest-40px.svg"
-                                        alt=""
-                                        width="136"
-                                        height="40"
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170204/Bankwest-sm%403x.svg"
+                                        alt="Bankwest logo"
+                                        width="93"
+                                        height="25"
                                         loading="lazy"
                                     />
                                     <img
-                                        src="https://static.liveperson.com/static-assets/2024/02/26152815/Burberry_JV_0226.svg"
-                                        alt=""
-                                        width="125"
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170205/Burberry-sm%403x.svg"
+                                        alt="Burberry logo"
+                                        width="88"
+                                        height="15"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170206/hsbc-sm%403x.svg"
+                                        alt="HSBC logo"
+                                        width="83"
+                                        height="23"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170207/OUA-sm%403x.svg"
+                                        alt="OUA logo"
+                                        width="103"
+                                        height="35"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170209/PNC-sm%403x.svg"
+                                        alt="PNC logo"
+                                        width="76"
+                                        height="27"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170210/Sky-sm%403x.svg"
+                                        alt="Sky logo"
+                                        width="47"
+                                        height="29"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170211/Sweetwater-sm%403x.svg"
+                                        alt="Sweetwater logo"
+                                        width="115"
+                                        height="27"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170212/TRR-sm%403x.svg"
+                                        alt="TheRealReal logo"
+                                        width="97"
+                                        height="23"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170213/Virgin-o2-sm%403x.svg"
+                                        alt="Virgin logo"
+                                        width="70"
+                                        height="37"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170215/Wayfair-sm%403x.svg"
+                                        alt="Wayfair logo"
+                                        width="89"
                                         height="21"
                                         loading="lazy"
                                     />
                                     <img
-                                        src="https://static.liveperson.com/static-assets/2022/12/12140945/HSBC.svg"
-                                        alt=""
-                                        width="90"
-                                        height="24"
-                                        loading="lazy"
-                                    />
-                                    <img
-                                        src="https://static.liveperson.com/static-assets/2023/05/24105008/oua-40px.svg"
-                                        alt=""
-                                        width="108"
-                                        height="40"
-                                        loading="lazy"
-                                    />
-                                    <img
-                                        src="https://static.liveperson.com/static-assets/2023/01/17144627/PNC_JV_0117.svg"
-                                        alt=""
-                                        width="101"
-                                        height="34"
-                                        loading="lazy"
-                                    />
-                                    <img
-                                        src="https://static.liveperson.com/static-assets/2023/01/03130945/Sky-UK_40px.svg"
-                                        alt=""
-                                        width="67"
-                                        height="40"
-                                        loading="lazy"
-                                    />
-                                    <img
-                                        src="https://static.liveperson.com/static-assets/2023/07/17122344/Sweetwater.svg"
-                                        alt=""
-                                        width="123"
-                                        height="28"
-                                        loading="lazy"
-                                    />
-                                    <img
-                                        src="https://static.liveperson.com/static-assets/2023/01/05151516/The-RealReal_40px.png"
-                                        alt=""
-                                        width="175"
-                                        height="40"
-                                        loading="lazy"
-                                    />
-                                    <img
-                                        src="https://static.liveperson.com/static-assets/2023/01/19112734/Homepage_Logo-Bar_Virgin-Media-O2_JV_0117.svg"
-                                        alt=""
-                                        width="91"
-                                        height="48"
-                                        loading="lazy"
-                                    />
-                                    <img
-                                        src="https://static.liveperson.com/static-assets/2023/07/17122345/Wayfair.svg"
-                                        alt=""
-                                        width="123"
-                                        height="28"
-                                        loading="lazy"
-                                    />
-                                    <img
-                                        src="https://static.liveperson.com/static-assets/2023/01/03130949/Zurich-Insurance_40px.svg"
-                                        alt=""
-                                        width="144"
-                                        height="40"
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170217/Zurich-sm%403x.svg"
+                                        alt="Zurich logo"
+                                        width="94"
+                                        height="27"
                                         loading="lazy"
                                     />
                                 </div>
