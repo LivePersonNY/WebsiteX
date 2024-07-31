@@ -353,9 +353,9 @@ const IndexPage = () => {
                         </div>
                         <div className="col-lg-5">
                             <div className="comp-logo-strip-carousel">
-                                <div id="ls-carousel" class="carousel slide">
+                                <div id="ls-carousel" class="">
                                     <div className="carousel-inner">
-                                        <div className="carousel-item active">
+                                        <div className="">
                                             <p className="quote2">
                                                 “LivePerson is the best fit for traditional enterprises seeking a
                                                 reliable and scalable digital transformation partner.”
@@ -364,48 +364,6 @@ const IndexPage = () => {
                                                 — “The Forrester Wave™: Digital Customer Interaction Solutions, Q2 2024"
                                             </p>
                                         </div>
-                                        <div className="carousel-item">
-                                            <p className="quote2">
-                                                Quote 2 is hereQuote 2 is here Quote 2 is here Quote 2 is here Quote 2
-                                                is here Quote 2 is here Quote 2 is here
-                                            </p>
-                                            <p>
-                                                — “The Forrester Wave™: Digital Customer Interaction Solutions, Q2 2024"
-                                            </p>
-                                        </div>
-                                        <div className="carousel-item">
-                                            <p className="quote2">
-                                                Third one lives here Third one lives hereThird one lives here Third one
-                                                lives here Third one lives here Third one lives here Third one lives
-                                                here
-                                            </p>
-                                            <p>
-                                                — “The Forrester Wave™: Digital Customer Interaction Solutions, Q2 2024"
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div className="carousel-indicators">
-                                        <button
-                                            type="button"
-                                            data-bs-target="#ls-carousel"
-                                            data-bs-slide-to="0"
-                                            className="active"
-                                            aria-current="true"
-                                            aria-label="Slide 1"
-                                        ></button>
-                                        <button
-                                            type="button"
-                                            data-bs-target="#ls-carousel"
-                                            data-bs-slide-to="1"
-                                            aria-label="Slide 2"
-                                        ></button>
-                                        <button
-                                            type="button"
-                                            data-bs-target="#ls-carousel"
-                                            data-bs-slide-to="2"
-                                            aria-label="Slide 3"
-                                        ></button>
                                     </div>
                                 </div>
                             </div>
