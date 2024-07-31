@@ -17,8 +17,8 @@ const PageTemplate = ({ data: { page, staged } }) => {
     page = page || staged;
 
     let canRoot = process.env.CAN_ROOT;
-    let canonical = page.seo.canonical || page.link;
-    canonical = canRoot + canonical;
+    let canonical = page.seo.canonical || canRoot + page.link;
+    // canonical = canRoot + canonical;
 
     let meta = [
         {

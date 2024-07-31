@@ -28,8 +28,8 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
     };
 
     let canRoot = process.env.CAN_ROOT;
-    let canonical = post.seo.canonical || post.link;
-    canonical = canRoot + canonical;
+    let canonical = post.seo.canonical || canRoot + post.link;
+    // canonical = canRoot + canonical;
 
     let meta = [
         {
