@@ -372,6 +372,135 @@ const IndexPage = () => {
                 </div>
             </div>
 
+            <div className="pane bg-blue-20"></div>
+
+            <div className="pane comp-logo-strip bg-transparent">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-7">
+                            <div className="comp-logo-strip-logos">
+                                <h2>
+                                    Trusted by thousands of the{' '}
+                                    <mark className="has-inline-color has-vivid-purple-color">world’s biggest </mark>
+                                    brands
+                                </h2>
+                                <p>
+                                    Built for enterprise scale and security, LivePerson’s Conversational Cloud® platform
+                                    has helped some of the most beloved global brands digitally transform. From banking
+                                    and insurance to telecom and travel, complexity and compliance is our specialty.
+                                </p>
+                                <div className="comp-logo-strip-logos-container d-flex justify-content-around flex-wrap">
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170203/Azul-Sm%403x.svg"
+                                        alt="Azul logo"
+                                        width="74"
+                                        height="23"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170204/Bankwest-sm%403x.svg"
+                                        alt="Bankwest logo"
+                                        width="93"
+                                        height="25"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170205/Burberry-sm%403x.svg"
+                                        alt="Burberry logo"
+                                        width="88"
+                                        height="15"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170206/hsbc-sm%403x.svg"
+                                        alt="HSBC logo"
+                                        width="83"
+                                        height="23"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170207/OUA-sm%403x.svg"
+                                        alt="OUA logo"
+                                        width="103"
+                                        height="35"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170209/PNC-sm%403x.svg"
+                                        alt="PNC logo"
+                                        width="76"
+                                        height="27"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170210/Sky-sm%403x.svg"
+                                        alt="Sky logo"
+                                        width="47"
+                                        height="29"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170211/Sweetwater-sm%403x.svg"
+                                        alt="Sweetwater logo"
+                                        width="115"
+                                        height="27"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170212/TRR-sm%403x.svg"
+                                        alt="TheRealReal logo"
+                                        width="97"
+                                        height="23"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170213/Virgin-o2-sm%403x.svg"
+                                        alt="Virgin logo"
+                                        width="70"
+                                        height="37"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170215/Wayfair-sm%403x.svg"
+                                        alt="Wayfair logo"
+                                        width="89"
+                                        height="21"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        src="https://static.liveperson.com/static-assets/2024/07/31170217/Zurich-sm%403x.svg"
+                                        alt="Zurich logo"
+                                        width="94"
+                                        height="27"
+                                        loading="lazy"
+                                    />
+                                </div>
+                                <a className="link" href="/resources/customers/">
+                                    Read their stories
+                                </a>
+                            </div>
+                        </div>
+                        <div className="col-lg-5">
+                            <div className="comp-logo-strip-carousel">
+                                <div id="ls-carousel" class="">
+                                    <div className="carousel-inner">
+                                        <div className="">
+                                            <p className="quote2">
+                                                “LivePerson is the best fit for traditional enterprises seeking a
+                                                reliable and scalable digital transformation partner.”
+                                            </p>
+                                            <p>
+                                                — “The Forrester Wave™: Digital Customer Interaction Solutions, Q2 2024"
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <MktoForm
                 backgroundColor="bg-blue-20"
                 formId="2581"
