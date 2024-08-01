@@ -1735,7 +1735,7 @@ main:not(.company-careers) {
         .comp-logo-strip-logos-container {
             margin: 18px 0;
             img {
-                margin: 8px 0;
+                margin: 8px;
                 @include media-breakpoint-up(lg) {
                     margin: 16px;
                 }
