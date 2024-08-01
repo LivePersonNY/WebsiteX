@@ -492,6 +492,14 @@ const IndexPage = () => {
                                             <p>
                                                 — “The Forrester Wave™: Digital Customer Interaction Solutions, Q2 2024"
                                             </p>
+                                            <p>
+                                                <a
+                                                    className="link"
+                                                    href="/resources/news/digital-customer-interaction-solutions/"
+                                                >
+                                                    Read more
+                                                </a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
