@@ -100,21 +100,21 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/06/17100040/liveperson-bringing-voice-into-the-digital-fold-image-1_2x-1.png"
+                                            src="https://static.liveperson.com/static-assets/2024/07/29100238/liveperson-fifth-third-bank-webinar-hero_2x.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">VOICE TO DIGITAL PLAYBOOK</p>
+                                            <p className="subtitle3">Webinar</p>
                                             <p className="featured-body">
-                                                Modernize your contact center by bringing voice into the digital fold
+                                                From ATMs to AI: A digital banking journey with Fifth Third Bank
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/reports/voice-omnichannel-engagement/?utm_source=featured_resources&utm_medium=direct&utm_campaign=voice_to_digital_playbook"
+                                                href="/resources/webinars/fifth-third-digital-banking-journey/?utm_source=featured_resources&utm_medium=direct&utm_campaign=fifth_third_bank_webinar_2024"
                                             >
-                                                Download now
+                                                Register now
                                             </a>
                                         </div>
                                     </div>
