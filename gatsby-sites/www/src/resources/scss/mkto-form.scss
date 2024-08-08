@@ -366,6 +366,11 @@
 
     &.form-vertical {
         text-align: left;
+        .container {
+            h2 {
+                margin-bottom: 0;
+            }
+        }
 
         .mktoForm {
             .mktoFormRow {
@@ -492,6 +497,52 @@
             .mktoButtonRow {
                 @include media-breakpoint-up(lg) {
                     width: auto;
+                }
+            }
+        }
+    }
+
+    &.form-vertical-2024 {
+        padding-left: 20px;
+        padding-right: 20px;
+        .container {
+            .col-lg-5 {
+                @include media-breakpoint-down(lg) {
+                    margin-top: 24px;
+                    margin-bottom: 24px;
+                }
+            }
+            p {
+                margin-bottom: 16px;
+                @include media-breakpoint-up(lg) {
+                    margin-bottom: 24px;
+                }
+            }
+            .mktoForm {
+                .mktoFormRow {
+                    .mktoFieldWrap {
+                        label {
+                            display: block;
+                            font-size: 14px;
+                            line-height: 20px;
+                            font-weight: 400;
+                            float: left;
+                            width: auto !important;
+                            .mktoAsterix {
+                                float: right;
+                                display: block;
+                                padding-left: 2px;
+                                margin-top: -3px;
+                                font-size: inherit;
+                            }
+                        }
+                        input {
+                            border: 1px solid rgba(221, 223, 228, 1);
+                        }
+                    }
+                }
+                .mktoButtonRow {
+                    margin-top: 12px;
                 }
             }
         }

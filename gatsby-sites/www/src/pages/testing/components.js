@@ -176,7 +176,7 @@ const IndexPage = () => {
                         </div>
                         <div className="col-lg-5">
                             <div className="comp-logo-strip-carousel">
-                                <div id="ls-carousel" class="carousel slide">
+                                <div id="ls-carousel" className="carousel slide">
                                     <div className="carousel-inner">
                                         <div className="carousel-item active">
                                             <p className="quote2">
@@ -353,7 +353,7 @@ const IndexPage = () => {
                         </div>
                         <div className="col-lg-5">
                             <div className="comp-logo-strip-carousel">
-                                <div id="ls-carousel" class="">
+                                <div id="ls-carousel" className="">
                                     <div className="carousel-inner">
                                         <div className="">
                                             <p className="quote2">
@@ -482,7 +482,7 @@ const IndexPage = () => {
                         </div>
                         <div className="col-lg-5">
                             <div className="comp-logo-strip-carousel">
-                                <div id="ls-carousel" class="">
+                                <div id="ls-carousel" className="">
                                     <div className="carousel-inner">
                                         <div className="">
                                             <p className="quote2">
@@ -508,6 +508,41 @@ const IndexPage = () => {
                     </div>
                 </div>
             </div>
+
+            <div className="pane bg-blue-20"></div>
+
+            <div className="pane pane-form form-vertical form-vertical-2024">
+                <div className="container">
+                    <div className="row bg-blue-20 align-items-center">
+                        <div className="col-lg-5 offset-lg-1 order-lg-last">
+                            <h2>
+                                <mark class="has-inline-color has-vivid-purple-color">
+                                    Ready to power up your CCaaS solutions?
+                                </mark>
+                            </h2>
+                            <p>
+                                Discover how integrating voice into the digital ecosystem can transform your CCaaS
+                                solutions for the better.
+                            </p>
+                            <form id="mktoForm_5041" mkto="5041"></form>
+                            <mkto-after mkto="5041">
+                                <strong>Thanks for your interest! </strong>You can watch the full recording below.
+                            </mkto-after>
+                        </div>
+                        <div className="col-lg-5 g-lg-0 order-lg-first">
+                            <img
+                                src="https://static.liveperson.com/static-assets/2024/08/07154231/liveperson-bringing-voice-into-the-digital-fold-image-2_2x.png"
+                                alt=""
+                                width="528"
+                                height="658"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="pane bg-blue-20"></div>
 
             <MktoForm
                 backgroundColor="bg-blue-20"
