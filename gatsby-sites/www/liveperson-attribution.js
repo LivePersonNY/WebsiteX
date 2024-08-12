@@ -81,6 +81,10 @@ const MktoForms = {
                         )}`;
                         return false;
                     }
+                    if (formId == 5041) {
+                        location.href = `/thanks-download/?resourceasseturl=https%3A%2F%2Fliveperson.docsend.com%2Fview%2Fgy45wua3p94tz6hz`;
+                        return false;
+                    }
                     if (formId == 2580) {
                         location.href = '/thanks-demo/';
                         return false;
