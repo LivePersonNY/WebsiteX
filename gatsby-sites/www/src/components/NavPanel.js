@@ -100,7 +100,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/07/29100238/liveperson-fifth-third-bank-webinar-hero_2x.png"
+                                            src="https://static.liveperson.com/static-assets/2024/08/12174356/liveperson-september-webinar-hero_2x-1.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
@@ -108,11 +108,11 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">Webinar</p>
                                             <p className="featured-body">
-                                                From ATMs to AI: A digital banking journey with Fifth Third Bank
+                                                Bringing voice to digital: A modern approach to CCaaS
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/fifth-third-digital-banking-journey/?utm_source=featured_resources&utm_medium=direct&utm_campaign=fifth_third_bank_webinar_2024"
+                                                href="/resources/webinars/contact-center-voice-to-digital/?utm_source=featured_resources&utm_medium=direct&utm_campaign=forrester_webinar_q3_2024"
                                             >
                                                 Register now
                                             </a>
