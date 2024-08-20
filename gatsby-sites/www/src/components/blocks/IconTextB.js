@@ -20,11 +20,9 @@ const IconTextB = (props) => {
                             />
                         )) ||
                             item.imgCtl}
+                        {item.kicker && <p className="h6 text-uppercase">{item.kicker}</p>}
                         <h3 className="">{item.title}</h3>
-                        <Paragraph
-                            className="card-text subtitle1"
-                            text={item.body}
-                        />
+                        <Paragraph className="card-text subtitle1" text={item.body} />
                     </div>
                     <div className="card-footer">
                         {item.linkText && (
@@ -56,21 +54,11 @@ const IconTextB = (props) => {
                 {props.header && (
                     <div className="row">
                         <div className="col-lg-10 offset-lg-1">
-                            {props.kicker && (
-                                <p className="h6 text-uppercase text-center">
-                                    {props.kicker}
-                                </p>
-                            )}
+                            {props.kicker && <p className="h6 text-uppercase text-center">{props.kicker}</p>}
                             <h2 className="text-center">
-                                <Paragraph
-                                    text={props.header}
-                                    headerLevel="nothing"
-                                />
+                                <Paragraph text={props.header} headerLevel="nothing" />
                             </h2>
-                            <Paragraph
-                                text={props.sectionBody}
-                                className="text-center"
-                            />
+                            <Paragraph text={props.sectionBody} className="text-center" />
                         </div>
                     </div>
                 )}
@@ -80,13 +68,8 @@ const IconTextB = (props) => {
                         <div className="col-12 col-lg">
                             <div className="card h-100 text-center icon-text-cta">
                                 <div className="card-body d-flex flex-column justify-content-center align-items-center">
-                                    <h3 className="card-text">
-                                        {props.cardCTAbody}
-                                    </h3>
-                                    <a
-                                        href={props.btnUrl}
-                                        className="btn btn-primary"
-                                    >
+                                    <h3 className="card-text">{props.cardCTAbody}</h3>
+                                    <a href={props.btnUrl} className="btn btn-primary">
                                         {props.btnText}
                                     </a>
                                 </div>
