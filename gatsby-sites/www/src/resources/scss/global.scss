@@ -968,6 +968,12 @@ img[src*='doubleclick'] {
                 margin-bottom: 16px;
             }
 
+            .h6 {
+                + h3 {
+                    margin-top: 8px;
+                }
+            }
+
             h3,
             .card1 {
                 margin-bottom: 8px;
