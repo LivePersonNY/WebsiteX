@@ -496,17 +496,17 @@ const IndexPage = () => {
                                             unlimited for data from LivePerson. A Unit is per minute or per messaging
                                             conversation.
                                             <br />
-                                            c. Overages exceeding the above limits, will be billed arrears as $0.024 (or
-                                            local equivalent)
+                                            c. Overages exceeding the above limits, will be billed arrears as $0.024 per
+                                            Unit (or local equivalent)
                                         </li>
                                         <li>
                                             Proactive Messaging
                                             <br />
-                                            a. Silver = 18,000 proactive messages per user per year <br />
-                                            b. Gold = 36,000 proactive messages per user per year
+                                            a. Silver = 18,000 proactive messages per Unit per user per year <br />
+                                            b. Gold = 36,000 proactive messages per Unit per user per year
                                             <br />
-                                            c. Overages exceeding the above limits, will be billed arrears as $0.01 (or
-                                            local equivalent)
+                                            c. Overages exceeding the above limits, will be billed arrears as $0.01 per
+                                            message sent (or local equivalent)
                                         </li>
                                         <li>
                                             Generative AI <br />
@@ -657,10 +657,10 @@ const IndexPage = () => {
                                         <td>SMS</td>
                                         <td>
                                             SMS gateway and phone number costs are not included. Customer may bring its
-                                            own gateway provider bring its own gateway or purchase use of LivePerson’s
-                                            provided gateway separately. Use of LivePerson’s provided SMS gateway will
-                                            be invoiced monthly in arrears at the list price rate of the SMS Provider
-                                            and with a handling fee of 15%.
+                                            own gateway provider or purchase use of LivePerson’s provided gateway
+                                            separately. Use of LivePerson’s provided SMS gateway will be invoiced
+                                            monthly in arrears at the list price rate of the SMS Provider and with a
+                                            handling fee of 15%.
                                         </td>
                                     </tr>
                                     <tr>
@@ -1092,10 +1092,8 @@ const IndexPage = () => {
                                         <td>Generative AI Copilot</td>
                                         <td>
                                             Include Generative AI Intent Training, Copilot Summary, Copilot Assist,
-                                            Copilot Rewrite. Generative AI Copilot provides Generative Tokens.
-                                            Generative Tokens based on the price of the generative ai products chosen.
-                                            As of the Effective Date, these credits can be redeemed for ~10 million
-                                            GPT-3.5 turbo Generative Tokens per user per year.
+                                            Copilot Rewrite, Prompt Library, Bring your own LLM. Generative AI Copilot
+                                            provides 20 Generative AI Credits per user per year.
                                         </td>
                                     </tr>
                                 </tbody>
