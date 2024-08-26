@@ -218,7 +218,7 @@ const IndexPage = () => {
                                     </tr>
                                     <tr>
                                         <td rowspan="7">Automations & AI</td>
-                                        <td>Intent Manager (Build, Optimize, (Analyze and Discover Features)</td>
+                                        <td>Intent Manager (Build, Optimize, Analyze and Discover Features)</td>
                                         <td>
                                             <img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" />
                                         </td>
