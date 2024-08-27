@@ -65,8 +65,7 @@ exports.createPages = async (props) => {
     Object.keys(redirectManifest.redirects).forEach(function (item) {
         //console.log("redirecting " + item + " --> " + redirectManifest.redirects[item]);
         let target = redirectManifest.redirects[item];
-        if (target.indexOf('http') < 0)
-            target = 'https://www.liveperson.com' + target;
+        if (target.indexOf('http') < 0) target = 'https://www.liveperson.com' + target;
         createRedirect({
             fromPath: item,
             toPath: target,
@@ -74,6 +73,15 @@ exports.createPages = async (props) => {
             isPermanent: true,
         });
     });
+
+    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
+        createRedirect({
+            fromPath: '/customer-conversations-report/',
+            toPath: 'https://www.liveperson.com/customer-conversations-report/',
+            redirectInBrowser: true,
+            isPermanent: true,
+        });
+    }
 
     const posts = await getPosts(props);
     const pages = await getPages(props);
@@ -277,8 +285,7 @@ async function createStandardPage({ pages, props }) {
             return props.actions.createPage({
                 // Use the WordPress uri as the Gatsby page path
                 // This is a good idea so that internal links and menus work 👍
-                path:
-                    page.nodeType == 'Page' ? page.link : '/staged' + page.link,
+                path: page.nodeType == 'Page' ? page.link : '/staged' + page.link,
 
                 // use the blog post template as the page component
                 component: path.resolve(`./src/templates/Page.js`),
@@ -365,9 +372,7 @@ async function createBlogPostArchive({ posts, props, category }) {
             // createPage is an action passed to createPages
             // See https://www.gatsbyjs.com/docs/actions#createPage for more info
             await props.actions.createPage({
-                path: category
-                    ? category.link + getPagePath(pageNumber)
-                    : 'blog/' + getPagePath(pageNumber),
+                path: category ? category.link + getPagePath(pageNumber) : 'blog/' + getPagePath(pageNumber),
 
                 // use the blog post archive template as the page component
                 component: path.resolve(`./src/templates/BlogArchive.js`),
@@ -441,10 +446,7 @@ async function getCategories({ graphql, reporter }) {
     `);
 
     if (graphqlResult.errors) {
-        reporter.panicOnBuild(
-            `There was an error loading your blog categories`,
-            graphqlResult.errors
-        );
+        reporter.panicOnBuild(`There was an error loading your blog categories`, graphqlResult.errors);
         return;
     }
 
@@ -481,17 +483,11 @@ async function getPages({ graphql, reporter }) {
     `);
 
     if (graphqlResult.errors) {
-        reporter.panicOnBuild(
-            `There was an error loading your blog posts`,
-            graphqlResult.errors
-        );
+        reporter.panicOnBuild(`There was an error loading your blog posts`, graphqlResult.errors);
         return;
     }
 
-    return [
-        ...graphqlResult.data.allWpPage.nodes,
-        ...graphqlResult.data.allWpStagedPage.nodes,
-    ];
+    return [...graphqlResult.data.allWpPage.nodes, ...graphqlResult.data.allWpStagedPage.nodes];
 }
 
 async function getStagedPosts({ graphql, reporter }) {
@@ -528,10 +524,7 @@ async function getStagedPosts({ graphql, reporter }) {
     `);
 
     if (graphqlResult.errors) {
-        reporter.panicOnBuild(
-            `There was an error loading your blog posts`,
-            graphqlResult.errors
-        );
+        reporter.panicOnBuild(`There was an error loading your blog posts`, graphqlResult.errors);
         return;
     }
 
@@ -542,10 +535,7 @@ async function getPosts({ graphql, reporter }) {
     const graphqlResult = await graphql(/* GraphQL */ `
         query WpPosts {
             # Query all WordPress blog posts sorted by date
-            allWpPost(
-                sort: { fields: [date], order: DESC }
-                filter: { seo: { metaRobotsNoindex: { eq: "index" } } }
-            ) {
+            allWpPost(sort: { fields: [date], order: DESC }, filter: { seo: { metaRobotsNoindex: { eq: "index" } } }) {
                 edges {
                     previous {
                         id
@@ -572,10 +562,7 @@ async function getPosts({ graphql, reporter }) {
     `);
 
     if (graphqlResult.errors) {
-        reporter.panicOnBuild(
-            `There was an error loading your blog posts`,
-            graphqlResult.errors
-        );
+        reporter.panicOnBuild(`There was an error loading your blog posts`, graphqlResult.errors);
         return;
     }
 

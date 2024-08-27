@@ -366,7 +366,6 @@
         "/resources-reports/nlu-infographic": "/resources/reports/nlu-infographic/",
         "/resources-success-story/davids-bridal": "/resources/success-stories/davids-bridal/",
         "/resources-success-story/davids-bridal-covid-19": "/resources/success-stories/davids-bridal-covid-19/",
-        "/resources/reports/idc-report/": "/blog/unifying-contact-center-management-tools/",
-        "https://staging.liveperson.com/customer-conversations-report/": "https://www.liveperson.com/customer-conversations-report/"
+        "/resources/reports/idc-report/": "/blog/unifying-contact-center-management-tools/"
     }
 }
