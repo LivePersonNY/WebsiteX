@@ -74,7 +74,7 @@ exports.createPages = async (props) => {
         });
     });
 
-    if (process.env.BRANCH == 'develop' && process.env.GATSBY_IS_PREVIEW === 'true') {
+    if (process.env.GATSBY_IS_PREVIEW === 'true') {
         createRedirect({
             fromPath: '/customer-conversations-report/',
             toPath: 'https://www.liveperson.com/customer-conversations-report/',
