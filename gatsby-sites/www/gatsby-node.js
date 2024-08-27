@@ -80,6 +80,7 @@ exports.createPages = async (props) => {
             toPath: 'https://www.liveperson.com/customer-conversations-report/',
             redirectInBrowser: true,
             isPermanent: true,
+            force: true,
         });
     }
 
