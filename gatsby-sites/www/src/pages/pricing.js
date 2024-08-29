@@ -665,38 +665,12 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 								<div class="container">
 									<div class="row">
 										<div class="col-lg-6">
-											<a class="body1">
-												AI Agents: Messaging Bot
-											</a>
-										</div>
-										<div class="col-lg-2"></div>
-										<div class="col-lg-2"></div>
-										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-									</div>
-								</div>
-
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-6">
-											<a class="body1">
-												AI Agents: Voice Bot
-											</a>
-										</div>
-										<div class="col-lg-2"></div>
-										<div class="col-lg-2"></div>
-										<div class="col-lg-2"><img src="https://static.liveperson.com/static-assets/2023/04/25145620/pricing-checkmark.svg" /></div>
-									</div>
-								</div>
-
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-6">
 											<a class="body1 collapse-btn collapsed" data-bs-toggle="collapse" href="#collapseKnowAI" role="button" aria-expanded="false" aria-controls="collapseKnowAI">
 												AI Agents: KnowledgeAI Agent
 											</a>
 											<div class="collapse" id="collapseKnowAI">
 												<p class="body2">
-													Utilize existing knowledge bases, CRMs, and CMSs to inform AI interactions for increased self-service.
+													Formerly known as Autopilot Messaging Bot and Autopilot: Voice Bot.  Utilize existing knowledge bases, CRMs, and CMSs to inform AI interactions for increased self-service.
 												</p>
 											</div>
 										</div>
