@@ -670,7 +670,7 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 											</a>
 											<div class="collapse" id="collapseKnowAI">
 												<p class="body2">
-													Formerly known as Autopilot Messaging Bot and Autopilot: Voice Bot.  Utilize existing knowledge bases, CRMs, and CMSs to inform AI interactions for increased self-service.
+													Formerly known as Autopilot: Messaging Bot and Autopilot: Voice Bot.  Utilize existing knowledge bases, CRMs, and CMSs to inform AI interactions for increased self-service.
 												</p>
 											</div>
 										</div>
