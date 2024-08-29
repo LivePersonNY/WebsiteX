@@ -1098,6 +1098,10 @@ const IndexPage = () => {
                                     </tr>
                                 </tbody>
                             </table>
+                            <p>&nbsp;</p>
+                            <p>
+                                <strong>Updated on August 29, 2024</strong>
+                            </p>
                         </div>
                     </div>
                 </div>
