@@ -68,7 +68,7 @@ const IndexPage = () => {
                                 or voice related bot, and concludes upon the earliest of:
                             </p>
                             <ol>
-                                <li>brand-configured auto close ;</li>
+                                <li>brand-configured auto close;</li>
                                 <li>closure of the interaction by the consumer or the bot;</li>
                                 <li>transfer of the interaction to a human agent;</li>
                                 <li>
@@ -78,9 +78,8 @@ const IndexPage = () => {
                             </ol>
 
                             <p>
-                                Interactions with bots can continue for longer than 24 hours with messaging bots and
-                                longer than 10 minutes with voice bots, but longer conversations will consume additional
-                                Bot Conversation(s).
+                                Interactions with bots that continue for more than 24 hours with a messaging bot or for
+                                more than 10 minutes with a voice bot will consume an additional Bot Conversation(s).
                             </p>
 
                             <p>
@@ -1100,7 +1099,7 @@ const IndexPage = () => {
                             </table>
                             <p>&nbsp;</p>
                             <p>
-                                <strong>Updated on August 29, 2024</strong>
+                                <strong>Updated on September 3, 2024</strong>
                             </p>
                         </div>
                     </div>
