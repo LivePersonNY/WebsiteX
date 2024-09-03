@@ -95,7 +95,7 @@ exports.createPages = async (props) => {
     }
 
     const policies = await getPolicyPages(props);
-    const roi = await getRoiPages(props);
+    // const roi = await getRoiPages(props);
 
     await createIndividualBlogPostPages({ posts, props });
 
@@ -108,7 +108,7 @@ exports.createPages = async (props) => {
     await createBlogPostCategory({ categories, props });
 
     await createPolicyPages(policies, props);
-    await createRoiPages(roi, props);
+    // await createRoiPages(roi, props);
 };
 
 async function getPolicyPages(props) {
@@ -196,61 +196,61 @@ async function createPolicyPages(policyPages, props) {
     );
 }
 
-async function getRoiPages(props) {
-    const graphqlResult = await props.graphql(/* GraphQL */ `
-        query RoiQuery {
-            pages: allWpRoiPage {
-                nodes {
-                    slug
-                    content
-                    link
-                    id
-                    seo {
-                        canonical
-                        cornerstone
-                        focuskw
-                        fullHead
-                        metaDesc
-                        metaKeywords
-                        metaRobotsNofollow
-                        metaRobotsNoindex
-                        opengraphAuthor
-                        opengraphDescription
-                        opengraphModifiedTime
-                        opengraphPublishedTime
-                        opengraphPublisher
-                        opengraphSiteName
-                        opengraphTitle
-                        opengraphType
-                        opengraphUrl
-                        readingTime
-                        title
-                    }
-                }
-            }
-        }
-    `);
+// async function getRoiPages(props) {
+//     const graphqlResult = await props.graphql(/* GraphQL */ `
+//         query RoiQuery {
+//             pages: allWpRoiPage {
+//                 nodes {
+//                     slug
+//                     content
+//                     link
+//                     id
+//                     seo {
+//                         canonical
+//                         cornerstone
+//                         focuskw
+//                         fullHead
+//                         metaDesc
+//                         metaKeywords
+//                         metaRobotsNofollow
+//                         metaRobotsNoindex
+//                         opengraphAuthor
+//                         opengraphDescription
+//                         opengraphModifiedTime
+//                         opengraphPublishedTime
+//                         opengraphPublisher
+//                         opengraphSiteName
+//                         opengraphTitle
+//                         opengraphType
+//                         opengraphUrl
+//                         readingTime
+//                         title
+//                     }
+//                 }
+//             }
+//         }
+//     `);
 
-    return graphqlResult.data.pages.nodes;
-}
+//     return graphqlResult.data.pages.nodes;
+// }
 
-async function createRoiPages(roiPages, props) {
-    root = `roi-cms/`;
+// async function createRoiPages(roiPages, props) {
+//     root = `roi-cms/`;
 
-    return Promise.all(
-        roiPages.map(async (page, index) => {
-            if (page.wpParent == null) {
-                await props.actions.createPage({
-                    path: page.link,
-                    component: path.resolve(`./src/templates/Roi.js`),
-                    context: {
-                        page,
-                    },
-                });
-            }
-        })
-    );
-}
+//     return Promise.all(
+//         roiPages.map(async (page, index) => {
+//             if (page.wpParent == null) {
+//                 await props.actions.createPage({
+//                     path: page.link,
+//                     component: path.resolve(`./src/templates/Roi.js`),
+//                     context: {
+//                         page,
+//                     },
+//                 });
+//             }
+//         })
+//     );
+// }
 
 async function createBlogPostCategory({ categories, props }) {
     const graphqlResult = await props.graphql(/* GraphQL */ `
