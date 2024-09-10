@@ -249,6 +249,7 @@
                         <td>Banner:</td>
                         <td>
                             <select id="banner">
+                                <option value="spark">Spark</option>
                                 <option value="ccaas">CCaaS</option>
                                 <option value="v1">SoCC</option>
                                 <option value="v2">SoCC Animated</option>
@@ -439,11 +440,11 @@
                         <td valign="top" colspan="2" style="padding-top: 20px">
                             <a
                                 name="output-banner"
-                                href="https://www.liveperson.com/resources/reports/voice-omnichannel-engagement/?utm_source=email_signature&utm_medium=direct&utm_campaign=voice_to_digital&utm_content=playbook"
+                                href="https://www.liveperson.com/resources/webinars/contact-center-transformation/?utm_source=email_signature&amp;utm_medium=direct&amp;utm_campaign=spark_virtual_q4_2024"
                                 target="_blank"
                             >
                                 <img
-                                    src="https://signature.s3.amazonaws.com/2024/liveperson-ccaas-ebook-email-sig-1a.png"
+                                    src="https://signature.s3.amazonaws.com/2024/liveperson-spark-h2-virtual-email-sig.png"
                                     style="display: block; border: 0; width: 400px"
                                     width="400"
                                 />
@@ -648,33 +649,15 @@
                             'src',
                             'https://signature.s3.amazonaws.com/2024/liveperson-ccaas-ebook-email-sig-1a.png'
                         );
-                    } else if ($('#banner').val() == 'SparkV') {
+                    } else if ($('#banner').val() == 'Spark') {
                         $('[name="output-banner"]').attr(
                             'href',
-                            'https://www.liveperson.com/resources/webinars/connected-customer-conversations/?utm_source=EmailSignature&utm_campaign=Event&utm_medium=organic-content&utm_content=45376'
+                            'https://www.liveperson.com/resources/webinars/contact-center-transformation/?utm_source=email_signature&amp;utm_medium=direct&amp;utm_campaign=spark_virtual_q4_2024'
                         );
                         $('[name="output-banner"] img').attr(
                             'src',
-                            'https://signature.s3.amazonaws.com/2024/liveperson-spark-may-email-signature-2.png'
+                            'https://signature.s3.amazonaws.com/2024/liveperson-spark-h2-virtual-email-sig.png'
                         );
-                        // } else if ($('#banner').val() == 'maven') {
-                        //     $('[name="output-banner"]').attr(
-                        //         'href',
-                        //         'https://bit.ly/2RS120I'
-                        //     );
-                        //     $('[name="output-banner"] img').attr(
-                        //         'src',
-                        //         'https://signature.s3.amazonaws.com/2018/email-sig-ai.png'
-                        //     );
-                        // } else if ($('#banner').val() == 'wsj') {
-                        //     $('[name="output-banner"]').attr(
-                        //         'href',
-                        //         'https://liveperson.docsend.com/view/drieh2u'
-                        //     );
-                        //     $('[name="output-banner"] img').attr(
-                        //         'src',
-                        //         'https://signature.s3.amazonaws.com/2019/WSJ-banner.jpg'
-                        //     );
                     }
                 }
 
