@@ -544,6 +544,44 @@ const IndexPage = () => {
 
             <div className="pane bg-blue-20"></div>
 
+            <div
+                data-localize="false"
+                id="complete"
+                className="pane bg-primary-dark comp-left-right pane-form form-vertical form-vertical-2024-v2"
+            >
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-lg-5 offset-lg-1 order-last form-col">
+                            <form id="mktoForm_5047" mkto="5047"></form>
+                            <mkto-after mkto="5047">
+                                <strong>Thanks for your interest! </strong>You can watch the full recording below.
+                            </mkto-after>
+                        </div>
+                        <div className="col-lg-6 order-first">
+                            <h1>
+                                <span className="h6 text-uppercase">Conversational AI demo</span>Put conversational AI
+                                at the center of your&nbsp;business
+                            </h1>
+                            <div className="rich-container mb-4">
+                                <p data-tag="new line split">
+                                    Forget the AI hype. Harness the power of conversational AI to accelerate your shift
+                                    to digital, empower your people, and embrace an automation-first customer experience
+                                    with the LivePerson Conversational Cloud®.
+                                </p>
+                            </div>
+                            <h6 className="text-uppercase">join thousands of brands worldwide</h6>
+                            <img
+                                src="https://static.liveperson.com/static-assets/2022/08/25095502/logos-alone-rev.svg"
+                                alt="logos representing our conversational AI demo"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="pane bg-blue-20"></div>
+
             <MktoForm
                 backgroundColor="bg-blue-20"
                 formId="2581"
