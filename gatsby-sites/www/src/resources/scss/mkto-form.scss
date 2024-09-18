@@ -609,6 +609,18 @@
                 }
             }
         }
+        .form-logo-strip {
+            margin-top: 32px;
+            @include media-breakpoint-up(lg) {
+                margin-top: 92px;
+            }
+        }
+        .img-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
     }
 }
 

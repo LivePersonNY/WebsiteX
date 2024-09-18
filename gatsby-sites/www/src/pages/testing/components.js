@@ -526,7 +526,7 @@ const IndexPage = () => {
                             </p>
                             <form id="mktoForm_5041" mkto="5041"></form>
                             <mkto-after mkto="5041">
-                                <strong>Thanks for your interest! </strong>You can watch the full recording below.
+                                <strong>Thanks for your interest! </strong>One of our experts will contact you shortly.
                             </mkto-after>
                         </div>
                         <div className="col-lg-5 g-lg-0 order-lg-first">
@@ -552,10 +552,10 @@ const IndexPage = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-5 offset-lg-1 order-last form-col">
-                            <form id="mktoForm_5047" mkto="5047"></form>
+                            {/* <form id="mktoForm_5047" mkto="5047"></form>
                             <mkto-after mkto="5047">
-                                <strong>Thanks for your interest! </strong>You can watch the full recording below.
-                            </mkto-after>
+                                <strong>Thanks for your interest! </strong>One of our experts will contact you shortly.
+                            </mkto-after> */}
                         </div>
                         <div className="col-lg-6 order-first">
                             <h1>
@@ -570,11 +570,132 @@ const IndexPage = () => {
                                 </p>
                             </div>
                             <h6 className="text-uppercase">join thousands of brands worldwide</h6>
-                            <img
-                                src="https://static.liveperson.com/static-assets/2022/08/25095502/logos-alone-rev.svg"
-                                alt="logos representing our conversational AI demo"
-                                loading="lazy"
-                            />
+                            <div className="img-container">
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142237/Virgin-Media-O2-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142232/Burberry-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142236/SkyUK-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142233/HSBC-white.svg"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="pane bg-blue-20"></div>
+
+            <div
+                data-localize="false"
+                id="complete"
+                className="pane bg-primary-dark comp-left-right pane-form form-vertical form-vertical-2024-v2"
+            >
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-lg-5 offset-lg-1 order-last form-col">
+                            <form id="mktoForm_5047" mkto="5047"></form>
+                            <mkto-after mkto="5047">
+                                <strong>Thanks for your interest! </strong>One of our experts will contact you shortly.
+                            </mkto-after>
+                        </div>
+                        <div className="col-lg-6 order-first">
+                            <h1>
+                                <span className="h6 text-uppercase">Conversational AI demo</span>Experience the power of
+                                <mark className="has-inline-color has-pale-pink-color"> digital-first customer </mark>
+                                conversations
+                            </h1>
+
+                            <div className="rich-container mb-4">
+                                <p data-tag="new line split">
+                                    Kickstart your contact center transformation, connect conversations across voice and
+                                    messaging, and supercharge agent productivity with a free, personalized demo of
+                                    LivePerson's award-winning Conversational Cloud® platform.
+                                </p>
+                                <p className="body2">
+                                    You'll learn:
+                                    <br />
+                                    <br />
+                                </p>
+                                <ul>
+                                    <li className="body2">
+                                        The pros and cons of different approaches to CcaaS, digital customer service,
+                                        and conversational AI
+                                        <br />
+                                        <br />
+                                    </li>
+                                    <li className="body2">
+                                        How to digitally transform your CX without ripping and replacing your existing
+                                        contact center and AI solutions
+                                        <br />
+                                        <br />
+                                    </li>
+                                    <li className="body2">
+                                        How LivePerson offers a bridge to the digital-first, AI-empowered customer
+                                        experience of the future
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row align-items-center">
+                        <div className="col-lg-6 offset-lg-3 form-logo-strip">
+                            <h6 className="text-uppercase text-center">join thousands of brands worldwide</h6>
+                            <div className="img-container">
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142229/Azul-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142230/Bankwest-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142232/Burberry-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142233/HSBC-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142234/OUA-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142235/PNC-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142236/SkyUK-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142237/The-RealReal-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142237/Virgin-Media-O2-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142239/Wayfair-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142240/Zurich-Insurance-white.svg"
+                                    loading="lazy"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
