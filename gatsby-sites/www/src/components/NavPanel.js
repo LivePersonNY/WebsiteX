@@ -100,19 +100,19 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/08/12174356/liveperson-september-webinar-hero_2x-1.png"
+                                            src="https://static.liveperson.com/static-assets/2023/09/10170523/liveperson-spark-virtual-contact-center-solutions-img.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">Webinar</p>
+                                            <p className="subtitle3">VIRTUAL PRODUCT LAUNCH</p>
                                             <p className="featured-body">
-                                                Bringing voice to digital: A modern approach to CCaaS
+                                                Transform your contact center by putting humans first
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/contact-center-voice-to-digital/?utm_source=featured_resources&utm_medium=direct&utm_campaign=forrester_webinar_q3_2024"
+                                                href="/resources/webinars/contact-center-transformation/?utm_source=featured_resources&utm_medium=direct&utm_campaign=spark_virtual_q4_2024"
                                             >
                                                 Register now
                                             </a>

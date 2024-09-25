@@ -552,10 +552,10 @@ const IndexPage = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-5 offset-lg-1 order-last form-col">
-                            {/* <form id="mktoForm_5047" mkto="5047"></form>
+                            <form id="mktoForm_5047" mkto="5047"></form>
                             <mkto-after mkto="5047">
                                 <strong>Thanks for your interest! </strong>One of our experts will contact you shortly.
-                            </mkto-after> */}
+                            </mkto-after>
                         </div>
                         <div className="col-lg-6 order-first">
                             <h1>
@@ -572,7 +572,11 @@ const IndexPage = () => {
                             <h6 className="text-uppercase">join thousands of brands worldwide</h6>
                             <div className="img-container">
                                 <img
-                                    src="https://static.liveperson.com/static-assets/2024/09/18142237/Virgin-Media-O2-white.svg"
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142229/Azul-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142230/Bankwest-white.svg"
                                     loading="lazy"
                                 />
                                 <img
@@ -580,11 +584,35 @@ const IndexPage = () => {
                                     loading="lazy"
                                 />
                                 <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142233/HSBC-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142234/OUA-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142235/PNC-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
                                     src="https://static.liveperson.com/static-assets/2024/09/18142236/SkyUK-white.svg"
                                     loading="lazy"
                                 />
                                 <img
-                                    src="https://static.liveperson.com/static-assets/2024/09/18142233/HSBC-white.svg"
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142237/The-RealReal-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142237/Virgin-Media-O2-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142239/Wayfair-white.svg"
+                                    loading="lazy"
+                                />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2024/09/18142240/Zurich-Insurance-white.svg"
                                     loading="lazy"
                                 />
                             </div>
@@ -603,10 +631,10 @@ const IndexPage = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-lg-5 offset-lg-1 order-last form-col">
-                            <form id="mktoForm_5047" mkto="5047"></form>
+                            {/* <form id="mktoForm_5047" mkto="5047"></form>
                             <mkto-after mkto="5047">
                                 <strong>Thanks for your interest! </strong>One of our experts will contact you shortly.
-                            </mkto-after>
+                            </mkto-after> */}
                         </div>
                         <div className="col-lg-6 order-first">
                             <h1>
@@ -702,6 +730,192 @@ const IndexPage = () => {
             </div>
 
             <div className="pane bg-blue-20"></div>
+
+            <div data-localize="false" id="complete" className="pane">
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-lg-12">
+                            <table>
+                                {/* <colgroup>
+                                    <col width="25%" />
+                                    <col width="25%" />
+                                    <col width="50%" />
+                                </colgroup> */}
+                                <tbody>
+                                    <tr>
+                                        <th colspan="2">
+                                            <strong>LiveEngage Bot Conversation - Annual</strong>
+                                        </th>
+                                        <th colspan="7">
+                                            <strong>Price per Bot Conversation</strong>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Minimum</strong>
+                                        </td>
+                                        <td>
+                                            <strong>Maximum</strong>
+                                        </td>
+                                        <td>USD</td>
+                                        <td>GBP</td>
+                                        <td>EUR</td>
+                                        <td>AUD</td>
+                                        <td>SGD</td>
+                                        <td>CAD</td>
+                                        <td>JPY</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>3,500,000</td>
+                                        <td>$0.50</td>
+                                        <td>$0.41</td>
+                                        <td>$0.47</td>
+                                        <td>$0.74</td>
+                                        <td>$0.68</td>
+                                        <td>$0.68</td>
+                                        <td>$67.39</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3,500,001</td>
+                                        <td>5,500,000</td>
+                                        <td>$0.48</td>
+                                        <td>$0.39</td>
+                                        <td>$0.45</td>
+                                        <td>$0.71</td>
+                                        <td>$0.65</td>
+                                        <td>$0.65</td>
+                                        <td>$64.69</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5,500,001</td>
+                                        <td>7,500,000</td>
+                                        <td>$0.46</td>
+                                        <td>$0.38</td>
+                                        <td>$0.43</td>
+                                        <td>$0.68</td>
+                                        <td>$0.62</td>
+                                        <td>$0.63</td>
+                                        <td>$61.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7,500,001</td>
+                                        <td>9,500,000</td>
+                                        <td>$0.44</td>
+                                        <td>$0.36</td>
+                                        <td>$0.42</td>
+                                        <td>$0.65</td>
+                                        <td>$0.59</td>
+                                        <td>$0.60</td>
+                                        <td>$59.30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9,500,001</td>
+                                        <td>And above</td>
+                                        <td>$0.42</td>
+                                        <td>$0.35</td>
+                                        <td>$0.40</td>
+                                        <td>$0.62</td>
+                                        <td>$0.57</td>
+                                        <td>$0.57</td>
+                                        <td>$56.60</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <br />
+                            <br />
+                            <br />
+                            <table>
+                                {/* <colgroup>
+                                    <col width="25%" />
+                                    <col width="25%" />
+                                    <col width="50%" />
+                                </colgroup> */}
+                                <tbody>
+                                    <tr>
+                                        <th colspan="2">
+                                            <strong>LiveEngage Bot Conversation - Monthly</strong>
+                                        </th>
+                                        <th colspan="7">
+                                            <strong>Price per Bot Conversation</strong>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Minimum</strong>
+                                        </td>
+                                        <td>
+                                            <strong>Maximum</strong>
+                                        </td>
+                                        <td>USD</td>
+                                        <td>GBP</td>
+                                        <td>EUR</td>
+                                        <td>AUD</td>
+                                        <td>SGD</td>
+                                        <td>CAD</td>
+                                        <td>JPY</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>291,667</td>
+                                        <td>$0.50</td>
+                                        <td>$0.41</td>
+                                        <td>$0.47</td>
+                                        <td>$0.74</td>
+                                        <td>$0.68</td>
+                                        <td>$0.68</td>
+                                        <td>$67.39</td>
+                                    </tr>
+                                    <tr>
+                                        <td>291,667</td>
+                                        <td>458,333</td>
+                                        <td>$0.48</td>
+                                        <td>$0.39</td>
+                                        <td>$0.45</td>
+                                        <td>$0.71</td>
+                                        <td>$0.65</td>
+                                        <td>$0.65</td>
+                                        <td>$64.69</td>
+                                    </tr>
+                                    <tr>
+                                        <td>458,333</td>
+                                        <td>625,000</td>
+                                        <td>$0.46</td>
+                                        <td>$0.38</td>
+                                        <td>$0.43</td>
+                                        <td>$0.68</td>
+                                        <td>$0.62</td>
+                                        <td>$0.63</td>
+                                        <td>$61.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>625,000</td>
+                                        <td>791,667</td>
+                                        <td>$0.44</td>
+                                        <td>$0.36</td>
+                                        <td>$0.42</td>
+                                        <td>$0.65</td>
+                                        <td>$0.59</td>
+                                        <td>$0.60</td>
+                                        <td>$59.30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>791,667</td>
+                                        <td>And above</td>
+                                        <td>$0.42</td>
+                                        <td>$0.35</td>
+                                        <td>$0.40</td>
+                                        <td>$0.62</td>
+                                        <td>$0.57</td>
+                                        <td>$0.57</td>
+                                        <td>$56.60</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <MktoForm
                 backgroundColor="bg-blue-20"
