@@ -996,9 +996,9 @@ img[src*='doubleclick'] {
 }
 
 .comp-icon-text-d {
-    &:not(.bg-transparent) {
+    &.bg-neutral-96 {
         .comp-body-container {
-            background: $primaryLight !important;
+            background: $secondaryLight !important;
         }
     }
     .comp-block-grid-container {
