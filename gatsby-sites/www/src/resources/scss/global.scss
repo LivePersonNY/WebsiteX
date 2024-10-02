@@ -996,6 +996,11 @@ img[src*='doubleclick'] {
 }
 
 .comp-icon-text-d {
+    &:not(.bg-transparent) {
+        .comp-body-container {
+            background: $primaryLight !important;
+        }
+    }
     .comp-block-grid-container {
         .col {
             margin-top: 24px;
