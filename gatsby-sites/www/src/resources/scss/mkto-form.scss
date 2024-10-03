@@ -111,6 +111,7 @@
         text-align: center !important;
         padding: 0;
         display: block;
+        position: relative;
 
         span,
         label,
@@ -242,6 +243,26 @@
                                     line-height: 16px;
                                 }
                             }
+                        }
+                    }
+                }
+            }
+            &.mktoRow-opt-in {
+                @include media-breakpoint-up(lg) {
+                    position: absolute;
+                    top: 60px;
+                    width: 100% !important;
+                }
+                .mktoFormCol {
+                    float: left;
+                    .mktoHtmlText.mktoHasWidth {
+                        width: 100% !important;
+                        max-width: 1200px;
+                        .opt-in-content,
+                        a {
+                            font-size: 12px;
+                            line-height: 16px;
+                            padding: 0;
                         }
                     }
                 }
