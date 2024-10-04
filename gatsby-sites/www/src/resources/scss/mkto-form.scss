@@ -255,14 +255,23 @@
                 }
                 .mktoFormCol {
                     float: left;
+                    clear: none;
+
+                    .mktoLabel {
+                        display: none !important;
+                    }
                     .mktoHtmlText.mktoHasWidth {
                         width: 100% !important;
-                        max-width: 1200px;
+                        max-width: 300px;
+                        @include media-breakpoint-up(lg) {
+                            max-width: 1200px;
+                        }
                         .opt-in-content,
                         a {
                             font-size: 12px;
                             line-height: 16px;
                             padding: 0;
+                            margin: 0;
                         }
                     }
                 }
@@ -511,6 +520,23 @@
                             pointer-events: none;
                             background: url(https://lp-site.s3.amazonaws.com/web2020/img/mkto-template/select-down-arrow.svg)
                                 no-repeat;
+                        }
+                    }
+                }
+                &.mktoRow-opt-in {
+                    @include media-breakpoint-up(lg) {
+                        position: relative;
+                        top: 0px;
+                    }
+                    .mktoFormCol {
+                        .mktoCheckboxList {
+                            padding: 0;
+                        }
+                        .mktoHtmlText.mktoHasWidth {
+                            max-width: 250px;
+                            @include media-breakpoint-up(lg) {
+                                max-width: 400px;
+                            }
                         }
                     }
                 }
