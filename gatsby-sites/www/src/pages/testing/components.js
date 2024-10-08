@@ -104,6 +104,36 @@ const IndexPage = () => {
                 thankyou="Thank you! One of our experts will contact you shortly"
             />
 
+            <div className="pane bg-blue-20"></div>
+
+            <div className="pane pane-form form-vertical form-vertical-2024">
+                <div className="container">
+                    <div className="row bg-blue-20 align-items-center">
+                        <div className="col-lg-5 offset-lg-1 order-lg-last">
+                            <h2>
+                                <mark className="has-inline-color has-vivid-purple-color">
+                                    Vertical legal test form
+                                </mark>
+                            </h2>
+
+                            <form id="mktoForm_5065" mkto="5065"></form>
+                            <mkto-after mkto="5065">
+                                <strong>Thanks for your interest! </strong>One of our experts will contact you shortly.
+                            </mkto-after>
+                        </div>
+                        <div className="col-lg-5 g-lg-0 order-lg-first">
+                            <img
+                                src="https://static.liveperson.com/static-assets/2024/08/07154231/liveperson-bringing-voice-into-the-digital-fold-image-2_2x.png"
+                                alt=""
+                                width="528"
+                                height="658"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div className="pane comp-logo-strip bg-transparent">
                 <div className="container">
                     <div className="row">

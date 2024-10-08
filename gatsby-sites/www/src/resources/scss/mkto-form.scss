@@ -256,6 +256,9 @@
                 .mktoFormCol {
                     float: left;
                     clear: none;
+                    .mktoCheckboxList {
+                        width: 100% !important;
+                    }
 
                     .mktoLabel {
                         display: none !important;
