@@ -98,13 +98,15 @@ const IndexPage = () => {
                 </div>
             </div>
 
+            <div className="pane bg-primary-dark"></div>
+
             <MktoForm
                 backgroundColor="bg-blue-20"
                 formId="5052"
                 thankyou="Thank you! One of our experts will contact you shortly"
             />
 
-            <div className="pane bg-blue-20"></div>
+            <div className="pane bg-primary-dark"></div>
 
             <div className="pane pane-form form-vertical form-vertical-2024">
                 <div className="container">
@@ -133,6 +135,8 @@ const IndexPage = () => {
                     </div>
                 </div>
             </div>
+
+            <div className="pane bg-primary-dark"></div>
 
             <div className="pane comp-logo-strip bg-transparent">
                 <div className="container">
