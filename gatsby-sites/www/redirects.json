@@ -367,6 +367,7 @@
         "/resources-success-story/davids-bridal": "/resources/success-stories/davids-bridal/",
         "/resources-success-story/davids-bridal-covid-19": "/resources/success-stories/davids-bridal-covid-19/",
         "/resources/reports/idc-report/": "/blog/unifying-contact-center-management-tools/",
-        "/resources/success-stories/uhc-digital-sales-process/": "/resources/customers/"
+        "/resources/success-stories/uhc-digital-sales-process/": "/resources/customers/",
+        "/eula.asp": "/policies/license-agreement/"
     }
 }
