@@ -75,16 +75,16 @@ const MktoFormReport2024 = (props) => {
                             </mkto-after>
                         </div>
                         <div class="col-lg-5 g-lg-0 order-lg-first">
-                            {(!item.imgCtl && item.imgSrc && (
+                            {(!props.imgCtl && props.imgSrc && (
                                 <img
-                                    src={item.imgSrc}
-                                    alt={item.imgAlt || ''}
-                                    width={item.imgWidth}
-                                    height={item.imgHeight}
+                                    src={props.imgSrc}
+                                    alt={props.imgAlt || ''}
+                                    width={props.imgWidth}
+                                    height={props.imgHeight}
                                     loading="lazy"
                                 />
                             )) ||
-                                item.imgCtl}
+                                props.imgCtl}
                         </div>
                     </div>
                 </div>
