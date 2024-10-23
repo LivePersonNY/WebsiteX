@@ -53,6 +53,7 @@ function create_block_lp_guti_blocks_block_init() {
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/roi-content/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/roi-header/' );
 	register_block_type( plugin_dir_path(__FILE__) . 'blocks/overlay-slider/' );
+	register_block_type( plugin_dir_path(__FILE__) . 'blocks/mkto-form-report-2024/' );
 }
 add_action( 'init', 'create_block_lp_guti_blocks_block_init' );
 

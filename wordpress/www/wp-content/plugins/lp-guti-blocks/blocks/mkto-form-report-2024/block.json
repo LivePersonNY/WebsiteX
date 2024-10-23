@@ -1,0 +1,43 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/mkto-form-report-2024",
+	"version": "0.1.0",
+	"title": "Marketo Form Report (2024)",
+	"category": "liveperson",
+	"icon": "feedback",
+	"description": "",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"mktoFormId": {
+			"default": 5041
+		},
+		"anchor": { "default": "" },
+		"title": {
+			"default": "Valuable Text"
+		},
+		"thankyou": {
+			"type": "string",
+			"default": "Thank you! One of our experts will contact you shortly. <img style=\"display: inline;width: 30px;height:30px;top: -3px;position: relative;left: 5px;padding:0;\" src=\"https://d1hryyr5hiabsc.cloudfront.net/web2020/img/intents/thumbs-up_1f44d.png\" />"
+		},
+		"mediaId": {
+			"default": 0,
+			"type": "number"
+		},
+		"imgSrc": {
+			"default": "https://picsum.photos/528/658?random=1"
+		},
+		"imgAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"resourceasset": { "default": "" },
+		"resourceAssetURL": { "default": "" }
+	}
+}
