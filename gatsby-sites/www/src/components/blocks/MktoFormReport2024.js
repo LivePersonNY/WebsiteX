@@ -66,7 +66,7 @@ const MktoFormReport2024 = (props) => {
 
                         <div class="col-lg-5 offset-lg-1 order-lg-last">
                             <h2>
-                                <Paragraph text={props.title} />
+                                <Paragraph text={props.title} headerLevel="nothing" />
                             </h2>
                             <p></p>
                             <form id={`mktoForm_${formId}`} mkto={formId}></form>
