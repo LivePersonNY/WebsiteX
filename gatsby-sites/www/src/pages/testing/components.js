@@ -39,6 +39,7 @@ import FeaturedSlider from '../../components/blocks/FeaturedSlider';
 import PolicyContent from '../../components/blocks/PolicyContent';
 import CareerStickyCta from '../../components/blocks/CareerStickyCta';
 import NotFoundPage from '../404';
+import MktoFormReport2024 from '../../components/blocks/MktoFormReport2024';
 
 const IndexPage = () => {
     if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
@@ -49,6 +50,12 @@ const IndexPage = () => {
         <Layout>
             <Seo title="Home" robots="noindex, nofollow" />
             {/* {Parser(page.content)} */}
+
+            <MktoFormReport2024
+                title="title here"
+                formId='5041'
+                thankyou="here is thank you"
+            />
 
             <Hero
                 backgroundColor="bg-neutral-96"

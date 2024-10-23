@@ -180,7 +180,6 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					thankyouControl={thankyouControl}
 					title={titleControl}
 					formId={attributes.mktoFormId}
-					runFilters={true}
 					anchor={attributes.anchor}
 					imgCtl={imageControl}
 					resourceassetControl={resourceassetControl}
@@ -202,7 +201,6 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				cssClasses={attributes.className}
 				thankyou={attributes.thankyou}
 				formId={attributes.mktoFormId}
-				runFilters={true}
 				title={attributes.title}
 				anchor={attributes.anchor}
 				imgSrc={attributes.imgSrc}

@@ -28,7 +28,6 @@ export default function save({ attributes }) {
 			cssClasses={attributes.className}
 			thankyou={attributes.thankyou}
 			formId={attributes.mktoFormId}
-			runFilters={true}
 			title={attributes.title}
 			anchor={attributes.anchor}
 			imgSrc={attributes.imgSrc}
