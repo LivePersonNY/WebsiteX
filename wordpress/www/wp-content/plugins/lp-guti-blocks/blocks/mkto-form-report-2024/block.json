@@ -26,10 +26,7 @@
 			"type": "string",
 			"default": "Thank you! One of our experts will contact you shortly. <img style=\"display: inline;width: 30px;height:30px;top: -3px;position: relative;left: 5px;padding:0;\" src=\"https://d1hryyr5hiabsc.cloudfront.net/web2020/img/intents/thumbs-up_1f44d.png\" />"
 		},
-		"imgId": {
-			"default": 0,
-			"type": "number"
-		},
+		"imgId": {},
 		"imgSrc": {
 			"default": "https://picsum.photos/528/658?random=1"
 		},
@@ -37,6 +34,8 @@
 			"type": "string",
 			"default": ""
 		},
+		"imgWidth": {},
+		"imgHeight": {},
 		"resourceasset": { "default": "" },
 		"resourceAssetURL": { "default": "" }
 	}

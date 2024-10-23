@@ -176,6 +176,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				{resourceassetControl}
 				{resourceAssetURLControl}
 				<MktoFormReport2024
+					runFilters={true}
 					cssClasses={attributes.className}
 					thankyouControl={thankyouControl}
 					title={titleControl}
@@ -198,6 +199,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 	return (
 		<div {...useBlockProps()}>
 			<MktoFormReport2024
+				runFilters={true}
 				cssClasses={attributes.className}
 				thankyou={attributes.thankyou}
 				formId={attributes.mktoFormId}
