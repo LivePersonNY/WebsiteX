@@ -36,6 +36,8 @@
 		},
 		"imgWidth": {},
 		"imgHeight": {},
+		"lottieFile": {},
+		"lottieId": {},
 		"resourceasset": { "default": "" },
 		"resourceAssetURL": { "default": "" }
 	}

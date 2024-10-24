@@ -88,6 +88,14 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 		/>
 	);
 
+	let lottiePlayerElement = (
+		<LottieFilePlayer
+			lottieFile={attributes.lottieFile}
+			autoplay={true}
+			loop={true}
+		/>
+	);
+
 	let addButton = (
 		<BlockControls>
 			<ToolbarGroup>
@@ -183,6 +191,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 					formId={attributes.mktoFormId}
 					anchor={attributes.anchor}
 					imgCtl={imageControl}
+					lottieFile={attributes.lottieFile}
 					resourceassetControl={resourceassetControl}
 					resourceAssetURLControl={resourceAssetURLControl}
 				/>
@@ -209,6 +218,7 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				imgAlt={attributes.imgAlt}
 				imgWidth={attributes.imgWidth}
 				imgHeight={attributes.imgHeight}
+				lottiePlayer={lottiePlayerElement}
 				resourceasset={attributes.resourceasset}
 				resourceAssetURL={attributes.resourceAssetURL}
 			/>

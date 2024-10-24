@@ -84,7 +84,8 @@ const MktoFormReport2024 = (props) => {
                                     loading="lazy"
                                 />
                             )) ||
-                                props.imgCtl}
+                                props.imgCtl ||
+                                props.lottiePlayer}
                         </div>
                     </div>
                 </div>

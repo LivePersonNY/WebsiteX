@@ -22,6 +22,13 @@ import React, { useEffect } from "react";
  * @return {WPElement} Element to render.
  */
 export default function save({ attributes }) {
+	let lottiePlayerElement = attributes.lottieFile && (
+		<LottieFilePlayer
+			lottieFile={attributes.lottieFile}
+			autoplay={true}
+			loop={true}
+		/>
+	);
 
 	return (
 		<MktoFormReport2024
@@ -34,6 +41,7 @@ export default function save({ attributes }) {
 			imgAlt={attributes.imgAlt}
 			imgWidth={attributes.imgWidth}
 			imgHeight={attributes.imgHeight}
+			lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 			resourceasset={attributes.resourceasset}
 			resourceAssetURL={attributes.resourceAssetURL}
 		/>
