@@ -37,10 +37,10 @@ export default function save({ attributes }) {
 			formId={attributes.mktoFormId}
 			title={attributes.title}
 			anchor={attributes.anchor}
-			imgSrc={attributes.imgSrc}
-			imgAlt={attributes.imgAlt}
-			imgWidth={attributes.imgWidth}
-			imgHeight={attributes.imgHeight}
+			imgSrc={attributes.mediaUrl}
+			imgAlt={attributes.mediaAlt}
+			imgWidth={attributes.mediaWidth}
+			imgHeight={attributes.mediaHeight}
 			lottiePlayer={!attributes.vimeoUrl && lottiePlayerElement}
 			resourceasset={attributes.resourceasset}
 			resourceAssetURL={attributes.resourceAssetURL}

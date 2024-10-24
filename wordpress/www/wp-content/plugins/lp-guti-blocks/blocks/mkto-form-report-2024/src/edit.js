@@ -214,10 +214,10 @@ export default function Edit({ attributes, isSelected, setAttributes }) {
 				formId={attributes.mktoFormId}
 				title={attributes.title}
 				anchor={attributes.anchor}
-				imgSrc={attributes.imgSrc}
-				imgAlt={attributes.imgAlt}
-				imgWidth={attributes.imgWidth}
-				imgHeight={attributes.imgHeight}
+				imgSrc={attributes.mediaUrl}
+				imgAlt={attributes.mediaAlt}
+				imgWidth={attributes.mediaWidth}
+				imgHeight={attributes.mediaHeight}
 				lottiePlayer={lottiePlayerElement}
 				resourceasset={attributes.resourceasset}
 				resourceAssetURL={attributes.resourceAssetURL}
