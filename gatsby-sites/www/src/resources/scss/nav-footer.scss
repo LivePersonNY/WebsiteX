@@ -623,31 +623,33 @@ footer {
         }
     }
 
+    .footer-social {
+        margin-top: 72px;
+        div {
+            padding-bottom: 24px;
+            border-bottom: 1px solid $neutral99;
+        }
+
+        a {
+            margin-right: 16px;
+        }
+        .footer-logo {
+            display: block;
+            margin-bottom: 24px;
+
+            @include media-breakpoint-up(lg) {
+                margin-right: 32px;
+                margin-bottom: 0;
+                display: inline;
+            }
+        }
+    }
+
     .footer-legal-container {
         margin-top: 20px;
 
         @include media-breakpoint-up(lg) {
             margin-top: 80px;
-        }
-
-        .footer-social {
-            display: block;
-            margin: 26px 0;
-
-            @include media-breakpoint-up(lg) {
-                float: left;
-                display: inline;
-                margin: 0;
-                margin-top: -1px;
-                padding-right: 10px;
-            }
-            a {
-                margin-right: 10px;
-                svg {
-                    width: 28px !important;
-                    height: 28px !important;
-                }
-            }
         }
 
         .footer-legal {

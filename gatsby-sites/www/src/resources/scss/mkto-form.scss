@@ -568,6 +568,13 @@
                     margin-bottom: 24px;
                 }
             }
+            .order-lg-first {
+                img {
+                    @include media-breakpoint-up(lg) {
+                        max-width: 528px;
+                    }
+                }
+            }
             .mktoForm {
                 .mktoFormRow {
                     .mktoFieldWrap {
