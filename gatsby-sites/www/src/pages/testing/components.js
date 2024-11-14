@@ -51,12 +51,6 @@ const IndexPage = () => {
             <Seo title="Home" robots="noindex, nofollow" />
             {/* {Parser(page.content)} */}
 
-            <MktoFormReport2024
-                title="title here"
-                formId='5041'
-                thankyou="here is thank you"
-            />
-
             <Hero
                 backgroundColor="bg-neutral-96"
                 header="LivePerson's unique value proposition"
@@ -83,7 +77,7 @@ const IndexPage = () => {
                         <div className="col-lg-5 offset-lg-1 order-lg-last">
                             <h2>
                                 <mark className="has-inline-color has-vivid-purple-color">
-                                    Vertical legal test form
+                                    Vertical legal test form 5051
                                 </mark>
                             </h2>
 
@@ -108,6 +102,7 @@ const IndexPage = () => {
             <div className="pane bg-primary-dark"></div>
 
             <MktoForm
+                header="horizontal form 5052"
                 backgroundColor="bg-blue-20"
                 formId="5052"
                 thankyou="Thank you! One of our experts will contact you shortly"
