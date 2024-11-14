@@ -92,6 +92,10 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
         );
     });
 
+    if (process.env.GATSBY_IS_PREVIEW === 'true') {
+        robots = "noindex, nofollow";
+    }
+
     return (
         <Helmet
             defer={false}
