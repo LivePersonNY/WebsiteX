@@ -382,6 +382,12 @@ const LivePerson = {
         var _this = this;
 
         form.getFormElem().find('.opt-in-content').closest('.mktoFormRow').addClass('mktoRow-opt-in');
+
+        let oTLocation = '';
+        window.OneTrust ? oTLocation = OneTrust.getGeolocationData().country : '';
+        if (oTLocation === 'US') {
+            form.getFormElem().find('.opt-in-content:not(.noBox)').closest('.mktoFormRow').addClass('display-none');
+        }
     },
 
     ShowAfterMessage: function (form) {
