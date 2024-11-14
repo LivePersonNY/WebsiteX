@@ -11,6 +11,13 @@ div.post-container {
 }
 
 body.blog {
+    #form {
+        .pane-form {
+            @include media-breakpoint-up(lg) {
+                padding-bottom: 80px;
+            }
+        }
+    }
     .return-link {
         padding-left: 20px;
 

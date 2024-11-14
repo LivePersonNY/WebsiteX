@@ -16,9 +16,6 @@
 			background: none;
 			border: 0;
 		}
-
-
-
 	}
 
 	.comp-tabs-img-container {
@@ -26,9 +23,13 @@
 	}
 
 	.comp-tabs-img {
-
 	}
 }
 
-
-
+.comp-icon-text-d {
+	&.bg-neutral-96 {
+		.comp-body-container {
+			background: #ffffff !important;
+		}
+	}
+}

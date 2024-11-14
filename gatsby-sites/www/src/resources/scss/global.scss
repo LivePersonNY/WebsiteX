@@ -477,6 +477,16 @@ img[src*='doubleclick'] {
             }
         }
     }
+    &.bg-primary-dark {
+        * {
+            color: $neutral99 !important;
+        }
+        h1 {
+            background: 0;
+            -webkit-text-fill-color: initial;
+            -webkit-background-clip: initial;
+        }
+    }
 }
 
 .comp-card-grid {
@@ -986,6 +996,11 @@ img[src*='doubleclick'] {
 }
 
 .comp-icon-text-d {
+    &.bg-neutral-96 {
+        .comp-body-container {
+            background: $secondaryLight !important;
+        }
+    }
     .comp-block-grid-container {
         .col {
             margin-top: 24px;

@@ -47,6 +47,7 @@ const MktoForms = {
                 form.getFormElem().siblings('a.mobileForm').find('.span1').text(buttonLabel);
 
                 LivePerson.FormReady(form);
+
                 form.onValidate(function () {
                     LivePerson.Validate(form);
                 });
@@ -379,16 +380,8 @@ const LivePerson = {
 
     FormReady: function (form) {
         var _this = this;
-        // TODO Address form directly, not all labels.
 
-        // form.getFormElem().find('label').each(function() {
-        // 	$(this).attr('aria-label', $(this).attr('for'));
-        // });
-
-        // form.getFormElem().find('.mktoFieldWrap').each(function() {
-        // 	var labelText = $(this).children('label').first().text();
-        // 	$(this).children('.mktoCheckboxList').find('label').text(labelText);
-        // });
+        form.getFormElem().find('.opt-in-content').closest('.mktoFormRow').addClass('mktoRow-opt-in');
     },
 
     ShowAfterMessage: function (form) {

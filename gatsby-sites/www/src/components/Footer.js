@@ -112,6 +112,19 @@ const Footer = () => {
                     })}
                 </div>
                 <div className="row">
+                    <div className="col-lg-12 footer-social">
+                        <div>
+                            <a className="footer-logo" href="/"><img src="https://static.liveperson.com/static-assets/2024/10/24161133/LivePerson-Logos-2-Color.svg" /></a>
+                            <a href="https://www.linkedin.com/company/liveperson" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161136/social-linkedin.svg" /></a>
+                            <a href="https://www.instagram.com/livepersoninc/" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161135/social-instagram.svg" /></a>
+                            <a href="https://x.com/LivePerson" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161131/social-x.svg" /></a>
+                            <a href="https://www.threads.net/@livepersoninc" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161130/social-threads.svg" /></a>
+                            <a href="https://www.youtube.com/@liveperson" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161132/social-youtube.svg" /></a>
+                            <a href="https://www.facebook.com/liveperson/" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161134/social-facebook.svg" /></a>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
                     <div className="col-lg-12 footer-legal-container">
                         <p className="footer-legal">© {new Date().getFullYear()} LivePerson. All rights reserved.</p>
                         {legalItems.nodes.map(function (link, index) {
@@ -124,9 +137,6 @@ const Footer = () => {
                         <button id="ot-sdk-btn" className="ot-sdk-show-settings">
                             Cookie Settings
                         </button>
-                        <div className="footer-social">
-                            <AddThis type="follow" />
-                        </div>
                     </div>
                 </div>
             </div>

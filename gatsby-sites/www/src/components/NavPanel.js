@@ -100,19 +100,19 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/08/12174356/liveperson-september-webinar-hero_2x-1.png"
+                                            src="https://static.liveperson.com/static-assets/2024/10/30164147/liveperson-QM-United-webinar-hero-1_2x.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">Webinar</p>
+                                            <p className="subtitle3">WEBINAR</p>
                                             <p className="featured-body">
-                                                Bringing voice to digital: A modern approach to CCaaS
+                                                How United Airlines orchestrates a frictionless customer experience
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/contact-center-voice-to-digital/?utm_source=featured_resources&utm_medium=direct&utm_campaign=forrester_webinar_q3_2024"
+                                                href="/resources/webinars/genai-improves-csat/?utm_source=featured_resources&utm_medium=direct&utm_campaign=united_quantum_metric_webinar"
                                             >
                                                 Register now
                                             </a>
@@ -137,8 +137,8 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                             <a
                                                 className="dropdown-link-blue"
                                                 href="/resources/news/avaya-lp-omnichannel-solution/?utm_source=featured_news&utm_medium=direct&utm_campaign=avaya"
-                                                // rel="noopener noreferrer"
-                                                // target="_blank"
+                                            // rel="noopener noreferrer"
+                                            // target="_blank"
                                             >
                                                 Learn more
                                             </a>

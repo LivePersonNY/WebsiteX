@@ -996,8 +996,8 @@ const PricingPageNew = () => {
     return (
         <Layout>
             <Seo
-                title="LivePerson Pricing & Packaging | LivePerson"
-                description="Explore LivePerson pricing and packaging designed to help you drive an automation-first customer engagement transformation."
+                title="LivePerson Pricing – Flexible Plans for Every Business"
+                description="Discover flexible pricing options for LivePerson's AI and messaging solutions. Explore the right plan for your business and scale customer engagement efficiently."
                 meta={meta}
                 canonical="https://www.liveperson.com/pricing/"
                 robots=""
