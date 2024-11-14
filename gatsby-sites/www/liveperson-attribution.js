@@ -76,7 +76,7 @@ const MktoForms = {
                     window.VWO.push(['track.goalConversion', 28]);
 
                     // if (document.querySelector('.mkto-resource-asset')) {
-                    if (formId == 3524 || formId == 3458 || formId == 2581 || formId == 4067) {
+                    if (formId == 3524 || formId == 3458 || formId == 2581 || formId == 4067 || formId == 5104) {
                         location.href = `/thanks-download/?resourceasseturl=${encodeURIComponent(
                             document.querySelector('.mkto-resource-asset').dataset.resourceasseturl
                         )}`;
