@@ -100,7 +100,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/10/30164147/liveperson-QM-United-webinar-hero-1_2x.png"
+                                            src="https://static.liveperson.com/static-assets/2024/11/20120956/liveperson-flutter-webinar-hero-betfair1_2x.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
@@ -108,11 +108,11 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">WEBINAR</p>
                                             <p className="featured-body">
-                                                How United Airlines orchestrates a frictionless customer experience
+                                                Winning big with CX: Flutter's big bet on AI-powered engagement
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/genai-improves-csat/?utm_source=featured_resources&utm_medium=direct&utm_campaign=united_quantum_metric_webinar"
+                                                href="/resources/webinars/win-big-with-ai-powered-cx/?utm_source=featured_resources&utm_medium=direct&utm_campaign=flutter_webinar_q4_2024"
                                             >
                                                 Register now
                                             </a>
