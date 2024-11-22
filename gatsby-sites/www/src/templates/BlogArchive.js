@@ -82,6 +82,9 @@ const BlogIndex = ({
         }
     }
 
+    // for filtering
+    //categories: { nodes: { elemMatch: { link: { nin: "/blog/learning/" } } } }
+
     let breadCrumbs = () => {
         if (category) {
             return (
@@ -300,7 +303,6 @@ export const pageQuery = graphql`
             filter: {
                 isSticky: { eq: false }
                 seo: { metaRobotsNoindex: { eq: "index" } }
-                categories: { nodes: { elemMatch: { link: { nin: "/blog/learning/" } } } }
             }
         ) {
             nodes {
