@@ -48,10 +48,8 @@ const MktoForms = {
 
                 let formImplicit = LivePerson.FormReady(form);
 
-                console.log(formImplicit);
-
                 form.onValidate(function () {
-                    LivePerson.Validate(form);
+                    LivePerson.Validate(form, formImplicit);
                 });
 
                 form.onSuccess(function (values, forwardUrl) {
@@ -435,7 +433,7 @@ const LivePerson = {
         console.log('Bind to chat complete.');
     },
 
-    Validate: function (form) {
+    Validate: function (form, formImplicit) {
         if (form.getValues().wholeName !== undefined && form.getValues().wholeName !== '') {
             LivePerson.SetFullName('FirstName', 'LastName', 'wholeName', form);
         }
