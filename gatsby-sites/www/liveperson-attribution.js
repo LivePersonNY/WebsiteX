@@ -46,7 +46,9 @@ const MktoForms = {
 
                 form.getFormElem().siblings('a.mobileForm').find('.span1').text(buttonLabel);
 
-                LivePerson.FormReady(form);
+                let formImplicit = LivePerson.FormReady(form);
+
+                console.log(formImplicit);
 
                 form.onValidate(function () {
                     LivePerson.Validate(form);
@@ -383,10 +385,12 @@ const LivePerson = {
 
         form.getFormElem().find('.opt-in-content').closest('.mktoFormRow').addClass('mktoRow-opt-in');
 
+        let legalCountryCodes = ["BH", "BR", "HR", "SV", "FI", "IN", "IE", "MA", "PY", "PE", "PH", "RU", "SA", "SG", "SK", "LK", "SE", "TH", "AE", "GB", "US"]
         let oTLocation = '';
         window.OneTrust ? oTLocation = OneTrust.getGeolocationData().country : '';
-        if (oTLocation === 'US') {
+        if (legalCountryCodes.includes(oTLocation)) {
             form.getFormElem().find('.opt-in-content:not(.noBox)').closest('.mktoFormRow').addClass('display-none');
+            return 'true';
         }
     },
 
@@ -470,6 +474,7 @@ const LivePerson = {
                 Referrer_URL_c: window.location.href,
                 alexTestField: window.lp_attr.leadSource + ' , ' + window.lp_attr.referringUrl,
                 thisIsPrevPage: window.previousPath,
+                implicitCountry: formImplicit,
             });
 
             form.submittable(true);
