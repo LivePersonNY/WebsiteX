@@ -391,6 +391,8 @@ const LivePerson = {
         if (legalCountryCodes.includes(oTLocation)) {
             form.getFormElem().find('.opt-in-content:not(.noBox)').closest('.mktoFormRow').addClass('display-none');
             return 'true';
+        } else {
+            return '';
         }
     },
 
