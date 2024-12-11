@@ -26,6 +26,10 @@ const Resources = function (props) {
             kicker: 'Webinar',
             slug: 'webinars',
         },
+        Workshop: {
+            kicker: 'Workshop',
+            slug: 'workshops',
+        },
     };
 
     let breadCrumbs = () => {
@@ -90,6 +94,22 @@ const Resources = function (props) {
                     /{' '}
                     <a className="breadcrumb-link link link-no-arrow" href="/resources/webinars/">
                         Webinars
+                    </a>
+                </>
+            );
+        } else if (props.active == 'workshop') {
+            return (
+                <>
+                    <a className="breadcrumb-link link link-no-arrow" href="https://www.liveperson.com/">
+                        Home
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/">
+                        Resource Library
+                    </a>{' '}
+                    /{' '}
+                    <a className="breadcrumb-link link link-no-arrow" href="/resources/workshops/">
+                        Workshops
                     </a>
                 </>
             );
