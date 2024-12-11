@@ -6,6 +6,7 @@ import Layout from '../../../components/Layout';
 import Seo from '../../../components/Seo';
 import Parser from 'html-react-parser';
 import Breadcrumb from '../../../components/Breadcrumb';
+import NotFoundPage from '../../404';
 
 const Workshop = ({ data: { page } }) => {
 

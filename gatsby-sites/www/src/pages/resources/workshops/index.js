@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 
 import Resources from '../../../templates/Resources';
+import NotFoundPage from '../../404';
 
 const WorkshopIndex = function (props) {
 
