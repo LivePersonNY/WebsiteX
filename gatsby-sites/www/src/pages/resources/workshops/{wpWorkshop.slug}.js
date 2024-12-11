@@ -8,6 +8,11 @@ import Parser from 'html-react-parser';
 import Breadcrumb from '../../../components/Breadcrumb';
 
 const Workshop = ({ data: { page } }) => {
+
+    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
+        return <NotFoundPage />;
+    }
+
     let canRoot = process.env.CAN_ROOT;
     let canonical = page.seo.canonical || page.link;
     canonical = canRoot + canonical;
