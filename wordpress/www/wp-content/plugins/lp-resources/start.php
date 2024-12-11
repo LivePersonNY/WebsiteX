@@ -507,6 +507,36 @@ class LP_Resources
 			],
 		]);
 
+		register_post_type('workshops', [
+			'labels' => [
+				'name_admin_bar' => 'Workshop',
+				'name' => 'Workshop',
+				'singular_name' => 'Workshops',
+			],
+			'public' => true,
+			'menu_icon' => 'dashicons-hammer',
+			//'publicly_queryable' => null,
+			'capability_type' => 'resource',
+			'map_meta_cap' => true,
+			//'show_in_ui' => false,
+			'show_in_rest' => true,
+			//'rest_base' => 'pages',
+			'hierarchical' => true,
+			'show_in_graphql' => true,
+			'graphql_single_name' => 'Workshop',
+			'graphql_plural_name' => 'Workshops',
+			'supports' => [
+				'title',
+				'editor',
+				'thumbnail',
+				'custom-fields',
+			],
+			'taxonomies' => [
+				'post_tag',
+				'category',
+			],
+		]);
+
 		register_post_type('staged-post', [
 			'labels' => [
 				'name_admin_bar' => 'Staged Post',
