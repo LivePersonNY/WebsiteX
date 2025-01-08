@@ -100,21 +100,21 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/10/30170954/liveperson-QM-United-webinar-hero-ondemand-2x.png"
+                                            src="https://static.liveperson.com/static-assets/2025/01/06102211/CX-trends-webinar-16_9-1%402x.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">ON-DEMAND WEBINAR</p>
+                                            <p className="subtitle3">WEBINAR</p>
                                             <p className="featured-body">
-                                                See how United Airlines said goodbye to digital friction and made their CSAT soar
+                                                Start 2025 by scaling personalized experiences with AI
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/genai-improves-csat/?utm_source=featured_resources&utm_medium=direct&utm_campaign=united_quantum_metric_webinar"
+                                                href="/resources/webinars/cx-trends-2025/?utm_source=featured_resources&utm_medium=direct&utm_campaign=cx_trends_2025_webinar"
                                             >
-                                                Watch now
+                                                Register now
                                             </a>
                                         </div>
                                     </div>
