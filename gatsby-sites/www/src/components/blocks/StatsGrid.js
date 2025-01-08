@@ -20,9 +20,8 @@ const StatsGrid = (props) => {
             data-localize={props.autoApprove && `auto-approve`}
             autoapprove={props.autoApprove && "true"}
             id={props.anchor}
-            className={`pane comp-stat-grid ${
-                props.backgroundColor || "bg-transparent"
-            } ${props.header ? "pane-with-lead-text" : ""}`}
+            className={`pane comp-stat-grid ${props.backgroundColor || "bg-transparent"
+                } ${props.header ? "pane-with-lead-text" : ""} ${props.cssClasses}`}
         >
             <div className="container">
                 {props.header && (

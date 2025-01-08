@@ -167,6 +167,7 @@ export default function Edit({
 			<div {...useBlockProps()}>
 				{addButton}
 				<StatsGrid
+					cssClasses={attributes.className}
 					header={headerControl}
 					body={contentControl}
 					endBody={endBodyControl}
@@ -180,6 +181,7 @@ export default function Edit({
 		<div {...useBlockProps()}>
 			{addButton}
 			<StatsGrid
+				cssClasses={attributes.className}
 				header={attributes.header}
 				body={attributes.content}
 				endBody={attributes.endBody}
