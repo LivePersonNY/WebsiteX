@@ -13,7 +13,7 @@ const StatsGrid = (props) => {
         );
     });
 
-    let statAmount = props.items.length;
+    let statAmount = props.items.length <= 5 ? props.items.length : 5;
 
     return (
         <div
