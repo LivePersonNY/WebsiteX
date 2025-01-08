@@ -590,13 +590,28 @@ img[src*='doubleclick'] {
             margin-top: 24px;
             margin-bottom: 24px;
 
+            &:last-child {
+                border-right: 0;
+            }
+
             @include media-breakpoint-up(lg) {
                 margin-top: 0;
                 margin-bottom: 0;
-            }
-
-            &:last-child {
-                border-right: 0;
+                &:nth-child(5) {
+                    border-right: 0;
+                }
+                &:nth-child(n + 6) {
+                    margin-top: 48px;
+                    &::before {
+                        content: '';
+                        width: 70%;
+                        border-top: 1px solid rgba(28, 29, 34, 0.25);
+                        position: absolute;
+                        top: -22px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
             }
 
             &:nth-child(even) {
