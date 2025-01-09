@@ -27,7 +27,7 @@ const Resources = function (props) {
             slug: 'webinars',
         },
         Workshop: {
-            kicker: 'Workshop',
+            kicker: 'AI Solutions Lab',
             slug: 'workshops',
         },
     };

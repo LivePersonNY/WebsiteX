@@ -35,7 +35,7 @@ const WorkshopIndex = function (props) {
         <Resources
             active="workshop"
             items={items}
-            kicker="Workshop"
+            kicker="AI Solutions Lab"
             title="Conversational AI Workshops | LivePerson"
             description=""
             canonical="https://www.liveperson.com/resources/workshops/"
