@@ -6,6 +6,10 @@ import NotFoundPage from '../../404';
 
 const WorkshopIndex = function (props) {
 
+    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
+        return <NotFoundPage />;
+    }
+
     const items = props.data.items.nodes;
 
     // console.log(items);
