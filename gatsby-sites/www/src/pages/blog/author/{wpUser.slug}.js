@@ -94,6 +94,11 @@ const Author = ({ data: { wpUser, allWpPost } }) => {
             <div data-localize="false" className="pane bg-transparent">
                 <div className="container">
                     <div className="row">
+                        <div className="col-lg-10 offset-lg-1 mb-4">
+                            <h2 className="text-center">Recent blog posts</h2>
+                            <p></p>
+                        </div>
+                        <br /><br />
                         {wpUser.posts.nodes.map((post, index) => {
                             return <Post post={post} root="/blog" key={index} index={index} kicker="Article" />;
                         })}
