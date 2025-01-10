@@ -95,7 +95,6 @@ const Author = ({ data: { wpUser, allWpPost } }) => {
                 <div className="container">
                     <div className="row">
                         {wpUser.posts.nodes.map((post, index) => {
-                            console.log(post);
                             return <Post post={post} root="/blog" key={index} index={index} kicker="Article" />;
                         })}
                     </div>
