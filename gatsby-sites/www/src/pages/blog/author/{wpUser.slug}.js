@@ -5,8 +5,9 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../../../components/Layout';
 import NotFoundPage from '../../404';
 import Seo from '../../../components/Seo';
+import Post from '../../../components/Post';
 
-const Author = ({ data: { wpUser } }) => {
+const Author = ({ data: { wpUser, allWpPost } }) => {
     let canRoot = process.env.CAN_ROOT;
     let canonical = wpUser.seo.canonical;
     if (canonical.indexOf('http') < 0) canonical = canRoot + canonical;
@@ -59,7 +60,7 @@ const Author = ({ data: { wpUser } }) => {
                 robots=""
                 schema={wpUser.seo.schema.raw}
             />
-            <div data-localize="false" className="pane comp-exec-card undefined">
+            <div data-localize="false" className="pane comp-exec-card bg-transparent">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
@@ -89,6 +90,18 @@ const Author = ({ data: { wpUser } }) => {
                     </div>
                 </div>
             </div>
+
+            <div data-localize="false" className="pane bg-transparent">
+                <div className="container">
+                    <div className="row">
+                        {wpUser.posts.nodes.map((post, index) => {
+                            console.log(post);
+                            return <Post post={post} root="/blog" key={index} index={index} kicker="Article" />;
+                        })}
+                    </div>
+                </div>
+            </div>
+
         </Layout>
     );
 };
@@ -115,6 +128,55 @@ export const pageQuery = graphql`
                 title
                 social {
                     linkedIn
+                }
+            }
+            posts {
+                nodes {
+                     excerpt
+                    isSticky
+                    uri
+                    slug
+                    date(formatString: "MMMM DD, YYYY")
+                    title
+                    tags {
+                        nodes {
+                            slug
+                        }
+                    }
+                    categories {
+                        nodes {
+                            name
+                            id
+                        }
+                    }
+                    excerpt
+                    featuredImage {
+                        node {
+                            altText
+                            mediaItemUrl
+                            width
+                            height
+                        }
+                    }
+                    author {
+                        node {
+                            id
+                            firstName
+                            lastName
+                            url
+                            avatar {
+                                url
+                            }
+                        }
+                    }
+                    seo {
+                        readingTime
+                        opengraphType
+                        metaRobotsNoindex
+                        schema {
+                            articleType
+                        }
+                    }
                 }
             }
         }
