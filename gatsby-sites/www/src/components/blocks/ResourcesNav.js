@@ -36,12 +36,12 @@ const ResourceNav = function ({ active }) {
             >
                 Webinars
             </a>
-            {/* <a
+            <a
                 href="/resources/workshops/"
                 className={`btn pill mx-2 ${activeSuccess}`}
             >
                 AI Solutions Lab
-            </a> */}
+            </a>
         </div>
     );
 };
