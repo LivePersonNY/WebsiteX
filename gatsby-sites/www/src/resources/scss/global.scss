@@ -810,6 +810,7 @@ img[src*='doubleclick'] {
             @include media-breakpoint-up(lg) {
                 position: absolute;
                 top: 0;
+                width: 500px;
             }
         }
 
