@@ -371,6 +371,7 @@
         "/eula.asp": "/policies/license-agreement/",
         "/resources/news/inc-power-partners-2023-awards/": "/resources/news/inc-power-partners-awards",
         "/guided-demo/": "/request-demo/",
+        "/guided-demo-library/": "/request-demo/",
         "/products/googlerbm/": "/products/messaging-channels/"
     }
 }
