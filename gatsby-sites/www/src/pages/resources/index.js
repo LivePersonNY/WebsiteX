@@ -8,8 +8,9 @@ const ResourceIndex = function (props) {
     const news = props.data.news.nodes;
     const reports = props.data.reports.nodes;
     const webinars = props.data.webinars.nodes;
+    const workshops = props.data.workshops.nodes;
 
-    let items = successStories.concat(news).concat(reports).concat(webinars);
+    let items = successStories.concat(news).concat(reports).concat(webinars).concat(workshops);
 
     items.sort(function (a, b) {
         return Date.parse(b.date) - Date.parse(a.date);
@@ -144,6 +145,36 @@ export const itemsQuery = graphql`
             }
         }
         webinars: allWpWebinar(sort: { fields: [date], order: [DESC] }) {
+            nodes {
+                uri
+                slug
+                title
+                date
+                tags {
+                    nodes {
+                        slug
+                    }
+                }
+                nodeType
+                featuredImage {
+                    node {
+                        mediaItemUrl
+                        srcSet
+                        width
+                        height
+                    }
+                }
+                seo {
+                    readingTime
+                    opengraphType
+                    metaRobotsNoindex
+                    schema {
+                        articleType
+                    }
+                }
+            }
+        }
+        workshops: allWpWorkshop(sort: { fields: [date], order: [DESC] }) {
             nodes {
                 uri
                 slug
