@@ -6,6 +6,7 @@ import queryString from 'query-string';
 import Parser from 'html-react-parser';
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
+import { set } from 'lodash';
 
 
 const Sandbox = () => {
@@ -16,8 +17,7 @@ const Sandbox = () => {
     const [userInput, setInput] = useState('');
     const [chatHistory, setChatHistory] = useState([]);
 
-    const predefinedText = `This is the context that the bot will use to generate responses.
-You can provide any relevant information here that the bot should consider when answering user queries.`;
+    const predefinedText = `tonights dinner options are pizza or pasta`;
 
 
     const sendMessage = async (messageText) => {
@@ -27,34 +27,33 @@ You can provide any relevant information here that the bot should consider when 
         setChatHistory((prev) => [...prev, { type: 'user', message: messageText }]);
         setInput('');
 
-        //https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyBAADvGyXLUSrZmILupE_V0U4FmV4uCPPQ
-
         try {
 
             const requestBody = {
-                message: messageText, // Start with just the user message
-            };
-
+                "contents": [{
+                    "parts": [{ "text": `Using the following context: "${predefinedText}" , please address this query: ${messageText}` }]
+                }]
+            }
             console.log('Request Body:', JSON.stringify(requestBody)); // Log the request body
 
             const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyBAADvGyXLUSrZmILupE_V0U4FmV4uCPPQ', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    //'Authorization': `AIzaSyBAADvGyXLUSrZmILupE_V0U4FmV4uCPPQ`,
                 },
                 body: JSON.stringify(requestBody),
-                // body: JSON.stringify({
-                //     message: `Using the details provided in the context, please address this query: ${messageText}. Context: ${predefinedText}`,
-                // }),
             });
 
             if (!response.ok) {
+                const errorText = await response.text(); // Get the response body
+                console.error('Error response:', errorText); // Log the error response
                 throw new Error('Network response was not ok');
             }
 
             const data = await response.json();
-            const botMessage = data.response.text; // Adjust based on the actual response structure
+            console.log('Response Data:', data); // Log the response data
+            const botMessage = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim(); // Adjust based on the actual response structure
+            console.log('Bot Message:', botMessage); // Log the bot message
 
             // Update chat history with bot response
             setChatHistory((prev) => [...prev, { type: 'bot', message: botMessage }]);
