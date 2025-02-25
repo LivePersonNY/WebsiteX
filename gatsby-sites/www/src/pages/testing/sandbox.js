@@ -7,6 +7,7 @@ import Parser from 'html-react-parser';
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 import { set } from 'lodash';
+import NotFoundPage from '../404';
 
 
 const Sandbox = () => {
