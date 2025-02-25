@@ -14,22 +14,9 @@ const Sandbox2 = () => {
         return <NotFoundPage />;
     }
 
-    let companyInfo = `
-
+    const companyInfo = `
+dinner is pizza or pasta
 `;
-
-    const startChatBot = () => {
-        console.log(document.querySelector('.bot-context').value);
-        companyInfo = document.querySelector('.bot-context').value;
-        console.log(companyInfo);
-        setChatHistory((history) => [...history, {
-            hideInChat: true,
-            role: "model",
-            text: companyInfo,
-        }]);
-    }
-
-
 
     const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
         const inputRef = useRef();
@@ -40,8 +27,13 @@ const Sandbox2 = () => {
             inputRef.current.value = "";
             // Update chat history with the user's message
             setChatHistory((history) => [...history, { role: "user", text: userMessage }]);
-            // Call the function to generate the bot's response
-            generateBotResponse([...chatHistory, { role: "user", text: `Using the details provided above, please address this query: ${userMessage}` }]);
+            // Delay 600 ms before showing "Thinking..." and generating response
+            setTimeout(() => {
+                // Add a "Thinking..." placeholder for the bot's response
+                setChatHistory((history) => [...history, { role: "model", text: "Thinking..." }]);
+                // Call the function to generate the bot's response
+                generateBotResponse([...chatHistory, { role: "user", text: `Using the details provided above, please address this query: ${userMessage}` }]);
+            }, 600);
         };
         return (
             <form onSubmit={handleFormSubmit} className="chat-form">
@@ -57,6 +49,7 @@ const Sandbox2 = () => {
         return (
             !chat.hideInChat && (
                 <div className={`message ${chat.role === "model" ? "bot" : "user"}-message ${chat.isError ? "error" : ""}`} style={chat.role === "model" ? styles.botMessage : styles.userMessage}>
+                    {/* {chat.role === "model" && <ChatbotIcon />} */}
                     <p className="message-text">{chat.text}</p>
                 </div>
             )
@@ -75,7 +68,7 @@ const Sandbox2 = () => {
     const generateBotResponse = async (history) => {
         // Helper function to update chat history
         const updateHistory = (text, isError = false) => {
-            setChatHistory((prev) => [...prev, { role: "model", text, isError }]);
+            setChatHistory((prev) => [...prev.filter((msg) => msg.text != "Thinking..."), { role: "model", text, isError }]);
         };
         // Format chat history for API request
         history = history.map(({ role, text }) => ({ role, parts: [{ text }] }));
@@ -113,7 +106,7 @@ const Sandbox2 = () => {
                     <div className="row bg-blue-20 align-items-center">
                         <div className="col-lg-5 offset-lg-1 order-lg-last">
                             <h2>
-                                Sandbox2
+                                Sandbox
                             </h2>
 
                         </div>
@@ -121,24 +114,26 @@ const Sandbox2 = () => {
                 </div>
             </div>
 
-            <textarea className="bot-context"></textarea>
-            <button onClick={startChatBot}>Add context</button>
-
             <div className={`container ${showChatbot ? "show-chatbot" : ""}`} style={styles.chatContainer}>
-
+                {/* <button onClick={() => setShowChatbot((prev) => !prev)} id="chatbot-toggler">
+                    <span className="material-symbols-rounded">mode_comment</span>
+                    <span className="material-symbols-rounded">close</span>
+                </button> */}
                 <div className="chatbot-popup" style={styles.chatWindow}>
                     {/* Chatbot Header */}
                     <div className="chat-header">
                         <div className="header-info">
-
+                            {/* <ChatbotIcon /> */}
                             <h2 className="logo-text">Chatbot</h2>
                         </div>
-
+                        {/* <button onClick={() => setShowChatbot((prev) => !prev)} className="material-symbols-rounded">
+                            keyboard_arrow_down
+                        </button> */}
                     </div>
                     {/* Chatbot Body */}
                     <div ref={chatBodyRef} className="chat-body">
                         <div className="message bot-message">
-
+                            {/* <ChatbotIcon /> */}
                             <p className="message-text">
                                 Hey there  <br /> How can I help you today?
                             </p>
