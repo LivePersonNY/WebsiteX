@@ -27,6 +27,7 @@ const Sandbox2 = () => {
             role: "model",
             text: companyInfo,
         }]);
+        document.querySelector('.btn-context').style.display = 'none';
     }
 
 
@@ -122,7 +123,8 @@ const Sandbox2 = () => {
             </div>
 
             <textarea className="bot-context"></textarea>
-            <button onClick={startChatBot}>Add context</button>
+            <p>scroll down for examples to copy/paste</p>
+            <button className="btn-context" onClick={startChatBot}>Add context</button>
 
             <div className={`container ${showChatbot ? "show-chatbot" : ""}`} style={styles.chatContainer}>
 
@@ -155,7 +157,69 @@ const Sandbox2 = () => {
                 </div>
             </div>
 
+            <hr></hr>
 
+            <p>Company Name: Nimbus Tech Solutions
+                <br /><br />
+                About Us: Nimbus Tech Solutions is a leading innovator in the technology sector, dedicated to transforming the way businesses and individuals interact with technology. With a strong focus on cutting-edge research and development, Nimbus Tech Solutions provides comprehensive solutions to empower your digital future. Our mission is to drive growth and efficiency by seamlessly integrating technology into your everyday operations.
+                <br /><br />
+                Our Products:
+                <br />
+                Nimbus CloudPro: A robust cloud storage solution offering unmatched security and scalability for businesses of all sizes. Nimbus CloudPro ensures your data is accessible anytime, anywhere, with unparalleled ease of use.
+                <br /><br />
+                Nimbus AI Suite: An advanced suite of AI-driven tools designed to enhance productivity and streamline decision-making processes. From predictive analytics to automated customer support, Nimbus AI Suite offers a wide range of applications tailored to your needs.
+                <br /><br />
+                Nimbus SmartHub: A state-of-the-art IoT platform that connects and manages smart devices within your home or office. Nimbus SmartHub offers intuitive control, energy efficiency, and enhanced security, all from a single interface.
+                <br /><br />
+                Our Solutions:
+                <br />
+                Digital Transformation Services: Our team of experts works closely with businesses to develop and implement custom digital transformation strategies. From initial consultation to full-scale deployment, we ensure a smooth transition to a more efficient and digitally integrated future.
+                <br /><br />
+                Cybersecurity Solutions: Nimbus Tech Solutions offers comprehensive cybersecurity services to protect your valuable data and systems from potential threats. Our proactive approach includes regular assessments, advanced threat detection, and incident response to ensure the highest level of security.
+                <br /><br />
+                IT Support and Consulting: We provide end-to-end IT support and consulting services to help businesses maximize their technology investments. Our experienced professionals offer everything from network design and implementation to ongoing maintenance and support.
+                <br /><br />
+                Contact Information:
+                <br />
+                Address: 1234 Innovation Drive, Tech Park, Jersey City, NJ 07310, USA
+                <br /><br />
+                Phone: +1 (555) 123-4567
+                <br /><br />
+                Email: info@nimbustechsolutions.com
+                <br /><br />
+                Website: www.nimbustechsolutions.com</p>
+
+            <hr></hr>
+
+            <p>Company Name: Vertex Innovations Inc.
+                <br /><br />
+                About Us: Vertex Innovations Inc. is a trailblazer in the technology industry, committed to delivering innovative solutions that drive success and growth. We specialize in developing cutting-edge products and services that meet the evolving needs of businesses and individuals alike. Our vision is to be at the forefront of technological advancement, providing unparalleled value and excellence to our clients.
+                <br /><br />
+                Our Products:
+                <br />
+                Vertex CloudSync: A powerful cloud storage solution offering seamless data synchronization and robust security features. Vertex CloudSync ensures that your data is always accessible and protected, no matter where you are.
+                <br /><br />
+                Vertex AI Analytics: An advanced analytics platform that leverages artificial intelligence to provide deep insights and actionable recommendations. Vertex AI Analytics helps businesses make data-driven decisions with confidence.
+                <br /><br />
+                Vertex SmartHome: A comprehensive IoT solution that connects and manages all your smart devices, creating a more efficient and secure living environment. Vertex SmartHome offers intuitive control and automation for a truly smart home experience.
+                <br /><br />
+                Our Solutions:
+                <br />
+                Business Process Optimization: Our expert team works with you to streamline your business processes and improve efficiency. From identifying bottlenecks to implementing cutting-edge technology, Vertex Innovations Inc. ensures your operations run smoothly.
+                <br /><br />
+                Custom Software Development: We provide bespoke software solutions tailored to your specific needs. Our experienced developers create high-quality, scalable software that enhances your business capabilities and drives growth.
+                <br /><br />
+                IT Consulting Services: Vertex Innovations Inc. offers comprehensive IT consulting services to help you navigate the complex world of technology. Our team provides strategic guidance and hands-on support to ensure your IT infrastructure is robust and future-proof.
+                <br /><br />
+                Contact Information:
+                <br />
+                Address: 789 Tech Lane, Innovation District, Jersey City, NJ 07310, USA
+                <br /><br />
+                Phone: +1 (555) 987-6543
+                <br /><br />
+                Email: contact@vertexinnovations.com
+                <br /><br />
+                Website: www.vertexinnovations.com</p>
 
         </Layout>
     );
