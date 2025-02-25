@@ -221,6 +221,43 @@ const Sandbox2 = () => {
                 <br /><br />
                 Website: www.vertexinnovations.com</p>
 
+            <hr></hr>
+            <p>
+                Understand to automate: The journey to GenAI
+                <br />
+                Join us for an evening exploring how AI is transforming customer engagement. Hear from Deloitte Digital on the impact of agentic AI across industries, followed by a fireside chat on the GenAI journey. Continue the conversation over an elegant dinner and connect with peers. Don’t miss out on this opportunity to shape the future of customer experience!
+                <br /><br />
+                Melbourne: 27 February | Cecconi’s
+                <br />
+                Sydney: 6 March | Flying Fish
+                <br /><br />
+                The Agenda:
+                <br />
+                - 5:30 – 6:00 PM<br />
+                Arrival & welcome drinks<br />
+                Travel to the venue in the heart of the city. The concierge will be present to guide you to our reserved private spaces. An Uber voucher will be shared with you prior to the dinner.<br />
+                - 6:00 – 6:30 PM | Deloitte Digital<br />
+                How AI is shaping the future<br />
+                Hear from Deloitte Digital on how AI is shaping the future of customer engagement. We’ll explore how agentic AI is redefining both near-term opportunities and long-term possibilities across industries.<br />
+                - 6:30 – 7:00 pm | AHM health insurance<br />
+                Customer fireside chat<br />
+                Join Karlee Boyd, Continuous Improvement Manager at AHM, to hear about the AHM generative AI journey and its implementation in the contact centre.<br />
+                - 7:00 – 9:00 pm<br />
+                Dinner & discussion<br />
+                Continue the conversation with an elegant three-course dining experience and deeper peer connections.<br />
+                <br /><br />
+                Your hosts for the evening:
+                <br />
+                Nigel Lindsay-Smith<br />
+                LivePerson – Senior Vice President, APJ
+                <br />
+                Michael O’Toole<br />
+                Deloitte Digital – Head of CX for AI
+                <br />
+                Tyler Hamilton<br />
+                Deloitte Digital – Specialist Lead, Conversational and Generative AI
+            </p>
+
         </Layout>
     );
 };
