@@ -122,7 +122,7 @@ const Sandbox2 = () => {
                 </div>
             </div>
 
-            <textarea className="bot-context"></textarea>
+            <textarea className="bot-context" placeholder="Put context here"></textarea>
             <p>scroll down for examples to copy/paste</p>
             <button className="btn-context" onClick={startChatBot}>Add context</button>
 
