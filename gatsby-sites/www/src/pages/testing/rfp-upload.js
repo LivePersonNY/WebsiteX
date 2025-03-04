@@ -26,7 +26,7 @@ function rfpUpload() {
             url: API_ENDPOINT,
         });
         const presignedUrl = response.data.presignedUrl;
-        console.log(presignedUrl);
+        console.log(`This is the url: ${presignedUrl}`);
         return presignedUrl;
     };
 
