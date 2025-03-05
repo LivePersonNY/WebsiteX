@@ -373,6 +373,10 @@
         "/guided-demo/": "/request-demo/",
         "/guided-demo-library/": "/request-demo/",
         "/products/googlerbm/": "/products/messaging-channels/",
-        "/blog/4-chatbot-examples-in-sales/": "/blog/chatbot-examples-in-sales/ "
+        "/blog/4-chatbot-examples-in-sales/": "/blog/chatbot-examples-in-sales/",
+        "/blog/innovative-conversational-ai-companies/": "/resources/news/most-innovative-ai-company/",
+        "/resources/news/ai-bots-changing-the-workforce/": "/resources/",
+        "/resources/news/mad-money-transformation-talk/": "/resources/",
+        "/resources/news/future-of-conversational-ai-chatbots/": "/resources/"
     }
 }
