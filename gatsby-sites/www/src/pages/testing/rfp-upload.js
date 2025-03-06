@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NotFoundPage from '../404';
+import Layout from "../../components/Layout";
+import Seo from "../../components/Seo";
+import $ from 'jquery';
 
 function rfpUpload() {
 
@@ -66,12 +69,50 @@ function rfpUpload() {
         }
     };
 
+    useEffect(() => {
+        $(window).on('load', function () {
+            MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', 5133, function (form) {
+                console.log('I DID IT');
+            });
+        });
+    }, []);
+
     return (
-        <div className="App">
-            <h1>File Selection Component</h1>
-            <input type="file" onChange={handleFileChange} />
-            <button onClick={handleUpload}>Upload</button>
-        </div>
+        <Layout>
+            <Seo title="RFP Upload" robots="noindex, nofollow" />
+
+            <div className="pane pane-form form-vertical form-vertical-2024">
+                <div className="container">
+                    <div className="row bg-blue-20 align-items-center">
+                        <div className="col-lg-5 offset-lg-1 order-lg-last">
+                            <h2>
+                                RFP test
+                            </h2>
+
+                            <form id="mktoForm_5133"></form>
+                            <mkto-after mkto="5133">
+                                <strong>Thanks for your interest! </strong>One of our experts will contact you shortly.
+                            </mkto-after>
+                        </div>
+                        <div className="col-lg-5 g-lg-0 order-lg-first">
+                            <img
+                                src="https://static.liveperson.com/static-assets/2024/08/07154231/liveperson-bringing-voice-into-the-digital-fold-image-2_2x.png"
+                                alt=""
+                                width="528"
+                                height="658"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="App">
+                <h1>File Selection Component</h1>
+                <input type="file" onChange={handleFileChange} />
+                <button onClick={handleUpload}>Upload</button>
+            </div>
+        </Layout>
     );
 }
 
