@@ -71,9 +71,15 @@ function rfpUpload() {
 
     useEffect(() => {
         $(window).on('load', function () {
-            MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', 5133, function (form) {
-                console.log('I DID IT');
-            });
+            MktoForms2.whenReady(function (form) {
+                console.log(`I DID IT: ${form.getId()}`);
+                console.log($('.mktoRow-opt-in'));
+                $('.mktoRow-opt-in').before($('.mkto-file-field'));
+                form.onSuccess(function () {
+                    console.log('we are successful');
+                    handleUpload();
+                });
+            })
         });
     }, []);
 
@@ -89,7 +95,7 @@ function rfpUpload() {
                                 RFP test
                             </h2>
 
-                            <form id="mktoForm_5133"></form>
+                            <form id="mktoForm_5133" mkto="5133"></form>
                             <mkto-after mkto="5133">
                                 <strong>Thanks for your interest! </strong>One of our experts will contact you shortly.
                             </mkto-after>
@@ -107,11 +113,12 @@ function rfpUpload() {
                 </div>
             </div>
 
-            <div className="App">
-                <h1>File Selection Component</h1>
+            <div className="mktoFormRow mkto-file-field">
                 <input type="file" onChange={handleFileChange} />
-                <button onClick={handleUpload}>Upload</button>
             </div>
+
+            <button onClick={handleUpload}>Upload</button>
+
         </Layout>
     );
 }
