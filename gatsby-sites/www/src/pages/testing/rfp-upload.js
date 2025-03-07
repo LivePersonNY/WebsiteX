@@ -16,6 +16,7 @@ function rfpUpload() {
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
+        console.log(event.target.files[0]);
     };
 
     // API Gateway url to invoke function to generate presigned url
@@ -53,10 +54,13 @@ function rfpUpload() {
     };
 
     // Function to orchestrate the upload process
-    const handleUpload = async () => {
+    const handleUpload = async (fileElem) => {
+        console.log('starting handleUpload');
+        console.log(`selectedFile: ${selectedFile}`);
+        console.log(`fileElem: ${fileElem}`);
         try {
             // Ensure a file is selected
-            if (!selectedFile) {
+            if (!fileElem) {
                 console.error("No file selected.");
                 return;
             }
@@ -72,12 +76,13 @@ function rfpUpload() {
     useEffect(() => {
         $(window).on('load', function () {
             MktoForms2.whenReady(function (form) {
-                console.log(`I DID IT: ${form.getId()}`);
-                console.log($('.mktoRow-opt-in'));
                 $('.mktoRow-opt-in').before($('.mkto-file-field'));
+                form.onValidate(function () {
+                    console.log('we are onValidate');
+                });
                 form.onSuccess(function () {
-                    console.log('we are successful');
-                    handleUpload();
+                    console.log('we are onSuccess');
+                    handleUpload(document.querySelector('.mkto-file-field input').files[0]);
                 });
             })
         });
@@ -117,7 +122,7 @@ function rfpUpload() {
                 <input type="file" onChange={handleFileChange} />
             </div>
 
-            <button onClick={handleUpload}>Upload</button>
+            {/* <button onClick={handleUpload}>Upload</button> */}
 
         </Layout>
     );
