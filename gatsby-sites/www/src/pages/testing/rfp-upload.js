@@ -66,7 +66,7 @@ function rfpUpload() {
             }
 
             const presignedUrl = await getPresignedUrl();
-            uploadToPresignedUrl(presignedUrl);
+            // uploadToPresignedUrl(presignedUrl);
         } catch (error) {
             // Handle error
             console.error("Error uploading file:", error);
@@ -76,14 +76,23 @@ function rfpUpload() {
     useEffect(() => {
         $(window).on('load', function () {
             MktoForms2.whenReady(function (form) {
-                $('.mktoRow-opt-in').before($('.mkto-file-field'));
                 form.onValidate(function () {
                     console.log('we are onValidate');
+                    // handleUpload(document.querySelector('.mkto-file-field input').files[0]);
                 });
                 form.onSuccess(function () {
                     console.log('we are onSuccess');
-                    handleUpload(document.querySelector('.mkto-file-field input').files[0]);
+                    // handleUpload(document.querySelector('.mkto-file-field input').files[0]);
+                    form.addHiddenFields({
+                        aTest: 'only a test',
+
+                    });
+                    console.log('Submitting values in onSuccess:', form.vals());
                 });
+                setTimeout(() => {
+                    $('.mktoRow-opt-in').before($('.mkto-file-field'));
+                }
+                    , 2000);
             })
         });
     }, []);
