@@ -14,6 +14,8 @@ function rfpUpload() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [uploadProgress, setUploadProgress] = useState(0);
 
+    let presignedUrlGenerated = false;
+
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
         console.log(event.target.files[0]);
@@ -29,9 +31,11 @@ function rfpUpload() {
             method: "GET",
             url: API_ENDPOINT,
         });
+
         const presignedUrl = response.data.presignedUrl;
-        console.log(`This is the url: ${presignedUrl}`);
-        return presignedUrl;
+        const presignedUrlKey = response.data.key;
+        presignedUrlGenerated = true;
+        return [presignedUrl, presignedUrlKey];
     };
 
     // Function to upload the selected file using the generated presigned url
@@ -55,9 +59,9 @@ function rfpUpload() {
 
     // Function to orchestrate the upload process
     const handleUpload = async (fileElem) => {
-        console.log('starting handleUpload');
-        console.log(`selectedFile: ${selectedFile}`);
-        console.log(`fileElem: ${fileElem}`);
+        // console.log('starting handleUpload');
+        // console.log(`selectedFile: ${selectedFile}`);
+        // console.log(`fileElem: ${fileElem}`);
         try {
             // Ensure a file is selected
             if (!fileElem) {
@@ -65,8 +69,14 @@ function rfpUpload() {
                 return;
             }
 
-            const presignedUrl = await getPresignedUrl();
-            // uploadToPresignedUrl(presignedUrl);
+            if (presignedUrlGenerated) {
+                console.log('its already generated');
+                return;
+            }
+
+            const [presignedUrl, presignedUrlKey] = await getPresignedUrl();
+            uploadToPresignedUrl(presignedUrl);
+            return presignedUrlKey;
         } catch (error) {
             // Handle error
             console.error("Error uploading file:", error);
@@ -76,23 +86,24 @@ function rfpUpload() {
     useEffect(() => {
         $(window).on('load', function () {
             MktoForms2.whenReady(function (form) {
-                form.onValidate(function () {
-                    console.log('we are onValidate');
-                    // handleUpload(document.querySelector('.mkto-file-field input').files[0]);
+                form.onSubmit(async function () {
+                    console.log('we are onSubmit');
+                    const presignedUrlKey = await handleUpload(document.querySelector('.mkto-file-field input').files[0]);
+                    if (presignedUrlKey) {
+                        form.addHiddenFields({
+                            testFileField: `https://us-east-1.console.aws.amazon.com/s3/object/marketing-rfp?region=us-east-1&bucketType=general&prefix=${presignedUrlKey}`,
+                        });
+                    }
+
+                    console.log('Submitting values:', form.vals());
                 });
                 form.onSuccess(function () {
                     console.log('we are onSuccess');
                     // handleUpload(document.querySelector('.mkto-file-field input').files[0]);
-                    form.addHiddenFields({
-                        aTest: 'only a test',
-
-                    });
-                    console.log('Submitting values in onSuccess:', form.vals());
                 });
                 setTimeout(() => {
                     $('.mktoRow-opt-in').before($('.mkto-file-field'));
-                }
-                    , 2000);
+                }, 2000);
             })
         });
     }, []);
