@@ -95,7 +95,8 @@ function rfpUpload() {
                         });
                     }
 
-                    console.log('Submitting values:', form.vals());
+                    console.log('Submitting values from the onSubmit:', form.vals());
+                    form.submit();
                 });
                 form.onSuccess(function () {
                     console.log('we are onSuccess');
