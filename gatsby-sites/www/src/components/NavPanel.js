@@ -100,7 +100,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2025/01/06102211/CX-trends-webinar-16_9-1%402x.png"
+                                            src="https://static.liveperson.com/static-assets/2025/03/20115827/liveperson-march-webinar-hero-title-nodate-bot.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
@@ -108,11 +108,11 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">WEBINAR</p>
                                             <p className="featured-body">
-                                                Start 2025 by scaling personalized experiences with AI
+                                                Generative AI for customer service: How and why to transform operations
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/cx-trends-2025/?utm_source=featured_resources&utm_medium=direct&utm_campaign=cx_trends_2025_webinar"
+                                                href="/resources/webinars/generative-ai-service/?utm_source=featured_resources&utm_medium=direct&utm_campaign=gen_ai_bcg_webinar_q2_2025"
                                             >
                                                 Register now
                                             </a>
