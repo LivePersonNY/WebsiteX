@@ -477,6 +477,16 @@ const LivePerson = {
                 implicitCountry: formImplicit,
             });
 
+            if (formID == 5133) {
+                console.log('Form 5133');
+                const fileName = document.querySelector('.mkto-file-field input').files[0];
+                if (fileName) {
+                    console.log('remove submit');
+                    form.submittable(false);
+                    return;
+                }
+            }
+
             form.submittable(true);
             console.log('Submitting values:', form.vals());
         }

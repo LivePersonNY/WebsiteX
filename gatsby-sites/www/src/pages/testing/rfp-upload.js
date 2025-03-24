@@ -43,7 +43,6 @@ function rfpUpload() {
     const uploadToPresignedUrl = async (presignedUrl) => {
         // Upload file to pre-signed URL
         console.log(`presignedUrl: ${presignedUrl}`);
-        return;
         const uploadResponse = await axios.put(presignedUrl, selectedFile, {
             headers: {
                 "Content-Type": "application/png",
@@ -96,13 +95,11 @@ function rfpUpload() {
                             testFileField: `https://us-east-1.console.aws.amazon.com/s3/object/marketing-rfp?region=us-east-1&bucketType=general&prefix=${presignedUrlKey}`,
                         });
                     }
-
+                    form.submittable(true);
                     console.log('Submitting values from the onValidate:', form.vals());
-
                 });
                 form.onSuccess(function () {
                     console.log('we are onSuccess');
-                    console.log(`we are onSuccess with ${presignedUrl}`);
                     uploadToPresignedUrl(presignedUrl);
                     // handleUpload(document.querySelector('.mkto-file-field input').files[0]);
                 });
