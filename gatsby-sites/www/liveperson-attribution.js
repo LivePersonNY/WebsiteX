@@ -53,6 +53,7 @@ const MktoForms = {
                 });
 
                 form.onSuccess(function (values, forwardUrl) {
+                    console.log('success');
                     window.dataLayer && dataLayer.push({ event: ctaString });
                     $('.pane.gated').slideDown();
                     // Do not change anything in the following two lines
@@ -483,11 +484,13 @@ const LivePerson = {
                 if (fileName) {
                     console.log('remove submit');
                     form.submittable(false);
-                    return;
                 }
             }
+            else {
+                form.submittable(true);
+            }
 
-            form.submittable(true);
+
             console.log('Submitting values:', form.vals());
         }
     },
