@@ -14,6 +14,7 @@ function rfpUpload() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [uploadProgress, setUploadProgress] = useState(0);
 
+    let presignedUrl = '';
     let presignedUrlGenerated = false;
 
     const handleFileChange = (event) => {
@@ -32,7 +33,7 @@ function rfpUpload() {
             url: API_ENDPOINT,
         });
 
-        const presignedUrl = response.data.presignedUrl;
+        presignedUrl = response.data.presignedUrl;
         const presignedUrlKey = response.data.key;
         presignedUrlGenerated = true;
         return [presignedUrl, presignedUrlKey];
@@ -42,6 +43,7 @@ function rfpUpload() {
     const uploadToPresignedUrl = async (presignedUrl) => {
         // Upload file to pre-signed URL
         console.log(`presignedUrl: ${presignedUrl}`);
+        return;
         const uploadResponse = await axios.put(presignedUrl, selectedFile, {
             headers: {
                 "Content-Type": "application/png",
@@ -75,7 +77,7 @@ function rfpUpload() {
             }
 
             const [presignedUrl, presignedUrlKey] = await getPresignedUrl();
-            uploadToPresignedUrl(presignedUrl);
+            // uploadToPresignedUrl(presignedUrl);
             return presignedUrlKey;
         } catch (error) {
             // Handle error
@@ -86,8 +88,8 @@ function rfpUpload() {
     useEffect(() => {
         $(window).on('load', function () {
             MktoForms2.whenReady(function (form) {
-                form.onSubmit(async function () {
-                    console.log('we are onSubmit');
+                form.onValidate(async function () {
+                    console.log('we are onValidate');
                     const presignedUrlKey = await handleUpload(document.querySelector('.mkto-file-field input').files[0]);
                     if (presignedUrlKey) {
                         form.addHiddenFields({
@@ -95,11 +97,13 @@ function rfpUpload() {
                         });
                     }
 
-                    console.log('Submitting values from the onSubmit:', form.vals());
-                    form.submit();
+                    console.log('Submitting values from the onValidate:', form.vals());
+
                 });
                 form.onSuccess(function () {
                     console.log('we are onSuccess');
+                    console.log(`we are onSuccess with ${presignedUrl}`);
+                    uploadToPresignedUrl(presignedUrl);
                     // handleUpload(document.querySelector('.mkto-file-field input').files[0]);
                 });
                 setTimeout(() => {
