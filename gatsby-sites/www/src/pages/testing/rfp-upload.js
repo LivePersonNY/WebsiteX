@@ -43,6 +43,7 @@ function rfpUpload() {
     const uploadToPresignedUrl = async (presignedUrl) => {
         // Upload file to pre-signed URL
         console.log(`presignedUrl: ${presignedUrl}`);
+        return;
         const uploadResponse = await axios.put(presignedUrl, selectedFile, {
             headers: {
                 "Content-Type": "application/png",
