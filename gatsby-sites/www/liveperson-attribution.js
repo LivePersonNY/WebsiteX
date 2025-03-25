@@ -53,7 +53,6 @@ const MktoForms = {
                 });
 
                 form.onSuccess(function (values, forwardUrl) {
-                    console.log('success');
                     window.dataLayer && dataLayer.push({ event: ctaString });
                     $('.pane.gated').slideDown();
                     // Do not change anything in the following two lines

@@ -60,9 +60,6 @@ function rfpUpload() {
 
     // Function to orchestrate the upload process
     const handleUpload = async (fileElem) => {
-        // console.log('starting handleUpload');
-        // console.log(`selectedFile: ${selectedFile}`);
-        // console.log(`fileElem: ${fileElem}`);
         try {
             // Ensure a file is selected
             if (!fileElem) {
@@ -87,17 +84,6 @@ function rfpUpload() {
     useEffect(() => {
         $(window).on('load', function () {
             MktoForms2.whenReady(function (form) {
-                // form.onValidate(async function () {
-                //     console.log('we are onValidate');
-                //     const presignedUrlKey = await handleUpload(document.querySelector('.mkto-file-field input').files[0]);
-                //     if (presignedUrlKey) {
-                //         form.addHiddenFields({
-                //             testFileField: `https://us-east-1.console.aws.amazon.com/s3/object/marketing-rfp?region=us-east-1&bucketType=general&prefix=${presignedUrlKey}`,
-                //         });
-                //     }
-                //     form.submittable(true);
-                //     console.log('Submitting values from the onValidate:', form.vals());
-                // });
                 form.onSuccess(function () {
                     console.log('we are onSuccess');
                     uploadToPresignedUrl(presignedUrl);
