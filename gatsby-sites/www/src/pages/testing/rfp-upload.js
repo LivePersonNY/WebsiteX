@@ -209,7 +209,9 @@ function rfpUpload() {
 
 
             <div className="mktoFormRow mkto-file-field">
+                Please upload any required documentation here. Max file size, 500MB.<br />
                 <input type="file" onChange={handleFileChange} />
+                <br /><br />
             </div>
 
             {/* <button onClick={handleUpload}>Upload</button> */}
