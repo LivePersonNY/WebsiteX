@@ -483,7 +483,8 @@ const LivePerson = {
                 const fileName = document.querySelector('.mkto-file-field input').files[0];
                 if (fileName) {
                     console.log('remove submit');
-                    form.submittable(false);
+                    // form.submittable(false);
+                    return;
                 }
             }
             else {
