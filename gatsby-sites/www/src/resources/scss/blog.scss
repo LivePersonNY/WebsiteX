@@ -57,6 +57,14 @@ body.blog {
         }
     }
 
+    .blog-description {
+        color: $neutral12 !important;
+        -webkit-text-fill-color: initial;
+        background: 0;
+        font-weight: 400;
+        margin: 8px 0;
+    }
+
     * {
         text-decoration: none;
     }

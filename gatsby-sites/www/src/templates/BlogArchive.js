@@ -47,6 +47,9 @@ const BlogIndex = ({
             {category && (
                 <h1 className="mb-4">
                     {category.name}{' '}
+                    <span className="d-block blog-description">
+                        {category.description}
+                    </span>
                     <span className="d-block">
                         <a href="/blog" className="return-link link">
                             Blog
@@ -228,6 +231,7 @@ export const pageQuery = graphql`
             nodes {
                 id
                 name
+                description
                 link
                 seo {
                     metaDesc
