@@ -144,6 +144,11 @@ const BlogIndex = ({
                                 return (
                                     <li key={index}>
                                         <a className="link link-mt-small" href={category.link}>
+                                            {category.wpParent && (
+                                                <>
+                                                    &mdash;&nbsp;
+                                                </>
+                                            )}
                                             {category.name}
                                         </a>
                                     </li>
@@ -227,12 +232,17 @@ export default BlogIndex;
 
 export const pageQuery = graphql`
     query WordPressPostArchive($offset: Int!, $postsPerPage: Int!, $categoryLink: String) {
-        categories: allWpCategory {
+        categories: allWpCategory(sort: {fields: seo___twitterDescription, order: ASC}) {
             nodes {
                 id
                 name
                 description
                 link
+                wpParent {
+                    node {
+                        name
+                    }
+                }
                 seo {
                     metaDesc
                     metaRobotsNofollow
