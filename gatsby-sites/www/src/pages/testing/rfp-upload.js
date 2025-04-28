@@ -45,7 +45,7 @@ function rfpUpload() {
         console.log(`presignedUrl: ${presignedUrl}`);
         const uploadResponse = await axios.put(presignedUrl, selectedFile, {
             headers: {
-                "Content-Type": "application/png",
+                "Content-Type": "image/png",
             },
             onUploadProgress: (progressEvent) => {
                 const percentCompleted = Math.round(
