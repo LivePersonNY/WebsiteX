@@ -54,6 +54,12 @@ const MktoForms = {
 
                 form.onSuccess(function (values, forwardUrl) {
                     window.dataLayer && dataLayer.push({ event: ctaString });
+
+                    if (formId == 5133) {
+                        console.log('5133 onSuccess');
+                        return;
+                    }
+
                     $('.pane.gated').slideDown();
                     // Do not change anything in the following two lines
                     window.VWO = window.VWO || [];
