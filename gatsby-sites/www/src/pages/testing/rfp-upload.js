@@ -87,7 +87,7 @@ function rfpUpload() {
                 form.onSuccess(async function () {
                     console.log('we are onSuccess');
                     await uploadToPresignedUrl(presignedUrl);
-                    return;
+                    return false;
                 });
                 setTimeout(() => {
                     $('.mktoRow-opt-in').before($('.mkto-file-field'));

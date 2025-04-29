@@ -57,7 +57,7 @@ const MktoForms = {
 
                     if (formId == 5133) {
                         console.log('5133 onSuccess');
-                        return;
+                        return false;
                     }
 
                     $('.pane.gated').slideDown();
