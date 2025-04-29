@@ -36,6 +36,7 @@ function rfpUpload2() {
     // Function to upload the selected file using the generated presigned url
     const uploadToPresignedUrl = async (presignedUrl) => {
         // Upload file to pre-signed URL
+        console.log(`selectedFile: ${selectedFile}`);
         const uploadResponse = await axios.put(presignedUrl, selectedFile, {
             headers: {
                 "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",

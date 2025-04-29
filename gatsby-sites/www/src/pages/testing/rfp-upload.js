@@ -16,6 +16,7 @@ function rfpUpload() {
 
     let presignedUrl = '';
     let presignedUrlGenerated = false;
+    let fileToUpload = null;
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
@@ -43,8 +44,8 @@ function rfpUpload() {
     const uploadToPresignedUrl = async (presignedUrl) => {
         // Upload file to pre-signed URL
         console.log(`presignedUrl: ${presignedUrl}`);
-        console.log(`selectedFile: ${selectedFile}`);
-        const uploadResponse = await axios.put(presignedUrl, selectedFile, {
+        console.log(`selectedFile: ${fileToUpload}`);
+        const uploadResponse = await axios.put(presignedUrl, fileToUpload, {
             headers: {
                 "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             },
@@ -85,17 +86,21 @@ function rfpUpload() {
     useEffect(() => {
         $(window).on('load', function () {
             MktoForms2.whenReady(function (form) {
+
                 form.onSuccess(async function () {
                     console.log('we are onSuccess');
                     await uploadToPresignedUrl(presignedUrl);
                     return false;
                 });
+
                 setTimeout(() => {
                     $('.mktoRow-opt-in').before($('.mkto-file-field'));
                 }, 2000);
+
                 document.querySelector('.mkto-file-field input').addEventListener('change', async function () {
                     console.log('file changed');
-                    const presignedUrlKey = await handleUpload(this.files[0]);
+                    fileToUpload = this.files[0];
+                    const presignedUrlKey = await handleUpload(fileToUpload);
                     if (presignedUrlKey) {
                         form.addHiddenFields({
                             testFileField: `https://us-east-1.console.aws.amazon.com/s3/object/marketing-rfp?region=us-east-1&bucketType=general&prefix=${presignedUrlKey}`,
@@ -103,6 +108,7 @@ function rfpUpload() {
                     }
                     console.log('vals on file change:', form.vals());
                 })
+
             })
         });
     }, []);
