@@ -84,9 +84,10 @@ function rfpUpload() {
     useEffect(() => {
         $(window).on('load', function () {
             MktoForms2.whenReady(function (form) {
-                form.onSuccess(function () {
+                form.onSuccess(async function () {
                     console.log('we are onSuccess');
-                    uploadToPresignedUrl(presignedUrl);
+                    await uploadToPresignedUrl(presignedUrl);
+                    return;
                 });
                 setTimeout(() => {
                     $('.mktoRow-opt-in').before($('.mkto-file-field'));
