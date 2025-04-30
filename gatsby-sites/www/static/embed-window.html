@@ -108,7 +108,9 @@
                       lpTag.init())
                     : (window.lpTag._tagCount += 1);
 
-            prepareToConnect();
+            $(document).ready(() => {
+                prepareToConnect();
+            });
 
             function prepareToConnect() {
                 $('#connect')
