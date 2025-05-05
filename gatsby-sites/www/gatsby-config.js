@@ -27,7 +27,7 @@ module.exports = {
                 allPageHeaders: ['Strict-Transport-Security: max-age=31536000'],
                 headers: {
                     '/*': ['cache-control: public, max-age=0, must-revalidate',
-                        'Content-Security-Policy: frame-ancestors "self" https://codepen.io/ *.codepen.io https://liveperson.vanillastaging.com/ https://vanillastaging.com/ https://*.vanillastaging.com/',
+                        'Content-Security-Policy: frame-ancestors "self" https://liveperson.vanillastaging.com/ https://vanillastaging.com/ https://*.vanillastaging.com/',
                     ],
                 },
             },
