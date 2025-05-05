@@ -26,7 +26,9 @@ module.exports = {
                 generateMatchPathRewrites: false,
                 allPageHeaders: ['Strict-Transport-Security: max-age=31536000'],
                 headers: {
-                    '/*': ['cache-control: public, max-age=0, must-revalidate'],
+                    '/*': ['cache-control: public, max-age=0, must-revalidate',
+                        "Content-Security-Policy: frame-ancestors 'self' https://codepen.io/",
+                    ],
                 },
             },
         },
