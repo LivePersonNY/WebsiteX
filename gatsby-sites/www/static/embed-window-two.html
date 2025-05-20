@@ -689,7 +689,7 @@
                                         socket.on('connect', () => {
                                             console.log('socket.on connected. CONNECTION: ' + socket.connected); // true
                                             socket.emit('vars', {
-                                                jwt: getJWT(global_account),
+                                                jwt: LPUtils.getJWT(global_account),
                                                 accountId: global_account,
                                                 skillId: skillId,
                                                 firstName: firstName,
