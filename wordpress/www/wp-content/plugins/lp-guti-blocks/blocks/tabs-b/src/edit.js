@@ -145,6 +145,7 @@ export default function Edit({
 						"core/strikethrough",
 						"core/text-color",
 						"core/image",
+						"core/link",
 					]}
 				/>
 			),
