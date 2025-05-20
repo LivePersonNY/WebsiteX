@@ -788,7 +788,9 @@
                                         }
                                     };
 
-                                    connectLPsdk();
+                                    setTimeout(() => {
+                                        connectLPsdk();
+                                    }, 5000);
 
                                     document
                                         .getElementById('convoinput')
