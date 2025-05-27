@@ -9,7 +9,7 @@ const formSubmit2 = () => {
         // return <NotFoundPage />;
     }
 
-    useEffect(() => {}, []);
+    useEffect(() => { }, []);
 
     return (
         <Layout mainClass="form">
@@ -18,32 +18,34 @@ const formSubmit2 = () => {
             <div data-localize="false" className="pane bg-transparent">
                 <div className="container">
                     <div className="row justify-content-center">
-                        <div className="col-lg-10 text-center">
-                            <h2>Form test</h2>
-                            <br />
-                            <br />
+                        <div className="col-lg-3">
                             <form
-                                className="form-netlify2"
-                                name="contact2"
+                                className="form-gcpSiteTesting"
+                                name="gcpSiteTesting"
                                 data-netlify="true"
                                 data-netlify-honeypot="bot-field"
                                 action="/"
                                 method="post"
                             >
-                                <input type="hidden" name="form-name" value="contact2" />
+                                <input type="hidden" name="form-name" value="gcpSiteTesting" />
                                 <input type="hidden" name="bot-field" />
                                 <p>
                                     <label>
-                                        Name <input type="text" name="name" />
+                                        Email:<br /><input type="email" name="email" />
                                     </label>
                                 </p>
                                 <p>
                                     <label>
-                                        Email <input type="email" name="email" />
+                                        Brand Name:<br /><input type="text" name="name" />
                                     </label>
                                 </p>
                                 <p>
-                                    <button type="submit">Send</button>
+                                    <label>
+                                        Site ID (Account Number):<br /><input type="text" name="siteId" />
+                                    </label>
+                                </p>
+                                <p>
+                                    <button class="form-btn" type="submit">Submit</button>
                                 </p>
                             </form>
                         </div>

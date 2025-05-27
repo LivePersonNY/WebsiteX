@@ -119,8 +119,8 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
                 rel="stylesheet"
             />
 
-            <script src="https://unpkg.com/@dotlottie/player-component@1.0.0/dist/dotlottie-player.js"></script>
-            <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
+            <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.js"></script>
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js"></script>
         </Helmet>
     );
 };

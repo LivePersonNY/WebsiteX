@@ -108,181 +108,337 @@
                       lpTag.init())
                     : (window.lpTag._tagCount += 1);
 
-            ('use strict');
+            // start of lputils
 
-            function _classCallCheck(instance, Constructor) {
-                if (!(instance instanceof Constructor)) {
-                    throw new TypeError('Cannot call a class as a function');
-                }
-            }
+            // function _classCallCheck(instance, Constructor) {
+            //     if (!(instance instanceof Constructor)) {
+            //         throw new TypeError('Cannot call a class as a function');
+            //     }
+            // }
 
-            var LPUtils = (function () {
-                function LPUtils() {
-                    _classCallCheck(this, LPUtils);
-                }
+            // var LPUtils = (function () {
+            //     function LPUtils() {
+            //         _classCallCheck(this, LPUtils);
+            //     }
 
-                LPUtils.getDomain = function getDomain(account, name) {
-                    var domains = account.startsWith('le') ? 'hc1n.dev.lprnd.net' : 'adminlogin.liveperson.net';
-                    return new Promise(function (res, rej) {
-                        return $.ajax({
-                            url:
-                                'https://' +
-                                domains +
-                                '/csdr/account/' +
-                                account +
-                                '/service/' +
-                                name +
-                                '/baseURI.lpCsds?version=1.0',
+            //     LPUtils.getDomain = function getDomain(account, name) {
+            //         var domains = account.startsWith('le') ? 'hc1n.dev.lprnd.net' : 'adminlogin.liveperson.net';
+            //         return new Promise(function (res, rej) {
+            //             return $.ajax({
+            //                 url:
+            //                     'https://' +
+            //                     domains +
+            //                     '/csdr/account/' +
+            //                     account +
+            //                     '/service/' +
+            //                     name +
+            //                     '/baseURI.lpCsds?version=1.0',
+            //                 jsonp: 'cb',
+            //                 jsonpCallback: 'domainCallback',
+            //                 cache: true,
+            //                 dataType: 'jsonp',
+            //                 success: function success(data) {
+            //                     return res(data.ResultSet.lpData[0].lpServer);
+            //                 },
+            //                 error: function error(e, text) {
+            //                     return rej(text);
+            //                 },
+            //             });
+            //         });
+            //     };
+
+            //     LPUtils.agentProfile = function agentProfile(account, agentID) {
+            //         var _this = this;
+
+            //         return new Promise(function (res, rej) {
+            //             return _this.getDomain(account, 'acCdnDomain').then(function (accdnDomain) {
+            //                 return $.ajax({
+            //                     url:
+            //                         'https://' +
+            //                         accdnDomain +
+            //                         '/api/account/' +
+            //                         account +
+            //                         '/configuration/le-users/users/' +
+            //                         agentID,
+            //                     jsonp: 'cb',
+            //                     jsonpCallback: 'apCallback',
+            //                     cache: true,
+            //                     dataType: 'jsonp',
+            //                     success: function success(accdnResp) {
+            //                         return res(accdnResp);
+            //                     },
+            //                 });
+            //             });
+            //         });
+            //     };
+
+            //     LPUtils.customSignUp = function customSignUp(claimset) {
+            //         var _this11 = this;
+            //         return new Promise(function (res, rej) {
+            //             return $.ajax({
+            //                 type: 'POST',
+            //                 url: '/encodeJWT',
+            //                 contentType: 'application/json',
+            //                 data: JSON.stringify({ claimset: claimset }),
+            //                 success: function (data) {
+            //                     console.log('success!!' + JSON.stringify(data));
+            //                     return res(data.jwt);
+            //                 },
+            //                 error: function (e) {
+            //                     console.error('there was an error ' + e);
+            //                     return rej(e);
+            //                 },
+            //             });
+            //         });
+            //     };
+
+            //     LPUtils.signup = function signup(account) {
+            //         var _this2 = this;
+
+            //         return new Promise(function (res, rej) {
+            //             return _this2.getDomain(account, 'idp').then(function (idpDomain) {
+            //                 return $.ajax({
+            //                     url: 'https://' + idpDomain + '/api/account/' + account + '/signup.jsonp',
+            //                     jsonp: 'callback',
+            //                     dataType: 'jsonp',
+            //                     success: function success(idpResp) {
+            //                         var jwt = idpResp.jwt;
+            //                         console.log(jwt);
+            //                         return res(jwt);
+            //                     },
+            //                 });
+            //             });
+            //         });
+            //     };
+
+            //     // fetch jwt from localstorage or create one
+
+            //     LPUtils.getJWT = function getJWT(account) {
+            //         var localJWT = localStorage.getItem(account + '-jwt');
+            //         if (localJWT) return Promise.resolve(localJWT);
+            //         else
+            //             return this.signup(account).then(function (newJWT) {
+            //                 localStorage.setItem(account + '-jwt', newJWT);
+            //                 return Promise.resolve(newJWT);
+            //             });
+            //     };
+
+            //     LPUtils.getCustomJWT = function getCustomJWT(account, claimset) {
+            //         var localJWT = localStorage.getItem(account + '-jwt');
+            //         if (localJWT) return Promise.resolve(localJWT);
+            //         else
+            //             return this.customSignUp(claimset).then(function (newJWT) {
+            //                 localStorage.setItem(account + '-jwt', newJWT);
+            //                 return Promise.resolve(newJWT);
+            //             });
+            //     };
+
+            //     LPUtils.clearJWT = function clearJWT(account) {
+            //         localStorage.removeItem(account + '-jwt');
+            //     };
+
+            //     return LPUtils;
+            // })();
+            // // LPUtils.getDomain("qa20971604", "idp").then(r => console.log(r));
+            // // LPUtils.signup("qa20971604").then(r => console.log(r));
+
+            // var LPWs = (function () {
+            //     LPWs.connect = function connect(url) {
+            //         return new LPWs(url)._connect();
+            //     };
+
+            //     LPWs.connectDebug = function connectDebug(url) {
+            //         return new LPWs(url, true)._connect();
+            //     };
+
+            //     function LPWs(url, debug) {
+            //         _classCallCheck(this, LPWs);
+
+            //         this.reqs = {};
+            //         this.subs = [];
+            //         this.url = url;
+            //         this.debug = debug;
+            //     }
+
+            //     LPWs.prototype._connect = function _connect() {
+            //         var _this3 = this;
+
+            //         return new Promise(function (resolve, reject) {
+            //             var ws = new WebSocket(_this3.url);
+            //             _this3.ws = ws;
+            //             ws.onopen = function () {
+            //                 return resolve(_this3);
+            //             };
+            //             ws.onmessage = function (msg) {
+            //                 return _this3.onmessage(msg);
+            //             };
+            //             ws.onclose = function (evt) {
+            //                 _this3.ws = null;
+            //                 reject(evt);
+            //             };
+            //         });
+            //     };
+
+            //     LPWs.prototype.request = function request(type, body, headers) {
+            //         var _this4 = this;
+
+            //         return new Promise(function (resolve, reject) {
+            //             var obj = {
+            //                 kind: 'req',
+            //                 type: type,
+            //                 body: body || {},
+            //                 id: Math.floor(Math.random() * 1e9),
+            //                 headers: headers,
+            //             };
+            //             _this4.reqs[obj.id] = function (type, code, body) {
+            //                 return resolve({
+            //                     type: type,
+            //                     code: code,
+            //                     body: body,
+            //                 });
+            //             };
+            //             var str = JSON.stringify(obj);
+            //             if (_this4.debug) console.log('sending: ' + str);
+            //             _this4.ws && _this4.ws.send(str);
+            //         });
+            //     };
+
+            //     LPWs.prototype.onNotification = function onNotification(filterFunc, _onNotification) {
+            //         this.subs.push({
+            //             filter: filterFunc,
+            //             cb: _onNotification,
+            //         });
+            //     };
+
+            //     LPWs.prototype.toFuncName = function toFuncName(reqType) {
+            //         var str = reqType.substr(1 + reqType.lastIndexOf('.'));
+            //         return str.charAt(0).toLowerCase() + str.slice(1);
+            //     };
+
+            //     LPWs.prototype.registerRequests = function registerRequests(arr) {
+            //         var _this5 = this;
+
+            //         arr.forEach(function (reqType) {
+            //             return (_this5[_this5.toFuncName(reqType)] = function (body, headers) {
+            //                 return _this5.request(reqType, body, headers);
+            //             });
+            //         });
+            //     };
+
+            //     LPWs.prototype.onmessage = function onmessage(msg) {
+            //         if (this.debug) console.log('recieved: ' + msg.data);
+            //         var obj = JSON.parse(msg.data);
+            //         if (obj.kind == 'resp') {
+            //             var id = obj.reqId;
+            //             delete obj.reqId;
+            //             delete obj.kind;
+            //             this.reqs[id].call(this, obj.type, obj.code, obj.body);
+            //             delete this.reqs[id];
+            //         } else if (obj.kind == 'notification') {
+            //             this.subs.forEach(function (sub) {
+            //                 if (sub.filter.call(this, obj)) {
+            //                     sub.cb.call(this, obj.body);
+            //                 }
+            //             });
+            //         }
+            //     };
+
+            //     return LPWs;
+            // })();
+
+            // LPWs.connect("wss://echo.websocket.org").then(lpws => console.log(`lpws was opened.`));
+
+            class LPUtils {
+                static getDomain(account, name) {
+                    const domains = account.startsWith('le') ? 'hc1n.dev.lprnd.net' : 'adminlogin.liveperson.net';
+                    return new Promise((res, rej) =>
+                        $.ajax({
+                            url: `https://${domains}/csdr/account/${account}/service/${name}/baseURI.lpCsds?version=1.0`,
                             jsonp: 'cb',
                             jsonpCallback: 'domainCallback',
                             cache: true,
                             dataType: 'jsonp',
-                            success: function success(data) {
-                                return res(data.ResultSet.lpData[0].lpServer);
-                            },
-                            error: function error(e, text) {
-                                return rej(text);
-                            },
-                        });
-                    });
-                };
+                            success: (data) => res(data.ResultSet.lpData[0].lpServer),
+                            error: (e, text) => rej(text),
+                        })
+                    );
+                }
 
-                LPUtils.agentProfile = function agentProfile(account, agentID) {
-                    var _this = this;
-
-                    return new Promise(function (res, rej) {
-                        return _this.getDomain(account, 'acCdnDomain').then(function (accdnDomain) {
-                            return $.ajax({
-                                url:
-                                    'https://' +
-                                    accdnDomain +
-                                    '/api/account/' +
-                                    account +
-                                    '/configuration/le-users/users/' +
-                                    agentID,
+                static agentProfile(account, agentID) {
+                    return new Promise((res, rej) =>
+                        this.getDomain(account, 'acCdnDomain').then((accdnDomain) =>
+                            $.ajax({
+                                url: `https://${accdnDomain}/api/account/${account}/configuration/le-users/users/${agentID}`,
                                 jsonp: 'cb',
                                 jsonpCallback: 'apCallback',
                                 cache: true,
                                 dataType: 'jsonp',
-                                success: function success(accdnResp) {
-                                    return res(accdnResp);
-                                },
-                            });
-                        });
-                    });
-                };
+                                success: (accdnResp) => res(accdnResp),
+                            })
+                        )
+                    );
+                }
 
-                LPUtils.customSignUp = function customSignUp(claimset) {
-                    var _this11 = this;
-                    return new Promise(function (res, rej) {
-                        return $.ajax({
-                            type: 'POST',
-                            url: '/encodeJWT',
-                            contentType: 'application/json',
-                            data: JSON.stringify({ claimset: claimset }),
-                            success: function (data) {
-                                console.log('success!!' + JSON.stringify(data));
-                                return res(data.jwt);
-                            },
-                            error: function (e) {
-                                console.error('there was an error ' + e);
-                                return rej(e);
-                            },
-                        });
-                    });
-                };
-
-                LPUtils.signup = function signup(account) {
-                    var _this2 = this;
-
-                    return new Promise(function (res, rej) {
-                        return _this2.getDomain(account, 'idp').then(function (idpDomain) {
-                            return $.ajax({
-                                url: 'https://' + idpDomain + '/api/account/' + account + '/signup.jsonp',
+                static signup(account) {
+                    return new Promise((res, rej) =>
+                        this.getDomain(account, 'idp').then((idpDomain) =>
+                            $.ajax({
+                                url: `https://${idpDomain}/api/account/${account}/signup.jsonp`,
                                 jsonp: 'callback',
                                 dataType: 'jsonp',
-                                success: function success(idpResp) {
-                                    var jwt = idpResp.jwt;
-                                    console.log(jwt);
-                                    return res(jwt);
-                                },
-                            });
-                        });
-                    });
-                };
+                                success: (idpResp) => res(idpResp.jwt),
+                            })
+                        )
+                    );
+                }
 
                 // fetch jwt from localstorage or create one
-
-                LPUtils.getJWT = function getJWT(account) {
-                    var localJWT = localStorage.getItem(account + '-jwt');
+                static getJWT(account) {
+                    const localJWT = localStorage.getItem(`${account}-jwt`);
                     if (localJWT) return Promise.resolve(localJWT);
                     else
-                        return this.signup(account).then(function (newJWT) {
-                            localStorage.setItem(account + '-jwt', newJWT);
+                        return this.signup(account).then((newJWT) => {
+                            localStorage.setItem(`${account}-jwt`, newJWT);
                             return Promise.resolve(newJWT);
                         });
-                };
+                }
 
-                LPUtils.getCustomJWT = function getCustomJWT(account, claimset) {
-                    var localJWT = localStorage.getItem(account + '-jwt');
-                    if (localJWT) return Promise.resolve(localJWT);
-                    else
-                        return this.customSignUp(claimset).then(function (newJWT) {
-                            localStorage.setItem(account + '-jwt', newJWT);
-                            return Promise.resolve(newJWT);
-                        });
-                };
+                static clearJWT(account) {
+                    localStorage.removeItem(`${account}-jwt`);
+                }
+            }
 
-                LPUtils.clearJWT = function clearJWT(account) {
-                    localStorage.removeItem(account + '-jwt');
-                };
-
-                return LPUtils;
-            })();
-            // LPUtils.getDomain("qa20971604", "idp").then(r => console.log(r));
-            // LPUtils.signup("qa20971604").then(r => console.log(r));
-
-            var LPWs = (function () {
-                LPWs.connect = function connect(url) {
+            class LPWs {
+                static connect(url) {
                     return new LPWs(url)._connect();
-                };
+                }
 
-                LPWs.connectDebug = function connectDebug(url) {
+                static connectDebug(url) {
                     return new LPWs(url, true)._connect();
-                };
+                }
 
-                function LPWs(url, debug) {
-                    _classCallCheck(this, LPWs);
-
+                constructor(url, debug) {
                     this.reqs = {};
                     this.subs = [];
                     this.url = url;
                     this.debug = debug;
                 }
 
-                LPWs.prototype._connect = function _connect() {
-                    var _this3 = this;
-
-                    return new Promise(function (resolve, reject) {
-                        var ws = new WebSocket(_this3.url);
-                        _this3.ws = ws;
-                        ws.onopen = function () {
-                            return resolve(_this3);
-                        };
-                        ws.onmessage = function (msg) {
-                            return _this3.onmessage(msg);
-                        };
-                        ws.onclose = function (evt) {
-                            _this3.ws = null;
+                _connect() {
+                    return new Promise((resolve, reject) => {
+                        var ws = new WebSocket(this.url);
+                        this.ws = ws;
+                        ws.onopen = () => resolve(this);
+                        ws.onmessage = (msg) => this.onmessage(msg);
+                        ws.onclose = (evt) => {
+                            this.ws = null;
                             reject(evt);
                         };
                     });
-                };
+                }
 
-                LPWs.prototype.request = function request(type, body, headers) {
-                    var _this4 = this;
-
-                    return new Promise(function (resolve, reject) {
+                request(type, body, headers) {
+                    return new Promise((resolve, reject) => {
                         var obj = {
                             kind: 'req',
                             type: type,
@@ -290,42 +446,38 @@
                             id: Math.floor(Math.random() * 1e9),
                             headers: headers,
                         };
-                        _this4.reqs[obj.id] = function (type, code, body) {
-                            return resolve({
+                        this.reqs[obj.id] = (type, code, body) =>
+                            resolve({
                                 type: type,
                                 code: code,
                                 body: body,
                             });
-                        };
                         var str = JSON.stringify(obj);
-                        if (_this4.debug) console.log('sending: ' + str);
-                        _this4.ws && _this4.ws.send(str);
+                        if (this.debug) console.log('sending: ' + str);
+                        this.ws.send(str);
                     });
-                };
+                }
 
-                LPWs.prototype.onNotification = function onNotification(filterFunc, _onNotification) {
+                onNotification(filterFunc, onNotification) {
                     this.subs.push({
                         filter: filterFunc,
-                        cb: _onNotification,
+                        cb: onNotification,
                     });
-                };
+                }
 
-                LPWs.prototype.toFuncName = function toFuncName(reqType) {
+                toFuncName(reqType) {
                     var str = reqType.substr(1 + reqType.lastIndexOf('.'));
                     return str.charAt(0).toLowerCase() + str.slice(1);
-                };
+                }
 
-                LPWs.prototype.registerRequests = function registerRequests(arr) {
-                    var _this5 = this;
+                registerRequests(arr) {
+                    arr.forEach(
+                        (reqType) =>
+                            (this[this.toFuncName(reqType)] = (body, headers) => this.request(reqType, body, headers))
+                    );
+                }
 
-                    arr.forEach(function (reqType) {
-                        return (_this5[_this5.toFuncName(reqType)] = function (body, headers) {
-                            return _this5.request(reqType, body, headers);
-                        });
-                    });
-                };
-
-                LPWs.prototype.onmessage = function onmessage(msg) {
+                onmessage(msg) {
                     if (this.debug) console.log('recieved: ' + msg.data);
                     var obj = JSON.parse(msg.data);
                     if (obj.kind == 'resp') {
@@ -341,18 +493,10 @@
                             }
                         });
                     }
-                };
-
-                return LPWs;
-            })();
-
-            // LPWs.connect("wss://echo.websocket.org").then(lpws => console.log(`lpws was opened.`));
+                }
+            }
         </script>
-        <script
-            src="https://cdn.socket.io/4.8.1/socket.io.min.js"
-            integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+"
-            crossorigin="anonymous"
-        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.7.1/dist/socket.io.min.js"></script>
     </head>
     <body class="">
         <div class="">
@@ -493,8 +637,8 @@
                                     var flagSetJWT = false;
                                     var global_account = getParameterByName('accountId') || '5288836';
                                     var skillId = getParameterByName('skillId') || '6014967538';
-                                    var firstName = getParameterByName('firstName') || 'LivePersonFirst';
-                                    var lastName = getParameterByName('lastName') || 'LivePersonLast';
+                                    var firstName = getParameterByName('firstName') || 'Visitor';
+                                    var lastName = getParameterByName('lastName') || '';
 
                                     function getParameterByName(name, url) {
                                         if (!url) {
@@ -545,7 +689,7 @@
                                         socket.on('connect', () => {
                                             console.log('socket.on connected. CONNECTION: ' + socket.connected); // true
                                             socket.emit('vars', {
-                                                jwt: getJWT(global_account),
+                                                jwt: LPUtils.getJWT(global_account),
                                                 accountId: global_account,
                                                 skillId: skillId,
                                                 firstName: firstName,
@@ -644,7 +788,9 @@
                                         }
                                     };
 
-                                    connectLPsdk();
+                                    setTimeout(() => {
+                                        connectLPsdk();
+                                    }, 5000);
 
                                     document
                                         .getElementById('convoinput')
