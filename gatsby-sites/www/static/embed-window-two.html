@@ -108,337 +108,179 @@
                       lpTag.init())
                     : (window.lpTag._tagCount += 1);
 
-            // start of lputils
+            function _classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor)) {
+                    throw new TypeError('Cannot call a class as a function');
+                }
+            }
 
-            // function _classCallCheck(instance, Constructor) {
-            //     if (!(instance instanceof Constructor)) {
-            //         throw new TypeError('Cannot call a class as a function');
-            //     }
-            // }
+            var LPUtils = (function () {
+                function LPUtils() {
+                    _classCallCheck(this, LPUtils);
+                }
 
-            // var LPUtils = (function () {
-            //     function LPUtils() {
-            //         _classCallCheck(this, LPUtils);
-            //     }
-
-            //     LPUtils.getDomain = function getDomain(account, name) {
-            //         var domains = account.startsWith('le') ? 'hc1n.dev.lprnd.net' : 'adminlogin.liveperson.net';
-            //         return new Promise(function (res, rej) {
-            //             return $.ajax({
-            //                 url:
-            //                     'https://' +
-            //                     domains +
-            //                     '/csdr/account/' +
-            //                     account +
-            //                     '/service/' +
-            //                     name +
-            //                     '/baseURI.lpCsds?version=1.0',
-            //                 jsonp: 'cb',
-            //                 jsonpCallback: 'domainCallback',
-            //                 cache: true,
-            //                 dataType: 'jsonp',
-            //                 success: function success(data) {
-            //                     return res(data.ResultSet.lpData[0].lpServer);
-            //                 },
-            //                 error: function error(e, text) {
-            //                     return rej(text);
-            //                 },
-            //             });
-            //         });
-            //     };
-
-            //     LPUtils.agentProfile = function agentProfile(account, agentID) {
-            //         var _this = this;
-
-            //         return new Promise(function (res, rej) {
-            //             return _this.getDomain(account, 'acCdnDomain').then(function (accdnDomain) {
-            //                 return $.ajax({
-            //                     url:
-            //                         'https://' +
-            //                         accdnDomain +
-            //                         '/api/account/' +
-            //                         account +
-            //                         '/configuration/le-users/users/' +
-            //                         agentID,
-            //                     jsonp: 'cb',
-            //                     jsonpCallback: 'apCallback',
-            //                     cache: true,
-            //                     dataType: 'jsonp',
-            //                     success: function success(accdnResp) {
-            //                         return res(accdnResp);
-            //                     },
-            //                 });
-            //             });
-            //         });
-            //     };
-
-            //     LPUtils.customSignUp = function customSignUp(claimset) {
-            //         var _this11 = this;
-            //         return new Promise(function (res, rej) {
-            //             return $.ajax({
-            //                 type: 'POST',
-            //                 url: '/encodeJWT',
-            //                 contentType: 'application/json',
-            //                 data: JSON.stringify({ claimset: claimset }),
-            //                 success: function (data) {
-            //                     console.log('success!!' + JSON.stringify(data));
-            //                     return res(data.jwt);
-            //                 },
-            //                 error: function (e) {
-            //                     console.error('there was an error ' + e);
-            //                     return rej(e);
-            //                 },
-            //             });
-            //         });
-            //     };
-
-            //     LPUtils.signup = function signup(account) {
-            //         var _this2 = this;
-
-            //         return new Promise(function (res, rej) {
-            //             return _this2.getDomain(account, 'idp').then(function (idpDomain) {
-            //                 return $.ajax({
-            //                     url: 'https://' + idpDomain + '/api/account/' + account + '/signup.jsonp',
-            //                     jsonp: 'callback',
-            //                     dataType: 'jsonp',
-            //                     success: function success(idpResp) {
-            //                         var jwt = idpResp.jwt;
-            //                         console.log(jwt);
-            //                         return res(jwt);
-            //                     },
-            //                 });
-            //             });
-            //         });
-            //     };
-
-            //     // fetch jwt from localstorage or create one
-
-            //     LPUtils.getJWT = function getJWT(account) {
-            //         var localJWT = localStorage.getItem(account + '-jwt');
-            //         if (localJWT) return Promise.resolve(localJWT);
-            //         else
-            //             return this.signup(account).then(function (newJWT) {
-            //                 localStorage.setItem(account + '-jwt', newJWT);
-            //                 return Promise.resolve(newJWT);
-            //             });
-            //     };
-
-            //     LPUtils.getCustomJWT = function getCustomJWT(account, claimset) {
-            //         var localJWT = localStorage.getItem(account + '-jwt');
-            //         if (localJWT) return Promise.resolve(localJWT);
-            //         else
-            //             return this.customSignUp(claimset).then(function (newJWT) {
-            //                 localStorage.setItem(account + '-jwt', newJWT);
-            //                 return Promise.resolve(newJWT);
-            //             });
-            //     };
-
-            //     LPUtils.clearJWT = function clearJWT(account) {
-            //         localStorage.removeItem(account + '-jwt');
-            //     };
-
-            //     return LPUtils;
-            // })();
-            // // LPUtils.getDomain("qa20971604", "idp").then(r => console.log(r));
-            // // LPUtils.signup("qa20971604").then(r => console.log(r));
-
-            // var LPWs = (function () {
-            //     LPWs.connect = function connect(url) {
-            //         return new LPWs(url)._connect();
-            //     };
-
-            //     LPWs.connectDebug = function connectDebug(url) {
-            //         return new LPWs(url, true)._connect();
-            //     };
-
-            //     function LPWs(url, debug) {
-            //         _classCallCheck(this, LPWs);
-
-            //         this.reqs = {};
-            //         this.subs = [];
-            //         this.url = url;
-            //         this.debug = debug;
-            //     }
-
-            //     LPWs.prototype._connect = function _connect() {
-            //         var _this3 = this;
-
-            //         return new Promise(function (resolve, reject) {
-            //             var ws = new WebSocket(_this3.url);
-            //             _this3.ws = ws;
-            //             ws.onopen = function () {
-            //                 return resolve(_this3);
-            //             };
-            //             ws.onmessage = function (msg) {
-            //                 return _this3.onmessage(msg);
-            //             };
-            //             ws.onclose = function (evt) {
-            //                 _this3.ws = null;
-            //                 reject(evt);
-            //             };
-            //         });
-            //     };
-
-            //     LPWs.prototype.request = function request(type, body, headers) {
-            //         var _this4 = this;
-
-            //         return new Promise(function (resolve, reject) {
-            //             var obj = {
-            //                 kind: 'req',
-            //                 type: type,
-            //                 body: body || {},
-            //                 id: Math.floor(Math.random() * 1e9),
-            //                 headers: headers,
-            //             };
-            //             _this4.reqs[obj.id] = function (type, code, body) {
-            //                 return resolve({
-            //                     type: type,
-            //                     code: code,
-            //                     body: body,
-            //                 });
-            //             };
-            //             var str = JSON.stringify(obj);
-            //             if (_this4.debug) console.log('sending: ' + str);
-            //             _this4.ws && _this4.ws.send(str);
-            //         });
-            //     };
-
-            //     LPWs.prototype.onNotification = function onNotification(filterFunc, _onNotification) {
-            //         this.subs.push({
-            //             filter: filterFunc,
-            //             cb: _onNotification,
-            //         });
-            //     };
-
-            //     LPWs.prototype.toFuncName = function toFuncName(reqType) {
-            //         var str = reqType.substr(1 + reqType.lastIndexOf('.'));
-            //         return str.charAt(0).toLowerCase() + str.slice(1);
-            //     };
-
-            //     LPWs.prototype.registerRequests = function registerRequests(arr) {
-            //         var _this5 = this;
-
-            //         arr.forEach(function (reqType) {
-            //             return (_this5[_this5.toFuncName(reqType)] = function (body, headers) {
-            //                 return _this5.request(reqType, body, headers);
-            //             });
-            //         });
-            //     };
-
-            //     LPWs.prototype.onmessage = function onmessage(msg) {
-            //         if (this.debug) console.log('recieved: ' + msg.data);
-            //         var obj = JSON.parse(msg.data);
-            //         if (obj.kind == 'resp') {
-            //             var id = obj.reqId;
-            //             delete obj.reqId;
-            //             delete obj.kind;
-            //             this.reqs[id].call(this, obj.type, obj.code, obj.body);
-            //             delete this.reqs[id];
-            //         } else if (obj.kind == 'notification') {
-            //             this.subs.forEach(function (sub) {
-            //                 if (sub.filter.call(this, obj)) {
-            //                     sub.cb.call(this, obj.body);
-            //                 }
-            //             });
-            //         }
-            //     };
-
-            //     return LPWs;
-            // })();
-
-            // LPWs.connect("wss://echo.websocket.org").then(lpws => console.log(`lpws was opened.`));
-
-            class LPUtils {
-                static getDomain(account, name) {
-                    const domains = account.startsWith('le') ? 'hc1n.dev.lprnd.net' : 'adminlogin.liveperson.net';
-                    return new Promise((res, rej) =>
-                        $.ajax({
-                            url: `https://${domains}/csdr/account/${account}/service/${name}/baseURI.lpCsds?version=1.0`,
+                LPUtils.getDomain = function getDomain(account, name) {
+                    var domains = account.startsWith('le') ? 'hc1n.dev.lprnd.net' : 'adminlogin.liveperson.net';
+                    return new Promise(function (res, rej) {
+                        return $.ajax({
+                            url:
+                                'https://' +
+                                domains +
+                                '/csdr/account/' +
+                                account +
+                                '/service/' +
+                                name +
+                                '/baseURI.lpCsds?version=1.0',
                             jsonp: 'cb',
                             jsonpCallback: 'domainCallback',
                             cache: true,
                             dataType: 'jsonp',
-                            success: (data) => res(data.ResultSet.lpData[0].lpServer),
-                            error: (e, text) => rej(text),
-                        })
-                    );
-                }
+                            success: function success(data) {
+                                return res(data.ResultSet.lpData[0].lpServer);
+                            },
+                            error: function error(e, text) {
+                                return rej(text);
+                            },
+                        });
+                    });
+                };
 
-                static agentProfile(account, agentID) {
-                    return new Promise((res, rej) =>
-                        this.getDomain(account, 'acCdnDomain').then((accdnDomain) =>
-                            $.ajax({
-                                url: `https://${accdnDomain}/api/account/${account}/configuration/le-users/users/${agentID}`,
+                LPUtils.agentProfile = function agentProfile(account, agentID) {
+                    var _this = this;
+
+                    return new Promise(function (res, rej) {
+                        return _this.getDomain(account, 'acCdnDomain').then(function (accdnDomain) {
+                            return $.ajax({
+                                url:
+                                    'https://' +
+                                    accdnDomain +
+                                    '/api/account/' +
+                                    account +
+                                    '/configuration/le-users/users/' +
+                                    agentID,
                                 jsonp: 'cb',
                                 jsonpCallback: 'apCallback',
                                 cache: true,
                                 dataType: 'jsonp',
-                                success: (accdnResp) => res(accdnResp),
-                            })
-                        )
-                    );
-                }
+                                success: function success(accdnResp) {
+                                    return res(accdnResp);
+                                },
+                            });
+                        });
+                    });
+                };
 
-                static signup(account) {
-                    return new Promise((res, rej) =>
-                        this.getDomain(account, 'idp').then((idpDomain) =>
-                            $.ajax({
-                                url: `https://${idpDomain}/api/account/${account}/signup.jsonp`,
+                LPUtils.customSignUp = function customSignUp(claimset) {
+                    var _this11 = this;
+                    return new Promise(function (res, rej) {
+                        return $.ajax({
+                            type: 'POST',
+                            url: '/encodeJWT',
+                            contentType: 'application/json',
+                            data: JSON.stringify({ claimset: claimset }),
+                            success: function (data) {
+                                console.log('success!!' + JSON.stringify(data));
+                                return res(data.jwt);
+                            },
+                            error: function (e) {
+                                console.error('there was an error ' + e);
+                                return rej(e);
+                            },
+                        });
+                    });
+                };
+
+                LPUtils.signup = function signup(account) {
+                    var _this2 = this;
+
+                    return new Promise(function (res, rej) {
+                        return _this2.getDomain(account, 'idp').then(function (idpDomain) {
+                            return $.ajax({
+                                url: 'https://' + idpDomain + '/api/account/' + account + '/signup.jsonp',
                                 jsonp: 'callback',
                                 dataType: 'jsonp',
-                                success: (idpResp) => res(idpResp.jwt),
-                            })
-                        )
-                    );
-                }
+                                success: function success(idpResp) {
+                                    var jwt = idpResp.jwt;
+                                    console.log(jwt);
+                                    return res(jwt);
+                                },
+                            });
+                        });
+                    });
+                };
 
                 // fetch jwt from localstorage or create one
-                static getJWT(account) {
-                    const localJWT = localStorage.getItem(`${account}-jwt`);
+
+                LPUtils.getJWT = function getJWT(account) {
+                    var localJWT = localStorage.getItem(account + '-jwt');
                     if (localJWT) return Promise.resolve(localJWT);
                     else
-                        return this.signup(account).then((newJWT) => {
-                            localStorage.setItem(`${account}-jwt`, newJWT);
+                        return this.signup(account).then(function (newJWT) {
+                            localStorage.setItem(account + '-jwt', newJWT);
                             return Promise.resolve(newJWT);
                         });
-                }
+                };
 
-                static clearJWT(account) {
-                    localStorage.removeItem(`${account}-jwt`);
-                }
-            }
+                LPUtils.getCustomJWT = function getCustomJWT(account, claimset) {
+                    var localJWT = localStorage.getItem(account + '-jwt');
+                    if (localJWT) return Promise.resolve(localJWT);
+                    else
+                        return this.customSignUp(claimset).then(function (newJWT) {
+                            localStorage.setItem(account + '-jwt', newJWT);
+                            return Promise.resolve(newJWT);
+                        });
+                };
 
-            class LPWs {
-                static connect(url) {
+                LPUtils.clearJWT = function clearJWT(account) {
+                    localStorage.removeItem(account + '-jwt');
+                };
+
+                return LPUtils;
+            })();
+            // LPUtils.getDomain("qa20971604", "idp").then(r => console.log(r));
+            // LPUtils.signup("qa20971604").then(r => console.log(r));
+
+            var LPWs = (function () {
+                LPWs.connect = function connect(url) {
                     return new LPWs(url)._connect();
-                }
+                };
 
-                static connectDebug(url) {
+                LPWs.connectDebug = function connectDebug(url) {
                     return new LPWs(url, true)._connect();
-                }
+                };
 
-                constructor(url, debug) {
+                function LPWs(url, debug) {
+                    _classCallCheck(this, LPWs);
+
                     this.reqs = {};
                     this.subs = [];
                     this.url = url;
                     this.debug = debug;
                 }
 
-                _connect() {
-                    return new Promise((resolve, reject) => {
-                        var ws = new WebSocket(this.url);
-                        this.ws = ws;
-                        ws.onopen = () => resolve(this);
-                        ws.onmessage = (msg) => this.onmessage(msg);
-                        ws.onclose = (evt) => {
-                            this.ws = null;
+                LPWs.prototype._connect = function _connect() {
+                    var _this3 = this;
+
+                    return new Promise(function (resolve, reject) {
+                        var ws = new WebSocket(_this3.url);
+                        _this3.ws = ws;
+                        ws.onopen = function () {
+                            return resolve(_this3);
+                        };
+                        ws.onmessage = function (msg) {
+                            return _this3.onmessage(msg);
+                        };
+                        ws.onclose = function (evt) {
+                            _this3.ws = null;
                             reject(evt);
                         };
                     });
-                }
+                };
 
-                request(type, body, headers) {
-                    return new Promise((resolve, reject) => {
+                LPWs.prototype.request = function request(type, body, headers) {
+                    var _this4 = this;
+
+                    return new Promise(function (resolve, reject) {
                         var obj = {
                             kind: 'req',
                             type: type,
@@ -446,38 +288,42 @@
                             id: Math.floor(Math.random() * 1e9),
                             headers: headers,
                         };
-                        this.reqs[obj.id] = (type, code, body) =>
-                            resolve({
+                        _this4.reqs[obj.id] = function (type, code, body) {
+                            return resolve({
                                 type: type,
                                 code: code,
                                 body: body,
                             });
+                        };
                         var str = JSON.stringify(obj);
-                        if (this.debug) console.log('sending: ' + str);
-                        this.ws.send(str);
+                        if (_this4.debug) console.log('sending: ' + str);
+                        _this4.ws && _this4.ws.send(str);
                     });
-                }
+                };
 
-                onNotification(filterFunc, onNotification) {
+                LPWs.prototype.onNotification = function onNotification(filterFunc, _onNotification) {
                     this.subs.push({
                         filter: filterFunc,
-                        cb: onNotification,
+                        cb: _onNotification,
                     });
-                }
+                };
 
-                toFuncName(reqType) {
+                LPWs.prototype.toFuncName = function toFuncName(reqType) {
                     var str = reqType.substr(1 + reqType.lastIndexOf('.'));
                     return str.charAt(0).toLowerCase() + str.slice(1);
-                }
+                };
 
-                registerRequests(arr) {
-                    arr.forEach(
-                        (reqType) =>
-                            (this[this.toFuncName(reqType)] = (body, headers) => this.request(reqType, body, headers))
-                    );
-                }
+                LPWs.prototype.registerRequests = function registerRequests(arr) {
+                    var _this5 = this;
 
-                onmessage(msg) {
+                    arr.forEach(function (reqType) {
+                        return (_this5[_this5.toFuncName(reqType)] = function (body, headers) {
+                            return _this5.request(reqType, body, headers);
+                        });
+                    });
+                };
+
+                LPWs.prototype.onmessage = function onmessage(msg) {
                     if (this.debug) console.log('recieved: ' + msg.data);
                     var obj = JSON.parse(msg.data);
                     if (obj.kind == 'resp') {
@@ -493,8 +339,12 @@
                             }
                         });
                     }
-                }
-            }
+                };
+
+                return LPWs;
+            })();
+
+            LPWs.connect('wss://echo.websocket.org').then((lpws) => console.log(`lpws was opened.`));
         </script>
         <script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.7.1/dist/socket.io.min.js"></script>
     </head>
