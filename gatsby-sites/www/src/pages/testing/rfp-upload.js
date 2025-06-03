@@ -102,7 +102,7 @@ function rfpUpload() {
                     const presignedUrlKey = await handleUpload(fileToUpload);
                     if (presignedUrlKey) {
                         form.addHiddenFields({
-                            testFileField: `https://us-east-1.console.aws.amazon.com/s3/object/marketing-rfp?region=us-east-1&bucketType=general&prefix=${presignedUrlKey}`,
+                            RFP_Doc_Attachment__c: `https://us-east-1.console.aws.amazon.com/s3/object/marketing-rfp?region=us-east-1&bucketType=general&prefix=${presignedUrlKey}`,
                         });
                     }
                     console.log('vals on file change:', form.vals());
@@ -211,7 +211,7 @@ function rfpUpload() {
 
 
             <div className="mktoFormRow mkto-file-field">
-                Please upload any required documentation here. Max file size, 500MB.<br />
+                Please upload any required documentation here. Max file size, 500MB. Must be in .xlsx format.<br />
                 <input type="file" onChange={handleFileChange} />
                 <br /><br />
             </div>
