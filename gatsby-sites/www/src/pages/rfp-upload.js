@@ -8,7 +8,7 @@ import $ from 'jquery';
 function rfpUpload() {
 
     if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
-        return <NotFoundPage />;
+        // return <NotFoundPage />;
     }
 
     const [selectedFile, setSelectedFile] = useState(null);
@@ -114,7 +114,7 @@ function rfpUpload() {
 
     return (
         <Layout>
-            <Seo title="RFP Upload" robots="noindex, nofollow" />
+            <Seo title="RFP Upload | LivePerson" />
 
 
 
