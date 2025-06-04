@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import NotFoundPage from '../404';
-import Layout from "../../components/Layout";
-import Seo from "../../components/Seo";
+import NotFoundPage from './404';
+import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 import $ from 'jquery';
 
 function rfpUpload() {
