@@ -100,7 +100,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2025/05/08101451/AI-agents-LP-webinar-thumbnail.png"
+                                            src="https://static.liveperson.com/static-assets/2025/05/12153942/Retailwebinar-4waystouseAI-thumbnail.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
@@ -108,11 +108,11 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">WEBINAR</p>
                                             <p className="featured-body">
-                                                Building trust with AI agents: Reshaping enterprise support
+                                                The experience revolution: 4 ways to use AI in retail
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/ai-agents-for-business/?utm_source=featured_resources&utm_medium=direct&utm_campaign=ai_agents_webinar_q2_2025"
+                                                href="/resources/webinars/ai-solutions-for-retail/?utm_source=featured_resources&utm_medium=direct&utm_campaign=ai_solutions_for_retail_q2_2025"
                                             >
                                                 Register now
                                             </a>
@@ -125,18 +125,18 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured News</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2024/05/10135424/liveperson-avaya-news-image-optimized.jpg"
-                                            alt="LivePerson + Avaya"
+                                            src="https://static.liveperson.com/static-assets/2025/05/22125458/Forrester_AgenticAI_16x9.png"
+                                            alt="Forrester Report"
                                             width="180"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">LivePerson + Avaya</p>
+                                            <p className="subtitle3">A Forrester Trends Report                                            </p>
                                             <p className="featured-body">
-                                                Announcing a new partnership to deliver best-in-class CX
+                                                Agentic AI is rising and will reforge businesses that embrace it
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/news/avaya-lp-omnichannel-solution/?utm_source=featured_news&utm_medium=direct&utm_campaign=avaya"
+                                                href="/resources/reports/agentic-ai-framework/?utm_source=featured_resources&utm_medium=direct&utm_campaign=forrester_report_2025"
                                             // rel="noopener noreferrer"
                                             // target="_blank"
                                             >
