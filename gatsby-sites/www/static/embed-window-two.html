@@ -563,6 +563,83 @@
                 box-shadow: none !important;
                 z-index: 1 !important;
             }
+
+            .post-bot {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .post-bot-input {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 16px 16px 32px;
+                border: 4px solid var(--primary-dark-bd-dark);
+                border-radius: 100px;
+                box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+                cursor: pointer;
+                transition: height 0.3s ease;
+            }
+
+            .post-bot-bubble {
+                position: absolute;
+                left: 0;
+                display: flex;
+                gap: 8px;
+                align-items: flex-end;
+            }
+
+            .post-bot-bubble .post-bot-bubble__icon {
+                position: relative;
+                top: 20px;
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                border-radius: 20px;
+                background: var(--primary-accent);
+            }
+
+            .post-bot-bubble .post-bot-bubble__icon svg {
+                position: absolute;
+                top: 8px;
+                left: 9px;
+                margin: 0;
+            }
+
+            .post-bot-bubble .post-bot-bubble__text {
+                color: var(--post-bot-bubble-color);
+                padding: 12px 16px;
+                border: 1px solid var(--primary-dark-bd-dark);
+                border-radius: 16px 16px 16px 0;
+                margin: 0;
+                background: var(--primary-bg-dark);
+                box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+                font-weight: 600;
+            }
+
+            .post-bot-cta {
+                margin: 0;
+                color: #81899c;
+                font-style: italic;
+            }
+
+            .post-bot-button {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 26px 12px 32px;
+                border: none;
+                border-radius: 24px;
+                background: var(--primary-accent);
+                color: var(--post-bot-button-color);
+                font-size: 16px;
+                font-weight: 500;
+                gap: 8px;
+            }
         </style>
     </head>
     <body class="">
