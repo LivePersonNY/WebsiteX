@@ -110,6 +110,323 @@
         </script>
 
         <style>
+            body {
+                --primary-accent: #3863e5;
+                --primary-dark-accent: #5d80ea;
+                --primary-bg-light: #fcfcfc;
+                --primary-bg-dark: #101040;
+                --primary-dark-bd-dark: #121316;
+                --neutral-96: #f4f4f6;
+                --neutral-92: #e7e8ec;
+                --neutral-56: #81899c;
+                --neutral-24: #363944;
+                --neutral-16: #24262e;
+                --white: #fff;
+                --secondary-text-dark: #292b33;
+                background: var(--background);
+                font-family: Inter, Arial, Helvetica, sans-serif;
+            }
+
+            body.dark {
+                --background: var(--primary-dark-bd-dark);
+                --global-border: var(--neutral-24);
+                --chat-bubble-user-background: var(--primary-dark-accent);
+                --chat-bubble-user-color: var(--primary-bg-dark);
+                --chat-bubble-bot-background: var(--neutral-16);
+                --chat-bubble-bot-color: var(--primary-bg-light);
+                --chat-link: var(--primary-dark-accent);
+                --chat-input-color: var(--white);
+            }
+
+            body {
+                --background: var(--primary-bg-light);
+                --global-border: var(--neutral-92);
+                --chat-bubble-user-background: var(--primary-accent);
+                --chat-bubble-user-color: var(--primary-bg-light);
+                --chat-bubble-bot-background: var(--neutral-96);
+                --chat-bubble-bot-color: var(--primary-bg-dark);
+                --chat-link: var(--primary-accent);
+                --chat-input-color: var(--secondary-text-dark);
+            }
+
+            .c-custom-loader {
+                animation: 0.7s linear infinite keyframes-rotation;
+            }
+
+            @keyframes keyframes-rotation {
+                0% {
+                    transform: rotate(0);
+                }
+                to {
+                    transform: rotate(359deg);
+                }
+            }
+
+            .c-global-loader {
+                position: absolute;
+                top: calc(50% - 24px);
+                left: calc(50% - 24px);
+            }
+
+            .lpc_window_maximized {
+                width: 1066px !important;
+                height: 100% !important;
+                max-height: 100% !important;
+                right: 0 !important;
+            }
+
+            .lpc_maximized-header,
+            .lpc_hero-image-area,
+            .lpc_composer__menu-button,
+            .lpc_message-area__timestamp_system,
+            .lp_skeleton-window-body,
+            .lpc_message-area__timestamp {
+                font-size: 14px !important;
+            }
+
+            .lp_top_menu {
+                display: none !important;
+            }
+
+            .lp_skeleton-window-body {
+                display: none !important;
+            }
+
+            .lp_chat_line_auto_message {
+                display: block !important;
+                font-size: 14px !important;
+                border-color: var(--global-border) !important;
+            }
+
+            .lpc_composer .lp_bottom_area {
+                background: 0 0 !important;
+            }
+
+            .lpc_composer {
+                border: 1px solid #d6d6d6 !important;
+                border-radius: 24px !important;
+            }
+
+            .lp-window-root > .lp_maximized {
+                border: 2px solid var(--global-border) !important;
+                border-radius: 0 !important;
+                display: none !important;
+                z-index: 9 !important;
+            }
+
+            .lp-window-root div,
+            .lp-window-root button {
+                font-family: Inter, Arial, Helvetica, sans-serif;
+            }
+
+            .lp_maximized {
+                box-shadow: none !important;
+                position: fixed !important;
+                top: 0 !important;
+                bottom: 0 !important;
+                left: 50% !important;
+                color-scheme: inherit !important;
+            }
+
+            .lp_minimized {
+                display: none !important;
+            }
+
+            .lp_header {
+                display: none !important;
+            }
+
+            .lp_main {
+                background: 0 0 !important;
+                height: 100% !important;
+                max-height: 100% !important;
+                top: 0 !important;
+            }
+
+            .lp_lpview_widgetContent {
+                background: 0 0 !important;
+            }
+
+            .lp_location_bottom {
+                border-color: var(--neutral-56) !important;
+                background-color: #0000 !important;
+                min-height: 48px !important;
+                padding: 6px !important;
+                bottom: 32px !important;
+                left: 32px !important;
+                right: 32px !important;
+            }
+
+            .lpview_form_textarea {
+                color: var(--chat-input-color) !important;
+                font-family: Inter, Arial, Helvetica, sans-serif !important;
+                font-size: 16px !important;
+            }
+
+            .lpview_form_textarea::placeholder {
+                color: var(--neutral-56) !important;
+                font-style: normal !important;
+            }
+
+            .lpview_bottom_container {
+                height: 100% !important;
+            }
+
+            .lp-window-root .lp_input_area {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                height: 100% !important;
+                padding: 0 50px 0 0 !important;
+            }
+
+            .lpview_form_textarea {
+                background: 0 0;
+            }
+
+            .lp_bottom_area {
+                padding: 0 16px !important;
+            }
+
+            .lp_emoji_button {
+                bottom: calc(50% - 11px) !important;
+            }
+
+            .lp-window-root .lp_actions-emoji-icon.lp_icon-white svg path {
+                fill: var(--neutral-56);
+            }
+
+            .lp_actions_bar_container {
+                background: transparent !important;
+                width: 260px !important;
+                left: auto !important;
+            }
+
+            .lp_emoji_table_body {
+                background: var(--background) !important;
+                padding: 12px !important;
+                border-radius: 20px !important;
+                border: 1px solid var(--neutral-56) !important;
+                height: calc(100% - 50px) !important;
+            }
+
+            .lp-window-root .lp_paper_plane_button {
+                cursor: pointer !important;
+                bottom: calc(50% - 11px) !important;
+                right: 16px !important;
+            }
+
+            .lp-window-root .lp_paper_plane_button:disabled {
+                cursor: default !important;
+            }
+
+            .lp_paper_plane-icon svg path {
+                fill: var(--chat-input-color) !important;
+            }
+
+            .lp_lpview_agent_is_typing {
+                color: var(--neutral-56) !important;
+                font-size: 16px !important;
+                font-style: normal !important;
+                top: -34px !important;
+                left: 28px !important;
+            }
+
+            @media (max-width: 616px) {
+                .lp_location_bottom {
+                    bottom: 12px !important;
+                    left: 12px !important;
+                    right: 12px !important;
+                }
+            }
+
+            .lp_chat_line_wrapper {
+                margin: 16px 32px 0 !important;
+                padding: 0 !important;
+            }
+
+            .lp_new_chat_line {
+                background-color: var(--chat-bubble-user-background) !important;
+                color: var(--chat-bubble-user-color) !important;
+                border: none !important;
+                padding: 12px 16px !important;
+                font-size: 18px !important;
+                line-height: 28px !important;
+                overflow: auto !important;
+            }
+
+            .lp_new_chat_line * {
+                font-family: Inter, Arial, Helvetica, sans-serif !important;
+            }
+
+            .chips-item {
+                color: var(--chat-bubble-bot-color) !important;
+                font-size: 14px !important;
+            }
+
+            .lp_location_center {
+                height: calc(100% - 126px) !important;
+            }
+
+            .lpc_message_agent {
+                background-color: var(--chat-bubble-bot-background) !important;
+                color: var(--chat-bubble-bot-color) !important;
+            }
+
+            .lpc_message__text {
+                color: inherit !important;
+                line-height: inherit !important;
+            }
+
+            .lpc_message-area__indicator,
+            .lpc_message-area__side-timestamp {
+                display: none !important;
+            }
+
+            .lp_title_text a {
+                color: var(--chat-link) !important;
+            }
+
+            .lp_file_button {
+                display: none !important;
+            }
+
+            @media (max-width: 616px) {
+                .lp_location_center {
+                    height: calc(100% - 106px) !important;
+                }
+
+                .lp_new_chat_line {
+                    font-size: 16px !important;
+                    line-height: 24px !important;
+                }
+
+                .lp_chat_line_wrapper {
+                    margin: 16px 12px 0 !important;
+                }
+
+                .lp_title_text a {
+                    text-decoration: none !important;
+                }
+
+                .lpc_maximized-header,
+                .lpc_hero-image-area,
+                .lpc_composer__menu-button,
+                .lpc_message-area__timestamp_system,
+                .lp_skeleton-window-body,
+                .lpc_message-area__timestamp {
+                    font-size: 12px !important;
+                }
+
+                .lp_actions_bar_container {
+                    width: 100% !important;
+                }
+            }
+
+            .LPMcontainer {
+                display: none !important;
+            }
+
             .LPMcontainer {
                 margin-bottom: 400px !important;
             }
