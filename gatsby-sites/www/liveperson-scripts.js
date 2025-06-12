@@ -163,7 +163,7 @@ window.documentReadyFn = function () {
                             ((function t() {
                                 '' === h && ((h = a.pop()), t());
                             })(),
-                            n.dashes)
+                                n.dashes)
                         ) {
                             t.each(['-', '–', '—'], function (t, i) {
                                 if (h.indexOf(i) > 0)
@@ -187,9 +187,9 @@ window.documentReadyFn = function () {
                         var u = a.join(' ') + '&nbsp;' + h;
                         e.html(u),
                             n.linkFix &&
-                                e.find('var').each(function () {
-                                    t(this).contents().replaceWith(l), t(this).contents().unwrap();
-                                });
+                            e.find('var').each(function () {
+                                t(this).contents().replaceWith(l), t(this).contents().unwrap();
+                            });
                     }
                 });
         };
@@ -232,12 +232,6 @@ window.documentReadyFn = function () {
             gdprLink2.innerText = 'All other countries';
             gdprLink.after(gdprLink2);
         }
-    }
-
-    if (document.location.pathname.includes('policies/subprocessors')) {
-        $.getScript('https://visualping.io/externalfiles/widget/vp.min.js').done(function () {
-            console.log('Visualping done');
-        });
     }
 
     if (document.location.pathname.includes('policies/public-cloud')) {
@@ -333,7 +327,7 @@ window.documentReadyFn = function () {
         document.getElementById('wf-form-Search-Form').addEventListener('keyup', handleKey);
         document.getElementById('Job_Search').addEventListener('input', setURLParams);
 
-        document.querySelector('.resume-upload').addEventListener('click', function () {});
+        document.querySelector('.resume-upload').addEventListener('click', function () { });
 
         //Adding fix for Vocal video here too
         if (!window.VocalVideo) {
