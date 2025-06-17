@@ -113,33 +113,31 @@
             });
 
             function prepareToConnect() {
-                $('#connect')
-                    .text('connect')
-                    .unbind('click')
-                    .click(() => {
-                        $('#connect').text('connecting...');
-                        const account = $('#account').prop('disabled', true).val();
-                        LPUtils.getJWT(account).then(
-                            (jwt) => {
-                                LPUtils.getDomain(account, 'asyncMessagingEnt').then((umsDomain) => {
-                                    LPWs.connect(
-                                        `wss://${umsDomain}/ws_api/account/${account}/messaging/consumer?v=3`
-                                    ).then(
-                                        (openedSocket) => handleOpenedSocket(openedSocket, jwt),
-                                        (errorOpening) => {
-                                            $('#log').append(`error opening connection ${errorOpening}\n`);
-                                            prepareToConnect();
-                                        }
-                                    );
-                                });
-                            },
-                            (errorGettingJwt) => {
-                                $('#connect').text('connect');
-                                $('#account').prop('disabled', false).val();
-                                $('#log').append(`error ${errorGettingJwt} getting jwt for account ${account}\n`);
-                            }
-                        );
-                    });
+                // $('#connect')
+                //     .text('connect')
+                //     .unbind('click')
+                //     .click(() => {
+                $('#connect').text('connecting...');
+                const account = '5288836';
+                LPUtils.getJWT(account).then(
+                    (jwt) => {
+                        LPUtils.getDomain(account, 'asyncMessagingEnt').then((umsDomain) => {
+                            LPWs.connect(`wss://${umsDomain}/ws_api/account/${account}/messaging/consumer?v=3`).then(
+                                (openedSocket) => handleOpenedSocket(openedSocket, jwt),
+                                (errorOpening) => {
+                                    $('#log').append(`error opening connection ${errorOpening}\n`);
+                                    prepareToConnect();
+                                }
+                            );
+                        });
+                    },
+                    (errorGettingJwt) => {
+                        $('#connect').text('connect');
+
+                        $('#log').append(`error ${errorGettingJwt} getting jwt for account ${account}\n`);
+                    }
+                );
+                // });
             }
 
             function handleOpenedSocket(socket, jwt) {
@@ -177,7 +175,10 @@
                                 if (Object.keys(openConvs)[0]) {
                                     publishTo(socket, Object.keys(openConvs)[0]);
                                 } else {
-                                    console.log('test2');
+                                    console.log('first and only connect');
+                                    $('#log').slideDown();
+                                    $('.post-bot-bubble').hide();
+                                    $('.post-bot').css('margin-top', '0px');
                                     socket
                                         .consumerRequestConversation({
                                             channelType: 'MESSAGING',
@@ -234,7 +235,6 @@
                 $('#log').append(`connection was closed with code ${evt.code}\n`);
                 prepareToConnect();
                 $('#send').prop('disabled', true).unbind('click');
-                $('#account').prop('disabled', false).val();
             }
 
             function publishTo(socket, convID) {
@@ -419,24 +419,610 @@
                 }
             }
         </script>
+
+        <style>
+            /* css reset */
+            html,
+            body,
+            div,
+            span,
+            applet,
+            object,
+            iframe,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            blockquote,
+            pre,
+            a,
+            abbr,
+            acronym,
+            address,
+            big,
+            cite,
+            code,
+            del,
+            dfn,
+            em,
+            img,
+            ins,
+            kbd,
+            q,
+            s,
+            samp,
+            small,
+            strike,
+            strong,
+            sub,
+            sup,
+            tt,
+            var,
+            b,
+            u,
+            i,
+            center,
+            dl,
+            dt,
+            dd,
+            ol,
+            ul,
+            li,
+            fieldset,
+            form,
+            label,
+            legend,
+            table,
+            caption,
+            tbody,
+            tfoot,
+            thead,
+            tr,
+            th,
+            td,
+            article,
+            aside,
+            canvas,
+            details,
+            embed,
+            figure,
+            figcaption,
+            footer,
+            header,
+            hgroup,
+            menu,
+            nav,
+            output,
+            ruby,
+            section,
+            summary,
+            time,
+            mark,
+            audio,
+            video {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                font: inherit;
+                vertical-align: baseline;
+            }
+            /* HTML5 display-role reset for older browsers */
+            article,
+            aside,
+            details,
+            figcaption,
+            figure,
+            footer,
+            header,
+            hgroup,
+            menu,
+            nav,
+            section {
+                display: block;
+            }
+            body {
+                line-height: 1;
+            }
+            ol,
+            ul {
+                list-style: none;
+            }
+            blockquote,
+            q {
+                quotes: none;
+            }
+            blockquote:before,
+            blockquote:after,
+            q:before,
+            q:after {
+                content: '';
+                content: none;
+            }
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+            /* end reset */
+
+            body {
+                --primary-accent: #3863e5;
+                --primary-dark-accent: #5d80ea;
+                --primary-bg-light: #fcfcfc;
+                --primary-bg-dark: #101040;
+                --primary-dark-bd-dark: #121316;
+                --neutral-96: #f4f4f6;
+                --neutral-92: #e7e8ec;
+                --neutral-56: #81899c;
+                --neutral-24: #363944;
+                --neutral-16: #24262e;
+                --white: #fff;
+                --secondary-text-dark: #292b33;
+                background: var(--background);
+                font-family: Inter, Arial, Helvetica, sans-serif;
+            }
+
+            body.dark {
+                --background: var(--primary-dark-bd-dark);
+                --global-border: var(--neutral-24);
+                --chat-bubble-user-background: var(--primary-dark-accent);
+                --chat-bubble-user-color: var(--primary-bg-dark);
+                --chat-bubble-bot-background: var(--neutral-16);
+                --chat-bubble-bot-color: var(--primary-bg-light);
+                --chat-link: var(--primary-dark-accent);
+                --chat-input-color: var(--white);
+            }
+
+            body {
+                --background: var(--primary-bg-light);
+                --global-border: var(--neutral-92);
+                --chat-bubble-user-background: var(--primary-accent);
+                --chat-bubble-user-color: var(--primary-bg-light);
+                --chat-bubble-bot-background: var(--neutral-96);
+                --chat-bubble-bot-color: var(--primary-bg-dark);
+                --chat-link: var(--primary-accent);
+                --chat-input-color: var(--secondary-text-dark);
+            }
+
+            .c-custom-loader {
+                animation: 0.7s linear infinite keyframes-rotation;
+            }
+
+            @keyframes keyframes-rotation {
+                0% {
+                    transform: rotate(0);
+                }
+                to {
+                    transform: rotate(359deg);
+                }
+            }
+
+            .c-global-loader {
+                position: absolute;
+                top: calc(50% - 24px);
+                left: calc(50% - 24px);
+            }
+
+            .lpc_window_maximized {
+                width: 1066px !important;
+                height: 100% !important;
+                max-height: 100% !important;
+                right: 0 !important;
+            }
+
+            .lpc_maximized-header,
+            .lpc_hero-image-area,
+            .lpc_composer__menu-button,
+            .lpc_message-area__timestamp_system,
+            .lp_skeleton-window-body,
+            .lpc_message-area__timestamp {
+                font-size: 14px !important;
+            }
+
+            .lp_top_menu {
+                display: none !important;
+            }
+
+            .lp_skeleton-window-body {
+                display: none !important;
+            }
+
+            .lp_chat_line_auto_message {
+                display: block !important;
+                font-size: 14px !important;
+                border-color: var(--global-border) !important;
+            }
+
+            .lpc_composer .lp_bottom_area {
+                background: 0 0 !important;
+            }
+
+            .lpc_composer {
+                border: 1px solid #d6d6d6 !important;
+                border-radius: 24px !important;
+            }
+
+            .lp-window-root > .lp_maximized {
+                border: 2px solid var(--global-border) !important;
+                border-radius: 0 !important;
+                z-index: 9 !important;
+            }
+
+            .lp-window-root div,
+            .lp-window-root button {
+                font-family: Inter, Arial, Helvetica, sans-serif;
+            }
+
+            .lp_maximized {
+                box-shadow: none !important;
+                position: fixed !important;
+                top: 0 !important;
+                bottom: 0 !important;
+                left: 50% !important;
+                color-scheme: inherit !important;
+            }
+
+            .lp_minimized {
+                display: none !important;
+            }
+
+            .lp_header {
+                display: none !important;
+            }
+
+            .lp_main {
+                background: 0 0 !important;
+                height: 100% !important;
+                max-height: 100% !important;
+                top: 0 !important;
+            }
+
+            .lp_lpview_widgetContent {
+                background: 0 0 !important;
+            }
+
+            .lp_location_bottom {
+                border-color: var(--neutral-56) !important;
+                background-color: #0000 !important;
+                min-height: 48px !important;
+                padding: 6px !important;
+                bottom: 32px !important;
+                left: 32px !important;
+                right: 32px !important;
+            }
+
+            .lpview_form_textarea {
+                color: var(--chat-input-color) !important;
+                font-family: Inter, Arial, Helvetica, sans-serif !important;
+                font-size: 16px !important;
+            }
+
+            .lpview_form_textarea::placeholder {
+                color: var(--neutral-56) !important;
+                font-style: normal !important;
+            }
+
+            .lpview_bottom_container {
+                height: 100% !important;
+            }
+
+            .lp-window-root .lp_input_area {
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                height: 100% !important;
+                padding: 0 50px 0 0 !important;
+            }
+
+            .lpview_form_textarea {
+                background: 0 0;
+            }
+
+            .lp_bottom_area {
+                padding: 0 16px !important;
+            }
+
+            .lp_emoji_button {
+                bottom: calc(50% - 11px) !important;
+            }
+
+            .lp-window-root .lp_actions-emoji-icon.lp_icon-white svg path {
+                fill: var(--neutral-56);
+            }
+
+            .lp_actions_bar_container {
+                background: transparent !important;
+                width: 260px !important;
+                left: auto !important;
+            }
+
+            .lp_emoji_table_body {
+                background: var(--background) !important;
+                padding: 12px !important;
+                border-radius: 20px !important;
+                border: 1px solid var(--neutral-56) !important;
+                height: calc(100% - 50px) !important;
+            }
+
+            .lp-window-root .lp_paper_plane_button {
+                cursor: pointer !important;
+                bottom: calc(50% - 11px) !important;
+                right: 16px !important;
+            }
+
+            .lp-window-root .lp_paper_plane_button:disabled {
+                cursor: default !important;
+            }
+
+            .lp_paper_plane-icon svg path {
+                fill: var(--chat-input-color) !important;
+            }
+
+            .lp_lpview_agent_is_typing {
+                color: var(--neutral-56) !important;
+                font-size: 16px !important;
+                font-style: normal !important;
+                top: -34px !important;
+                left: 28px !important;
+            }
+
+            @media (max-width: 616px) {
+                .lp_location_bottom {
+                    bottom: 12px !important;
+                    left: 12px !important;
+                    right: 12px !important;
+                }
+            }
+
+            .lp_chat_line_wrapper {
+                margin: 16px 32px 0 !important;
+                padding: 0 !important;
+            }
+
+            .lp_new_chat_line {
+                background-color: var(--chat-bubble-user-background) !important;
+                color: var(--chat-bubble-user-color) !important;
+                border: none !important;
+                padding: 12px 16px !important;
+                font-size: 18px !important;
+                line-height: 28px !important;
+                overflow: auto !important;
+            }
+
+            .lp_new_chat_line * {
+                font-family: Inter, Arial, Helvetica, sans-serif !important;
+            }
+
+            .chips-item {
+                color: var(--chat-bubble-bot-color) !important;
+                font-size: 14px !important;
+            }
+
+            .lp_location_center {
+                height: calc(100% - 126px) !important;
+            }
+
+            .lpc_message_agent {
+                background-color: var(--chat-bubble-bot-background) !important;
+                color: var(--chat-bubble-bot-color) !important;
+            }
+
+            .lpc_message__text {
+                color: inherit !important;
+                line-height: inherit !important;
+            }
+
+            .lpc_message-area__indicator,
+            .lpc_message-area__side-timestamp {
+                display: none !important;
+            }
+
+            .lp_title_text a {
+                color: var(--chat-link) !important;
+            }
+
+            .lp_file_button {
+                display: none !important;
+            }
+
+            @media (max-width: 616px) {
+                .lp_location_center {
+                    height: calc(100% - 106px) !important;
+                }
+
+                .lp_new_chat_line {
+                    font-size: 16px !important;
+                    line-height: 24px !important;
+                }
+
+                .lp_chat_line_wrapper {
+                    margin: 16px 12px 0 !important;
+                }
+
+                .lp_title_text a {
+                    text-decoration: none !important;
+                }
+
+                .lpc_maximized-header,
+                .lpc_hero-image-area,
+                .lpc_composer__menu-button,
+                .lpc_message-area__timestamp_system,
+                .lp_skeleton-window-body,
+                .lpc_message-area__timestamp {
+                    font-size: 12px !important;
+                }
+
+                .lp_actions_bar_container {
+                    width: 100% !important;
+                }
+            }
+
+            .lp_desktop .lp-window-root > .lp_maximized_large {
+                position: absolute !important;
+                top: 0px !important;
+                left: 0px !important;
+                height: 500px !important;
+                width: 1200px !important;
+                right: 0 !important;
+                max-height: 100% !important;
+                max-width: 100% !important;
+                border: 1px solid black !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                z-index: 1 !important;
+                background: #fff;
+            }
+
+            .post-bot {
+                display: flex;
+                width: 500px;
+                flex-direction: column;
+                gap: 16px;
+                margin-top: 60px;
+            }
+
+            .post-bot-input {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 16px 16px 32px;
+                border: 4px solid var(--primary-dark-bd-dark);
+                border-radius: 100px;
+                box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+                transition: height 0.3s ease;
+            }
+
+            .post-bot-bubble {
+                position: absolute;
+                left: 0;
+                display: flex;
+                gap: 8px;
+                align-items: flex-end;
+                top: -48px;
+            }
+
+            .post-bot-bubble .post-bot-bubble__icon {
+                position: relative;
+                top: 20px;
+                padding: 8px;
+                border-radius: 20px;
+                background: var(--primary-accent);
+            }
+
+            .post-bot-bubble .post-bot-bubble__icon svg {
+                position: absolute;
+                top: 8px;
+                left: 9px;
+                margin: 0;
+            }
+
+            .post-bot-bubble .post-bot-bubble__text {
+                color: var(--neutral-96);
+                padding: 12px 16px;
+                border: 1px solid var(--primary-dark-bd-dark);
+                border-radius: 16px 16px 16px 0;
+                margin: 0;
+                background: var(--primary-bg-dark);
+                box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+                font-weight: 600;
+            }
+
+            .post-bot-cta {
+                margin: 0;
+                color: #81899c;
+                font-style: italic;
+                border: 0;
+                outline: none;
+                font-size: 16px;
+            }
+
+            .post-bot-button {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 26px;
+                cursor: pointer;
+                border: none;
+                border-radius: 24px;
+                background: var(--primary-accent);
+                color: var(--neutral-96);
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            #log {
+                display: none;
+                width: 500px;
+                height: 400px;
+            }
+        </style>
     </head>
     <body class="">
         <p>content here</p>
         <div class="container">
-            <form class="form-inline" onsubmit="return false">
-                <div class="form-group">
-                    <label for="account">Account:</label>
-                    <input id="account" type="text" class="form-control" />
+            <textarea id="log"></textarea>
+
+            <div>
+                <div class="post-bot" id="post-bot">
+                    <div class="post-bot-input" id="post-bot-input" type="button" aria-label="Show chat">
+                        <div class="post-bot-bubble">
+                            <div class="post-bot-bubble__icon">
+                                <img src="https://developers.liveperson.com/img/bot.svg" alt="bot icon" />
+                            </div>
+                            <p class="post-bot-bubble__text">Welcome to LivePerson, how can I help you?</p>
+                        </div>
+                        <input
+                            id="textline"
+                            class="post-bot-cta"
+                            placeholder="Type your question"
+                            type="text"
+                            class="form-control"
+                        />
+                        <button id="send" class="post-bot-button" aria-label="Type your question">
+                            <span class="post-bot-button--text"></span>
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <g clip-path="url(#clip0_18366_16931)">
+                                    <path
+                                        class="svg-path"
+                                        d="M1.39996 3.7435C1.24384 3.46414 1.18115 3.14217 1.22106 2.82464C1.26098 2.50711 1.4014 2.21067 1.62181 1.97864C1.84222 1.74661 2.13107 1.59116 2.44613 1.535C2.76119 1.47884 3.08596 1.52492 3.37296 1.6665L22.387 11.3255C22.5103 11.3882 22.6139 11.4839 22.6863 11.6019C22.7587 11.7199 22.797 11.8556 22.797 11.994C22.797 12.1324 22.7587 12.2681 22.6863 12.3861C22.6139 12.5041 22.5103 12.5998 22.387 12.6625L3.37296 22.3345C3.08596 22.4761 2.76119 22.5222 2.44613 22.466C2.13107 22.4098 1.84222 22.2544 1.62181 22.0224C1.4014 21.7903 1.26098 21.4939 1.22106 21.1764C1.18115 20.8588 1.24384 20.5369 1.39996 20.2575L6.45796 11.9935L1.39996 3.7435Z"
+                                        stroke="white"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    ></path>
+                                    <path
+                                        class="svg-path"
+                                        d="M22.797 11.9941H6.453"
+                                        stroke="white"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    ></path>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_18366_16931">
+                                        <rect width="24" height="24" fill="white"></rect>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="textline">Text:</label>
-                    <input id="textline" type="text" class="form-control" />
-                </div>
-                <button id="send" class="btn btn-default" disabled>send</button>
-                <button id="connect" class="btn btn-default">connect</button>
-                <button id="close" class="btn btn-default" disabled>close</button>
-            </form>
-            <textarea id="log" rows="40" cols="80"></textarea>
+            </div>
+            <br /><br /><br />
+            <button id="connect" class="btn btn-default">connect</button>
+            <button id="close" class="btn btn-default" disabled>close</button>
         </div>
     </body>
 </html>
