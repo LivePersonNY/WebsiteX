@@ -149,7 +149,8 @@
                 const me = myId(jwt);
 
                 socket.initConnection({}, [
-                    { type: '.ams.headers.ConsumerAuthentication', jwt: jwt, accountId: 5288836, skillId: 6014967538 },
+                    { type: '.ams.headers.ConsumerAuthentication', jwt: jwt },
+                    // { type: '.ams.headers.ConsumerAuthentication', jwt: jwt, accountId: 5288836, skillId: 6014967538 },
                 ]);
                 socket.onNotification(withType('MessagingEvent'), (body) =>
                     body.changes.forEach((change) => {
@@ -180,7 +181,14 @@
                                     publishTo(socket, Object.keys(openConvs)[0]);
                                 } else {
                                     socket
-                                        .consumerRequestConversation()
+                                        .consumerRequestConversation({
+                                            channelType: 'MESSAGING',
+                                            campaignInfo: {
+                                                campaignId: 6118648938,
+                                                engagementId: 6118673238,
+                                            },
+                                        })
+
                                         .then((resp) => publishTo(socket, resp.body.conversationId));
                                 }
                             });
