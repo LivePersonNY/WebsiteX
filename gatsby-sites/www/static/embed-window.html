@@ -148,10 +148,7 @@
 
                 const me = myId(jwt);
 
-                socket.initConnection({}, [
-                    { type: '.ams.headers.ConsumerAuthentication', jwt: jwt },
-                    // { type: '.ams.headers.ConsumerAuthentication', jwt: jwt, accountId: 5288836, skillId: 6014967538 },
-                ]);
+                socket.initConnection({}, [{ type: '.ams.headers.ConsumerAuthentication', jwt: jwt }]);
                 socket.onNotification(withType('MessagingEvent'), (body) =>
                     body.changes.forEach((change) => {
                         switch (change.event.type) {
@@ -180,13 +177,22 @@
                                 if (Object.keys(openConvs)[0]) {
                                     publishTo(socket, Object.keys(openConvs)[0]);
                                 } else {
+                                    console.log('test2');
+                                    // socket
+                                    //     .consumerRequestConversation({
+                                    //         channelType: 'MESSAGING',
+                                    //         campaignInfo: {
+                                    //             campaignId: 6118648938,
+                                    //             engagementId: 6118673238,
+                                    //         },
+                                    //     })
+
+                                    //     .then((resp) => publishTo(socket, resp.body.conversationId));
                                     socket
                                         .consumerRequestConversation({
                                             channelType: 'MESSAGING',
-                                            campaignInfo: {
-                                                campaignId: 6118648938,
-                                                engagementId: 6118673238,
-                                            },
+                                            brandId: 5288836,
+                                            skillId: 6014967538,
                                         })
 
                                         .then((resp) => publishTo(socket, resp.body.conversationId));
