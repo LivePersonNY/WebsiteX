@@ -178,16 +178,6 @@
                                     publishTo(socket, Object.keys(openConvs)[0]);
                                 } else {
                                     console.log('test2');
-                                    // socket
-                                    //     .consumerRequestConversation({
-                                    //         channelType: 'MESSAGING',
-                                    //         campaignInfo: {
-                                    //             campaignId: 6118648938,
-                                    //             engagementId: 6118673238,
-                                    //         },
-                                    //     })
-
-                                    //     .then((resp) => publishTo(socket, resp.body.conversationId));
                                     socket
                                         .consumerRequestConversation({
                                             channelType: 'MESSAGING',
