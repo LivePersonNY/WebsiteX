@@ -902,15 +902,17 @@
                 display: flex;
                 gap: 8px;
                 align-items: flex-end;
-                top: -48px;
+                top: -46px;
             }
 
             .post-bot-bubble .post-bot-bubble__icon {
                 position: relative;
-                top: 20px;
+                top: 2px;
                 padding: 8px;
-                border-radius: 20px;
-                background: var(--primary-accent);
+                border: 1px solid var(--primary-bg-dark);
+                border-radius: 100px;
+                background: var(--primary-bg-light);
+                line-height: 0;
             }
 
             .post-bot-bubble .post-bot-bubble__icon svg {
@@ -972,7 +974,10 @@
                     <div class="post-bot-input" id="post-bot-input" type="button" aria-label="Show chat">
                         <div class="post-bot-bubble">
                             <div class="post-bot-bubble__icon">
-                                <img src="https://developers.liveperson.com/img/bot.svg" alt="bot icon" />
+                                <img
+                                    src="https://static.liveperson.com/static-assets/2022/02/03184048/Vector.png"
+                                    alt="bot icon"
+                                />
                             </div>
                             <p class="post-bot-bubble__text">Welcome to LivePerson, how can I help you?</p>
                         </div>
