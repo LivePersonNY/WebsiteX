@@ -40,23 +40,24 @@ const IconTextD = (props) => {
             data-localize={props.autoApprove && `auto-approve`}
             autoapprove={props.autoApprove && 'true'}
             id={props.anchor}
-            className={`${props.gated ? 'gated' : ''} pane comp-icon-text-d ${
-                props.backgroundColor || 'bg-transparent'
-            } ${props.header ? 'pane-with-lead-text' : ''}`}
+            className={`${props.gated ? 'gated' : ''} pane comp-icon-text-d ${props.backgroundColor || 'bg-transparent'
+                } ${props.header ? 'pane-with-lead-text' : ''}`}
         >
             <div className="container">
                 {props.header && (
                     <div className="row">
                         <div className="col-lg-8 offset-lg-2 text-center">
-                            <h2 className="">{props.header}</h2>
+                            <h2 className=""><Paragraph
+                                text={props.header}
+                                headerLevel="nothing"
+                            /></h2>
                             <Paragraph text={props.body} />
                         </div>
                     </div>
                 )}
                 <div
-                    className={`row row-cols-lg-2 row-cols-1 comp-block-grid-container ${
-                        props.centerBody ? 'text-center' : ''
-                    }`}
+                    className={`row row-cols-lg-2 row-cols-1 comp-block-grid-container ${props.centerBody ? 'text-center' : ''
+                        }`}
                 >
                     {blockCol}
                     {props.cardCTA && (

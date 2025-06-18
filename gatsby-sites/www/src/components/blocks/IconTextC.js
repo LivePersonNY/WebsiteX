@@ -38,15 +38,17 @@ const IconTextA = (props) => {
             data-localize={props.autoApprove && `auto-approve`}
             autoapprove={props.autoApprove && 'true'}
             id={props.anchor}
-            className={`${props.gated ? 'gated' : ''} pane comp-icon-text-a ${
-                props.backgroundColor || 'bg-transparent'
-            } ${props.header ? 'pane-with-lead-text' : ''}`}
+            className={`${props.gated ? 'gated' : ''} pane comp-icon-text-a ${props.backgroundColor || 'bg-transparent'
+                } ${props.header ? 'pane-with-lead-text' : ''}`}
         >
             <div className="container">
                 {props.header && (
                     <div className="row">
                         <div className="col-lg-10">
-                            <h2 className="">{props.header}</h2>
+                            <h2 className=""><Paragraph
+                                text={props.header}
+                                headerLevel="nothing"
+                            /></h2>
                         </div>
                     </div>
                 )}
