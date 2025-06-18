@@ -18,7 +18,8 @@ const htmlHack1 = `
 				<p data-tag="new line split" class="lead text-neutral-99">
 					Making it easy for you to realize measurable returns on your digital investments.
 				</p>
-				<a class="btn btn-primary link" href="/quote/">Request a quote</a>
+				<a class="btn btn-primary" href="/quote/">Request a quote</a>
+				<a class="btn btn-outline-secondary" href="/rfp-upload/">Request for Proposal</a>
 			</div>
 		</div>
 	</div>
@@ -937,75 +938,75 @@ Messaging channels are charged at the following rates, plus a handling fee of 15
 `;
 
 const PricingPageNew = () => {
-    useEffect(() => {
-        let pricingTabs = document.querySelectorAll('.pricing-tab');
-        pricingTabs.forEach((el) => {
-            el.addEventListener('click', () => {
-                pricingTabs.forEach((el) => {
-                    el.classList.remove('pricing-tab-active');
-                });
-                el.classList.add('pricing-tab-active');
+	useEffect(() => {
+		let pricingTabs = document.querySelectorAll('.pricing-tab');
+		pricingTabs.forEach((el) => {
+			el.addEventListener('click', () => {
+				pricingTabs.forEach((el) => {
+					el.classList.remove('pricing-tab-active');
+				});
+				el.classList.add('pricing-tab-active');
 
-                let tabName = el.dataset.tabName;
-                document.querySelectorAll('.pricing-tabs-s-h').forEach((el) => {
-                    el.style.display = 'none';
-                });
-                document.querySelector(`.${tabName}`).style.display = 'block';
-            });
-        });
+				let tabName = el.dataset.tabName;
+				document.querySelectorAll('.pricing-tabs-s-h').forEach((el) => {
+					el.style.display = 'none';
+				});
+				document.querySelector(`.${tabName}`).style.display = 'block';
+			});
+		});
 
-        return () => {};
-    });
+		return () => { };
+	});
 
-    let meta = [
-        {
-            property: `og:title`,
-            content: 'LivePerson Pricing & Packaging | LivePerson' || ``,
-        },
-        {
-            property: `og:image`,
-            content: `https://static.liveperson.com/static-assets/2023/04/26161111/Pricing_Meta-Tag_JV_0426.png`,
-        },
-        {
-            property: `og:description`,
-            content:
-                'Explore LivePerson pricing and packaging designed to help you drive an automation-first customer engagement transformation.' ||
-                ``,
-        },
-        {
-            property: `og:url`,
-            content: 'https://www.liveperson.com/pricing',
-        },
-        {
-            name: `type`,
-            property: `og:type`,
-            content: `website`,
-        },
-        {
-            name: `image`,
-            property: `twitter:image`,
-            content: `https://static.liveperson.com/static-assets/2023/04/26161111/Pricing_Meta-Tag_JV_0426.png`,
-        },
-        {
-            name: `author`,
-            property: `og:author`,
-            content: `LivePerson Team`,
-        },
-    ];
+	let meta = [
+		{
+			property: `og:title`,
+			content: 'LivePerson Pricing & Packaging | LivePerson' || ``,
+		},
+		{
+			property: `og:image`,
+			content: `https://static.liveperson.com/static-assets/2023/04/26161111/Pricing_Meta-Tag_JV_0426.png`,
+		},
+		{
+			property: `og:description`,
+			content:
+				'Explore LivePerson pricing and packaging designed to help you drive an automation-first customer engagement transformation.' ||
+				``,
+		},
+		{
+			property: `og:url`,
+			content: 'https://www.liveperson.com/pricing',
+		},
+		{
+			name: `type`,
+			property: `og:type`,
+			content: `website`,
+		},
+		{
+			name: `image`,
+			property: `twitter:image`,
+			content: `https://static.liveperson.com/static-assets/2023/04/26161111/Pricing_Meta-Tag_JV_0426.png`,
+		},
+		{
+			name: `author`,
+			property: `og:author`,
+			content: `LivePerson Team`,
+		},
+	];
 
-    return (
-        <Layout>
-            <Seo
-                title="LivePerson Pricing – Flexible Plans for Every Business"
-                description="Discover flexible pricing options for LivePerson's AI and messaging solutions. Explore the right plan for your business and scale customer engagement efficiently."
-                meta={meta}
-                canonical="https://www.liveperson.com/pricing/"
-                robots=""
-            />
+	return (
+		<Layout>
+			<Seo
+				title="LivePerson Pricing – Flexible Plans for Every Business"
+				description="Discover flexible pricing options for LivePerson's AI and messaging solutions. Explore the right plan for your business and scale customer engagement efficiently."
+				meta={meta}
+				canonical="https://www.liveperson.com/pricing/"
+				robots=""
+			/>
 
-            {Parser(htmlHack1)}
-        </Layout>
-    );
+			{Parser(htmlHack1)}
+		</Layout>
+	);
 };
 
 export default PricingPageNew;
