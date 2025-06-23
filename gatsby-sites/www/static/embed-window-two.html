@@ -134,8 +134,10 @@
                     console.log('Post bot found, initializing...');
                     $('.post-bot-button').on('click', function () {
                         console.log('Button clicked, sending message...');
+                        $(this).preventDefault();
                         initMessage = $('.post-bot-cta').val();
                         sendMessage(initMessage);
+                        $('.force-chat').trigger('click');
                     });
                 }
             };
