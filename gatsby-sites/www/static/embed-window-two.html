@@ -124,11 +124,23 @@
                 }
             };
 
-            $('.post-bot-button').on('click', function () {
-                console.log('Button clicked, sending message...');
-                initMessage = $('.post-bot-cta').val();
-                sendMessage(initMessage);
-            });
+            const lpTagSoSlow = () => {
+                if ($('.post-bot').length < 1) {
+                    console.log('Post bot is not found, waiting for it to load...');
+                    setTimeout(function () {
+                        lpTagSoSlow();
+                    }, 500);
+                } else {
+                    console.log('Post bot found, initializing...');
+                    $('.post-bot-button').on('click', function () {
+                        console.log('Button clicked, sending message...');
+                        initMessage = $('.post-bot-cta').val();
+                        sendMessage(initMessage);
+                    });
+                }
+            };
+
+            lpTagSoSlow();
         </script>
 
         <style>
