@@ -125,6 +125,7 @@
             };
 
             $('.post-bot-button').on('click', function () {
+                console.log('Button clicked, sending message...');
                 initMessage = $('.post-bot-cta').val();
                 sendMessage(initMessage);
             });
