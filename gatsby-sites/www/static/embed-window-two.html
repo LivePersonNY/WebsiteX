@@ -107,6 +107,24 @@
                       }),
                       lpTag.init())
                     : (window.lpTag._tagCount += 1);
+
+            let initMessage = '';
+
+            const sendMessage = (initMessage) => {
+                if ($('#lpChat div[data-lp-point="lines_area"]').length < 1) {
+                    setTimeout(function () {
+                        sendMessage(initMessage);
+                    }, 500);
+                } else {
+                    $('.lpview_form_textarea').val(initMessage);
+                    $('.lp_paper_plane_button').prop('disabled', false).trigger('click');
+                }
+            };
+
+            $('.post-bot-button').on('click', function () {
+                initMessage = $('.post-bot-cta').val();
+                sendMessage(initMessage);
+            });
         </script>
 
         <style>
