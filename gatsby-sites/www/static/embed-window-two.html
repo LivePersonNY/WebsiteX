@@ -111,11 +111,14 @@
             let initMessage = '';
 
             const sendMessage = (initMessage) => {
+                console.log('Sending message:', initMessage);
                 if ($('#lpChat div[data-lp-point="lines_area"]').length < 1) {
+                    console.log('Lines area not found, waiting for it to load...');
                     setTimeout(function () {
                         sendMessage(initMessage);
                     }, 500);
                 } else {
+                    console.log('Lines area found, sending message...');
                     $('.lpview_form_textarea').val(initMessage);
                     $('.lp_paper_plane_button').prop('disabled', false).trigger('click');
                 }
