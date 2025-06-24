@@ -618,7 +618,6 @@
                 border: 4px solid var(--primary-dark-bd-dark);
                 border-radius: 100px;
                 box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
-                cursor: pointer;
                 transition: height 0.3s ease;
             }
 
@@ -683,12 +682,20 @@
                 font-weight: 500;
             }
 
-            .lpc_transcript .lp_agent {
+            #lp_line_1 .lp_agent,
+            #lp_line_2 .lp_agent {
                 display: none;
             }
 
-            .lpc_transcript .lp_agent + .lp_agent {
-                display: block;
+            .lp_location_bottom.lpc_composer.lpc_composer_maximized.lpc_desktop {
+                border: 4px solid var(--primary-dark-bd-dark) !important;
+                border-radius: 100px !important;
+                box-shadow: 0 2px 8px rgb(0 0 0 / 8%) !important;
+                height: 80px !important;
+            }
+
+            textarea.lpview_form_textarea.lpc_composer__text-area.lpc_desktop.lp_expandable_textarea.lp_ltr {
+                font-size: 20px !important;
             }
         </style>
     </head>
