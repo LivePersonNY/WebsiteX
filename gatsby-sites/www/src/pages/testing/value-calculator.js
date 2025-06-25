@@ -1803,6 +1803,11 @@ const UtilitiesCalculator = ({ setChartData }) => {
 
 // Main App Component
 const ValueCalcApp = () => {
+
+    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
+        return <NotFoundPage />;
+    }
+
     const [activeCalculator, setActiveCalculator] = useState('retail_bank');
     const [chartData, setChartData] = useState({
         retail_bank: { savingsY1: 0, revenueY1: 0, savings3Y: 0, revenue3Y: 0 },
