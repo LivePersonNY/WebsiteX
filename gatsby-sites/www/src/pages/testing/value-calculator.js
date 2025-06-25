@@ -99,6 +99,7 @@ const exportRetailBankPDF = (results, inputs) => {
         showMessage('Please calculate valid results before exporting.', true);
         return;
     }
+
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();
     let yPos = 20;
