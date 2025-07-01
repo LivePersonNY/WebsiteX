@@ -244,6 +244,7 @@
                         event: {
                             type: 'ContentEvent',
                             contentType: 'text/plain',
+                            // contentType: 'RichContentEvent',
                             message: $('#textline').val(),
                         },
                     })
@@ -376,7 +377,7 @@
                                 body: body,
                             });
                         var str = JSON.stringify(obj);
-                        if (this.debug) console.log('sending: ' + str);
+                        console.log('sending: ' + str);
                         this.ws.send(str);
                     });
                 }
@@ -401,7 +402,7 @@
                 }
 
                 onmessage(msg) {
-                    if (this.debug) console.log('recieved: ' + msg.data);
+                    console.log('recieved: ' + msg.data);
                     var obj = JSON.parse(msg.data);
                     if (obj.kind == 'resp') {
                         var id = obj.reqId;

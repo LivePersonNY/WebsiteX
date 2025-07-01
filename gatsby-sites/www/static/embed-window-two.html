@@ -107,6 +107,41 @@
                       }),
                       lpTag.init())
                     : (window.lpTag._tagCount += 1);
+
+            let initMessage = '';
+
+            const sendMessage = (initMessage) => {
+                console.log('Sending message:', initMessage);
+                if ($('#lpChat div[data-lp-point="lines_area"]').length < 1) {
+                    console.log('Lines area not found, waiting for it to load...');
+                    setTimeout(function () {
+                        sendMessage(initMessage);
+                    }, 500);
+                } else {
+                    console.log('Lines area found, sending message...');
+                    $('.lpview_form_textarea').val(initMessage);
+                    $('.lp_paper_plane_button').prop('disabled', false).trigger('click');
+                }
+            };
+
+            const lpTagSoSlow = () => {
+                if ($('.post-bot').length < 1) {
+                    console.log('Post bot is not found, waiting for it to load...');
+                    setTimeout(function () {
+                        lpTagSoSlow();
+                    }, 500);
+                } else {
+                    console.log('Post bot found, initializing...');
+                    $('.post-bot-button').on('click', function () {
+                        console.log('Button clicked, sending message...');
+                        initMessage = $('.post-bot-cta').val();
+                        sendMessage(initMessage);
+                        $('.force-chat').trigger('click');
+                    });
+                }
+            };
+
+            lpTagSoSlow();
         </script>
 
         <style>
@@ -583,7 +618,6 @@
                 border: 4px solid var(--primary-dark-bd-dark);
                 border-radius: 100px;
                 box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
-                cursor: pointer;
                 transition: height 0.3s ease;
             }
 
@@ -599,8 +633,8 @@
             .post-bot-bubble .post-bot-bubble__icon {
                 position: relative;
                 top: 1px;
-                padding: 8px;
-                border: 1px solid var(--primary-bg-dark);
+                padding: 10px;
+                /* border: 1px solid var(--primary-bg-dark); */
                 border-radius: 100px;
                 background: var(--primary-bg-light);
                 line-height: 0;
@@ -647,12 +681,60 @@
                 font-size: 16px;
                 font-weight: 500;
             }
+
+            .force-chat {
+                display: none !important;
+            }
+
+            .lp_maximized.lpmx.lpc_window.lpc_window_maximized.lpc_desktop.lp_floating.lp_maximized_large {
+                border: 0 !important;
+            }
+
+            #lp_line_1.lp_agent,
+            #lp_line_0.lp_agent {
+                display: none;
+            }
+
+            .lp_location_bottom.lpc_composer.lpc_composer_maximized.lpc_desktop {
+                border: 4px solid var(--primary-dark-bd-dark) !important;
+                border-radius: 100px !important;
+                box-shadow: 0 2px 8px rgb(0 0 0 / 8%) !important;
+                height: 80px !important;
+            }
+
+            textarea.lpview_form_textarea.lpc_composer__text-area.lpc_desktop.lp_expandable_textarea.lp_ltr {
+                font-size: 20px !important;
+            }
+
+            .lp_input_area.lpc_composer__text-area-wrapper.lpc_desktop {
+                padding-left: 20px !important;
+            }
+
+            button.lp_paper_plane_button.lpc_composer__send-button.lpc_desktop {
+                padding: 12px 26px;
+                cursor: pointer;
+                border: none;
+                border-radius: 24px;
+                background: var(--primary-accent) !important;
+                bottom: 12px !important;
+                opacity: 1;
+            }
+
+            span.lp_paper_plane-icon.lp_icon-white {
+                background: url(https://liveperson-liveengage.s3.us-east-1.amazonaws.com/arrow-right-white-icon.png)
+                    no-repeat;
+                background-size: 25px;
+            }
+
+            svg.lpc_composer__send-button-asset.lpc_desktop {
+                display: none;
+            }
         </style>
     </head>
     <body class="">
-        <h1>This example is normal Chat Engagement</h1>
+        <!-- <h1>This example is normal Chat Engagement</h1>
         <br />
-        <a href="/embed-window">Link to Window API example</a>
+        <a href="/embed-window">Link to Window API example</a> -->
         <div class="">
             <div id="LP_DIV_1748974098028"></div>
         </div>
