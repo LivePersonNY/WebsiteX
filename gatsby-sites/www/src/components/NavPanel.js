@@ -100,7 +100,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2025/05/12153942/Retailwebinar-4waystouseAI-thumbnail.png"
+                                            src="https://static.liveperson.com/static-assets/2025/07/02131300/GenAIadoption-MorganMorgan-thumbnail.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
@@ -108,11 +108,11 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">WEBINAR</p>
                                             <p className="featured-body">
-                                                The experience revolution: 4 ways to use AI in retail
+                                                Driving GenAI adoption: Lessons from Morgan & Morgan
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/ai-solutions-for-retail/?utm_source=featured_resources&utm_medium=direct&utm_campaign=ai_solutions_for_retail_q2_2025"
+                                                href="/resources/webinars/lessons-in-genai-adoption/?utm_source=featured_resources&utm_medium=direct&utm_campaign=morgan_and_morgan_webinar_q3_2025"
                                             >
                                                 Register now
                                             </a>

@@ -301,7 +301,7 @@
             }
 
             body {
-                --background: var(--primary-bg-light);
+                --background: var(--white);
                 --global-border: var(--neutral-92);
                 --chat-bubble-user-background: var(--primary-accent);
                 --chat-bubble-user-color: var(--primary-bg-light);
@@ -711,11 +711,6 @@
             }
 
             button.lp_paper_plane_button.lpc_composer__send-button.lpc_desktop {
-                padding: 12px 26px;
-                cursor: pointer;
-                border: none;
-                border-radius: 24px;
-                background: var(--primary-accent) !important;
                 bottom: 12px !important;
                 opacity: 1;
             }
@@ -724,6 +719,11 @@
                 background: url(https://liveperson-liveengage.s3.us-east-1.amazonaws.com/arrow-right-white-icon.png)
                     no-repeat;
                 background-size: 25px;
+                background-color: var(--primary-accent) !important;
+                padding: 24px 38px;
+                border-radius: 24px;
+                background-position: 26px;
+                cursor: pointer;
             }
 
             svg.lpc_composer__send-button-asset.lpc_desktop {
