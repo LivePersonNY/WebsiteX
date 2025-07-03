@@ -84,32 +84,48 @@ function rfpUpload() {
     };
 
     useEffect(() => {
-        $(window).on('load', function () {
-            MktoForms2.whenReady(function (form) {
 
-                form.onSuccess(async function () {
-                    console.log('we are onSuccess');
-                    await uploadToPresignedUrl(presignedUrl);
-                });
 
-                setTimeout(() => {
-                    $('.mktoRow-opt-in').before($('.mkto-file-field'));
-                }, 2000);
+        const checkMkto = setInterval(() => {
+            if (window.MktoForms2) {
 
-                document.querySelector('.mkto-file-field input').addEventListener('change', async function () {
-                    console.log('file changed');
-                    fileToUpload = this.files[0];
-                    const presignedUrlKey = await handleUpload(fileToUpload);
-                    if (presignedUrlKey) {
-                        form.addHiddenFields({
-                            RFP_Doc_Attachment__c: `https://us-east-1.console.aws.amazon.com/s3/object/marketing-rfp?region=us-east-1&bucketType=general&prefix=${presignedUrlKey}`,
-                        });
+                clearInterval(checkMkto);
+
+                window.MktoForms2.whenReady(function (form) {
+
+                    if (form.getId() !== 5133) {
+                        return;
                     }
-                    console.log('vals on file change:', form.vals());
+
+                    form.onSuccess(async function () {
+                        console.log('we are onSuccess');
+                        await uploadToPresignedUrl(presignedUrl);
+                    });
+
+                    setTimeout(() => {
+                        $('.mktoRow-opt-in').before($('.mkto-file-field'));
+                    }, 2000);
+
+                    document.querySelector('.mkto-file-field input').addEventListener('change', async function () {
+                        console.log('file changed');
+                        fileToUpload = this.files[0];
+                        const presignedUrlKey = await handleUpload(fileToUpload);
+                        if (presignedUrlKey) {
+                            form.addHiddenFields({
+                                RFP_Doc_Attachment__c: `https://us-east-1.console.aws.amazon.com/s3/object/marketing-rfp?region=us-east-1&bucketType=general&prefix=${presignedUrlKey}`,
+                            });
+                        }
+                        console.log('vals on file change:', form.vals());
+                    })
+
                 })
 
-            })
-        });
+            }
+
+        }, 100); // Check every 100ms (adjust as needed)
+
+
+
     }, []);
 
     return (
