@@ -379,6 +379,6 @@
         "/resources/news/mad-money-transformation-talk/": "/resources/",
         "/resources/news/future-of-conversational-ai-chatbots/": "/resources/",
         "/sustainability/*": "/",
-        "/resources/success-stories/sweetwater-conversation-intelligence-software/": "/conversation-intelligence-software/"
+        "/resources/success-stories/sweetwater-conversation-intelligence-software/": "/resources/success-stories/conversation-intelligence-software/"
     }
 }
