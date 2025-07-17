@@ -10,8 +10,7 @@ import Layout from '../../components/Layout';
 import '../../resources/css/ValueCalculator.css';
 import Seo from '../../components/Seo';
 
-// --- DATA STRUCTURE FROM SPREADSHEET ---
-// This structure is a direct translation of the "Value Inputs .csv" file.
+// --- DATA STRUCTURE FROM SPREADSHEET (INPUTS) ---
 const calculatorData = {
     "Cross-Industry": {
         "Unit Costs": [
@@ -254,6 +253,360 @@ const calculatorData = {
     }
 };
 
+// --- CALCULATION DATA FROM SPREADSHEET ---
+const calculationDefinitions = [
+    {
+        industry: "Cross-Industry",
+        driver: "Cost Reduction",
+        lever: "Deflect Voice to Human-Assisted Messaging",
+        description: "Reduces cost by shifting expensive voice calls to more efficient human-assisted messaging conversations.",
+        id: "Deflect_Voice_to_Human-Assisted_Messaging",
+        formula: "(Param_Gen_Volume_Voice * (Param_Gen_Shift_VoiceToMsg_Rate / 100)) * (Param_Gen_Cost_Per_Voice_Conv - Param_Gen_Cost_Per_Human_Msg_Conv)"
+    },
+    {
+        industry: "Cross-Industry",
+        driver: "Cost Reduction",
+        lever: "Deflect Email to Human-Assisted Messaging",
+        description: "Reduces cost by shifting slower email interactions to more efficient human-assisted messaging.",
+        id: "Deflect_Email_to_Human-Assisted_Messaging",
+        formula: "Param_Gen_Volume_Email * (Param_Gen_Shift_EmailToMsg_Rate / 100) * (Param_Gen_Cost_Per_Email_Conv - Param_Gen_Cost_Per_Human_Msg_Conv)"
+    },
+    {
+        industry: "Cross-Industry",
+        driver: "Cost Reduction",
+        lever: "Contain Human-Assisted Messaging to Automation",
+        description: "Reduces cost by deflecting conversations handled by human messaging agents to automated bots.",
+        id: "Contain_Human-Assisted_Messaging_to_Automation",
+        formula: "((Param_Gen_Volume_Voice * (Param_Gen_Shift_VoiceToMsg_Rate / 100)) + (Param_Gen_Volume_Email * (Param_Gen_Shift_EmailToMsg_Rate / 100)) + Param_Gen_Volume_Messaging_Direct) * (Param_Gen_Deflect_MsgToAutomation_Rate / 100) * (Param_Gen_Cost_Per_Human_Msg_Conv - Param_Gen_Cost_Per_Automated_Conv)"
+    },
+    {
+        industry: "Cross-Industry",
+        driver: "Cost Reduction",
+        lever: "Improve Agent Efficiency (Messaging Concurrency)",
+        description: "Agents can handle more messaging conversations concurrently than voice calls, reducing FTE requirements for the same volume.",
+        id: "Improve_Agent_Efficiency_(Messaging_Concurrency)",
+        formula: "(Param_Gen_Human_Msg_Agents * (Param_Gen_Human_Msg_Concurrency_Gain / 100)) * Param_Gen_Agent_Salary_Monthly"
+    },
+    {
+        industry: "Cross-Industry",
+        driver: "Cost Reduction",
+        lever: "Increase Agent Productivity (GenAI Impact on AHT)",
+        description: "Generative AI assists human agents, reducing Average Handle Time (AHT) and increasing overall productivity.",
+        id: "Increase_Agent_Productivity_(GenAI_Impact_on_AHT)",
+        formula: "(((Param_Gen_Volume_Voice * (Param_Gen_Shift_VoiceToMsg_Rate / 100)) + (Param_Gen_Volume_Email * (Param_Gen_Shift_EmailToMsg_Rate / 100)) + Param_Gen_Volume_Messaging_Direct) * (1 - (Param_Gen_Deflect_MsgToAutomation_Rate / 100))) * (Param_Gen_GenAI_AHT_Reduction / 100) * Param_Gen_Cost_Per_Human_Msg_Conv / (1 - (Param_Gen_GenAI_AHT_Reduction / 100))"
+    },
+    {
+        industry: "Cross-Industry",
+        driver: "Cost Reduction",
+        lever: "Reduce Agent Turnover",
+        description: "Improved tooling and job satisfaction lead to lower agent attrition, reducing recruitment and training costs.",
+        id: "Reduce_Agent_Turnover",
+        formula: "(Param_Gen_Human_Msg_Agents * (Param_Gen_Avg_Annual_Turnover_Rate / 100) * (Param_Gen_Turnover_Reduction_Rate / 100) * Param_Gen_Cost_Per_Turnover) / 12"
+    },
+    {
+        industry: "Cross-Industry",
+        driver: "Cost Reduction",
+        lever: "Speed Agent Onboarding",
+        description: "Enhanced tooling and training programs reduce the time and cost to get new agents productive.",
+        id: "Speed_Agent_Onboarding",
+        formula: "((Param_Gen_Human_Msg_Agents * (Param_Gen_Avg_Annual_Turnover_Rate / 100) * (Param_Gen_Turnover_Reduction_Rate / 100)) / 12) * Param_Gen_Avg_Onboarding_Time_Weeks * (Param_Gen_Onboarding_Time_Reduction / 100) * Param_Gen_Weekly_Training_Cost_Per_Agent"
+    },
+    {
+        industry: "Banking",
+        driver: "Cost Reduction",
+        lever: "Fraud Inquiry Deflection",
+        description: "Automates initial screening and responses for common fraud-related questions, escalating only complex cases.",
+        id: "Fraud_Inquiry_Deflection",
+        formula: "(Param_Banking_FraudInquiries_Deflect * (Param_Banking_BotContainment_Fraud / 100)) * (Param_Banking_HumanAHT_Fraud * Param_Banking_HumanCost_Fraud)"
+    },
+    {
+        industry: "Banking",
+        driver: "Revenue Generation",
+        lever: "Personalized Product Recommendations",
+        description: "Uses conversational AI to identify customer needs and suggest relevant banking products (loans, credit cards, investment).",
+        id: "Personalized_Product_Recommendations",
+        formula: "(Param_Banking_Recommendations_PR * (Param_Banking_ConversionRate_PR / 100)) * Param_Banking_AvgRevenue_PR"
+    },
+    {
+        industry: "Banking",
+        driver: "Revenue Generation",
+        lever: "Lead Nurturing & Qualification",
+        description: "Engages prospective customers, answers initial questions, and qualifies leads before handing off to sales.",
+        id: "Lead_Nurturing_&_Qualification",
+        formula: "(Param_Banking_Leads_NLQ * (Param_Banking_QualifiedIncrease_NLQ / 100)) * ((Param_Banking_LeadToOppConv_NLQ / 100) * Param_Banking_AvgDealSize_NLQ)"
+    },
+    {
+        industry: "P&C Insurance",
+        driver: "Cost Reduction",
+        lever: "Automated FNOL & Policy Inquiries",
+        description: "Streamlines first notice of loss (FNOL) and answers policy-related questions via automated channels, reducing agent workload.",
+        id: "Automated_FNOL_&_Policy_Inquiries",
+        formula: "(Param_PCIns_FNOLs_Auto * (Param_PCIns_AutoRate_FNOL / 100)) * Param_PCIns_ManualCost_FNOL"
+    },
+    {
+        industry: "P&C Insurance",
+        driver: "Cost Reduction",
+        lever: "Billing & Payment Support Automation",
+        description: "Handles routine inquiries regarding billing, payment options, and due dates.",
+        id: "Billing_&_Payment_Support_Automation",
+        formula: "(Param_PCIns_BillingInquiries_Auto * (Param_PCIns_DeflectionRate_Billing / 100)) * (Param_PCIns_HumanAHT_Billing * Param_PCIns_HumanCost_Billing)"
+    },
+    {
+        industry: "P&C Insurance",
+        driver: "Revenue Generation",
+        lever: "Expedited Quote Generation",
+        description: "Guides prospective customers through the information gathering process for faster quote delivery and increased conversion.",
+        id: "Expedited_Quote_Generation",
+        formula: "(Param_PCIns_QuotesStarted_EG * (Param_PCIns_CompletionIncrease_EG / 100)) * ((Param_PCIns_ConversionIncrease_EG / 100) * Param_PCIns_AvgPolicyValue_EG)"
+    },
+    {
+        industry: "P&C Insurance",
+        driver: "Revenue Generation",
+        lever: "Cross-sell/Upsell During Interactions",
+        description: "Identifies opportunities to offer additional coverage or higher-tier policies based on conversational cues.",
+        id: "Cross-sell/Upsell_During_Interactions",
+        formula: "(Param_PCIns_Interactions_CSU * (Param_PCIns_CrossSellConv_CSU / 100)) * Param_PCIns_AvgPremiumIncrease_CSU"
+    },
+    {
+        industry: "Healthcare Payer",
+        driver: "Cost Reduction",
+        lever: "Member Inquiry Automation",
+        description: "Automates responses to common questions about benefits, coverage, claims status, and provider networks.",
+        id: "Member_Inquiry_Automation",
+        formula: "(Param_Healthcare_Inquiries_Auto * (Param_Healthcare_DeflectionRate_Auto / 100)) * (Param_Healthcare_HumanAHT_Auto * Param_Healthcare_HumanCost_Auto)"
+    },
+    {
+        industry: "Healthcare Payer",
+        driver: "Cost Reduction",
+        lever: "Pre-authorization Support",
+        description: "Guides members through the pre-authorization process, reducing manual intervention.",
+        id: "Pre-authorization_Support",
+        formula: "(Param_Healthcare_PreAuthInquiries_Auto * (Param_Healthcare_AutoRate_PreAuth / 100)) * (Param_Healthcare_HumanAHT_PreAuth * Param_Healthcare_HumanCost_PreAuth)"
+    },
+    {
+        industry: "Healthcare Payer",
+        driver: "Revenue Generation",
+        lever: "Improved Member Engagement & Retention",
+        description: "Enhances member satisfaction through quick, personalized support, reducing churn and increasing retention.",
+        id: "Improved_Member_Engagement_&_Retention",
+        formula: "(Param_Healthcare_TotalMembers * (Param_Healthcare_ChurnReduction / 100)) * (Param_Healthcare_AvgMemberValue / 12)"
+    },
+    {
+        industry: "Healthcare Payer",
+        driver: "Revenue Generation",
+        lever: "Health Program Enrollment Facilitation",
+        description: "Assists members in understanding and enrolling in wellness programs and other value-added services.",
+        id: "Health_Program_Enrollment_Facilitation",
+        formula: "(Param_Healthcare_ProgramEngage_F * (Param_Healthcare_EnrollmentConv_F / 100)) * Param_Healthcare_ProgramIndirectValue_F"
+    },
+    {
+        industry: "Utilities",
+        driver: "Cost Reduction",
+        lever: "Outage Reporting & Updates",
+        description: "Automates the reporting of service outages and provides real-time updates to affected customers.",
+        id: "Outage_Reporting_&_Updates",
+        formula: "(Param_Utilities_OutageInquiries_R * (Param_Utilities_DeflectionRate_Outage / 100)) * (Param_Utilities_HumanAHT_Outage * Param_Utilities_HumanCost_Outage)"
+    },
+    {
+        industry: "Utilities",
+        driver: "Cost Reduction",
+        lever: "Billing & Service Inquiry Automation",
+        description: "Handles routine questions about bills, payment options, service activation/deactivation, and meter readings.",
+        id: "Billing_&_Service_Inquiry_Automation",
+        formula: "(Param_Utilities_BillingInquiries_Auto * (Param_Utilities_DeflectionRate_Billing / 100)) * (Param_Utilities_HumanAHT_Billing * Param_Utilities_HumanCost_Billing)"
+    },
+    {
+        industry: "Utilities",
+        driver: "Cost Reduction",
+        lever: "Truck Rolls Avoided",
+        description: "Reduces the cost associated with dispatching field service technicians by resolving issues via conversational channels.",
+        id: "Truck_Rolls_Avoided",
+        formula: "(Param_Utilities_TruckRolls_Monthly * (Param_Utilities_TruckRolls_Avoided_Rate / 100)) * Param_Utilities_Cost_Per_TruckRoll"
+    },
+    {
+        industry: "Utilities",
+        driver: "Revenue Generation",
+        lever: "Customer Satisfaction & Reduced Churn",
+        description: "Efficient and timely support improves customer experience, which can indirectly lead to reduced churn.",
+        id: "Customer_Satisfaction_&_Reduced_Churn",
+        formula: "(Param_Utilities_TotalCustomers * (Param_Utilities_AnnualChurnReduction / 100)) * (Param_Utilities_AvgCustomerValue / 12)"
+    },
+    {
+        industry: "Utilities",
+        driver: "Revenue Generation",
+        lever: "Promotion of Energy-Saving Programs",
+        description: "Informs and guides customers on energy-saving initiatives, potentially increasing participation and goodwill.",
+        id: "Promotion_of_Energy-Saving_Programs",
+        formula: "(Param_Utilities_EnergySavingInteractions * (Param_Utilities_ProgramEnrollmentConv / 100)) * Param_Utilities_ProgramIndirectValue"
+    },
+    {
+        industry: "Retail",
+        driver: "Cost Reduction",
+        lever: "Order Status & Returns Automation",
+        description: "Automates inquiries about order tracking, shipping, and guides customers through the returns/exchange process.",
+        id: "Order_Status_&_Returns_Automation",
+        formula: "(Param_Retail_OrderInquiries_Auto * (Param_Retail_DeflectionRate_Order / 100)) * (Param_Retail_HumanAHT_Order * Param_Retail_HumanCost_Order)"
+    },
+    {
+        industry: "Retail",
+        driver: "Cost Reduction",
+        lever: "Product Information & FAQ Deflection",
+        description: "Provides instant answers to common product questions (sizing, availability, features), reducing agent load.",
+        id: "Product_Information_&_FAQ_Deflection",
+        formula: "(Param_Retail_ProductFAQs_Deflect * (Param_Retail_DeflectionRate_FAQ / 100)) * (Param_Retail_HumanAHT_FAQ * Param_Retail_HumanCost_FAQ)"
+    },
+    {
+        industry: "Retail",
+        driver: "Revenue Generation",
+        lever: "Personalized Shopping Assistance",
+        description: "Offers tailored product recommendations based on Browse history, preferences, and conversational cues, leading to increased sales.",
+        id: "Personalized_Shopping_Assistance",
+        formula: "(Param_Retail_AISessions_PSA * (Param_Retail_ConversionIncrease_PSA / 100)) * Param_Retail_AvgOrderValue_PSA"
+    },
+    {
+        industry: "Retail",
+        driver: "Revenue Generation",
+        lever: "Cart Abandonment Recovery",
+        description: "Proactively engages with customers who abandon their shopping carts, offering assistance or incentives.",
+        id: "Cart_Abandonment_Recovery",
+        formula: "(Param_Retail_AbandonedCarts_R * (Param_Retail_RecoveryRate_R / 100)) * Param_Retail_AvgCartValue_R"
+    },
+    {
+        industry: "Airlines",
+        driver: "Cost Reduction",
+        lever: "Flight Status & Booking Management",
+        description: "Automates inquiries about flight status, gate changes, and allows passengers to modify or cancel bookings.",
+        id: "Flight_Status_&_Booking_Management",
+        formula: "(Param_Airlines_Inquiries_FSBM * (Param_Airlines_DeflectionRate_FSBM / 100)) * (Param_Airlines_HumanAHT_FSBM * Param_Airlines_HumanCost_FSBM)"
+    },
+    {
+        industry: "Airlines",
+        driver: "Cost Reduction",
+        lever: "Baggage & Check-in Support",
+        description: "Handles common questions regarding baggage allowances, tracking, and guides through the check-in process.",
+        id: "Baggage_&_Check-in_Support",
+        formula: "(Param_Airlines_BaggageInquiries_Auto * (Param_Airlines_DeflectionRate_Baggage / 100)) * (Param_Airlines_HumanAHT_Baggage * Param_Airlines_HumanCost_Baggage)"
+    },
+    {
+        industry: "Airlines",
+        driver: "Revenue Generation",
+        lever: "Upselling Ancillary Services",
+        description: "Offers seat upgrades, extra baggage, lounge access, or in-flight meals during conversational interactions.",
+        id: "Upselling_Ancillary_Services",
+        formula: "(Param_Airlines_PassengerInteractions_AS * (Param_Airlines_UpsellConv_AS / 100)) * Param_Airlines_AvgUpsellValue_AS"
+    },
+    {
+        industry: "Airlines",
+        driver: "Revenue Generation",
+        lever: "Personalized Travel Recommendations",
+        description: "Suggests destinations, hotels, or car rentals based on passenger preferences and booking history.",
+        id: "Personalized_Travel_Recommendations",
+        formula: "(Param_Airlines_TravelerEngage_TR * (Param_Airlines_AddBookingConv_TR / 100)) * Param_Airlines_AvgTicketValue_TR"
+    },
+    {
+        industry: "eCommerce",
+        driver: "Cost Reduction",
+        lever: "Automated Issue Resolution",
+        description: "Resolves common issues (e.g., failed payments, missing items) without human intervention.",
+        id: "Automated_Issue_Resolution",
+        formula: "(Param_Ecommerce_CommonIssues_AIR * (Param_Ecommerce_AutoResolution_AIR / 100)) * Param_Ecommerce_HumanCost_AIR"
+    },
+    {
+        industry: "eCommerce",
+        driver: "Revenue Generation",
+        lever: "Enhanced Sales Conversion",
+        description: "Provides immediate answers and personalized guidance during the shopping process, reducing friction.",
+        id: "Enhanced_Sales_Conversion",
+        formula: "(Param_Ecommerce_Visitors_ESC * (Param_Ecommerce_ConvIncrease_ESC / 100)) * Param_Ecommerce_AvgOrderValue_ESC"
+    },
+    {
+        industry: "eCommerce",
+        driver: "Revenue Generation",
+        lever: "Customer Lifetime Value (CLTV) Growth",
+        description: "Improves overall customer experience and engagement, leading to repeat purchases and higher CLTV.",
+        id: "Customer_Lifetime_Value_(CLTV)_Growth",
+        formula: "(Param_Ecommerce_TotalCustomers_CLTV * (Param_Ecommerce_RepeatPurchaseIncrease_CLTV / 100)) * Param_Ecommerce_AvgMonthlySpend_CLTV"
+    },
+    {
+        industry: "Hospitality",
+        driver: "Cost Reduction",
+        lever: "Front Desk & Concierge Support",
+        description: "Automates inquiries about check-in/out, amenities, local attractions, and common guest requests.",
+        id: "Front_Desk_&_Concierge_Support",
+        formula: "(Param_Hospitality_CommonIssues_FCS * (Param_Hospitality_AutoResolution_FCS / 100)) * Param_Hospitality_HumanCost_FCS"
+    },
+    {
+        industry: "Hospitality",
+        driver: "Cost Reduction",
+        lever: "Room Service & Housekeeping Mgmt",
+        description: "Handles common questions regarding room service menus, delivery times, and requests for housekeeping services.",
+        id: "Room_Service_&_Housekeeping_Mgmt",
+        formula: "(Param_Hospitality_RoomServiceInquiries_RMS * (Param_Hospitality_AutoResolution_RMS / 100)) * Param_Hospitality_HumanCost_RMS"
+    },
+    {
+        industry: "Hospitality",
+        driver: "Revenue Generation",
+        lever: "Upselling & Cross-selling",
+        description: "Offers room upgrades, spa services, dining reservations, or local tour packages during conversational interactions.",
+        id: "Upselling_&_Cross-selling",
+        formula: "(Param_Hospitality_GuestInteractions_USC * (Param_Hospitality_UpsellConv_USC / 100)) * Param_Hospitality_AvgUpsellValue_USC"
+    },
+    {
+        industry: "Hospitality",
+        driver: "Revenue Generation",
+        lever: "Personalized Guest Experiences",
+        description: "Suggests activities, dining options, or special offers based on guest preferences and stay history.",
+        id: "Personalized_Guest_Experiences",
+        formula: "(Param_Hospitality_TotalGuests_PGE * (Param_Hospitality_BookingConvIncrease_PGE / 100)) * Param_Hospitality_AvgGuestSpendIncrease_PGE"
+    },
+    {
+        industry: "QSR",
+        driver: "Cost Reduction",
+        lever: "Order Taking & FAQs",
+        description: "Automates inquiries about menu items, ingredients, nutritional information, and takes customer orders.",
+        id: "Order_Taking_&_FAQs",
+        formula: "(Param_QSR_OrderInquiries_OTO * (Param_QSR_AutoResolution_OTO / 100)) * Param_QSR_HumanCost_OTO"
+    },
+    {
+        industry: "QSR",
+        driver: "Cost Reduction",
+        lever: "Drive-Thru & In-Store Support",
+        description: "Handles common questions regarding order status, promotions, and guides through the pick-up or delivery process.",
+        id: "Drive-Thru_&_In-Store_Support",
+        formula: "(Param_QSR_DriveThruInquiries_DIS * (Param_QSR_AutoResolution_DIS / 100)) * Param_QSR_HumanCost_DIS"
+    },
+    {
+        industry: "QSR",
+        driver: "Revenue Generation",
+        lever: "Upselling & Combo Promotion",
+        description: "Suggests add-ons, combo meals, or premium items during the ordering process to increase average ticket size.",
+        id: "Upselling_&_Combo_Promotion",
+        formula: "(Param_QSR_CustomerInteractions_UCP * (Param_QSR_UpsellConv_UCP / 100)) * Param_QSR_AvgUpsellValue_UCP"
+    },
+    {
+        industry: "QSR",
+        driver: "Revenue Generation",
+        lever: "Personalized Offers",
+        description: "Provides tailored recommendations or special deals based on past purchase history and stated preferences (e.g., dietary restrictions).",
+        id: "Personalized_Offers",
+        formula: "(Param_QSR_TotalCustomers_PO * (Param_QSR_OfferRedemptionIncrease_PO / 100)) * Param_QSR_AvgOrderValueIncrease_PO"
+    }
+];
+
+// --- HELPER FUNCTION TO INITIALIZE ALL INPUTS ---
+const getInitialInputsState = () => {
+    const initialState = {};
+    for (const calculatorName in calculatorData) {
+        initialState[calculatorName] = {};
+        for (const section in calculatorData[calculatorName]) {
+            calculatorData[calculatorName][section].forEach(input => {
+                initialState[calculatorName][input.id] = input.value;
+            });
+        }
+    }
+    return initialState;
+};
+
 
 // --- UI COMPONENTS ---
 
@@ -285,33 +638,26 @@ const SectionTitle = ({ children }) => (
     </h2>
 );
 
+const ResultCard = ({ title, description, value }) => (
+    <div className="card h-100 bg-light border-light-subtle rounded shadow-sm text-center p-3 d-flex flex-column">
+        <h3 className="card-title fs-6 fw-medium text-primary-emphasis mb-2">{title}</h3>
+        <p className="card-text text-secondary small flex-grow-1">{description}</p>
+        <p className="fs-3 fw-bold text-success mt-auto mb-0">
+            {`$${Math.round(value).toLocaleString()}`}
+        </p>
+    </div>
+);
+
+
 // --- DYNAMIC CALCULATOR COMPONENT ---
 
-const Calculator = ({ calculatorName, onInputsChange }) => {
+const CalculatorInputs = ({ calculatorName, inputs, onInputChange }) => {
     const data = calculatorData[calculatorName];
-
-    // Initialize state dynamically from the data structure
-    const getInitialState = () => {
-        const initialState = {};
-        Object.values(data).forEach(section => {
-            section.forEach(input => {
-                initialState[input.id] = input.value;
-            });
-        });
-        return initialState;
-    };
-
-    const [inputs, setInputs] = useState(getInitialState);
 
     const handleInputChange = (id) => (e) => {
         const value = e.target.value === '' ? '' : Number(e.target.value);
-        setInputs(prev => ({ ...prev, [id]: value }));
+        onInputChange(calculatorName, id, value);
     };
-
-    // Lift state up whenever inputs change
-    useEffect(() => {
-        onInputsChange(inputs);
-    }, [inputs, onInputsChange]);
 
     return (
         <div>
@@ -336,17 +682,132 @@ const Calculator = ({ calculatorName, onInputsChange }) => {
     );
 };
 
+// --- CALCULATION ENGINE AND OUTPUT DISPLAY ---
+const CalculationEngine = ({ inputs, industry }) => {
+    const results = useMemo(() => {
+        const relevantCalculations = calculationDefinitions.filter(
+            calc => calc.industry === industry || calc.industry === "Cross-Industry"
+        );
+
+        const calculatedValues = {};
+        const allParams = { ...inputs["Cross-Industry"], ...inputs[industry] };
+
+        // Handle potential missing inputs gracefully
+        for (const key in allParams) {
+            if (allParams[key] === '' || allParams[key] === null || isNaN(allParams[key])) {
+                allParams[key] = 0;
+            }
+        }
+
+        // A simple dependency solver: keep trying to solve until no more values can be calculated
+        let solvable = true;
+        while (solvable) {
+            solvable = false;
+            relevantCalculations.forEach(calc => {
+                if (calculatedValues[calc.id] !== undefined) return; // Already calculated
+
+                let formula = calc.formula;
+                const variables = [...formula.matchAll(/(Param|Calc)_[A-Za-z0-9_]+/g)].map(m => m[0]);
+                let isReady = true;
+
+                for (const variable of variables) {
+                    const isParam = variable.startsWith('Param_');
+                    const valueSource = isParam ? allParams : calculatedValues;
+                    let value = valueSource[variable];
+
+                    if (value === undefined) {
+                        isReady = false;
+                        break;
+                    }
+
+                    formula = formula.replace(new RegExp(variable, 'g'), value);
+                }
+
+                if (isReady) {
+                    try {
+                        const monthlyValue = new Function(`return ${formula}`)();
+                        calculatedValues[calc.id] = monthlyValue;
+                        solvable = true; // We made progress, so loop again
+                    } catch (error) {
+                        console.error(`Error calculating ${calc.id}:`, error);
+                        calculatedValues[calc.id] = 0;
+                    }
+                }
+            });
+        }
+
+
+        const groupedResults = {};
+        relevantCalculations.forEach(calc => {
+            if (calc.industry === industry) {
+                if (!groupedResults[calc.driver]) {
+                    groupedResults[calc.driver] = [];
+                }
+                // let annualValue = (calculatedValues[calc.id] || 0) * 12;
+                let annualValue = (calculatedValues[calc.id] || 0);
+                // Exception for annual calculations from the sheet
+                if (calc.id === "Calc_Healthcare_Revenue_Churn_Reduction" || calc.id === "Calc_Utilities_Revenue_Churn_Reduction") {
+                    annualValue = calculatedValues[calc.id] || 0;
+                }
+
+                groupedResults[calc.driver].push({
+                    ...calc,
+                    annualValue: annualValue
+                });
+            }
+        });
+
+        return groupedResults;
+
+    }, [inputs, industry]);
+
+    if (Object.keys(results).length === 0) {
+        return null;
+    }
+
+    return (
+        <div className="mt-5">
+            <h2 className="fs-4 fw-bold text-dark mb-4">Outputs</h2>
+            {Object.entries(results).map(([driver, levers]) => (
+                <div key={driver}>
+                    <SectionTitle>{driver}</SectionTitle>
+                    <div className="row g-4">
+                        {levers.map(lever => (
+                            <div key={lever.id} className="col-md-6 col-lg-4 d-flex">
+                                <ResultCard
+                                    title={lever.lever}
+                                    description={lever.description}
+                                    value={lever.annualValue}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
+};
+
 
 // --- MAIN APP COMPONENT ---
 
 const ValueCalcApp = () => {
-    // This check can be removed if not needed for your environment
-    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
-        return <NotFoundPage />;
+    if (typeof process !== 'undefined' && process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
+        return <p>This content is not available.</p>;
     }
 
     const [activeCalculator, setActiveCalculator] = useState("Cross-Industry");
-    const [currentInputs, setCurrentInputs] = useState({});
+    const [allInputs, setAllInputs] = useState(getInitialInputsState);
+
+    const handleInputChange = (calculatorName, inputId, value) => {
+        setAllInputs(prev => ({
+            ...prev,
+            [calculatorName]: {
+                ...prev[calculatorName],
+                [inputId]: value
+            }
+        }));
+    };
 
     const calculatorButtons = [
         { key: 'Cross-Industry', name: 'Cross-Industry' },
@@ -365,31 +826,57 @@ const ValueCalcApp = () => {
         <Layout>
             <Seo title="LivePerson Value Calculator" />
             <Helmet />
-            <div className="card shadow-lg rounded-3 p-4 p-md-5 mb-4">
-                <h1 className="fs-2 fw-bold text-center text-primary-emphasis mb-4 pb-3 border-bottom border-primary-subtle">
-                    LivePerson Value Impact Calculator
-                </h1>
 
-                <div className="d-flex justify-content-center flex-wrap mb-4 gap-2 d-print-none">
-                    {calculatorButtons.map(calc => (
-                        <button
-                            key={calc.key}
-                            onClick={() => setActiveCalculator(calc.key)}
-                            className={`btn ${activeCalculator === calc.key ? 'btn-primary shadow' : 'btn-light text-secondary'}`}
-                        >
-                            {calc.name}
-                        </button>
-                    ))}
+            <div
+                data-localize="false"
+                className="pane comp-plain-content bg-primary-dark text-center pane-with-lead-text styles-2023 july-2023"
+            >
+                <div className="container">
+                    <div className="row align-items-center justify-content-center">
+                        <div className="col-lg-12">
+                            <h1>
+                                LivePerson Value Impact Calculator
+                            </h1>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <Calculator
-                    key={activeCalculator} // Add key prop to force re-mount
-                    calculatorName={activeCalculator}
-                    onInputsChange={setCurrentInputs}
-                />
 
-                {/* The Outputs and Calculations will be added here in the next step */}
+            <div
 
+                className="pane"
+            >
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+
+                            <div className="d-flex justify-content-center flex-wrap mb-4 gap-2 d-print-none">
+                                {calculatorButtons.map(calc => (
+                                    <button
+                                        key={calc.key}
+                                        onClick={() => setActiveCalculator(calc.key)}
+                                        className={`btn ${activeCalculator === calc.key ? 'btn-primary shadow' : 'btn-light text-secondary'}`}
+                                    >
+                                        {calc.name}
+                                    </button>
+                                ))}
+                            </div>
+
+                            <CalculatorInputs
+                                calculatorName={activeCalculator}
+                                inputs={allInputs[activeCalculator]}
+                                onInputChange={handleInputChange}
+                            />
+
+                            <CalculationEngine
+                                inputs={allInputs}
+                                industry={activeCalculator}
+                            />
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </Layout>
     );

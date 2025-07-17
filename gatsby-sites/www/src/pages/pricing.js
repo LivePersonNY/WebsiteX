@@ -19,7 +19,7 @@ const htmlHack1 = `
 					Making it easy for you to realize measurable returns on your digital investments.
 				</p>
 				<a class="btn btn-primary" href="/quote/">Request a quote</a>
-				<a class="btn btn-outline-secondary" target="_blank" href="/rfp-upload/">Request for Proposal</a>
+				<a class="btn btn-outline-secondary" href="/rfp-upload/">Request for Proposal</a>
 			</div>
 		</div>
 	</div>
