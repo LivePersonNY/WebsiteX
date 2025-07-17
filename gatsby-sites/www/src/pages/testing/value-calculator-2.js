@@ -824,7 +824,7 @@ const ValueCalcApp = () => {
 
     return (
         <Layout>
-            <Seo title="LivePerson Value Calculator" />
+            <Seo title="LivePerson Value Calculator" robots="noindex, nofollow" />
             <Helmet />
 
             <div
