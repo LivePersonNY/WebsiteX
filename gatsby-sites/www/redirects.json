@@ -379,6 +379,9 @@
         "/resources/news/mad-money-transformation-talk/": "/resources/",
         "/resources/news/future-of-conversational-ai-chatbots/": "/resources/",
         "/sustainability/*": "/",
-        "/resources/success-stories/sweetwater-conversation-intelligence-software/": "/resources/success-stories/conversation-intelligence-software/"
+        "/resources/success-stories/sweetwater-conversation-intelligence-software/": "/resources/success-stories/conversation-intelligence-software/",
+        "/products/google-business-messages/": "/products/messaging-channels/",
+        "/blog/4-customer-service-tips-na/": "/blog/4-customer-service-tips/",
+        "/resources/reports/voice-omnichannel-engagements/": "/resources/reports/voice-omnichannel-engagement/"
     }
 }
