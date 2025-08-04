@@ -55,25 +55,7 @@ const MktoForms = {
                 form.onSuccess(function (values, forwardUrl) {
                     window.dataLayer && dataLayer.push({ event: ctaString });
                     $('.pane.gated').slideDown();
-                    // Do not change anything in the following two lines
-                    window.VWO = window.VWO || [];
-                    VWO.event =
-                        VWO.event ||
-                        function () {
-                            VWO.push(['event'].concat([].slice.call(arguments)));
-                        };
 
-                    // Replace the property values with your actual values
-                    VWO.event('webpageFormSubmission', {
-                        testprop: formId,
-                    });
-
-                    window.VWO.push(['track.goalConversion', 11]);
-                    window.VWO.push(['track.goalConversion', 16]);
-                    window.VWO.push(['track.goalConversion', 19]);
-                    window.VWO.push(['track.goalConversion', 22]);
-                    window.VWO.push(['track.goalConversion', 26]);
-                    window.VWO.push(['track.goalConversion', 28]);
 
                     // if (document.querySelector('.mkto-resource-asset')) {
                     if (formId == 3524 || formId == 3458 || formId == 2581 || formId == 4067 || formId == 5104) {
