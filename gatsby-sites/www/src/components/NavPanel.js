@@ -100,7 +100,7 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured Resource</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2025/07/02131300/GenAIadoption-MorganMorgan-thumbnail.png"
+                                            src="https://static.liveperson.com/static-assets/2025/08/05170244/SyntheticAI-customer-thumbnail-date.png"
                                             alt="Webinar"
                                             width="250"
                                             height="115"
@@ -108,11 +108,11 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                         <div className="dropdown-featured-body">
                                             <p className="subtitle3">WEBINAR</p>
                                             <p className="featured-body">
-                                                Driving GenAI adoption: Lessons from Morgan & Morgan
+                                                Stop AI hallucinations before they damage customer trust
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/webinars/lessons-in-genai-adoption/?utm_source=featured_resources&utm_medium=direct&utm_campaign=morgan_and_morgan_webinar_q3_2025"
+                                                href="/resources/webinars/synthetic-ai/?utm_source=featured_resources&utm_medium=direct&utm_campaign=synthetic_ai_webinar_q3_2025"
                                             >
                                                 Register now
                                             </a>
