@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, addDoc, setDoc, onSnapshot, collection, doc, query, where, serverTimestamp } from 'firebase/firestore';
+import NotFoundPage from '../404';
 
 // Initialize Firebase with environment variables.
 // NOTE: This setup assumes the same environment variables as the user-facing chatbot.
@@ -20,6 +21,11 @@ const appId = typeof __app_id !== 'undefined' ? __app_id : firebaseConfig.appId;
 const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : undefined;
 
 const AgentView = () => {
+
+    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
+        return <NotFoundPage />;
+    }
+
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
     const [authReady, setAuthReady] = useState(false);
