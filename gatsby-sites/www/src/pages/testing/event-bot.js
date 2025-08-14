@@ -2,8 +2,7 @@ import * as React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from 'firebase/auth';
-import { getFirestore, addDoc, onSnapshot, collection, query, serverTimestamp } from 'firebase/firestore';
-import NotFoundPage from '../404';
+import { getFirestore, addDoc, setDoc, onSnapshot, collection, doc, query, where, serverTimestamp } from 'firebase/firestore';
 
 // Retrieve Firebase configuration from environment variables
 // This prevents hard-coding secrets directly in the source code.
@@ -16,14 +15,11 @@ const firebaseConfig = {
     appId: process.env.GATSBY_FIREBASE_APP_ID,
 };
 
-const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+// Global variables for the application ID and authentication token.
+const appId = typeof __app_id !== 'undefined' ? __app_id : firebaseConfig.appId;
 const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : undefined;
 
 const App = () => {
-    if (process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
-        return <NotFoundPage />;
-    }
-
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -53,11 +49,12 @@ const App = () => {
     - Mission: To empower brands to unlock the power of conversations and orchestrate seamless experiences across digital and voice channels with conversational AI.
   `;
 
+    // Initialize Firebase and set up authentication
     useEffect(() => {
-        // Firebase initialization and authentication
         try {
-            if (!firebaseConfig.projectId || !firebaseConfig.apiKey) {
-                throw new Error("Firebase configuration is missing. This is likely because the environment variables were not set correctly during the build process.");
+            if (!firebaseConfig.projectId) {
+                // If there's no projectId, it's likely the .env file is missing
+                throw new Error("Firebase configuration is missing. Please ensure you have a .env file with your Firebase credentials.");
             }
 
             const app = initializeApp(firebaseConfig);
@@ -89,25 +86,22 @@ const App = () => {
         }
     }, []);
 
+    // Listen for messages in the user's conversation path
     useEffect(() => {
         if (!authReady || !db || !userId) return;
 
-        const conversationPath = `/artifacts/${appId}/users/${userId}/conversations`;
-        const messagesRef = collection(db, conversationPath);
-        const q = query(messagesRef);
+        // Correct path to the messages subcollection
+        const messagesRef = collection(db, `/artifacts/${appId}/conversations/${userId}/messages`);
 
-        const unsubscribe = onSnapshot(q, (snapshot) => {
+        const unsubscribe = onSnapshot(messagesRef, (snapshot) => {
             const newMessages = snapshot.docs
                 .map(doc => doc.data())
                 .sort((a, b) => a.timestamp?.toMillis() - b.timestamp?.toMillis());
             setMessages(newMessages);
 
             if (newMessages.length === 0) {
-                addDoc(messagesRef, {
-                    text: "Hello! I am a chatbot with information about the LivePerson U.S. Open event and the company LivePerson. How can I help you?",
-                    sender: 'bot',
-                    timestamp: serverTimestamp(),
-                });
+                // If this is a new conversation, create the initial message and add it to the live-conversations list
+                startConversation(messagesRef);
             }
         }, (error) => {
             console.error("Error fetching messages:", error);
@@ -116,6 +110,31 @@ const App = () => {
 
         return () => unsubscribe();
     }, [authReady, db, userId]);
+
+    // Function to start a new conversation and add it to the agent's view
+    const startConversation = async (messagesRef) => {
+        const liveConversationsRef = doc(db, `/artifacts/${appId}/live-conversations/${userId}`);
+        const welcomeMessage = {
+            text: "Hello! I am a chatbot with information about the LivePerson U.S. Open event and the company LivePerson. How can I help you?",
+            sender: 'bot',
+            timestamp: serverTimestamp(),
+        };
+
+        try {
+            // Add the welcome message to the user's chat
+            await addDoc(messagesRef, welcomeMessage);
+
+            // Add the conversation to the agent's live list
+            await setDoc(liveConversationsRef, {
+                userId,
+                lastMessage: welcomeMessage.text,
+                timestamp: welcomeMessage.timestamp
+            });
+        } catch (error) {
+            console.error("Failed to start conversation:", error);
+            setFirebaseError("Failed to start conversation. Check your security rules and network connection.");
+        }
+    };
 
     const isGreeting = (text) => {
         const greetings = ['hello', 'hi', 'hey', 'yo', 'sup', 'greetings'];
@@ -126,7 +145,9 @@ const App = () => {
         e.preventDefault();
         if (input.trim() === '' || !db || !userId) return;
 
-        const messagesRef = collection(db, `/artifacts/${appId}/users/${userId}/conversations`);
+        const messagesRef = collection(db, `/artifacts/${appId}/conversations/${userId}/messages`);
+        const liveConversationsRef = doc(db, `/artifacts/${appId}/live-conversations/${userId}`);
+
         const userMessage = {
             text: input,
             sender: 'user',
@@ -135,14 +156,23 @@ const App = () => {
 
         try {
             await addDoc(messagesRef, userMessage);
+            // Update the live conversation list with the new message
+            await setDoc(liveConversationsRef, {
+                userId,
+                lastMessage: userMessage.text,
+                timestamp: userMessage.timestamp
+            }, { merge: true });
+
             setInput('');
             setIsLoading(true);
         } catch (error) {
             setFirebaseError(`Firestore Write Error: ${error.message}. Check your security rules.`);
             console.error("Firestore Write Error:", error);
+            setIsLoading(false);
             return;
         }
 
+        // Logic for handling bot replies
         if (isGreeting(input)) {
             const botMessage = {
                 text: "Hello there! How can I help you?",
@@ -187,14 +217,9 @@ const App = () => {
         });
 
         const payload = { contents: chatHistory };
-        // Get the Gemini API key from an environment variable
+        // Get the Gemini API key from an environment variable.
         const apiKey = process.env.GATSBY_GEMINI_API_KEY;
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
-        if (!apiKey) {
-            console.error("Gemini API key is not set. Please check your environment variables.");
-            throw new Error("Gemini API key is not configured.");
-        }
 
         let response;
         let retries = 0;
@@ -238,28 +263,27 @@ const App = () => {
         scrollToBottom();
     }, [messages]);
 
-    // CSS styles embedded directly in the component
     const styles = `
     .chat-container {
       display: flex;
       flex-direction: column;
       height: 100vh;
-      background-color: #f3f4f6; /* bg-gray-100 */
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* font-sans */
-      -webkit-font-smoothing: antialiased; /* antialiased */
+      background-color: #f3f4f6;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
     .header {
       padding: 1rem;
       background-color: white;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .header h1 {
-      font-size: 1.25rem; /* text-xl */
-      font-weight: 700; /* font-bold */
-      color: #1f2937; /* text-gray-800 */
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1f2937;
     }
     .message-area {
       flex: 1;
@@ -267,30 +291,34 @@ const App = () => {
       padding: 1rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem; /* space-y-4 */
+      gap: 1rem;
     }
     .message-container {
       display: flex;
     }
     .message-container.user {
-      justify-content: flex-end; /* justify-end */
+      justify-content: flex-end;
     }
-    .message-container.bot {
-      justify-content: flex-start; /* justify-start */
+    .message-container.bot, .message-container.agent {
+      justify-content: flex-start;
     }
     .message-bubble {
-      max-width: 80%; /* Adjusted max-width for better responsiveness */
+      max-width: 80%;
       padding: 1rem;
-      border-radius: 1.5rem; /* rounded-3xl */
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
     .message-bubble.user {
-      background-color: #3b82f6; /* bg-blue-500 */
+      background-color: #3b82f6;
       color: white;
     }
     .message-bubble.bot {
       background-color: white;
-      color: #1f2937; /* text-gray-800 */
+      color: #1f2937;
+    }
+    .message-bubble.agent {
+      background-color: #10b981;
+      color: white;
     }
     .message-bubble p {
       margin: 0;
@@ -298,58 +326,56 @@ const App = () => {
     .input-form {
       padding: 1rem;
       background-color: white;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
-      gap: 0.5rem; /* space-x-2 */
+      gap: 0.5rem;
     }
     .input-field {
       flex: 1;
       padding: 0.75rem;
-      border: 1px solid #d1d5db; /* border-gray-300 */
-      border-radius: 9999px; /* rounded-full */
+      border: 1px solid #d1d5db;
+      border-radius: 9999px;
       outline: none;
-      color: #1f2937; /* text-gray-800 */
+      color: #1f2937;
     }
     .input-field:focus {
       border-color: #3b82f6;
-      box-shadow: 0 0 0 2px #3b82f6; /* focus:ring-2 focus:ring-blue-500 */
+      box-shadow: 0 0 0 2px #3b82f6;
     }
     .submit-button {
-      background-color: #2563eb; /* bg-blue-600 */
+      background-color: #2563eb;
       color: white;
       padding: 0.75rem;
-      border-radius: 9999px; /* rounded-full */
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
-      transition-property: all; /* transition duration-300 */
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      transition-duration: 300ms;
+      border-radius: 9999px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
     }
     .submit-button:hover {
-      background-color: #1d4ed8; /* hover:bg-blue-700 */
-      transform: scale(1.05); /* hover:scale-105 */
+      background-color: #1d4ed8;
+      transform: scale(1.05);
     }
     .submit-button:active {
-      transform: scale(0.95); /* active:scale-95 */
+      transform: scale(0.95);
     }
     .submit-button:focus {
       outline: none;
-      box-shadow: 0 0 0 2px #3b82f6; /* focus:ring-2 focus:ring-blue-500 */
+      box-shadow: 0 0 0 2px #3b82f6;
     }
     .submit-button:disabled {
-      background-color: #9ca3af; /* disabled:bg-gray-400 */
+      background-color: #9ca3af;
       transform: none;
       cursor: not-allowed;
     }
     .loading-dots {
       display: flex;
       align-items: center;
-      gap: 0.25rem; /* space-x-1 */
+      gap: 0.25rem;
       background-color: white;
       color: #1f2937;
       padding: 1rem;
       border-radius: 1.5rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
@@ -359,31 +385,34 @@ const App = () => {
       animation: pulse 1.5s infinite;
       width: 0.5rem;
       height: 0.5rem;
-      background-color: #9ca3af; /* bg-gray-400 */
-      border-radius: 9999px; /* rounded-full */
+      background-color: #9ca3af;
+      border-radius: 9999px;
+    }
+    .error-box {
+      font-size: 1.25rem;
+      color: #ef4444;
+      text-align: center;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .loading-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f3f4f6;
     }
   `;
 
     if (firebaseError) {
         return (
-            <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: '100vh',
-                backgroundColor: '#f3f4f6',
-            }}>
-                <div style={{
-                    fontSize: '1.25rem',
-                    color: '#ef4444',
-                    textAlign: 'center',
-                    padding: '1rem',
-                }}>
+            <div className="loading-screen">
+                <div className="error-box">
                     Error: {firebaseError}
                     <br />
                     This is often caused by incorrect **Firebase Security Rules** for Firestore.
-                    <br />
-                    Please go to your Firebase console, navigate to Firestore Database, and update your rules to allow authenticated users to access their own data.
                 </div>
             </div>
         );
@@ -391,14 +420,8 @@ const App = () => {
 
     if (!authReady) {
         return (
-            <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: '100vh',
-                backgroundColor: '#f3f4f6',
-            }}>
-                <div style={{ fontSize: '1.25rem', color: '#4b5563' }}>Loading...</div>
+            <div className="loading-screen">
+                <div className="text-xl text-gray-600">Loading...</div>
             </div>
         );
     }
