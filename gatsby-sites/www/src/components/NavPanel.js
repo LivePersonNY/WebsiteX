@@ -130,10 +130,9 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                             width="180"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">REPORT                    </p>
+                                            <p className="subtitle3">REPORT</p>
                                             <p className="featured-body">
-                                                LivePerson Recognized as a Niche Player in the 2025 Gartner® Magic Quadrant™ for Conversational AI Platforms
-                                            </p>
+                                                LivePerson Recognized as a Niche Player in the 2025 Gartner® Magic Quadrant™ for Conversational AI Platforms</p>
                                             <a
                                                 className="dropdown-link-blue"
                                                 href="/resources/reports/2025-gartner-magic-quadrant/?utm_source=featured_resources&utm_medium=direct&utm_campaign=gartner_magic_quadrant_q3_2025"
