@@ -125,18 +125,18 @@ const NavPanel = ({ label, path, children, order, cssClasses, featuredNews, feat
                                     <p className="dropdown-section-title h6">Featured News</p>
                                     <div className="dropdown-featured-container">
                                         <img
-                                            src="https://static.liveperson.com/static-assets/2025/05/22125458/Forrester_AgenticAI_16x9.png"
-                                            alt="Forrester Report"
+                                            src="https://static.liveperson.com/static-assets/2025/08/14121022/Gartner-MQ-Meta_2x.png"
+                                            alt="Report"
                                             width="180"
                                         />
                                         <div className="dropdown-featured-body">
-                                            <p className="subtitle3">A Forrester Trends Report                                            </p>
+                                            <p className="subtitle3">REPORT                        </p>
                                             <p className="featured-body">
-                                                Agentic AI is rising and will reforge businesses that embrace it
+                                                LivePerson Recognized as a Niche Player in the 2025 Gartner® Magic Quadrant™ for Conversational AI Platforms
                                             </p>
                                             <a
                                                 className="dropdown-link-blue"
-                                                href="/resources/reports/agentic-ai-framework/?utm_source=featured_resources&utm_medium=direct&utm_campaign=forrester_report_2025"
+                                                href="/resources/reports/2025-gartner-magic-quadrant/?utm_source=featured_resources&utm_medium=direct&utm_campaign=gartner_magic_quadrant_q3_2025"
                                             // rel="noopener noreferrer"
                                             // target="_blank"
                                             >
