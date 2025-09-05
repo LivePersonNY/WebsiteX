@@ -385,6 +385,14 @@
         "/resources/reports/voice-omnichannel-engagements/": "/resources/reports/voice-omnichannel-engagement/",
         "/resources/success-stories/davids-bridal/": "/resources/success-stories/bridal-retailer/",
         "/resources/success-stories/davids-bridal-covid-19/": "/resources/success-stories/bridal-ecommerce/",
-        "/resources/success-stories/virgin-media-conversational-selling/": "/resources/success-stories/conversational-selling/"
+        "/resources/success-stories/virgin-media-conversational-selling/": "/resources/success-stories/conversational-selling/",
+        "/resources/success-stories/sportpesa-cx-digital-transformation/": "/resources/success-stories/cx-digital-transformation/",
+        "/resources/success-stories/edf-digital-transformation/": "/resources/success-stories/energy-digital-transformation/",
+        "/resources/success-stories/tgh-voice-bot-ai/": "/resources/success-stories/healthcare-voice-bot-ai",
+        "/resources/success-stories/azul-efficient-customer-communication/": "/resources/success-stories/efficient-customer-communication/",
+        "/resources/success-stories/consensys-automates-customer-engagement/": "/resources/success-stories/automates-customer-engagement/",
+        "/resources/success-stories/delta-dental-voice-analytics/": "/resources/success-stories/dental-voice-analytics/",
+        "/resources/success-stories/helping-wayfair-increase-agent-productivity/": "/resources/success-stories/helping-increase-agent-productivity/",
+        "/resources/success-stories/ferris-states-data-unification/": "/resources/success-stories/university-data-unification/"
     }
 }
