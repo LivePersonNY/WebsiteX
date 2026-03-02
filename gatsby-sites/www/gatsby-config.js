@@ -56,8 +56,8 @@ module.exports = {
                 verbose: true,
                 schema: {
                     timeout: 1200000,
-                    // perPage: 10,
-                    // requestConcurrency: 3,
+                    perPage: 10,
+                    requestConcurrency: 1,
                     //this somehow might maybe not really but could help local build?
                 },
                 url: `${process.env.WP_HOST || 'https://edit.liveperson.com'}/graphql`,
@@ -202,38 +202,6 @@ module.exports = {
                 allowList: ['CAN_ROOT', 'NODE_ENV', 'BRANCH', 'GATSBY_IS_PREVIEW', 'LOCALIZE_KEY', 'GA_ID', 'GTM_ID'],
             },
         },
-        // {
-        //     resolve: 'gatsby-plugin-google-tagmanager',
-        //     options: {
-        //         id: 'GTM-MSGVMLVN',
-
-                // Include GTM in development.
-                //
-                // Defaults to false meaning GTM will only be loaded in production.
-                // includeInDevelopment: true,
-
-                // datalayer to be set before GTM is loaded
-                // should be an object or a function that is executed in the browser
-                //
-                // Defaults to null
-                // defaultDataLayer: { platform: "gatsby" },
-
-                // Specify optional GTM environment details.
-                // gtmAuth: process.env.GTM_AUTH || '',
-                // gtmPreview: process.env.GTM_ENV || '',
-                // dataLayerName: "YOUR_DATA_LAYER_NAME",
-
-                // Name of the event that is triggered
-                // on every Gatsby route change.
-                //
-                // Defaults to gatsby-route-change
-                // routeChangeEventName: 'pageview',
-                // Defaults to false
-                // enableWebVitalsTracking: true,
-                // Defaults to https://www.googletagmanager.com
-                // selfHostedOrigin: "YOUR_SELF_HOSTED_ORIGIN",
-            // },
-        // },
         {
             resolve: 'gatsby-plugin-google-tagmanager',
             options: {
