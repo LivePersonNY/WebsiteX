@@ -57,9 +57,10 @@ module.exports = {
                 schema: {
                     timeout: 1200000,
                     perPage: 10,
-                    requestConcurrency: 1,
                     //this somehow might maybe not really but could help local build?
                 },
+                requestConcurrency: 1,
+                previewRequestConcurrency: 1,
                 url: `${process.env.WP_HOST || 'https://edit.liveperson.com'}/graphql`,
                 debug: {
                     preview: true,
