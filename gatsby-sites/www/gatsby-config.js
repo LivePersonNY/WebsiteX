@@ -56,7 +56,7 @@ module.exports = {
                 verbose: true,
                 schema: {
                     timeout: 1200000,
-                    perPage: 10,
+                    perPage: 5,
                     //this somehow might maybe not really but could help local build?
                 },
                 requestConcurrency: 1,
