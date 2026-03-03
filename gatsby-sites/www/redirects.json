@@ -1,5 +1,6 @@
 {
     "redirects": {
+        "/conversation-simulator": "/syntrix",
         "/about": "/company",
         "/agent-console": "https://knowledge.liveperson.com",
         "/agent-console/*": "https://knowledge.liveperson.com",
