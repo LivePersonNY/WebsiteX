@@ -7,7 +7,8 @@ import './src/resources/scss/index.scss';
 
 /**
  * Inject a "Reject All" button into the OneTrust banner (loaded async via GTM),
- * placing it directly under the existing "Accept All" button.
+ * placing it directly under the existing "Accept All" button, and styling it
+ * to match Accept using computed styles (all via JS).
  */
 function initOneTrustRejectAllInjection() {
     if (typeof window === 'undefined' || typeof document === 'undefined') return;
@@ -16,6 +17,55 @@ function initOneTrustRejectAllInjection() {
     window.__lpOneTrustRejectAllInit = true;
 
     const CUSTOM_ID = 'lp-onetrust-reject-all-btn';
+
+    const copyComputedStyles = (fromEl, toEl) => {
+        const cs = window.getComputedStyle(fromEl);
+
+        const propsToCopy = [
+            'display',
+            'width',
+            'maxWidth',
+            'minWidth',
+            'height',
+            'boxSizing',
+            'paddingTop',
+            'paddingRight',
+            'paddingBottom',
+            'paddingLeft',
+            'marginTop',
+            'marginRight',
+            'marginBottom',
+            'marginLeft',
+            'fontFamily',
+            'fontSize',
+            'fontWeight',
+            'lineHeight',
+            'letterSpacing',
+            'textTransform',
+            'textAlign',
+            'borderRadius',
+            'boxShadow',
+            'outline',
+            'borderTopWidth',
+            'borderRightWidth',
+            'borderBottomWidth',
+            'borderLeftWidth',
+            'borderTopStyle',
+            'borderRightStyle',
+            'borderBottomStyle',
+            'borderLeftStyle',
+        ];
+
+        propsToCopy.forEach((p) => {
+            toEl.style[p] = cs[p];
+        });
+
+        toEl.style.display = 'block';
+        toEl.style.marginTop = '12px';
+        toEl.style.cursor = 'pointer';
+
+        return cs;
+    };
 
     const tryInject = () => {
         const banner = document.querySelector('#onetrust-banner-sdk');
@@ -26,18 +76,36 @@ function initOneTrustRejectAllInjection() {
 
         if (banner.querySelector(`#${CUSTOM_ID}`)) return true;
 
-        const parent = acceptBtn.parentElement;
-        if (!parent) return false;
-
         const rejectBtn = document.createElement('button');
         rejectBtn.type = 'button';
         rejectBtn.id = CUSTOM_ID;
-
-        rejectBtn.className = acceptBtn.className || 'ot-sdk-button ot-sdk-button-primary';
         rejectBtn.textContent = 'Reject All Cookies';
 
-        rejectBtn.style.display = 'block';
-        rejectBtn.style.marginTop = '10px';
+        const acceptStyles = copyComputedStyles(acceptBtn, rejectBtn);
+
+        const brandColor = acceptStyles.backgroundColor || '#2DB0EA';
+
+        rejectBtn.style.backgroundColor = 'transparent';
+        rejectBtn.style.borderColor = brandColor;
+
+        if (
+            rejectBtn.style.borderTopWidth === '0px' &&
+            rejectBtn.style.borderRightWidth === '0px' &&
+            rejectBtn.style.borderBottomWidth === '0px' &&
+            rejectBtn.style.borderLeftWidth === '0px'
+        ) {
+            rejectBtn.style.borderWidth = '2px';
+            rejectBtn.style.borderStyle = 'solid';
+        }
+
+        rejectBtn.style.color = brandColor;
+
+        rejectBtn.addEventListener('mouseenter', () => {
+            rejectBtn.style.filter = 'brightness(0.95)';
+        });
+        rejectBtn.addEventListener('mouseleave', () => {
+            rejectBtn.style.filter = 'none';
+        });
 
         rejectBtn.addEventListener('click', () => {
             try {
@@ -64,7 +132,7 @@ function initOneTrustRejectAllInjection() {
             }
         });
 
-        parent.appendChild(rejectBtn);
+        acceptBtn.insertAdjacentElement('afterend', rejectBtn);
         return true;
     };
 
