@@ -61,7 +61,7 @@ function initOneTrustRejectAllInjection() {
         });
 
         toEl.style.display = 'block';
-        toEl.style.marginTop = '12px';
+        toEl.style.marginTop = '0px';
         toEl.style.cursor = 'pointer';
 
         return cs;
