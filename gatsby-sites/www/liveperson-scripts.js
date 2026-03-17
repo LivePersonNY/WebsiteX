@@ -17,13 +17,11 @@ window.testGated = function () {
 
 window.lpHydrateAttributes = function () {
     if (!hasConsent(CONSENT_GROUPS.performance)) {
-        console.log('Performance consent not granted. Skipping LivePerson attribution hydration.');
         return;
     }
 
     LivePerson.HydrateAttributes(function () {
         if (!hasConsent(CONSENT_GROUPS.functional)) {
-            console.log('Functional consent not granted. Skipping chat bind.');
             return;
         }
 
@@ -56,9 +54,12 @@ window.documentReadyFn = function () {
 
     window.lpHydrateAttributes();
 
-    onConsentChange(function () {
-        window.lpHydrateAttributes();
-    });
+    if (!window.__lpConsentListenerBound) {
+        window.__lpConsentListenerBound = true;
+        onConsentChange(function () {
+            window.lpHydrateAttributes();
+        });
+    }
 
     console.log('Document ready.');
 

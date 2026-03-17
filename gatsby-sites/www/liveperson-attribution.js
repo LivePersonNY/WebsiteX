@@ -1,15 +1,13 @@
 import $ from 'jquery';
-import { CONSENT_GROUPS, hasConsent } from './src/utils/consent';
 
 const Dictionary = require('./dictionary.json');
 
 const Cookie = {
     set: function (name, value, days) {
-        if (value === undefined || value === null || value === '') return;
         var date = new Date();
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
         var expires = '; expires=' + date.toGMTString();
-        document.cookie = name + '=' + value + expires + '; path=/; domain=liveperson.com; SameSite=Lax';
+        document.cookie = name + '=' + value + expires + '; path=/; domain=liveperson.com;';
     },
     get: function (cname) {
         let name = cname + '=';
@@ -33,20 +31,6 @@ const Query = {
         var match = RegExp('[?&]' + key + '=([^&]*)').exec(window.location.search);
         var value = match && decodeURIComponent(match[1].replace(/\+/g, ' '));
         return value;
-    },
-};
-
-
-const AttributionConsent = {
-    allowed: function () {
-        return hasConsent(CONSENT_GROUPS.performance);
-    },
-    ensure: function () {
-        if (!this.allowed()) {
-            console.log('Skipping attribution cookies until Performance consent is granted.');
-            return false;
-        }
-        return true;
     },
 };
 
@@ -131,11 +115,10 @@ const MktoForms = {
 
 const LivePerson = {
     HydrateAttributes: function (callback) {
-        if (!AttributionConsent.ensure()) {
+        if (!hasConsent(CONSENT_GROUPS.performance)) {
             if (callback) callback();
             return;
         }
-
         var leadSourceCookie = Cookie.get('lp-leadSource');
         var lsRef = Cookie.get('lp-lsRef');
         var lsTerms = Cookie.get('lp-lsTerms');
@@ -408,7 +391,6 @@ const LivePerson = {
 
     BindToChat: function () {
         if (!hasConsent(CONSENT_GROUPS.functional)) {
-            console.log('Skipping LivePerson chat bind until Functional consent is granted.');
             return;
         }
 
@@ -416,6 +398,10 @@ const LivePerson = {
             window.lpTag.newPage(window.location.href, {
                 section: ['salesPages'],
             });
+        }
+
+        if (!window.lpTag) {
+            return;
         }
 
         window.lpTag.sdes = window.lpTag.sdes || [];

@@ -7,10 +7,12 @@ import Seo from '../components/Seo';
 import NotFoundPage from './404';
 import $ from 'jquery';
 import PlainContent from '../components/blocks/PlainContent';
+import { CONSENT_GROUPS, hasConsent } from '../utils/consent';
+import { loadMarketoScript } from '../utils/marketo';
 
 const Flywheel = () => {
     useEffect(() => {
-        $('.btn-flywheel-results').on('click', () => {
+        const clickHandler = async () => {
             if (
                 $('input[name="questionOne"').is(':checked') &&
                 $('input[name="questionTwo"').is(':checked') &&
@@ -27,15 +29,26 @@ const Flywheel = () => {
                 )}; Connect: ${$('input[name="questionTwo"]:checked').data('question-score')}; Assist: ${$(
                     'input[name="questionThree"]:checked'
                 ).data('question-score')}; Automate: ${$('input[name="questionFour"]:checked').data('question-score')}`;
-                // console.log(resultsFormValue);
+
                 $('input[name=maturityAssessmentQuizResults]').val(resultsFormValue);
 
-                MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', 5024, function (form) {
+                if (!hasConsent(CONSENT_GROUPS.performance)) {
+                    console.log('Performance consent not granted. Marketo blocked.');
+                    return;
+                }
+
+                const loaded = await loadMarketoScript();
+
+                if (!loaded || !window.MktoForms2) {
+                    console.log('Marketo script not loaded.');
+                    return;
+                }
+
+                window.MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', 5024, function (form) {
                     form.addHiddenFields({
                         maturityAssessmentQuizResults: resultsFormValue,
                     });
                     form.submit();
-                    // console.log('Submitting values:', form.vals());
                 });
 
                 $('.flywheel-tool-input').hide();
@@ -43,7 +56,13 @@ const Flywheel = () => {
             } else {
                 $('.modal-button').trigger('click');
             }
-        });
+        };
+
+        $('.btn-flywheel-results').on('click', clickHandler);
+
+        return () => {
+            $('.btn-flywheel-results').off('click', clickHandler);
+        };
     }, []);
 
     return (
