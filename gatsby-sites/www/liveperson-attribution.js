@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { CONSENT_GROUPS, hasConsent } from './src/utils/consent';
 
 const Dictionary = require('./dictionary.json');
 
