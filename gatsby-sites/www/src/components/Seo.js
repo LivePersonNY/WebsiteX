@@ -11,6 +11,7 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useState, useEffect } from 'react';
 import { LivePerson, MktoForms } from '../../liveperson-attribution';
+import { CONSENT_GROUPS, hasConsent, onConsentChange } from '../utils/consent';
 
 const marketoScriptId = 'mktoForms';
 
@@ -45,26 +46,36 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
                 window.readyTimeout = setTimeout(waitForDocumentReadyFn, 10);
             } else {
                 clearTimeout(window.readyTimeout);
-                //window.documentReadyFn();
                 setIsReady(true);
             }
         }
+
         waitForDocumentReadyFn();
 
-        if (!document.getElementById(marketoScriptId)) {
-            loadFormScript();
-        } else {
-            setIsLoaded(true);
-        }
+        const detachConsentListener = onConsentChange(() => {
+            if (!hasConsent(CONSENT_GROUPS.performance)) return;
 
+            if (!document.getElementById(marketoScriptId)) {
+                loadFormScript();
+            } else {
+                setIsLoaded(true);
+            }
+        });
+
+        return () => detachConsentListener();
+    }, []);
+
+    useEffect(() => {
         if (isLoaded) {
             MktoForms.Bind();
         }
+    }, [isLoaded]);
 
+    useEffect(() => {
         if (isReady) {
             window.documentReadyFn();
         }
-    }, [isLoaded]);
+    }, [isReady]);
 
     const loadFormScript = () => {
         var s = document.createElement('script');
