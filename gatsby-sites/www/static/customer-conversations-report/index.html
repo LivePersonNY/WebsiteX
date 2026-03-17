@@ -939,10 +939,23 @@
                         </p>
                     </div>
                     <div class="modal-form">
-                        <script src="//info.liveperson.com/js/forms2/js/forms2.min.js"></script>
                         <form id="mktoForm_4999"></form>
                         <script>
-                            MktoForms2.loadForm('//info.liveperson.com', '501-BLE-979', 4999, function (form) {
+                            function lpHasPerformanceConsent() {
+                                var raw = window.OnetrustActiveGroups || window.OptanonActiveGroups || '';
+                                if (!raw || typeof raw !== 'string') return false;
+                                return raw.split(',').some(function (item) {
+                                    return item.trim().split(':')[0] === 'C0002';
+                                });
+                            }
+
+                            function lpLoadMktoReportForm() {
+                                if (!lpHasPerformanceConsent()) return;
+
+                                var initForm = function () {
+                                    if (!window.MktoForms2 || window.__lpMktoReportFormLoaded4999) return;
+                                    window.__lpMktoReportFormLoaded4999 = true;
+                                    MktoForms2.loadForm('//info.liveperson.com', '501-BLE-979', 4999, function (form) {
                                 form.onSuccess(function (values, followUpUrl) {
                                     let formSuccessMessage =
                                         '<p class="form-success">Thank you for submitting your information.<br />Click the button below to grab your copy of State of Customer Conversations 2024.<br /><br /><a href="https://liveperson.docsend.com/view/w5n9ev8sh4txu647" target="_blank" class="btn btn-download download-btn">Download the report</a></p>';
@@ -963,6 +976,26 @@
                                     return false;
                                 });
                             });
+                                };
+
+                                if (window.MktoForms2) {
+                                    initForm();
+                                    return;
+                                }
+
+                                if (!document.getElementById('mktoForms-report')) {
+                                    var s = document.createElement('script');
+                                    s.id = 'mktoForms-report';
+                                    s.async = true;
+                                    s.src = '//info.liveperson.com/js/forms2/js/forms2.min.js';
+                                    s.onload = initForm;
+                                    document.head.appendChild(s);
+                                }
+                            }
+
+                            lpLoadMktoReportForm();
+                            window.addEventListener('OneTrustGroupsUpdated', lpLoadMktoReportForm);
+                            window.addEventListener('OTConsentApplied', lpLoadMktoReportForm);
                         </script>
                     </div>
                 </div>

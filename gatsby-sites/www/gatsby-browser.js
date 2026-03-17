@@ -2,13 +2,9 @@ import bootstrap, { Carousel } from 'bootstrap';
 import runRoi from './roi-implemented';
 
 import './liveperson-scripts';
+
 import './src/resources/scss/index.scss';
 import { CONSENT_GROUPS, hasConsent } from './src/utils/consent';
-
-export const onClientEntry = () => {
-    window.dataLayer = window.dataLayer || [];
-    window.runRoi = runRoi;
-};
 
 export const onRouteUpdate = () => {
     window.dataLayer = window.dataLayer || [];
@@ -32,7 +28,6 @@ export const onRouteUpdate = () => {
             });
         });
     }, 1000);
-
     window.locations = window.locations || [document.referrer];
     locations.push(window.location.href);
     window.previousPath = locations[locations.length - 2];

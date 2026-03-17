@@ -14,7 +14,22 @@
         ></script>
 
         <script>
-            (window.lpTag = window.lpTag || {}),
+            function lpHasFunctionalConsent() {
+                var raw = window.OnetrustActiveGroups || window.OptanonActiveGroups || '';
+                if (!raw || typeof raw !== 'string') return false;
+                return raw.split(',').some(function (item) {
+                    return item.trim().split(':')[0] === 'C0003';
+                });
+            }
+
+            function lpInitFunctionalChat() {
+                if (!lpHasFunctionalConsent() || window.__lpFunctionalChatLoaded) {
+                    return;
+                }
+
+                window.__lpFunctionalChatLoaded = true;
+
+                (window.lpTag = window.lpTag || {}),
                 'undefined' == typeof window.lpTag._tagCount
                     ? ((window.lpTag = {
                           wl: lpTag.wl || null,
@@ -142,6 +157,11 @@
             };
 
             lpTagSoSlow();
+            }
+
+            lpInitFunctionalChat();
+            window.addEventListener('OneTrustGroupsUpdated', lpInitFunctionalChat);
+            window.addEventListener('OTConsentApplied', lpInitFunctionalChat);
         </script>
 
         <style>

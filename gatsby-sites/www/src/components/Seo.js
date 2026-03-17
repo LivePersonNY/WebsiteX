@@ -1,8 +1,6 @@
 /**
  * Seo component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
+ * Gatsby's useStaticQuery React hook
  */
 
 import React from 'react';
@@ -10,10 +8,8 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useState, useEffect } from 'react';
-import { LivePerson, MktoForms } from '../../liveperson-attribution';
-import { CONSENT_GROUPS, hasConsent, onConsentChange } from '../utils/consent';
-
-const marketoScriptId = 'mktoForms';
+import { MktoForms } from '../../liveperson-attribution';
+import { loadMarketoScript, whenPerformanceConsent } from '../utils/marketo';
 
 const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
     const { wp } = useStaticQuery(
@@ -38,7 +34,6 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
 
     const [isLoaded, setIsLoaded] = useState(false);
     const [isReady, setIsReady] = useState(false);
-    const [lzLoaded, setLzLoaded] = useState(false);
 
     useEffect(() => {
         function waitForDocumentReadyFn() {
@@ -52,45 +47,30 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
 
         waitForDocumentReadyFn();
 
-        const detachConsentListener = onConsentChange(() => {
-            if (!hasConsent(CONSENT_GROUPS.performance)) return;
-
-            if (!document.getElementById(marketoScriptId)) {
-                loadFormScript();
-            } else {
+        const unsubscribe = whenPerformanceConsent(async () => {
+            const loaded = await loadMarketoScript();
+            if (loaded) {
                 setIsLoaded(true);
             }
         });
 
-        return () => detachConsentListener();
+        return () => {
+            unsubscribe();
+            clearTimeout(window.readyTimeout);
+        };
     }, []);
 
     useEffect(() => {
-        if (isLoaded) {
+        if (isLoaded && window.MktoForms2) {
             MktoForms.Bind();
         }
     }, [isLoaded]);
 
     useEffect(() => {
-        if (isReady) {
+        if (isReady && window.documentReadyFn) {
             window.documentReadyFn();
         }
     }, [isReady]);
-
-    const loadFormScript = () => {
-        var s = document.createElement('script');
-        s.id = marketoScriptId;
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'https://info.liveperson.com/js/forms2/js/forms2.min.js';
-        s.onreadystatechange = function () {
-            if (this.readyState === 'complete' || this.readyState === 'loaded') {
-                setIsLoaded(true);
-            }
-        };
-        s.onload = () => setIsLoaded(true);
-        document.getElementsByTagName('head')[0].appendChild(s);
-    };
 
     let socialTags = meta.map(function (item, index) {
         return (
@@ -104,7 +84,7 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
     });
 
     if (process.env.GATSBY_IS_PREVIEW === 'true') {
-        robots = "noindex, nofollow";
+        robots = 'noindex, nofollow';
     }
 
     return (
@@ -124,12 +104,10 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
             <script type="application/ld+json">{schema}</script>
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-
             <link
                 href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@700&display=swap"
                 rel="stylesheet"
             />
-
             <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.js"></script>
             <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js"></script>
         </Helmet>
