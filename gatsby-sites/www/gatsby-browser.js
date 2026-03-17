@@ -2,8 +2,13 @@ import bootstrap, { Carousel } from 'bootstrap';
 import runRoi from './roi-implemented';
 
 import './liveperson-scripts';
-
 import './src/resources/scss/index.scss';
+import { CONSENT_GROUPS, hasConsent } from './src/utils/consent';
+
+export const onClientEntry = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.runRoi = runRoi;
+};
 
 export const onRouteUpdate = () => {
     window.dataLayer = window.dataLayer || [];
@@ -11,14 +16,13 @@ export const onRouteUpdate = () => {
 
     const pagePath = location ? location.pathname + location.search + location.hash : undefined;
 
-    if (location && window.Munchkin) {
+    if (location && window.Munchkin && hasConsent(CONSENT_GROUPS.performance)) {
         window.Munchkin.munchkinFunction('visitWebPage', {
             url: location.pathname,
             params: location.search,
         });
     }
 
-    // TODO see how to make this better
     setTimeout(function () {
         const myCarouselElements = document.querySelectorAll('.carousel:not(#carouselExampleFlywheel)');
         myCarouselElements.forEach(function (myCarouselElement) {
@@ -28,6 +32,7 @@ export const onRouteUpdate = () => {
             });
         });
     }, 1000);
+
     window.locations = window.locations || [document.referrer];
     locations.push(window.location.href);
     window.previousPath = locations[locations.length - 2];
@@ -36,5 +41,5 @@ export const onRouteUpdate = () => {
         OneTrust.initializeCookiePolicyHtml();
     }
 
-    console.log('onRouteUpdate', pagePath); // this works
+    console.log('onRouteUpdate', pagePath);
 };

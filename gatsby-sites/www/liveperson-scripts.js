@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import lottie from 'lottie-web';
 import { Cookie, Query, LivePerson } from './liveperson-attribution';
+import { CONSENT_GROUPS, hasConsent, onConsentChange } from './src/utils/consent';
 
 window.lottie = lottie;
 
@@ -15,7 +16,17 @@ window.testGated = function () {
 };
 
 window.lpHydrateAttributes = function () {
+    if (!hasConsent(CONSENT_GROUPS.performance)) {
+        console.log('Performance consent not granted. Skipping LivePerson attribution hydration.');
+        return;
+    }
+
     LivePerson.HydrateAttributes(function () {
+        if (!hasConsent(CONSENT_GROUPS.functional)) {
+            console.log('Functional consent not granted. Skipping chat bind.');
+            return;
+        }
+
         LivePerson.waitForChat(function () {
             LivePerson.BindToChat();
         });
@@ -44,6 +55,10 @@ window.documentReadyFn = function () {
     });
 
     window.lpHydrateAttributes();
+
+    onConsentChange(function () {
+        window.lpHydrateAttributes();
+    });
 
     console.log('Document ready.');
 
