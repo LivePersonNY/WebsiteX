@@ -7,8 +7,9 @@ import Seo from '../components/Seo';
 import NotFoundPage from './404';
 import $ from 'jquery';
 import PlainContent from '../components/blocks/PlainContent';
-import { CONSENT_GROUPS, hasConsent } from '../utils/consent';
-import { loadMarketoScript } from '../utils/marketo';
+// import { CONSENT_GROUPS, hasConsent } from '../utils/consent';
+// import { loadMarketoScript } from '../utils/marketo';
+import { loadMarketoFormsScript } from '../utils/marketo';
 
 const Flywheel = () => {
     useEffect(() => {
@@ -32,12 +33,13 @@ const Flywheel = () => {
 
                 $('input[name=maturityAssessmentQuizResults]').val(resultsFormValue);
 
-                if (!hasConsent(CONSENT_GROUPS.performance)) {
-                    console.log('Performance consent not granted. Marketo blocked.');
-                    return;
-                }
+                // if (!hasConsent(CONSENT_GROUPS.performance)) {
+                //     console.log('Performance consent not granted. Marketo blocked.');
+                //     return;
+                // }
 
-                const loaded = await loadMarketoScript();
+                // const loaded = await loadMarketoScript();
+                const loaded = await loadMarketoFormsScript();
 
                 if (!loaded || !window.MktoForms2) {
                     console.log('Marketo script not loaded.');

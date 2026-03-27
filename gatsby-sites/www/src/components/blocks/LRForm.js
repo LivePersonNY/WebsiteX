@@ -5,7 +5,8 @@ import Link from 'gatsby-link';
 import Paragraph from '../Paragraph';
 import $ from 'jquery';
 import Parser from 'html-react-parser';
-import { whenPerformanceConsent } from '../../utils/marketo';
+// import { whenPerformanceConsent } from '../../utils/marketo';
+import { whenMarketoFormsReady } from '../../utils/marketo';
 
 const LRForm = (props) => {
     let vFrame = (
@@ -22,7 +23,10 @@ const LRForm = (props) => {
         const [isLoaded, setIsLoaded] = useState(false);
 
         useEffect(() => {
-            const unsubscribe = whenPerformanceConsent(() => {
+            // const unsubscribe = whenPerformanceConsent(() => {
+            //     setIsLoaded(true);
+            // });
+             const unsubscribe = whenMarketoFormsReady(() => {
                 setIsLoaded(true);
             });
 

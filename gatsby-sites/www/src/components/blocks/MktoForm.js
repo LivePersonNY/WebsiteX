@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import $ from 'jquery';
 import Parser from 'html-react-parser';
-import { whenPerformanceConsent } from '../../utils/marketo';
+// import { whenPerformanceConsent } from '../../utils/marketo';
+import { whenMarketoFormsReady } from '../../utils/marketo';
 
 const MktoForm = (props) => {
     let mktoFormMobile = function (e) {
@@ -22,7 +23,10 @@ const MktoForm = (props) => {
         const [isLoaded, setIsLoaded] = useState(false);
 
         useEffect(() => {
-            const unsubscribe = whenPerformanceConsent(() => {
+            // const unsubscribe = whenPerformanceConsent(() => {
+            //     setIsLoaded(true);
+            // });
+            const unsubscribe = whenMarketoFormsReady(() => {
                 setIsLoaded(true);
             });
 

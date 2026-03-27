@@ -1,18 +1,12 @@
 import { CONSENT_GROUPS, hasConsent, onConsentChange } from './consent';
 
-export const MARKETO_SCRIPT_ID = 'mktoForms';
-export const MARKETO_SCRIPT_SRC = 'https://info.liveperson.com/js/forms2/js/forms2.min.js';
+export const MARKETO_FORMS_SCRIPT_ID = 'mktoForms';
+export const MARKETO_FORMS_SCRIPT_SRC = 'https://info.liveperson.com/js/forms2/js/forms2.min.js';
 
-let marketoPromise = null;
+let formsPromise = null;
 
-export const canLoadMarketo = () => hasConsent(CONSENT_GROUPS.performance);
-
-export const loadMarketoScript = () => {
+export const loadMarketoFormsScript = () => {
     if (typeof window === 'undefined' || typeof document === 'undefined') {
-        return Promise.resolve(false);
-    }
-
-    if (!canLoadMarketo()) {
         return Promise.resolve(false);
     }
 
@@ -20,13 +14,13 @@ export const loadMarketoScript = () => {
         return Promise.resolve(true);
     }
 
-    if (marketoPromise) {
-        return marketoPromise;
+    if (formsPromise) {
+        return formsPromise;
     }
 
-    const existingScript = document.getElementById(MARKETO_SCRIPT_ID);
+    const existingScript = document.getElementById(MARKETO_FORMS_SCRIPT_ID);
     if (existingScript) {
-        marketoPromise = new Promise((resolve) => {
+        formsPromise = new Promise((resolve) => {
             const markReady = () => resolve(!!window.MktoForms2);
 
             existingScript.addEventListener('load', markReady, { once: true });
@@ -35,44 +29,50 @@ export const loadMarketoScript = () => {
             setTimeout(() => resolve(!!window.MktoForms2), 250);
         });
 
-        return marketoPromise;
+        return formsPromise;
     }
 
-    marketoPromise = new Promise((resolve) => {
+    formsPromise = new Promise((resolve) => {
         const script = document.createElement('script');
-        script.id = MARKETO_SCRIPT_ID;
+        script.id = MARKETO_FORMS_SCRIPT_ID;
         script.type = 'text/javascript';
         script.async = true;
-        script.src = MARKETO_SCRIPT_SRC;
+        script.src = MARKETO_FORMS_SCRIPT_SRC;
         script.onload = () => resolve(true);
         script.onerror = () => resolve(false);
         document.head.appendChild(script);
     });
 
-    return marketoPromise;
+    return formsPromise;
 };
 
-export const whenPerformanceConsent = (callback) => {
+export const whenMarketoFormsReady = (callback) => {
     if (typeof callback !== 'function') return () => {};
 
     let cancelled = false;
 
-    const tryRun = async () => {
-        if (cancelled || !canLoadMarketo()) return;
-        const loaded = await loadMarketoScript();
+    loadMarketoFormsScript().then((loaded) => {
         if (!cancelled && loaded) {
             callback();
         }
-    };
-
-    tryRun();
-
-    const unsubscribe = onConsentChange(() => {
-        tryRun();
     });
 
     return () => {
         cancelled = true;
-        unsubscribe();
     };
+};
+
+export const hasTrackingConsent = () => hasConsent(CONSENT_GROUPS.performance);
+
+export const whenTrackingConsent = (callback) => {
+    if (typeof callback !== 'function') return () => {};
+
+    const run = () => {
+        if (hasTrackingConsent()) {
+            callback();
+        }
+    };
+
+    run();
+    return onConsentChange(run);
 };

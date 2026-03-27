@@ -9,7 +9,8 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useState, useEffect } from 'react';
 import { MktoForms } from '../../liveperson-attribution';
-import { loadMarketoScript, whenPerformanceConsent } from '../utils/marketo';
+// import { loadMarketoScript, whenPerformanceConsent } from '../utils/marketo';
+import { loadMarketoFormsScript, whenMarketoFormsReady } from '../utils/marketo';
 
 const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
     const { wp } = useStaticQuery(
@@ -47,8 +48,14 @@ const Seo = ({ description, lang, meta, title, canonical, robots, schema }) => {
 
         waitForDocumentReadyFn();
 
-        const unsubscribe = whenPerformanceConsent(async () => {
-            const loaded = await loadMarketoScript();
+        // const unsubscribe = whenPerformanceConsent(async () => {
+        //     const loaded = await loadMarketoScript();
+        //     if (loaded) {
+        //         setIsLoaded(true);
+        //     }
+        // });
+        const unsubscribe = whenMarketoFormsReady(async () => {
+            const loaded = await loadMarketoFormsScript();
             if (loaded) {
                 setIsLoaded(true);
             }
