@@ -1,130 +1,144 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
-import Paragraph from '../Paragraph';
-import $ from 'jquery';
-import Parser from 'html-react-parser';
+import * as React from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import Link from "gatsby-link";
+import Paragraph from "../Paragraph";
+import $ from "jquery";
+import Parser from "html-react-parser";
 // import { whenPerformanceConsent } from '../../utils/marketo';
-import { whenMarketoFormsReady } from '../../utils/marketo';
+import { whenMarketoFormsReady } from "../../utils/marketo";
 
 const LRForm = (props) => {
-    let vFrame = (
-        <div className="vimeoContainer">
-            <iframe src={props.vimeoUrl} className="vimeoFrame"></iframe>
-        </div>
-    );
+  let vFrame = (
+    <div className="vimeoContainer">
+      <iframe src={props.vimeoUrl} className="vimeoFrame"></iframe>
+    </div>
+  );
 
-    let formId = props.formId;
+  let formId = props.formId;
 
-    // Strictly for WP //
+  // Strictly for WP //
 
-    if (props.runFilters) {
-        const [isLoaded, setIsLoaded] = useState(false);
+  if (props.runFilters) {
+    const [isLoaded, setIsLoaded] = useState(false);
 
-        useEffect(() => {
-            // const unsubscribe = whenPerformanceConsent(() => {
-            //     setIsLoaded(true);
-            // });
-             const unsubscribe = whenMarketoFormsReady(() => {
-                setIsLoaded(true);
-            });
+    useEffect(() => {
+      // const unsubscribe = whenPerformanceConsent(() => {
+      //     setIsLoaded(true);
+      // });
+      const unsubscribe = whenMarketoFormsReady(() => {
+        setIsLoaded(true);
+      });
 
-            return unsubscribe;
-        }, []);
+      return unsubscribe;
+    }, []);
 
-        useEffect(() => {
-            if (isLoaded) {
-                if ($('#mktoForm_' + formId).children().length == 0 && window.MktoForms2) {
-                    window.MktoForms2.loadForm('https://info.liveperson.com', '501-BLE-979', formId, function (form) {
-                        form.onValidate(function () {
-                            form.submittable(false);
-                        });
-                    });
-                }
-            }
-        }, [isLoaded, formId]);
-    }
+    useEffect(() => {
+      if (isLoaded) {
+        if (
+          $("#mktoForm_" + formId).children().length == 0 &&
+          window.MktoForms2
+        ) {
+          window.MktoForms2.loadForm(
+            "https://info.liveperson.com",
+            "501-BLE-979",
+            formId,
+          );
+        }
+      }
+    }, [isLoaded, formId]);
+  }
 
-    return (
-        <>
+  return (
+    <>
+      <div
+        data-localize={props.autoApprove && `auto-approve`}
+        autoapprove={props.autoApprove && "true"}
+        id={props.anchor}
+        className={`pane ${props.backgroundColor || "bg-transparent"} comp-left-right ${
+          props.repeat ? "comp-left-right-repeat" : ""
+        } ${props.formId ? "pane-form form-vertical" : ""}`}
+      >
+        <div className="container">
+          <div className="row align-items-center">
             <div
-                data-localize={props.autoApprove && `auto-approve`}
-                autoapprove={props.autoApprove && 'true'}
-                id={props.anchor}
-                className={`pane ${props.backgroundColor || 'bg-transparent'} comp-left-right ${
-                    props.repeat ? 'comp-left-right-repeat' : ''
-                } ${props.formId ? 'pane-form form-vertical' : ''}`}
+              className={`col-lg-6 ${props.flipColumns ? "order-last" : "order-lg-first order-last"}`}
             >
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className={`col-lg-6 ${props.flipColumns ? 'order-last' : 'order-lg-first order-last'}`}>
-                            {props.formId && (
-                                <>
-                                    <form id={`mktoForm_${formId}`} mkto={formId}></form>
-                                    <mkto-after mkto={formId}>
-                                        {props.thankyouControl || Parser(props.thankyou)}
-                                    </mkto-after>
-                                </>
-                            )}
-                        </div>
-                        <div className={`col-lg-6 ${props.flipColumns ? 'order-first' : 'order-lg-last order-first'}`}>
-                            {props.headLevel == 'h2' && (
-                                <>
-                                    {props.kicker && <p className="h6 text-uppercase">{props.kicker}</p>}
-                                    <h2>
-                                        <Paragraph text={props.title} headerLevel={props.headLevel} />
-                                    </h2>
-                                </>
-                            )}
-                            {props.headLevel == 'h1' && (
-                                <h1>
-                                    {props.kicker && (
-                                        <span className="h6 text-uppercase">
-                                            <Paragraph text={props.kicker} headerLevel="nothing" />
-                                        </span>
-                                    )}
-                                    <Paragraph text={props.title} headerLevel={props.headLevel} />
-                                </h1>
-                            )}
-                            <Paragraph text={props.body} wrapClass="rich-container mb-4" />
-                            {props.mediaKicker && <h6 className="text-uppercase">{props.mediaKicker}</h6>}
-                            {(!props.imgCtl && props.imgSrc && (
-                                <img
-                                    src={props.imgSrc}
-                                    alt={props.imgAlt || ''}
-                                    width={props.imgWidth}
-                                    height={props.imgHeight}
-                                    loading="lazy"
-                                />
-                            )) ||
-                                props.imgCtl ||
-                                props.lottiePlayer}
-                            {props.vimeoUrl && vFrame}
-
-                            {props.linkText && (
-                                <a className="btn btn-outline-secondary" href={props.linkUrl}>
-                                    {props.linkText}
-                                </a>
-                            )}
-                            {props.linkSecondaryText && (
-                                <a className="btn btn-link" href={props.linkSecondaryUrl}>
-                                    {props.linkSecondaryText}
-                                </a>
-                            )}
-                        </div>
-                    </div>
-                </div>
-                {props.resourceasset && (
-                    <div
-                        data-resourceasset={props.resourceasset}
-                        data-resourceAssetURL={props.resourceAssetURL}
-                        className="display-none mkto-resource-asset"
-                    ></div>
-                )}
+              {props.formId && (
+                <>
+                  <form id={`mktoForm_${formId}`} mkto={formId}></form>
+                  <mkto-after mkto={formId}>
+                    {props.thankyouControl || Parser(props.thankyou)}
+                  </mkto-after>
+                </>
+              )}
             </div>
-        </>
-    );
+            <div
+              className={`col-lg-6 ${props.flipColumns ? "order-first" : "order-lg-last order-first"}`}
+            >
+              {props.headLevel == "h2" && (
+                <>
+                  {props.kicker && (
+                    <p className="h6 text-uppercase">{props.kicker}</p>
+                  )}
+                  <h2>
+                    <Paragraph
+                      text={props.title}
+                      headerLevel={props.headLevel}
+                    />
+                  </h2>
+                </>
+              )}
+              {props.headLevel == "h1" && (
+                <h1>
+                  {props.kicker && (
+                    <span className="h6 text-uppercase">
+                      <Paragraph text={props.kicker} headerLevel="nothing" />
+                    </span>
+                  )}
+                  <Paragraph text={props.title} headerLevel={props.headLevel} />
+                </h1>
+              )}
+              <Paragraph text={props.body} wrapClass="rich-container mb-4" />
+              {props.mediaKicker && (
+                <h6 className="text-uppercase">{props.mediaKicker}</h6>
+              )}
+              {(!props.imgCtl && props.imgSrc && (
+                <img
+                  src={props.imgSrc}
+                  alt={props.imgAlt || ""}
+                  width={props.imgWidth}
+                  height={props.imgHeight}
+                  loading="lazy"
+                />
+              )) ||
+                props.imgCtl ||
+                props.lottiePlayer}
+              {props.vimeoUrl && vFrame}
+
+              {props.linkText && (
+                <a className="btn btn-outline-secondary" href={props.linkUrl}>
+                  {props.linkText}
+                </a>
+              )}
+              {props.linkSecondaryText && (
+                <a className="btn btn-link" href={props.linkSecondaryUrl}>
+                  {props.linkSecondaryText}
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+        {props.resourceasset && (
+          <div
+            data-resourceasset={props.resourceasset}
+            data-resourceAssetURL={props.resourceAssetURL}
+            className="display-none mkto-resource-asset"
+          ></div>
+        )}
+      </div>
+    </>
+  );
 };
 
 export default LRForm;
