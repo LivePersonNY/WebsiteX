@@ -35,64 +35,74 @@ const Bio = ({ id, date, readingTime, multiAuthors }) => {
         }
     `);
 
-    let authorBox = authors.map(function ({ info }) {
-        return multiAuthors.map(function (authorId) {
-            // console.log(info, authorId);
+    const renderAuthor = function (author) {
+        let authorOrder;
+        if (id === author.id) {
+            authorOrder = 'order-1';
+        } else {
+            authorOrder = 'order-2';
+        }
 
-            let authorOrder;
-            if (id === info.id) {
-                authorOrder = 'order-1';
-            } else {
-                authorOrder = 'order-2';
-            }
+        const avatarUrl = author?.avatar?.url;
 
-            if (authorId.uri.indexOf(`/${info.slug}/`) >= 0) {
-                // console.log(info);
-
-                const author = info;
-                const avatarUrl = author?.avatar?.url;
-
-                return (
-                    <div className={`bio col-lg-5 mb-4 ${authorOrder}`} key={author.firstName}>
-                        {/* {console.log(`${author.firstName} ${author.lastName}`)} */}
-                        <div className="row">
-                            <div className="col-lg-10">
-                                <div className="bio-img">
-                                    <a href={author.uri}>
-                                        <img
-                                            src={avatarUrl}
-                                            className="rounded-circle"
-                                            width="52"
-                                            height="52"
-                                            loading="eager"
-                                        />
-                                    </a>
-                                </div>
-                                <div className="bio-body">
-                                    <p className="h5">
-                                        <a href={author.uri}>
-                                            {author.firstName} {author.lastName}
-                                        </a>
-                                        {author.seo.social.mySpace && (
-                                            <>
-                                                <br />
-                                                <span className="bio-company">
-                                                    {author.seo.social.mySpace}, {author.seo.social.soundCloud}
-                                                </span>
-                                            </>
-                                        )}
-                                    </p>
-                                    <p className="h6 date">
-                                        {date} &bull; {readingTime} minutes
-                                    </p>
-                                </div>
-                            </div>
+        return (
+            <div className={`bio col-lg-5 mb-4 ${authorOrder}`} key={author.id}>
+                <div className="row">
+                    <div className="col-lg-10">
+                        <div className="bio-img">
+                            <a href={author.uri}>
+                                <img src={avatarUrl} className="rounded-circle" width="52" height="52" loading="eager" />
+                            </a>
+                        </div>
+                        <div className="bio-body">
+                            <p className="h5">
+                                <a href={author.uri}>
+                                    {author.firstName} {author.lastName}
+                                </a>
+                                {author.seo.social.mySpace && (
+                                    <>
+                                        <br />
+                                        <span className="bio-company">
+                                            {author.seo.social.mySpace}, {author.seo.social.soundCloud}
+                                        </span>
+                                    </>
+                                )}
+                            </p>
+                            <p className="h6 date">
+                                {date} &bull; {readingTime} minutes
+                            </p>
                         </div>
                     </div>
-                );
+                </div>
+            </div>
+        );
+    };
+
+    let matchedAuthors = [];
+
+    authors.forEach(function ({ info }) {
+        multiAuthors.forEach(function (authorId) {
+            if (authorId.uri && authorId.uri.indexOf(`/${info.slug}/`) >= 0) {
+                matchedAuthors.push(info);
             }
         });
     });
+
+    if (id) {
+        const primaryAuthor = authors.find(function ({ info }) {
+            return info.id === id;
+        });
+
+        const hasPrimaryAuthor = matchedAuthors.some(function (author) {
+            return author.id === id;
+        });
+
+        if (primaryAuthor && !hasPrimaryAuthor) {
+            matchedAuthors.push(primaryAuthor.info);
+        }
+    }
+
+    let authorBox = matchedAuthors.map(renderAuthor);
 
     return <div className="row">{authorBox}</div>;
 };
