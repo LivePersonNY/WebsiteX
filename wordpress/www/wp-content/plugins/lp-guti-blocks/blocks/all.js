@@ -34,6 +34,7 @@ import "./roi-content/src/index";
 import "./roi-header/src/index";
 import "./overlay-slider/src/index";
 import "./mkto-form-report-2024/src/index";
+import "./content-toc/src/index";
 
 import $ from "jquery";
 

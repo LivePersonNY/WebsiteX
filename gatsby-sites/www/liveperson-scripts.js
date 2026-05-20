@@ -250,6 +250,90 @@ window.documentReadyFn = function () {
         }
     }
 
+    function slugifyContentTocHeading(text) {
+        return text
+            .toLowerCase()
+            .trim()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/[\s_-]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+
+    function initContentToc() {
+        document.querySelectorAll('.comp-content-toc').forEach(function (block, blockIndex) {
+            var nav = block.querySelector('.comp-content-toc__nav');
+            var content = block.querySelector('.comp-content-toc__content');
+            if (!nav || !content) {
+                return;
+            }
+
+            var headings = Array.from(content.querySelectorAll('h2, h3')).filter(function (heading) {
+                return heading.textContent.trim();
+            });
+
+            nav.innerHTML = '';
+            if (!headings.length) {
+                block.classList.add('comp-content-toc--empty');
+                return;
+            }
+
+            var slugCounts = {};
+            var links = headings.map(function (heading, index) {
+                var baseSlug = heading.id || slugifyContentTocHeading(heading.textContent) || `section-${index + 1}`;
+                slugCounts[baseSlug] = (slugCounts[baseSlug] || 0) + 1;
+                var slug = slugCounts[baseSlug] === 1 ? baseSlug : `${baseSlug}-${slugCounts[baseSlug]}`;
+
+                if (!heading.id) {
+                    heading.id = `content-toc-${blockIndex + 1}-${slug}`;
+                }
+
+                var link = document.createElement('a');
+                link.className = `comp-content-toc__link comp-content-toc__link--${heading.tagName.toLowerCase()}`;
+                link.href = `#${heading.id}`;
+                link.textContent = heading.textContent;
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    if (history.pushState) {
+                        history.pushState(null, '', `#${heading.id}`);
+                    }
+                });
+                nav.appendChild(link);
+                return { heading: heading, link: link };
+            });
+
+            function setActive(activeItem) {
+                links.forEach(function (item) {
+                    item.link.classList.toggle('is-active', item === activeItem);
+                });
+            }
+
+            var ticking = false;
+            var updateActiveLink = function () {
+                var activeItem = links[0];
+                links.forEach(function (item) {
+                    if (item.heading.getBoundingClientRect().top <= 150) {
+                        activeItem = item;
+                    }
+                });
+                setActive(activeItem);
+                ticking = false;
+            };
+            var requestActiveLinkUpdate = function () {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateActiveLink);
+                    ticking = true;
+                }
+            };
+
+            updateActiveLink();
+            window.addEventListener('scroll', requestActiveLinkUpdate, { passive: true });
+            window.addEventListener('resize', requestActiveLinkUpdate);
+        });
+    }
+
+    initContentToc();
+
     if (document.location.pathname.includes('policies/public-cloud')) {
         if (window.sessionStorage.getItem('cloudPassword') == 'yes') {
             $('.lightbox').hide();

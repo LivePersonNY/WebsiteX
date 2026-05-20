@@ -1,0 +1,24 @@
+.wp-block-lp-guti-blocks-content-toc {
+	.comp-content-toc {
+		padding-top: 24px;
+		padding-bottom: 24px;
+	}
+
+	.comp-content-toc__toc {
+		position: relative;
+		top: auto;
+		min-height: 140px;
+		border: 1px dashed #989eae;
+		padding: 16px;
+
+		&::before {
+			content: 'Table of contents is generated from H2 and H3 headings on the live page.';
+			display: block;
+			color: #989eae;
+			font-size: 12px;
+			font-weight: 700;
+			line-height: 1.4;
+			text-transform: uppercase;
+		}
+	}
+}

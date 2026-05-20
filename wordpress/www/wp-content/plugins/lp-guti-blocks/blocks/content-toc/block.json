@@ -1,0 +1,27 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "lp-guti-blocks/content-toc",
+	"version": "0.1.0",
+	"title": "Content with Table of Contents",
+	"category": "liveperson",
+	"icon": "editor-ol",
+	"description": "A two-column content block with a generated table of contents from H2 and H3 headings.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lp-guti-blocks",
+	"editorScript": "file:../../build/all.js",
+	"editorStyle": "file:../../build/all.css",
+	"style": "file:../../build/style-all.css",
+	"attributes": {
+		"backgroundColor": {
+			"default": "bg-transparent"
+		},
+		"anchor": {},
+		"autoApproveLang": {
+			"default": false,
+			"type": "boolean"
+		}
+	}
+}
