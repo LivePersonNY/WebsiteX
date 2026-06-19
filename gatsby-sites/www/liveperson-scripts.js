@@ -31,50 +31,89 @@ window.lpHydrateAttributes = function () {
     });
 };
 
+window.lpHubSpotForms = window.lpHubSpotForms || {
+    loadedPortals: {},
+    loadingPortals: {},
+    reloadTimers: {},
+};
+
 window.lpHydrateHubSpotForms = function () {
-    var hubSpotFrames = Array.from(document.querySelectorAll('.hs-form-frame[data-portal-id]'));
-    var hubSpotScripts = Array.from(document.querySelectorAll('script[src*="js.hsforms.net/forms/embed"]'));
+    var hubSpotFrames = Array.from(document.querySelectorAll('.hs-form-frame[data-portal-id][data-form-id]'));
     var portalFrames = {};
-    var portalIds = [];
 
     hubSpotFrames.forEach(function (frame) {
         var portalId = frame.getAttribute('data-portal-id');
-        if (!portalId) {
+        if (!portalId || frame.children.length) {
             return;
         }
+
         portalFrames[portalId] = portalFrames[portalId] || [];
         portalFrames[portalId].push(frame);
-        portalIds.push(portalId);
     });
 
-    hubSpotScripts.forEach(function (script) {
-        var match = script.src.match(/\/embed\/([^/?#]+)\.js/);
-        if (match && match[1]) {
-            portalIds.push(match[1]);
-        }
-    });
-
-    Array.from(new Set(portalIds)).forEach(function (portalId) {
+    Object.keys(portalFrames).forEach(function (portalId) {
         var scriptId = `hsFormsEmbed_${portalId}`;
         var scriptSrc = `https://js.hsforms.net/forms/embed/${portalId}.js`;
-        var frames = portalFrames[portalId] || [];
-        var hasNewFrames = frames.some(function (frame) {
-            return !frame.getAttribute('data-lp-hubspot-requested');
-        });
+        var script = document.getElementById(scriptId);
 
-        if (document.getElementById(scriptId) && !hasNewFrames) {
+        if (window.lpHubSpotForms.loadingPortals[portalId]) {
             return;
         }
 
-        frames.forEach(function (frame) {
-            frame.setAttribute('data-lp-hubspot-requested', 'true');
-        });
+        if (!script) {
+            window.lpHubSpotForms.loadingPortals[portalId] = true;
+            script = document.createElement('script');
+            script.id = scriptId;
+            script.src = scriptSrc;
+            script.defer = true;
+            script.onload = function () {
+                script.dataset.loaded = 'true';
+                window.lpHubSpotForms.loadedPortals[portalId] = true;
+                window.lpHubSpotForms.loadingPortals[portalId] = false;
+                setTimeout(window.lpHydrateHubSpotForms, 250);
+                setTimeout(window.lpHydrateHubSpotForms, 1500);
+            };
+            script.onerror = function () {
+                window.lpHubSpotForms.loadingPortals[portalId] = false;
+            };
+            document.head.appendChild(script);
+            return;
+        }
 
-        var script = document.createElement('script');
-        script.id = document.getElementById(scriptId) ? `${scriptId}_${Date.now()}` : scriptId;
-        script.src = scriptSrc;
-        script.defer = true;
-        document.head.appendChild(script);
+        if (!window.lpHubSpotForms.loadedPortals[portalId] && script.dataset.loaded === 'true') {
+            window.lpHubSpotForms.loadedPortals[portalId] = true;
+        }
+
+        if (window.lpHubSpotForms.reloadTimers[portalId]) {
+            return;
+        }
+
+        window.lpHubSpotForms.reloadTimers[portalId] = setTimeout(function () {
+            var emptyFrames = (portalFrames[portalId] || []).filter(function (frame) {
+                var attempts = parseInt(frame.getAttribute('data-lp-hubspot-attempts') || '0', 10);
+                return !frame.children.length && attempts < 3;
+            });
+
+            window.lpHubSpotForms.reloadTimers[portalId] = null;
+
+            if (!emptyFrames.length) {
+                return;
+            }
+
+            emptyFrames.forEach(function (frame) {
+                var attempts = parseInt(frame.getAttribute('data-lp-hubspot-attempts') || '0', 10);
+                frame.setAttribute('data-lp-hubspot-attempts', attempts + 1);
+            });
+
+            var reloadScript = document.createElement('script');
+            reloadScript.id = `${scriptId}_${Date.now()}`;
+            reloadScript.src = scriptSrc;
+            reloadScript.defer = true;
+            reloadScript.onload = function () {
+                setTimeout(window.lpHydrateHubSpotForms, 500);
+            };
+            document.head.appendChild(reloadScript);
+        }, 250);
     });
 };
 
