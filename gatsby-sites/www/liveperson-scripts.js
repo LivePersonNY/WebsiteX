@@ -31,6 +31,53 @@ window.lpHydrateAttributes = function () {
     });
 };
 
+window.lpHydrateHubSpotForms = function () {
+    var hubSpotFrames = Array.from(document.querySelectorAll('.hs-form-frame[data-portal-id]'));
+    var hubSpotScripts = Array.from(document.querySelectorAll('script[src*="js.hsforms.net/forms/embed"]'));
+    var portalFrames = {};
+    var portalIds = [];
+
+    hubSpotFrames.forEach(function (frame) {
+        var portalId = frame.getAttribute('data-portal-id');
+        if (!portalId) {
+            return;
+        }
+        portalFrames[portalId] = portalFrames[portalId] || [];
+        portalFrames[portalId].push(frame);
+        portalIds.push(portalId);
+    });
+
+    hubSpotScripts.forEach(function (script) {
+        var match = script.src.match(/\/embed\/([^/?#]+)\.js/);
+        if (match && match[1]) {
+            portalIds.push(match[1]);
+        }
+    });
+
+    Array.from(new Set(portalIds)).forEach(function (portalId) {
+        var scriptId = `hsFormsEmbed_${portalId}`;
+        var scriptSrc = `https://js.hsforms.net/forms/embed/${portalId}.js`;
+        var frames = portalFrames[portalId] || [];
+        var hasNewFrames = frames.some(function (frame) {
+            return !frame.getAttribute('data-lp-hubspot-requested');
+        });
+
+        if (document.getElementById(scriptId) && !hasNewFrames) {
+            return;
+        }
+
+        frames.forEach(function (frame) {
+            frame.setAttribute('data-lp-hubspot-requested', 'true');
+        });
+
+        var script = document.createElement('script');
+        script.id = document.getElementById(scriptId) ? `${scriptId}_${Date.now()}` : scriptId;
+        script.src = scriptSrc;
+        script.defer = true;
+        document.head.appendChild(script);
+    });
+};
+
 window.documentReadyFn = function () {
     window.lottieFiles = [];
 
@@ -53,6 +100,7 @@ window.documentReadyFn = function () {
     });
 
     window.lpHydrateAttributes();
+    window.lpHydrateHubSpotForms();
 
     if (!window.__lpConsentListenerBound) {
         window.__lpConsentListenerBound = true;

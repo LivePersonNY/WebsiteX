@@ -36,5 +36,9 @@ export const onRouteUpdate = () => {
         OneTrust.initializeCookiePolicyHtml();
     }
 
+    if (window.lpHydrateHubSpotForms) {
+        window.lpHydrateHubSpotForms();
+    }
+
     console.log('onRouteUpdate', pagePath);
 };
