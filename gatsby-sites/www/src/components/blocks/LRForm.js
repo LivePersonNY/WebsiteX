@@ -7,6 +7,8 @@ import $ from 'jquery';
 import Parser from 'html-react-parser';
 // import { whenPerformanceConsent } from '../../utils/marketo';
 import { whenMarketoFormsReady } from '../../utils/marketo';
+import HubSpotForm from './HubSpotForm';
+import { getHubSpotConfigFromEmbed } from '../../utils/hubspotForms';
 
 const LRForm = (props) => {
     let vFrame = (
@@ -16,6 +18,7 @@ const LRForm = (props) => {
     );
 
     let formId = props.formId;
+    let hubSpotConfig = getHubSpotConfigFromEmbed(formId);
 
     // Strictly for WP //
 
@@ -61,10 +64,15 @@ const LRForm = (props) => {
                         <div className={`col-lg-6 ${props.flipColumns ? 'order-last' : 'order-lg-first order-last'}`}>
                             {props.formId && (
                                 <>
-                                    <form id={`mktoForm_${formId}`} mkto={formId}></form>
-                                    <mkto-after mkto={formId}>
-                                        {props.thankyouControl || Parser(props.thankyou)}
-                                    </mkto-after>
+                                    {hubSpotConfig && <HubSpotForm {...hubSpotConfig} />}
+                                    {!hubSpotConfig && (
+                                        <>
+                                            <form id={`mktoForm_${formId}`} mkto={formId}></form>
+                                            <mkto-after mkto={formId}>
+                                                {props.thankyouControl || Parser(props.thankyou)}
+                                            </mkto-after>
+                                        </>
+                                    )}
                                 </>
                             )}
                         </div>

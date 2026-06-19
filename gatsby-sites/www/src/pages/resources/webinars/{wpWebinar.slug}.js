@@ -6,6 +6,7 @@ import Layout from '../../../components/Layout';
 import Seo from '../../../components/Seo';
 import Parser from 'html-react-parser';
 import Breadcrumb from '../../../components/Breadcrumb';
+import { HUBSPOT_FORMS, replaceMarketoWithHubSpot } from '../../../utils/hubspotForms';
 
 const Webinar = ({ data: { page } }) => {
     let canRoot = process.env.CAN_ROOT;
@@ -99,7 +100,7 @@ const Webinar = ({ data: { page } }) => {
                 robots={robots.join(', ')}
                 schema={page.seo.schema.raw}
             />
-            {Parser(page.content)}
+            {Parser(page.content, replaceMarketoWithHubSpot(HUBSPOT_FORMS.webinar))}
             <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );

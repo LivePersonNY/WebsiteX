@@ -7,8 +7,8 @@ import Hero from '../../../components/blocks/Hero';
 import Bio from '../../../components/Bio';
 import AddThis from '../../../components/AddThis';
 import { Helmet } from 'react-helmet';
-import MktoForm from '../../../components/blocks/MktoForm';
 import Breadcrumb from '../../../components/Breadcrumb';
+import { HUBSPOT_FORMS, replaceMarketoWithHubSpot } from '../../../utils/hubspotForms';
 
 import { Link, graphql } from 'gatsby';
 
@@ -110,7 +110,7 @@ const Report = ({ data: { post } }) => {
                 robots={robots.join(', ')}
                 schema={post.seo.schema.raw}
             />
-            {Parser(post.content)}
+            {Parser(post.content, replaceMarketoWithHubSpot(HUBSPOT_FORMS.download))}
             <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );

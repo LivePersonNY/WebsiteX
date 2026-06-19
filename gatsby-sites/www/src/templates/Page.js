@@ -8,6 +8,7 @@ import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
 import Parser from 'html-react-parser';
 import Breadcrumb from '../components/Breadcrumb';
+import { replaceMarketoWithHubSpot } from '../utils/hubspotForms';
 
 const PageTemplate = ({ data: { page, staged } }) => {
     if (staged && process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
@@ -105,7 +106,7 @@ const PageTemplate = ({ data: { page, staged } }) => {
                 robots={robots.join(', ')}
                 schema={page.seo.schema.raw}
             />
-            {page.content && Parser(page.content)}
+            {page.content && Parser(page.content, replaceMarketoWithHubSpot())}
             <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );

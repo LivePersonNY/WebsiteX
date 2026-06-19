@@ -12,6 +12,7 @@ import NotFoundPage from "../pages/404";
 
 import { Link, graphql } from "gatsby";
 import Breadcrumb from "../components/Breadcrumb";
+import { replaceMarketoWithHubSpot } from "../utils/hubspotForms";
 
 const BlogPost = ({ data: { previous, next, post, staged } }) => {
   if (
@@ -164,7 +165,7 @@ const BlogPost = ({ data: { previous, next, post, staged } }) => {
               />
               <AddThis url={canonical} type="share" />
               <hr className="mb-4" />
-              {post.content && Parser(post.content)}
+              {post.content && Parser(post.content, replaceMarketoWithHubSpot())}
               <hr className="mb-4" />
               <AddThis url={canonical} type="related" />
             </div>
