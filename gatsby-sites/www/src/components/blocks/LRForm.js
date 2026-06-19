@@ -8,7 +8,7 @@ import Parser from 'html-react-parser';
 // import { whenPerformanceConsent } from '../../utils/marketo';
 import { whenMarketoFormsReady } from '../../utils/marketo';
 import HubSpotForm from './HubSpotForm';
-import { getHubSpotConfigFromEmbed } from '../../utils/hubspotForms';
+import { getHubSpotConfigFromDelimitedValue, getHubSpotConfigFromEmbed } from '../../utils/hubspotForms';
 
 const LRForm = (props) => {
     let vFrame = (
@@ -18,7 +18,7 @@ const LRForm = (props) => {
     );
 
     let formId = props.formId;
-    let hubSpotConfig = getHubSpotConfigFromEmbed(formId);
+    let hubSpotConfig = getHubSpotConfigFromDelimitedValue(formId) || getHubSpotConfigFromEmbed(formId);
 
     // Strictly for WP //
 

@@ -33,11 +33,32 @@ export const getHubSpotConfigFromEmbed = (embedCode) => {
     };
 };
 
+export const getHubSpotConfigFromDelimitedValue = (value) => {
+    if (!value || typeof value !== 'string') {
+        return undefined;
+    }
+
+    const match = value
+        .trim()
+        .match(/^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})_(\d+)$/i);
+
+    if (!match) {
+        return undefined;
+    }
+
+    return {
+        formId: match[1],
+        portalId: match[2],
+        region: 'na1',
+    };
+};
+
 export const replaceMarketoWithHubSpot = (defaultFormId, formMap = {}) => {
     const getHubSpotConfig = (marketoFormId) => {
-        const embeddedConfig = getHubSpotConfigFromEmbed(marketoFormId);
-        if (embeddedConfig) {
-            return embeddedConfig;
+        const directHubSpotConfig =
+            getHubSpotConfigFromDelimitedValue(marketoFormId) || getHubSpotConfigFromEmbed(marketoFormId);
+        if (directHubSpotConfig) {
+            return directHubSpotConfig;
         }
 
         const formId =
