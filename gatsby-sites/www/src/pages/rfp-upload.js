@@ -24,7 +24,7 @@ function rfpUpload() {
           <div className="row align-items-center">
             <div
               className="col-lg-5 offset-lg-1 order-last form-col"
-              style="padding:0;"
+              style={{ padding: 0 }}
             >
               <HubSpotForm formId={HUBSPOT_FORMS.rfp} />
             </div>
