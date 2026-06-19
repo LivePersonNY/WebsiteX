@@ -32,88 +32,128 @@ window.lpHydrateAttributes = function () {
 };
 
 window.lpHubSpotForms = window.lpHubSpotForms || {
-    loadedPortals: {},
-    loadingPortals: {},
-    reloadTimers: {},
+    scriptLoaded: false,
+    scriptLoading: false,
+    callbacks: [],
+    renderedForms: {},
+};
+
+window.lpLoadHubSpotFormsScript = function (callback) {
+    var scriptId = 'hsFormsV2';
+    var existingScript = document.getElementById(scriptId);
+
+    if (window.hbspt && window.hbspt.forms) {
+        window.lpHubSpotForms.scriptLoaded = true;
+        callback();
+        return;
+    }
+
+    window.lpHubSpotForms.callbacks.push(callback);
+
+    if (window.lpHubSpotForms.scriptLoading) {
+        return;
+    }
+
+    window.lpHubSpotForms.scriptLoading = true;
+
+    var script = existingScript || document.createElement('script');
+    script.id = scriptId;
+    script.src = 'https://js.hsforms.net/forms/v2.js';
+    script.defer = true;
+
+    script.onload = function () {
+        var callbacks = window.lpHubSpotForms.callbacks.splice(0);
+        window.lpHubSpotForms.scriptLoaded = true;
+        window.lpHubSpotForms.scriptLoading = false;
+
+        callbacks.forEach(function (queuedCallback) {
+            queuedCallback();
+        });
+    };
+
+    script.onerror = function () {
+        window.lpHubSpotForms.scriptLoading = false;
+    };
+
+    if (!existingScript) {
+        document.head.appendChild(script);
+    }
 };
 
 window.lpHydrateHubSpotForms = function () {
     var hubSpotFrames = Array.from(document.querySelectorAll('.hs-form-frame[data-portal-id][data-form-id]'));
-    var portalFrames = {};
-
-    hubSpotFrames.forEach(function (frame) {
-        var portalId = frame.getAttribute('data-portal-id');
-        if (!portalId || frame.children.length) {
-            return;
-        }
-
-        portalFrames[portalId] = portalFrames[portalId] || [];
-        portalFrames[portalId].push(frame);
+    var pendingFrames = hubSpotFrames.filter(function (frame) {
+        return !frame.getAttribute('data-lp-hubspot-rendered') && !frame.querySelector('form, iframe');
     });
 
-    Object.keys(portalFrames).forEach(function (portalId) {
-        var scriptId = `hsFormsEmbed_${portalId}`;
-        var scriptSrc = `https://js.hsforms.net/forms/embed/${portalId}.js`;
-        var script = document.getElementById(scriptId);
+    if (!pendingFrames.length) {
+        return;
+    }
 
-        if (window.lpHubSpotForms.loadingPortals[portalId]) {
-            return;
-        }
+    window.lpLoadHubSpotFormsScript(function () {
+        pendingFrames.forEach(function (frame, index) {
+            var portalId = frame.getAttribute('data-portal-id');
+            var formId = frame.getAttribute('data-form-id');
+            var region = frame.getAttribute('data-region') || 'na1';
 
-        if (!script) {
-            window.lpHubSpotForms.loadingPortals[portalId] = true;
-            script = document.createElement('script');
-            script.id = scriptId;
-            script.src = scriptSrc;
-            script.defer = true;
-            script.onload = function () {
-                script.dataset.loaded = 'true';
-                window.lpHubSpotForms.loadedPortals[portalId] = true;
-                window.lpHubSpotForms.loadingPortals[portalId] = false;
-                setTimeout(window.lpHydrateHubSpotForms, 250);
-                setTimeout(window.lpHydrateHubSpotForms, 1500);
-            };
-            script.onerror = function () {
-                window.lpHubSpotForms.loadingPortals[portalId] = false;
-            };
-            document.head.appendChild(script);
-            return;
-        }
-
-        if (!window.lpHubSpotForms.loadedPortals[portalId] && script.dataset.loaded === 'true') {
-            window.lpHubSpotForms.loadedPortals[portalId] = true;
-        }
-
-        if (window.lpHubSpotForms.reloadTimers[portalId]) {
-            return;
-        }
-
-        window.lpHubSpotForms.reloadTimers[portalId] = setTimeout(function () {
-            var emptyFrames = (portalFrames[portalId] || []).filter(function (frame) {
-                var attempts = parseInt(frame.getAttribute('data-lp-hubspot-attempts') || '0', 10);
-                return !frame.children.length && attempts < 3;
-            });
-
-            window.lpHubSpotForms.reloadTimers[portalId] = null;
-
-            if (!emptyFrames.length) {
+            if (!portalId || !formId || !window.hbspt || !window.hbspt.forms) {
                 return;
             }
 
-            emptyFrames.forEach(function (frame) {
-                var attempts = parseInt(frame.getAttribute('data-lp-hubspot-attempts') || '0', 10);
-                frame.setAttribute('data-lp-hubspot-attempts', attempts + 1);
-            });
+            if (!frame.id) {
+                frame.id = `hs-form-${portalId}-${formId}-${index}`.replace(/[^a-zA-Z0-9_-]/g, '-');
+            }
 
-            var reloadScript = document.createElement('script');
-            reloadScript.id = `${scriptId}_${Date.now()}`;
-            reloadScript.src = scriptSrc;
-            reloadScript.defer = true;
-            reloadScript.onload = function () {
-                setTimeout(window.lpHydrateHubSpotForms, 500);
-            };
-            document.head.appendChild(reloadScript);
-        }, 250);
+            var renderKey = `${portalId}:${formId}:${frame.id}`;
+
+            if (window.lpHubSpotForms.renderedForms[renderKey] || frame.querySelector('form, iframe')) {
+                return;
+            }
+
+            frame.innerHTML = '';
+            frame.setAttribute('data-lp-hubspot-rendered', 'true');
+            window.lpHubSpotForms.renderedForms[renderKey] = true;
+
+            window.hbspt.forms.create({
+                region: region,
+                portalId: portalId,
+                formId: formId,
+                target: `#${frame.id}`,
+                onFormReady: function () {
+                    frame.setAttribute('data-lp-hubspot-ready', 'true');
+                },
+                onFormSubmitted: function () {
+                    frame.setAttribute('data-lp-hubspot-submitted', 'true');
+                },
+            });
+        });
+    });
+};
+
+window.lpObserveHubSpotForms = function () {
+    if (window.lpHubSpotForms.observer || !window.MutationObserver) {
+        return;
+    }
+
+    window.lpHubSpotForms.observer = new MutationObserver(function (mutations) {
+        var hasHubSpotFrame = mutations.some(function (mutation) {
+            return Array.from(mutation.addedNodes).some(function (node) {
+                return (
+                    node.nodeType === 1 &&
+                    (node.matches?.('.hs-form-frame[data-portal-id][data-form-id]') ||
+                        node.querySelector?.('.hs-form-frame[data-portal-id][data-form-id]'))
+                );
+            });
+        });
+
+        if (hasHubSpotFrame) {
+            window.lpHydrateHubSpotForms();
+        }
+    });
+
+    window.lpHubSpotForms.observer.observe(document.body, {
+        childList: true,
+        subtree: true,
     });
 };
 
@@ -139,6 +179,7 @@ window.documentReadyFn = function () {
     });
 
     window.lpHydrateAttributes();
+    window.lpObserveHubSpotForms();
     window.lpHydrateHubSpotForms();
 
     if (!window.__lpConsentListenerBound) {

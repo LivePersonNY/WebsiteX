@@ -70,6 +70,13 @@ export const replaceMarketoWithHubSpot = (defaultFormId, formMap = {}) => {
 
     return {
         replace: (domNode) => {
+            if (
+                (domNode.type === 'script' || (domNode.type === 'tag' && domNode.name === 'script')) &&
+                domNode.attribs?.src?.includes('js.hsforms.net/forms/embed')
+            ) {
+                return <></>;
+            }
+
             if (domNode.type === 'tag' && domNode.name === 'form' && domNode.attribs?.mkto) {
                 const marketoFormId = domNode.attribs.mkto;
                 const hubSpotConfig = getHubSpotConfig(marketoFormId);
