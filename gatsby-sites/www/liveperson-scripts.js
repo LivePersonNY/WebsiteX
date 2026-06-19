@@ -83,12 +83,20 @@ window.lpLoadHubSpotFormsScript = function (callback) {
 window.lpHydrateHubSpotForms = function () {
     var hubSpotFrames = Array.from(document.querySelectorAll('.hs-form-frame[data-portal-id][data-form-id]'));
     var pendingFrames = hubSpotFrames.filter(function (frame) {
-        return !frame.getAttribute('data-lp-hubspot-rendered') && !frame.querySelector('form, iframe');
+        return (
+            !frame.getAttribute('data-lp-hubspot-queued') &&
+            !frame.getAttribute('data-lp-hubspot-rendered') &&
+            !frame.querySelector('form, iframe')
+        );
     });
 
     if (!pendingFrames.length) {
         return;
     }
+
+    pendingFrames.forEach(function (frame) {
+        frame.setAttribute('data-lp-hubspot-queued', 'true');
+    });
 
     window.lpLoadHubSpotFormsScript(function () {
         pendingFrames.forEach(function (frame, index) {
@@ -97,6 +105,7 @@ window.lpHydrateHubSpotForms = function () {
             var region = frame.getAttribute('data-region') || 'na1';
 
             if (!portalId || !formId || !window.hbspt || !window.hbspt.forms) {
+                frame.removeAttribute('data-lp-hubspot-queued');
                 return;
             }
 
@@ -107,6 +116,7 @@ window.lpHydrateHubSpotForms = function () {
             var renderKey = `${portalId}:${formId}:${frame.id}`;
 
             if (window.lpHubSpotForms.renderedForms[renderKey] || frame.querySelector('form, iframe')) {
+                frame.removeAttribute('data-lp-hubspot-queued');
                 return;
             }
 
@@ -120,6 +130,7 @@ window.lpHydrateHubSpotForms = function () {
                 formId: formId,
                 target: `#${frame.id}`,
                 onFormReady: function () {
+                    frame.removeAttribute('data-lp-hubspot-queued');
                     frame.setAttribute('data-lp-hubspot-ready', 'true');
                 },
                 onFormSubmitted: function () {
