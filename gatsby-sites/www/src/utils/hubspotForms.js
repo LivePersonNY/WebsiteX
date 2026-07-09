@@ -5,6 +5,7 @@ export const HUBSPOT_FORMS = {
     webinar: '287fe112-21bc-4422-b28e-e0c1ff7d72a1',
     rfp: '80f057dc-0b30-49bd-80e8-23de8e2210eb',
     download: '4eaf69fa-e0a7-486f-bf63-4d2cfad787f0',
+    partners: '4c0dd9d6-fd0d-475c-822f-666c654a9f0f',
 };
 
 const MARKETO_DOWNLOAD_FORM_IDS = ['3524', '3458', '2581', '4067', '5104', '5041'];

@@ -8,7 +8,7 @@ import Seo from '../components/Seo';
 import Hero from '../components/blocks/Hero';
 import Parser from 'html-react-parser';
 import Breadcrumb from '../components/Breadcrumb';
-import { replaceMarketoWithHubSpot } from '../utils/hubspotForms';
+import { HUBSPOT_FORMS, replaceMarketoWithHubSpot } from '../utils/hubspotForms';
 
 const PageTemplate = ({ data: { page, staged } }) => {
     if (staged && process.env.BRANCH != 'develop' && process.env.GATSBY_IS_PREVIEW !== 'true') {
@@ -96,6 +96,10 @@ const PageTemplate = ({ data: { page, staged } }) => {
     });
 
     if (!page) return 'The slug does not exist in the CMS';
+
+    const isPartnersPage = page.link === '/partners/' || page.link?.endsWith('/partners/');
+    const defaultHubSpotFormId = isPartnersPage ? HUBSPOT_FORMS.partners : undefined;
+
     return (
         <Layout>
             <Seo
@@ -106,7 +110,7 @@ const PageTemplate = ({ data: { page, staged } }) => {
                 robots={robots.join(', ')}
                 schema={page.seo.schema.raw}
             />
-            {page.content && Parser(page.content, replaceMarketoWithHubSpot())}
+            {page.content && Parser(page.content, replaceMarketoWithHubSpot(defaultHubSpotFormId))}
             <Breadcrumb breadCrumbs={breadCrumbs} />
         </Layout>
     );
