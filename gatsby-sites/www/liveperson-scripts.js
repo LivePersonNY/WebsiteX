@@ -11,6 +11,8 @@ window.lp_attr = {};
 
 window.lpCallbacks = window.lpCallbacks || [];
 
+const REQUEST_DEMO_HUBSPOT_FORM_ID = '7b762022-f0ea-45e4-b98a-06e6bf8ee668';
+
 window.testGated = function () {
     $('.pane.gated').slideDown();
 };
@@ -133,8 +135,24 @@ window.lpHydrateHubSpotForms = function () {
                     frame.removeAttribute('data-lp-hubspot-queued');
                     frame.setAttribute('data-lp-hubspot-ready', 'true');
                 },
-                onFormSubmitted: function () {
+                onFormSubmitted: function ($form, data) {
                     frame.setAttribute('data-lp-hubspot-submitted', 'true');
+
+                    if (formId !== REQUEST_DEMO_HUBSPOT_FORM_ID) {
+                        return;
+                    }
+
+                    const submissionValues = data?.submissionValues || {};
+                    const userEmail = submissionValues.email;
+                    const userPhone = submissionValues.phone;
+
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        event: 'hubspot_demo_success',
+                        form_id: REQUEST_DEMO_HUBSPOT_FORM_ID,
+                        email: userEmail,
+                        phone: userPhone,
+                    });
                 },
             });
         });
