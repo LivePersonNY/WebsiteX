@@ -13,6 +13,51 @@ window.lpCallbacks = window.lpCallbacks || [];
 
 const REQUEST_DEMO_HUBSPOT_FORM_ID = '7b762022-f0ea-45e4-b98a-06e6bf8ee668';
 
+const pushRequestDemoSuccess = function (userEmail, userPhone) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        event: 'hubspot_demo_success',
+        form_id: REQUEST_DEMO_HUBSPOT_FORM_ID,
+        email: userEmail,
+        phone: userPhone,
+    });
+};
+
+const getHubSpotFieldValue = function (submissionValues, fieldName) {
+    const field = submissionValues.find(function (submissionValue) {
+        return submissionValue.name === `0-1/${fieldName}` || submissionValue.name === fieldName;
+    });
+
+    return field?.value;
+};
+
+const handleRequestDemoSuccess = async function (event) {
+    if (event.detail?.formId !== REQUEST_DEMO_HUBSPOT_FORM_ID) {
+        return;
+    }
+
+    const form = window.HubSpotFormsV4?.getFormFromEvent?.(event);
+
+    if (!form?.getFormFieldValues) {
+        return;
+    }
+
+    try {
+        const submissionValues = await form.getFormFieldValues();
+        const userEmail = getHubSpotFieldValue(submissionValues, 'email');
+        const userPhone = getHubSpotFieldValue(submissionValues, 'phone');
+
+        pushRequestDemoSuccess(userEmail, userPhone);
+    } catch (error) {
+        console.error('Unable to track HubSpot request demo submission', error);
+    }
+};
+
+if (!window.__lpHubSpotDemoSuccessListenerBound) {
+    window.__lpHubSpotDemoSuccessListenerBound = true;
+    window.addEventListener('hs-form-event:on-submission:success', handleRequestDemoSuccess);
+}
+
 window.testGated = function () {
     $('.pane.gated').slideDown();
 };
@@ -146,13 +191,7 @@ window.lpHydrateHubSpotForms = function () {
                     const userEmail = submissionValues.email;
                     const userPhone = submissionValues.phone;
 
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({
-                        event: 'hubspot_demo_success',
-                        form_id: REQUEST_DEMO_HUBSPOT_FORM_ID,
-                        email: userEmail,
-                        phone: userPhone,
-                    });
+                    pushRequestDemoSuccess(userEmail, userPhone);
                 },
             });
         });
