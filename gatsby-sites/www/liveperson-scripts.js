@@ -13,49 +13,60 @@ window.lpCallbacks = window.lpCallbacks || [];
 
 const REQUEST_DEMO_HUBSPOT_FORM_ID = '7b762022-f0ea-45e4-b98a-06e6bf8ee668';
 
-const pushRequestDemoSuccess = function (userEmail, userPhone) {
+const pushHubSpotFormSuccess = function (formId, userEmail, userPhone) {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-        event: 'hubspot_demo_success',
-        form_id: REQUEST_DEMO_HUBSPOT_FORM_ID,
+        event: 'hubspot_form_success',
+        form_id: formId,
         email: userEmail,
         phone: userPhone,
     });
+
+    if (formId === REQUEST_DEMO_HUBSPOT_FORM_ID) {
+        window.dataLayer.push({
+            event: 'hubspot_demo_success',
+            form_id: REQUEST_DEMO_HUBSPOT_FORM_ID,
+            email: userEmail,
+            phone: userPhone,
+        });
+    }
 };
 
 const getHubSpotFieldValue = function (submissionValues, fieldName) {
     const field = submissionValues.find(function (submissionValue) {
-        return submissionValue.name === `0-1/${fieldName}` || submissionValue.name === fieldName;
+        return submissionValue.name === fieldName || submissionValue.name?.endsWith(`/${fieldName}`);
     });
 
     return field?.value;
 };
 
-const handleRequestDemoSuccess = async function (event) {
-    if (event.detail?.formId !== REQUEST_DEMO_HUBSPOT_FORM_ID) {
+const handleHubSpotFormSuccess = async function (event) {
+    const formId = event.detail?.formId;
+
+    if (!formId) {
         return;
     }
 
     const form = window.HubSpotFormsV4?.getFormFromEvent?.(event);
+    let userEmail;
+    let userPhone;
 
-    if (!form?.getFormFieldValues) {
-        return;
+    if (form?.getFormFieldValues) {
+        try {
+            const submissionValues = await form.getFormFieldValues();
+            userEmail = getHubSpotFieldValue(submissionValues, 'email');
+            userPhone = getHubSpotFieldValue(submissionValues, 'phone');
+        } catch (error) {
+            console.error('Unable to read HubSpot submission values', error);
+        }
     }
 
-    try {
-        const submissionValues = await form.getFormFieldValues();
-        const userEmail = getHubSpotFieldValue(submissionValues, 'email');
-        const userPhone = getHubSpotFieldValue(submissionValues, 'phone');
-
-        pushRequestDemoSuccess(userEmail, userPhone);
-    } catch (error) {
-        console.error('Unable to track HubSpot request demo submission', error);
-    }
+    pushHubSpotFormSuccess(formId, userEmail, userPhone);
 };
 
-if (!window.__lpHubSpotDemoSuccessListenerBound) {
-    window.__lpHubSpotDemoSuccessListenerBound = true;
-    window.addEventListener('hs-form-event:on-submission:success', handleRequestDemoSuccess);
+if (!window.__lpHubSpotFormSuccessListenerBound) {
+    window.__lpHubSpotFormSuccessListenerBound = true;
+    window.addEventListener('hs-form-event:on-submission:success', handleHubSpotFormSuccess);
 }
 
 window.testGated = function () {
@@ -183,15 +194,11 @@ window.lpHydrateHubSpotForms = function () {
                 onFormSubmitted: function ($form, data) {
                     frame.setAttribute('data-lp-hubspot-submitted', 'true');
 
-                    if (formId !== REQUEST_DEMO_HUBSPOT_FORM_ID) {
-                        return;
-                    }
-
                     const submissionValues = data?.submissionValues || {};
                     const userEmail = submissionValues.email;
                     const userPhone = submissionValues.phone;
 
-                    pushRequestDemoSuccess(userEmail, userPhone);
+                    pushHubSpotFormSuccess(formId, userEmail, userPhone);
                 },
             });
         });
