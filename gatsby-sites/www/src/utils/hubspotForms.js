@@ -78,6 +78,27 @@ export const replaceMarketoWithHubSpot = (defaultFormId, formMap = {}) => {
                 return <></>;
             }
 
+            if (
+                domNode.type === 'tag' &&
+                domNode.name === 'div' &&
+                domNode.attribs?.class?.split(/\s+/).includes('hs-form-frame') &&
+                domNode.attribs?.['data-form-id']
+            ) {
+                const className = domNode.attribs.class
+                    .split(/\s+/)
+                    .filter((name) => name && name !== 'hs-form-frame')
+                    .join(' ');
+
+                return (
+                    <HubSpotForm
+                        formId={domNode.attribs['data-form-id']}
+                        portalId={domNode.attribs['data-portal-id'] || '51256494'}
+                        region={domNode.attribs['data-region'] || 'na1'}
+                        className={className}
+                    />
+                );
+            }
+
             if (domNode.type === 'tag' && domNode.name === 'form' && domNode.attribs?.mkto) {
                 const marketoFormId = domNode.attribs.mkto;
                 const hubSpotConfig = getHubSpotConfig(marketoFormId);
