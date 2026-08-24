@@ -90,146 +90,67 @@ window.lpHydrateAttributes = function () {
 };
 
 window.lpHubSpotForms = window.lpHubSpotForms || {
-    scriptLoaded: false,
-    scriptLoading: false,
-    callbacks: [],
-    renderedForms: {},
+    scriptPromise: null,
 };
 
-window.lpLoadHubSpotFormsScript = function (callback) {
+window.lpLoadHubSpotFormsScript = function () {
     var scriptId = 'hsFormsV2';
     var existingScript = document.getElementById(scriptId);
 
     if (window.hbspt && window.hbspt.forms) {
-        window.lpHubSpotForms.scriptLoaded = true;
-        callback();
-        return;
+        return Promise.resolve(window.hbspt.forms);
     }
 
-    window.lpHubSpotForms.callbacks.push(callback);
-
-    if (window.lpHubSpotForms.scriptLoading) {
-        return;
+    if (window.lpHubSpotForms.scriptPromise) {
+        return window.lpHubSpotForms.scriptPromise;
     }
-
-    window.lpHubSpotForms.scriptLoading = true;
 
     var script = existingScript || document.createElement('script');
     script.id = scriptId;
-    script.src = 'https://js.hsforms.net/forms/v2.js';
+    script.src = 'https://js.hsforms.net/forms/embed/v2.js';
     script.defer = true;
 
-    script.onload = function () {
-        var callbacks = window.lpHubSpotForms.callbacks.splice(0);
-        window.lpHubSpotForms.scriptLoaded = true;
-        window.lpHubSpotForms.scriptLoading = false;
+    window.lpHubSpotForms.scriptPromise = new Promise(function (resolve, reject) {
+        var handleLoad = function () {
+            cleanup();
 
-        callbacks.forEach(function (queuedCallback) {
-            queuedCallback();
-        });
-    };
-
-    script.onerror = function () {
-        window.lpHubSpotForms.scriptLoading = false;
-    };
-
-    if (!existingScript) {
-        document.head.appendChild(script);
-    }
-};
-
-window.lpHydrateHubSpotForms = function () {
-    var hubSpotFrames = Array.from(document.querySelectorAll('.hs-form-frame[data-portal-id][data-form-id]'));
-    var pendingFrames = hubSpotFrames.filter(function (frame) {
-        return (
-            !frame.getAttribute('data-lp-hubspot-queued') &&
-            !frame.getAttribute('data-lp-hubspot-rendered') &&
-            !frame.querySelector('form, iframe')
-        );
-    });
-
-    if (!pendingFrames.length) {
-        return;
-    }
-
-    pendingFrames.forEach(function (frame) {
-        frame.setAttribute('data-lp-hubspot-queued', 'true');
-    });
-
-    window.lpLoadHubSpotFormsScript(function () {
-        pendingFrames.forEach(function (frame, index) {
-            var portalId = frame.getAttribute('data-portal-id');
-            var formId = frame.getAttribute('data-form-id');
-            var region = frame.getAttribute('data-region') || 'na1';
-
-            if (!portalId || !formId || !window.hbspt || !window.hbspt.forms) {
-                frame.removeAttribute('data-lp-hubspot-queued');
+            if (window.hbspt && window.hbspt.forms) {
+                resolve(window.hbspt.forms);
                 return;
             }
 
-            if (!frame.id) {
-                frame.id = `hs-form-${portalId}-${formId}-${index}`.replace(/[^a-zA-Z0-9_-]/g, '-');
+            reject(new Error('HubSpot forms script loaded without exposing the forms API.'));
+        };
+        var handleError = function () {
+            cleanup();
+
+            if (!existingScript && script.parentNode) {
+                script.parentNode.removeChild(script);
             }
 
-            var renderKey = `${portalId}:${formId}:${frame.id}`;
+            reject(new Error('Unable to load the HubSpot forms script.'));
+        };
+        var cleanup = function () {
+            script.removeEventListener('load', handleLoad);
+            script.removeEventListener('error', handleError);
+        };
 
-            if (window.lpHubSpotForms.renderedForms[renderKey] || frame.querySelector('form, iframe')) {
-                frame.removeAttribute('data-lp-hubspot-queued');
-                return;
-            }
+        script.addEventListener('load', handleLoad);
+        script.addEventListener('error', handleError);
 
-            frame.innerHTML = '';
-            frame.setAttribute('data-lp-hubspot-rendered', 'true');
-            window.lpHubSpotForms.renderedForms[renderKey] = true;
-
-            window.hbspt.forms.create({
-                region: region,
-                portalId: portalId,
-                formId: formId,
-                target: `#${frame.id}`,
-                onFormReady: function () {
-                    frame.removeAttribute('data-lp-hubspot-queued');
-                    frame.setAttribute('data-lp-hubspot-ready', 'true');
-                },
-                onFormSubmitted: function ($form, data) {
-                    frame.setAttribute('data-lp-hubspot-submitted', 'true');
-
-                    const submissionValues = data?.submissionValues || {};
-                    const userEmail = submissionValues.email;
-                    const userPhone = submissionValues.phone;
-
-                    pushHubSpotFormSuccess(formId, userEmail, userPhone);
-                },
-            });
-        });
-    });
-};
-
-window.lpObserveHubSpotForms = function () {
-    if (window.lpHubSpotForms.observer || !window.MutationObserver) {
-        return;
-    }
-
-    window.lpHubSpotForms.observer = new MutationObserver(function (mutations) {
-        var hasHubSpotFrame = mutations.some(function (mutation) {
-            return Array.from(mutation.addedNodes).some(function (node) {
-                return (
-                    node.nodeType === 1 &&
-                    (node.matches?.('.hs-form-frame[data-portal-id][data-form-id]') ||
-                        node.querySelector?.('.hs-form-frame[data-portal-id][data-form-id]'))
-                );
-            });
-        });
-
-        if (hasHubSpotFrame) {
-            window.lpHydrateHubSpotForms();
+        if (!existingScript) {
+            document.head.appendChild(script);
         }
+    }).catch(function (error) {
+        window.lpHubSpotForms.scriptPromise = null;
+        throw error;
     });
 
-    window.lpHubSpotForms.observer.observe(document.body, {
-        childList: true,
-        subtree: true,
-    });
+    return window.lpHubSpotForms.scriptPromise;
+};
+
+window.lpPushHubSpotFormSuccess = function (formId, userEmail, userPhone) {
+    pushHubSpotFormSuccess(formId, userEmail, userPhone);
 };
 
 window.documentReadyFn = function () {
@@ -254,8 +175,6 @@ window.documentReadyFn = function () {
     });
 
     window.lpHydrateAttributes();
-    window.lpObserveHubSpotForms();
-    window.lpHydrateHubSpotForms();
 
     if (!window.__lpConsentListenerBound) {
         window.__lpConsentListenerBound = true;
