@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import lottie from 'lottie-web';
-import { Cookie, Query, LivePerson } from './liveperson-attribution';
+import { Cookie, Query, LivePerson, revealGatedContent } from './liveperson-attribution';
 import { CONSENT_GROUPS, hasConsent, onConsentChange } from './src/utils/consent';
 
 window.lottie = lottie;
@@ -47,6 +47,8 @@ const handleHubSpotFormSuccess = async function (event) {
         return;
     }
 
+    revealGatedContent();
+
     const form = window.HubSpotFormsV4?.getFormFromEvent?.(event);
     let userEmail;
     let userPhone;
@@ -70,7 +72,7 @@ if (!window.__lpHubSpotFormSuccessListenerBound) {
 }
 
 window.testGated = function () {
-    $('.pane.gated').slideDown();
+    revealGatedContent();
 };
 
 window.lpHydrateAttributes = function () {
@@ -150,6 +152,7 @@ window.lpLoadHubSpotFormsScript = function () {
 };
 
 window.lpPushHubSpotFormSuccess = function (formId, userEmail, userPhone) {
+    revealGatedContent();
     pushHubSpotFormSuccess(formId, userEmail, userPhone);
 };
 

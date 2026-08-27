@@ -35,6 +35,10 @@ const Query = {
     },
 };
 
+const revealGatedContent = function () {
+    $('.pane.gated:hidden').stop(true, true).slideDown();
+};
+
 const MktoForms = {
     Bind: function () {
         if (!window.formsBinded) {
@@ -55,8 +59,7 @@ const MktoForms = {
 
                 form.onSuccess(function (values, forwardUrl) {
                     window.dataLayer && dataLayer.push({ event: ctaString });
-                    $('.pane.gated').slideDown();
-
+                    revealGatedContent();
 
                     // if (document.querySelector('.mkto-resource-asset')) {
                     if (formId == 3524 || formId == 3458 || formId == 2581 || formId == 4067 || formId == 5104) {
@@ -492,4 +495,4 @@ const LivePerson = {
     },
 };
 
-export { Query, Cookie, LivePerson, MktoForms };
+export { Query, Cookie, LivePerson, MktoForms, revealGatedContent };
