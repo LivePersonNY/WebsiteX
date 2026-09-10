@@ -171,8 +171,6 @@ const htmlHack1 = `
 										<div class="collapse" id="collapseChannels">
 											<p class="body2">
 												Include web, app, SMS, Email Connect, Whatsapp, Apple Messaging for Business, Messenger, Instagram, Google RCS Messaging, Google Business Messaging, Kakao Talk, Line, Viber, WeChat.
-<br /><br />
-X (former Twitter) is supported with additional fees.
 											</p>
 										</div>
 									</div>
