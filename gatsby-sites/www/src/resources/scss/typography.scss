@@ -378,6 +378,32 @@ span.space-mono {
         }
     }
 
+    &.btn-purple {
+        @include button-variant(
+            $background: #6545d9,
+            $border: #6545d9,
+            $color: #fcfcfc,
+            $hover-background: shade-color(#6545d9, 15%),
+            $hover-border: shade-color(#6545d9, 20%),
+            $hover-color: #fcfcfc,
+            $active-background: shade-color(#6545d9, 20%),
+            $active-border: shade-color(#6545d9, 25%),
+            $active-color: #fcfcfc,
+            $disabled-color: #fcfcfc
+        );
+    }
+
+    &.btn-cream {
+        @include button-variant(
+            $background: #f3f1eb,
+            $border: #f3f1eb,
+            $color: #101011,
+            $hover-color: #101011,
+            $active-color: #101011,
+            $disabled-color: #101011
+        );
+    }
+
     &.btn-outline-secondary {
         color: $primaryBlue;
         border-color: $primaryBlue;
