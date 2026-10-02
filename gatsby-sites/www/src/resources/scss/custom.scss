@@ -6,6 +6,10 @@
 .comp-plain-content.bg-hero-gradient {
     background: linear-gradient(to bottom, #020106 0%, #5c38c2 50%, #eb86f7 100%);
 
+    .has-pale-pink-color {
+        background: #f5aafc;
+    }
+
     .btn.btn-primary {
         @extend .btn-cream;
         // Override the primary button's explicit background, including in
