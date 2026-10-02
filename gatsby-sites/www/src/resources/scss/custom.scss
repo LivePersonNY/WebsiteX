@@ -2,12 +2,16 @@
 
 // Opt in through the block's custom CSS classes. Pair either upper block with
 // bg-overlay-gradient on the Overlay Slider to continue the final gradient color.
-.hero.bg-hero-gradient,
-.comp-plain-content.bg-hero-gradient {
+// Include .pane to outrank the Hero's injected .pane.hero background image.
+.pane.hero.bg-hero-gradient,
+.pane.comp-plain-content.bg-hero-gradient {
     background: linear-gradient(to bottom, #020106 0%, #5c38c2 50%, #eb86f7 100%);
 
     .has-pale-pink-color {
-        background: #f5aafc;
+        // Gutenberg can supply an inline transparent background color.
+        // Use longhands to preserve the existing background clipping for text.
+        background-color: #f5aafc !important;
+        background-image: none;
     }
 
     .btn.btn-primary {
