@@ -1,5 +1,48 @@
 /*! purgecss start ignore */
 
+// Opt in through the block's custom CSS classes. Pair either upper block with
+// bg-overlay-gradient on the Overlay Slider to continue the final gradient color.
+.hero.bg-hero-gradient,
+.comp-plain-content.bg-hero-gradient {
+    background: linear-gradient(to bottom, #020106 0%, #5c38c2 50%, #eb86f7 100%);
+
+    .btn.btn-primary {
+        @extend .btn-cream;
+        // Override the primary button's explicit background, including in
+        // Bootstrap versions where button-variant only sets CSS variables.
+        background: #f3f1eb;
+
+        &:hover,
+        &:focus {
+            background: tint-color(#f3f1eb, 15%);
+        }
+
+        &:active,
+        &.active {
+            background: tint-color(#f3f1eb, 20%);
+        }
+
+        &:disabled,
+        &.disabled {
+            background: #f3f1eb;
+        }
+
+        // Dark block backgrounds force white text on all descendants.
+        &,
+        * {
+            color: #101011 !important;
+        }
+
+        &.link::after {
+            background-position: -120px 2px;
+        }
+    }
+}
+
+.comp-overlay-slider.bg-overlay-gradient {
+    background: linear-gradient(to bottom, #eb86f7 50%, $blue20 50%);
+}
+
 /*languages*/
 html[lang='ja'] {
     .hide-ja {
