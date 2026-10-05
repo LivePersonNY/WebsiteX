@@ -50,7 +50,7 @@
 }
 
 .bg-blue-20 {
-    background: $blue20;
+    background: $neutral90;
 }
 
 .bg-primary-dark {
@@ -1709,7 +1709,7 @@ main:not(.company-careers) {
     }
     overflow: hidden;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(to bottom, $primaryDark 50%, $blue20 0%);
+    background: linear-gradient(to bottom, $primaryDark 50%, $neutral90 0%);
     .comp-slider-container {
         background: $neutral99;
         height: 430px;
