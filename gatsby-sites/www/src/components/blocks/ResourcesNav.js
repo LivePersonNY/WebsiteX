@@ -13,6 +13,12 @@ const ResourceNav = function ({ active }) {
                 All Items
             </a>
             <a
+                href="https://www.liveperson.com/demo-resources/"
+                className="btn pill mx-2"
+            >
+                Demos
+            </a>
+            <a
                 href="/resources/success-stories/"
                 className={`btn pill mx-2 ${activeSuccess}`}
             >
