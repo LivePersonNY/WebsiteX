@@ -310,7 +310,7 @@ span.space-mono {
     }
 
     &:hover {
-        color: $primaryBlueVariant;
+        color: #6545d9;
 
         &::after {
             background-position: -140px 2px;
@@ -418,6 +418,10 @@ span.space-mono {
     &.btn-link {
         color: #6545d9;
         text-decoration: none;
+
+        &:hover {
+            color: #6545d9;
+        }
     }
 }
 
