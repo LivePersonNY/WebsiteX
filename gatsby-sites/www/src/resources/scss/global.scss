@@ -636,7 +636,8 @@ img[src*='doubleclick'] {
             }
 
             .h1 {
-                background: $h1Gradient;
+                // background: $h1Gradient;
+                background: #6B43E1;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
@@ -778,7 +779,8 @@ img[src*='doubleclick'] {
                 }
 
                 .h2 {
-                    background: $h1Gradient;
+                    // background: $h1Gradient;
+                    background: #6B43E1;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
@@ -1249,7 +1251,8 @@ img[src*='doubleclick'] {
             padding-right: 0px;
         }
         h2 {
-            background: $h1Gradient;
+            // background: $h1Gradient;
+            background: #6B43E1;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
