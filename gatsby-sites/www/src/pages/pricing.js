@@ -993,7 +993,7 @@ const PricingPageNew = () => {
 	];
 
 	return (
-		<Layout>
+		<Layout mainClass="pricing-page">
 			<Seo
 				title="LivePerson Pricing – Flexible Plans for Every Business"
 				description="Discover flexible pricing options for LivePerson's AI and messaging solutions. Explore the right plan for your business and scale customer engagement efficiently."
