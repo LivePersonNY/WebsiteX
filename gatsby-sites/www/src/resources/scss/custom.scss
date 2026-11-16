@@ -791,7 +791,8 @@ $animationSpeed: 30s;
             }
         }
         .accordion-button {
-            background-color: $neutral94;
+            // background-color: $neutral94; // #e7e8ec
+            background-color: #f6f6f6;
             border-radius: 0;
             z-index: 0;
             &::after {
