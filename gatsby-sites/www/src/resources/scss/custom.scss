@@ -1006,7 +1006,8 @@ body.resources {
 /*! purgecss end ignore */
 
 /*! purgecss start ignore */
-// Shared treatment for the homepage and the dark blue heroes being refreshed.
+// Shared gradient and buttons for the homepage, standard heroes, and opening
+// content/form blocks that do not carry the .hero class.
 .pane.hero.bg-hero-gradient,
 .pane.comp-plain-content.bg-hero-gradient,
 .pane.hero.bg-primary-dark,
