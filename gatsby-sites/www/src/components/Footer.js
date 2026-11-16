@@ -1,21 +1,8 @@
 import * as React from 'react';
-import { useEffect } from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
-import TempIcon from './TempIcon';
-import AddThis from './AddThis';
-
-import LanguageSelector from './LanguageSelector';
+import { graphql, useStaticQuery } from 'gatsby';
+import { FaFacebookSquare, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
-    /*useEffect(() => {
-    const wpHost = `http://127.0.0.1:3000/wp-admin/`;
-
-    fetch(wpHost).then(function(response) {
-      const status = response.status;
-      console.log(response);
-    });
-  });*/
-
     const { topItems, legalItems } = useStaticQuery(
         graphql`
             query topLevelQueryForFooter {
@@ -112,20 +99,23 @@ const Footer = () => {
                     })}
                 </div>
                 <div className="row">
-                    <div className="col-lg-12 footer-social">
-                        <div>
-                            <a className="footer-logo" href="/"><img src="https://static.liveperson.com/static-assets/2024/10/24161133/LivePerson-Logos-2-Color.svg" /></a>
-                            <a href="https://www.linkedin.com/company/liveperson" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161136/social-linkedin.svg" /></a>
-                            <a href="https://www.instagram.com/livepersoninc/" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161135/social-instagram.svg" /></a>
-                            <a href="https://x.com/LivePerson" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161131/social-x.svg" /></a>
-                            <a href="https://www.threads.net/@livepersoninc" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161130/social-threads.svg" /></a>
-                            <a href="https://www.youtube.com/@liveperson" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161132/social-youtube.svg" /></a>
-                            <a href="https://www.facebook.com/liveperson/" target="_blank"><img src="https://static.liveperson.com/static-assets/2024/10/24161134/social-facebook.svg" /></a>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
                     <div className="col-lg-12 footer-legal-container">
+                        <nav className="footer-social" aria-label="Social media">
+                            <a href="https://x.com/LivePerson" target="_blank" rel="noopener noreferrer" aria-label="LivePerson on X">
+                                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
+                                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933Zm-1.29 19.49h2.039L6.487 3.24H4.3l13.31 17.403Z" />
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/liveperson/" target="_blank" rel="noopener noreferrer" aria-label="LivePerson on Facebook">
+                                <FaFacebookSquare aria-hidden="true" focusable="false" />
+                            </a>
+                            <a href="https://www.linkedin.com/company/liveperson" target="_blank" rel="noopener noreferrer" aria-label="LivePerson on LinkedIn">
+                                <FaLinkedin aria-hidden="true" focusable="false" />
+                            </a>
+                            <a href="https://www.instagram.com/livepersoninc/" target="_blank" rel="noopener noreferrer" aria-label="LivePerson on Instagram">
+                                <FaInstagram aria-hidden="true" focusable="false" />
+                            </a>
+                        </nav>
                         <p className="footer-legal">© {new Date().getFullYear()} LivePerson. All rights reserved.</p>
                         {legalItems.nodes.map(function (link, index) {
                             return (
