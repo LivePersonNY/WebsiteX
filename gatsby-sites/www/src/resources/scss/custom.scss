@@ -8,10 +8,12 @@
     background: linear-gradient(to bottom, #020106 0%, #5c38c2 50%, #eb86f7 100%);
 
     .has-pale-pink-color {
-        // Gutenberg can supply an inline transparent background color.
-        // Use longhands to preserve the existing background clipping for text.
-        background-color: #f5aafc !important;
-        background-image: none;
+        // Preserve the hero's pink text accent without a clipped background.
+        // background-color: #f5aafc !important;
+        // background-image: none;
+        background: none !important;
+        color: #f5aafc !important;
+        -webkit-text-fill-color: currentColor;
     }
 
     .btn.btn-primary {
