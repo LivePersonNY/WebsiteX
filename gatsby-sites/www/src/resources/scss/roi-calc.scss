@@ -710,9 +710,14 @@
         font-weight: 700;
         letter-spacing: -2px;
         // background: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%);
-        background: #6B43E1;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        // background: #6B43E1;
+        // -webkit-background-clip: text;
+        // -webkit-text-fill-color: transparent;
+        // Use text color so inline transparent backgrounds cannot hide the text.
+        background: none;
+        color: #6b43e1;
+        -webkit-background-clip: initial;
+        -webkit-text-fill-color: currentColor;
         font-size: 56px;
         position: absolute;
         line-height: 84px;

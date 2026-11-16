@@ -27,9 +27,14 @@
 
 h1 {
     // background: $h1Gradient;
-    background: #6B43E1;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // background: #6B43E1;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    // Use text color so inline transparent backgrounds cannot hide the text.
+    background: none;
+    color: #6b43e1;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: currentColor;
 }
 
 h1,
@@ -137,9 +142,14 @@ h3,
             line-height: inherit;
             text-decoration: none;
             // background: $h1Gradient;
-            background: #6B43E1;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            // background: #6B43E1;
+            // -webkit-background-clip: text;
+            // -webkit-text-fill-color: transparent;
+            // Use text color so inline transparent backgrounds cannot hide the text.
+            background: none;
+            color: #6b43e1;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: currentColor;
             padding: 1px;
         }
         &.has-pale-pink-color {
