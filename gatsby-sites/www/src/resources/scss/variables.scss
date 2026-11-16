@@ -55,4 +55,7 @@ $familyKalam: 'Kalam', cursive;
 
 // $pagination-color: $primaryBlue;
 $pagination-color: #6545d9;
-$pagination-active-bg: $primaryBlue;
+// $pagination-active-bg: $primaryBlue;
+$pagination-active-bg: #6b43e1;
+// Previously inherited from $pagination-active-bg.
+$pagination-active-border-color: #6b43e1;
