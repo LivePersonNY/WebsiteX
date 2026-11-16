@@ -19,7 +19,8 @@
 }
 
 .bg-neutral-96 {
-    background: $neutral96;
+    // background: $neutral96;
+    background: #f3f1eb;
 }
 
 .bg-primary-orange {
@@ -1690,7 +1691,8 @@ main:not(.company-careers) {
 
 .comp-policy-content {
     .policy-toc {
-        background: $neutral96;
+        // background: $neutral96;
+        background: #f3f1eb;
         border-radius: 4px;
         padding: 56px;
     }
@@ -1789,7 +1791,8 @@ main:not(.company-careers) {
 
 .comp-logo-strip {
     .comp-logo-strip-logos {
-        background: $neutral96;
+        // background: $neutral96;
+        background: #f3f1eb;
         text-align: center;
         padding: 34px 20px;
         @include media-breakpoint-up(lg) {

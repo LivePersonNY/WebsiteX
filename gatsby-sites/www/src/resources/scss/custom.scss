@@ -712,7 +712,8 @@ $animationSpeed: 30s;
         a.pricing-tab {
             max-width: 348px;
             width: 100%;
-            background: $neutral96;
+            // background: $neutral96;
+            background: #f3f1eb;
             border-top: 4px solid $neutral96;
             padding: 8px 24px;
             color: $neutral64;
@@ -923,7 +924,8 @@ $animationSpeed: 30s;
     }
     .flywheel-quiz {
         .container {
-            background: $neutral96;
+            // background: $neutral96;
+            background: #f3f1eb;
             padding-top: 72px;
             padding-bottom: 80px;
             @include media-breakpoint-up(xl) {
