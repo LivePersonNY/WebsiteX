@@ -277,12 +277,15 @@ img[src*='doubleclick'] {
             margin-top: 20px;
 
             .btn {
-                color: $neutral12;
-                border: 1px solid $neutral12;
+                // color: $neutral12;
+                color: #6b43e1;
+                // border: 1px solid $neutral12;
+                border: 1px solid #6b43e1;
 
                 &:hover {
                     color: $primaryLight;
-                    background: $neutral12;
+                    // background: $neutral12;
+                    background: #6b43e1;
                 }
             }
         }
@@ -1539,12 +1542,15 @@ img[src*='doubleclick'] {
         }
 
         .btn {
-            color: $neutral12;
-            border: 1px solid $neutral12;
+            // color: $neutral12;
+            color: #6b43e1;
+            // border: 1px solid $neutral12;
+            border: 1px solid #6b43e1;
 
             &:hover {
                 color: $primaryLight;
-                background: $neutral12;
+                // background: $neutral12;
+                background: #6b43e1;
             }
         }
 
