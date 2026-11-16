@@ -7,7 +7,8 @@ header {
 }
 
 .navbar {
-    background: $neutral99;
+    // background: $neutral99;
+    background: #ffffff;
     padding: 15px 0px;
 
     @include media-breakpoint-up(lg) {
@@ -131,7 +132,8 @@ header {
                         margin: 0;
                         border: 0;
                         border-radius: 0;
-                        background: $neutral99;
+                        // background: $neutral99;
+                        background: #ffffff;
 
                         .container {
                             padding: 0;
@@ -197,7 +199,8 @@ header {
                             border-bottom: 1px solid $neutral84;
 
                             @include media-breakpoint-up(lg) {
-                                background: $neutral99;
+                                // background: $neutral99;
+                                background: #ffffff;
                                 padding-top: 40px;
                                 padding-bottom: 48px;
                                 padding-right: 30px;
@@ -419,7 +422,8 @@ header {
                             }
 
                             .dropdown-item {
-                                background: $neutral99;
+                                // background: $neutral99;
+                                background: #ffffff;
                                 border-radius: 48px;
                                 padding: 12px 40px 12px 84px;
                                 margin-bottom: 12px;

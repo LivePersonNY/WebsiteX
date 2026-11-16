@@ -157,7 +157,8 @@
           textarea {
             border-radius: 4px;
             border: 0;
-            background: $neutral99;
+            // background: $neutral99;
+            background: #ffffff;
             padding: 20px !important;
             font-size: 16px !important;
             line-height: 24px !important;
@@ -205,7 +206,8 @@
               span {
                 display: inline;
                 position: absolute;
-                background: $primaryLight;
+                // background: $primaryLight;
+                background: #ffffff;
                 box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
                 border-radius: 8px;
                 border-color: transparent;
@@ -244,7 +246,8 @@
                 position: absolute;
                 left: -2px;
                 top: 50px;
-                background: $primaryLight;
+                // background: $primaryLight;
+                background: #ffffff;
                 box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
                 border-radius: 8px;
                 border-color: transparent;
@@ -491,7 +494,8 @@
               height: 14px;
               float: left;
               border-radius: 100px;
-              background: $neutral99;
+              // background: $neutral99;
+              background: #ffffff;
 
               &:checked {
                 background: $neutral24;
@@ -510,7 +514,8 @@
               height: 14px;
               border-radius: 4px;
               float: left;
-              background: $neutral99;
+              // background: $neutral99;
+              background: #ffffff;
 
               &:checked {
                 &::after {
@@ -527,7 +532,8 @@
           textarea {
             border-radius: 4px;
             border: 0;
-            background: $neutral99;
+            // background: $neutral99;
+            background: #ffffff;
             font-size: 16px !important;
             line-height: 24px !important;
             color: $neutral24;
@@ -538,7 +544,8 @@
           }
 
           select {
-            background-color: $neutral99;
+            // background-color: $neutral99;
+            background-color: #ffffff;
             padding: 12px 40px 12px 12px !important;
             width: 100% !important;
             font-size: 16px !important;
