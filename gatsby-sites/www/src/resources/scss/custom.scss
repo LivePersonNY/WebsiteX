@@ -1033,3 +1033,9 @@ body.resources {
 }
 
 /*! purgecss end ignore */
+
+// Match the homepage gradient on the pricing hero only.
+.pricing-page .pane.hero.bg-primary-dark {
+    // background: #101040;
+    background: linear-gradient(180deg, #020106 0%, #5c38c2 50%, #eb86f7 100%);
+}
