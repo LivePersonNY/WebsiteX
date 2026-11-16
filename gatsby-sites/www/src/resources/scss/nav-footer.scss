@@ -589,7 +589,8 @@ header {
 }
 
 footer {
-    background-color: $primaryDark;
+    background-color: #fff;
+    color: #363944;
     padding-top: 80px;
     padding-bottom: 40px;
 
@@ -606,7 +607,7 @@ footer {
 
         .footer-section-title {
             font-family: $familySpaceGrotesk;
-            color: $pink100;
+            color: #6B43E1;
             font-weight: $fontBold;
             font-size: 12px;
             line-height: 16px;
@@ -615,7 +616,7 @@ footer {
 
         .footer-section-link {
             font-family: $familySpaceGrotesk;
-            color: $neutral99;
+            color: #363944;
             font-weight: $fontBold;
             font-size: 14px;
             line-height: 20px;
@@ -626,58 +627,54 @@ footer {
     }
 
     .footer-social {
-        margin-top: 72px;
-        div {
-            padding-bottom: 24px;
-            border-bottom: 1px solid $neutral99;
-        }
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-shrink: 0;
 
         a {
-            margin-right: 16px;
+            display: inline-flex;
+            color: #363944;
         }
-        .footer-logo {
-            display: block;
-            margin-bottom: 24px;
 
-            @include media-breakpoint-up(lg) {
-                margin-right: 32px;
-                margin-bottom: 0;
-                display: inline;
-            }
+        svg {
+            width: 24px;
+            height: 24px;
         }
     }
 
     .footer-legal-container {
-        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        margin-top: 40px;
 
         @include media-breakpoint-up(lg) {
             margin-top: 80px;
         }
 
         .footer-legal {
-            color: $neutral99;
+            color: #363944;
             font-size: 12px;
             line-height: 16px;
-            display: inline-block;
             text-decoration: none;
-            margin-right: 15px;
+            margin: 0;
+        }
 
-            &.footer-legal-link {
-                display: block;
-                margin-top: 8px;
-                @include media-breakpoint-up(lg) {
-                    display: inline;
-                    margin-top: 0;
-                }
+        .footer-social {
+            @include media-breakpoint-down(lg) {
+                flex-basis: 100%;
             }
         }
+
         #ot-sdk-btn {
             background: none !important;
             border: 0;
-            color: $neutral99 !important;
+            color: #363944 !important;
             font-size: 12px;
-            padding-left: 0;
-            padding-right: 15px;
+            line-height: 16px;
+            padding: 0;
         }
     }
 }
