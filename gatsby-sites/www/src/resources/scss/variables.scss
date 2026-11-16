@@ -54,4 +54,7 @@ $familyInter: 'Inter', Arial;
 $familyKalam: 'Kalam', cursive;
 
 $pagination-color: $primaryBlue;
-$pagination-active-bg: $primaryBlue;
+// $pagination-active-bg: $primaryBlue;
+$pagination-active-bg: #6b43e1;
+// Bootstrap previously inherited its active border from $pagination-active-bg.
+$pagination-active-border-color: #6b43e1;
