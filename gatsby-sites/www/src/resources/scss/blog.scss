@@ -189,7 +189,8 @@ body.blog {
         border-image: $borderGradient 1;
         margin: 2rem auto;
         height: 2px;
-        background: $borderGradient;
+        // background: $borderGradient;
+        background: #6B43E1;
         opacity: 0.75;
         border-radius: 3px;
     }
