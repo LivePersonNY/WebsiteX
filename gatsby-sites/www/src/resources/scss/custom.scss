@@ -1035,8 +1035,10 @@ body.resources {
 
 /*! purgecss end ignore */
 
-// Match the homepage gradient on the pricing hero only.
-.pricing-page .pane.hero.bg-primary-dark {
+// Use the homepage gradient for dark blue heroes, including opening content
+// and form blocks that do not carry the .hero class.
+.pane.hero.bg-primary-dark,
+main > .pane.bg-primary-dark:first-of-type {
     // background: #101040;
     background: linear-gradient(180deg, #020106 0%, #5c38c2 50%, #eb86f7 100%);
 }
