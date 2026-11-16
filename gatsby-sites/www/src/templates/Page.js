@@ -97,12 +97,11 @@ const PageTemplate = ({ data: { page, staged } }) => {
 
     if (!page) return 'The slug does not exist in the CMS';
 
-    const isPricingPage = page.link === '/pricing/' || page.link?.endsWith('/pricing/');
     const isPartnersPage = page.link === '/partners/' || page.link?.endsWith('/partners/');
     const defaultHubSpotFormId = isPartnersPage ? HUBSPOT_FORMS.partners : undefined;
 
     return (
-        <Layout mainClass={isPricingPage ? 'pricing-page' : undefined}>
+        <Layout>
             <Seo
                 title={page.seo.title}
                 description={page.seo.metaDesc}
