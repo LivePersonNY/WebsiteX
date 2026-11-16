@@ -47,7 +47,8 @@ header {
 
                     .nav-item:last-child {
                         margin-right: 0;
-                        background-color: $neutral96;
+                        // background-color: $neutral96;
+                        background-color: #f3f1eb;
                         padding: 16px 20px;
 
                         @include media-breakpoint-up(lg) {
@@ -114,7 +115,8 @@ header {
 
                         &.show {
                             @include media-breakpoint-down(lg) {
-                                background: $neutral96;
+                                // background: $neutral96;
+                                background: #f3f1eb;
                                 border-bottom: 1px solid $neutral84;
                             }
 
@@ -189,7 +191,8 @@ header {
                         }
 
                         .col-lg {
-                            background: $neutral96;
+                            // background: $neutral96;
+                            background: #f3f1eb;
                             padding: 24px 34px;
                             border-bottom: 1px solid $neutral84;
 
@@ -244,7 +247,8 @@ header {
                                 }
 
                                 &:hover {
-                                    background: $neutral96;
+                                    // background: $neutral96;
+                                    background: #f3f1eb;
                                 }
 
                                 &.nav-icon {
@@ -405,7 +409,8 @@ header {
 
                             @include media-breakpoint-up(lg) {
                                 padding-left: 40px;
-                                background: $neutral96;
+                                // background: $neutral96;
+                                background: #f3f1eb;
                             }
 
                             .dropdown-section-title {
