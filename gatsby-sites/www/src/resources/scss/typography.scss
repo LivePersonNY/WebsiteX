@@ -158,9 +158,14 @@ h3,
             font-size: inherit;
             line-height: inherit;
             text-decoration: none;
-            background: $EaiGradient;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            // background: $EaiGradient;
+            // -webkit-background-clip: text;
+            // -webkit-text-fill-color: transparent;
+            // Solid text remains visible with inline transparent backgrounds.
+            background: none;
+            color: #6b43e1;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: currentColor;
             padding: 1px;
         }
     }
