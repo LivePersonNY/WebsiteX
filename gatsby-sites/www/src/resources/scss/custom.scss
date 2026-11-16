@@ -55,6 +55,13 @@
     box-shadow: none;
 }
 
+// The homepage embeds the old background with !important. The div selector
+// adds specificity so this rule wins even when that page style loads later.
+body .pane.comp-overlay-slider.comp-layer-bg-white div.comp-slider-container {
+    // background: #f4f4f6 !important;
+    background: #f3f1eb !important;
+}
+
 /*languages*/
 html[lang='ja'] {
     .hide-ja {
