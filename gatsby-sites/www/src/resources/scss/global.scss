@@ -834,7 +834,8 @@ img[src*='doubleclick'] {
 
         .comp-tabs-list-container {
             .comp-tab {
-                color: $neutral64;
+                // color: $neutral64;
+                color: #6545d9;
                 padding: 8px 0;
                 margin: 8px 0;
                 cursor: pointer;
@@ -968,7 +969,8 @@ img[src*='doubleclick'] {
                 border: 0;
                 margin: 0;
                 padding: 20px 0;
-                color: $neutral64;
+                // color: $neutral64;
+                color: #6545d9;
                 text-align: left;
                 font-weight: inherit;
             }
