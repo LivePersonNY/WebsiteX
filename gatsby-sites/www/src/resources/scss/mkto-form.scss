@@ -62,7 +62,8 @@
           display: inline-block;
           padding: 10px !important;
           border-radius: 24px;
-          background: $primaryBlue !important;
+          // background: $primaryBlue !important;
+          background: #6b43e1 !important;
           font-size: 16px;
           font-weight: $fontBold;
           font-family: $familySpaceGrotesk;
@@ -316,7 +317,8 @@
           font-weight: $fontBold;
           display: inline-block;
           border: 0 !important;
-          background: $primaryBlue !important;
+          // background: $primaryBlue !important;
+          background: #6b43e1 !important;
           font-size: 16px !important;
           line-height: 24px;
           width: 100%;
@@ -327,7 +329,8 @@
           }
 
           &:hover {
-            background: $primaryBlueVariant !important;
+            // background: $primaryBlueVariant !important;
+            background: shade-color(#6b43e1, 15%) !important;
           }
         }
       }
@@ -748,22 +751,28 @@ body.locked {
     border-radius: 24px;
     padding: 12px 32px;
     color: $neutral99;
-    background: $primaryBlue;
+    // background: $primaryBlue;
+    background: #6b43e1;
 
     &:hover {
-      background: $primaryBlueVariant;
+      // background: $primaryBlueVariant;
+      background: shade-color(#6b43e1, 15%);
     }
   }
 
   &.is-style-outline {
     .wp-block-button__link {
-      color: $primaryBlue;
-      border: 1px solid $primaryBlue;
+      // color: $primaryBlue;
+      color: #6b43e1;
+      // border: 1px solid $primaryBlue;
+      border: 1px solid #6b43e1;
       background: none;
       &:hover {
         color: $neutral99;
-        background: $primaryBlue;
-        border: 1px solid $primaryBlue;
+        // background: $primaryBlue;
+        background: #6b43e1;
+        // border: 1px solid $primaryBlue;
+        border: 1px solid #6b43e1;
       }
     }
   }

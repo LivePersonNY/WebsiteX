@@ -354,11 +354,25 @@ span.space-mono {
     }
 
     &.btn-primary {
+        @include button-variant(
+            $background: #6b43e1,
+            $border: #6b43e1,
+            $color: $neutral99,
+            $hover-background: shade-color(#6b43e1, 15%),
+            $hover-border: shade-color(#6b43e1, 20%),
+            $hover-color: $neutral99,
+            $active-background: shade-color(#6b43e1, 20%),
+            $active-border: shade-color(#6b43e1, 25%),
+            $active-color: $neutral99,
+            $disabled-color: $neutral99
+        );
         color: $neutral99;
-        background: $primaryBlue;
+        // background: $primaryBlue;
+        background: #6b43e1;
 
         &:hover {
-            background: $primaryBlueVariant;
+            // background: $primaryBlueVariant;
+            background: shade-color(#6b43e1, 15%);
         }
         &.link {
             padding-right: 42px;
@@ -407,13 +421,18 @@ span.space-mono {
     }
 
     &.btn-outline-secondary {
-        color: $primaryBlue;
-        border-color: $primaryBlue;
+        @include button-outline-variant(#6b43e1, $color-hover: $neutral99);
+        // color: $primaryBlue;
+        color: #6b43e1;
+        // border-color: $primaryBlue;
+        border-color: #6b43e1;
 
         &:hover {
             color: $neutral99;
-            background: $primaryBlue;
-            border-color: $primaryBlue;
+            // background: $primaryBlue;
+            background: #6b43e1;
+            // border-color: $primaryBlue;
+            border-color: #6b43e1;
         }
     }
 
