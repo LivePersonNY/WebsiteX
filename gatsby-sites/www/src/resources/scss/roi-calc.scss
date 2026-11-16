@@ -429,7 +429,8 @@
 }
 
 .jqslider-styles.ui-slider .ui-slider-range {
-    background: $borderGradient;
+    // background: $borderGradient;
+    background: #6B43E1;
 }
 
 .jqslider-styles.ui-slider .ui-slider-handle {
@@ -708,7 +709,8 @@
         font-family: 'Space Grotesk', sans-serif;
         font-weight: 700;
         letter-spacing: -2px;
-        background: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%);
+        // background: linear-gradient(90deg, #3863E5 0%, #8D46EB 43.18%, #E849B7 86.36%);
+        background: #6B43E1;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: 56px;

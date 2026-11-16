@@ -33,7 +33,8 @@
     opacity: 1 !important;
     h2 {
       margin-bottom: 48px;
-      background: $h1Gradient;
+      // background: $h1Gradient;
+      background: #6B43E1;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -381,7 +382,8 @@
     }
 
     a {
-      color: $primaryBlue !important;
+      // color: $primaryBlue !important;
+      color: #6545d9 !important;
       text-decoration: underline;
       font-size: inherit;
     }
@@ -409,7 +411,8 @@
       padding: 9px 0;
 
       a {
-        color: $primaryBlue !important;
+        // color: $primaryBlue !important;
+        color: #6545d9 !important;
         text-decoration: underline;
       }
     }

@@ -446,7 +446,8 @@ img[src*='doubleclick'] {
         a {
             font-family: $familySpaceGrotesk;
             font-weight: $fontBold;
-            color: $primaryBlue;
+            // color: $primaryBlue;
+            color: #6545d9;
             text-decoration: none;
             display: inline-block;
 
@@ -467,7 +468,8 @@ img[src*='doubleclick'] {
             // }
 
             &:hover {
-                color: $primaryBlueVariant;
+                // color: $primaryBlueVariant;
+                color: shade-color(#6545d9, 15%);
 
                 // &::after {
                 //     background-position: -140px 2px;
@@ -636,7 +638,8 @@ img[src*='doubleclick'] {
             }
 
             .h1 {
-                background: $h1Gradient;
+                // background: $h1Gradient;
+                background: #6B43E1;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
@@ -778,7 +781,8 @@ img[src*='doubleclick'] {
                 }
 
                 .h2 {
-                    background: $h1Gradient;
+                    // background: $h1Gradient;
+                    background: #6B43E1;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
@@ -909,7 +913,8 @@ img[src*='doubleclick'] {
                     a {
                         font-family: $familySpaceGrotesk;
                         font-weight: $fontBold;
-                        color: $primaryBlue;
+                        // color: $primaryBlue;
+                        color: #6545d9;
                         text-decoration: none;
                         display: inline-block;
                         font-size: inherit;
@@ -932,7 +937,8 @@ img[src*='doubleclick'] {
                         // }
 
                         &:hover {
-                            color: $primaryBlueVariant;
+                            // color: $primaryBlueVariant;
+                            color: shade-color(#6545d9, 15%);
 
                             // &::after {
                             //     background-position: -140px 2px;
@@ -1249,7 +1255,8 @@ img[src*='doubleclick'] {
             padding-right: 0px;
         }
         h2 {
-            background: $h1Gradient;
+            // background: $h1Gradient;
+            background: #6B43E1;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
