@@ -16,37 +16,7 @@
         -webkit-text-fill-color: currentColor;
     }
 
-    .btn.btn-primary {
-        @extend .btn-cream;
-        // Override the primary button's explicit background, including in
-        // Bootstrap versions where button-variant only sets CSS variables.
-        background: #f3f1eb;
 
-        &:hover,
-        &:focus {
-            background: tint-color(#f3f1eb, 15%);
-        }
-
-        &:active,
-        &.active {
-            background: tint-color(#f3f1eb, 20%);
-        }
-
-        &:disabled,
-        &.disabled {
-            background: #f3f1eb;
-        }
-
-        // Dark block backgrounds force white text on all descendants.
-        &,
-        * {
-            color: #101011 !important;
-        }
-
-        &.link::after {
-            background-position: -120px 2px;
-        }
-    }
 }
 
 .comp-overlay-slider.bg-overlay-gradient {
@@ -1035,10 +1005,71 @@ body.resources {
 
 /*! purgecss end ignore */
 
-// Use the homepage gradient for dark blue heroes, including opening content
-// and form blocks that do not carry the .hero class.
+/*! purgecss start ignore */
+// Shared gradient and buttons for the homepage, standard heroes, and opening
+// content/form blocks that do not carry the .hero class.
+.pane.hero.bg-hero-gradient,
+.pane.comp-plain-content.bg-hero-gradient,
 .pane.hero.bg-primary-dark,
 main > .pane.bg-primary-dark:first-of-type {
     // background: #101040;
     background: linear-gradient(180deg, #020106 0%, #5c38c2 50%, #eb86f7 100%);
+
+    .btn.btn-primary,
+    .btn.btn-purple,
+    .btn.btn-cream {
+        // Previously purple, or #f3f1eb on the homepage.
+        @include button-variant(#fff, #fff, #000,
+            $hover-background: #f6f6f6, $hover-border: #fff, $hover-color: #000,
+            $active-background: #f3f1eb, $active-border: #fff, $active-color: #000,
+            $disabled-color: #000);
+        background: #fff;
+        border-color: #fff;
+
+        &, * {
+            color: #000 !important;
+            -webkit-text-fill-color: currentColor;
+        }
+
+        &:hover, &:focus {
+            background: #f6f6f6;
+            border-color: #fff;
+        }
+        &:active, &.active {
+            background: #f3f1eb;
+            border-color: #fff;
+        }
+        &:disabled, &.disabled {
+            background: #fff;
+            border-color: #fff;
+        }
+        &.link::after {
+            background-position: -120px 2px;
+        }
+    }
+
+    .btn.btn-outline-secondary,
+    .btn.btn-outline-primary,
+    .btn.btn-outline-light {
+        // Previously purple borders and text.
+        @include button-outline-variant(#fff, $color-hover: #fff,
+            $active-background: transparent, $active-border: #fff);
+        &, &:hover, &:focus, &:active, &.active, &:disabled, &.disabled {
+            background: transparent;
+            border-color: #fff;
+            color: #fff !important;
+            -webkit-text-fill-color: currentColor;
+        }
+        * {
+            color: #fff !important;
+        }
+        &:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+        &:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 3px;
+        }
+    }
 }
+/*! purgecss end ignore */
