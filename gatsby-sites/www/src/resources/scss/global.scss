@@ -446,7 +446,8 @@ img[src*='doubleclick'] {
         a {
             font-family: $familySpaceGrotesk;
             font-weight: $fontBold;
-            color: $primaryBlue;
+            // color: $primaryBlue;
+            color: #6545d9;
             text-decoration: none;
             display: inline-block;
 
@@ -467,7 +468,8 @@ img[src*='doubleclick'] {
             // }
 
             &:hover {
-                color: $primaryBlueVariant;
+                // color: $primaryBlueVariant;
+                color: shade-color(#6545d9, 15%);
 
                 // &::after {
                 //     background-position: -140px 2px;
@@ -911,7 +913,8 @@ img[src*='doubleclick'] {
                     a {
                         font-family: $familySpaceGrotesk;
                         font-weight: $fontBold;
-                        color: $primaryBlue;
+                        // color: $primaryBlue;
+                        color: #6545d9;
                         text-decoration: none;
                         display: inline-block;
                         font-size: inherit;
@@ -934,7 +937,8 @@ img[src*='doubleclick'] {
                         // }
 
                         &:hover {
-                            color: $primaryBlueVariant;
+                            // color: $primaryBlueVariant;
+                            color: shade-color(#6545d9, 15%);
 
                             // &::after {
                             //     background-position: -140px 2px;
